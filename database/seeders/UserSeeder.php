@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             'name'=>'pendaftar',
             'phone'=>'9876543210',
             'password'=>bcrypt('123456'),
-            'role'=>'pendaftar'
+            'role'=>'pendaftar',
         ]);
     }
 }

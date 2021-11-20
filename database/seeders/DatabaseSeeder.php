@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\BiodataOne;
-use App\Models\BiodataTwo;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,8 +21,14 @@ class DatabaseSeeder extends Seeder
             VideoSeeder::class,
             StageSeeder::class,
             SchduleSeeder::class,
-            BiodataOne::class,
-            BiodataTwo::class
+            BiodataOneSeeder::class,
+            BiodataTwoSeeder::class,
+            CategorySeeder::class,
+            PassSeeder::class,
+            QnaSeeder::class,
+            QuestionIqSeeder::class,
+            QuestionPersonalSeeder::class,
+            ScoreSeeder::class
         ]);
     }
 }

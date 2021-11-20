@@ -16,8 +16,8 @@ class CreateSchdulesTable extends Migration
         Schema::create('schdules', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
-            $table->string('title');
-            $table->string('content');
+            $table->text('title');
+            $table->text('content');
             $table->timestamps();
         });
     }
