@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'category'
+    ];
+
+    public function biodataOne()
+    {
+        return $this->hasMany(BiodataOne::class);
+    }
 }
