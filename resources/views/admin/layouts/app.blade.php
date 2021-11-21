@@ -14,7 +14,7 @@
     <div class="container-fluid page-body-wrapper">
       @include('admin.includes.sidebar')
       @include('admin.includes.right-sidebar')
-      @yield('pages.index')
+      @yield('content')
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->

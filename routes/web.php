@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.index');
 });
+
+Route::get('/personality', function () {
+    return view('admin.pages.questionPersonal.index');
+});
