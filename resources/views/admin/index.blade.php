@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="tab-content tab-content-basic">
-                <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
+                <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
                 <div class="row">
                     <div class="col-sm-12">
                     <div class="statistics-details d-flex align-items-center justify-content-between">
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     </div>
-                </div> 
+                </div>
                 <div class="row">
                     <div class="col-lg-8 d-flex flex-column">
                     <div class="row flex-grow">
@@ -453,7 +453,7 @@
                                 </div>
                                 </div>
                             </div>
-                            
+
                             <div class="list align-items-center pt-3">
                                 <div class="wrapper w-100">
                                 <p class="mb-0">
