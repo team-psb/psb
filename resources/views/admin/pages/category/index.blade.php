@@ -21,7 +21,10 @@
                             </div>
                             <div class="home-tab">
                                 <div class="btn-wrapper">
-                                    <a href="#" class="btn btn-primary text-white me-0"><i class="mdi mdi-database-plus"></i>Tambah data</a>
+                                    {{-- <a href="#" class="btn btn-primary text-white me-0"><i class="mdi mdi-database-plus"></i>Tambah data</a> --}}
+                                    <button type="button" class="btn btn-primary btn-icon text-white me-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i class="mdi mdi-database-plus"></i>
+                                    </button>
                                 </div>
                             </div>
                             <div class="home-tab">
@@ -81,6 +84,33 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h4 class="card-title">Buat Kategori Keluarga</h4>
+                <form action="" method="POST">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Nama Kategori</label>
+                            <div class="input-group">
+                                <input type="text" name="tahun" class="form-control phone-number" placeholder="contoh : mampu">
+                            </div>
+                        </div>
+            
+                        <button type="submit" class="btn btn-primary btn-sm btn-icon icon-left"> <i class="fas fa-save"></i> Kirimkan</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
         </div>
     </div>
 @endsection

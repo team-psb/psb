@@ -33,6 +33,10 @@ Route::get('/qna', function () {
     return view('admin.pages.qna.index');
 });
 
+Route::get('/qna/create', function () {
+    return view('admin.pages.qna.create');
+});
+
 Route::get('/category', function () {
     return view('admin.pages.category.index');
 });
