@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
-    @include('admin.includes.style')
+  @include('admin.includes.style')
+  <title>
+    @yield('title')
+  </title>
 </head>
 <body>
   <div class="container-scroller"> 
