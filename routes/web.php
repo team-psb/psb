@@ -29,6 +29,18 @@ Route::get('/qna', function () {
     return view('admin.pages.qna.index');
 });
 
+Route::get('/category', function () {
+    return view('admin.pages.category.index');
+});
+
+Route::get('/informasi', function () {
+    return view('admin.pages.schdule.index');
+});
+
+Route::get('/iq', function () {
+    return view('admin.pages.questionIq.index');
+});
+
 // john
 Route::get('/registrant', function () {
     return view('admin.pages.registration.index');

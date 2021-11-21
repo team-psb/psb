@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                        <table class="table table-hover">
+                        <table class="table table-hover" id="myTable">
                             <thead>
                             <tr>
                                 <th>
@@ -55,15 +55,11 @@
                                 <td>1</td>
                                 <td>Karena ada agenda keluarga yang tiba-tiba, rekan belajar saya tidak masuk belajar selama beberapa hari.</td>
                                 <td>
-                                    <button type="button" class="btn btn-warning btn-sm">
-                                        <i class="mdi mdi-pencil"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-info btn-sm">
-                                        <i class="mdi mdi-eye"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-sm">
-                                        <i class="mdi mdi-delete"></i>
-                                    </button>
+                                    <span>
+                                        <a href="#" class="btn py-2 btn-primary"><i class="mdi mdi-eye"></i></a>
+                                        <a href="#" class="btn py-2 btn-success"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="#" class="btn py-2 btn-danger"><i class="mdi mdi-delete"></i></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -74,18 +70,14 @@
                                         </label>
                                     </div>
                                 </td>
-                                <td>1</td>
+                                <td>2</td>
                                 <td>Saya memperoleh tawaran untuk dapat melanjutkan pendidikan dari sekolah.</td>
                                 <td>
-                                    <button type="button" class="btn btn-warning btn-sm">
-                                        <i class="mdi mdi-pencil"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-info btn-sm">
-                                        <i class="mdi mdi-eye"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-sm">
-                                        <i class="mdi mdi-delete"></i>
-                                    </button>
+                                    <span>
+                                        <a href="#" class="btn py-2 btn-primary"><i class="mdi mdi-eye"></i></a>
+                                        <a href="#" class="btn py-2 btn-success"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="#" class="btn py-2 btn-danger"><i class="mdi mdi-delete"></i></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -96,18 +88,14 @@
                                         </label>
                                     </div>
                                 </td>
-                                <td>1</td>
+                                <td>3</td>
                                 <td>Seorang teman merasa sangat bangga karena sudah berhasil bertemu</td>
                                 <td>
-                                    <button type="button" class="btn btn-warning btn-sm">
-                                        <i class="mdi mdi-pencil"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-info btn-sm">
-                                        <i class="mdi mdi-eye"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-sm">
-                                        <i class="mdi mdi-delete"></i>
-                                    </button>
+                                    <span>
+                                        <a href="#" class="btn py-2 btn-primary"><i class="mdi mdi-eye"></i></a>
+                                        <a href="#" class="btn py-2 btn-success"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="#" class="btn py-2 btn-danger"><i class="mdi mdi-delete"></i></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -118,18 +106,14 @@
                                         </label>
                                     </div>
                                 </td>
-                                <td>1</td>
+                                <td>4</td>
                                 <td>Saya melihat sebuah penerimaan santri baru yang sangatlah saya butuhkan</td>
                                 <td>
-                                    <button type="button" class="btn btn-warning btn-sm">
-                                        <i class="mdi mdi-pencil"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-info btn-sm">
-                                        <i class="mdi mdi-eye"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-sm">
-                                        <i class="mdi mdi-delete"></i>
-                                    </button>
+                                    <span>
+                                        <a href="#" class="btn py-2 btn-primary"><i class="mdi mdi-eye"></i></a>
+                                        <a href="#" class="btn py-2 btn-success"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="#" class="btn py-2 btn-danger"><i class="mdi mdi-delete"></i></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -140,18 +124,14 @@
                                         </label>
                                     </div>
                                 </td>
-                                <td>1</td>
+                                <td>5</td>
                                 <td>Saya menjadi target kemarahan guru terhadap kesalahan yang</td>
                                 <td>
-                                    <button type="button" class="btn btn-warning btn-sm">
-                                        <i class="mdi mdi-pencil"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-info btn-sm">
-                                        <i class="mdi mdi-eye"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-sm">
-                                        <i class="mdi mdi-delete"></i>
-                                    </button>
+                                    <span>
+                                        <a href="#" class="btn py-2 btn-primary"><i class="mdi mdi-eye"></i></a>
+                                        <a href="#" class="btn py-2 btn-success"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="#" class="btn py-2 btn-danger"><i class="mdi mdi-delete"></i></a>
+                                    </span>
                                 </td>
                             </tr>
                             </tbody>
