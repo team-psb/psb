@@ -9,50 +9,144 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title" style="border-bottom: 1px solid black;">Hoverable Table</h4>
-                    <p class="card-description">
-                      Add class <code>.table-hover</code>
-                    </p>
+                    <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Soal Tes Kepribadian</h4>
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn btn-danger btn-sm d-flex align-items-center">
+                            <i class="mdi mdi-delete-forever"></i> &nbsp; Hapus Semua
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm d-flex align-items-center">
+                            <i class="mdi mdi-database-plus"></i> &nbsp; Tambah data
+                        </button>
+                        <button type="button" class="btn btn-success btn-sm d-flex align-items-center">
+                            <i class="mdi mdi-database-plus"></i> &nbsp; Export
+                        </button>
+                    </div>
                     <div class="table-responsive">
                       <table class="table table-hover">
                         <thead>
                           <tr>
-                            <th>User</th>
-                            <th>Product</th>
-                            <th>Sale</th>
-                            <th>Status</th>
+                            <th>
+                                <div class="form-check form-check-danger">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" checked>
+                                    </label>
+                                </div>
+                            </th>
+                            <th>No</th>
+                            <th>Soal</th>
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td>Jacob</td>
-                            <td>Photoshop</td>
-                            <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-danger">Pending</label></td>
+                            <td>
+                                <div class="form-check form-check-danger">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" checked>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>1</td>
+                            <td>Karena ada agenda keluarga yang tiba-tiba, rekan belajar saya tidak masuk belajar selama beberapa hari.</td>
+                            <td>
+                                <button type="button" class="btn btn-warning btn-sm">
+                                    <i class="mdi mdi-pencil"></i>
+                                </button>
+                                <button type="button" class="btn btn-info btn-sm">
+                                    <i class="mdi mdi-eye"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-sm">
+                                    <i class="mdi mdi-delete"></i>
+                                </button>
+                            </td>
                           </tr>
                           <tr>
-                            <td>Messsy</td>
-                            <td>Flash</td>
-                            <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
+                            <td>
+                                <div class="form-check form-check-danger">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" checked>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>1</td>
+                            <td>Saya memperoleh tawaran untuk dapat melanjutkan pendidikan dari sekolah.</td>
+                            <td>
+                                <button type="button" class="btn btn-warning btn-sm">
+                                    <i class="mdi mdi-pencil"></i>
+                                </button>
+                                <button type="button" class="btn btn-info btn-sm">
+                                    <i class="mdi mdi-eye"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-sm">
+                                    <i class="mdi mdi-delete"></i>
+                                </button>
+                            </td>
                           </tr>
                           <tr>
-                            <td>John</td>
-                            <td>Premier</td>
-                            <td class="text-danger"> 35.00% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-info">Fixed</label></td>
+                            <td>
+                                <div class="form-check form-check-danger">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" checked>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>1</td>
+                            <td>Seorang teman merasa sangat bangga karena sudah berhasil bertemu</td>
+                            <td>
+                                <button type="button" class="btn btn-warning btn-sm">
+                                    <i class="mdi mdi-pencil"></i>
+                                </button>
+                                <button type="button" class="btn btn-info btn-sm">
+                                    <i class="mdi mdi-eye"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-sm">
+                                    <i class="mdi mdi-delete"></i>
+                                </button>
+                            </td>
                           </tr>
                           <tr>
-                            <td>Peter</td>
-                            <td>After effects</td>
-                            <td class="text-success"> 82.00% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-success">Completed</label></td>
+                            <td>
+                                <div class="form-check form-check-danger">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" checked>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>1</td>
+                            <td>Saya melihat sebuah penerimaan santri baru yang sangatlah saya butuhkan</td>
+                            <td>
+                                <button type="button" class="btn btn-warning btn-sm">
+                                    <i class="mdi mdi-pencil"></i>
+                                </button>
+                                <button type="button" class="btn btn-info btn-sm">
+                                    <i class="mdi mdi-eye"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-sm">
+                                    <i class="mdi mdi-delete"></i>
+                                </button>
+                            </td>
                           </tr>
                           <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
+                            <td>
+                                <div class="form-check form-check-danger">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" checked>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>1</td>
+                            <td>Saya menjadi target kemarahan guru terhadap kesalahan yang</td>
+                            <td>
+                                <button type="button" class="btn btn-warning btn-sm">
+                                    <i class="mdi mdi-pencil"></i>
+                                </button>
+                                <button type="button" class="btn btn-info btn-sm">
+                                    <i class="mdi mdi-eye"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-sm">
+                                    <i class="mdi mdi-delete"></i>
+                                </button>
+                            </td>
                           </tr>
                         </tbody>
                       </table>
