@@ -18,3 +18,10 @@
   <script src="{{ asset('template/js/dashboard.js') }}"></script>
   <script src="{{ asset('template/js/Chart.roundedBarCharts.js') }}"></script>
   <!-- End custom js for this page-->
+
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.3/r-2.2.9/datatables.min.js"></script>
+  <script>
+    $(document).ready( function () {
+      $('#myTable').DataTable();
+    } );
+  </script>

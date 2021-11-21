@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/personality', function () {
     return view('admin.pages.questionPersonal.index');
 });
+
+Route::get('/registrant', function () {
+    return view('admin.pages.registration.index');
+});
