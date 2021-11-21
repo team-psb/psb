@@ -2,10 +2,13 @@
 <html lang="en">
 
 <head>
-  @include('admin.includes.style')
   <title>
     @yield('title')
   </title>
+  @stack('before-style')
+  @include('admin.includes.style')
+  @stack('after-style')
+  
 </head>
 <body>
   <div class="container-scroller"> 
@@ -20,8 +23,9 @@
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
-
+  @stack('before-script')
   @include('admin.includes.script')
+  @stack('after-script')
 </body>
 
 </html>

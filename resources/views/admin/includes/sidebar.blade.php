@@ -8,31 +8,31 @@
         </li>
         <li class="nav-item nav-category">Utama</li>
         <li class="nav-item">
-            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+            <a class="nav-link" href="/registrant">
                 <i class="menu-icon  mdi mdi-account-card-details "></i>
                 <span class="menu-title">Biodata</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+            <a class="nav-link" href="/scores">
                 <i class="menu-icon  mdi mdi-numeric-9-plus-box-multiple-outline "></i>
                 <span class="menu-title">Nilai</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+            <a class="nav-link" href="/videos">
                 <i class="menu-icon  mdi mdi-video "></i>
                 <span class="menu-title">Video</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+            <a class="nav-link" href="/interviews">
                 <i class="menu-icon  mdi mdi-microphone-variant"></i>
                 <span class="menu-title">Wawancara</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+            <a class="nav-link" href="/passes">
                 <i class="menu-icon  mdi mdi-account-check"></i>
                 <span class="menu-title">Lolos</span>
             </a>

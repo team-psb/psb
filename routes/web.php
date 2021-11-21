@@ -24,3 +24,19 @@ Route::get('/personality', function () {
 Route::get('/registrant', function () {
     return view('admin.pages.registration.index');
 });
+
+Route::get('/scores', function () {
+    return view('admin.pages.score.index');
+});
+
+Route::get('/videos', function () {
+    return view('admin.pages.video.index');
+});
+
+Route::get('/interviews', function () {
+    return view('admin.pages.interview.index');
+});
+
+Route::get('/passes', function () {
+    return view('admin.pages.pass.index');
+});

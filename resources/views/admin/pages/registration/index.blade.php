@@ -24,12 +24,12 @@
                                 <th>Pendidikan</th>
                                 <th>Hafalan</th>
                                 <th>Status</th>
-                                <th>Action</th>
+                                <th width="10%">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>Jacob</td>
+                                <td>1</td>
                                 <td>Jacob</td>
                                 <td>Jacob</td>
                                 <td>Jacob</td>
@@ -37,11 +37,14 @@
                                 <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
                                 <td><label class="badge badge-danger">Pending</label></td>
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="mdi mdi-eye"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm"><i class="mdi mdi-pencil"></i></a>
-                                    <a href="#" class="btn btn-danger btn-sm"><i class="mdi mdi-delete"></i></a>
+                                    <span>
+                                        <a href="#" class="btn py-2 btn-primary"><i class="mdi mdi-eye"></i></a>
+                                        <a href="#" class="btn py-2 btn-success"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="#" class="btn py-2 btn-danger"><i class="mdi mdi-delete"></i></a>
+                                    </span>
                                 </td>
                             </tr>
+                            
                             {{-- <tr>
                                 <td>Messsy</td>
                                 <td>Flash</td>

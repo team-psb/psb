@@ -19,7 +19,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
-                                        <th>Link Video</th>
+                                        <th>No WhatsApp</th>
                                         <th>Status</th>
                                         <th width="10%">Action</th>
                                     </tr>
@@ -28,10 +28,19 @@
                                     <tr>
                                         <td>1</td>
                                         <td>Jacob</td>
-                                        <td class="text-success"> <a href="https://youtu.be/Yjwvi6R4yNw">https://youtu.be/Yjwvi6R4yNw</a></td>
+                                        <td>
+                                            <div class="input-group">
+                                                <input value="085023234534" id="copy" disabled type="text" class="form-control fw-bold">
+                                                <div class="input-group-append">
+                                                    <button onclick="myFunction()"  class="input-group-text btn-success text-light">copy</button>
+                                                </div>
+                                            </div>
+                                        </td>
                                         <td><label class="badge badge-success">Lolos</label></td>
                                         <td>
-                                            <a href="#" class="btn py-2 btn-danger"><i class="mdi mdi-delete"></i></a>
+                                            <a href="#" type="button" class="btn py-2 btn-danger btn-sm">
+                                                <i class="mdi mdi-delete"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -44,3 +53,22 @@
     </div>
 </div>
 @endsection
+
+@push('after-script')
+<script>
+    function myFunction() {
+    /* Get the text field */
+    var copyText = document.getElementById("copy");
+    
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+    
+    /* Alert the copied text */
+    alert("Berhasil di salin : " + copyText.value);
+    }
+    </script>
+@endpush
