@@ -21,6 +21,15 @@ Route::get('/personality', function () {
     return view('admin.pages.questionPersonal.index');
 });
 
+Route::get('/academy-years', function () {
+    return view('admin.pages.academyYear.index');
+});
+
+Route::get('/qna', function () {
+    return view('admin.pages.qna.index');
+});
+
+// john
 Route::get('/registrant', function () {
     return view('admin.pages.registration.index');
 });
