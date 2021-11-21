@@ -24,7 +24,3 @@ Route::get('/personality', function () {
 Route::get('/registrant', function () {
     return view('admin.pages.registration.index');
 });
-
-Route::get('/example', function () {
-    return view('landingpage_psb.index');
-});
