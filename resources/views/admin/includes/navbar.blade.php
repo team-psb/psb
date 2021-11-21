@@ -8,11 +8,11 @@
       </div>
       <div>
         <a class="navbar-brand brand-logo" href="index.html">
-          <img src="{{ asset('template/images/logo.svg') }}" alt="logo" />
+          <img src="{{ asset('template/images/Pita_web_logo-1.png') }}" alt="logo" />
         </a>
-        <a class="navbar-brand brand-logo-mini" href="index.html">
-          <img src="{{ asset('template/images/logo-mini.svg') }}" alt="logo" />
-        </a>
+        {{-- <a class="navbar-brand brand-logo-mini" href="index.html">
+          <img src="{{ asset('template/images/Logo-Pondok.png') }}" alt="logo" />
+        </a> --}}
       </div>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-top"> 

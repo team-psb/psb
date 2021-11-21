@@ -46,7 +46,8 @@
             </a>
             <div class="collapse" id="form-elements">
                 <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/iq">Daftar Soal IQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Buat Soal IQ</a></li>
                 </ul>
             </div>
         </li>
@@ -58,12 +59,13 @@
             </a>
             <div class="collapse" id="charts">
                 <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/personality">Daftar Soal Kepribadian</a></li>
+                <li class="nav-item"> <a class="nav-link" href="">Buat Soal Kepribadian</a></li>
                 </ul>
             </div>
         </li>
         <li class="nav-item nav-category">Lain-lain</li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                 <i class="menu-icon  mdi mdi-calendar"></i>
                 <span class="menu-title">Data Tahun Ajaran</span>
@@ -74,17 +76,24 @@
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
                 </ul>
             </div>
+        </li> --}}
+        <li class="nav-item">
+            <a class="nav-link" href="/academy-years">
+                <i class="menu-icon  mdi mdi-account-card-details "></i>
+                <span class="menu-title">Data Tahun Ajaran</span>
+            </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#auth1" aria-expanded="false" aria-controls="auth">
-                <i class="menu-icon mdi mdi-information"></i>
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <i class="menu-icon mdi mdi-floor-plan"></i>
                 <span class="menu-title">Informasi</span>
-                <i class="menu-arrow"></i>
+                <i class="menu-arrow"></i> 
             </a>
-            <div class="collapse" id="auth1">
-                <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                </ul>
+            <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/informasi">Daftar Informasi</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/informasi/create">Buat Informasi</a></li>
+            </ul>
             </div>
         </li>
         <li class="nav-item">
@@ -116,6 +125,12 @@
             <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
                 <i class="menu-icon mdi mdi-settings"></i>
                 <span class="menu-title">Pengaturan Sistem</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+                <i class="menu-icon mdi mdi-logout"></i>
+                <span class="menu-title">Keluar</span>
             </a>
         </li>
     </ul>

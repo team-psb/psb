@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Data InformasiS')
+@section('title', 'Data Informasi')
 
 @section('content')
     <div class="main-panel">
@@ -10,74 +10,67 @@
                     <div class="card">
                     <div class="card-body">
                         <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Data Informasi</h4>
-                        <p class="card-description">
-                            Daftar Data Informasi
-                        </p>
                         <div class="d-flex justify-content-between">
                             <div class="home-tab">
+                                <div class="home-tab">
                                 <div class="btn-wrapper">
-                                    <a href="#" class="btn btn-danger text-white me-0"><i class="mdi mdi-delete-forever"></i>Hapus Semua</a>
+                                    <a href="#" class="btn btn-danger text-white"><i class="mdi mdi-delete-forever"></i>Hapus Semua</a>
                                 </div>
+                            </div>
                             </div>
                             <div class="home-tab">
                                 <div class="btn-wrapper">
-                                    <a href="#" class="btn btn-primary text-white me-0"><i class="mdi mdi-database-plus"></i>Tambah data</a>
-                                </div>
-                            </div>
-                            <div class="home-tab">
-                                <div class="btn-wrapper">
-                                    <a href="#" class="btn btn-success text-white me-0"><i class="mdi mdi-file-export"></i>Export</a>
+                                    <a href="/information/create" class="btn btn-primary text-white me-0"><i class="mdi mdi-database-plus"></i>Tambah data</a>
                                 </div>
                             </div>
                         </div>
                         <div class="table-responsive">
-                        <table class="table table-hover" id="myTable">
+                        <table class="table table-hover">
                             <thead>
-                            <tr>
-                                <th>
-                                    No
-                                </th>
-                                <th>Judul</th>
-                                <th>Isi</th>
-                                <th style="width: 10%;">Action</th>
-                            </tr>
+                                <tr>
+                                    <th>
+                                        <div class="form-check form-check-danger">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" checked>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th>No</th>
+                                    <th>Judul</th>
+                                    <th>Konten</th>
+                                    <th width="10%">Action</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>
-                                    1
-                                </td>
-                                <td>Mampu</td>
-                                <td>Mampu</td>
-                                <td>
-                                    <span>
-                                        <a href="#" class="btn py-2 btn-primary"><i class="mdi mdi-eye"></i></a>
-                                        <a href="#" class="btn py-2 btn-success"><i class="mdi mdi-pencil"></i></a>
-                                        <a href="#" class="btn py-2 btn-danger"><i class="mdi mdi-delete"></i></a>
-                                    </span>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Tidak Mampu</td>
-                                <td>Tidak Mampu</td>
-                                <td>
-                                    <span>
-                                        <a href="#" class="btn py-2 btn-primary"><i class="mdi mdi-eye"></i></a>
-                                        <a href="#" class="btn py-2 btn-success"><i class="mdi mdi-pencil"></i></a>
-                                        <a href="#" class="btn py-2 btn-danger"><i class="mdi mdi-delete"></i></a>
-                                    </span>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Sangat Mampu</td>
-                                <td>Sangat Mampu</td>
-                                <td>
-                                    <span>
-                                        <a href="#" class="btn py-2 btn-primary"><i class="mdi mdi-eye"></i></a>
-                                        <a href="#" class="btn py-2 btn-success"><i class="mdi mdi-pencil"></i></a>
-                                        <a href="#" class="btn py-2 btn-danger"><i class="mdi mdi-delete"></i></a>
-                                    </span>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-check form-check-danger">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" checked>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>1</td>
+                                    <td>Cara Mengikuti Tes Tahap 1 </td>
+                                    <td>Berikut ini cara mengubah password jika ada lupa atau ingin ganti.</td>
+                                    <td class="d-flex">
+                                        <div class="home-tab">
+                                            <div class="btn-wrapper">
+                                                <a href="#" class="btn btn-info text-white me-2"><i class="mdi mdi-eye"></i> Detail</a>
+                                            </div>
+                                        </div>
+                                        <div class="home-tab">
+                                            <div class="btn-wrapper">
+                                                <a href="#" class="btn btn-warning text-white me-2"><i class="mdi mdi-pencil"></i> Edit</a>
+                                            </div>
+                                        </div>
+                                        <div class="home-tab">
+                                            <div class="btn-wrapper">
+                                                <a href="#" class="btn btn-danger text-white me-0"><i class="mdi mdi-delete"></i> Hapus</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         </div>

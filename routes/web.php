@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('admin.index');
 });
 
+Route::get('/iq', function () {
+    return view('admin.pages.questionIq.index');
+});
+
 Route::get('/personality', function () {
     return view('admin.pages.questionPersonal.index');
 });
@@ -37,9 +41,10 @@ Route::get('/informasi', function () {
     return view('admin.pages.schdule.index');
 });
 
-Route::get('/iq', function () {
-    return view('admin.pages.questionIq.index');
+Route::get('/informasi/create', function () {
+    return view('admin.pages.schdule.create');
 });
+
 
 // john
 Route::get('/registrant', function () {

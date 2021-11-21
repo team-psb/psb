@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Nilai Pendaftar')
 
 @section('content')
 <div class="main-panel">

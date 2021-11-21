@@ -15,12 +15,12 @@
                                 <div class="btn-wrapper">
                                     <div class="dropdown">
                                         <button class="btn btn-danger dropdown-toggle text-white" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Aksi Masal
+                                            Aksi Masal
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
-                                          <a class="dropdown-item" href="#">Aktif</a>
-                                          <a class="dropdown-item" href="#">Tidak Aktif</a>
-                                          <a class="dropdown-item" href="#">Hapus</a>
+                                            <a class="dropdown-item" href="#">Aktif</a>
+                                            <a class="dropdown-item" href="#">Tidak Aktif</a>
+                                            <a class="dropdown-item" href="#">Hapus</a>
                                         </div>
                                     </div>
                                 </div>

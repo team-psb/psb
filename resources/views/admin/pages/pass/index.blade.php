@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Calon Santri Baru')
 
 @section('content')
 <div class="main-panel">
@@ -9,9 +9,9 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title pb-4" style="border-bottom: 1px solid black;">Video Pendaftar</h4>
+                        <h4 class="card-title pb-4" style="border-bottom: 1px solid black;">Calon Santri Baru</h4>
                         <p class="card-description">
-                        Daftar Video Pendaftar
+                        Daftar Calon Santri Baru
                         </p>
                         <div class="table-responsive">
                             <table id="myTable" class="table table-hover">
