@@ -21,8 +21,16 @@ Route::get('/iq', function () {
     return view('admin.pages.questionIq.index');
 });
 
+Route::get('/iq-create', function () {
+    return view('admin.pages.questionIq.create');
+});
+
 Route::get('/personality', function () {
     return view('admin.pages.questionPersonal.index');
+});
+
+Route::get('/personality-create', function () {
+    return view('admin.pages.questionPersonal.create');
 });
 
 Route::get('/academy-years', function () {
@@ -33,26 +41,22 @@ Route::get('/qna', function () {
     return view('admin.pages.qna.index');
 });
 
-Route::get('/qna/create', function () {
+Route::get('/qna-create', function () {
     return view('admin.pages.qna.create');
-});
-
-Route::get('/category', function () {
-    return view('admin.pages.category.index');
 });
 
 Route::get('/informasi', function () {
     return view('admin.pages.schdule.index');
 });
 
-Route::get('/informasi/create', function () {
+Route::get('/informasi-create', function () {
     return view('admin.pages.schdule.create');
 });
 
 
 // john
 Route::get('/registrant', function () {
-    return view('admin.pages.registration.index');
+    return view('admin.pages.biodata.index');
 });
 
 Route::get('/scores', function () {

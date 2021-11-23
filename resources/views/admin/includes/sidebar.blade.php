@@ -47,7 +47,7 @@
             <div class="collapse" id="form-elements">
                 <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a class="nav-link" href="/iq">Daftar Soal IQ</a></li>
-                <li class="nav-item"><a class="nav-link" href="">Buat Soal IQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="/iq-create">Buat Soal IQ</a></li>
                 </ul>
             </div>
         </li>
@@ -60,7 +60,7 @@
             <div class="collapse" id="charts">
                 <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="/personality">Daftar Soal Kepribadian</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">Buat Soal Kepribadian</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/personality-create">Buat Soal Kepribadian</a></li>
                 </ul>
             </div>
         </li>
@@ -92,7 +92,7 @@
             <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="/informasi">Daftar Informasi</a></li>
-                <li class="nav-item"> <a class="nav-link" href="/informasi/create">Buat Informasi</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/informasi-create">Buat Informasi</a></li>
             </ul>
             </div>
         </li>
@@ -105,20 +105,7 @@
             <div class="collapse" id="auth2">
                 <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="/qna"> Daftar Q&A </a></li>
-                <li class="nav-item"> <a class="nav-link" href="/qna/create"> Buat Q&A </a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#auth3" aria-expanded="false" aria-controls="auth">
-                <i class="menu-icon  mdi mdi-view-list"></i>
-                <span class="menu-title">Kategori Pendaftar</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth3">
-                <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/category"> Daftar Kategori </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Buat Kategori</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/qna-create"> Buat Q&A </a></li>
                 </ul>
             </div>
         </li>

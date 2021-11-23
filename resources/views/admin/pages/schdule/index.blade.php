@@ -7,25 +7,19 @@
         <div class="content-wrapper">
             <div class="row">
                 <div class="col-lg-12 grid-margin stretch-card">
-                    <div class="card">
+                    <div class="card card-rounded">
                     <div class="card-body">
                         <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Data Informasi</h4>
-                        <div class="d-flex justify-content-between">
-                            <div class="home-tab">
-                                <div class="home-tab">
-                                <div class="btn-wrapper">
-                                    <a href="#" class="btn btn-danger text-white"><i class="mdi mdi-delete-forever"></i>Hapus Semua</a>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="home-tab">
-                                {{-- <div class="btn-wrapper">
-                                    <a href="/information/create" class="btn btn-primary text-white me-0"><i class="mdi mdi-database-plus"></i>Tambah data</a>
-                                </div> --}}
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary btn-icon text-white me-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="mdi mdi-database-plus"></i>
+                        <div class="row mb-4 ">
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-danger " id="del1" type="button" aria-haspopup="true" aria-expanded="false">
+                                    Hapus Semua
                                 </button>
+                                <div>
+                                    <a href="" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Buat Data
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -57,21 +51,11 @@
                                     <td>1</td>
                                     <td>Cara Mengikuti Tes Tahap 1 </td>
                                     <td>Berikut ini cara mengubah password jika ada lupa atau ingin ganti.</td>
-                                    <td class="d-flex">
-                                        <div class="home-tab">
-                                            <div class="btn-wrapper">
-                                                <a href="#" class="btn btn-info text-white me-2"><i class="mdi mdi-eye"></i> Detail</a>
-                                            </div>
-                                        </div>
-                                        <div class="home-tab">
-                                            <div class="btn-wrapper">
-                                                <a href="#" class="btn btn-warning text-white me-2"><i class="mdi mdi-pencil"></i> Edit</a>
-                                            </div>
-                                        </div>
-                                        <div class="home-tab">
-                                            <div class="btn-wrapper">
-                                                <a href="#" class="btn btn-danger text-white me-0"><i class="mdi mdi-delete"></i> Hapus</a>
-                                            </div>
+                                    <td>
+                                        <div class="btn-wrapper">
+                                            <a href="#" class="btn btn-success align-items-center  py-2"><i class="icon-eye"></i> Detail</a>
+                                            <a href="#" class="btn btn-primary  py-2"><i class="icon-pencil"></i> Edit</a>
+                                            <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -100,14 +84,14 @@
                             <label>Gambar Informasi</label>
                             <div class="d-flex">
                                 <div class="col-sm-6 mb-1">
-                                    <img src="https://placehold.it/100x100" id="preview" class="img-thumbnail" style="width: 200px ;height: 160px;">
+                                    <img src="https://placehold.it/100x100" id="preview" class="img-thumbnail" style="width: 320px ;height: 200px;">
                                 </div>
                                 <div class="">
                                     <input type="file" name="img[]" class="file-upload-default">
                                     <div class="input-group col-xs-12">
                                         <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                                         <span class="input-group-append">
-                                        <button class="file-upload-browse btn btn-primary py-2" type="button">Upload</button>
+                                            <button class="file-upload-browse btn btn-primary py-2" type="button">Upload</button>
                                         </span>
                                     </div>
                                     {{-- <input type="file" name="" id=""> --}}

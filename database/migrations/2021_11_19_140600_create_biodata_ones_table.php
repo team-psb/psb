@@ -16,9 +16,10 @@ class CreateBiodataOnesTable extends Migration
         Schema::create('biodata_ones', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->foreignId('stage_id');
             $table->foreignId('academy_year_id');
-            $table->foreignId('category_id');
             $table->string('name');
+            $table->enum('family', ['sangat-mampu', 'mampu', 'tidak-mampu']);
             $table->integer('age');
             $table->date('birth_date');
             $table->string('no_wa')->unique();

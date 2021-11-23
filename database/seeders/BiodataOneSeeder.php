@@ -22,9 +22,10 @@ class BiodataOneSeeder extends Seeder
         for ($i=2; $i <202 ; $i++) { 
             BiodataOne::create([
                 'user_id'=>$i,
+                'stage_id'=>$faker->randomElement([1,2,3,4]),
                 'academy_year_id'=>$faker->randomElement([1,2,3,4]),
                 'name'=>$faker->name('male'),
-                'category_id'=>$faker->randomElement([1, 2,3]),
+                'family'=>$faker->randomElement(['sangat-mampu', 'mampu', 'tidak-mampu']),
                 'age'=>rand(16,21),
                 'birth_date'=>$faker->date('Y-m-d','2005-12-01'),
                 'no_wa'=>$faker->e164PhoneNumber,

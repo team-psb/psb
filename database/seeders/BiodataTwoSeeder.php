@@ -25,6 +25,7 @@ class BiodataTwoSeeder extends Seeder
         for ($i=2; $i <202 ; $i++) { 
             BiodataTwo::create([
                 'user_id'=>$i,
+                'stage_id'=>$faker->randomElement([1,2,3,4]),
                 'academy_year_id'=>$faker->randomElement([1,2,3,4]),
                 'birth_place'=>$faker->city,
                 'address'=>$faker->address,

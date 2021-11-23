@@ -7,32 +7,26 @@
         <div class="content-wrapper">
             <div class="row">
                 <div class="col-lg-12 grid-margin stretch-card">
-                    <div class="card">
+                    <div class="card card-rounded">
                     <div class="card-body">
                         <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Data Tahun Ajaran</h4>
-                        <div class="d-flex justify-content-between">
-                            <div class="home-tab">
-                                <div class="btn-wrapper">
-                                    <div class="dropdown">
-                                        <button class="btn btn-danger dropdown-toggle text-white" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Aksi Masal
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
-                                            <a class="dropdown-item" href="#">Aktif</a>
-                                            <a class="dropdown-item" href="#">Tidak Aktif</a>
-                                            <a class="dropdown-item" href="#">Hapus</a>
-                                        </div>
+                        <div class="row mb-4 ">
+                            <div class="d-flex justify-content-between">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle text-white" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Aksi Masal
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
+                                        <a class="dropdown-item" href="#">Lolos</a>
+                                        <a class="dropdown-item" href="#">Tidak Lolos</a>
+                                        <a class="dropdown-item" href="#">Hapus</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="home-tab">
-                                <button type="button" class="btn btn-primary btn-icon text-white me-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="mdi mdi-database-plus"></i>
-                                </button>
-                            </div>
-                            <div class="home-tab">
-                                <div class="btn-wrapper">
-                                    <a href="#" class="btn btn-success text-white me-0"><i class="mdi mdi-file-export"></i>Export</a>
+                                <div class="btn-group dropleft d-inline float-right">
+                                    <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Buat Data
+                                    </a>
+                                    <button class="btn btn-info ml-2">Export</button>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +45,7 @@
                                     <th>Tahun Ajaran</th>
                                     <th>Gelombang</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <th width="20">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,26 +61,12 @@
                                     <td>2022</td>
                                     <td>Gel-1</td>
                                     <td><label class="badge badge-success">Aktif</label></td>
-                                    <td class="d-flex">
-                                        <div class="home-tab">
-                                            <div class="btn-wrapper">
-                                                <a href="#" class="btn btn-success text-white me-0"><i class="mdi mdi-check"></i> Aktif</a>
-                                            </div>
-                                        </div>
-                                        <div class="home-tab">
-                                            <div class="btn-wrapper">
-                                                <a href="#" class="btn btn-info text-white me-0"><i class="mdi mdi-close"></i> Non-Aktif</a>
-                                            </div>
-                                        </div>
-                                        <div class="home-tab">
-                                            <div class="btn-wrapper">
-                                                <a href="#" class="btn btn-warning text-white me-0"><i class="mdi mdi-pencil"></i> Edit</a>
-                                            </div>
-                                        </div>
-                                        <div class="home-tab">
-                                            <div class="btn-wrapper">
-                                                <a href="#" class="btn btn-danger text-white me-0"><i class="mdi mdi-delete"></i> Hapus</a>
-                                            </div>
+                                    <td>
+                                        <div class="btn-wrapper">
+                                            <a href="#" class="btn btn-success align-items-center  py-2"><i class="icon-check"></i> Aktif</a>
+                                            <a href="#" class="btn btn-warning align-items-center  py-2"><i class="icon-close"></i> Non Aktif</a>
+                                            <a href="#" class="btn btn-primary  py-2"><i class="icon-pencil"></i> Edit</a>
+                                            <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -102,26 +82,12 @@
                                 <td>2022</td>
                                 <td>Gel-2</td>
                                 <td><label class="badge badge-warning">Tidak Aktif</label></td>
-                                <td class="d-flex">
-                                    <div class="home-tab">
-                                        <div class="btn-wrapper">
-                                            <a href="#" class="btn btn-success text-white me-0"><i class="mdi mdi-check"></i> Aktif</a>
-                                        </div>
-                                    </div>
-                                    <div class="home-tab">
-                                        <div class="btn-wrapper">
-                                            <a href="#" class="btn btn-info text-white me-0"><i class="mdi mdi-close"></i> Non-Aktif</a>
-                                        </div>
-                                    </div>
-                                    <div class="home-tab">
-                                        <div class="btn-wrapper">
-                                            <a href="#" class="btn btn-warning text-white me-0"><i class="mdi mdi-pencil"></i> Edit</a>
-                                        </div>
-                                    </div>
-                                    <div class="home-tab">
-                                        <div class="btn-wrapper">
-                                            <a href="#" class="btn btn-danger text-white me-0"><i class="mdi mdi-delete"></i> Hapus</a>
-                                        </div>
+                                <td>
+                                    <div class="btn-wrapper">
+                                        <a href="#" class="btn btn-success align-items-center  py-2"><i class="icon-check"></i> Aktif</a>
+                                        <a href="#" class="btn btn-warning align-items-center  py-2"><i class="icon-close"></i> Non Aktif</a>
+                                        <a href="#" class="btn btn-primary  py-2"><i class="icon-pencil"></i> Edit</a>
+                                        <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
                                     </div>
                                 </td>
                             </tr>

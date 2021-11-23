@@ -16,6 +16,7 @@ class CreateBiodataTwosTable extends Migration
         Schema::create('biodata_twos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->foreignId('stage_id');
             $table->foreignId('academy_year_id');
             $table->foreignId('province_id');
             $table->foreignId('regency_id');

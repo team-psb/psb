@@ -23,7 +23,6 @@ class DatabaseSeeder extends Seeder
             SchduleSeeder::class,
             BiodataOneSeeder::class,
             BiodataTwoSeeder::class,
-            CategorySeeder::class,
             PassSeeder::class,
             QnaSeeder::class,
             QuestionIqSeeder::class,
