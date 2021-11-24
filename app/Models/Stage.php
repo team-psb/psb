@@ -13,4 +13,9 @@ class Stage extends Model
         'name'
     ];
 
+    public function academy()
+    {
+        return $this->hasMany(AcademyYear::class, 'id', 'stage_id');
+    }
+
 }

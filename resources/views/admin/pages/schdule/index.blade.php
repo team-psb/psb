@@ -8,61 +8,89 @@
             <div class="row">
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card card-rounded">
-                    <div class="card-body">
-                        <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Data Informasi</h4>
-                        <div class="row mb-4 ">
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-danger " id="del1" type="button" aria-haspopup="true" aria-expanded="false">
-                                    Hapus Semua
-                                </button>
-                                <div>
-                                    <a href="" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Buat Data
-                                    </a>
+                        <div class="card-body">
+                            <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Data Informasi</h4>
+                            <div class="row mb-4 ">
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-danger " id="del1" type="button" aria-haspopup="true" aria-expanded="false">
+                                        Hapus Semua
+                                    </button>
+                                    <div>
+                                        <a href="#mymodal"
+                                            data-remote="{{ route('schdules.create') }}"
+                                            data-toggle="modal"
+                                            data-target="#mymodal"
+                                            data-title="Buat Informasi" 
+                                            class="btn btn-info"
+                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Buat Data">
+                                            Buat Data
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="form-check form-check-danger">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input" checked>
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th>No</th>
+                                            <th>Judul</th>
+                                            <th>Konten</th>
+                                            <th width="10%">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($schdules as $schdule)
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check form-check-danger">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input" checked>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>{{ $schdule->id }}</td>
+                                                <td>{{ Str::limit($schdule->title, 50, '...') }}</td>
+                                                <td>{{ Str::limit($schdule->content, 50, '...') }}</td>
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <a href="#mymodal"
+                                                            data-remote="{{ route('schdules.show', $schdule->id) }}"
+                                                            data-toggle="modal"
+                                                            data-target="#mymodal"
+                                                            data-title="Detail Informasi {{ $schdule->id }}" 
+                                                            class="btn btn-success align-items-center  py-2"
+                                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
+                                                            <i class="icon-eye"></i> Detail
+                                                        </a>
+                                                        <a href="#mymodal"
+                                                            data-remote="{{ route('schdules.edit', $schdule->id) }}"
+                                                            data-toggle="modal"
+                                                            data-target="#mymodal"
+                                                            data-title="Edit Informasi {{ $schdule->id }}" 
+                                                            class="btn ms-1 btn-primary  py-2"
+                                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                                            <i class="icon-pencil"></i> Edit
+                                                        </a>
+                                                        <form action="{{ route('schdules.destroy', $schdule->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <div class="form-check form-check-danger">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" checked>
-                                            </label>
-                                        </div>
-                                    </th>
-                                    <th>No</th>
-                                    <th>Judul</th>
-                                    <th>Konten</th>
-                                    <th width="10%">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="form-check form-check-danger">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" checked>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>1</td>
-                                    <td>Cara Mengikuti Tes Tahap 1 </td>
-                                    <td>Berikut ini cara mengubah password jika ada lupa atau ingin ganti.</td>
-                                    <td>
-                                        <div class="btn-wrapper">
-                                            <a href="#" class="btn btn-success align-items-center  py-2"><i class="icon-eye"></i> Detail</a>
-                                            <a href="#" class="btn btn-primary  py-2"><i class="icon-pencil"></i> Edit</a>
-                                            <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -117,8 +145,19 @@
 
 @push('after-script')
     <script src="{{ asset('template/js/file-upload.js') }}"></script>
-    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
-    <script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script> --}}
+    {{-- <script>
         CKEDITOR.replace( 'editor1' );
-    </script>
+    </script> --}}
+    <script>
+        ClassicEditor
+                .create( document.querySelector( '#editor' ) )
+                .then( editor => {
+                        console.log( editor );
+                } )
+                .catch( error => {
+                        console.error( error );
+                } );
+</script>
 @endpush

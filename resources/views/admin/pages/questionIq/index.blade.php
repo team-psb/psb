@@ -24,10 +24,10 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                        <table class="table table-hover" id="myTable">
+                        <table class="table table-hover" id="myTable1">
                             <thead>
                                 <tr>
-                                    <th>
+                                    <th style="width: 40px">
                                         <div class="form-check form-check-danger">
                                             <label class="form-check-label">
                                                 <input type="checkbox" class="form-check-input" checked>
@@ -50,7 +50,7 @@
                                         </div>
                                     </td>
                                     <td>1</td>
-                                    <td>Karena ada agenda keluarga yang tiba-tiba, rekan belajar saya tidak masuk belajar selama beberapa hari.</td>
+                                    <td>{{ Str::limit('Karena ada agenda keluarga yang tiba-tiba, rekan belajar saya tidak masuk belajar selama beberapa hari.', 40, '...') }}</td>
                                     <td>a</td>
                                     <td>
                                         <div class="btn-wrapper">
@@ -211,3 +211,16 @@
         </div>
     </div>
 @endsection
+
+@push('after-script')
+<script>
+    $(document).ready( function () {
+    $('#myTable1').DataTable({
+        'columnDefs': [ {
+        'targets': [0, 4], /* column index */
+        'orderable': false, /* true or false */
+            }]
+        });
+    } );
+</script>
+@endpush

@@ -23,10 +23,17 @@
                                     </div>
                                 </div>
                                 <div class="btn-group dropleft d-inline float-right">
-                                    <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Buat Data
+                                    {{-- <a href="" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i class="icon-plus"></i> Buat Data
+                                    </a> --}}
+                                    <a href="#mymodal"
+                                        data-remote="{{ route('academies.create') }}"
+                                        data-toggle="modal"
+                                        data-target="#mymodal"
+                                        data-title="Buat Tahun Ajaran" 
+                                        class="btn btn-info">
+                                        <i class="icon-plus"></i> Buat Data
                                     </a>
-                                    <button class="btn btn-info ml-2">Export</button>
                                 </div>
                             </div>
                         </div>
@@ -49,6 +56,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($academies as $academy)
                                 <tr>
                                     <td>
                                         <div class="form-check form-check-danger">
@@ -57,40 +65,42 @@
                                             </label>
                                         </div>
                                     </td>
-                                    <td>1</td>
-                                    <td>2022</td>
-                                    <td>Gel-1</td>
-                                    <td><label class="badge badge-success">Aktif</label></td>
+                                    <td>{{ $academy->id }}</td>
+                                    <td>{{ $academy->year }}</td>
+                                    <td>{{ $academy->stage->name }}</td>
                                     <td>
-                                        <div class="btn-wrapper">
+                                        @if ($academy->is_active == true)
+                                            <label class="badge badge-success">Aktif</label>
+                                        @else 
+                                            <label class="badge badge-danger">Tidak-Aktif</label>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        {{-- <div class="btn-wrapper">
                                             <a href="#" class="btn btn-success align-items-center  py-2"><i class="icon-check"></i> Aktif</a>
                                             <a href="#" class="btn btn-warning align-items-center  py-2"><i class="icon-close"></i> Non Aktif</a>
                                             <a href="#" class="btn btn-primary  py-2"><i class="icon-pencil"></i> Edit</a>
                                             <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
+                                        </div> --}}
+                                        <div class="d-flex">
+                                            <a href="#mymodal"
+                                                data-remote="{{ route('academies.edit', $academy->id) }}"
+                                                data-toggle="modal"
+                                                data-target="#mymodal"
+                                                data-title="Edit Tahun Ajaran {{ $academy->year }}" 
+                                                class="btn ms-1 btn-primary  py-2"
+                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                                <i class="icon-pencil"></i> Edit
+                                            </a>
+                                            <form action="{{ route('academies.destroy', $academy->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-check form-check-danger">
-                                        <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" checked>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td>2</td>
-                                <td>2022</td>
-                                <td>Gel-2</td>
-                                <td><label class="badge badge-warning">Tidak Aktif</label></td>
-                                <td>
-                                    <div class="btn-wrapper">
-                                        <a href="#" class="btn btn-success align-items-center  py-2"><i class="icon-check"></i> Aktif</a>
-                                        <a href="#" class="btn btn-warning align-items-center  py-2"><i class="icon-close"></i> Non Aktif</a>
-                                        <a href="#" class="btn btn-primary  py-2"><i class="icon-pencil"></i> Edit</a>
-                                        <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
-                                    </div>
-                                </td>
-                            </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         </div>
@@ -101,7 +111,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    {{-- <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
@@ -152,5 +162,5 @@
             </div>
         </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Schdule extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+    // use SoftDeletes;
 
+    protected $table = 'schdules';
     protected   $fillable = [
         'image', 'title', 'content'
     ];

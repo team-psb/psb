@@ -30,6 +30,13 @@
                             <table id="myTable" class="table table-hover">
                                 <thead>
                                     <tr>
+                                        <th>
+                                            <div class="form-check form-check-danger">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" checked>
+                                                </label>
+                                            </div>
+                                        </th>
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Umur</th>
@@ -40,6 +47,13 @@
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        <td>
+                                            <div class="form-check form-check-danger">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" checked>
+                                                </label>
+                                            </div>
+                                        </td>
                                         <td>1</td>
                                         <td>Jacob</td>
                                         <td>20</td>

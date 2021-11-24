@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                             <div class="table-responsive">
-                                <table class="table table-hover" id="myTable">
+                                <table class="table table-hover" id="myTable1">
                                     <thead>
                                         <tr>
                                             <th>
@@ -257,8 +257,8 @@
     </div>
 @endsection
 
-{{-- @push('after-script')
-<script>
+@push('after-script')
+{{-- <script>
     jQuery(document).ready(function($){
         $('#mymodal').on('show.bs.modal',function(e){
         var button=$(e.relatedTarget);
@@ -283,5 +283,16 @@
     </div>
     </div>
 </div>
-</div>
-@endpush --}}
+</div> --}}
+
+<script>
+    $(document).ready( function () {
+    $('#myTable1').DataTable({
+        'columnDefs': [ {
+        'targets': [0, 3], /* column index */
+        'orderable': false, /* true or false */
+            }]
+        });
+    } );
+</script>
+@endpush

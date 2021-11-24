@@ -16,14 +16,19 @@
                                     Hapus Semua
                                 </button>
                                 <div>
-                                    <a href="" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Buat Data
+                                    <a href="#mymodal"
+                                        data-remote="{{ route('qna.create') }}"
+                                        data-toggle="modal"
+                                        data-target="#mymodal"
+                                        data-title="Buat Pertanyaan" 
+                                        class="btn btn-info">
+                                        <i class="icon-plus"></i> Buat Data
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-striped">
+                            <table class="table table-hover">
                                 <thead>
                                 <tr>
                                     <th>
@@ -40,6 +45,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($qnas as $qna)
                                     <tr>
                                         <td>
                                             <div class="form-check form-check-danger">
@@ -48,17 +54,38 @@
                                                 </label>
                                             </div>
                                         </td>
-                                        <td>1</td>
-                                        <td>Karena ada agenda keluarga yang tiba-tiba?</td>
-                                        <td>Rekan belajar saya tidak masuk belajar selama beberapa hari?</td>
+                                        <td>{{ $qna->id }}</td>
+                                        <td>{{ Str::limit($qna->question, 56, '...') }}</td>
+                                        <td>{{ Str::limit($qna->answer, 56, '...') }}</td>
                                         <td>
-                                            <div class="btn-wrapper">
-                                                <a href="#" class="btn btn-success align-items-center  py-2"><i class="icon-eye"></i> Detail</a>
-                                                <a href="#" class="btn btn-primary  py-2"><i class="icon-pencil"></i> Edit</a>
-                                                <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
+                                            <div class="d-flex">
+                                                <a href="#mymodal"
+                                                    data-remote="{{ route('qna.show', $qna->id) }}"
+                                                    data-toggle="modal"
+                                                    data-target="#mymodal"
+                                                    data-title="Detail Pertanyaan {{ $qna->id }}" 
+                                                    class="btn btn-success align-items-center  py-2"
+                                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
+                                                    <i class="icon-eye"></i> Detail
+                                                </a>
+                                                <a href="#mymodal"
+                                                    data-remote="{{ route('qna.edit', $qna->id) }}"
+                                                    data-toggle="modal"
+                                                    data-target="#mymodal"
+                                                    data-title="Edit Pertanyaan {{ $qna->id }}" 
+                                                    class="btn ms-1 btn-primary  py-2"
+                                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                                    <i class="icon-pencil"></i> Edit
+                                                </a>
+                                                <form action="{{ route('qna.destroy', $qna->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -69,37 +96,4 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <h4 class="card-title">Buat Pertanyaan & Jawaban</h4>
-                <form action="" method="POST">
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label>Pertanyaan</label>
-                            <div class="input-group">
-                            <textarea name="pertanyaan" class="form-control" style="height: 150px;"></textarea>
-                            </div>
-                        </div>
-            
-                        <div class="form-group">
-                            <label>Jawaban</label>
-                            <div class="input-group">
-                            <textarea name="jawaban" class="form-control" style="height: 150px;"></textarea>
-                            </div>
-                        </div>
-            
-                        <button type="submit" class="btn btn-primary btn-sm btn-icon icon-left"> <i class="fas fa-save"></i> Kirimkan</button>
-                        </div>
-                    </form>
-            </div>
-        </div>
-        </div>
-    </div>
 @endsection

@@ -28443,7 +28443,7 @@ div.tagsinput span.tag a {
   white-space: nowrap;
   padding: 10px 35px 10px 35px;
   color: #484848;
-  border-radius: 0px 20px 20px 0px;
+  /* border-radius: 0px 20px 20px 0px; */
   -webkit-transition-duration: 0.45s;
   -moz-transition-duration: 0.45s;
   -o-transition-duration: 0.45s;

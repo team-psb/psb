@@ -19,6 +19,7 @@ class CreateSettingsTable extends Migration
             $table->foreignId('stage_id');
             $table->foreignId('question_iq_id');
             $table->foreignId('question_personal_id');
+            $table->text('notification');
             $table->timestamps();
         });
     }

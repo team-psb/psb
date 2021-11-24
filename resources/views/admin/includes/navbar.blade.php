@@ -18,12 +18,41 @@
     <div class="navbar-menu-wrapper d-flex align-items-top"> 
       <ul class="navbar-nav">
         <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-          <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">John Doe</span></h1>
+          <h1 class="welcome-text">
+            @php
+              date_default_timezone_set("Asia/Jakarta");
+              $b = time();
+              $hour = date("G",$b);
+
+              if ($hour >=0 && $hour <= 11)
+              {
+              echo "Selamat Pagi,";
+              }
+              elseif ($hour >=12 && $hour <= 14)
+              {
+              echo "Selamat Siang,";
+              }
+              elseif ($hour >=15 && $hour <= 17)
+              {
+              echo "Selamat Sore,";
+              }
+              elseif ($hour >=17 && $hour <= 18)
+              {
+              echo "Selamat Petang,";
+              }
+              elseif ($hour >=19 && $hour <= 23)
+              {
+              echo "Selamat Malam,";
+              }
+            @endphp
+            
+
+            <span class="text-black fw-bold">John Doe</span></h1>
           <h3 class="welcome-sub-text">Your performance summary this week </h3>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item dropdown d-none d-lg-block">
+        {{-- <li class="nav-item dropdown d-none d-lg-block">
           <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
             <a class="dropdown-item py-3" >
@@ -55,7 +84,7 @@
               </div>
             </a>
           </div>
-        </li>
+        </li> --}}
         <li class="nav-item d-none d-lg-block">
           <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
             <span class="input-group-addon input-group-prepend border-right">

@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\AcademyYearController;
+use App\Http\Controllers\Admin\QnaController;
+use App\Http\Controllers\Admin\SchduleController;
+use App\Http\Controllers\Admin\SettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,13 +41,13 @@ Route::get('/academy-years', function () {
     return view('admin.pages.academyYear.index');
 });
 
-Route::get('/qna', function () {
-    return view('admin.pages.qna.index');
-});
+// Route::get('/qna', function () {
+//     return view('admin.pages.qna.index');
+// });
 
-Route::get('/qna-create', function () {
-    return view('admin.pages.qna.create');
-});
+// Route::get('/qna-create', function () {
+//     return view('admin.pages.qna.create');
+// });
 
 Route::get('/informasi', function () {
     return view('admin.pages.schdule.index');
@@ -53,8 +57,6 @@ Route::get('/informasi-create', function () {
     return view('admin.pages.schdule.create');
 });
 
-
-// john
 Route::get('/registrant', function () {
     return view('admin.pages.biodata.index');
 });
@@ -74,3 +76,10 @@ Route::get('/interviews', function () {
 Route::get('/passes', function () {
     return view('admin.pages.pass.index');
 });
+
+
+Route::resource('qna', QnaController::class);
+Route::resource('schdules', SchduleController::class);
+Route::resource('academies', AcademyYearController::class);
+
+Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
