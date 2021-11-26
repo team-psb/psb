@@ -151,4 +151,19 @@ class TestIqController extends Controller
 
         return back();
     }
+
+    public function deleteAll(Request $request)
+    {
+        $ids=$request->get('ids');
+
+        if ($ids == null) {
+            return redirect()->back();
+        }else{
+            foreach ($ids as $id) {
+                QuestionIq::find($id)->delete();
+            }
+
+            return redirect()->route('iqs.index');
+        }
+    }
 }

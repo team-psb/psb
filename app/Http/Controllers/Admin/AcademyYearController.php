@@ -136,4 +136,45 @@ class AcademyYearController extends Controller
 
         return redirect()->route('academies.index');
     }
+
+    public function activeAll(Request $request)
+    {
+        $ids = $request->get('ids');
+        if ($ids != null) {
+            foreach ($ids as $id ) {
+                AcademyYear::find($id)->update(['is_active'=>'1']);
+            }
+            return redirect()->route('academies.index');
+        }else{
+            return redirect()->back();
+        }
+    }
+
+    public function nonActiveAll(Request $request)
+    {
+        $ids = $request->get('ids');
+        if ($ids != null) {
+            foreach ($ids as $id ) {
+                AcademyYear::find($id)->update(['is_active'=>'0']);
+            }
+            return redirect()->route('academies.index');
+        }else{
+            return redirect()->back();
+        }
+    }
+
+    public function deleteAll(Request $request)
+    {
+        $ids=$request->get('ids');
+
+        if ($ids == null) {
+            return redirect()->back();
+        }else{
+            foreach ($ids as $id) {
+                AcademyYear::find($id)->delete();
+            }
+
+            return redirect()->route('academies.index');
+        }
+    }
 }

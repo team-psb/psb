@@ -17,9 +17,9 @@
                                         Aksi Masal
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
-                                        <a class="dropdown-item" href="#">Aktif</a>
-                                        <a class="dropdown-item" href="#">Tidak Aktif</a>
-                                        <a class="dropdown-item" href="#">Hapus</a>
+                                        <a class="dropdown-item cursor" href="#" id="aktif1">Aktif</a>
+                                        <a class="dropdown-item cursor" href="#" id="non-aktif1">Tidak Aktif</a>
+                                        <a class="dropdown-item cursor" href="#" id="del1">Hapus</a>
                                     </div>
                                 </div>
                                 <div class="btn-group dropleft d-inline float-right">
@@ -37,77 +37,79 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <div class="form-check form-check-danger">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" id="checkall">
-                                            </label>
-                                        </div>
-                                    </th>
-                                    <th>No</th>
-                                    <th>Tahun Ajaran</th>
-                                    <th>Gelombang</th>
-                                    <th>Status</th>
-                                    <th width="20">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($academies as $academy)
-                                <tr>
-                                    <td>
-                                        <div class="form-check form-check-danger">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input checkbox">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>{{ $academy->id }}</td>
-                                    <td>{{ $academy->year }}</td>
-                                    <td>{{ $academy->stage->name }}</td>
-                                    <td>
-                                        @if ($academy->is_active == true)
-                                            <label class="badge badge-success">Aktif</label>
-                                        @else 
-                                            <label class="badge badge-danger">Tidak-Aktif</label>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <a href="{{ route('academies.status', $academy->id) }}?is_active=1"
-                                                class="btn btn-success align-items-center  py-2"
-                                                >
-                                                    <i class="icon-check"></i> Aktif
-                                            </a>
-                                            <a href="{{ route('academies.status', $academy->id) }}?is_active=0"
-                                                class="btn btn-warning align-items-center ms-1 py-2"
-                                                >
-                                                    <i class="icon-close"></i> Non Aktif
-                                            </a>
-                                            <a href="#mymodal"
-                                                data-remote="{{ route('academies.edit', $academy->id) }}"
-                                                data-toggle="modal"
-                                                data-target="#mymodal"
-                                                data-title="Edit Tahun Ajaran {{ $academy->year }}" 
-                                                class="btn ms-1 btn-primary  py-2"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
-                                                <i class="icon-pencil"></i> Edit
-                                            </a>
-                                            <form action="{{ route('academies.destroy', $academy->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        </div>
+                        <form method="POST">
+                            @csrf
+                            <button class="d-none" formaction="{{ route('academies.activeAll') }}" id="aktif2"></button>
+                            <button class="d-none" formaction="{{ route('academies.nonActiveAll') }}" id="non-aktif2"></button>
+                            <button class="d-none" formaction="{{ route('academies.allDelete') }}" id="del2"></button>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="form-check form-check-danger">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input" id="checkall">
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th>No</th>
+                                            <th>Tahun Ajaran</th>
+                                            <th>Gelombang</th>
+                                            <th>Status</th>
+                                            <th width="20">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($academies as $academy)
+                                        <tr>
+                                            <td>
+                                                <div class="form-check form-check-danger">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input checkbox" name="ids[{{ $academy->id }}]" value="{{ $academy->id }}">
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>{{ $academy->id }}</td>
+                                            <td>{{ $academy->year }}</td>
+                                            <td>{{ $academy->stage->name }}</td>
+                                            <td>
+                                                @if ($academy->is_active == true)
+                                                    <label class="badge badge-success">Aktif</label>
+                                                @else 
+                                                    <label class="badge badge-danger">Tidak-Aktif</label>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <div class="d-flex">
+                                                    <a href="{{ route('academies.status', $academy->id) }}?is_active=1"
+                                                        class="btn btn-success align-items-center  py-2"
+                                                        >
+                                                            <i class="icon-check"></i> Aktif
+                                                    </a>
+                                                    <a href="{{ route('academies.status', $academy->id) }}?is_active=0"
+                                                        class="btn btn-warning align-items-center ms-1 py-2"
+                                                        >
+                                                            <i class="icon-close"></i> Non Aktif
+                                                    </a>
+                                                    <a href="#mymodal"
+                                                        data-remote="{{ route('academies.edit', $academy->id) }}"
+                                                        data-toggle="modal"
+                                                        data-target="#mymodal"
+                                                        data-title="Edit Tahun Ajaran {{ $academy->year }}" 
+                                                        class="btn ms-1 btn-primary  py-2"
+                                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                                        <i class="icon-pencil"></i> Edit
+                                                    </a>
+                                                    <button formaction="{{ route('academies.delete', $academy->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
                     </div>
                     </div>
                 </div>
@@ -170,6 +172,17 @@
 @endsection
 
 @push('after-script')
+    <script>
+        $("#del1").click(function(){
+            $("#del2").click();
+        });
+        $("#aktif1").click(function(){
+            $("#aktif2").click();
+        });
+        $("#non-aktif1").click(function(){
+            $("#non-aktif2").click();
+        });
+    </script>
     <script>
         $(document).ready(function() {
             $(".mySelectClass").multiselect({

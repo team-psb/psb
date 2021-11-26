@@ -29,66 +29,66 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="table-responsive">
-                                <table class="table table-hover" id="myTable1">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <div class="form-check form-check-danger">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" id="checkall">
-                                                    </label>
-                                                </div>
-                                            </th>
-                                            <th>No</th>
-                                            <th>Soal</th>
-                                            <th width="20">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($questions as $question)
-                                        <tr>
-                                            <td>
-                                                <div class="form-check form-check-danger">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input checkbox">
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>{{ $question->id }}</td>
-                                            <td>{{ Str::limit($question->question, 120, '...') }}</td>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <a href="#mymodal"
-                                                        data-remote="{{ route('personals.show', $question->id) }}"
-                                                        data-toggle="modal"
-                                                        data-target="#mymodal"
-                                                        data-title="Detail Soal Kepribadian {{ $question->id }}" 
-                                                        class="btn btn-success align-items-center  py-2"
-                                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
-                                                        <i class="icon-eye"></i> Detail
-                                                    </a>
-                                                    <a href="#mymodal"
-                                                        data-remote="{{ route('personals.edit', $question->id) }}"
-                                                        data-toggle="modal"
-                                                        data-target="#mymodal"
-                                                        data-title="Edit Soal Kepribadian {{ $question->id }}" 
-                                                        class="btn ms-1 btn-primary  py-2"
-                                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
-                                                        <i class="icon-pencil"></i> Edit
-                                                    </a>
-                                                    <form action="{{ route('personals.destroy', $question->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                            <form method="POST">
+                                @csrf
+                                <button class="d-none" formaction="{{ route('personals.deleteAll') }}" id="del2"></button>
+                                <div class="table-responsive">
+                                    <table class="table table-hover" id="myTable1">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <div class="form-check form-check-danger">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input" id="checkall">
+                                                        </label>
+                                                    </div>
+                                                </th>
+                                                <th>No</th>
+                                                <th>Soal</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($questions as $question)
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check form-check-danger">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input checkbox" name="ids[{{ $question->id }}]" value="{{ $question->id }}">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>{{ $question->id }}</td>
+                                                <td>{{ Str::limit($question->question, 120, '...') }}</td>
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <a href="#mymodal"
+                                                            data-remote="{{ route('personals.show', $question->id) }}"
+                                                            data-toggle="modal"
+                                                            data-target="#mymodal"
+                                                            data-title="Detail Soal Kepribadian {{ $question->id }}" 
+                                                            class="btn btn-success align-items-center  py-2"
+                                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
+                                                            <i class="icon-eye"></i> Detail
+                                                        </a>
+                                                        <a href="#mymodal"
+                                                            data-remote="{{ route('personals.edit', $question->id) }}"
+                                                            data-toggle="modal"
+                                                            data-target="#mymodal"
+                                                            data-title="Edit Soal Kepribadian {{ $question->id }}" 
+                                                            class="btn ms-1 btn-primary  py-2"
+                                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                                            <i class="icon-pencil"></i> Edit
+                                                        </a>
+                                                        <button formaction="{{ route('personals.delete', $question->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -322,5 +322,11 @@
             }]
         });
     } );
+</script>
+
+<script>
+    $('#del1').click(function(){
+        $('#del2').click();
+    })
 </script>
 @endpush

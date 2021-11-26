@@ -46,15 +46,27 @@ Route::get('/passes', function () {
 
 
 Route::resource('iqs', TestIqController::class);
+Route::post('iqs/delete/{id}', [TestIqController::class, 'destroy'])->name('iqs.delete');
+Route::post('iqs/delete', [TestIqController::class, 'deleteAll'])->name('iqs.deleteAll');
 
 Route::resource('personals', TestPersonalController::class);
+Route::post('personals/delete/{id}', [TestPersonalController::class, 'destroy'])->name('personals.delete');
+Route::post('personals/delete', [TestPersonalController::class, 'deleteAll'])->name('personals.deleteAll');
 
 Route::resource('qna', QnaController::class);
+Route::post('qna/delete/{id}', [QnaController::class, 'destroy'])->name('qna.delete');
+Route::post('qna/delete', [QnaController::class, 'deleteAll'])->name('qna.deleteAll');
 
 Route::resource('schdules', SchduleController::class);
+Route::post('schdules/delete/{id}', [SchduleController::class, 'destroy'])->name('schdules.delete');
+Route::post('schdules/delete', [SchduleController::class, 'deleteAll'])->name('schdules.deleteAll');
 
 Route::resource('academies', AcademyYearController::class);
 Route::get('academies/{id}/set-status', [AcademyYearController::class, 'setStatus'])->name('academies.status');
+Route::post('academies/delete/{id}', [AcademyYearController::class, 'destroy'])->name('academies.delete');
+Route::post('academies/delete', [AcademyYearController::class, 'deleteAll'])->name('academies.allDelete');
+Route::post('academies/active/all', [AcademyYearController::class, 'activeAll'])->name('academies.activeAll');
+Route::post('academies/nonActive/all', [AcademyYearController::class, 'nonActiveAll'])->name('academies.nonActiveAll');
 
 
 Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
