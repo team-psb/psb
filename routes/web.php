@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\AcademyYearController;
 use App\Http\Controllers\Admin\QnaController;
 use App\Http\Controllers\Admin\SchduleController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\TestIqController;
+use App\Http\Controllers\Admin\TestPersonalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,41 +26,6 @@ Route::get('/', function () {
     return view('admin.index');
 });
 
-Route::get('/iq', function () {
-    return view('admin.pages.questionIq.index');
-});
-
-Route::get('/iq-create', function () {
-    return view('admin.pages.questionIq.create');
-});
-
-Route::get('/personality', function () {
-    return view('admin.pages.questionPersonal.index');
-});
-
-Route::get('/personality-create', function () {
-    return view('admin.pages.questionPersonal.create');
-});
-
-Route::get('/academy-years', function () {
-    return view('admin.pages.academyYear.index');
-});
-
-// Route::get('/qna', function () {
-//     return view('admin.pages.qna.index');
-// });
-
-// Route::get('/qna-create', function () {
-//     return view('admin.pages.qna.create');
-// });
-
-Route::get('/informasi', function () {
-    return view('admin.pages.schdule.index');
-});
-
-Route::get('/informasi-create', function () {
-    return view('admin.pages.schdule.create');
-});
 
 Route::get('/registrant', function () {
     return view('admin.pages.biodata.index');
@@ -81,8 +48,28 @@ Route::get('/passes', function () {
 });
 
 
+Route::resource('iqs', TestIqController::class);
+Route::post('iqs/delete/{id}', [TestIqController::class, 'destroy'])->name('iqs.delete');
+Route::post('iqs/delete', [TestIqController::class, 'deleteAll'])->name('iqs.deleteAll');
+
+Route::resource('personals', TestPersonalController::class);
+Route::post('personals/delete/{id}', [TestPersonalController::class, 'destroy'])->name('personals.delete');
+Route::post('personals/delete', [TestPersonalController::class, 'deleteAll'])->name('personals.deleteAll');
+
 Route::resource('qna', QnaController::class);
+Route::post('qna/delete/{id}', [QnaController::class, 'destroy'])->name('qna.delete');
+Route::post('qna/delete', [QnaController::class, 'deleteAll'])->name('qna.deleteAll');
+
 Route::resource('schdules', SchduleController::class);
+Route::post('schdules/delete/{id}', [SchduleController::class, 'destroy'])->name('schdules.delete');
+Route::post('schdules/delete', [SchduleController::class, 'deleteAll'])->name('schdules.deleteAll');
+
 Route::resource('academies', AcademyYearController::class);
+Route::get('academies/{id}/set-status', [AcademyYearController::class, 'setStatus'])->name('academies.status');
+Route::post('academies/delete/{id}', [AcademyYearController::class, 'destroy'])->name('academies.delete');
+Route::post('academies/delete', [AcademyYearController::class, 'deleteAll'])->name('academies.allDelete');
+Route::post('academies/active/all', [AcademyYearController::class, 'activeAll'])->name('academies.activeAll');
+Route::post('academies/nonActive/all', [AcademyYearController::class, 'nonActiveAll'])->name('academies.nonActiveAll');
+
 
 Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');

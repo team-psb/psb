@@ -40,7 +40,7 @@
                                         <th>
                                             <div class="form-check form-check-danger">
                                                 <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input" checked>
+                                                    <input type="checkbox" class="form-check-input" id="checkall">
                                                 </label>
                                             </div>
                                         </th>
@@ -56,7 +56,7 @@
                                         <td>
                                             <div class="form-check form-check-danger">
                                                 <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input" checked>
+                                                    <input type="checkbox" class="form-check-input checkbox">
                                                 </label>
                                             </div>
                                         </td>

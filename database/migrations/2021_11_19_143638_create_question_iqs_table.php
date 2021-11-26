@@ -22,7 +22,7 @@ class CreateQuestionIqsTable extends Migration
             $table->text('c');
             $table->text('d');
             $table->text('e');
-            $table->string('question_key');
+            $table->string('answer_key');
             $table->timestamps();
         });
     }
