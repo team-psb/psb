@@ -17,8 +17,8 @@
                                         Aksi Masal
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
-                                        <a class="dropdown-item" href="#">Lolos</a>
-                                        <a class="dropdown-item" href="#">Tidak Lolos</a>
+                                        <a class="dropdown-item" href="#">Aktif</a>
+                                        <a class="dropdown-item" href="#">Tidak Aktif</a>
                                         <a class="dropdown-item" href="#">Hapus</a>
                                     </div>
                                 </div>
@@ -44,7 +44,7 @@
                                     <th>
                                         <div class="form-check form-check-danger">
                                             <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" checked>
+                                                <input type="checkbox" class="form-check-input" id="checkall">
                                             </label>
                                         </div>
                                     </th>
@@ -61,7 +61,7 @@
                                     <td>
                                         <div class="form-check form-check-danger">
                                             <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" checked>
+                                                <input type="checkbox" class="form-check-input checkbox">
                                             </label>
                                         </div>
                                     </td>
@@ -76,13 +76,17 @@
                                         @endif
                                     </td>
                                     <td>
-                                        {{-- <div class="btn-wrapper">
-                                            <a href="#" class="btn btn-success align-items-center  py-2"><i class="icon-check"></i> Aktif</a>
-                                            <a href="#" class="btn btn-warning align-items-center  py-2"><i class="icon-close"></i> Non Aktif</a>
-                                            <a href="#" class="btn btn-primary  py-2"><i class="icon-pencil"></i> Edit</a>
-                                            <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
-                                        </div> --}}
                                         <div class="d-flex">
+                                            <a href="{{ route('academies.status', $academy->id) }}?is_active=1"
+                                                class="btn btn-success align-items-center  py-2"
+                                                >
+                                                    <i class="icon-check"></i> Aktif
+                                            </a>
+                                            <a href="{{ route('academies.status', $academy->id) }}?is_active=0"
+                                                class="btn btn-warning align-items-center ms-1 py-2"
+                                                >
+                                                    <i class="icon-close"></i> Non Aktif
+                                            </a>
                                             <a href="#mymodal"
                                                 data-remote="{{ route('academies.edit', $academy->id) }}"
                                                 data-toggle="modal"
@@ -164,3 +168,13 @@
         </div>
     </div> --}}
 @endsection
+
+@push('after-script')
+    <script>
+        $(document).ready(function() {
+            $(".mySelectClass").multiselect({
+                includeSelectAllOption: true
+            });
+        });
+    </script>    
+@endpush

@@ -12,7 +12,7 @@
                         <h4 class="card-title pb-4" style="border-bottom: 1px solid black;">Pengaturan Sistem</h4>
                         <div class="form-group">
                             <h5>Pesan Pemberitahuan Whatsapp</h5>
-                            <textarea name="editor1" class="form-control"></textarea>
+                            <textarea name="notification" class="form-control" style="height: 200px"></textarea>
                         </div>
                         <div class="row">
                             <div class="col">
@@ -23,7 +23,7 @@
                                             <div class="form-check form-check-success">
                                                 <label class="form-check-label">
                                                     <input type="checkbox" class="form-check-input" {{ $academy->is_active == 1 ? 'checked' : ''}}>
-                                                    {{ $academy->year }}
+                                                    {{ $academy->year }}({{ $academy->stage->name }})
                                                 </label>
                                             </div>
                                         @endforeach

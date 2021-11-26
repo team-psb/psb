@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class QuestionIq extends Model
 {
     use HasFactory;
-    use SoftDeletes;
-
+    // use SoftDeletes;
+    protected $table = 'question_iqs';
     protected   $fillable = [
         'question',
         'image',
@@ -19,6 +19,6 @@ class QuestionIq extends Model
         'c',
         'd',
         'e',
-        'question_key'
+        'answer_key'
     ];
 }

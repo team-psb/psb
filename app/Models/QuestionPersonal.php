@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class QuestionPersonal extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+    // use SoftDeletes;
 
     protected   $fillable = [
         'question', 'a', 'b', 'c', 'd', 'e', 'poin_a', 'poin_b', 'poin_c', 'poin_d', 'poin_e'

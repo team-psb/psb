@@ -16,8 +16,14 @@
                                         Hapus Semua
                                     </button>
                                     <div class="btn-group dropleft d-inline float-right">
-                                        <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Buat Soal
+                                        <a href="#mymodal"
+                                            data-remote="{{ route('personals.create') }}"
+                                            data-toggle="modal"
+                                            data-target="#mymodal"
+                                            data-title="Buat Soal Kepribadian" 
+                                            class="btn btn-info"
+                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Buat Data">
+                                            Buat Data
                                         </a>
                                         <button class="btn btn-info ml-2">Impor Soal</button>
                                     </div>
@@ -30,7 +36,7 @@
                                             <th>
                                                 <div class="form-check form-check-danger">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" checked>
+                                                        <input type="checkbox" class="form-check-input" id="checkall">
                                                     </label>
                                                 </div>
                                             </th>
@@ -40,24 +46,46 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($questions as $question)
                                         <tr>
                                             <td>
                                                 <div class="form-check form-check-danger">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" checked>
+                                                        <input type="checkbox" class="form-check-input checkbox">
                                                     </label>
                                                 </div>
                                             </td>
-                                            <td>3</td>
-                                            <td>Seorang teman merasa sangat bangga karena sudah berhasil bertemu</td>
+                                            <td>{{ $question->id }}</td>
+                                            <td>{{ Str::limit($question->question, 120, '...') }}</td>
                                             <td>
-                                                <div class="btn-wrapper">
-                                                    <a href="#" class="btn btn-success align-items-center  py-2"><i class="icon-eye"></i> Detail</a>
-                                                    <a href="#" class="btn btn-primary  py-2"><i class="icon-pencil"></i> Edit</a>
-                                                    <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
+                                                <div class="d-flex">
+                                                    <a href="#mymodal"
+                                                        data-remote="{{ route('personals.show', $question->id) }}"
+                                                        data-toggle="modal"
+                                                        data-target="#mymodal"
+                                                        data-title="Detail Soal Kepribadian {{ $question->id }}" 
+                                                        class="btn btn-success align-items-center  py-2"
+                                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
+                                                        <i class="icon-eye"></i> Detail
+                                                    </a>
+                                                    <a href="#mymodal"
+                                                        data-remote="{{ route('personals.edit', $question->id) }}"
+                                                        data-toggle="modal"
+                                                        data-target="#mymodal"
+                                                        data-title="Edit Soal Kepribadian {{ $question->id }}" 
+                                                        class="btn ms-1 btn-primary  py-2"
+                                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                                        <i class="icon-pencil"></i> Edit
+                                                    </a>
+                                                    <form action="{{ route('personals.destroy', $question->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

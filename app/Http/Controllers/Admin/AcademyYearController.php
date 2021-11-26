@@ -122,4 +122,18 @@ class AcademyYearController extends Controller
 
         return back();
     }
+
+    public function setStatus(Request $request, $id)
+    {
+        $request->validate([
+            'is_active' => 'required|in:1,0'
+        ]);
+
+        $item = AcademyYear::findOrFail($id);
+        $item->is_active = $request->is_active;
+
+        $item->save();
+
+        return redirect()->route('academies.index');
+    }
 }
