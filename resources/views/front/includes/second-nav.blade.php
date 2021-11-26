@@ -9,7 +9,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link"><i class="fas fa-user"></i><span>Top Navigation</span></a>
+          <a href="#" class="nav-link"><i class="fas fa-user"></i><span>Profile</span></a>
         </li>
         <li class="nav-item dropdown">
           <a href="#" data-toggle="dropdown" class="nav-link has-dropdown"><i class="fas fa-question-circle"></i><span>Q&A</span></a>

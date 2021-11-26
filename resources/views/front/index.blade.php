@@ -8,13 +8,13 @@
     <div class="col-12 mb-4">
       <div class="hero bg-success text-white">
         <div class="hero-inner text-center">
-          <h2>Welcome, Bujang!</h2>
+          <h2 style="font-family: poppins;">Welcome, Bujang!</h2>
           <p class="lead">You almost arrived, complete the information about your account to complete registration.
             Untuk melakukan tes Tahap Ke-2 anda, Silahkan klik tombol di bawah ini !!!
           </p>
           <p class="lead"></p>
           <div class="mt-4">
-            <a href="#" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="far fa-user"></i> Setup Account</a>
+            <a href="#" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="far fa-user"></i>Ikut Tes</a>
           </div>
         </div>
       </div>
@@ -82,7 +82,87 @@
       </div>
     </div>
 
-    <h1 class="text-dark mt-5 mb-0">INFORMASI</h1>
+    <div class="section-body">
+      <h1 class="section-title">Tes Anda</h1>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4>Basic DataTables</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-striped" id="table-1">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        #
+                      </th>
+                      <th>Nama Tes</th>
+                      <th>Status Pengerjaan</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        1
+                      </td>
+                      <td>Create a mobile app</td>
+                      <td class="align-middle">
+                        <div class="progress" data-height="4" data-toggle="tooltip" title="100%">
+                          <div class="progress-bar bg-success" data-width="100%"></div>
+                        </div>
+                      </td>
+                      <td><div class="badge badge-success">Completed</div></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        2
+                      </td>
+                      <td>Redesign homepage</td>
+                      <td class="align-middle">
+                        <div class="progress" data-height="4" data-toggle="tooltip" title="0%">
+                          <div class="progress-bar" data-width="0"></div>
+                        </div>
+                      </td>
+                      <td><div class="badge badge-info">Todo</div></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        3
+                      </td>
+                      <td>Backup database</td>
+                      <td class="align-middle">
+                        <div class="progress" data-height="4" data-toggle="tooltip" title="70%">
+                          <div class="progress-bar bg-warning" data-width="70%"></div>
+                        </div>
+                      </td>
+                      <td><div class="badge badge-warning">In Progress</div></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        4
+                      </td>
+                      <td>Input data</td>
+                      <td class="align-middle">
+                        <div class="progress" data-height="4" data-toggle="tooltip" title="100%">
+                          <div class="progress-bar bg-success" data-width="100%"></div>
+                        </div>
+                      </td>
+                      <td><div class="badge badge-success">Completed</div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="text-dark mt-5 mb-0" style="font-family: poppins;">INFORMASI</h1>
     <div class="informasi mb-4"></div>
     <div class="row">
       <div class="col-12 col-sm-6 col-lg-4">
@@ -91,13 +171,13 @@
             <div class="d-flex justify-content-between mb-2">
               <p class="text-muted">1-Jan-2022</p>
               <div class="card-header-action">
-                <a href="#" class="btn btn-outline-primary">View All</a>
+                <a href="#" class="btn btn-outline-success">View All</a>
               </div>
             </div>
             <div class="chocolat-parent">
-              <a href="{{ 'stisla/assets/img/example-image.jpg' }}" class="chocolat-image" title="Just an example">
+              <a href="{{ 'stisla/assets/img/news/img02.jpg' }}" class="chocolat-image" title="Just an example">
                 <div>
-                  <img alt="image" src="{{ 'stisla/assets/img/example-image.jpg' }}" class="img-fluid">
+                  <img alt="image" src="{{ 'stisla/assets/img/news/img02.jpg' }}" class="img-fluid">
                 </div>
               </a>
             </div>
@@ -114,19 +194,19 @@
             <div class="d-flex justify-content-between mb-2">
               <p class="text-muted">1-Jan-2022</p>
               <div class="card-header-action">
-                <a href="#" class="btn btn-outline-primary">View All</a>
+                <a href="#" class="btn btn-outline-success">View All</a>
               </div>
             </div>
             <div class="chocolat-parent">
-              <a href="{{ 'stisla/assets/img/example-image.jpg' }}" class="chocolat-image" title="Just an example">
+              <a href="{{ 'stisla/assets/img/news/img02.jpg' }}" class="chocolat-image" title="Just an example">
                 <div>
-                  <img alt="image" src="{{ 'stisla/assets/img/example-image.jpg' }}" class="img-fluid">
+                  <img alt="image" src="{{ 'stisla/assets/img/news/img02.jpg' }}" class="img-fluid">
                 </div>
               </a>
             </div>
           </div>
           <div class="card-header d-flex flex-column">
-            <h5 class="text-dark">Title</h5>
+            <h5 class="text-dark">Title Click the picture below to see the magic!</h5>
             <p>Click the picture below to see the magic!Click the picture below to see the magic!Click the picture below to see the magic!</p>
           </div>
         </div>
@@ -137,13 +217,13 @@
             <div class="d-flex justify-content-between mb-2">
               <p class="text-muted">1-Jan-2022</p>
               <div class="card-header-action">
-                <a href="#" class="btn btn-outline-primary">View All</a>
+                <a href="#" class="btn btn-outline-success">View All</a>
               </div>
             </div>
             <div class="chocolat-parent">
-              <a href="{{ 'stisla/assets/img/example-image.jpg' }}" class="chocolat-image" title="Just an example">
+              <a href="{{ 'stisla/assets/img/news/img02.jpg' }}" class="chocolat-image" title="Just an example">
                 <div>
-                  <img alt="image" src="{{ 'stisla/assets/img/example-image.jpg' }}" class="img-fluid">
+                  <img alt="image" src="{{ 'stisla/assets/img/news/img02.jpg' }}" class="img-fluid">
                 </div>
               </a>
             </div>
