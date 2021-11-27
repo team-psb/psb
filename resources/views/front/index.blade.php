@@ -6,9 +6,9 @@
 <div class="main-content">
   <section class="section">
     <div class="col-12 mb-4">
-      <div class="hero bg-success text-white">
+      <div class="hero bg-primary text-white">
         <div class="hero-inner text-center">
-          <h2 style="font-family: poppins;">Welcome, Bujang!</h2>
+          <h2 class="poppins">Welcome, Bujang!</h2>
           <p class="lead">You almost arrived, complete the information about your account to complete registration.
             Untuk melakukan tes Tahap Ke-2 anda, Silahkan klik tombol di bawah ini !!!
           </p>
@@ -83,13 +83,13 @@
     </div>
 
     <div class="section-body">
-      <h1 class="section-title">Tes Anda</h1>
-
+      <h1 class="text-dark mt-5 mb-0 poppins">TES</h1>
+      <div class="informasi mb-4 col-1"></div>
       <div class="row">
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4>Basic DataTables</h4>
+              <h4>Daftar tes yang telah di ikuti</h4>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -162,7 +162,7 @@
       </div>
     </div>
 
-    <h1 class="text-dark mt-5 mb-0" style="font-family: poppins;">INFORMASI</h1>
+    <h1 class="text-dark mt-5 mb-0 poppins">INFORMASI</h1>
     <div class="informasi mb-4"></div>
     <div class="row">
       <div class="col-12 col-sm-6 col-lg-4">

@@ -22,6 +22,14 @@ Route::get('/home', function () {
     return view('front.index');
 });
 
+Route::get('/profile', function () {
+    return view('front.pages.profile.index');
+});
+
+Route::get('/front/qna', function () {
+    return view('front.pages.qna.index');
+});
+
 Route::get('/', function () {
     return view('admin.index');
 });
