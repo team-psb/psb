@@ -30,6 +30,10 @@ Route::get('/front/qna', function () {
     return view('front.pages.qna.index');
 });
 
+Route::get('/front/information', function () {
+    return view('front.pages.information.index');
+});
+
 Route::get('/', function () {
     return view('admin.index');
 });
