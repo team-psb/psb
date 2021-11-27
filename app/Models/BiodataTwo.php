@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class BiodataTwo extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+    // use SoftDeletes;
 
     protected   $fillable = [
         'user_id',
@@ -63,10 +63,9 @@ class BiodataTwo extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function academy()
+    public function academy_year()
     {
         return $this->belongsTo(AcademyYear::class);
     }
-
 
 }

@@ -42,4 +42,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function biodataOne()
+    {
+        return $this->hasOne(BiodataOne::class, 'user_id', 'id');
+    }
+
+    public function biodataTwo()
+    {
+        return $this->hasOne(BiodataTwo::class, 'user_id', 'id');
+    }
 }

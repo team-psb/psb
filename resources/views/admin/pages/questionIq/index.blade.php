@@ -37,7 +37,7 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 40px">
-                                                    <div class="form-check form-check-danger">
+                                                    <div class="form-check form-check-success">
                                                         <label class="form-check-label" for="masterCheck">
                                                             <input type="checkbox" class="form-check-input" id="checkall">
                                                         </label>
@@ -53,7 +53,7 @@
                                             @foreach ($iqs as $iq)
                                             <tr>
                                                 <td>
-                                                    <div class="form-check form-check-danger">
+                                                    <div class="form-check form-check-success">
                                                         <label class="form-check-label">
                                                             <input type="checkbox" class="form-check-input checkbox" name="ids[{{ $iq->id }}]" value="{{ $iq->id }}">
                                                         </label>

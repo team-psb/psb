@@ -47,7 +47,7 @@
             @endphp
             
 
-            <span class="text-black fw-bold">John Doe</span></h1>
+            <span class="text-black fw-bold">{{ Auth::user()->name }}</span></h1>
           <h3 class="welcome-sub-text">Your performance summary this week </h3>
         </li>
       </ul>

@@ -48,7 +48,7 @@ class QnaController extends Controller
 
         Qna::create($data);
 
-        return redirect()->route('qna.index');
+        return redirect()->route('qna.index')->with('success', 'Berhasil Membuat Data');
     }
 
     /**
@@ -100,7 +100,7 @@ class QnaController extends Controller
 
         Qna::findOrFail($id)->update($data);
 
-        return redirect()->route('qna.index');
+        return redirect()->route('qna.index')->with('success', 'Berhasil Mengedit Data');
     }
 
     /**
@@ -114,7 +114,7 @@ class QnaController extends Controller
         $data = Qna::findOrFail($id);
         $data->delete();
 
-        return back();
+        return back()->with('delete', 'Berhasil Menghapus Data');
     }
 
     public function deleteAll(Request $request)
@@ -128,7 +128,7 @@ class QnaController extends Controller
                 Qna::find($id)->delete();
             }
 
-            return redirect()->route('qna.index');
+            return redirect()->route('qna.index')->with('delete', 'Berhasil Menghapus Semua Data');
         }
     }
 }

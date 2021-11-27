@@ -11,6 +11,16 @@
                         <div class="card-body">
                             <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Data Question & Answer</h4>
                             <div class="row mb-4 ">
+                                @if(session('success'))
+                                    <div class="fw-bold alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+                                @if(session('delete'))
+                                    <div class="fw-bold alert alert-danger">
+                                        {{ session('delete') }}
+                                    </div>
+                                @endif
                                 <div class="d-flex justify-content-between">
                                     <button class="btn btn-danger " id="del1" type="button" aria-haspopup="true" aria-expanded="false">
                                         Hapus Semua
@@ -35,7 +45,7 @@
                                         <thead>
                                         <tr>
                                             <th>
-                                                <div class="form-check form-check-danger">
+                                                <div class="form-check form-check-success">
                                                     <label class="form-check-label">
                                                         <input type="checkbox" class="form-check-input" id="checkall">
                                                     </label>
@@ -51,7 +61,7 @@
                                             @foreach ($qnas as $qna)
                                             <tr>
                                                 <td>
-                                                    <div class="form-check form-check-danger">
+                                                    <div class="form-check form-check-success">
                                                         <label class="form-check-label">
                                                             <input type="checkbox" class="form-check-input checkbox" name="ids[{{ $qna->id }}]" value="{{ $qna->id }}">
                                                         </label>
