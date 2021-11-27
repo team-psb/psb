@@ -1,0 +1,3 @@
+[submodule "public/stisla"]
+	path = public/stisla
+	url = git@github.com:stisla/stisla.git
