@@ -142,6 +142,7 @@
                             alt="Logo-Pondok"
                             width="60"
                             class="img-fluid"
+                            id="logo-image"
                         />
                         <span class="text-logo d-none d-sm-inline" id="text-lg">
                             Pondok Informatika Al-Madinah
@@ -286,7 +287,7 @@
                                 overflow-hidden
                             "
                         >
-                            <div class="d-none d-lg-inline">
+                            <div>
                                 <img
                                     src="./assets/logo-bg.png"
                                     class="position-absolute"
@@ -619,7 +620,7 @@
                                 class="
                                     card
                                     login-form
-                                    py-3
+                                    py-4
                                     px-2
                                     shadow-lg
                                     bg-body
@@ -638,54 +639,165 @@
                                     <div class="card-text">
                                         <form action="#" method="POST">
                                             <div class="form-group">
-                                                <div class="form-floating">
-                                                    <input
-                                                        type="number"
+                                                <div class="row">
+                                                    <div
                                                         class="
-                                                            form-control
-                                                            rounded-pill
-                                                            px-4
+                                                            mb-3
+                                                            col-lg-6 col-sm-12
                                                         "
-                                                        style="
-                                                            background: #efefef;
-                                                        "
-                                                        id="floatingInput"
-                                                        placeholder="1111111111"
-                                                        name="no_hp"
-                                                    />
-                                                    <label
-                                                        for="floatingInput"
-                                                        class="px-4"
-                                                        >Nomor Handphone</label
                                                     >
+                                                        <label
+                                                            for="name"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >Nama Lengkap</label
+                                                        >
+                                                        <input
+                                                            type="text"
+                                                            class="
+                                                                form-control
+                                                                form-control-lg
+                                                                rounded-pill
+                                                            "
+                                                            style="
+                                                                font-size: 15px;
+                                                            "
+                                                            id="name"
+                                                            name="name"
+                                                            placeholder="Masukkan Nama Lengkap"
+                                                        />
+                                                    </div>
+                                                    <div
+                                                        class="
+                                                            mb-3
+                                                            col-lg-6 col-sm-12
+                                                        "
+                                                    >
+                                                        <label
+                                                            for="address"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >Alamat
+                                                            Lengkap</label
+                                                        >
+                                                        <input
+                                                            type="text"
+                                                            class="
+                                                                form-control
+                                                                form-control-lg
+                                                                rounded-pill
+                                                            "
+                                                            style="
+                                                                font-size: 15px;
+                                                            "
+                                                            id="address"
+                                                            name="address"
+                                                            placeholder="Masukkan Alamat Lengkap"
+                                                        />
+                                                    </div>
                                                 </div>
-
-                                                <div
-                                                    class="
-                                                        form-floating
-                                                        d-flex
-                                                        mt-4
-                                                    "
-                                                >
-                                                    <input
-                                                        type="password"
+                                                <div class="row">
+                                                    <div
                                                         class="
-                                                            form-control
-                                                            rounded-pill
-                                                            px-4
+                                                            mb-3
+                                                            col-lg-6 col-sm-12
                                                         "
-                                                        style="
-                                                            background: #efefef;
-                                                        "
-                                                        name="password"
-                                                        id="floatingPassword"
-                                                        placeholder="Password"
-                                                    />
-                                                    <label
-                                                        for="floatingPassword"
-                                                        class="px-4"
-                                                        >Password</label
                                                     >
+                                                        <label
+                                                            for="place_birth"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >Tempat Lahir</label
+                                                        >
+                                                        <input
+                                                            type="text"
+                                                            class="
+                                                                form-control
+                                                                form-control-lg
+                                                                rounded-pill
+                                                            "
+                                                            style="
+                                                                font-size: 15px;
+                                                            "
+                                                            id="place_birth"
+                                                            name="place_birth"
+                                                            placeholder="Masukkan Tempat Lahir"
+                                                        />
+                                                    </div>
+                                                    <div
+                                                        class="
+                                                            mb-3
+                                                            col-lg-6 col-sm-12
+                                                        "
+                                                    >
+                                                        <label
+                                                            for="date_birth"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >Tanggal
+                                                            Lahir</label
+                                                        >
+                                                        <input
+                                                            type="date"
+                                                            class="
+                                                                form-control
+                                                                form-control-lg
+                                                                rounded-pill
+                                                            "
+                                                            style="
+                                                                font-size: 15px;
+                                                                color: #145560;
+                                                            "
+                                                            id="date_birth"
+                                                            name="date_birth"
+                                                        />
+
+                                                        <div
+                                                            class="input-group"
+                                                        >
+                                                            <input
+                                                                type="number"
+                                                                aria-label="First name"
+                                                                class="
+                                                                    form-control
+                                                                    form-control-lg
+                                                                    rounded-pill
+                                                                "
+                                                                style="
+                                                                    font-size: 15px;
+                                                                    color: #145560;
+                                                                "
+                                                                max="31"
+                                                            />
+                                                            <input
+                                                                type="number"
+                                                                aria-label="Last name"
+                                                                class="
+                                                                    form-control
+                                                                "
+                                                                max="12"
+                                                            />
+                                                            <input
+                                                                type="number"
+                                                                aria-label="Last name"
+                                                                class="
+                                                                    form-control
+                                                                "
+                                                            />
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div
                                                     class="
@@ -720,7 +832,7 @@
                                                         text-uppercase
                                                         px-4
                                                         py-2
-                                                        mt-4
+                                                        col-12
                                                     "
                                                 >
                                                     Daftar
