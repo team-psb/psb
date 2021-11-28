@@ -88,7 +88,7 @@
                                                         </label>
                                                     </div>
                                                 </td>
-                                                <td>{{ $question->id }}</td>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>{{ Str::limit($question->question, 120, '...') }}</td>
                                                 <td>
                                                     <div class="d-flex">
@@ -96,7 +96,7 @@
                                                             data-remote="{{ route('personals.show', $question->id) }}"
                                                             data-toggle="modal"
                                                             data-target="#mymodal"
-                                                            data-title="Detail Soal Kepribadian {{ $question->id }}" 
+                                                            data-title="Detail Soal Kepribadian {{ $loop->iteration }}" 
                                                             class="btn btn-success align-items-center  py-2"
                                                             data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                             <i class="icon-eye"></i> Detail
@@ -105,7 +105,7 @@
                                                             data-remote="{{ route('personals.edit', $question->id) }}"
                                                             data-toggle="modal"
                                                             data-target="#mymodal"
-                                                            data-title="Edit Soal Kepribadian {{ $question->id }}" 
+                                                            data-title="Edit Soal Kepribadian {{ $loop->iteration }}" 
                                                             class="btn ms-1 btn-primary  py-2"
                                                             data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
                                                             <i class="icon-pencil"></i> Edit

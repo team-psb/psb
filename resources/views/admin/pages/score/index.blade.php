@@ -53,6 +53,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($scores as $score)
                                     <tr>
                                         <td>
                                             <div class="form-check form-check-success">
@@ -61,17 +62,20 @@
                                                 </label>
                                             </div>
                                         </td>
-                                        <td>1</td>
-                                        <td>Jacob</td>
-                                        <td class="text-success"> 73 <i class="ti-arrow-up"></i></td>
-                                        <td class="text-success"> 183 <i class="ti-arrow-up"></i></td>
-                                        <td><label class="badge badge-success">Lolos</label></td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $score->user->biodataOne->full_name }}</td>
+                                        <td class="text-success"> {{ $score->score_question_iq }}</td>
+                                        <td class="text-success"> {{ $score->score_question_personal }}</td>
+                                        <td>
+                                            <span class="badge badge-{{ $score->status == 'lolos' ? 'success':'' }}{{ $score->status == 'tidak' ? 'danger':'' }}">{{ $score->status }}</span>
+                                        </td>
                                         <td>
                                             <div class="btn-wrapper">
                                                 <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

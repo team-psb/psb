@@ -45,11 +45,32 @@ class User extends Authenticatable
 
     public function biodataOne()
     {
-        return $this->hasOne(BiodataOne::class, 'user_id', 'id');
+        return $this->hasOne(BiodataOne::class, 'user_id');
     }
 
     public function biodataTwo()
     {
-        return $this->hasOne(BiodataTwo::class, 'user_id', 'id');
+        return $this->hasOne(BiodataTwo::class, 'user_id');
     }
+
+    public function score()
+    {
+        return $this->hasOne(Score::class, 'user_id');
+    }
+
+    public function video()
+    {
+        return $this->hasOne(Video::class, 'user_id');
+    }
+
+    // public function interview()
+    // {
+    //     return $this->hasOne(Interview::class, 'user_id');
+    // }
+
+    public function pass()
+    {
+        return $this->hasOne(Pass::class, 'user_id');
+    }
+
 }

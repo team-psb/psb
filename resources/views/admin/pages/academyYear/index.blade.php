@@ -100,7 +100,7 @@
                                                     </label>
                                                 </div>
                                             </td>
-                                            <td>{{ $academy->id }}</td>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $academy->year }}</td>
                                             <td>{{ $academy->stage->name }}</td>
                                             <td>

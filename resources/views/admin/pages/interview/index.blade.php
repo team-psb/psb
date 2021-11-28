@@ -52,6 +52,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($interviews as $interview)
                                     <tr>
                                         <td>
                                             <div class="form-check form-check-success">
@@ -60,23 +61,26 @@
                                                 </label>
                                             </div>
                                         </td>
-                                        <td>1</td>
-                                        <td>Jacob</td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $interview->user->biodataOne->full_name }}</td>
                                         <td>
                                             <div class="input-group">
-                                                <input value="085023234534" id="copy" disabled type="text" class="form-control fw-bold">
+                                                <input value="{{ $interview->user->phone }}" id="copy" disabled type="text" class="form-control fw-bold">
                                                 <div class="input-group-append">
                                                     <button onclick="myFunction()"  class="input-group-text btn-success text-light">copy</button>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td><label class="badge badge-success">Lolos</label></td>
+                                        <td>
+                                            <span class="badge badge-{{ $interview->status == 'lolos' ? 'success':'' }}{{ $interview->status == 'tidak' ? 'danger':'' }}">{{ $interview->status }}</span>
+                                        </td>
                                         <td>
                                             <div class="btn-wrapper">
                                                 <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

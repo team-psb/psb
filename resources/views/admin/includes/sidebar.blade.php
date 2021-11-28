@@ -14,25 +14,25 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/scores">
+            <a class="nav-link" href="{{ route('scores.index') }}">
                 <i class="menu-icon  mdi mdi-numeric-9-plus-box-multiple-outline "></i>
                 <span class="menu-title">Nilai</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/videos">
+            <a class="nav-link" href="{{ route('videos.index') }}">
                 <i class="menu-icon  mdi mdi-video "></i>
                 <span class="menu-title">Video</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/interviews">
+            <a class="nav-link" href="{{ route('interviews.index') }}">
                 <i class="menu-icon  mdi mdi-microphone-variant"></i>
                 <span class="menu-title">Wawancara</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/passes">
+            <a class="nav-link" href="{{ route('passes.index') }}">
                 <i class="menu-icon  mdi mdi-account-check"></i>
                 <span class="menu-title">Lolos</span>
             </a>

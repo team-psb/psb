@@ -2,13 +2,20 @@
 
 use App\Http\Controllers\Admin\AcademyYearController;
 use App\Http\Controllers\Admin\BiodataController;
+use App\Http\Controllers\Admin\InterviewController;
+use App\Http\Controllers\Admin\PassController;
 use App\Http\Controllers\Admin\QnaController;
 use App\Http\Controllers\Admin\SchduleController;
+use App\Http\Controllers\Admin\ScoreController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TestIqController;
 use App\Http\Controllers\Admin\TestPersonalController;
 use Illuminate\Support\Facades\Route;
 Use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Exam\BiodataOneController;
+use App\Http\Controllers\Exam\BiodataTwoController;
+use App\Http\Controllers\Exam\TestController;
+use App\Http\Controllers\Exam\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +30,7 @@ Use App\Http\Controllers\Auth\AuthController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landingpage_2.BizLand.index');
 });
 
 
@@ -57,7 +64,7 @@ Route::group(['prefix', ''], function (){
 });
 
 // User
-Route::group(['prefix' => '{name} => Auth::user()->name','middleware'=>['auth','register']],function () {
+Route::group(['prefix' => 'user','middleware'=>['auth','register']],function () {
     Route::get('/home', function () {
         return view('front.index');
     })->name('dash-user');
@@ -79,6 +86,21 @@ Route::group(['prefix' => '{name} => Auth::user()->name','middleware'=>['auth','
     });
 });
 
+// proses seleksi
+Route::group(['prefix' => 'test','middleware'=>['auth','register']], function () {
+    Route::get('/step-one',[BiodataOneController::class,'index'])->name('step-one');
+    Route::post('/step-one',[BiodataOneController::class,'store'])->name('step-one-store');
+    Route::get('/step-two',[BiodataTwoController::class,'index'])->name('step-two');
+    Route::post('/step-two',[BiodataTwoController::class,'store'])->name('step-two-store');
+    Route::get('/step-tree/test-iq',[TestController::class,'iq'])->name('step-tree-iq');
+    Route::post('/step-tree/test-iq',[TestController::class,'iqstore'])->name('iq-store');
+    Route::get('/step-tree/test-personal',[TestController::class,'personal'])->name('step-tree-personal');
+    Route::post('/step-tree/test-personal',[TestController::class,'personalstore'])->name('personal-store');
+    Route::get('/step-four/link-video',[VideoController::class,'video'])->name('step-four-video');
+    Route::post('/step-four/link-video',[VideoController::class,'videostore'])->name('step-four-video.store');
+    Route::get('/step-five/interview',[VideoController::class,'interview'])->name('step-five-interview');
+});
+
 //Admin
 Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/dashboard', function () {
@@ -86,6 +108,14 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     })->name('dashboard');
 
     Route::get('biodatas', [BiodataController::class, 'index'])->name('biodata.index');
+    
+    Route::get('scores', [ScoreController::class, 'index'])->name('scores.index');
+    
+    Route::get('videos', [VideoController::class, 'index'])->name('videos.index');
+    
+    Route::get('interviews', [InterviewController::class, 'index'])->name('interviews.index');
+    
+    Route::get('passes', [PassController::class, 'index'])->name('passes.index');
     
     Route::resource('iqs', TestIqController::class);
     Route::post('iqs/delete/{id}', [TestIqController::class, 'destroy'])->name('iqs.delete');

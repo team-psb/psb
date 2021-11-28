@@ -89,7 +89,7 @@
                                                         </label>
                                                     </div>
                                                 </td>
-                                                <td>{{ $iq->id }}</td>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>{{ Str::limit( $iq->question, 100, '...') }}</td>
                                                 <td class="text-uppercase">{{ $iq->answer_key }}</td>
                                                 <td>
@@ -98,7 +98,7 @@
                                                             data-remote="{{ route('iqs.show', $iq->id) }}"
                                                             data-toggle="modal"
                                                             data-target="#mymodal"
-                                                            data-title="Detail Soal IQ {{ $iq->id }}" 
+                                                            data-title="Detail Soal IQ {{ $loop->iteration }}" 
                                                             class="btn btn-success align-items-center  py-2"
                                                             data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                             <i class="icon-eye"></i> Detail
@@ -107,7 +107,7 @@
                                                             data-remote="{{ route('iqs.edit', $iq->id) }}"
                                                             data-toggle="modal"
                                                             data-target="#mymodal"
-                                                            data-title="Edit Soal IQ {{ $iq->id }}" 
+                                                            data-title="Edit Soal IQ {{ $loop->iteration }}" 
                                                             class="btn ms-1 btn-primary  py-2"
                                                             data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
                                                             <i class="icon-pencil"></i> Edit

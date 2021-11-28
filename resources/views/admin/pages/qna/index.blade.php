@@ -87,7 +87,7 @@
                                                         </label>
                                                     </div>
                                                 </td>
-                                                <td>{{ $qna->id }}</td>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>{{ Str::limit($qna->question, 56, '...') }}</td>
                                                 <td>{{ Str::limit($qna->answer, 56, '...') }}</td>
                                                 <td>
@@ -96,7 +96,7 @@
                                                             data-remote="{{ route('qna.show', $qna->id) }}"
                                                             data-toggle="modal"
                                                             data-target="#mymodal"
-                                                            data-title="Detail Pertanyaan {{ $qna->id }}" 
+                                                            data-title="Detail Pertanyaan {{ $loop->iteration }}" 
                                                             class="btn btn-success align-items-center  py-2"
                                                             data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                             <i class="icon-eye"></i> Detail
@@ -105,7 +105,7 @@
                                                             data-remote="{{ route('qna.edit', $qna->id) }}"
                                                             data-toggle="modal"
                                                             data-target="#mymodal"
-                                                            data-title="Edit Pertanyaan {{ $qna->id }}" 
+                                                            data-title="Edit Pertanyaan {{ $loop->iteration }}" 
                                                             class="btn ms-1 btn-primary  py-2"
                                                             data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
                                                             <i class="icon-pencil"></i> Edit

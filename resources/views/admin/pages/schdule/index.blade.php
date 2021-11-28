@@ -89,7 +89,7 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>{{ $schdule->id }}</td>
+                                                    <td>{{ $loop->iteration }}</td>
                                                     <td>{{ Str::limit($schdule->title, 50, '...') }}</td>
                                                     <td>{{ Str::limit($schdule->content, 50, '...') }}</td>
                                                     <td>
@@ -98,7 +98,7 @@
                                                                 data-remote="{{ route('schdules.show', $schdule->id) }}"
                                                                 data-toggle="modal"
                                                                 data-target="#mymodal"
-                                                                data-title="Detail Informasi {{ $schdule->id }}" 
+                                                                data-title="Detail Informasi {{ $loop->iteration }}" 
                                                                 class="btn btn-success align-items-center  py-2"
                                                                 data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                                 <i class="icon-eye"></i> Detail
@@ -107,7 +107,7 @@
                                                                 data-remote="{{ route('schdules.edit', $schdule->id) }}"
                                                                 data-toggle="modal"
                                                                 data-target="#mymodal"
-                                                                data-title="Edit Informasi {{ $schdule->id }}" 
+                                                                data-title="Edit Informasi {{ $loop->iteration }}" 
                                                                 class="btn ms-1 btn-primary  py-2"
                                                                 data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
                                                                 <i class="icon-pencil"></i> Edit

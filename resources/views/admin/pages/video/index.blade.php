@@ -52,6 +52,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($videos as $video)
                                     <tr>
                                         <td>
                                             <div class="form-check form-check-success">
@@ -60,16 +61,19 @@
                                                 </label>
                                             </div>
                                         </td>
-                                        <td>1</td>
-                                        <td>Jacob</td>
-                                        <td class="text-success"> <a href="https://youtu.be/Yjwvi6R4yNw">https://youtu.be/Yjwvi6R4yNw</a></td>
-                                        <td><label class="badge badge-success">Lolos</label></td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $video->user->biodataOne->full_name }}</td>
+                                        <td class="text-success"> <a href="{{ $video->url }}" target="_blank">{{ $video->url }}</a></td>
+                                        <td>
+                                            <span class="badge badge-{{ $video->status == 'lolos' ? 'success':'' }}{{ $video->status == 'tidak' ? 'danger':'' }}">{{ $video->status }}</span>
+                                        </td>
                                         <td>
                                             <div class="btn-wrapper">
                                                 <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
