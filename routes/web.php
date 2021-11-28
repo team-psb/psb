@@ -30,9 +30,30 @@ Route::get('/front/qna', function () {
     return view('front.pages.qna.index');
 });
 
-Route::get('/front/information', function () {
+Route::get('/front/informasi', function () {
     return view('front.pages.information.index');
 });
+
+Route::get('/tes/tahap-pertama', function () {
+    return view('front.pages.biodata.index');
+});
+
+Route::get('/tes/tahap-kedua', function () {
+    return view('front.pages.tesIq.index');
+});
+
+Route::get('/tes/tahap-ketiga', function () {
+    return view('front.pages.tesPersonality.index');
+});
+
+Route::get('/tes/tahap-keempat', function () {
+    return view('front.pages.video.index');
+});
+
+Route::get('/tes/tahap-kelima', function () {
+    return view('front.pages.wawancara.index');
+});
+
 
 Route::get('/', function () {
     return view('admin.index');
