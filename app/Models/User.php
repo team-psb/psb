@@ -63,11 +63,6 @@ class User extends Authenticatable
         return $this->hasOne(Video::class, 'user_id');
     }
 
-    // public function interview()
-    // {
-    //     return $this->hasOne(Interview::class, 'user_id');
-    // }
-
     public function pass()
     {
         return $this->hasOne(Pass::class, 'user_id');

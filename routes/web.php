@@ -86,7 +86,7 @@ Route::group(['prefix' => 'user','middleware'=>['auth','register']],function () 
     });
 });
 
-// proses seleksi
+// process selection
 Route::group(['prefix' => 'test','middleware'=>['auth','register']], function () {
     Route::get('/step-one',[BiodataOneController::class,'index'])->name('step-one');
     Route::post('/step-one',[BiodataOneController::class,'store'])->name('step-one-store');
@@ -108,8 +108,19 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     })->name('dashboard');
 
     Route::get('biodatas', [BiodataController::class, 'index'])->name('biodata.index');
+    Route::get('biodatas/{id}', [BiodataController::class, 'show'])->name('biodata.show');
+    Route::get('biodatas/edit/{id}', [BiodataController::class, 'edit'])->name('biodata.edit');
+    Route::post('biodatas/edit/{id}', [BiodataController::class, 'update'])->name('biodata.update');
+    Route::post('biodatas/delete/{id}', [BiodataController::class, 'delete'])->name('biodata.delete');
+    Route::post('biodatas/delete', [BiodataController::class, 'deleteAll'])->name('biodata.deleteAll');
+    Route::post('biodatas/pass/all', [BiodataController::class, 'passAll'])->name('biodata.passAll');
+    Route::post('biodatas/nonpass/all', [BiodataController::class, 'nonpassAll'])->name('biodata.nonpassAll');
     
     Route::get('scores', [ScoreController::class, 'index'])->name('scores.index');
+    Route::post('scores/delete/{id}', [ScoreController::class, 'delete'])->name('score.delete');
+    Route::post('scores/delete', [ScoreController::class, 'deleteAll'])->name('score.deleteAll');
+    Route::post('scores/pass/all', [ScoreController::class, 'passAll'])->name('score.passAll');
+    Route::post('scores/nonpass/all', [ScoreController::class, 'nonpassAll'])->name('score.nonpassAll');
     
     Route::get('videos', [VideoController::class, 'index'])->name('videos.index');
     

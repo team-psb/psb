@@ -20,9 +20,9 @@
                                         Aksi Masal
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
-                                        <a class="dropdown-item" href="#">Lolos</a>
-                                        <a class="dropdown-item" href="#">Tidak Lolos</a>
-                                        <a class="dropdown-item" href="#">Hapus</a>
+                                        <a class="dropdown-item" href="#" id="lolos">Lolos</a>
+                                        <a class="dropdown-item" href="#" id="no-lolos">Tidak Lolos</a>
+                                        <a class="dropdown-item" href="#" id="del">Hapus</a>
                                     </div>
                                 </div>
                                 <div class="btn-group dropleft d-inline float-right">
@@ -33,62 +33,94 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="table-responsive">
-                        <table id="myTable" class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <div class="form-check form-check-success">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" id="checkall">
-                                            </label>
-                                        </div>
-                                    </th>
-                                    <th>No</th>
-                                    <th>Nama</th>
-                                    <th>No WA</th>
-                                    <th>Umur</th>
-                                    <th>Pendidikan</th>
-                                    <th>Hafalan</th>
-                                    <th>Status</th>
-                                    <th width="10%">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($biodatas as $biodata)
-                                <tr>
-                                    <td>
-                                        <div class="form-check form-check-success">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input checkbox">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $biodata->user->biodataOne->full_name }}</td>
-                                    <td>{{ $biodata->user->biodataOne->no_wa }}</td>
-                                    <td>{{ $biodata->user->biodataOne->age }}</td>
-                                    <td>{{ $biodata->last_education }}</td>
-                                    <td>{{ $biodata->memorization }}</td>
-                                    <td>
-                                        <span class="badge badge-{{ $biodata->status == 'lolos' ? 'success':'' }}{{ $biodata->status == 'tidak' ? 'danger':'' }}">{{ $biodata->status }}</span>
-                                    </td>
-                                    <td>
-                                        <div class="btn-wrapper">
-                                            <a href="#" class="btn btn-success align-items-center  py-2"><i class="icon-eye"></i> Detail</a>
-                                            <a href="#" class="btn btn-primary  py-2"><i class="icon-pencil"></i> Edit</a>
-                                            <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        </div>
-                    </div>
+                        <form method="POST">
+                            @csrf
+                            <button class="d-none" formaction="{{ route('biodata.passAll') }}" id="lolos2"></button>
+                            <button class="d-none" formaction="{{ route('biodata.nonpassAll') }}" id="no-lolos2"></button>
+                            <button class="d-none" formaction="{{ route('biodata.deleteAll') }}" id="del2"></button>
+                            <div class="table-responsive">
+                                <table id="myTable" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="form-check form-check-success">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input" id="checkall">
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th>No</th>
+                                            <th>Nama</th>
+                                            <th>No WA</th>
+                                            <th>Umur</th>
+                                            <th>Pendidikan</th>
+                                            <th>Hafalan</th>
+                                            <th>Status</th>
+                                            <th width="10%">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($biodatas as $biodata)
+                                        <tr>
+                                            <td>
+                                                <div class="form-check form-check-success">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input checkbox" name="ids[{{ $biodata->id }}]" value="{{ $biodata->id }}">
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $biodata->user->biodataOne->full_name }}</td>
+                                            <td>{{ $biodata->user->biodataOne->no_wa }}</td>
+                                            <td>{{ $biodata->user->biodataOne->age }}</td>
+                                            <td>{{ $biodata->last_education }}</td>
+                                            <td>{{ $biodata->memorization }}</td>
+                                            <td>
+                                                <span class="badge badge-{{ $biodata->status == 'lolos' ? 'success':'' }}{{ $biodata->status == 'tidak' ? 'danger':'' }}">{{ $biodata->status }}</span>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex">
+                                                    <a href="#mymodal"
+                                                        data-remote="{{ route('biodata.show', $biodata->id) }}"
+                                                        data-toggle="modal"
+                                                        data-target="#mymodal"
+                                                        data-title="Detail Biodata {{ $loop->iteration }}" 
+                                                        class="btn btn-success align-items-center  py-2"
+                                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
+                                                        <i class="icon-eye"></i> Detail
+                                                    </a>
+                                                    <a href="{{ route('biodata.edit', $biodata->id) }}"
+                                                        class="btn ms-1 btn-primary  py-2"
+                                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                                        <i class="icon-pencil"></i> Edit
+                                                    </a>
+                                                    <button formaction="{{ route('biodata.delete', $biodata->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
 @endsection
+
+@push('after-script')
+    <script>
+        $('#lolos').click(function(){
+            $('#lolos2').click();
+        });
+        $('#no-lolos').click(function(){
+            $('#no-lolos2').click();
+        });
+        $('#del').click(function(){
+            $('#del2').click();
+        });
+    </script>
+@endpush
