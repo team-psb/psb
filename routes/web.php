@@ -1,21 +1,20 @@
 <?php
 
 use App\Http\Controllers\Admin\AcademyYearController;
-use App\Http\Controllers\Admin\BiodataController;
-use App\Http\Controllers\Admin\InterviewController;
-use App\Http\Controllers\Admin\PassController;
 use App\Http\Controllers\Admin\QnaController;
 use App\Http\Controllers\Admin\SchduleController;
-use App\Http\Controllers\Admin\ScoreController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TestIqController;
 use App\Http\Controllers\Admin\TestPersonalController;
 use Illuminate\Support\Facades\Route;
-Use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Exam\BiodataOneController;
-use App\Http\Controllers\Exam\BiodataTwoController;
+use App\Http\Controllers\Admin\BiodataController;
+use App\Http\Controllers\Admin\ScoreController;
+use App\Http\Controllers\Admin\PassController;
 use App\Http\Controllers\Exam\TestController;
 use App\Http\Controllers\Exam\VideoController;
+use App\Http\Controllers\Exam\BiodataOneController;
+use App\Http\Controllers\Exam\BiodataTwoController;
+use App\Http\Controllers\Admin\InterviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,12 +26,51 @@ use App\Http\Controllers\Exam\VideoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/home', function () {
+    return view('front.index');
+});
+
+Route::get('/profile', function () {
+    return view('front.pages.profile.index');
+});
+
+Route::get('/front/qna', function () {
+    return view('front.pages.qna.index');
+});
+
+Route::get('/front/informasi', function () {
+    return view('front.pages.information.index');
+});
+
+Route::get('/tes/tahap-pertama', function () {
+    return view('front.pages.biodata.index');
+});
+
+Route::get('/tes/tahap-kedua', function () {
+    return view('front.pages.tesIq.index');
+});
+
+Route::get('/tes/tahap-ketiga', function () {
+    return view('front.pages.tesPersonality.index');
+});
+
+Route::get('/tes/tahap-keempat', function () {
+    return view('front.pages.video.index');
+});
+
+Route::get('/tes/tahap-kelima', function () {
+    return view('front.pages.wawancara.index');
+});
 
 
 Route::get('/', function () {
-    return view('landingpage_2.BizLand.index');
+    return view('admin.index');
 });
 
+
+Route::get('/registrant', function () {
+    return view('admin.pages.biodata.index');
+});
 
 Route::get('/scores', function () {
     return view('admin.pages.score.index');
@@ -51,40 +89,13 @@ Route::get('/passes', function () {
 });
 
 
-// Auth
-// Route::get('/', [AuthController::class, 'login'])->name('login');
-// Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('auth');
-// Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::group(['prefix', ''], function (){
-    Route::get('/login',[AuthController::class,'login'])->name('login');
-    Route::post('/login-proses',[AuthController::class,'loginProses'])->name('login-proses');
-    Route::get('/register',[AuthController::class,'register'])->name('register');
-    Route::post('/register-proses',[AuthController::class,'registerProses'])->name('register-proses');
-    Route::post('/logout',[AuthController::class,'logout'])->name('logout');
-});
+Route::resource('iqs', TestIqController::class);
+Route::post('iqs/delete/{id}', [TestIqController::class, 'destroy'])->name('iqs.delete');
+Route::post('iqs/delete', [TestIqController::class, 'deleteAll'])->name('iqs.deleteAll');
 
-// User
-Route::group(['prefix' => 'user','middleware'=>['auth','register']],function () {
-    Route::get('/home', function () {
-        return view('front.index');
-    })->name('dash-user');
-    
-    Route::get('/profile', function () {
-        return view('front.pages.profile.index');
-    });
-    
-    Route::get('/qna', function () {
-        return view('front.pages.qna.index');
-    });
-    
-    Route::get('/information', function () {
-        return view('front.pages.information.index');
-    });
-    
-    Route::get('/testiq', function () {
-        return view('front.pages.tesIq.index');
-    });
-});
+Route::resource('personals', TestPersonalController::class);
+Route::post('personals/delete/{id}', [TestPersonalController::class, 'destroy'])->name('personals.delete');
+Route::post('personals/delete', [TestPersonalController::class, 'deleteAll'])->name('personals.deleteAll');
 
 // process selection
 Route::group(['prefix' => 'test','middleware'=>['auth','register']], function () {

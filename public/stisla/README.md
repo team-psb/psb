@@ -60,6 +60,7 @@
 Several quick start options are available:
 
 - Clone the repo: `git clone https://github.com/stisla/stisla.git`
+- Run `cd` to the newly created `/stisla` directory
 - Install [yarn](https://yarnpkg.com) first if you don't have it in your machine
 - Run the `yarn` command
 - Done
@@ -85,8 +86,8 @@ You can find the Stisla road map here: [Stisla Roadmap](https://trello.com/b/M8T
 - [Laravel UI Preset](https://github.com/poteto-dev/laravel-ui-stisla)
 - [Jekyll](https://github.com/SunDi3yansyah/stisla-jekyll)
 - [YII2](https://github.com/piantgrunger/yii2-stisla)
-
-- Django (let's contribute)
+- [Django](https://github.com/bimbims125/stisla-django.git)
+- 
 - and more...
 
 ## Creator
@@ -130,6 +131,9 @@ Stisla is better because of the [contributors](https://github.com/stisla/stisla/
     <td align="center"><a href="https://sundi3yansyah.com"><img src="https://avatars2.githubusercontent.com/u/3952281?v=4" width="100px;" alt=""/><br /><sub><b>Cahyadi Triyansyah</b></sub></a><br /><a href="https://github.com/stisla/stisla/commits?author=SunDi3yansyah" title="Code">💻</a></td>
     <td align="center"><a href="https://harshal.one"><img src="https://avatars0.githubusercontent.com/u/20720521?s=460&v=4" width="100px;" alt=""/><br /><sub><b>Harshal Parekh</b></sub></a><br /><a href="https://github.com/stisla/stisla/commits?author=Harshal96" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/ppabcd"><img src="https://avatars0.githubusercontent.com/u/7419422?s=460&u=a8afa0f92608d126296e79f2ff0314a8fc794fd1&v=4" width="100px;" alt=""/><br /><sub><b>Reza Juliandri</b></sub></a><br /><a href="https://github.com/stisla/stisla/commits?author=ppabcd" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/shailesh-ladumor"><img src=https://avatars.githubusercontent.com/u/16555999?v=4" width="100px;" alt=""/><br /><sub><b>Shailesh Ladumor </b></sub></a><br /><a href="https://github.com/stisla/stisla/commits?author=shailesh-ladumor" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/masif088"><img src=https://avatars.githubusercontent.com/u/43848973?v=4" width="100px;" alt=""/><br /><sub><b>masif088</b></sub></a><br /><a href="https://github.com/stisla/stisla/commits?author=masif088" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/BlazerYoo"><img src=https://avatars.githubusercontent.com/u/69565038?v=4" width="100px;" alt=""/><br /><sub><b>Boaz Yoo</b></sub></a><br /><a href="https://github.com/stisla/stisla/commits?author=BlazerYoo" title="Code">💻</a></td>
   </tr>
 </table>
 
@@ -140,10 +144,17 @@ Stisla is better because of the [contributors](https://github.com/stisla/stisla/
 ## Contributing
 Want to help Stisla get better? Let's contribute and follow our [contribution guide](https://github.com/stisla/stisla/blob/master/CONTRIBUTING.md).
 
-### Showcase
+## Showcase
 
 - [app.whatspie.com](https://app.whatspie.com) - Enterprise ready unofficial WhatsApp API and BOT Service, allow you to sending notification to customer using WhatsApp API from your App
+- [kredibel.co.id](https://kredibel.co.id)- Kredibel is a site that can identify whether someone has the potential to commit fraud or not
 
+## Tutorials
+- [Stisla Introduction by Nauval](https://www.youtube.com/watch?v=dvnqtOUvGFc) (🇮🇩)
+- [How to setup Stisla in Laravel by Laravel Package Tutorial](https://www.youtube.com/playlist?list=PL0wCC44AhrC14hkSMdczlVaZvnD0WSdGv) (🏴󠁧󠁢󠁥󠁮󠁧󠁿)
+- [Integrate Stisla with Laravel by Mulai Dari NULL](https://www.youtube.com/watch?v=4-kdAxALCPc) (🇮🇩)
+- [Integrate Stisla with CodeIgniter 4 by Juvinal Man](https://www.youtube.com/watch?v=np4LsQNcJbg) (🇮🇩)
+- [Integrate Stisla with CodeIgniter 4 by YukCoding Media](https://www.youtube.com/watch?v=Kre5kJIufhw) (🇮🇩)
 
 ## License
 Stisla is under the [MIT License](LICENSE)
