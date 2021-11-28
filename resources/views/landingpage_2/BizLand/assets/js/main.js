@@ -103,7 +103,7 @@
             document.getElementById("link5").style.color = "#fff";
             document.getElementById("link6").style.color = "#fff";
         } else {
-            document.getElementById("header").style.background = "";
+            document.getElementById("header").style.background = "transparent";
             document.getElementById("header").style.boxShadow = "";
             document.getElementById("text-lg").style.color = "";
             document.getElementById("link1").style.color = "";

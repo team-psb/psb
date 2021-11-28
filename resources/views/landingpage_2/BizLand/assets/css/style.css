@@ -473,13 +473,14 @@ h6 {
 }
 .login-banner img {
     top: 110px;
-    left: -11px;
+    left: -27px;
     z-index: 1;
 }
 
 .login-form {
     background-image: linear-gradient(to right bottom, #37b091, #44708b);
     border-radius: 20px;
+    position: relative;
 }
 
 .sign-in {
