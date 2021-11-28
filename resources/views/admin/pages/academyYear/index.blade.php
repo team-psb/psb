@@ -11,6 +11,36 @@
                     <div class="card-body">
                         <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Data Tahun Ajaran</h4>
                         <div class="row mb-4 ">
+                            {{-- message --}}
+                            @if (session('success-create'))
+                                <div class="alert alert-success alert-dismissible show fade">
+                                    <div class="alert-body fw-bold">
+                                        <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                            <span>&times;</span>
+                                        </button>
+                                        {{ session('success-create') }}
+                                    </div>
+                                </div>
+                            @elseif(session('success-delete'))
+                                <div class="alert alert-danger alert-dismissible show fade">
+                                    <div class="alert-body fw-bold">
+                                        <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                            <span>&times;</span>
+                                        </button>
+                                        {{ session('success-delete') }}
+                                    </div>
+                                </div>
+                            @elseif(session('success-edit'))
+                                <div class="alert alert-warning alert-dismissible show fade">
+                                    <div class="alert-body fw-bold">
+                                        <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                            <span>&times;</span>
+                                        </button>
+                                        {{ session('success-edit') }}
+                                    </div>
+                                </div>
+                            @else
+                            @endif
                             <div class="d-flex justify-content-between">
                                 <div class="dropdown">
                                     <button class="btn btn-danger dropdown-toggle text-white" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,7 +77,7 @@
                                     <thead>
                                         <tr>
                                             <th>
-                                                <div class="form-check form-check-danger">
+                                                <div class="form-check form-check-success">
                                                     <label class="form-check-label">
                                                         <input type="checkbox" class="form-check-input" id="checkall">
                                                     </label>
@@ -64,13 +94,13 @@
                                         @foreach ($academies as $academy)
                                         <tr>
                                             <td>
-                                                <div class="form-check form-check-danger">
+                                                <div class="form-check form-check-success">
                                                     <label class="form-check-label">
                                                         <input type="checkbox" class="form-check-input checkbox" name="ids[{{ $academy->id }}]" value="{{ $academy->id }}">
                                                     </label>
                                                 </div>
                                             </td>
-                                            <td>{{ $academy->id }}</td>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $academy->year }}</td>
                                             <td>{{ $academy->stage->name }}</td>
                                             <td>

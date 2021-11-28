@@ -65,7 +65,7 @@ class TestIqController extends Controller
             'answer_key' => $request->answer_key
         ]);
 
-        return redirect()->route('iqs.index');
+        return redirect()->route('iqs.index')->with('success-create', 'Berhasil Membuat Data');
     }
 
     /**
@@ -134,7 +134,7 @@ class TestIqController extends Controller
             'answer_key' => $request->answer_key
         ]);
 
-        return redirect()->route('iqs.index');
+        return redirect()->route('iqs.index')->with('success-edit', 'Berhasil Mengedit Data');
     }
 
     /**
@@ -149,7 +149,7 @@ class TestIqController extends Controller
 
         $data->delete();
 
-        return back();
+        return back()->with('success-delete', 'Berhasil Menghapus Data');
     }
 
     public function deleteAll(Request $request)
@@ -163,7 +163,7 @@ class TestIqController extends Controller
                 QuestionIq::find($id)->delete();
             }
 
-            return redirect()->route('iqs.index');
+            return redirect()->route('iqs.index')->with('success-delete', 'Berhasil Menghapus Semua Data');
         }
     }
 }

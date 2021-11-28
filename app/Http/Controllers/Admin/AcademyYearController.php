@@ -52,7 +52,7 @@ class AcademyYearController extends Controller
 
         AcademyYear::create($data);
 
-        return redirect()->route('academies.index');
+        return redirect()->route('academies.index')->with('success-create', 'Berhasil Membuat Data');
     }
 
     /**
@@ -106,7 +106,7 @@ class AcademyYearController extends Controller
 
         AcademyYear::findOrFail($id)->update($data);
 
-        return redirect()->route('academies.index');
+        return redirect()->route('academies.index')->with('success-edit', 'Berhasil Mengedit Data');
     }
 
     /**
@@ -120,7 +120,7 @@ class AcademyYearController extends Controller
         $data = AcademyYear::findOrFail($id);
         $data->delete();
 
-        return back();
+        return back()->with('delete', 'Berhasil Menghapus Data');
     }
 
     public function setStatus(Request $request, $id)
@@ -134,7 +134,7 @@ class AcademyYearController extends Controller
 
         $item->save();
 
-        return redirect()->route('academies.index');
+        return redirect()->route('academies.index')->with('success-edit', 'Berhasil Mengganti Status Data');
     }
 
     public function activeAll(Request $request)
@@ -144,7 +144,7 @@ class AcademyYearController extends Controller
             foreach ($ids as $id ) {
                 AcademyYear::find($id)->update(['is_active'=>'1']);
             }
-            return redirect()->route('academies.index');
+            return redirect()->route('academies.index')->with('success-edit', 'Berhasil Mengaktifkan Semua Data');
         }else{
             return redirect()->back();
         }
@@ -157,7 +157,7 @@ class AcademyYearController extends Controller
             foreach ($ids as $id ) {
                 AcademyYear::find($id)->update(['is_active'=>'0']);
             }
-            return redirect()->route('academies.index');
+            return redirect()->route('academies.index')->with('success-delete', 'Berhasil Menonaktifkan Semua Data');
         }else{
             return redirect()->back();
         }
@@ -174,7 +174,7 @@ class AcademyYearController extends Controller
                 AcademyYear::find($id)->delete();
             }
 
-            return redirect()->route('academies.index');
+            return redirect()->route('academies.index')->with('success-delete', 'Berhasil Menghapus Semua Data');
         }
     }
 }

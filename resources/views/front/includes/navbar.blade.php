@@ -5,11 +5,11 @@
           <div class="navbar-nav">
             <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
           </div>
-          <div class="nav-collapse">
+          {{-- <div class="nav-collapse">
             <a class="sidebar-gone-show nav-collapse-toggle nav-link" href="#">
               <i class="fas fa-ellipsis-v"></i>
             </a>
-          </div>
+          </div> --}}
           <form class="form-inline ml-auto">
             <ul class="navbar-nav">
               <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
@@ -87,9 +87,16 @@
                   <i class="fas fa-cog"></i> Settings
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item has-icon text-danger">
-                  <i class="fas fa-sign-out-alt"></i> Logout
-                </a>
+                  <form method="POST" action="{{ url('/logout') }}">
+                    @csrf
+                        <a 
+                        class="dropdown-item has-icon text-danger" 
+                        href="{{ url('/logout') }}"
+                        onclick="event.preventDefault();
+                        this.closest('form').submit();">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                </form>
               </div>
             </li>
           </ul>

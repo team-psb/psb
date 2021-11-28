@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Biodata Pendaftar')
 
 @section('content')
 <div class="main-panel">
@@ -36,73 +36,52 @@
                         <div class="table-responsive">
                         <table id="myTable" class="table table-hover">
                             <thead>
-                            <tr>
-                                <th>
-                                    <div class="form-check form-check-danger">
-                                        <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" id="checkall">
-                                        </label>
-                                    </div>
-                                </th>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>No WA</th>
-                                <th>Umur</th>
-                                <th>Pendidikan</th>
-                                <th>Hafalan</th>
-                                <th>Status</th>
-                                <th width="10%">Action</th>
-                            </tr>
+                                <tr>
+                                    <th>
+                                        <div class="form-check form-check-success">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" id="checkall">
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>No WA</th>
+                                    <th>Umur</th>
+                                    <th>Pendidikan</th>
+                                    <th>Hafalan</th>
+                                    <th>Status</th>
+                                    <th width="10%">Action</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>
-                                    <div class="form-check form-check-danger">
-                                        <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input checkbox">
-                                        </label>
-                                    </div>
-                                </td>
-                                <td>1</td>
-                                <td>Jacob</td>
-                                <td>Jacob</td>
-                                <td>Jacob</td>
-                                <td>Photoshop</td>
-                                <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
-                                <td><label class="badge badge-danger">Tidak Lolos</label></td>
-                                <td>
-                                    <div class="btn-wrapper">
-                                        <a href="#" class="btn btn-success align-items-center  py-2"><i class="icon-eye"></i> Detail</a>
-                                        <a href="#" class="btn btn-primary  py-2"><i class="icon-pencil"></i> Edit</a>
-                                        <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            
-                            {{-- <tr>
-                                <td>Messsy</td>
-                                <td>Flash</td>
-                                <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
-                                <td><label class="badge badge-warning">In progress</label></td>
-                            </tr>
-                            <tr>
-                                <td>John</td>
-                                <td>Premier</td>
-                                <td class="text-danger"> 35.00% <i class="ti-arrow-down"></i></td>
-                                <td><label class="badge badge-info">Fixed</label></td>
-                            </tr>
-                            <tr>
-                                <td>Peter</td>
-                                <td>After effects</td>
-                                <td class="text-success"> 82.00% <i class="ti-arrow-up"></i></td>
-                                <td><label class="badge badge-success">Completed</label></td>
-                            </tr>
-                            <tr>
-                                <td>Dave</td>
-                                <td>53275535</td>
-                                <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
-                                <td><label class="badge badge-warning">In progress</label></td>
-                            </tr> --}}
+                                @foreach ($biodatas as $biodata)
+                                <tr>
+                                    <td>
+                                        <div class="form-check form-check-success">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input checkbox">
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $biodata->user->biodataOne->full_name }}</td>
+                                    <td>{{ $biodata->user->biodataOne->no_wa }}</td>
+                                    <td>{{ $biodata->user->biodataOne->age }}</td>
+                                    <td>{{ $biodata->last_education }}</td>
+                                    <td>{{ $biodata->memorization }}</td>
+                                    <td>
+                                        <span class="badge badge-{{ $biodata->status == 'lolos' ? 'success':'' }}{{ $biodata->status == 'tidak' ? 'danger':'' }}">{{ $biodata->status }}</span>
+                                    </td>
+                                    <td>
+                                        <div class="btn-wrapper">
+                                            <a href="#" class="btn btn-success align-items-center  py-2"><i class="icon-eye"></i> Detail</a>
+                                            <a href="#" class="btn btn-primary  py-2"><i class="icon-pencil"></i> Edit</a>
+                                            <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         </div>

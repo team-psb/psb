@@ -11,6 +11,36 @@
                         <div class="card-body">
                             <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Data Question & Answer</h4>
                             <div class="row mb-4 ">
+                                {{-- message --}}
+                                @if (session('success-create'))
+                                    <div class="alert alert-success alert-dismissible show fade">
+                                        <div class="alert-body fw-bold">
+                                            <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                            <span>&times;</span>
+                                            </button>
+                                            {{ session('success-create') }}
+                                        </div>
+                                    </div>
+                                @elseif(session('success-delete'))
+                                    <div class="alert alert-danger alert-dismissible show fade">
+                                        <div class="alert-body fw-bold">
+                                            <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                            <span>&times;</span>
+                                            </button>
+                                            {{ session('success-delete') }}
+                                        </div>
+                                    </div>
+                                @elseif(session('success-edit'))
+                                    <div class="alert alert-warning alert-dismissible show fade">
+                                        <div class="alert-body fw-bold">
+                                            <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                            <span>&times;</span>
+                                            </button>
+                                            {{ session('success-edit') }}
+                                        </div>
+                                    </div>
+                                @else
+                                @endif
                                 <div class="d-flex justify-content-between">
                                     <button class="btn btn-danger " id="del1" type="button" aria-haspopup="true" aria-expanded="false">
                                         Hapus Semua
@@ -35,7 +65,7 @@
                                         <thead>
                                         <tr>
                                             <th>
-                                                <div class="form-check form-check-danger">
+                                                <div class="form-check form-check-success">
                                                     <label class="form-check-label">
                                                         <input type="checkbox" class="form-check-input" id="checkall">
                                                     </label>
@@ -51,13 +81,13 @@
                                             @foreach ($qnas as $qna)
                                             <tr>
                                                 <td>
-                                                    <div class="form-check form-check-danger">
+                                                    <div class="form-check form-check-success">
                                                         <label class="form-check-label">
                                                             <input type="checkbox" class="form-check-input checkbox" name="ids[{{ $qna->id }}]" value="{{ $qna->id }}">
                                                         </label>
                                                     </div>
                                                 </td>
-                                                <td>{{ $qna->id }}</td>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>{{ Str::limit($qna->question, 56, '...') }}</td>
                                                 <td>{{ Str::limit($qna->answer, 56, '...') }}</td>
                                                 <td>
@@ -66,7 +96,7 @@
                                                             data-remote="{{ route('qna.show', $qna->id) }}"
                                                             data-toggle="modal"
                                                             data-target="#mymodal"
-                                                            data-title="Detail Pertanyaan {{ $qna->id }}" 
+                                                            data-title="Detail Pertanyaan {{ $loop->iteration }}" 
                                                             class="btn btn-success align-items-center  py-2"
                                                             data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                             <i class="icon-eye"></i> Detail
@@ -75,7 +105,7 @@
                                                             data-remote="{{ route('qna.edit', $qna->id) }}"
                                                             data-toggle="modal"
                                                             data-target="#mymodal"
-                                                            data-title="Edit Pertanyaan {{ $qna->id }}" 
+                                                            data-title="Edit Pertanyaan {{ $loop->iteration }}" 
                                                             class="btn ms-1 btn-primary  py-2"
                                                             data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
                                                             <i class="icon-pencil"></i> Edit

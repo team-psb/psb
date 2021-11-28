@@ -31,7 +31,7 @@
                                 <thead>
                                     <tr>
                                         <th>
-                                            <div class="form-check form-check-danger">
+                                            <div class="form-check form-check-success">
                                                 <label class="form-check-label">
                                                     <input type="checkbox" class="form-check-input" id="checkall">
                                                 </label>
@@ -46,17 +46,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($passes as $pass)
                                     <tr>
                                         <td>
-                                            <div class="form-check form-check-danger">
+                                            <div class="form-check form-check-success">
                                                 <label class="form-check-label">
                                                     <input type="checkbox" class="form-check-input checkbox">
                                                 </label>
                                             </div>
                                         </td>
-                                        <td>1</td>
-                                        <td>Jacob</td>
-                                        <td>20</td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $pass->user->biodataOne->full_name }}</td>
+                                        <td>{{ $pass->user->biodataOne->age }}</td>
                                         <td>Sleman</td>
                                         <td>Yoygakarta</td>
                                         <td>
@@ -65,6 +66,7 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

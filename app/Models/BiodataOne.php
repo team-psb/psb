@@ -9,22 +9,24 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class BiodataOne extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+    // use SoftDeletes;
 
+    protected $table = 'biodata_ones';
     protected $fillable = [
         'user_id',
         'academy_year_id',
-        'category_id',
-        'name',
+        'family',
+        'full_name',
         'age',
         'birth_date',
         'no_wa',
         'gender',
+        'stage_id'
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id', 'id');
     }
 
     public function category()
