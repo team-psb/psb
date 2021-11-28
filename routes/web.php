@@ -32,21 +32,16 @@ Route::get('/front/qna', function () {
     return view('front.pages.qna.index');
 });
 
-// <<<<<<< HEAD
-// =======
-// Route::get('/front/information', function () {
-//     return view('front.pages.information.index');
-// });
+Route::get('/front/information', function () {
+    return view('front.pages.information.index');
+});
 
-// Route::get('/', function () {
-//     return view('admin.index');
-// });
-// >>>>>>> 3296ca4f4989e99119ef99b7e3b57e88edf0608f
-
-
+Route::get('/front/testiq', function () {
+    return view('front.pages.tesIq.index');
+});
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
 
 
