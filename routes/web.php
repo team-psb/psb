@@ -20,25 +20,7 @@ Use App\Http\Controllers\Auth\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/home', function () {
-    return view('front.index');
-});
 
-Route::get('/profile', function () {
-    return view('front.pages.profile.index');
-});
-
-Route::get('/front/qna', function () {
-    return view('front.pages.qna.index');
-});
-
-Route::get('/front/information', function () {
-    return view('front.pages.information.index');
-});
-
-Route::get('/front/testiq', function () {
-    return view('front.pages.tesIq.index');
-});
 
 Route::get('/', function () {
     return view('welcome');
@@ -75,10 +57,26 @@ Route::group(['prefix', ''], function (){
 });
 
 // User
-Route::group(['prefix' => 'user','middleware'=>['auth','register']],function () {
+Route::group(['prefix' => '{name} => Auth::user()->name','middleware'=>['auth','register']],function () {
     Route::get('/home', function () {
         return view('front.index');
     })->name('dash-user');
+    
+    Route::get('/profile', function () {
+        return view('front.pages.profile.index');
+    });
+    
+    Route::get('/qna', function () {
+        return view('front.pages.qna.index');
+    });
+    
+    Route::get('/information', function () {
+        return view('front.pages.information.index');
+    });
+    
+    Route::get('/testiq', function () {
+        return view('front.pages.tesIq.index');
+    });
 });
 
 //Admin
