@@ -50,7 +50,7 @@ class SchduleController extends Controller
         
         Schdule::create($data);
 
-        return redirect()->route('schdules.index');
+        return redirect()->route('schdules.index')->with('success-create', 'Berhasil Membuat Data');
     }
 
     /**
@@ -103,7 +103,7 @@ class SchduleController extends Controller
         $data['image'] = $request->file('image')->store('assets/information','public');
         Schdule::findOrFail($id)->update($data);
 
-        return redirect()->route('schdules.index');
+        return redirect()->route('schdules.index')->with('success-edit', 'Berhasil Mengedit Data');
     }
 
     /**
@@ -117,7 +117,7 @@ class SchduleController extends Controller
         $data = Schdule::findOrFail($id);
         $data->delete();
 
-        return back();
+        return back()->with('success-delete', 'Berhasil Menghapus Semua Data');
     }
 
     public function deleteAll(Request $request)
@@ -131,7 +131,7 @@ class SchduleController extends Controller
                 Schdule::find($id)->delete();
             }
 
-            return redirect()->route('schdules.index');
+            return redirect()->route('schdules.index')->with('success-delete', 'Berhasil Menghapus Semua Data');
         }
     }
 }

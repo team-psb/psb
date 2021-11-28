@@ -11,15 +11,35 @@
                         <div class="card-body">
                             <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Data Question & Answer</h4>
                             <div class="row mb-4 ">
-                                @if(session('success'))
-                                    <div class="fw-bold alert alert-success">
-                                        {{ session('success') }}
+                                {{-- message --}}
+                                @if (session('success-create'))
+                                    <div class="alert alert-success alert-dismissible show fade">
+                                        <div class="alert-body fw-bold">
+                                            <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                            <span>&times;</span>
+                                            </button>
+                                            {{ session('success-create') }}
+                                        </div>
                                     </div>
-                                @endif
-                                @if(session('delete'))
-                                    <div class="fw-bold alert alert-danger">
-                                        {{ session('delete') }}
+                                @elseif(session('success-delete'))
+                                    <div class="alert alert-danger alert-dismissible show fade">
+                                        <div class="alert-body fw-bold">
+                                            <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                            <span>&times;</span>
+                                            </button>
+                                            {{ session('success-delete') }}
+                                        </div>
                                     </div>
+                                @elseif(session('success-edit'))
+                                    <div class="alert alert-warning alert-dismissible show fade">
+                                        <div class="alert-body fw-bold">
+                                            <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                            <span>&times;</span>
+                                            </button>
+                                            {{ session('success-edit') }}
+                                        </div>
+                                    </div>
+                                @else
                                 @endif
                                 <div class="d-flex justify-content-between">
                                     <button class="btn btn-danger " id="del1" type="button" aria-haspopup="true" aria-expanded="false">

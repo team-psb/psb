@@ -67,7 +67,7 @@ class TestPersonalController extends Controller
             'poin_e' => $request->poin_e
         ]);
 
-        return redirect()->route('personals.index');
+        return redirect()->route('personals.index')->with('success-create', 'Berhasil Membuat Data');
     }
 
     /**
@@ -139,7 +139,7 @@ class TestPersonalController extends Controller
             'poin_e' => $request->poin_e
         ]);
 
-        return redirect()->route('personals.index');
+        return redirect()->route('personals.index')->with('success-edit', 'Berhasil Mengedit Data');
     }
 
     /**
@@ -154,7 +154,7 @@ class TestPersonalController extends Controller
 
         $data->delete();
 
-        return back();
+        return back()->with('success-create', 'Berhasil Menghapus Data');
     }
 
     public function deleteAll(Request $request)
@@ -168,7 +168,7 @@ class TestPersonalController extends Controller
                 QuestionPersonal::find($id)->delete();
             }
 
-            return redirect()->route('personals.index');
+            return redirect()->route('personals.index')->with('success-delete', 'Berhasil Menghapus Semua Data');
         }
     }
 }
