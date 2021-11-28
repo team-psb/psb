@@ -605,8 +605,20 @@
                     </div>
                 </div>
             </section> -->
+
             <section id="regis" class="d-flex align-items-center">
                 <div class="container" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Background Image -->
+                    <div class="d-none d-lg-inline">
+                        <img
+                            src="./assets/logo-bg.png"
+                            alt="logo"
+                            class="position-absolute img-fluid"
+                            width="1100"
+                            style="z-index: -1; top: 0px; left: 600px"
+                        />
+                    </div>
+                    <!-- End Background Image -->
                     <div class="row">
                         <div
                             class="
@@ -642,7 +654,7 @@
                                                 <div class="row">
                                                     <div
                                                         class="
-                                                            mb-3
+                                                            mb-4
                                                             col-lg-6 col-sm-12
                                                         "
                                                     >
@@ -672,7 +684,7 @@
                                                     </div>
                                                     <div
                                                         class="
-                                                            mb-3
+                                                            mb-4
                                                             col-lg-6 col-sm-12
                                                         "
                                                     >
@@ -705,7 +717,7 @@
                                                 <div class="row">
                                                     <div
                                                         class="
-                                                            mb-3
+                                                            mb-4
                                                             col-lg-6 col-sm-12
                                                         "
                                                     >
@@ -735,7 +747,7 @@
                                                     </div>
                                                     <div
                                                         class="
-                                                            mb-3
+                                                            mb-4
                                                             col-lg-6 col-sm-12
                                                         "
                                                     >
@@ -750,7 +762,7 @@
                                                             Lahir</label
                                                         >
                                                         <input
-                                                            type="date"
+                                                            type="text"
                                                             class="
                                                                 form-control
                                                                 form-control-lg
@@ -762,67 +774,125 @@
                                                             "
                                                             id="date_birth"
                                                             name="date_birth"
+                                                            placeholder="01 Desember 2001"
                                                         />
-
-                                                        <div
-                                                            class="input-group"
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div
+                                                        class="
+                                                            mb-4
+                                                            col-lg-6 col-sm-12
+                                                        "
+                                                    >
+                                                        <label
+                                                            for="password"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >Password</label
                                                         >
-                                                            <input
-                                                                type="number"
-                                                                aria-label="First name"
+                                                        <input
+                                                            type="password"
+                                                            class="
+                                                                form-control
+                                                                form-control-lg
+                                                                rounded-pill
+                                                            "
+                                                            style="
+                                                                font-size: 15px;
+                                                            "
+                                                            id="password"
+                                                            name="password"
+                                                            placeholder="Masukkan Password"
+                                                        />
+                                                        <div
+                                                            class="
+                                                                d-flex
+                                                                justify-content-between
+                                                            "
+                                                        >
+                                                            <div
                                                                 class="
-                                                                    form-control
-                                                                    form-control-lg
-                                                                    rounded-pill
+                                                                    d-flex
+                                                                    align-items-center
+                                                                    px-2
+                                                                    pt-1
                                                                 "
                                                                 style="
-                                                                    font-size: 15px;
-                                                                    color: #145560;
+                                                                    font-size: 12px;
+                                                                    color: #efefef;
                                                                 "
-                                                                max="31"
-                                                            />
-                                                            <input
-                                                                type="number"
-                                                                aria-label="Last name"
+                                                            >
+                                                                <input
+                                                                    type="checkbox"
+                                                                    onclick="showFunction()"
+                                                                />&nbsp; Show
+                                                                Password
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="
+                                                            mb-4
+                                                            col-lg-6 col-sm-12
+                                                        "
+                                                    >
+                                                        <label
+                                                            for="confirm_password"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >Konfirmasi
+                                                            Password</label
+                                                        >
+                                                        <input
+                                                            type="password"
+                                                            class="
+                                                                form-control
+                                                                form-control-lg
+                                                                rounded-pill
+                                                            "
+                                                            style="
+                                                                font-size: 15px;
+                                                                color: #145560;
+                                                            "
+                                                            id="confirm_password"
+                                                            name="confirm_password"
+                                                            placeholder="Masukkan Ulang Password"
+                                                        />
+                                                        <div
+                                                            class="
+                                                                d-flex
+                                                                justify-content-between
+                                                            "
+                                                        >
+                                                            <div
                                                                 class="
-                                                                    form-control
+                                                                    d-flex
+                                                                    align-items-center
+                                                                    px-2
+                                                                    pt-1
                                                                 "
-                                                                max="12"
-                                                            />
-                                                            <input
-                                                                type="number"
-                                                                aria-label="Last name"
-                                                                class="
-                                                                    form-control
+                                                                style="
+                                                                    font-size: 12px;
+                                                                    color: #efefef;
                                                                 "
-                                                            />
+                                                            >
+                                                                <input
+                                                                    type="checkbox"
+                                                                    onclick="seeFunction()"
+                                                                />&nbsp; Show
+                                                                Password
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div
-                                                    class="
-                                                        d-flex
-                                                        justify-content-between
-                                                        mt-2
-                                                    "
-                                                >
-                                                    <div
-                                                        class="
-                                                            d-flex
-                                                            align-items-center
-                                                            px-3
-                                                        "
-                                                        style="
-                                                            font-size: 12px;
-                                                            color: #efefef;
-                                                        "
-                                                    >
-                                                        <input
-                                                            type="checkbox"
-                                                            onclick="myFunction()"
-                                                        />&nbsp; Show Password
-                                                    </div>
-                                                </div>
+
                                                 <br />
                                                 <button
                                                     class="
@@ -2484,6 +2554,22 @@
             // Show Password
             function myFunction() {
                 var x = document.getElementById("floatingPassword");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+            function showFunction() {
+                var x = document.getElementById("password");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+            function seeFunction() {
+                var x = document.getElementById("confirm_password");
                 if (x.type === "password") {
                     x.type = "text";
                 } else {
