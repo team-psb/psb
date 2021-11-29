@@ -16,16 +16,18 @@
             mohon maaf atas ketidaknyamanannya bagi yang gagal submit data pada tes seleksi tahap pertama, Silahkan anda coba kembali dan jika masih ada kendala silahkan hunbunggi kami melalui chat yang tersedia atau melalui media sosial kami.
           </div>
         </div>
-    @endif
-      <div class="hero bg-primary text-white">
-        <div class="hero-inner text-center">
-          <h2 class="poppins">Welcome, Bujang!</h2>
-          <p class="lead">You almost arrived, complete the information about your account to complete registration.
-            Untuk melakukan tes Tahap Ke-2 anda, Silahkan klik tombol di bawah ini !!!
-          </p>
-          <p class="lead"></p>
-          <div class="mt-4">
-            <a href="/tes/tahap-pertama" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="far fa-user"></i>Ikut Tes</a>
+      @endif
+      <div class="row">
+        <div class="hero bg-success text-white">
+          <div class="hero-inner text-center">
+            <h2 class="poppins">Welcome, Bujang!</h2>
+            <p class="lead">You almost arrived, complete the information about your account to complete registration.
+              Untuk melakukan tes Tahap Ke-2 anda, Silahkan klik tombol di bawah ini !!!
+            </p>
+            <p class="lead"></p>
+            <div class="mt-4">
+              <a href="/tes/tahap-pertama" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="far fa-user"></i>Ikut Tes</a>
+            </div>
           </div>
         </div>
       </div>
@@ -95,7 +97,7 @@
 
     <div class="section-body">
       <h1 class="text-dark mt-5 mb-0 poppins">TES</h1>
-      <div class="informasi mb-4 col-1"></div>
+      <div class="informasi mb-4 col-12 col-lg-1"></div>
       <div class="row">
         <div class="col-12">
           <div class="card">
@@ -174,7 +176,7 @@
     </div>
 
     <h1 class="text-dark mt-5 mb-0 poppins">INFORMASI</h1>
-    <div class="informasi mb-4"></div>
+    <div class="informasi mb-4 col-12 col-lg-2"></div>
     <div class="row">
       <div class="col-12 col-sm-6 col-lg-4">
         <div class="card">
@@ -186,9 +188,9 @@
               </div>
             </div>
             <div class="chocolat-parent">
-              <a href="{{ 'stisla/assets/img/news/img02.jpg' }}" class="chocolat-image" title="Just an example">
+              <a href="{{ asset('stisla/assets/img/news/img02.jpg') }}" class="chocolat-image" title="Just an example">
                 <div>
-                  <img alt="image" src="{{ 'stisla/assets/img/news/img02.jpg' }}" class="img-fluid">
+                  <img alt="image" src="{{ asset('stisla/assets/img/news/img02.jpg') }}" class="img-fluid">
                 </div>
               </a>
             </div>
@@ -209,9 +211,9 @@
               </div>
             </div>
             <div class="chocolat-parent">
-              <a href="{{ 'stisla/assets/img/news/img02.jpg' }}" class="chocolat-image" title="Just an example">
+              <a href="{{ asset('stisla/assets/img/news/img02.jpg') }}" class="chocolat-image" title="Just an example">
                 <div>
-                  <img alt="image" src="{{ 'stisla/assets/img/news/img02.jpg' }}" class="img-fluid">
+                  <img alt="image" src="{{ asset('stisla/assets/img/news/img02.jpg') }}" class="img-fluid">
                 </div>
               </a>
             </div>
@@ -232,9 +234,9 @@
               </div>
             </div>
             <div class="chocolat-parent">
-              <a href="{{ 'stisla/assets/img/news/img02.jpg' }}" class="chocolat-image" title="Just an example">
+              <a href="{{ asset('stisla/assets/img/news/img02.jpg') }}" class="chocolat-image" title="Just an example">
                 <div>
-                  <img alt="image" src="{{ 'stisla/assets/img/news/img02.jpg' }}" class="img-fluid">
+                  <img alt="image" src="{{ asset('stisla/assets/img/news/img02.jpg') }}" class="img-fluid">
                 </div>
               </a>
             </div>
