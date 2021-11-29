@@ -23,16 +23,16 @@ class AuthController extends Controller
 
     public function login()
     {
-        return view('auth.login');
+        return redirect()->route('home');
     }
 
     public function loginProses(Request $request)
     {
-        $data=$request->only('phone','password');
+        $data = $request->only('phone','password');
 
         if (Auth::attempt($data)) {
             $role_user=User::where('phone','=',$request->phone)->get();
-            $role=$role_user->pluck('role')->first();
+            $role = $role_user->pluck('role')->first();
 
             $user_id = $role_user->pluck('id')->first();
             // $biodata_2 = BiodataTwo::where('id' ==)
@@ -50,15 +50,11 @@ class AuthController extends Controller
                 if ( count($user_bio) > 0) {
                     return redirect()->route('dash-user');
                 }else{
-                    // return redirect()->back();
-                    // return redirect()->route('dash-user')->with('gagal_tes','hello');
-                    return back()->with([
-                        'error' => 'gagal'
-                    ]);
+                    return redirect()->route('dash-user')->with('gagal_tes','hello');
                 }
             }
         }else{
-            return redirect()->route('login')->with('sukses-danger','email atau password salah.');
+            return redirect()->route('login');
         }
     }
 
@@ -116,7 +112,7 @@ class AuthController extends Controller
         // Mail::to('bangfkr002@gmail.com')->send(new VerifikasiEmail($user));
         // return redirect()->back();
 
-        return redirect('/login')->with('sukses-daftar','Selamat anda berhasil mendaftar, silahkan login untuk memulai pendaftaran !');
+        return redirect('/')->with('sukses-daftar','Selamat anda berhasil mendaftar, silahkan login untuk memulai pendaftaran !');
     }
 
     public function logout()

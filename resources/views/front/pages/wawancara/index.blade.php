@@ -16,7 +16,7 @@
                       <div class="col-md-7 m-auto col-sm-6 text-center title">
                         <i class="fas fa-microphone" style="font-size: 5em;"></i>
                         <h4 class="my-3">
-                          <strong>Selamat {{ Auth::user() }} !</strong>
+                          <strong>Selamat <span class="text-uppercase">{{ Auth::user()->name }}</span> </strong>
                           <strong>Anda Akan Kami Hubungi Untuk Melakukan Wawancara</strong>
                         </h4>
                         <strong class="d-block my-3">Pastikan no wa yang ada di profil anda <br> sudah benar dan bisa kami hubunggi.</strong>

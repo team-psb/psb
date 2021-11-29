@@ -47,7 +47,7 @@
                             
                             <div class="form-group">
                                 <label for="full_name">Nama Lengkap</label>
-                                <input id="full_name" type="text"  class="form-control" name="full_nama" tabindex="1" required autofocus placeholder="contoh : Budi Sasono">
+                                <input id="full_name" type="text"  class="form-control" name="full_name" tabindex="1" required autofocus placeholder="contoh : Budi Sasono">
                             </div>
             
                             <div class="form-group">

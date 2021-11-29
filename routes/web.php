@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TestIqController;
 use App\Http\Controllers\Admin\TestPersonalController;
 use App\Http\Controllers\Admin\BiodataController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ScoreController;
 use App\Http\Controllers\Admin\PassController;
 use App\Http\Controllers\Admin\InterviewController;
@@ -30,18 +31,18 @@ use App\Http\Controllers\Exam\BiodataTwoController;
 */
 Route::get('/', function () {
     return view('landingpage_2.BizLand.index');
-});
+})->name('home');
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){
-    Route::get('/home', function () {
+    Route::get('home', function () {
         return view('front.index');
     })->name('dash-user');
     
-    Route::get('/profile', function () {
+    Route::get('profile', function () {
         return view('front.pages.profile.index');
     });
     
-    Route::get('/qna', function () {
+    Route::get('qna', function () {
         return view('front.pages.qna.index');
     });
     
@@ -49,19 +50,19 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], functio
         return view('front.pages.information.index');
     });
     
-    Route::get('/tes/tahap-pertama', function () {
+    Route::get('tes/tahap-pertama', function () {
         return view('front.pages.biodata.index');
     });
     
-    Route::get('/tes/tahap-kedua', function () {
+    Route::get('tes/tahap-kedua', function () {
         return view('front.pages.tesIq.index');
     });
     
-    Route::get('/tes/tahap-ketiga', function () {
+    Route::get('tes/tahap-ketiga', function () {
         return view('front.pages.tesPersonality.index');
     });
     
-    Route::get('/tes/tahap-keempat', function () {
+    Route::get('tes/tahap-keempat', function () {
         return view('front.pages.video.index');
     });
     
@@ -100,9 +101,7 @@ Route::group(['prefix' => 'test','middleware'=>['auth','register']], function ()
 
 //Admin
 Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
-    Route::get('/dashboard', function () {
-        return view('admin.index');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('biodatas', [BiodataController::class, 'index'])->name('biodatas.index');
     Route::get('biodatas/{id}', [BiodataController::class, 'show'])->name('biodatas.show');

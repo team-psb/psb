@@ -12,8 +12,8 @@
         <title>Pondok Informatika Almadinah</title>
 
         <!-- Favicons -->
-        <link href="/assets/Logo-Pondok.png" rel="icon" />
-        <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+        <link href="assets/Logo-Pondok.png" rel="icon" />
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
         <!-- Google Fonts -->
         <link
@@ -22,30 +22,30 @@
         />
 
         <!-- Vendor CSS Files -->
-        <link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
+        <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
         <link
-            href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+            href="assets/vendor/bootstrap/css/bootstrap.min.css"
             rel="stylesheet"
         />
         <link
-            href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+            href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
             rel="stylesheet"
         />
         <link
-            href="/assets/vendor/boxicons/css/boxicons.min.css"
+            href="assets/vendor/boxicons/css/boxicons.min.css"
             rel="stylesheet"
         />
         <link
-            href="/assets/vendor/glightbox/css/glightbox.min.css"
+            href="assets/vendor/glightbox/css/glightbox.min.css"
             rel="stylesheet"
         />
         <link
-            href="/assets/vendor/swiper/swiper-bundle.min.css"
+            href="assets/vendor/swiper/swiper-bundle.min.css"
             rel="stylesheet"
         />
 
         <!-- Template Main CSS File -->
-        <link href="/assets/css/style.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -64,7 +64,14 @@
                             >pondokitalmadinah@gmail.com</a
                         ></i
                     >
-                    <i class="bi bi-phone d-flex align-items-center ms-4 d-none d-lg-inline"
+                    <i
+                        class="
+                            bi bi-phone
+                            d-flex
+                            align-items-center
+                            ms-4
+                            d-none d-lg-inline
+                        "
                         ><span>085 725 249 265</span></i
                     >
                 </div>
@@ -82,15 +89,36 @@
                 </div>
             </div>
         </section>
+
+        <!-- ======= Background Image ======= -->
+        <div class="d-none d-lg-inline">
+            <img
+                src="./assets/logo-bg.png"
+                alt="logo"
+                class="position-absolute img-fluid"
+                width="1100"
+                style="z-index: -1; top: 120px; left: -67vh"
+            />
+        </div>
+        <div class="d-none d-lg-inline">
+            <img
+                src="./assets/bawah.png"
+                alt="bg-bawah"
+                class="position-absolute img-fluid"
+                width="400"
+                style="z-index: -1; bottom: -120px; left: -5px"
+            />
+        </div>
         <div class="d-none d-lg-inline">
             <img
                 src="./assets/Atas.png"
                 class="position-absolute"
-                alt="logo"
+                alt="bg-atas"
                 width="700"
-                style="z-index: -1; top: 0px; right: -30px;"
+                style="z-index: -1; top: 0px; right: -30px"
             />
         </div>
+        <!-- ======= End Background Image ======= -->
 
         <!-- WA Live -->
         <a id="Wa" class="wa" title="Chat Live Wa" href="#">
@@ -114,6 +142,7 @@
                             alt="Logo-Pondok"
                             width="60"
                             class="img-fluid"
+                            id="logo-image"
                         />
                         <span class="text-logo d-none d-sm-inline" id="text-lg">
                             Pondok Informatika Al-Madinah
@@ -121,7 +150,7 @@
                     </a>
                 </h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html" class="logo"><img src="/assets/img/logo.png" alt=""></a>-->
+                <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
 
                 <nav id="navbar" class="navbar">
                     <ul>
@@ -172,36 +201,8 @@
         </header>
         <!-- End Header -->
 
-        <!-- ======= Background Image ======= -->
-        <div
-            class="position-relative d-none d-lg-inline"
-            style="z-index: -1; top: -20px; left: -67vh"
-        >
-            <img
-                src="./assets/logo-bg.png"
-                alt="logo"
-                class="position-absolute img-fluid"
-                width="1100"
-            />
-        </div>
-        <div
-            class="position-relative d-none d-lg-inline"
-            style="z-index: -1; bottom: -350px; left: -5vh"
-        >
-            <img
-                src="./assets/bawah.png"
-                alt="logo"
-                class="position-absolute img-fluid"
-                width="400"
-            />
-        </div>
-        <!-- ======= End Background Image ======= -->
-
         <!-- ======= Home Section ======= -->
-        <section
-            id="home"
-            class="d-flex align-items-center justify-content-center"
-        >
+        <section id="home" class="d-flex align-items-center">
             <div class="container" data-aos="zoom-out" data-aos-delay="100">
                 <div class="row">
                     <div class="col-md-6 col-sm-12 mb-5 mb-lg-0 mb-md-0">
@@ -224,7 +225,7 @@
                         </div>
 
                         <div class="mt-5">
-                            <a href="#regis" class="text-decoration-none">
+                            <a href="#alur" class="text-decoration-none">
                                 <button
                                     class="
                                         btn
@@ -263,6 +264,7 @@
                             mb-5 mb-lg-0
                         "
                     >
+                        <!-- Animate -->
                         <img
                             src="./assets/people.png"
                             alt="people"
@@ -278,12 +280,27 @@
                                 card
                                 login-form
                                 py-3
-                                px-2
+                                px-3
                                 shadow-lg
                                 bg-body
                                 float-md-end
+                                overflow-hidden
                             "
                         >
+                            <div>
+                                <img
+                                    src="./assets/logo-bg.png"
+                                    class="position-absolute"
+                                    alt="logo"
+                                    width="400"
+                                    style="
+                                        z-index: -0;
+                                        top: 157px;
+                                        left: -150px;
+                                    "
+                                />
+                            </div>
+
                             <div class="card-body">
                                 <h1
                                     class="
@@ -361,10 +378,10 @@
                                                         color: #efefef;
                                                     "
                                                 >
-                                                    <input
-                                                        type="checkbox"
-                                                        onclick="myFunction()"
-                                                    />&nbsp; Show Password
+                                                <input
+                                                    type="checkbox"
+                                                    onclick="myFunction()"
+                                                />&nbsp; Show Password
                                                 </div>
                                             </div>
                                             <br />
@@ -523,7 +540,7 @@
                             data-aos-delay="100"
                         >
                             <img
-                                src="/assets/img/about.jpg"
+                                src="assets/img/about.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -591,8 +608,20 @@
                     </div>
                 </div>
             </section> -->
+
             <section id="regis" class="d-flex align-items-center">
                 <div class="container" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Background Image -->
+                    <div class="d-none d-lg-inline">
+                        <img
+                            src="./assets/logo-bg.png"
+                            alt="logo"
+                            class="position-absolute img-fluid"
+                            width="1100"
+                            style="z-index: -1; top: 0px; left: 600px"
+                        />
+                    </div>
+                    <!-- End Background Image -->
                     <div class="row">
                         <div
                             class="
@@ -606,7 +635,7 @@
                                 class="
                                     card
                                     login-form
-                                    py-3
+                                    py-4
                                     px-2
                                     shadow-lg
                                     bg-body
@@ -617,87 +646,441 @@
                                         class="
                                             card-title
                                             text-center text-white
-                                            mb-5
                                         "
                                     >
                                         Formulir Peserta
                                     </h1>
+                                    <h6
+                                        class="
+                                            mb-5
+                                            card-subtitle
+                                            text-center text-white
+                                        "
+                                        style="font-size: 12px"
+                                    >
+                                        Mohon isi formulir pendaftaran dengan
+                                        lengkap dan benar
+                                    </h6>
                                     <div class="card-text">
-                                        <form action="#" method="POST">
+                                        <form action="{{ route('register-proses') }}" method="POST">
+                                            @csrf
+                                            @method('POST')
                                             <div class="form-group">
-                                                <div class="form-floating">
-                                                    <input
-                                                        type="number"
-                                                        class="
-                                                            form-control
-                                                            rounded-pill
-                                                            px-4
-                                                        "
-                                                        style="
-                                                            background: #efefef;
-                                                        "
-                                                        id="floatingInput"
-                                                        placeholder="1111111111"
-                                                        name="no_hp"
-                                                    />
-                                                    <label
-                                                        for="floatingInput"
-                                                        class="px-4"
-                                                        >Nomor Handphone</label
-                                                    >
-                                                </div>
-
-                                                <div
-                                                    class="
-                                                        form-floating
-                                                        d-flex
-                                                        mt-4
-                                                    "
-                                                >
-                                                    <input
-                                                        type="password"
-                                                        class="
-                                                            form-control
-                                                            rounded-pill
-                                                            px-4
-                                                        "
-                                                        style="
-                                                            background: #efefef;
-                                                        "
-                                                        name="password"
-                                                        id="floatingPassword"
-                                                        placeholder="Password"
-                                                    />
-                                                    <label
-                                                        for="floatingPassword"
-                                                        class="px-4"
-                                                        >Password</label
-                                                    >
-                                                </div>
-                                                <div
-                                                    class="
-                                                        d-flex
-                                                        justify-content-between
-                                                        mt-2
-                                                    "
-                                                >
+                                                <div class="row">
                                                     <div
                                                         class="
-                                                            d-flex
-                                                            align-items-center
-                                                            px-3
-                                                        "
-                                                        style="
-                                                            font-size: 12px;
-                                                            color: #efefef;
+                                                            mb-4
+                                                            col-lg-6 col-sm-12
                                                         "
                                                     >
+                                                        <label
+                                                            for="name"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >Nama
+                                                            Pengguna</label
+                                                        >
                                                         <input
-                                                            type="checkbox"
-                                                            onclick="myFunction()"
-                                                        />&nbsp; Show Password
+                                                            type="text"
+                                                            class="
+                                                                form-control
+                                                                form-control-lg
+                                                                rounded-pill
+                                                            "
+                                                            style="
+                                                                font-size: 15px;
+                                                            "
+                                                            id="name"
+                                                            name="name"
+                                                            placeholder="Masukkan Nama Pengguna"
+                                                        />
+                                                    </div>
+                                                    <div
+                                                        class="
+                                                            mb-4
+                                                            col-lg-6 col-sm-12
+                                                        "
+                                                    >
+                                                        <label
+                                                            for="full_name"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >Nama Lengkap</label
+                                                        >
+                                                        <input
+                                                            type="text"
+                                                            class="
+                                                                form-control
+                                                                form-control-lg
+                                                                rounded-pill
+                                                            "
+                                                            style="
+                                                                font-size: 15px;
+                                                            "
+                                                            id="full_name"
+                                                            name="full_name"
+                                                            placeholder="Masukkan Nama Lengkap"
+                                                        />
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <div
+                                                        class="
+                                                            mb-4
+                                                            col-lg-6 col-sm-12
+                                                        "
+                                                    >
+                                                        <label
+                                                            for="address"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >Alamat
+                                                            Lengkap</label
+                                                        >
+                                                        <input
+                                                            type="text"
+                                                            class="
+                                                                form-control
+                                                                form-control-lg
+                                                                rounded-pill
+                                                            "
+                                                            style="
+                                                                font-size: 15px;
+                                                            "
+                                                            id="address"
+                                                            name="address"
+                                                            placeholder="Masukkan Alamat Lengkap"
+                                                        />
+                                                    </div>
+                                                    <div
+                                                        class="
+                                                            mb-4
+                                                            col-lg-6 col-sm-12
+                                                        "
+                                                    >
+                                                        <label
+                                                            for="no_wa"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >No Whatsapp</label
+                                                        >
+                                                        <input
+                                                            type="text"
+                                                            class="
+                                                                form-control
+                                                                form-control-lg
+                                                                rounded-pill
+                                                            "
+                                                            maxlength="13"
+                                                            style="
+                                                                font-size: 15px;
+                                                            "
+                                                            id="no_wa"
+                                                            name="no_wa"
+                                                            placeholder="Masukkan No Whatsapp"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div
+                                                        class="
+                                                            mb-4
+                                                            col-lg-6 col-sm-12
+                                                        "
+                                                    >
+                                                        <label
+                                                            for="email"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >Email</label
+                                                        >
+                                                        <input
+                                                            type="email"
+                                                            class="
+                                                                form-control
+                                                                form-control-lg
+                                                                rounded-pill
+                                                            "
+                                                            style="
+                                                                font-size: 15px;
+                                                            "
+                                                            id="email"
+                                                            name="email"
+                                                            placeholder="Masukkan Email"
+                                                        />
+                                                    </div>
+                                                    <div
+                                                        class="
+                                                            mb-4
+                                                            col-lg-6 col-sm-12
+                                                        "
+                                                    >
+                                                        <label
+                                                            for="family"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >Keluarga</label
+                                                        >
+                                                        <select
+                                                            class="
+                                                                form-select
+                                                                form-select-lg
+                                                                rounded-pill
+                                                            "
+                                                            style="
+                                                                font-size: 15px;
+                                                                color: #145560;
+                                                            "
+                                                            aria-label="family"
+                                                            id="family"
+                                                            name="family"
+                                                        >
+                                                            <option selected>
+                                                                -- Keluarga --
+                                                            </option>
+                                                            <option
+                                                                value="sangat-mampu"
+                                                            >
+                                                                Sangat Mampu
+                                                            </option>
+                                                            <option
+                                                                value="mampu"
+                                                            >
+                                                                Mampu
+                                                            </option>
+                                                            <option
+                                                                value="tidak-mampu"
+                                                            >
+                                                                Tidak Mampu
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div
+                                                        class="
+                                                            mb-4
+                                                            col-lg-6 col-sm-12
+                                                        "
+                                                    >
+                                                        <label
+                                                            for="place_birth"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >Tempat Lahir</label
+                                                        >
+                                                        <input
+                                                            type="text"
+                                                            class="
+                                                                form-control
+                                                                form-control-lg
+                                                                rounded-pill
+                                                            "
+                                                            style="
+                                                                font-size: 15px;
+                                                            "
+                                                            id="place_birth"
+                                                            name="place_birth"
+                                                            placeholder="Masukkan Tempat Lahir"
+                                                        />
+                                                    </div>
+                                                    <div
+                                                        class="
+                                                            mb-4
+                                                            col-lg-6 col-sm-12
+                                                        "
+                                                    >
+                                                        <label
+                                                            for="birth_date"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >Tanggal
+                                                            Lahir</label
+                                                        >
+                                                        <input
+                                                            type="date"
+                                                            class="
+                                                                form-control
+                                                                form-control-lg
+                                                                rounded-pill
+                                                            "
+                                                            style="
+                                                                font-size: 15px;
+                                                                color: #145560;
+                                                            "
+                                                            id="birth_date"
+                                                            name="age"
+                                                            placeholder="01 Desember 2001"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div
+                                                        class="
+                                                            mb-4
+                                                            col-lg-6 col-sm-12
+                                                        "
+                                                    >
+                                                        <label
+                                                            for="password"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >Password</label
+                                                        >
+                                                        <input
+                                                            type="password"
+                                                            class="
+                                                                form-control
+                                                                form-control-lg
+                                                                rounded-pill
+                                                            "
+                                                            style="
+                                                                font-size: 15px;
+                                                            "
+                                                            id="password"
+                                                            name="password"
+                                                            placeholder="Masukkan Password"
+                                                        />
+                                                        <div
+                                                            class="
+                                                                d-flex
+                                                                justify-content-between
+                                                            "
+                                                        >
+                                                            <div
+                                                                class="
+                                                                    d-flex
+                                                                    align-items-center
+                                                                    px-2
+                                                                    pt-1
+                                                                "
+                                                                style="
+                                                                    font-size: 12px;
+                                                                    color: #efefef;
+                                                                "
+                                                            >
+                                                                <input
+                                                                    type="checkbox"
+                                                                    onclick="showFunction()"
+                                                                    class="form-check-input"
+                                                                />&nbsp; Show
+                                                                Password
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="
+                                                            mb-4
+                                                            col-lg-6 col-sm-12
+                                                        "
+                                                    >
+                                                        <label
+                                                            for="confirm_password"
+                                                            class="
+                                                                form-label
+                                                                text-white
+                                                                px-3
+                                                            "
+                                                            >Konfirmasi
+                                                            Password</label
+                                                        >
+                                                        <input
+                                                            type="password"
+                                                            class="
+                                                                form-control
+                                                                form-control-lg
+                                                                rounded-pill
+                                                            "
+                                                            style="
+                                                                font-size: 15px;
+                                                                color: #145560;
+                                                            "
+                                                            id="confirm_password"
+                                                            name="password_confirmation"
+                                                            placeholder="Masukkan Ulang Password"
+                                                        />
+                                                        <div
+                                                            class="
+                                                                d-flex
+                                                                justify-content-between
+                                                            "
+                                                        >
+                                                            <div
+                                                                class="
+                                                                    d-flex
+                                                                    align-items-center
+                                                                    px-2
+                                                                    pt-1
+                                                                "
+                                                                style="
+                                                                    font-size: 12px;
+                                                                    color: #efefef;
+                                                                "
+                                                            >
+                                                                <input
+                                                                    type="checkbox"
+                                                                    onclick="seeFunction()"
+                                                                    class="form-check-input"
+                                                                />&nbsp; Show
+                                                                Password
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="gender" 
+                                                    class="
+                                                    form-label
+                                                    text-white
+                                                    "
+                                                    >Jenis Kelamin, Wanita Belum Diterima <b>*</b></label
+                                                    >
+                                                    <div class="form-check">
+                                                    <input
+                                                        class="form-check-input"
+                                                        type="checkbox"
+                                                        name="gender"
+                                                        id="gender"
+                                                        value="l"
+                                                        required
+                                                        
+                                                    />
+                                                    <label class="form-check-label text-white" for="gender">
+                                                        Laki-Laki
+                                                    </label>
+                                                    <div class="invalid-feedback">
+                                                        jenis kelamin harus di isi
+                                                    </div>
+                                                    </div>
+                                                </div>
+
                                                 <br />
                                                 <button
                                                     class="
@@ -707,7 +1090,7 @@
                                                         text-uppercase
                                                         px-4
                                                         py-2
-                                                        mt-4
+                                                        col-12
                                                     "
                                                 >
                                                     Daftar
@@ -718,11 +1101,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-12 mb-5 mb-lg-0 mb-md-0">
+                        <div
+                            class="
+                                col-md-6 col-sm-12
+                                mb-5 mb-lg-0 mb-md-0
+                                d-flex
+                                align-items-center
+                            "
+                            id="alur"
+                        >
                             <img
-                                src="./assets/alur.png"
-                                alt="alur-pendaftaran"
-                                width="650"
+                                src="./assets/daftar.png"
+                                alt="daftar"
+                                width="120px"
                                 class="img-fluid"
                             />
                         </div>
@@ -906,7 +1297,7 @@
                             "
                         >
                             <img
-                                src="/assets/img/clients/client-1.png"
+                                src="assets/img/clients/client-1.png"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -921,7 +1312,7 @@
                             "
                         >
                             <img
-                                src="/assets/img/clients/client-2.png"
+                                src="assets/img/clients/client-2.png"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -936,7 +1327,7 @@
                             "
                         >
                             <img
-                                src="/assets/img/clients/client-3.png"
+                                src="assets/img/clients/client-3.png"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -951,7 +1342,7 @@
                             "
                         >
                             <img
-                                src="/assets/img/clients/client-4.png"
+                                src="assets/img/clients/client-4.png"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -966,7 +1357,7 @@
                             "
                         >
                             <img
-                                src="/assets/img/clients/client-5.png"
+                                src="assets/img/clients/client-5.png"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -981,7 +1372,7 @@
                             "
                         >
                             <img
-                                src="/assets/img/clients/client-6.png"
+                                src="assets/img/clients/client-6.png"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1148,7 +1539,7 @@
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
                                     <img
-                                        src="/assets/img/testimonials/testimonials-1.jpg"
+                                        src="assets/img/testimonials/testimonials-1.jpg"
                                         class="testimonial-img"
                                         alt=""
                                     />
@@ -1182,7 +1573,7 @@
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
                                     <img
-                                        src="/assets/img/testimonials/testimonials-2.jpg"
+                                        src="assets/img/testimonials/testimonials-2.jpg"
                                         class="testimonial-img"
                                         alt=""
                                     />
@@ -1216,7 +1607,7 @@
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
                                     <img
-                                        src="/assets/img/testimonials/testimonials-3.jpg"
+                                        src="assets/img/testimonials/testimonials-3.jpg"
                                         class="testimonial-img"
                                         alt=""
                                     />
@@ -1250,7 +1641,7 @@
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
                                     <img
-                                        src="/assets/img/testimonials/testimonials-4.jpg"
+                                        src="assets/img/testimonials/testimonials-4.jpg"
                                         class="testimonial-img"
                                         alt=""
                                     />
@@ -1285,7 +1676,7 @@
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
                                     <img
-                                        src="/assets/img/testimonials/testimonials-5.jpg"
+                                        src="assets/img/testimonials/testimonials-5.jpg"
                                         class="testimonial-img"
                                         alt=""
                                     />
@@ -1358,7 +1749,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-app"
                         >
                             <img
-                                src="/assets/img/portfolio/portfolio-1.jpg"
+                                src="assets/img/portfolio/portfolio-1.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1366,7 +1757,7 @@
                                 <h4>App 1</h4>
                                 <p>App</p>
                                 <a
-                                    href="/assets/img/portfolio/portfolio-1.jpg"
+                                    href="assets/img/portfolio/portfolio-1.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="App 1"
@@ -1385,7 +1776,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-web"
                         >
                             <img
-                                src="/assets/img/portfolio/portfolio-2.jpg"
+                                src="assets/img/portfolio/portfolio-2.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1393,7 +1784,7 @@
                                 <h4>Web 3</h4>
                                 <p>Web</p>
                                 <a
-                                    href="/assets/img/portfolio/portfolio-2.jpg"
+                                    href="assets/img/portfolio/portfolio-2.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Web 3"
@@ -1412,7 +1803,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-app"
                         >
                             <img
-                                src="/assets/img/portfolio/portfolio-3.jpg"
+                                src="assets/img/portfolio/portfolio-3.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1420,7 +1811,7 @@
                                 <h4>App 2</h4>
                                 <p>App</p>
                                 <a
-                                    href="/assets/img/portfolio/portfolio-3.jpg"
+                                    href="assets/img/portfolio/portfolio-3.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="App 2"
@@ -1439,7 +1830,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-card"
                         >
                             <img
-                                src="/assets/img/portfolio/portfolio-4.jpg"
+                                src="assets/img/portfolio/portfolio-4.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1447,7 +1838,7 @@
                                 <h4>Card 2</h4>
                                 <p>Card</p>
                                 <a
-                                    href="/assets/img/portfolio/portfolio-4.jpg"
+                                    href="assets/img/portfolio/portfolio-4.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Card 2"
@@ -1466,7 +1857,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-web"
                         >
                             <img
-                                src="/assets/img/portfolio/portfolio-5.jpg"
+                                src="assets/img/portfolio/portfolio-5.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1474,7 +1865,7 @@
                                 <h4>Web 2</h4>
                                 <p>Web</p>
                                 <a
-                                    href="/assets/img/portfolio/portfolio-5.jpg"
+                                    href="assets/img/portfolio/portfolio-5.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Web 2"
@@ -1493,7 +1884,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-app"
                         >
                             <img
-                                src="/assets/img/portfolio/portfolio-6.jpg"
+                                src="assets/img/portfolio/portfolio-6.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1501,7 +1892,7 @@
                                 <h4>App 3</h4>
                                 <p>App</p>
                                 <a
-                                    href="/assets/img/portfolio/portfolio-6.jpg"
+                                    href="assets/img/portfolio/portfolio-6.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="App 3"
@@ -1520,7 +1911,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-card"
                         >
                             <img
-                                src="/assets/img/portfolio/portfolio-7.jpg"
+                                src="assets/img/portfolio/portfolio-7.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1528,7 +1919,7 @@
                                 <h4>Card 1</h4>
                                 <p>Card</p>
                                 <a
-                                    href="/assets/img/portfolio/portfolio-7.jpg"
+                                    href="assets/img/portfolio/portfolio-7.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Card 1"
@@ -1547,7 +1938,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-card"
                         >
                             <img
-                                src="/assets/img/portfolio/portfolio-8.jpg"
+                                src="assets/img/portfolio/portfolio-8.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1555,7 +1946,7 @@
                                 <h4>Card 3</h4>
                                 <p>Card</p>
                                 <a
-                                    href="/assets/img/portfolio/portfolio-8.jpg"
+                                    href="assets/img/portfolio/portfolio-8.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Card 3"
@@ -1574,7 +1965,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-web"
                         >
                             <img
-                                src="/assets/img/portfolio/portfolio-9.jpg"
+                                src="assets/img/portfolio/portfolio-9.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1582,7 +1973,7 @@
                                 <h4>Web 3</h4>
                                 <p>Web</p>
                                 <a
-                                    href="/assets/img/portfolio/portfolio-9.jpg"
+                                    href="assets/img/portfolio/portfolio-9.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Web 3"
@@ -1623,7 +2014,7 @@
                             <div class="member">
                                 <div class="member-img">
                                     <img
-                                        src="/assets/img/team/team-1.jpg"
+                                        src="assets/img/team/team-1.jpg"
                                         class="img-fluid"
                                         alt=""
                                     />
@@ -1657,7 +2048,7 @@
                             <div class="member">
                                 <div class="member-img">
                                     <img
-                                        src="/assets/img/team/team-2.jpg"
+                                        src="assets/img/team/team-2.jpg"
                                         class="img-fluid"
                                         alt=""
                                     />
@@ -1691,7 +2082,7 @@
                             <div class="member">
                                 <div class="member-img">
                                     <img
-                                        src="/assets/img/team/team-3.jpg"
+                                        src="assets/img/team/team-3.jpg"
                                         class="img-fluid"
                                         alt=""
                                     />
@@ -1725,7 +2116,7 @@
                             <div class="member">
                                 <div class="member-img">
                                     <img
-                                        src="/assets/img/team/team-4.jpg"
+                                        src="assets/img/team/team-4.jpg"
                                         class="img-fluid"
                                         alt=""
                                     />
@@ -2344,21 +2735,37 @@
         ></a>
 
         <!-- Vendor JS Files -->
-        <script src="/assets/vendor/purecounter/purecounter.js"></script>
-        <script src="/assets/vendor/aos/aos.js"></script>
-        <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
-        <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-        <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
-        <script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
-        <script src="/assets/vendor/php-email-form/validate.js"></script>
+        <script src="assets/vendor/purecounter/purecounter.js"></script>
+        <script src="assets/vendor/aos/aos.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+        <script src="assets/vendor/php-email-form/validate.js"></script>
 
         <!-- Template Main JS File -->
-        <script src="/assets/js/main.js"></script>
+        <script src="assets/js/main.js"></script>
         <script>
             // Show Password
             function myFunction() {
                 var x = document.getElementById("floatingPassword");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+            function showFunction() {
+                var x = document.getElementById("password");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+            function seeFunction() {
+                var x = document.getElementById("confirm_password");
                 if (x.type === "password") {
                     x.type = "text";
                 } else {

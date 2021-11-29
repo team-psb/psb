@@ -438,8 +438,6 @@ h6 {
 #home {
     width: 100%;
     height: 100vh;
-    background: url("../img/home-bg.jpg") top left;
-    background-size: cover;
     position: relative;
 }
 #home:before {
@@ -473,13 +471,14 @@ h6 {
 }
 .login-banner img {
     top: 110px;
-    left: -11px;
+    left: -27px;
     z-index: 1;
 }
 
 .login-form {
     background-image: linear-gradient(to right bottom, #37b091, #44708b);
     border-radius: 20px;
+    position: relative;
 }
 
 .sign-in {
@@ -716,25 +715,25 @@ section {
 }
 
 /*--------------------------------------------------------------
-# About
+# regis
 --------------------------------------------------------------*/
-.about .content h3 {
+.regis .content h3 {
     font-weight: 600;
     font-size: 26px;
 }
-.about .content ul {
+.regis .content ul {
     list-style: none;
     padding: 0;
 }
-.about .content ul li {
+.regis .content ul li {
     display: flex;
     align-items: flex-start;
     margin-bottom: 35px;
 }
-.about .content ul li:first-child {
+.regis .content ul li:first-child {
     margin-top: 35px;
 }
-.about .content ul i {
+.regis .content ul i {
     background: #fff;
     box-shadow: 0px 6px 15px rgba(16, 110, 234, 0.12);
     font-size: 24px;
@@ -743,14 +742,14 @@ section {
     color: #106eea;
     border-radius: 50px;
 }
-.about .content ul h5 {
+.regis .content ul h5 {
     font-size: 18px;
     color: #555555;
 }
-.about .content ul p {
+.regis .content ul p {
     font-size: 15px;
 }
-.about .content p:last-child {
+.regis .content p:last-child {
     margin-bottom: 0;
 }
 

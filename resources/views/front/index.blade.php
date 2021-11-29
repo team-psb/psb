@@ -6,6 +6,17 @@
 <div class="main-content">
   <section class="section">
     <div class="col-12 mb-4">
+      @if (session('gagal_tes'))
+        <div class="alert alert-danger alert-dismissible show fade">
+          <div class="alert-body">
+            <button class="close" data-dismiss="alert" aria-label="Close">
+              <span>&times;</span>
+            </button>
+            <h1><b>PENTING !</b></h1>
+            mohon maaf atas ketidaknyamanannya bagi yang gagal submit data pada tes seleksi tahap pertama, Silahkan anda coba kembali dan jika masih ada kendala silahkan hunbunggi kami melalui chat yang tersedia atau melalui media sosial kami.
+          </div>
+        </div>
+    @endif
       <div class="hero bg-primary text-white">
         <div class="hero-inner text-center">
           <h2 class="poppins">Welcome, Bujang!</h2>
