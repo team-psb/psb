@@ -36,39 +36,39 @@ Route::get('/', function () {
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){
     Route::get('home', function () {
         return view('front.index');
-    })->name('dash-user');
+    })->name('user-dashboard');
     
     Route::get('profile', function () {
         return view('front.pages.profile.index');
-    });
+    })->name('user-profile');
     
     Route::get('qna', function () {
         return view('front.pages.qna.index');
-    });
+    })->name('user-qna');
     
     Route::get('informasi', function () {
         return view('front.pages.information.index');
-    });
+    })->name('user-informasi');
     
     Route::get('tes/tahap-pertama', function () {
         return view('front.pages.biodata.index');
-    });
+    })->name('user-first-tes');
     
     Route::get('tes/tahap-kedua', function () {
         return view('front.pages.tesIq.index');
-    });
+    })->name('user-second-tes');
     
     Route::get('tes/tahap-ketiga', function () {
         return view('front.pages.tesPersonality.index');
-    });
+    })->name('user-third-tes');
     
     Route::get('tes/tahap-keempat', function () {
         return view('front.pages.video.index');
-    });
+    })->name('user-fourth-tes');
     
     Route::get('/tes/tahap-kelima', function () {
         return view('front.pages.wawancara.index');
-    });
+    })->name('user-fifth-tes');
 });
 
 // Auth

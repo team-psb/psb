@@ -26,7 +26,7 @@
             </p>
             <p class="lead"></p>
             <div class="mt-4">
-              <a href="/tes/tahap-pertama" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="far fa-user"></i>Ikut Tes</a>
+              <a href="{{ route('user-first-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="far fa-user"></i>Ikut Tes</a>
             </div>
           </div>
         </div>
