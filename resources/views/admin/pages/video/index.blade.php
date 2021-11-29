@@ -20,9 +20,9 @@
                                         Aksi Masal
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
-                                        <a class="dropdown-item" href="#">Lolos</a>
-                                        <a class="dropdown-item" href="#">Tidak Lolos</a>
-                                        <a class="dropdown-item" href="#">Hapus</a>
+                                        <a class="dropdown-item" href="#" id="lolos">Lolos</a>
+                                        <a class="dropdown-item" href="#" id="no-lolos">Tidak Lolos</a>
+                                        <a class="dropdown-item" href="#" id="del">Hapus</a>
                                     </div>
                                 </div>
                                 <div class="btn-group dropleft d-inline float-right">
@@ -33,55 +33,75 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="table-responsive">
-                            <table id="myTable" class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <div class="form-check form-check-success">
-                                                <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input" id="checkall">
-                                                </label>
-                                            </div>
-                                        </th>
-                                        <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Link Video</th>
-                                        <th>Status</th>
-                                        <th width="10%">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($videos as $video)
-                                    <tr>
-                                        <td>
-                                            <div class="form-check form-check-success">
-                                                <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input checkbox">
-                                                </label>
-                                            </div>
-                                        </td>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $video->user->biodataOne->full_name }}</td>
-                                        <td class="text-success"> <a href="{{ $video->url }}" target="_blank">{{ $video->url }}</a></td>
-                                        <td>
-                                            <span class="badge badge-{{ $video->status == 'lolos' ? 'success':'' }}{{ $video->status == 'tidak' ? 'danger':'' }}">{{ $video->status }}</span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-wrapper">
-                                                <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                        <form method="POST">
+                            @csrf
+                            <button class="d-none" formaction="{{ route('videos.passAll') }}" id="lolos2"></button>
+                            <button class="d-none" formaction="{{ route('videos.nonpassAll') }}" id="no-lolos2"></button>
+                            <button class="d-none" formaction="{{ route('videos.deleteAll') }}" id="del2"></button>
+                            <div class="table-responsive">
+                                <table id="myTable" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="form-check form-check-success">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input" id="checkall">
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th>No</th>
+                                            <th>Nama</th>
+                                            <th>Link Video</th>
+                                            <th>Status</th>
+                                            <th width="10%">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($videos as $video)
+                                        <tr>
+                                            <td>
+                                                <div class="form-check form-check-success">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input checkbox" name="ids[{{ $video->id }}]" value="{{ $video->id }}">
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $video->user->biodataOne->full_name }}</td>
+                                            <td class="text-success"> <a href="{{ $video->url }}" target="_blank">{{ $video->url }}</a></td>
+                                            <td>
+                                                <span class="badge badge-{{ $video->status == 'lolos' ? 'success':'' }}{{ $video->status == 'tidak' ? 'danger':'' }}">{{ $video->status }}</span>
+                                            </td>
+                                            <td>
+                                                <div class="btn-wrapper">
+                                                    <button formaction="{{ route('videos.delete', $video->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
 
 @endsection
+
+@push('after-script')
+    <script>
+        $('#lolos').click(function(){
+            $('#lolos2').click();
+        });
+        $('#no-lolos').click(function(){
+            $('#no-lolos2').click();
+        });
+        $('#del').click(function(){
+            $('#del2').click();
+        });
+    </script>
+@endpush

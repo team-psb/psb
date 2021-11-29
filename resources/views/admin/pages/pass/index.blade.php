@@ -15,7 +15,7 @@
                         </p>
                         <div class="row mb-4 ">
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-danger " id="del1" type="button" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-danger " id="del" type="button" aria-haspopup="true" aria-expanded="false">
                                     Hapus Semua
                                 </button>
                                 <div class="btn-group dropleft d-inline float-right">
@@ -26,6 +26,9 @@
                                 </div>
                             </div>
                         </div>
+                        <form method="POST">
+                            @csrf
+                            <button class="d-none" formaction="{{ route('passes.deleteAll') }}" id="del2"></button>
                         <div class="table-responsive">
                             <table id="myTable" class="table table-hover">
                                 <thead>
@@ -51,7 +54,7 @@
                                         <td>
                                             <div class="form-check form-check-success">
                                                 <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input checkbox">
+                                                    <input type="checkbox" class="form-check-input checkbox" name="ids[{{ $pass->id }}]" value="{{ $pass->id }}">
                                                 </label>
                                             </div>
                                         </td>
@@ -62,7 +65,7 @@
                                         <td>Yoygakarta</td>
                                         <td>
                                             <div class="btn-wrapper">
-                                                <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
+                                                <button formaction="{{ route('passes.delete', $pass->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
                                             </div>
                                         </td>
                                     </tr>
@@ -71,9 +74,17 @@
                             </table>
                         </div>
                     </div>
-                    </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
 @endsection
+
+@push('after-script')
+<script>
+    $('#del').click(function(){
+        $('#del2').click();
+    });
+</script>
+@endpush

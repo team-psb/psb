@@ -16,4 +16,27 @@ class PassController extends Controller
             'passes' => $passes
         ]);
     }
+
+    public function delete($id)
+    {
+        $data = Pass::findOrFail($id);
+        $data->delete();
+
+        return back();
+    }
+
+    public function deleteAll(Request $request)
+    {
+        $ids=$request->get('ids');
+        
+        if ($ids != null) {
+            foreach ($ids as $id) {
+                Pass::find($id)->delete();
+            }
+
+            return redirect()->route('passes.index');
+        }else{
+            return redirect()->back();
+        }
+    }
 }

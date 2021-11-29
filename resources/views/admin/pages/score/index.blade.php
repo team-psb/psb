@@ -35,9 +35,9 @@
                         </div>
                         <form method="POST">
                             @csrf
-                            <button class="d-none" formaction="{{ route('score.passAll') }}" id="lolos2"></button>
-                            <button class="d-none" formaction="{{ route('score.nonpassAll') }}" id="no-lolos2"></button>
-                            <button class="d-none" formaction="{{ route('score.deleteAll') }}" id="del2"></button>
+                            <button class="d-none" formaction="{{ route('scores.passAll') }}" id="lolos2"></button>
+                            <button class="d-none" formaction="{{ route('scores.nonpassAll') }}" id="no-lolos2"></button>
+                            <button class="d-none" formaction="{{ route('scores.deleteAll') }}" id="del2"></button>
                             <div class="table-responsive">
                                 <table id="myTable" class="table table-hover">
                                     <thead>
@@ -76,7 +76,7 @@
                                             </td>
                                             <td>
                                                 <div class="btn-wrapper">
-                                                    <button formaction="{{ route('score.delete', $score->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                    <button formaction="{{ route('scores.delete', $score->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
                                                 </div>
                                             </td>
                                         </tr>

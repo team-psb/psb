@@ -35,9 +35,9 @@
                         </div>
                         <form method="POST">
                             @csrf
-                            <button class="d-none" formaction="{{ route('biodata.passAll') }}" id="lolos2"></button>
-                            <button class="d-none" formaction="{{ route('biodata.nonpassAll') }}" id="no-lolos2"></button>
-                            <button class="d-none" formaction="{{ route('biodata.deleteAll') }}" id="del2"></button>
+                            <button class="d-none" formaction="{{ route('biodatas.passAll') }}" id="lolos2"></button>
+                            <button class="d-none" formaction="{{ route('biodatas.nonpassAll') }}" id="no-lolos2"></button>
+                            <button class="d-none" formaction="{{ route('biodatas.deleteAll') }}" id="del2"></button>
                             <div class="table-responsive">
                                 <table id="myTable" class="table table-hover">
                                     <thead>
@@ -81,7 +81,7 @@
                                             <td>
                                                 <div class="d-flex">
                                                     <a href="#mymodal"
-                                                        data-remote="{{ route('biodata.show', $biodata->id) }}"
+                                                        data-remote="{{ route('biodatas.show', $biodata->id) }}"
                                                         data-toggle="modal"
                                                         data-target="#mymodal"
                                                         data-title="Detail Biodata {{ $loop->iteration }}" 
@@ -89,12 +89,12 @@
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                         <i class="icon-eye"></i> Detail
                                                     </a>
-                                                    <a href="{{ route('biodata.edit', $biodata->id) }}"
+                                                    <a href="{{ route('biodatas.edit', $biodata->id) }}"
                                                         class="btn ms-1 btn-primary  py-2"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
                                                         <i class="icon-pencil"></i> Edit
                                                     </a>
-                                                    <button formaction="{{ route('biodata.delete', $biodata->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                    <button formaction="{{ route('biodatas.delete', $biodata->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
                                                 </div>
                                             </td>
                                         </tr>

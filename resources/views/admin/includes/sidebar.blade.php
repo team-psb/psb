@@ -8,7 +8,7 @@
         </li>
         <li class="nav-item nav-category">Utama</li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('biodata.index') }}">
+            <a class="nav-link" href="{{ route('biodatas.index') }}">
                 <i class="menu-icon  mdi mdi-account-card-details "></i>
                 <span class="menu-title">Biodata</span>
             </a>

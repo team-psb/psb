@@ -20,9 +20,9 @@
                                         Aksi Masal
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
-                                        <a class="dropdown-item" href="#">Lolos</a>
-                                        <a class="dropdown-item" href="#">Tidak Lolos</a>
-                                        <a class="dropdown-item" href="#">Hapus</a>
+                                        <a class="dropdown-item" href="#" id="lolos">Lolos</a>
+                                        <a class="dropdown-item" href="#" id="no-lolos">Tidak Lolos</a>
+                                        <a class="dropdown-item" href="#" id="del">Hapus</a>
                                     </div>
                                 </div>
                                 <div class="btn-group dropleft d-inline float-right">
@@ -33,66 +33,83 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="table-responsive">
-                            <table id="myTable" class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <div class="form-check form-check-success">
-                                                <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input" id="checkall">
-                                                </label>
-                                            </div>
-                                        </th>
-                                        <th>No</th>
-                                        <th>Nama</th>
-                                        <th>No WhatsApp</th>
-                                        <th>Status</th>
-                                        <th width="10%">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($interviews as $interview)
-                                    <tr>
-                                        <td>
-                                            <div class="form-check form-check-success">
-                                                <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input checkbox">
-                                                </label>
-                                            </div>
-                                        </td>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $interview->user->biodataOne->full_name }}</td>
-                                        <td>
-                                            <div class="input-group">
-                                                <input value="{{ $interview->user->phone }}" id="copy" disabled type="text" class="form-control fw-bold">
-                                                <div class="input-group-append">
-                                                    <button onclick="myFunction()"  class="input-group-text btn-success text-light">copy</button>
+                        <form method="POST">
+                            @csrf
+                            <button class="d-none" formaction="{{ route('interviews.passAll') }}" id="lolos2"></button>
+                            <button class="d-none" formaction="{{ route('interviews.nonpassAll') }}" id="no-lolos2"></button>
+                            <button class="d-none" formaction="{{ route('interviews.deleteAll') }}" id="del2"></button>
+                            <div class="table-responsive">
+                                <table id="myTable" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="form-check form-check-success">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input" id="checkall">
+                                                    </label>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-{{ $interview->status == 'lolos' ? 'success':'' }}{{ $interview->status == 'tidak' ? 'danger':'' }}">{{ $interview->status }}</span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-wrapper">
-                                                <a href="#" class="btn btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                                            </th>
+                                            <th>No</th>
+                                            <th>Nama</th>
+                                            <th>No WhatsApp</th>
+                                            <th>Status</th>
+                                            <th width="10%">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($interviews as $interview)
+                                        <tr>
+                                            <td>
+                                                <div class="form-check form-check-success">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input checkbox" name="ids[{{ $interview->id }}]" value="{{ $interview->id }}">
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $interview->user->biodataOne->full_name }}</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input value="{{ $interview->user->phone }}" id="copy" disabled type="text" class="form-control fw-bold">
+                                                    <div class="input-group-append">
+                                                        <button onclick="myFunction()"  class="input-group-text btn-success text-light">copy</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="badge badge-{{ $interview->status == 'lolos' ? 'success':'' }}{{ $interview->status == 'tidak' ? 'danger':'' }}">{{ $interview->status }}</span>
+                                            </td>
+                                            <td>
+                                                <div class="btn-wrapper">
+                                                    <button formaction="{{ route('interviews.delete', $interview->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
 @endsection
 
 @push('after-script')
+<script>
+    $('#lolos').click(function(){
+        $('#lolos2').click();
+    });
+    $('#no-lolos').click(function(){
+        $('#no-lolos2').click();
+    });
+    $('#del').click(function(){
+        $('#del2').click();
+    });
+</script>
 <script>
     function myFunction() {
     /* Get the text field */

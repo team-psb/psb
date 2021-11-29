@@ -1,20 +1,22 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\AcademyYearController;
 use App\Http\Controllers\Admin\QnaController;
 use App\Http\Controllers\Admin\SchduleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TestIqController;
 use App\Http\Controllers\Admin\TestPersonalController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BiodataController;
 use App\Http\Controllers\Admin\ScoreController;
 use App\Http\Controllers\Admin\PassController;
+use App\Http\Controllers\Admin\InterviewController;
+use App\Http\Controllers\Admin\VideoController as AdminVideoController;
 use App\Http\Controllers\Exam\TestController;
 use App\Http\Controllers\Exam\VideoController;
 use App\Http\Controllers\Exam\BiodataOneController;
 use App\Http\Controllers\Exam\BiodataTwoController;
-use App\Http\Controllers\Admin\InterviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,78 +28,62 @@ use App\Http\Controllers\Admin\InterviewController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/home', function () {
-    return view('front.index');
-});
-
-Route::get('/profile', function () {
-    return view('front.pages.profile.index');
-});
-
-Route::get('/front/qna', function () {
-    return view('front.pages.qna.index');
-});
-
-Route::get('/front/informasi', function () {
-    return view('front.pages.information.index');
-});
-
-Route::get('/tes/tahap-pertama', function () {
-    return view('front.pages.biodata.index');
-});
-
-Route::get('/tes/tahap-kedua', function () {
-    return view('front.pages.tesIq.index');
-});
-
-Route::get('/tes/tahap-ketiga', function () {
-    return view('front.pages.tesPersonality.index');
-});
-
-Route::get('/tes/tahap-keempat', function () {
-    return view('front.pages.video.index');
-});
-
-Route::get('/tes/tahap-kelima', function () {
-    return view('front.pages.wawancara.index');
-});
-
-
 Route::get('/', function () {
-    return view('admin.index');
+    return view('landingpage_2.BizLand.index');
 });
 
-
-Route::get('/registrant', function () {
-    return view('admin.pages.biodata.index');
+Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){
+    Route::get('/home', function () {
+        return view('front.index');
+    })->name('dash-user');
+    
+    Route::get('/profile', function () {
+        return view('front.pages.profile.index');
+    });
+    
+    Route::get('/qna', function () {
+        return view('front.pages.qna.index');
+    });
+    
+    Route::get('informasi', function () {
+        return view('front.pages.information.index');
+    });
+    
+    Route::get('/tes/tahap-pertama', function () {
+        return view('front.pages.biodata.index');
+    });
+    
+    Route::get('/tes/tahap-kedua', function () {
+        return view('front.pages.tesIq.index');
+    });
+    
+    Route::get('/tes/tahap-ketiga', function () {
+        return view('front.pages.tesPersonality.index');
+    });
+    
+    Route::get('/tes/tahap-keempat', function () {
+        return view('front.pages.video.index');
+    });
+    
+    Route::get('/tes/tahap-kelima', function () {
+        return view('front.pages.wawancara.index');
+    });
 });
 
-Route::get('/scores', function () {
-    return view('admin.pages.score.index');
+// Auth
+Route::group(['prefix' => ''], function () {
+    Route::get('/login',[AuthController::class,'login'])->name('login');
+    Route::post('/login-proses',[AuthController::class,'loginProses'])->name('login-proses');
+    Route::get('/register',[AuthController::class,'register'])->name('register');
+    Route::post('/register-proses',[AuthController::class,'registerProses'])->name('register-proses');
+    Route::post('/logout',[AuthController::class,'logout'])->name('logout');
+    // Route::get('/forget-password', [ForgotPasswordController::class, 'getEmail'])->name('password-getemail');
+    // Route::post('/forget-password',[ForgotPasswordController::class, 'postEmail'])->name('pasword-postemail');
+    // Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'getPassword'])->name('getPassword');
+    // Route::post('/reset-password', [ForgotPasswordController::class, 'updatePassword'])->name('update-password');
 });
 
-Route::get('/videos', function () {
-    return view('admin.pages.video.index');
-});
-
-Route::get('/interviews', function () {
-    return view('admin.pages.interview.index');
-});
-
-Route::get('/passes', function () {
-    return view('admin.pages.pass.index');
-});
-
-
-Route::resource('iqs', TestIqController::class);
-Route::post('iqs/delete/{id}', [TestIqController::class, 'destroy'])->name('iqs.delete');
-Route::post('iqs/delete', [TestIqController::class, 'deleteAll'])->name('iqs.deleteAll');
-
-Route::resource('personals', TestPersonalController::class);
-Route::post('personals/delete/{id}', [TestPersonalController::class, 'destroy'])->name('personal.delete');
-Route::post('personals/delete', [TestPersonalController::class, 'deleteAll'])->name('personals.deleteAll');
-
-// process selection
+// Process selection
 Route::group(['prefix' => 'test','middleware'=>['auth','register']], function () {
     Route::get('/step-one',[BiodataOneController::class,'index'])->name('step-one');
     Route::post('/step-one',[BiodataOneController::class,'store'])->name('step-one-store');
@@ -118,26 +104,36 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
         return view('admin.index');
     })->name('dashboard');
 
-    Route::get('biodatas', [BiodataController::class, 'index'])->name('biodata.index');
-    Route::get('biodatas/{id}', [BiodataController::class, 'show'])->name('biodata.show');
-    Route::get('biodatas/edit/{id}', [BiodataController::class, 'edit'])->name('biodata.edit');
-    Route::post('biodatas/edit/{id}', [BiodataController::class, 'update'])->name('biodata.update');
-    Route::post('biodatas/delete/{id}', [BiodataController::class, 'delete'])->name('biodata.delete');
-    Route::post('biodatas/delete', [BiodataController::class, 'deleteAll'])->name('biodata.deleteAll');
-    Route::post('biodatas/pass/all', [BiodataController::class, 'passAll'])->name('biodata.passAll');
-    Route::post('biodatas/nonpass/all', [BiodataController::class, 'nonpassAll'])->name('biodata.nonpassAll');
+    Route::get('biodatas', [BiodataController::class, 'index'])->name('biodatas.index');
+    Route::get('biodatas/{id}', [BiodataController::class, 'show'])->name('biodatas.show');
+    Route::get('biodatas/edit/{id}', [BiodataController::class, 'edit'])->name('biodatas.edit');
+    Route::post('biodatas/edit/{id}', [BiodataController::class, 'update'])->name('biodatas.update');
+    Route::post('biodatas/delete/{id}', [BiodataController::class, 'delete'])->name('biodatas.delete');
+    Route::post('biodatas/delete', [BiodataController::class, 'deleteAll'])->name('biodatas.deleteAll');
+    Route::post('biodatas/pass/all', [BiodataController::class, 'passAll'])->name('biodatas.passAll');
+    Route::post('biodatas/nonpass/all', [BiodataController::class, 'nonpassAll'])->name('biodatas.nonpassAll');
     
     Route::get('scores', [ScoreController::class, 'index'])->name('scores.index');
-    Route::post('scores/delete/{id}', [ScoreController::class, 'delete'])->name('score.delete');
-    Route::post('scores/delete', [ScoreController::class, 'deleteAll'])->name('score.deleteAll');
-    Route::post('scores/pass/all', [ScoreController::class, 'passAll'])->name('score.passAll');
-    Route::post('scores/nonpass/all', [ScoreController::class, 'nonpassAll'])->name('score.nonpassAll');
+    Route::post('scores/delete/{id}', [ScoreController::class, 'delete'])->name('scores.delete');
+    Route::post('scores/delete', [ScoreController::class, 'deleteAll'])->name('scores.deleteAll');
+    Route::post('scores/pass/all', [ScoreController::class, 'passAll'])->name('scores.passAll');
+    Route::post('scores/nonpass/all', [ScoreController::class, 'nonpassAll'])->name('scores.nonpassAll');
     
-    Route::get('videos', [VideoController::class, 'index'])->name('videos.index');
+    Route::get('videos', [AdminVideoController::class, 'index'])->name('videos.index');
+    Route::post('videos/delete/{id}', [AdminVideoController::class, 'delete'])->name('videos.delete');
+    Route::post('videos/delete', [AdminVideoController::class, 'deleteAll'])->name('videos.deleteAll');
+    Route::post('videos/pass/all', [AdminVideoController::class, 'passAll'])->name('videos.passAll');
+    Route::post('videos/nonpass/all', [AdminVideoController::class, 'nonpassAll'])->name('videos.nonpassAll');
     
     Route::get('interviews', [InterviewController::class, 'index'])->name('interviews.index');
+    Route::post('interviews/delete/{id}', [InterviewController::class, 'delete'])->name('interviews.delete');
+    Route::post('interviews/delete', [InterviewController::class, 'deleteAll'])->name('interviews.deleteAll');
+    Route::post('interviews/pass/all', [InterviewController::class, 'passAll'])->name('interviews.passAll');
+    Route::post('interviews/nonpass/all', [InterviewController::class, 'nonpassAll'])->name('interviews.nonpassAll');
     
     Route::get('passes', [PassController::class, 'index'])->name('passes.index');
+    Route::post('passes/delete/{id}', [PassController::class, 'delete'])->name('passes.delete');
+    Route::post('passes/delete', [PassController::class, 'deleteAll'])->name('passes.deleteAll');
     
     Route::resource('iqs', TestIqController::class);
     Route::post('iqs/delete/{id}', [TestIqController::class, 'destroy'])->name('iqs.delete');
