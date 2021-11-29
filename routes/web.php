@@ -94,7 +94,7 @@ Route::post('iqs/delete/{id}', [TestIqController::class, 'destroy'])->name('iqs.
 Route::post('iqs/delete', [TestIqController::class, 'deleteAll'])->name('iqs.deleteAll');
 
 Route::resource('personals', TestPersonalController::class);
-Route::post('personals/delete/{id}', [TestPersonalController::class, 'destroy'])->name('personals.delete');
+Route::post('personals/delete/{id}', [TestPersonalController::class, 'destroy'])->name('personal.delete');
 Route::post('personals/delete', [TestPersonalController::class, 'deleteAll'])->name('personals.deleteAll');
 
 // process selection
