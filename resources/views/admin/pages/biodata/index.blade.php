@@ -29,7 +29,11 @@
                                     <a href="" class="btn btn-primary">
                                     Export Excel
                                     </a>
-                                    <button class="btn btn-info ml-2">Filter</button>
+                                    <button type="button" class="btn round btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filter Data">
+                                        <i data-feather="filter" width="20"></i>
+                                        <span>Filter</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -106,6 +110,171 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<!--  Filter Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog mt-5">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">-- Filter Data --</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="GET">
+
+                <div class="form-group">
+                    <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Umur</label>
+                            <select name="age" class="form-select">
+                                <option selected value="{{ null }}">-- umur --</option>
+                                <option value="16" {{ request()->get('age') == '16' ? 'selected' :''  }}>16 Tahun</option>
+                                <option value="17" {{ request()->get('age') == '17' ? 'selected' :''  }}>17 Tahun</option>
+                                <option value="18" {{ request()->get('age') == '18' ? 'selected' :''  }}>18 Tahun</option>
+                                <option value="19" {{ request()->get('age') == '19' ? 'selected' :''  }}>19 Tahun</option>
+                                <option value="20" {{ request()->get('age') == '20' ? 'selected' :''  }}>20 Tahun</option>
+                                <option value="21" {{ request()->get('age') == '21' ? 'selected' :''  }}>21 Tahun</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                        <label for="exampleInputEmail1">Kondisi Keluarga</label>
+                        <select name="family" class="form-select">
+                            <option selected value="{{ null }}">-- Kondisi Keluarga --</option>
+                            <option value="sangat-mampu" {{ request()->get('family') == 'sangat-mampu' ? 'selected' :''  }}>Keluarga Sangat Mampu</option>
+                            <option value="mampu" {{ request()->get('family') == 'mampu' ? 'selected' :''  }}>Keluarga Mampu</option>
+                            <option value="tidak-mampu" {{ request()->get('family') == 'tidak-mampu' ? 'selected' :''  }}>Keluarga Tidak Mampu</option>
+                        </select>
+                        </div>
+                    </div>  
+                    </div>
+    
+                    <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                        <label for="exampleInputEmail1">Orang Tua</label>
+                        <select name="parent" class="form-select">
+                            <option selected value="{{ null }}">-- orang tua --</option>
+                            <option value="lengkap" {{ request()->get('parent') == 'lengkap' ? 'selected' :''  }}>Lengkap</option>
+                            <option value="ayah" {{ request()->get('parent') == 'ayah' ? 'selected' :''  }}>Ayah</option>
+                            <option value="ibu" {{ request()->get('parent') == 'ibu' ? 'selected' :''  }}>Ibu</option>
+                            <option value="yatim-piatu" {{ request()->get('parent') == 'yatim-piatu' ? 'selected' :''  }}>Yatim Piatu</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                        <label for="exampleInputEmail1">Pendidikan Terakhir</label>
+                        <select name="last_education" class="form-select">
+                            <option selected value="{{ null }}">-- Pendidikan --</option>
+                            <option value="SD" {{ request()->get('last_education') == 'SD' ? 'selected' :''  }}>SD Tahun</option>
+                            <option value="SMP" {{ request()->get('last_education') == 'SMP' ? 'selected' :''  }}>SMP Tahun</option>
+                            <option value="SMA" {{ request()->get('last_education') == 'SMA' ? 'selected' :''  }}>SMA Tahun</option>
+                        </select>
+                        </div>
+                    </div>
+                    </div>
+    
+                    <div class="row">
+    
+                    <div class="col">
+                        <div class="form-group">
+                        <label class="form-label">Perokok</label>
+                        <div class="selectgroup selectgroup-pills">
+                            <label class="selectgroup-item">
+                                <input type="radio" name="smoker" value="iya" class="selectgroup-input" {{ request()->get('smoker') == 'iya' ? 'checked' :''  }}>
+                                <span class="selectgroup-button selectgroup-button-icon"><i class="ti-check"></i></span>
+                            </label>
+                            <label class="selectgroup-item">
+                                <input type="radio" name="smoker" value="tidak" {{ request()->get('smoker') == 'tidak' ? 'checked' :''  }} class="selectgroup-input">
+                                <span class="selectgroup-button selectgroup-button-icon"><i class="ti-close"></i></span>
+                            </label>
+                        </div>
+                        </div>
+                    </div>
+    
+                    <div class="col">
+                        <div class="form-group">
+                        <label class="form-label">Punya Pacar</label>
+                        <div class="selectgroup selectgroup-pills">
+                            <label class="selectgroup-item">
+                                <input type="radio" name="girlfriend" value="iya" class="selectgroup-input" {{ request()->get('girlfriend') == 'iya' ? 'checked' :''  }}>
+                                <span class="selectgroup-button selectgroup-button-icon"><i class="ti-check"></i></span>
+                            </label>
+                            <label class="selectgroup-item">
+                                <input type="radio" name="girlfriend" value="tidak" {{ request()->get('girlfriend') == 'tidak' ? 'checked' :''  }} class="selectgroup-input">
+                                <span class="selectgroup-button selectgroup-button-icon"><i class="ti-close"></i></span>
+                            </label>
+                        </div>
+                        </div>
+                    </div>
+    
+                    <div class="col">
+                        <div class="form-group">
+                        <label class="form-label">Gamer</label>
+                        <div class="selectgroup selectgroup-pills">
+                            <label class="selectgroup-item">
+                                <input type="radio" name="gamer" value="iya" class="selectgroup-input" {{ request()->get('gamer') == 'iya' ? 'checked' :''  }}>
+                                <span class="selectgroup-button selectgroup-button-icon"><i class="ti-check"></i></span>
+                            </label>
+                            <label class="selectgroup-item">
+                                <input type="radio" name="gamer" value="tidak" {{ request()->get('gamer') == 'tidak' ? 'checked' :''  }} class="selectgroup-input">
+                                <span class="selectgroup-button selectgroup-button-icon"><i class="ti-close"></i></span>
+                            </label>
+                        </div>
+                        </div>
+                    </div>
+    
+                    </div>
+    
+                    <div class="row">
+                    <div class="col">
+                        <div class="row">
+                        <div class="col">
+                            <label>Pendapatan Orang Tua</label>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                            <label>Minimal</label>
+                            <input type="number" class="form-control" name="parent_income_min" placeholder="Rp." value="{{ request()->get('parent_income_min') }}">
+                            </div>
+                        </div> 
+                        <div class="col">
+                            <div class="form-group">
+                            <label>Maksimal</label>
+                            <input type="number" class="form-control" name="parent_income_max" placeholder="Rp." value="{{ request()->get('parent_income_max') }}">
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col">
+                        <div class="form-group">
+                            <label>Pilih Gelombang</label>
+                            <select name="stage_id" class="form-select">
+                            <option value="" >-- pilih gelombang --</option>
+                            @foreach ($stages as $stage)
+                                <option value="{{ $stage->id }}">{{ $stage->name }}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                        </div> 
+                    </div>
+                </div>  
+                <div class="d-flex justify-content-between">
+                    <button type="submit" formaction="{{ route('biodatas.index') }}" class="btn btn-primary">Terapkan</button>
+                    <button type="submit"  formaction="{{ route('biodatas.filter-reset') }}"  class="btn btn-primary float-right">Atur Ulang</button>    
+                </div>    
+            </form>
         </div>
     </div>
 </div>

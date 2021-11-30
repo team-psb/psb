@@ -111,6 +111,8 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('biodatas/delete', [BiodataController::class, 'deleteAll'])->name('biodatas.deleteAll');
     Route::post('biodatas/pass/all', [BiodataController::class, 'passAll'])->name('biodatas.passAll');
     Route::post('biodatas/nonpass/all', [BiodataController::class, 'nonpassAll'])->name('biodatas.nonpassAll');
+    Route::get('biodatas/filter/reset', [BiodataController::class, 'filterreset'])->name('biodatas.filter-reset');
+
     
     Route::get('scores', [ScoreController::class, 'index'])->name('scores.index');
     Route::post('scores/delete/{id}', [ScoreController::class, 'delete'])->name('scores.delete');
