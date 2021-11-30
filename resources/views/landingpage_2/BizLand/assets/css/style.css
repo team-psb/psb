@@ -753,6 +753,72 @@ section {
     margin-bottom: 0;
 }
 
+/* Alur */
+
+#alur {
+    color: #145560;
+}
+
+.alur-text {
+    top: -130px;
+    font-weight: 600;
+    font-size: 14px;
+}
+.alur-text2 {
+    top: 115px;
+    font-weight: 600;
+    font-size: 14px;
+}
+.alur-text3 {
+    top: -130px;
+    font-weight: 600;
+    font-size: 14px;
+}
+.alur-text4 {
+    top: 115px;
+    font-weight: 600;
+    font-size: 14px;
+}
+.alur-text5 {
+    top: -130px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+@media (max-width: 400px) {
+    #alur {
+        height: auto;
+    }
+    .alur-text {
+        font-size: 10px;
+        top: 80px;
+    }
+    .alur-text2 {
+        font-size: 10px;
+        top: 80px;
+    }
+    .alur-text3 {
+        font-size: 10px;
+        top: 80px;
+    }
+    .alur-text4 {
+        font-size: 10px;
+        top: 80px;
+    }
+    .alur-text5 {
+        font-size: 10px;
+        top: 80px;
+    }
+    #alur img {
+        width: 90px;
+    }
+}
+@media (max-width: 764px) and (min-width: 400px) {
+    #alur {
+        padding-top: 100px;
+        height: 300px;
+    }
+}
 /*--------------------------------------------------------------
 # Skills
 --------------------------------------------------------------*/
