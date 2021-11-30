@@ -42,7 +42,7 @@ class AuthController extends Controller
                 $biodata_user = $biodata->toArray();
                 // dd($biodata_user);
                 if(count($biodata_user) > 0) {
-                    return redirect()->route('dash-user');
+                    return redirect()->route('user-dashboard');
                 }else{
                     return back()->with([
                         'error' => 'gagal'

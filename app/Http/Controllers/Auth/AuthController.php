@@ -48,9 +48,9 @@ class AuthController extends Controller
                 $user_bio = $bio->toArray();
                 //dd($user_bio);
                 if ( count($user_bio) > 0) {
-                    return redirect()->route('dash-user');
+                    return redirect()->route('user-dashboard');
                 }else{
-                    return redirect()->route('dash-user')->with('gagal_tes','hello');
+                    return redirect()->route('user-dashboard')->with('gagal_tes','hello');
                 }
             }
         }else{
