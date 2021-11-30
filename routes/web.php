@@ -18,6 +18,7 @@ use App\Http\Controllers\Exam\TestController;
 use App\Http\Controllers\Exam\VideoController;
 use App\Http\Controllers\Exam\BiodataOneController;
 use App\Http\Controllers\Exam\BiodataTwoController;
+use App\Http\Controllers\User\DashboardController as UserDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){
-    Route::get('home', function () {
-        return view('front.index');
-    })->name('dash-user');
+    Route::get('home', [UserDashboardController::class, 'index'])->name('dash-user');
     
     Route::get('profile', function () {
         return view('front.pages.profile.index');
