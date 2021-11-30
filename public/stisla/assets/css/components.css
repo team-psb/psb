@@ -1534,6 +1534,7 @@ tr:first-child > td > .fc-day-grid-event {
 
 /* 1.40 Hero */
 .hero {
+  border: solid 0.1px #f4f6f9;
   border-radius: 3px;
   padding: 55px;
   display: flex;

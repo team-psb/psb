@@ -1,7 +1,7 @@
       <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
         <div class="container">
-          <a href="index.html" class="navbar-brand sidebar-gone-hide"><img width="80px" src="{{ asset('stisla/assets/img/logo-putih.png') }}" alt=""></a>
+          <a href="{{ route('user-dashboard') }}" class="navbar-brand sidebar-gone-hide"><img width="80px" src="{{ asset('front/assets/img/logo-putih.png') }}" alt=""></a>
           <div class="navbar-nav">
             <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
           </div>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="dropdown-list-content dropdown-list-icons">
                   <a href="#" class="dropdown-item dropdown-item-unread">
-                    <div class="dropdown-item-icon bg-primary text-white">
+                    <div class="dropdown-item-icon bg-success text-white">
                       <i class="fas fa-code"></i>
                     </div>
                     <div class="dropdown-item-desc">
