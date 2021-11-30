@@ -18,7 +18,6 @@ use App\Http\Controllers\Exam\TestController;
 use App\Http\Controllers\Exam\VideoController;
 use App\Http\Controllers\Exam\BiodataOneController;
 use App\Http\Controllers\Exam\BiodataTwoController;
-use App\Http\Controllers\User\DashboardController as UserDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +34,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){
-    Route::get('home', [UserDashboardController::class, 'index'])->name('dash-user');
+    Route::get('home', function () {
+        return view('front.pages.profile.index');
+    })->name('dash-user');
 
     Route::get('profile', function () {
         return view('front.pages.profile.index');
@@ -116,22 +117,29 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('scores/delete', [ScoreController::class, 'deleteAll'])->name('scores.deleteAll');
     Route::post('scores/pass/all', [ScoreController::class, 'passAll'])->name('scores.passAll');
     Route::post('scores/nonpass/all', [ScoreController::class, 'nonpassAll'])->name('scores.nonpassAll');
+    Route::get('scores/filter/reset', [ScoreController::class, 'filterreset'])->name('scores.filter-reset');
     
     Route::get('videos', [AdminVideoController::class, 'index'])->name('videos.index');
     Route::post('videos/delete/{id}', [AdminVideoController::class, 'delete'])->name('videos.delete');
     Route::post('videos/delete', [AdminVideoController::class, 'deleteAll'])->name('videos.deleteAll');
     Route::post('videos/pass/all', [AdminVideoController::class, 'passAll'])->name('videos.passAll');
     Route::post('videos/nonpass/all', [AdminVideoController::class, 'nonpassAll'])->name('videos.nonpassAll');
+    Route::get('videos/filter/reset', [AdminVideoController::class, 'filterreset'])->name('videos.filter-reset');
+
     
     Route::get('interviews', [InterviewController::class, 'index'])->name('interviews.index');
     Route::post('interviews/delete/{id}', [InterviewController::class, 'delete'])->name('interviews.delete');
     Route::post('interviews/delete', [InterviewController::class, 'deleteAll'])->name('interviews.deleteAll');
     Route::post('interviews/pass/all', [InterviewController::class, 'passAll'])->name('interviews.passAll');
     Route::post('interviews/nonpass/all', [InterviewController::class, 'nonpassAll'])->name('interviews.nonpassAll');
+    Route::get('interviews/filter/reset', [InterviewController::class, 'filterreset'])->name('interviews.filter-reset');
+
     
     Route::get('passes', [PassController::class, 'index'])->name('passes.index');
     Route::post('passes/delete/{id}', [PassController::class, 'delete'])->name('passes.delete');
     Route::post('passes/delete', [PassController::class, 'deleteAll'])->name('passes.deleteAll');
+    Route::get('passes/filter/reset', [PassController::class, 'filterreset'])->name('passes.filter-reset');
+
     
     Route::resource('iqs', TestIqController::class);
     Route::post('iqs/delete/{id}', [TestIqController::class, 'destroy'])->name('iqs.delete');

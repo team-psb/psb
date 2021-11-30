@@ -10,7 +10,7 @@
                 <div class="card card-rounded">
                     <div class="card-body">
                         <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Biodata Pendaftar</h4>
-                        <form x-data="formdata()" method="POST" action="{{ route('biodata.update', $biodata->id) }}">
+                        <form x-data="formdata()" method="POST" action="{{ route('biodatas.update', $biodata->id) }}">
                           @csrf
                           @method('POST')
                           {{-- colom pertama --}}

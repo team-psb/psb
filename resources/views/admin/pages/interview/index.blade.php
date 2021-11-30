@@ -29,7 +29,11 @@
                                     <a href="" class="btn btn-primary">
                                     Export Excel
                                     </a>
-                                    <button class="btn btn-info ml-2">Filter</button>
+                                    <button type="button" class="btn round btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filter Data">
+                                        <i data-feather="filter" width="20"></i>
+                                        <span>Filter</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -96,6 +100,42 @@
         </div>
     </div>
 </div>
+
+<!--  Filter Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">-- Filter Data Penduduk --</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="GET">
+            
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Pilih Gelombang</label>
+                                    <select name="stage_id" class="form-select">
+                                        <option value="" >-- Pilih Gelombang --</option>
+                                        @foreach ($stages as $stage)
+                                            <option value="{{ $stage->id }}">{{ $stage->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div> 
+                        </div>
+                            
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" formaction="{{ route('interviews.index') }}" class="btn btn-primary">Terapkan</button>
+                            <button type="submit" formaction="{{ route('interviews.filter-reset') }}" class="btn btn-primary">Atur Ulang</button>
+                        </div>
+                        
+                </form>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 @push('after-script')
