@@ -35,8 +35,8 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){
     Route::get('home', function () {
-        return view('front.pages.profile.index');
-    })->name('dash-user');
+        return view('front.index');
+    })->name('user-dashboard');
 
     Route::get('profile', function () {
         return view('front.pages.profile.index');
