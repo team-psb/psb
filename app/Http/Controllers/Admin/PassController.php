@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\PassExport;
 use App\Http\Controllers\Controller;
 use App\Models\Interview;
 use App\Models\Pass;
 use App\Models\Stage;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PassController extends Controller
 {
@@ -55,5 +57,10 @@ class PassController extends Controller
     public function filterreset()
     {
         return redirect()->route('passes.index');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new PassExport, 'data calon santri baru.xlsx');
     }
 }

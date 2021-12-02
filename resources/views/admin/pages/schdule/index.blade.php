@@ -42,8 +42,8 @@
                                 @else
                                 @endif
                                 <div class="d-flex justify-content-between">
-                                    <button class="btn btn-danger " id="del1" type="button" aria-haspopup="true" aria-expanded="false">
-                                        Hapus Semua
+                                    <button class="btn btn-danger btn-icon-text p-2" id="del1" type="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="ti-trash btn-icon-perpend"></i> Hapus Semua
                                     </button>
                                     <div>
                                         {{-- <a href="#mymodal"
@@ -55,7 +55,8 @@
                                             data-bs-toggle="tooltip" data-bs-placement="bottom" title="Buat Data">
                                             Buat Data
                                         </a> --}}
-                                        <a href="{{ route('schdules.create') }}" class="btn btn-info">Buat Data</a>
+                                        <a href="{{ route('schdules.create') }}" class="btn btn-info btn-icon-text p-2">
+                                            <i class="ti-plus btn-icon-prepend"></i> Buat Data</a>
                                     </div>
                                 </div>
                             </div>
@@ -99,20 +100,22 @@
                                                                 data-toggle="modal"
                                                                 data-target="#mymodal"
                                                                 data-title="Detail Informasi {{ $loop->iteration }}" 
-                                                                class="btn btn-success align-items-center  py-2"
+                                                                class="btn btn-success btn-icon-text p-2"
                                                                 data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
-                                                                <i class="icon-eye"></i> Detail
+                                                                <i class="icon-eye btn-icon-prepend"></i> Detail
                                                             </a>
                                                             <a href="#mymodal"
                                                                 data-remote="{{ route('schdules.edit', $schdule->id) }}"
                                                                 data-toggle="modal"
                                                                 data-target="#mymodal"
                                                                 data-title="Edit Informasi {{ $loop->iteration }}" 
-                                                                class="btn ms-1 btn-primary  py-2"
+                                                                class="btn ms-1 btn-primary  btn-icon-text p-2"
                                                                 data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
-                                                                <i class="icon-pencil"></i> Edit
+                                                                <i class="icon-pencil btn-icon-prepend"></i> Edit
                                                             </a>
-                                                            <button formaction="{{ route('schdules.delete', $schdule->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                            <button formaction="{{ route('schdules.delete', $schdule->id) }}" class="btn ms-1 btn-danger  me-0  btn-icon-text p-2">
+                                                                <i class="icon-trash btn-icon-prepend"></i> Hapus
+                                                            </button>
                                                         </div>
                                                     </td>
                                                 </tr>

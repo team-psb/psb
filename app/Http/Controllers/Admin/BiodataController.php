@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\BiodataExport;
 use App\Http\Controllers\Controller;
 use App\Models\BiodataOne;
 use Illuminate\Http\Request;
 use App\Models\BiodataTwo;
 use App\Models\Score;
 use App\Models\Stage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BiodataController extends Controller
 {
@@ -96,7 +98,7 @@ class BiodataController extends Controller
             $query->where('is_active','=', true);
         },'user.biodataOne'])->get();
 
-        $biodatas = $data->where('academy_year_id','!=', null);
+        $biodatas = $data->where('academy_year','!=', null);
         return view('admin.pages.biodata.index',compact('biodatas', 'stages'));
     }
 
@@ -188,5 +190,10 @@ class BiodataController extends Controller
     public function filterreset()
     {
         return redirect()->route('biodatas.index');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new BiodataExport, 'data biodata.xlsx');
     }
 }

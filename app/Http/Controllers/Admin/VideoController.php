@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\VideoExport;
 use App\Http\Controllers\Controller;
 use App\Models\Stage;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class VideoController extends Controller
 {
@@ -83,5 +85,10 @@ class VideoController extends Controller
     public function filterreset()
     {
         return redirect()->route('videos.index');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new VideoExport, 'data video.xlsx');
     }
 }

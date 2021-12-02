@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\ScoreExport;
 use App\Http\Controllers\Controller;
 use App\Models\Score;
 use App\Models\Stage;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ScoreController extends Controller
 {
@@ -106,5 +108,10 @@ class ScoreController extends Controller
     public function filterreset()
     {
         return redirect()->route('scores.index');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new ScoreExport, 'data nilai.xlsx');
     }
 }

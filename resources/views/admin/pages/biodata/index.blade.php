@@ -16,7 +16,7 @@
                         <div class="row mb-4 ">
                             <div class="d-flex justify-content-between">
                                 <div class="dropdown">
-                                    <button class="btn btn-danger dropdown-toggle text-white" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn btn-danger dropdown-toggle text-white p-2" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Aksi Masal
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
@@ -26,13 +26,12 @@
                                     </div>
                                 </div>
                                 <div class="btn-group dropleft d-inline float-right">
-                                    <a href="" class="btn btn-primary">
-                                    Export Excel
+                                    <a href="{{ route('biodatas.export') }}" class="btn btn-primary btn-icon-text p-2">
+                                        <i class="ti-export btn-icon-prepend"></i> Export Excel
                                     </a>
-                                    <button type="button" class="btn round btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    <button type="button" class="btn btn-info btn-icon-text p-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                     data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filter Data">
-                                        <i data-feather="filter" width="20"></i>
-                                        <span>Filter</span>
+                                        <i class="ti-filter  btn-icon-prepend"></i> Filter
                                     </button>
                                 </div>
                             </div>
@@ -80,7 +79,7 @@
                                             <td>{{ $biodata->last_education }}</td>
                                             <td>{{ $biodata->memorization }}</td>
                                             <td>
-                                                <span class="badge badge-{{ $biodata->status == 'lolos' ? 'success':'' }}{{ $biodata->status == 'tidak' ? 'danger':'' }}">{{ $biodata->status }}</span>
+                                                <span class="fw-bold  badge badge-{{ $biodata->status == 'lolos' ? 'success':'' }}{{ $biodata->status == 'tidak' ? 'danger':'' }}">{{ $biodata->status }}</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex">
@@ -89,16 +88,16 @@
                                                         data-toggle="modal"
                                                         data-target="#mymodal"
                                                         data-title="Detail Biodata {{ $loop->iteration }}" 
-                                                        class="btn btn-success align-items-center  py-2"
+                                                        class="btn btn-success btn-icon-text  p-2"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
-                                                        <i class="icon-eye"></i> Detail
+                                                        <i class="icon-eye btn-icon-prepend"></i> Detail
                                                     </a>
                                                     <a href="{{ route('biodatas.edit', $biodata->id) }}"
-                                                        class="btn ms-1 btn-primary  py-2"
+                                                        class="btn ms-1 btn-primary btn-icon-text  p-2"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
-                                                        <i class="icon-pencil"></i> Edit
+                                                        <i class="icon-pencil btn-icon-prepend"></i> Edit
                                                     </a>
-                                                    <button formaction="{{ route('biodatas.delete', $biodata->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                    <button formaction="{{ route('biodatas.delete', $biodata->id) }}" class="btn btn-danger btn-icon-text  p-2 ms-1"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
                                                 </div>
                                             </td>
                                         </tr>

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\InterviewExport;
 use App\Http\Controllers\Controller;
 use App\Models\Interview;
 use Illuminate\Http\Request;
 use App\Models\Pass;
 use App\Models\Stage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InterviewController extends Controller
 {
@@ -83,5 +85,10 @@ class InterviewController extends Controller
     public function filterreset()
     {
         return redirect()->route('interviews.index');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new InterviewExport, 'data wawancara.xlsx');
     }
 }

@@ -43,7 +43,7 @@
                             @endif
                             <div class="d-flex justify-content-between">
                                 <div class="dropdown">
-                                    <button class="btn btn-danger dropdown-toggle text-white" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn btn-danger dropdown-toggle text-white p-2" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Aksi Masal
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
@@ -61,8 +61,8 @@
                                         data-toggle="modal"
                                         data-target="#mymodal"
                                         data-title="Buat Tahun Ajaran" 
-                                        class="btn btn-info">
-                                        <i class="icon-plus"></i> Buat Data
+                                        class="btn btn-info btn-icon-text p-2">
+                                        <i class="icon-plus btn-icon-prepend"></i> Buat Data
                                     </a>
                                 </div>
                             </div>
@@ -113,25 +113,25 @@
                                             <td>
                                                 <div class="d-flex">
                                                     <a href="{{ route('academies.status', $academy->id) }}?is_active=1"
-                                                        class="btn btn-success align-items-center  py-2"
-                                                        >
-                                                            <i class="icon-check"></i> Aktif
+                                                        class="btn btn-success btn-icon-text p-2">
+                                                            <i class="icon-check btn-icon-prepend"></i> Aktif
                                                     </a>
                                                     <a href="{{ route('academies.status', $academy->id) }}?is_active=0"
-                                                        class="btn btn-warning align-items-center ms-1 py-2"
-                                                        >
-                                                            <i class="icon-close"></i> Non Aktif
+                                                        class="btn btn-warning ms-1 btn-icon-text p-2">
+                                                            <i class="icon-close btn-icon-prepend"></i> Non Aktif
                                                     </a>
                                                     <a href="#mymodal"
                                                         data-remote="{{ route('academies.edit', $academy->id) }}"
                                                         data-toggle="modal"
                                                         data-target="#mymodal"
                                                         data-title="Edit Tahun Ajaran {{ $academy->year }}" 
-                                                        class="btn ms-1 btn-primary  py-2"
+                                                        class="btn ms-1 btn-primary  btn-icon-text p-2"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
-                                                        <i class="icon-pencil"></i> Edit
+                                                        <i class="icon-pencil btn-icon-prepend"></i> Edit
                                                     </a>
-                                                    <button formaction="{{ route('academies.delete', $academy->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                    <button formaction="{{ route('academies.delete', $academy->id) }}" class="btn ms-1 btn-danger me-0  btn-icon-text p-2">
+                                                        <i class="icon-trash btn-icon-prepend"></i> Hapus
+                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Imports\QuestionPersonalImport;
 use App\Models\QuestionPersonal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TestPersonalController extends Controller
 {
@@ -170,5 +173,24 @@ class TestPersonalController extends Controller
 
             return redirect()->route('personals.index')->with('success-delete', 'Berhasil Menghapus Semua Data');
         }
+    }
+
+    public function import(Request $request) 
+    {
+        $validatedData = $request->validate([
+
+            'file' => 'required',
+
+        ]);
+
+        Excel::import(new QuestionPersonalImport,$request->file('file'));
+
+        return redirect()->route('personals.index')->with('success', 'Berhasil mengimport file excel');
+    }
+
+    public function downloadtemplate()
+    {
+        $template ="./template-import/template-import-soal-tes-kepribadian.csv";
+        return Response::download($template);
     }
 }

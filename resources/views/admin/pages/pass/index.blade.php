@@ -15,17 +15,16 @@
                         </p>
                         <div class="row mb-4 ">
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-danger " id="del" type="button" aria-haspopup="true" aria-expanded="false">
-                                    Hapus Semua
+                                <button class="btn btn-danger btn-icon-text p-2" id="del" type="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ti-trash  btn-icon-prepend"></i> Hapus Semua
                                 </button>
                                 <div class="btn-group dropleft d-inline float-right">
-                                    <a href="" class="btn btn-primary">
-                                    Export Excel
+                                    <a href="{{ route('passes.export') }}" class="btn btn-primary btn-icon-text p-2">
+                                        <i class="ti-export btn-icon-prepend"></i> Export Excel
                                     </a>
-                                    <button type="button" class="btn round btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    <button type="button" class="btn btn-info btn-icon-text p-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                     data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filter Data">
-                                        <i data-feather="filter" width="20"></i>
-                                        <span>Filter</span>
+                                        <i class="ti-filter  btn-icon-prepend"></i> Filter
                                     </button>
                                 </div>
                             </div>
@@ -69,7 +68,7 @@
                                         <td>Yoygakarta</td>
                                         <td>
                                             <div class="btn-wrapper">
-                                                <button formaction="{{ route('passes.delete', $pass->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                <button formaction="{{ route('passes.delete', $pass->id) }}" class="btn ms-1 btn-danger btn-icon-text text-white p-2"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
                                             </div>
                                         </td>
                                     </tr>

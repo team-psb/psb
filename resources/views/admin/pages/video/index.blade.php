@@ -16,7 +16,7 @@
                         <div class="row mb-4 ">
                             <div class="d-flex justify-content-between">
                                 <div class="dropdown">
-                                    <button class="btn btn-danger dropdown-toggle text-white" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn btn-danger dropdown-toggle text-white p-2" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Aksi Masal
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
@@ -26,13 +26,12 @@
                                     </div>
                                 </div>
                                 <div class="btn-group dropleft d-inline float-right">
-                                    <a href="" class="btn btn-primary">
-                                    Export Excel
+                                    <a href="{{ route('videos.export') }}" class="btn btn-primary btn-icon-text p-2">
+                                        <i class="ti-export btn-icon-prepend"></i> Export Excel
                                     </a>
-                                    <button type="button" class="btn round btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    <button type="button" class="btn btn-info btn-icon-text p-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                     data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filter Data">
-                                        <i data-feather="filter" width="20"></i>
-                                        <span>Filter</span>
+                                        <i class="ti-filter  btn-icon-prepend"></i> Filter
                                     </button>
                                 </div>
                             </div>
@@ -78,7 +77,7 @@
                                             </td>
                                             <td>
                                                 <div class="btn-wrapper">
-                                                    <button formaction="{{ route('videos.delete', $video->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                    <button formaction="{{ route('videos.delete', $video->id) }}" class="btn ms-1 btn-danger btn-icon-text text-white p-2"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
                                                 </div>
                                             </td>
                                         </tr>
