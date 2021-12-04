@@ -31,7 +31,12 @@ class TestIqController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.questionIq.create');
+        return view('admin.pages.questionIq.modal-create');
+    }
+
+    public function questionCreate()
+    {
+        return view('admin.pages.questionIq.createPage');
     }
 
     /**

@@ -49,7 +49,7 @@ class BiodataTwo extends Model
         'mother_work',
         'parent_income',
         'child_to',
-        'borther',
+        'brother',
         'no_guardian',
         'description_guardian',
         'permission_parent',

@@ -47,7 +47,7 @@
             <div class="collapse" id="form-elements">
                 <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a class="nav-link" href="{{ route('iqs.index') }}">Daftar Soal IQ</a></li>
-                <li class="nav-item"><a class="nav-link" href="/iq-create">Buat Soal IQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('iqs.questionCreate') }}">Buat Soal IQ</a></li>
                 </ul>
             </div>
         </li>
@@ -60,7 +60,7 @@
             <div class="collapse" id="charts">
                 <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('personals.index') }}">Daftar Soal Kepribadian</a></li>
-                <li class="nav-item"> <a class="nav-link" href="/personality-create">Buat Soal Kepribadian</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('personals.questionCreate') }}">Buat Soal Kepribadian</a></li>
                 </ul>
             </div>
         </li>
@@ -70,13 +70,13 @@
                 <i class="menu-icon  mdi mdi-calendar"></i>
                 <span class="menu-title">Data Tahun Ajaran</span>
                 {{-- <i class="menu-arrow"></i> --}}
-            </a>
+            {{-- </a>
             <div class="collapse" id="auth">
                 <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
                 </ul>
             </div>
-        </li>
+        </li> --}}
         <li class="nav-item">
             <a class="nav-link" href="{{ route('academies.index') }}">
                 <i class="menu-icon  mdi mdi-account-card-details "></i>
@@ -92,7 +92,7 @@
             <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('schdules.index') }}">Daftar Informasi</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('schdules.create') }}">Buat Informasi</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('schdules.make') }}">Buat Informasi</a></li>
             </ul>
             </div>
         </li>
@@ -105,7 +105,7 @@
             <div class="collapse" id="auth2">
                 <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('qna.index') }}"> Daftar Q&A </a></li>
-                <li class="nav-item"> <a class="nav-link" href="/qna-create"> Buat Q&A </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('qna.make') }}"> Buat Q&A </a></li>
                 </ul>
             </div>
         </li>

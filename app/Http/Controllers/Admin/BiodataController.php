@@ -133,7 +133,7 @@ class BiodataController extends Controller
         ]);
 
         $biodata2->update($request->except(['full_name','age','no_wa','family']));
-        return redirect()->route('biodata.index')->with('edit-sukses','Data Berhasil Diedit');
+        return redirect()->route('biodatas.index')->with('edit-sukses','Data Berhasil Diedit');
     }
 
     public function delete($id)
@@ -152,7 +152,7 @@ class BiodataController extends Controller
                 BiodataTwo::find($id)->update(['status'=>'lolos']);
             }
 
-            return redirect()->route('biodata.index');
+            return redirect()->route('biodatas.index');
         }else{
             return redirect()->back();
         }
@@ -166,7 +166,7 @@ class BiodataController extends Controller
                 BiodataTwo::find($id)->update(['status'=>'tidak']);
             }
 
-            return redirect()->route('biodata.index');
+            return redirect()->route('biodatas.index');
         }else{
             return redirect()->back();
         }
@@ -181,7 +181,7 @@ class BiodataController extends Controller
                 BiodataTwo::find($id)->delete();
             }
 
-            return redirect()->route('biodata.index');
+            return redirect()->route('biodatas.index');
         }else{
             return redirect()->back();
         }

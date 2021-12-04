@@ -9,17 +9,17 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card card-rounded">
                     <div class="card-body">
-                        <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Biodata Pendaftar</h4>
+                        <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Biodata {{ $biodata->user->biodataOne->full_name }}</h4>
                         <form x-data="formdata()" method="POST" action="{{ route('biodatas.update', $biodata->id) }}">
                           @csrf
                           @method('POST')
                           {{-- colom pertama --}}
                           <input type="hidden" name="biodataOne_id" value="{{ $biodata->user->biodataOne->id }}">
                           <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                               
                               {{-- nama --}}
-                              <div class="form-ggroup mb-3">
+                              <div class="form-group mb-3">
                                 <label for="">Nama</label>
                                 <input
                                     type="text"
@@ -42,7 +42,7 @@
                                   required
                                 />
                               </div>
-                              {{-- tanggal lahit --}}
+                              {{-- tanggal lahir --}}
                               <div class="form-group mb-3">
                                 <label for="">Tanggal Lahir</label>
                                 <input
@@ -93,7 +93,7 @@
                               {{-- pendidikan terakhir --}}
                               <div class="form-group mb-3">
                                 <label for="">Pendidikan Terakhir</label>
-                                <select name="last_education" class="custom-select">
+                                <select name="last_education" class="form-select">
                                   <option value="SD" {{ $biodata->last_education == 'SD' ? 'selected' :'' }}>SD SEDERAJAT</option>
                                   <option value="SMP" {{ $biodata->last_education == 'SMP' ? 'selected' :'' }}>SMP SEDERAJAT</option>
                                   <option value="SMA" {{ $biodata->last_education == 'SMA' ? 'selected' :'' }}>SMA SEDERAJAT</option>
@@ -154,7 +154,7 @@
                               {{-- provinsi --}}
                               {{-- <div class="form-group mb-3">
                                 <label for="">Provinsi</label>
-                                <select name="indonesia_provinces_id" class="custom-select" x-on:change="getKabupaten(provin_id)" x-model="provin_id">
+                                <select name="indonesia_provinces_id" class="form-select" x-on:change="getKabupaten(provin_id)" x-model="provin_id">
                                     <option value="{{ $biodata->indonesia_provinces_id }}">{{ $biodata->provinsi->name }}</option>
                                     @foreach ($provinsi as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -163,10 +163,10 @@
                               </div> --}}
                               {{-- kabupaten --}}
                               {{-- <div class="form-group mb-3">
-                                <select name="indonesia_cities_id" class="custom-select" >
+                                <select name="indonesia_cities_id" class="form-select" >
                                     <option value="{{ $biodata->indonesia_cities_id }}">{{ $biodata->kabupaten->name }}</option>
                                     <template x-for="an in kabupatenids">
-                                        <option :value="an.id"><span x-html="an.name"></span></option>
+                                        <option :value="an.id"><div x-html="an.name"></div></option>
                                     </template>											
                                 </select>
                               </div> --}}
@@ -221,7 +221,7 @@
                               {{-- orang tua --}}
                               <div class="form-group mb-3">
                                 <label for="">Orang Tua</label>
-                                <select name="parent" class="custom-select">
+                                <select name="parent" class="form-select">
                                     <option value="lengkap" {{ $biodata->parent == 'lengkap' ? 'selected' :'' }}>LENGKAP</option>
                                     <option value="ayah" {{ $biodata->parent == 'ayah' ? 'selected' :'' }}>AYAH</option>
                                     <option value="ibu" {{ $biodata->parent == 'ibu' ? 'selected' :'' }}>IBU</option>
@@ -254,6 +254,7 @@
                               </div>
                               {{-- pekerjaan Ayah --}}
                               <div class="form-group mb-3">
+                                <label for="">Pekerjaan Ayah</label></label>
                                 <input
                                     type="text"
                                     class="form-control"
@@ -275,104 +276,53 @@
                                     required
                                 />
                               </div>
-                              {{-- penghasilan orangtua --}}
-                              {{-- <div class="form-group mb-3">
-                                <label for="">Penghasilan orang TUa</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    value="{{ $biodata->penghasilan_ortu }}"
-                                    name="penghasilan_ortu"
-                                    aria-describedby="emailHelp"
-                                    required
-                                />
-                              </div> --}}
-                              {{-- jumlah saudara --}}
-                              {{-- <div class="form-group mb-3">
-                                <label for="">jumlah Saudara</label>
-                                <input
-                                    type="number"
-                                    class="form-control"
-                                    value="{{ $biodata->saudara }}"
-                                    name="saudara"
-                                    aria-describedby="emailHelp"
-                                    required
-                                />
-                              </div> --}}
-                              {{-- anak ke --}}
-                              {{-- <div class="form-group mb-3">
-                                <label for="">Anak Ke</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    value="{{ $biodata->anak_ke }}"
-                                    name="anak_ke"
-                                    aria-describedby="emailHelp"
-                                    required
-                                />
-                              </div> --}}
-                              {{-- no hp wali --}}
-                              {{-- <div class="form-group mb-3">
-                                <label for="">No Hp Wali</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    value="{{ $biodata->no_wali }}"
-                                    name="no_wali"
-                                    aria-describedby="emailHelp"
-                                    required
-                                />
-                              </div>
-                               --}}
-                            </div>
-                          
-                          {{-- colom kedua --}}
-                            <div class="col-md-5">
                               {{-- kondisi keluarga --}}
                               <div class="form-group mb-3">
-                                <h6>Kondisi Keluarga</h6>
-                                <span class="form-check d-inline mr-5">
-                                  <input
-                                      class="form-check-input"
-                                      type="radio"
-                                      name="family"
-                                      id="sangat-mampu"
-                                      value="sangat-mampu"
-                                      {{ $biodata->user->biodataOne->family == 'sangat-mampu' ? 'checked' : '' }}
-                                      required
-                                  />
-                                  <label class="form-check-label" for="sangat-mampu">
-                                  sangat-mampu
-                                  </label>
-                                </span>
-                                <span class="form-check d-inline mr-5">
+                                <label>Kondisi Keluarga</label>
+                                <div class="d-flex">
+                                  <div class="form-check me-2">
+                                    <label class="form-check-label" for="sangat-mampu">
                                     <input
                                         class="form-check-input"
                                         type="radio"
                                         name="family"
-                                        id="mampu"
-                                        value="mampu"
-                                        {{ $biodata->user->biodataOne->family == 'mampu' ? 'checked' : '' }}
+                                        id="sangat-mampu"
+                                        value="sangat-mampu"
+                                        {{ $biodata->user->biodataOne->family == 'sangat-mampu' ? 'checked' : '' }}
                                         required
                                     />
+                                    sangat-mampu
+                                    </label>
+                                  </div>
+                                  <div class="form-check me-2">
                                     <label class="form-check-label" for="mampu">
-                                    mampu
-                                    </label>
-                                </span>
-                                <span class="form-check d-inline" >
-                                    <input
-                                        class="form-check-input"
-                                        type="radio"
-                                        name="family"
-                                        id="tidak_mampu"
-                                        value="tidak-mampu"
-                                        required
-                                        {{ $biodata->user->biodataOne->family = 'tidak-mampu' ? 'checked' : '' }}
-                                    />
+                                      <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="family"
+                                          id="mampu"
+                                          value="mampu"
+                                          {{ $biodata->user->biodataOne->family == 'mampu' ? 'checked' : '' }}
+                                          required
+                                      />
+                                      mampu
+                                      </label>
+                                  </div>
+                                  <div class="form-check me-2">
                                     <label class="form-check-label" for="tidak_mampu">
-                                    tidak-mampu
-                                    </label>
-                                </span>
+                                      <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="family"
+                                          id="tidak_mampu"
+                                          value="tidak-mampu"
+                                          required
+                                          {{ $biodata->user->biodataOne->family = 'tidak-mampu' ? 'checked' : '' }}
+                                      />
+                                      tidak-mampu
+                                      </label>
+                                  </div>
+                                </div>
                               </div>
                               {{-- penghasilan orangtua --}}
                               <div class="form-group mb-3">
@@ -410,6 +360,10 @@
                                     required
                                 />
                               </div>
+                            </div>
+                          
+                          {{-- colom kedua --}}
+                            <div class="col-md-6">
                               {{-- no hp wali --}}
                               <div class="form-group mb-3">
                                 <label for="">No Hp Wali</label>
@@ -466,9 +420,7 @@
                                     name="tauhid"
                                     aria-describedby="emailHelp"
                                     required
-                                >
-                                  {{ $biodata->tauhid }}
-                                </textarea>
+                                >{{ $biodata->tauhid }}</textarea>
                               </div>
                               {{-- Kajian Yang Sering Di Hadiri --}}
                               <div class="form-group mb-3">
@@ -497,7 +449,8 @@
                               {{-- perokok --}}
                               <div class="form-group mb-3">
                                 <label for="" class="d-block">Perokok</label>
-                                <span class="form-check d-inline mr-5">
+                                <div class="form-check">
+                                  <label class="form-check-label" for="smoker_yes">
                                   <input
                                       class="form-check-input"
                                       type="radio"
@@ -507,11 +460,11 @@
                                       {{ $biodata->smoker == 'iya' ? 'checked' :'' }}
                                       required
                                   />
-                                  <label class="form-check-label" for="smoker_yes">
                                    Iya
                                   </label>
-                                </span>
-                                <span class="form-check d-inline" >
+                                </div>
+                                <div class="form-check" >
+                                  <label class="form-check-label" for="smoker_no">
                                   <input
                                       class="form-check-input"
                                       type="radio"
@@ -521,15 +474,15 @@
                                       {{ $biodata->smoker != 'iya' ? 'checked' :'' }}
                                       required
                                   />
-                                  <label class="form-check-label" for="smoker_no">
                                    Tidak
                                   </label>
-                                </span>
+                                </div>
                               </div>
                               {{-- punya pacar --}}
                               <div class="form-group mb-3">
                                 <label for="" class="d-block">Punya Pacar?</label>
-                                <span class="form-check d-inline mr-5">
+                                <div class="form-check">
+                                  <label class="form-check-label" for="girlfriend_yes">
                                   <input
                                       class="form-check-input"
                                       type="radio"
@@ -539,11 +492,11 @@
                                       {{ $biodata->girlfriend == 'iya' ? 'checked' :'' }}
                                       required
                                   />
-                                  <label class="form-check-label" for="girlfriend_yes">
                                    Iya
                                   </label>
-                                </span>
-                                <span class="form-check d-inline" >
+                                </div>
+                                <div class="form-check" >
+                                  <label class="form-check-label" for="girlfriend_no">
                                   <input
                                       class="form-check-input"
                                       type="radio"
@@ -553,15 +506,15 @@
                                       {{ $biodata->girlfriend != 'iya' ? 'checked' :'' }}
                                       required
                                   />
-                                  <label class="form-check-label" for="girlfriend_no">
                                    Tidak
                                   </label>
-                                </span>
+                                </div>
                               </div>
                               {{-- suka game --}}
                               <div class="form-group mb-3">
                                 <label for="" class="d-block">Suka Game</label>
-                                <span class="form-check d-inline mr-5">
+                                <div class="form-check">
+                                  <label class="form-check-label" for="gamer_yes">
                                   <input
                                       class="form-check-input"
                                       type="radio"
@@ -571,11 +524,11 @@
                                       {{ $biodata->gamer == 'iya' ? 'checked' :'' }}
                                       required
                                   />
-                                  <label class="form-check-label" for="gamer_yes">
                                    Iya
                                   </label>
-                                </span>
-                                <span class="form-check d-inline" >
+                                </div>
+                                <div class="form-check" >
+                                  <label class="form-check-label" for="gamer_no">
                                   <input
                                       class="form-check-input"
                                       type="radio"
@@ -585,10 +538,9 @@
                                       {{ $biodata->gamer != 'iya' ? 'checked' :'' }}
                                       required
                                   />
-                                  <label class="form-check-label" for="gamer_no">
                                    Tidak
                                   </label>
-                                </span>
+                                </div>
                               </div>
                               {{-- jika suka --}}
                               @if ($biodata->suka_game == 'iya')
@@ -618,7 +570,8 @@
                               {{-- Punya Laptop --}}
                               <div class="form-group mb-3">
                                 <label for="" class="d-block">Punya Laptop</label>
-                                <span class="form-check d-inline mr-5">
+                                <div class="form-check">
+                                  <label class="form-check-label" for="have_laptop_yes">
                                   <input
                                       class="form-check-input"
                                       type="radio"
@@ -628,11 +581,11 @@
                                       {{ $biodata->have_laptop == 'iya' ? 'checked' :'' }}
                                       required
                                   />
-                                  <label class="form-check-label" for="have_laptop_yes">
                                    Iya
                                   </label>
-                                </span>
-                                <span class="form-check d-inline" >
+                                </div>
+                                <div class="form-check" >
+                                  <label class="form-check-label" for="have_laptop_no">
                                   <input
                                       class="form-check-input"
                                       type="radio"
@@ -642,15 +595,15 @@
                                       {{ $biodata->have_laptop != 'iya' ? 'checked' :'' }}
                                       required
                                   />
-                                  <label class="form-check-label" for="have_laptop_no">
                                    Tidak
                                   </label>
-                                </span>
+                                </div>
                               </div>
                               {{-- izin Orang  tua --}}
                               <div class="form-group mb-3">
                                 <label for="" class="d-block">Izin Orang Tua</label>
-                                <span class="form-check d-inline mr-5">
+                                <div class="form-check">
+                                  <label class="form-check-label" for="permission_parent_yes">
                                   <input
                                       class="form-check-input"
                                       type="radio"
@@ -660,11 +613,11 @@
                                       {{ $biodata->permission_parent == 'iya' ? 'checked' :'' }}
                                       required
                                   />
-                                  <label class="form-check-label" for="permission_parent_yes">
                                    Iya
                                   </label>
-                                </span>
-                                <span class="form-check d-inline" >
+                                </div>
+                                <div class="form-check" >
+                                  <label class="form-check-label" for="permission_parent_no">
                                   <input
                                       class="form-check-input"
                                       type="radio"
@@ -674,15 +627,15 @@
                                       {{ $biodata->permission_parent != 'iya' ? 'checked' :'' }}
                                       required
                                   />
-                                  <label class="form-check-label" for="permission_parent_no">
                                    Tidak
                                   </label>
-                                </span>
+                                </div>
                               </div>
                               {{-- setuju --}}
                               <div class="form-group mb-3">
                                 <label for="" class="d-block">Setuju Dengan Ketetuan</label>
-                                <span class="form-check d-inline mr-5">
+                                <div class="form-check">
+                                  <label class="form-check-label" for="agree_yes">
                                   <input
                                       class="form-check-input"
                                       type="radio"
@@ -692,11 +645,11 @@
                                       {{ $biodata->agree == 1 ? 'checked' :'' }}
                                       required
                                   />
-                                  <label class="form-check-label" for="agree_yes">
                                    Iya
                                   </label>
-                                </span>
-                                <span class="form-check d-inline" >
+                                </div>
+                                <div class="form-check" >
+                                  <label class="form-check-label" for="agree_no">
                                   <input
                                       class="form-check-input"
                                       type="radio"
@@ -706,10 +659,9 @@
                                       {{ $biodata->agree != 1 ? 'checked' :'' }}
                                       required
                                   />
-                                  <label class="form-check-label" for="agree_no">
                                     Tidak
                                   </label>
-                                </span>
+                                </div>
                               </div>
                               {{-- alasan mendaftar --}}
                               <div class="form-group mb-3">
@@ -718,9 +670,7 @@
                                   style="height: 150px;"
                                   type="text"
                                   class="form-control"
-                                  name="reason_registration" >
-                                  {{ $biodata->reason_registration }}
-                                </Textarea>
+                                  name="reason_registration" >{{ $biodata->reason_registration }}</Textarea>
                               </div>
                               {{-- kegiatan dari bangun sampai tidur --}}
                               <div class="form-group mb-3">
@@ -730,9 +680,7 @@
                                   type="text"
                                   class="form-control"
                                   name="activity"
-                                >
-                                {{ $biodata->activity }}
-                                </textarea>
+                                >{{ $biodata->activity }}</textarea>
                               </div>
                               {{-- kepribadian --}}
                               <div class="form-group mb-3">
@@ -742,9 +690,7 @@
                                     type="text"
                                     class="form-control"
                                     name="personal"  
-                                >
-                                    {{ $biodata->personal }}
-                                </textarea>
+                                >{{ $biodata->personal }}</textarea>
                               </div>
                             </div>
                           </div>

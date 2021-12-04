@@ -28,7 +28,7 @@
 				<h6>Jawaban</h6>
 			</th>
 			<th>
-				<h6>Kunci Jawaban</h6>
+				<h6>Pilih Kunci Jawaban</h6>
 			</th>
 		</tr>
 		{{-- a --}}
@@ -42,7 +42,7 @@
 			<td class="pl-5">
 				<div class="selectgroup selectgroup-pills">
 				<label class="selectgroup-item">
-					<input type="radio" class="form-check-input" name="answer_key" value="a">
+					<input type="checkbox" class="form-check-input" name="answer_key" value="a">
 					<span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"></i></span>
 				</label>
 				</div>
@@ -59,7 +59,7 @@
 			<td class="pl-5">
 				<div class="selectgroup selectgroup-pills">
 				<label class="selectgroup-item">
-					<input type="radio" class="form-check-input" name="answer_key" value="b">
+					<input type="checkbox" class="form-check-input" name="answer_key" value="b">
 					<span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"></i></span>
 				</label>
 				</div>
@@ -74,15 +74,12 @@
 				<input type="text" style="height: 50px;" name="c" class="form-control"  value="">
 			</td>
 			<td class="pl-5">
-				{{-- <div class="selectgroup selectgroup-pills"> --}}
-				{{-- <label class="selectgroup-item">
-					<input type="radio" class="form-check-input" >
+				<div class?="selectgroup selectgroup-pills">
+				<label class="selectgroup-item">
+					<input type="checkbox" class="form-check-input" >
 					<span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"></i></span>
-				</label> --}}
-				<label class="form-check-label">
-					<input type="checkbox" class="form-check-input" name="answer_key" value="c">
 				</label>
-				{{-- </div> --}}
+				</div>
 			</td>
 		</tr>
 		{{-- d --}}
@@ -96,7 +93,7 @@
 			<td class="pl-5">
 				<div class="selectgroup selectgroup-pills">
 				<label class="selectgroup-item">
-					<input type="radio" class="form-check-input" name="answer_key" value="d">
+					<input type="checkbox" class="form-check-input" name="answer_key" value="d">
 					<span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"></i></span>
 				</label>
 				</div>
@@ -113,7 +110,7 @@
 			<td class="pl-5">
 				<div class="selectgroup selectgroup-pills">
 				<label class="selectgroup-item">
-					<input type="radio" class="form-check-input" name="answer_key" value="e">
+					<input type="checkbox" class="form-check-input" name="answer_key" value="e">
 					<span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"></i></span>
 				</label>
 				</div>

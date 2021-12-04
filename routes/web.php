@@ -18,6 +18,7 @@ use App\Http\Controllers\Exam\TestController;
 use App\Http\Controllers\Exam\VideoController;
 use App\Http\Controllers\Exam\BiodataOneController;
 use App\Http\Controllers\Exam\BiodataTwoController;
+use Database\Seeders\QnaSeeder;
 
 /*
 |--------------------------------------------------------------------------
@@ -152,22 +153,26 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
     
     Route::resource('iqs', TestIqController::class);
+    Route::get('iqs/make/questioniq', [TestIqController::class, 'questionCreate'])->name('iqs.questionCreate');
     Route::post('iqs/delete/{id}', [TestIqController::class, 'destroy'])->name('iqs.delete');
     Route::post('iqs/delete', [TestIqController::class, 'deleteAll'])->name('iqs.deleteAll');
     Route::post('iqs/import', [TestIqController::class, 'import'])->name('iqs.import');
     Route::get('iqs/template/download', [TestIqController::class, 'downloadtemplate'])->name('iqs.template');
 
     Route::resource('personals', TestPersonalController::class);
+    Route::get('personals/make/questionpersonal', [TestPersonalController::class, 'questionCreate'])->name('personals.questionCreate');
     Route::post('personals/delete/{id}', [TestPersonalController::class, 'destroy'])->name('personals.delete');
     Route::post('personals/delete', [TestPersonalController::class, 'deleteAll'])->name('personals.deleteAll');
     Route::post('personals/import', [TestPersonalController::class, 'import'])->name('personals.import');
     Route::get('personals/template/download', [TestPersonalController::class, 'downloadtemplate'])->name('personals.template');
 
     Route::resource('qna', QnaController::class);
+    Route::get('qna/make/qna', [QnaController::class, 'createPage'])->name('qna.make');
     Route::post('qna/delete/{id}', [QnaController::class, 'destroy'])->name('qna.delete');
     Route::post('qna/delete', [QnaController::class, 'deleteAll'])->name('qna.deleteAll');
-
+    
     Route::resource('schdules', SchduleController::class);
+    Route::get('schdules/make/schdule', [SchduleController::class, 'create'])->name('schdules.make');
     Route::post('schdules/delete/{id}', [SchduleController::class, 'destroy'])->name('schdules.delete');
     Route::post('schdules/delete', [SchduleController::class, 'deleteAll'])->name('schdules.deleteAll');
 

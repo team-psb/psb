@@ -34,6 +34,11 @@ class TestPersonalController extends Controller
         return view('admin.pages.questionPersonal.modal-create');
     }
 
+    public function questionCreate()
+    {
+        return view('admin.pages.questionPersonal.createPage');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
