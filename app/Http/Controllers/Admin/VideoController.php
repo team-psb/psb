@@ -2,19 +2,33 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\VideoExport;
 use App\Http\Controllers\Controller;
+use App\Models\Stage;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class VideoController extends Controller
 {
+
     public function index()
     {
-        $videos = Video::get();
+        $stages = Stage::get();
+        
+        if (request()->get('stage_id') && request()->get('stage_id') != null){
+            $data = Video::with(['academy_year'=>function($query){
+                $query->where('stage_id','=', request()->get('stage_id'));
+            },'user.biodataOne'])->orderBy('id','desc');
+        }else {
+            $data = Video::with(['academy_year'=>function($query){
+                $query->where('is_active','=', true);
+            },'user.biodataOne'])->orderBy('id','desc');
+        }
 
-        return view('admin.pages.video.index', [
-            'videos' => $videos
-        ]);
+        $data = $data->get();
+        $videos = $data->where('academy_year', '!=', null);
+        return view('admin.pages.video.index',compact('videos', 'stages'));
     }
 
     public function delete($id)
@@ -66,5 +80,15 @@ class VideoController extends Controller
         }else{
             return redirect()->back();
         }
+    }
+
+    public function filterreset()
+    {
+        return redirect()->route('videos.index');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new VideoExport, 'data video.xlsx');
     }
 }

@@ -2,19 +2,33 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\InterviewExport;
 use App\Http\Controllers\Controller;
+use App\Models\Interview;
 use Illuminate\Http\Request;
 use App\Models\Pass;
+use App\Models\Stage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InterviewController extends Controller
 {
     public function index()
     {
-        $interviews = Pass::get();
+        $stages = Stage::get();
+        
+        if (request()->get('stage_id') && request()->get('stage_id') != null){
+            $data = Interview::with(['academy_year'=>function($query){
+                $query->where('stage_id','=', request()->get('stage_id'));
+            },'user.biodataOne'])->orderBy('id','desc');
+        }else {
+            $data = Interview::with(['academy_year'=>function($query){
+                $query->where('is_active','=', true);
+            },'user.biodataOne'])->orderBy('id','desc');
+        }
 
-        return view('admin.pages.interview.index', [
-            'interviews' => $interviews
-        ]);
+        $data = $data->get();
+        $interviews = $data->where('academy_year', '!=', null);
+        return view('admin.pages.interview.index',compact('interviews', 'stages'));
     }
 
     public function delete($id)
@@ -66,5 +80,15 @@ class InterviewController extends Controller
         }else{
             return redirect()->back();
         }
+    }
+
+    public function filterreset()
+    {
+        return redirect()->route('interviews.index');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new InterviewExport, 'data wawancara.xlsx');
     }
 }

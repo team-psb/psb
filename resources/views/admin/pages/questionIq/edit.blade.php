@@ -42,7 +42,7 @@
 			<td class="pl-5">
 				<div class="selectgroup selectgroup-pills">
 				<label class="selectgroup-item">
-					<input type="radio" class="form-check-input" name="answer_key" value="a" {{ $question->answer_key == 'a' ? 'checked' : ''  }}>
+					<input type="checkbox" class="form-check-input" name="answer_key" value="a" {{ $question->answer_key == 'a' ? 'checked' : ''  }}>
 					<span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"></i></span>
 				</label>
 				</div>
@@ -59,7 +59,7 @@
 			<td class="pl-5">
 				<div class="selectgroup selectgroup-pills">
 				<label class="selectgroup-item">
-					<input type="radio" class="form-check-input" name="answer_key" value="b" {{ $question->answer_key == 'b' ? 'checked' : ''  }}>
+					<input type="checkbox" class="form-check-input" name="answer_key" value="b" {{ $question->answer_key == 'b' ? 'checked' : ''  }}>
 					<span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"></i></span>
 				</label>
 				</div>
@@ -76,7 +76,7 @@
 			<td class="pl-5">
 				<div class="selectgroup selectgroup-pills">
 				<label class="selectgroup-item">
-					<input type="radio" class="form-check-input" name="answer_key" value="c" {{ $question->answer_key == 'c' ? 'checked' : ''  }}>
+					<input type="checkbox" class="form-check-input" name="answer_key" value="c" {{ $question->answer_key == 'c' ? 'checked' : ''  }}>
 					<span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"></i></span>
 				</label>
 				</div>
@@ -93,7 +93,7 @@
 			<td class="pl-5">
 				<div class="selectgroup selectgroup-pills">
 				<label class="selectgroup-item">
-					<input type="radio" class="form-check-input" name="answer_key" value="d" {{ $question->answer_key == 'd' ? 'checked' : ''  }}>
+					<input type="checkbox" class="form-check-input" name="answer_key" value="d" {{ $question->answer_key == 'd' ? 'checked' : ''  }}>
 					<span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"></i></span>
 				</label>
 				</div>
@@ -110,7 +110,7 @@
 			<td class="pl-5">
 				<div class="selectgroup selectgroup-pills">
 				<label class="selectgroup-item">
-					<input type="radio" class="form-check-input" name="answer_key" value="e" {{ $question->answer_key == 'e' ? 'checked' : ''  }}>
+					<input type="checkbox" class="form-check-input" name="answer_key" value="e" {{ $question->answer_key == 'e' ? 'checked' : ''  }}>
 					<span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"></i></span>
 				</label>
 				</div>

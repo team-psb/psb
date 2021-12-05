@@ -31,6 +31,11 @@ class QnaController extends Controller
         return view('admin.pages.qna.create');
     }
 
+    public function createPage()
+    {
+        return view('admin.pages.qna.createPage');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

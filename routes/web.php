@@ -19,6 +19,7 @@ use App\Http\Controllers\Exam\VideoController;
 use App\Http\Controllers\Exam\BiodataOneController;
 use App\Http\Controllers\Exam\BiodataTwoController;
 use App\Http\Controllers\User\UserDashboardController;
+use Database\Seeders\QnaSeeder;
 
 /*
 |--------------------------------------------------------------------------
@@ -113,42 +114,67 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('biodatas/delete', [BiodataController::class, 'deleteAll'])->name('biodatas.deleteAll');
     Route::post('biodatas/pass/all', [BiodataController::class, 'passAll'])->name('biodatas.passAll');
     Route::post('biodatas/nonpass/all', [BiodataController::class, 'nonpassAll'])->name('biodatas.nonpassAll');
+    Route::get('biodatas/filter/reset', [BiodataController::class, 'filterreset'])->name('biodatas.filter-reset');
+    Route::get('biodatas/export/data', [BiodataController::class, 'export'])->name('biodatas.export');
+
+
     
     Route::get('scores', [ScoreController::class, 'index'])->name('scores.index');
     Route::post('scores/delete/{id}', [ScoreController::class, 'delete'])->name('scores.delete');
     Route::post('scores/delete', [ScoreController::class, 'deleteAll'])->name('scores.deleteAll');
     Route::post('scores/pass/all', [ScoreController::class, 'passAll'])->name('scores.passAll');
     Route::post('scores/nonpass/all', [ScoreController::class, 'nonpassAll'])->name('scores.nonpassAll');
+    Route::get('scores/filter/reset', [ScoreController::class, 'filterreset'])->name('scores.filter-reset');
+    Route::get('scores/export', [ScoreController::class, 'export'])->name('scores.export');
+
     
     Route::get('videos', [AdminVideoController::class, 'index'])->name('videos.index');
     Route::post('videos/delete/{id}', [AdminVideoController::class, 'delete'])->name('videos.delete');
     Route::post('videos/delete', [AdminVideoController::class, 'deleteAll'])->name('videos.deleteAll');
     Route::post('videos/pass/all', [AdminVideoController::class, 'passAll'])->name('videos.passAll');
     Route::post('videos/nonpass/all', [AdminVideoController::class, 'nonpassAll'])->name('videos.nonpassAll');
+    Route::get('videos/filter/reset', [AdminVideoController::class, 'filterreset'])->name('videos.filter-reset');
+    Route::get('videos/export', [AdminVideoController::class, 'export'])->name('videos.export');
+
     
     Route::get('interviews', [InterviewController::class, 'index'])->name('interviews.index');
     Route::post('interviews/delete/{id}', [InterviewController::class, 'delete'])->name('interviews.delete');
     Route::post('interviews/delete', [InterviewController::class, 'deleteAll'])->name('interviews.deleteAll');
     Route::post('interviews/pass/all', [InterviewController::class, 'passAll'])->name('interviews.passAll');
     Route::post('interviews/nonpass/all', [InterviewController::class, 'nonpassAll'])->name('interviews.nonpassAll');
-    
+    Route::get('interviews/filter/reset', [InterviewController::class, 'filterreset'])->name('interviews.filter-reset');
+    Route::get('interviews/export', [InterviewController::class, 'export'])->name('interviews.export');
+
+
     Route::get('passes', [PassController::class, 'index'])->name('passes.index');
     Route::post('passes/delete/{id}', [PassController::class, 'delete'])->name('passes.delete');
     Route::post('passes/delete', [PassController::class, 'deleteAll'])->name('passes.deleteAll');
+    Route::get('passes/filter/reset', [PassController::class, 'filterreset'])->name('passes.filter-reset');
+    Route::get('passes/export/data', [PassController::class, 'export'])->name('passes.export');
+
+
     
     Route::resource('iqs', TestIqController::class);
+    Route::get('iqs/make/questioniq', [TestIqController::class, 'questionCreate'])->name('iqs.questionCreate');
     Route::post('iqs/delete/{id}', [TestIqController::class, 'destroy'])->name('iqs.delete');
     Route::post('iqs/delete', [TestIqController::class, 'deleteAll'])->name('iqs.deleteAll');
+    Route::post('iqs/import', [TestIqController::class, 'import'])->name('iqs.import');
+    Route::get('iqs/template/download', [TestIqController::class, 'downloadtemplate'])->name('iqs.template');
 
     Route::resource('personals', TestPersonalController::class);
+    Route::get('personals/make/questionpersonal', [TestPersonalController::class, 'questionCreate'])->name('personals.questionCreate');
     Route::post('personals/delete/{id}', [TestPersonalController::class, 'destroy'])->name('personals.delete');
     Route::post('personals/delete', [TestPersonalController::class, 'deleteAll'])->name('personals.deleteAll');
+    Route::post('personals/import', [TestPersonalController::class, 'import'])->name('personals.import');
+    Route::get('personals/template/download', [TestPersonalController::class, 'downloadtemplate'])->name('personals.template');
 
     Route::resource('qna', QnaController::class);
+    Route::get('qna/make/qna', [QnaController::class, 'createPage'])->name('qna.make');
     Route::post('qna/delete/{id}', [QnaController::class, 'destroy'])->name('qna.delete');
     Route::post('qna/delete', [QnaController::class, 'deleteAll'])->name('qna.deleteAll');
-
+    
     Route::resource('schdules', SchduleController::class);
+    Route::get('schdules/make/schdule', [SchduleController::class, 'create'])->name('schdules.make');
     Route::post('schdules/delete/{id}', [SchduleController::class, 'destroy'])->name('schdules.delete');
     Route::post('schdules/delete', [SchduleController::class, 'deleteAll'])->name('schdules.deleteAll');
 

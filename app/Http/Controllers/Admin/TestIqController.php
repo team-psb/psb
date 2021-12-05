@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Imports\QuestionIqImport;
 use App\Models\QuestionIq;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Response;
 
 class TestIqController extends Controller
 {
@@ -28,7 +31,12 @@ class TestIqController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.questionIq.create');
+        return view('admin.pages.questionIq.modal-create');
+    }
+
+    public function questionCreate()
+    {
+        return view('admin.pages.questionIq.createPage');
     }
 
     /**
@@ -165,5 +173,36 @@ class TestIqController extends Controller
 
             return redirect()->route('iqs.index')->with('success-delete', 'Berhasil Menghapus Semua Data');
         }
+    }
+
+    // public function export() 
+
+    // {
+    //     return Excel::download(new UsersExport, 'users.xlsx');
+    // }
+
+    // public function import() 
+    // {
+    //     Excel::import(new QuestionIqImport,request()->file('file'));
+    //     return back();
+    // }
+
+    public function import(Request $request) 
+    {
+        $validatedData = $request->validate([
+
+            'file' => 'required',
+
+        ]);
+
+        Excel::import(new QuestionIqImport,$request->file('file'));
+
+        return redirect()->route('iqs.index')->with('success', 'Berhasil mengimport file excel');
+    }
+
+    public function downloadtemplate()
+    {
+        $template ="./template-import/template-import-soal-tes-iq.csv";
+        return Response::download($template);
     }
 }

@@ -36,7 +36,7 @@ class BiodataTwoSeeder extends Seeder
                 'last_education'=>$faker->randomElement(['SMP','SMA']),
                 'name_school'=>$faker->citySuffix,
                 'major'=>$faker->randomElement(['IPA','IPS','BAHASA','AGAMA','TIK','TKJ','RPL','FARMASI','AKUNTANSI','LAINNYA']),
-                'organization'=>$faker->randomElement(['osis','pramuka','rohis','lainnya']),
+                'organization'=>$faker->randomElement(['osis','pramuka','rohis','pmr','lainnya']),
                 'achievment'=>$faker->sentence(6,true),
                 'hobby'=>$faker->randomElement(['Baca','Renang','Sepak Bola','Traveling','Rebahan','Makan','Sepeda','Naik Gunung','Lain Lain']),
                 'goal'=>$faker->word(3,false),

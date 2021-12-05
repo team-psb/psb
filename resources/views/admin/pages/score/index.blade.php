@@ -16,7 +16,7 @@
                         <div class="row mb-4 ">
                             <div class="d-flex justify-content-between">
                                 <div class="dropdown">
-                                    <button class="btn btn-danger dropdown-toggle text-white" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn btn-danger dropdown-toggle text-white p-2" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Aksi Masal
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
@@ -26,10 +26,13 @@
                                     </div>
                                 </div>
                                 <div class="btn-group dropleft d-inline float-right">
-                                    <a href="" class="btn btn-primary">
-                                    Export Excel
+                                    <a href="{{ route('scores.export') }}" class="btn btn-primary btn-icon-text p-2">
+                                        <i class="ti-export btn-icon-prepend"></i> Export Excel
                                     </a>
-                                    <button class="btn btn-info ml-2">Filter</button>
+                                    <button type="button" class="btn btn-info btn-icon-text p-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filter Data">
+                                        <i class="ti-filter  btn-icon-prepend"></i> Filter
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +79,7 @@
                                             </td>
                                             <td>
                                                 <div class="btn-wrapper">
-                                                    <button formaction="{{ route('scores.delete', $score->id) }}" class="btn ms-1 btn-danger text-white me-0  py-2"><i class="icon-trash"></i> Hapus</button>
+                                                    <button formaction="{{ route('scores.delete', $score->id) }}" class="btn ms-1 btn-danger btn-icon-text text-white p-2"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -91,6 +94,89 @@
         </div>
     </div>
 </div>
+
+    <!--  Filter Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">-- Filter Data Penduduk --</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="GET">
+            
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <label>Nilai Tes Iq</label>
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                        <label>Minimal</label>
+                                        <input type="number" class="form-control" name="score_test_iq_min" placeholder="MIN" value="{{ request()->get('score_test_iq_min') }}">
+                                        </div>
+                                    </div> 
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Maksimal</label>
+                                            <input type="number" class="form-control" name="score_test_iq_max" placeholder="MAX" value="{{ request()->get('score_test_iq_max') }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <label>Nilai Tes Kepribadian</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                        <label>Minimal</label>
+                                        <input type="number" class="form-control" name="score_test_personal_min" placeholder="MIN" value="{{ request()->get('score_test_personal_min') }}">
+                                        </div>
+                                    </div> 
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Maksimal</label>
+                                            <input type="number" class="form-control" name="score_test_personal_max" placeholder="MAX" value="{{ request()->get('score_test_personal_max') }}">
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Pilih Gelombang</label>
+                                            <select name="stage_id" class="form-select">
+                                                <option value="" >-- Pilih Gelombang --</option>
+                                                @foreach ($stages as $stage)
+                                                    <option value="{{ $stage->id }}">{{ $stage->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div> 
+                                </div>
+                            
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" formaction="{{ route('scores.index') }}" class="btn btn-primary">Terapkan</button>
+                            <button type="submit" formaction="{{ route('scores.filter-reset') }}" class="btn btn-primary">Atur Ulang</button>
+                        </div>
+                        
+                </form>
+        </div>
+        </div>
+    </div>
 @endsection
 
 @push('after-script')

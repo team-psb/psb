@@ -936,7 +936,7 @@
                                                 <div class="row">
                                                     <div
                                                         class="
-                                                            mb-4
+                                                            mb-5 mb-lg-0 mb-md-0
                                                             col-lg-6 col-sm-12
                                                         "
                                                     >
@@ -1071,18 +1071,149 @@
                         <div
                             class="
                                 col-md-6 col-sm-12
-                                mb-5 mb-lg-0 mb-md-0
+                                mt-4 mt-lg-0 mt-md-5
+                                pb-5 pb-lg-0 pb-md-0
                                 d-flex
                                 align-items-center
+                                justify-content-around
+                                position-relative
                             "
                             id="alur"
                         >
-                            <img
-                                src="./assets/daftar.png"
-                                alt="daftar"
-                                width="120px"
-                                class="img-fluid"
-                            />
+                            <!-- <div
+                                class="position-absolute w-100 overlay"
+                                style="
+                                    z-index: 2;
+                                    height: 120px;
+                                    background: #c6ffdc;
+                                "
+                            ></div> -->
+                            <div class="position-relative">
+                                <p
+                                    class="
+                                        position-absolute
+                                        text-center
+                                        alur-text
+                                    "
+                                >
+                                    1 <br />
+                                    Daftar Akun dan Mengisi Formulir Pendaftaran
+                                </p>
+                                <img
+                                    src="./assets/daftar.png"
+                                    alt="daftar"
+                                    width="90px"
+                                    class="img-fluid"
+                                />
+                                <img
+                                    src="./assets/line_1.png"
+                                    alt="daftar"
+                                    width="115px"
+                                    class="position-absolute overlay"
+                                    style="left: -13px; bottom: -15px"
+                                />
+                            </div>
+                            <div class="position-relative">
+                                <img
+                                    src="./assets/tes.png"
+                                    alt="tes"
+                                    width="90px"
+                                    class="img-fluid"
+                                />
+                                <img
+                                    src="./assets/line_2.png"
+                                    alt="daftar"
+                                    width="115px"
+                                    class="position-absolute overlay1"
+                                    style="left: -13px; top: -15px"
+                                />
+                                <p
+                                    class="
+                                        position-absolute
+                                        text-center
+                                        alur-text2
+                                    "
+                                >
+                                    2 <br />
+                                    Melakukan Tes IQ dan Tes Kepribadian
+                                </p>
+                            </div>
+                            <div class="position-relative">
+                                <p
+                                    class="
+                                        position-absolute
+                                        text-center
+                                        alur-text3
+                                    "
+                                >
+                                    3 <br />
+                                    Selanjutnya Membuat dan Upload Video
+                                </p>
+                                <img
+                                    src="./assets/video.png"
+                                    alt="daftar"
+                                    width="90px"
+                                    class="img-fluid"
+                                />
+                                <img
+                                    src="./assets/line_1.png"
+                                    alt="daftar"
+                                    width="115px"
+                                    class="position-absolute overlay2"
+                                    style="left: -13px; bottom: -15px"
+                                />
+                            </div>
+                            <div class="position-relative">
+                                <img
+                                    src="./assets/line_2.png"
+                                    alt="daftar"
+                                    width="115px"
+                                    class="position-absolute overlay3"
+                                    style="left: -13px; top: -15px"
+                                />
+                                <img
+                                    src="./assets/wawancara.png"
+                                    alt="tes"
+                                    width="90px"
+                                    class="img-fluid"
+                                />
+                                <p
+                                    class="
+                                        position-absolute
+                                        text-center
+                                        alur-text4
+                                    "
+                                >
+                                    4 <br />
+                                    Tes Wawancara
+                                </p>
+                            </div>
+                            <div class="position-relative">
+                                <p
+                                    class="
+                                        position-absolute
+                                        text-center
+                                        alur-text5
+                                    "
+                                >
+                                    5 <br />
+                                    Pengumuman dan tunggu konfirmasi dari
+                                    panitia
+                                </p>
+                                <img
+                                    src="./assets/lolos.png"
+                                    alt="daftar"
+                                    width="90px"
+                                    class="img-fluid"
+                                />
+                                <img
+                                    src="./assets/line_1.png"
+                                    alt="daftar"
+                                    width="115px"
+                                    class="position-absolute overlay4"
+                                    style="left: -13px; bottom: -15px"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2710,6 +2841,22 @@
         <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
         <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
         <script src="assets/vendor/php-email-form/validate.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+        <script>
+            //GSAP
+            gsap.from(".overlay", {
+                delay: 3,
+                duration: 1,
+                y: 100,
+                opacity: 0,
+            });
+            gsap.from(".overlay1", {
+                delay: 4,
+                duration: 1,
+                y: -100,
+                opacity: 0,
+            });
+        </script>
 
         <!-- Template Main JS File -->
         <script src="assets/js/main.js"></script>
