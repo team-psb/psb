@@ -70,7 +70,7 @@
                                                 </div>
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $interview->user->biodataOne->full_name }}</td>
+                                            <td>{{ $interview->user->biodataOne->name }}</td>
                                             <td>
                                                 <div class="input-group">
                                                     <input value="{{ $interview->user->phone }}" id="copy" disabled type="text" class="form-control fw-bold">

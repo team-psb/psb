@@ -18,7 +18,7 @@ class CreateBiodataOnesTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('stage_id');
             $table->foreignId('academy_year_id');
-            $table->string('full_name');
+            $table->string('name');
             $table->enum('family', ['sangat-mampu', 'mampu', 'tidak-mampu']);
             $table->integer('age');
             $table->date('birth_date');

@@ -26,7 +26,7 @@
                                     class="form-control"
                                     id="full_name"
                                     name="full_name"
-                                    value="{{ $biodata->user->biodataOne->full_name }}"
+                                    value="{{ $biodata->user->biodataOne->name }}"
                                     required
                                 />
                               </div>

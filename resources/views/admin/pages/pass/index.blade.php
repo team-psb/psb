@@ -62,7 +62,7 @@
                                             </div>
                                         </td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $pass->user->biodataOne->full_name }}</td>
+                                        <td>{{ $pass->user->biodataOne->name }}</td>
                                         <td>{{ $pass->user->biodataOne->age }}</td>
                                         <td>Sleman</td>
                                         <td>Yoygakarta</td>

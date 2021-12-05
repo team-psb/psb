@@ -70,7 +70,7 @@
                                                 </div>
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $video->user->biodataOne->full_name }}</td>
+                                            <td>{{ $video->user->biodataOne->name }}</td>
                                             <td class="text-success"> <a href="{{ $video->url }}" target="_blank">{{ $video->url }}</a></td>
                                             <td>
                                                 <span class="badge badge-{{ $video->status == 'lolos' ? 'success':'' }}{{ $video->status == 'tidak' ? 'danger':'' }}">{{ $video->status }}</span>

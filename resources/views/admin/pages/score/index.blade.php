@@ -71,7 +71,7 @@
                                                 </div>
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $score->user->biodataOne->full_name }}</td>
+                                            <td>{{ $score->user->biodataOne->name }}</td>
                                             <td class="text-success"> {{ $score->score_question_iq }}</td>
                                             <td class="text-success"> {{ $score->score_question_personal }}</td>
                                             <td>

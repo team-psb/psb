@@ -10,7 +10,7 @@
         <tbody>
             @foreach ($lolos as $item)
                 <tr>
-                    <td>{{ $item->user->biodataOne->full_name }}</td>
+                    <td>{{ $item->user->biodataOne->name }}</td>
                     {{-- <td>{{ $item->user->biodataTwo->kabupaten->name }}</td>
                     <td>{{ $item->user->biodataTwo->provinsi->name }}</td> --}}
                 </tr>
