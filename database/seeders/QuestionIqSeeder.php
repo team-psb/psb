@@ -28,7 +28,7 @@ class QuestionIqSeeder extends Seeder
                 'c'=>$faker->sentences(rand(1,3),true),
                 'd'=>$faker->sentences(rand(1,3),true),
                 'e'=>$faker->sentences(rand(1,3),true),
-                'question_key'=>$faker->randomElement(['a', 'b', 'c', 'd', 'e']),
+                'answer_key'=>$faker->randomElement(['a', 'b', 'c', 'd', 'e']),
                 ]);
                 $this->command->getOutput()->progressAdvance();
             }

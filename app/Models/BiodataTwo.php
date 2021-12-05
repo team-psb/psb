@@ -10,10 +10,11 @@ class BiodataTwo extends Model
 {
     use HasFactory;
     // use SoftDeletes;
-
+    protected $table = 'biodata_twos';
     protected   $fillable = [
         'user_id',
         'academy_year_id',
+        'stage_id',
         'province_id',
         'regency_id',
         'birth_place',
@@ -49,7 +50,7 @@ class BiodataTwo extends Model
         'mother_work',
         'parent_income',
         'child_to',
-        'borther',
+        'brother',
         'no_guardian',
         'description_guardian',
         'permission_parent',
@@ -60,12 +61,12 @@ class BiodataTwo extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class,'user_id', 'id');
+        return $this->belongsTo(User::class,'user_id', 'id')->withTrashed();
     }
 
     public function academy_year()
     {
-        return $this->belongsTo(AcademyYear::class);
+        return $this->belongsTo(AcademyYear::class, 'academy_year_id', 'id');
     }
 
 }

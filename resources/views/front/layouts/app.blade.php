@@ -3,11 +3,6 @@
 <head>
     @include('front.includes.style')
     <title>@yield('title')</title>
-    <style>
-        b {
-        color : red;
-    }
-    </style>
 </head>
 <body class="layout-3">
     <div id="app">

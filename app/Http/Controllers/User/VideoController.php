@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Exam;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Video;
+use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {

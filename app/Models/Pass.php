@@ -22,7 +22,7 @@ class Pass extends Model
 
     public function academy()
     {
-        return $this->belongsTo(AcademyYear::class);
+        return $this->belongsTo(AcademyYear::class, 'academy_year_id', 'id');
     }
 
 }

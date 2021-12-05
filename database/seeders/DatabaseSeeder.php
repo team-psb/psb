@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Laravolt\Indonesia\Seeds\CitiesSeeder;
+use Laravolt\Indonesia\Seeds\ProvincesSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,7 +29,9 @@ class DatabaseSeeder extends Seeder
             QnaSeeder::class,
             QuestionIqSeeder::class,
             QuestionPersonalSeeder::class,
-            ScoreSeeder::class
+            ScoreSeeder::class,
+            ProvincesSeeder::class,
+            CitiesSeeder::class
         ]);
     }
 }
