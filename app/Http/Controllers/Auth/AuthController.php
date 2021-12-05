@@ -95,7 +95,7 @@ class AuthController extends Controller
         BiodataOne::create([
             'user_id'=>$user->id,
             'academy_year_id'=>$academy_year->first(),
-            'full_name'=>$request->name,
+            'name'=>$request->name,
             'family'=>$request->family,
             'age'=>$age,
             'birth_date'=>$date,

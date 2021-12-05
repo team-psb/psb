@@ -17,11 +17,12 @@ class Score extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+
+        return $this->belongsTo(User::class, 'users_id', 'id');
     }
 
     public function academy_year()
     {
-        return $this->belongsTo(AcademyYear::class, 'academy_year_id', 'id');
+        return $this->belongsTo(AcademyYear::class,'academy_year_id', 'id');
     }
 }

@@ -19,7 +19,7 @@ class BiodataOneSeeder extends Seeder
         $this->command->getOutput()->progressStart(100);
         $faker=Factory::create('id_ID');
 
-        for ($i=2; $i <202 ; $i++) { 
+        for ($i=2; $i <10 ; $i++) { 
             BiodataOne::create([
                 'user_id'=>$i,
                 'stage_id'=>$faker->randomElement([1,2,3,4]),

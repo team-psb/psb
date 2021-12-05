@@ -16,7 +16,7 @@ class BiodataOne extends Model
         'user_id',
         'academy_year_id',
         'family',
-        'full_name',
+        'name',
         'age',
         'birth_date',
         'no_wa',
@@ -26,7 +26,7 @@ class BiodataOne extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class,'user_id', 'id');
+        return $this->belongsTo(User::class,'user_id', 'id')->withTrashed();
     }
 
     public function category()
@@ -36,7 +36,7 @@ class BiodataOne extends Model
 
     public function academy()
     {
-        return $this->belongsTo(AcademyYear::class);
+        return $this->belongsTo(AcademyYear::class, 'academy_year_id', 'id')->withTrashed();
     }
 
     
