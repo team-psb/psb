@@ -48,7 +48,7 @@
             
 
             <span class="text-black fw-bold">{{ Auth::user()->name }}</span></h1>
-          <h3 class="welcome-sub-text">Your performance summary this week </h3>
+          <h3 class="welcome-sub-text">This system performance summary</h3>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
