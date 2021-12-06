@@ -23,7 +23,7 @@ class PassSeeder extends Seeder
         $user=User::all()->pluck('id');
         $user_id=$user->toArray();
 
-        for ($i=2; $i <202 ; $i++) { 
+        for ($i=1; $i <11 ; $i++) { 
             Pass::create([
                 'user_id'=>$i,
                 'academy_year_id'=>$faker->randomElement([1,2,3,4]),

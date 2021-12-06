@@ -144,6 +144,19 @@ class BiodataController extends Controller
         return back();
     }
 
+    public function setStatus(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|in:lolos,tidak'
+        ]);
+
+        $item = BiodataTwo::findOrFail($id);
+        $item->status = $request->status;
+        $item->save();
+
+        return redirect()->route('biodatas.index')->with('success-edit', 'Berhasil Mengganti Status Data');
+    }
+
     public function passAll(Request $request)
     {
         $ids=$request->get('ids');

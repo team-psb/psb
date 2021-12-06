@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
 
         $faker=Factory::create('id_ID');
         
-        for($i=2; $i <10; $i++){
+        for($i=1; $i <10; $i++){
             User::create([
                 'name'=>$faker->name('male'),
                 'phone'=>$faker->e164PhoneNumber,

@@ -72,6 +72,7 @@ class TestIqController extends Controller
             'e' => $request->e,
             'answer_key' => $request->answer_key
         ]);
+        activity()->log('Membuat data soal tes IQ');
 
         return redirect()->route('iqs.index')->with('success-create', 'Berhasil Membuat Data');
     }
@@ -141,6 +142,7 @@ class TestIqController extends Controller
             'e' => $request->e,
             'answer_key' => $request->answer_key
         ]);
+        activity()->log('Mengedit soal IQ id '.$id);
 
         return redirect()->route('iqs.index')->with('success-edit', 'Berhasil Mengedit Data');
     }
@@ -156,6 +158,7 @@ class TestIqController extends Controller
         $data = QuestionIq::find($id);
 
         $data->delete();
+        activity()->log('Menghapus soal IQ id '.$id);
 
         return back()->with('success-delete', 'Berhasil Menghapus Data');
     }
@@ -170,6 +173,7 @@ class TestIqController extends Controller
             foreach ($ids as $id) {
                 QuestionIq::find($id)->delete();
             }
+            activity()->log('Menghapus semua soal IQ');
 
             return redirect()->route('iqs.index')->with('success-delete', 'Berhasil Menghapus Semua Data');
         }
@@ -196,6 +200,7 @@ class TestIqController extends Controller
         ]);
 
         Excel::import(new QuestionIqImport,$request->file('file'));
+        activity()->log('Mengimpor soal tes IQ');
 
         return redirect()->route('iqs.index')->with('success', 'Berhasil mengimport file excel');
     }
@@ -203,6 +208,8 @@ class TestIqController extends Controller
     public function downloadtemplate()
     {
         $template ="./template-import/template-import-soal-tes-iq.csv";
+        activity()->log('Mendownload template soal  IQ');
+
         return Response::download($template);
     }
 }

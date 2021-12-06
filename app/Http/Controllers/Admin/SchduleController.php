@@ -49,6 +49,7 @@ class SchduleController extends Controller
         $data['image'] = $request->file('image')->store('assets/information','public');
         
         Schdule::create($data);
+        activity()->log('Membuat  data informasi');
 
         return redirect()->route('schdules.index')->with('success-create', 'Berhasil Membuat Data');
     }
@@ -102,6 +103,7 @@ class SchduleController extends Controller
         ]);
         $data['image'] = $request->file('image')->store('assets/information','public');
         Schdule::findOrFail($id)->update($data);
+        activity()->log('Mengedit informasi id '.$id);
 
         return redirect()->route('schdules.index')->with('success-edit', 'Berhasil Mengedit Data');
     }
@@ -116,8 +118,9 @@ class SchduleController extends Controller
     {
         $data = Schdule::findOrFail($id);
         $data->delete();
+        activity()->log('Menghapus informasi id '.$id);
 
-        return back()->with('success-delete', 'Berhasil Menghapus Semua Data');
+        return back()->with('success-delete', 'Berhasil Menghapus Data');
     }
 
     public function deleteAll(Request $request)
@@ -130,6 +133,7 @@ class SchduleController extends Controller
             foreach ($ids as $id) {
                 Schdule::find($id)->delete();
             }
+            activity()->log('Menghapus semua informasi');
 
             return redirect()->route('schdules.index')->with('success-delete', 'Berhasil Menghapus Semua Data');
         }

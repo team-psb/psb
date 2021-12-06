@@ -19,7 +19,7 @@ class ScoreSeeder extends Seeder
         $faker=Factory::create();
 
         $this->command->getOutput()->progressStart(200);
-        for ($i=2; $i <202 ; $i++) { 
+        for ($i=1; $i <11 ; $i++) { 
             Score::create([
                 'user_id'=>$i,
                 'academy_year_id'=>$faker->randomElement([1,2,3,4]),

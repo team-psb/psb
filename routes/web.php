@@ -19,7 +19,6 @@ use App\Http\Controllers\Exam\VideoController;
 use App\Http\Controllers\Exam\BiodataOneController;
 use App\Http\Controllers\Exam\BiodataTwoController;
 use App\Http\Controllers\User\UserDashboardController;
-use Database\Seeders\QnaSeeder;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,20 +86,6 @@ Route::group(['prefix' => ''], function () {
     // Route::post('/reset-password', [ForgotPasswordController::class, 'updatePassword'])->name('update-password');
 });
 
-// Process selection
-Route::group(['prefix' => 'test','middleware'=>['auth','register']], function () {
-    Route::get('/step-one',[BiodataOneController::class,'index'])->name('step-one');
-    Route::post('/step-one',[BiodataOneController::class,'store'])->name('step-one-store');
-    Route::get('/step-two',[BiodataTwoController::class,'index'])->name('step-two');
-    Route::post('/step-two',[BiodataTwoController::class,'store'])->name('step-two-store');
-    Route::get('/step-tree/test-iq',[TestController::class,'iq'])->name('step-tree-iq');
-    Route::post('/step-tree/test-iq',[TestController::class,'iqstore'])->name('iq-store');
-    Route::get('/step-tree/test-personal',[TestController::class,'personal'])->name('step-tree-personal');
-    Route::post('/step-tree/test-personal',[TestController::class,'personalstore'])->name('personal-store');
-    Route::get('/step-four/link-video',[VideoController::class,'video'])->name('step-four-video');
-    Route::post('/step-four/link-video',[VideoController::class,'videostore'])->name('step-four-video.store');
-    Route::get('/step-five/interview',[VideoController::class,'interview'])->name('step-five-interview');
-});
 
 //Admin
 Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
@@ -108,6 +93,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
     Route::get('biodatas', [BiodataController::class, 'index'])->name('biodatas.index');
     Route::get('biodatas/{id}', [BiodataController::class, 'show'])->name('biodatas.show');
+    Route::get('biodatas/{id}/set-status', [BiodataController::class, 'setStatus'])->name('biodatas.status');
     Route::get('biodatas/edit/{id}', [BiodataController::class, 'edit'])->name('biodatas.edit');
     Route::post('biodatas/edit/{id}', [BiodataController::class, 'update'])->name('biodatas.update');
     Route::post('biodatas/delete/{id}', [BiodataController::class, 'delete'])->name('biodatas.delete');

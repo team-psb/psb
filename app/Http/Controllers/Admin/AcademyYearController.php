@@ -51,6 +51,7 @@ class AcademyYearController extends Controller
         ]);
 
         AcademyYear::create($data);
+        activity()->log('Membuat data tahun ajaran');
 
         return redirect()->route('academies.index')->with('success-create', 'Berhasil Membuat Data');
     }
@@ -105,6 +106,7 @@ class AcademyYearController extends Controller
         ]);
 
         AcademyYear::findOrFail($id)->update($data);
+        activity()->log('Mengedit tahun ajaran id '.$id);
 
         return redirect()->route('academies.index')->with('success-edit', 'Berhasil Mengedit Data');
     }
@@ -119,6 +121,7 @@ class AcademyYearController extends Controller
     {
         $data = AcademyYear::findOrFail($id);
         $data->delete();
+        activity()->log('Menghapus tahun ajaran id '.$id);
 
         return back()->with('delete', 'Berhasil Menghapus Data');
     }
@@ -173,6 +176,7 @@ class AcademyYearController extends Controller
             foreach ($ids as $id) {
                 AcademyYear::find($id)->delete();
             }
+            activity()->log('Menghapus semua tahun ajaran');
 
             return redirect()->route('academies.index')->with('success-delete', 'Berhasil Menghapus Semua Data');
         }

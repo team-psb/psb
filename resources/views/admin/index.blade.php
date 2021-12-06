@@ -38,13 +38,13 @@
                         <div class="col-sm-12">
                             <div class="statistics-details d-flex align-items-center justify-content-between">
                                 <div>
-                                    <p class="statistics-title">Jumlah Pendaftar</p>
+                                    <p class="statistics-title">Jumlah Pendaftar Hari Ini</p>
                                     <h3 class="rate-percentage">{{ $pendaftar }}</h3>
                                     {{-- <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p> --}}
                                 </div>
                                 <div>
                                     <p class="statistics-title">Jumlah Santri Baru</p>
-                                    <h3 class="rate-percentage">{{ $lolos }}</h3>
+                                    <h3 class="rate-percentage">{{ $lolos->count() }}</h3>
                                     {{-- <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p> --}}
                                 </div>
                                 <div>
@@ -71,424 +71,270 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-8 d-flex flex-column">
-                        <div class="row flex-grow">
-                            <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                                <div class="card-body">
-                                <div class="d-sm-flex justify-content-between align-items-start">
-                                    <div>
-                                    <h4 class="card-title card-title-dash">Performance Line Chart</h4>
-                                    <h5 class="card-subtitle card-subtitle-dash">Lorem Ipsum is simply dummy text of the printing</h5>
+                        <div class="col-lg-7 d-flex flex-column">
+                            <div class="row flex-grow">
+                                <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+                                    <div class="card card-rounded">
+                                        <div class="card-body">
+                                            <div class="d-sm-flex justify-content-between align-items-start">
+                                                <div>
+                                                <h4 class="card-title card-title-dash">Performance New Registration</h4>
+                                                <h5 class="card-subtitle card-subtitle-dash">monitor the progress of registrants in a year </h5>
+                                                </div>
+                                                <div id="performance-line-legend"></div>
+                                            </div>
+                                            <div class="chartjs-wrapper mt-5">
+                                                <canvas id="performaneLine"></canvas>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div id="performance-line-legend"></div>
                                 </div>
-                                <div class="chartjs-wrapper mt-5">
-                                    <canvas id="performaneLine"></canvas>
-                                </div>
-                                </div>
-                            </div>
                             </div>
                         </div>
-                        </div>
-                        <div class="col-lg-4 d-flex flex-column">
-                        <div class="row flex-grow">
-                            <div class="col-md-6 col-lg-12 grid-margin stretch-card">
-                            <div class="card bg-primary card-rounded">
-                                <div class="card-body pb-0">
-                                <h4 class="card-title card-title-dash text-white mb-4">Status Summary</h4>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                    <p class="status-summary-ight-white mb-1">Closed Value</p>
-                                    <h2 class="text-info">{{ $kepribadian }}</h2>
-                                    </div>
-                                    <div class="col-sm-8">
-                                    <div class="status-summary-chart-wrapper pb-4">
-                                        <canvas id="status-summary"></canvas>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="col-md-6 col-lg-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                                <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                    <div class="d-flex justify-content-between align-items-center mb-2 mb-sm-0">
-                                        <div class="circle-progress-width">
-                                        <div id="totalVisitors" class="progressbar-js-circle pr-2"></div>
-                                        </div>
-                                        <div>
-                                        <p class="text-small mb-2">Total Visitors</p>
-                                        <h4 class="mb-0 fw-bold">26.80%</h4>
+                        <div class="col-lg-5 d-flex flex-column">
+                            <div class="row flex-grow">
+                                <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                                    <div class="card bg-primary card-rounded">
+                                        <div class="card-body pb-0">
+                                            <h4 class="card-title card-title-dash text-white mb-4">Total Pendaftar Aktif</h4>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    {{-- <p class="status-summary-ight-white mb-1">Closed Value</p> --}}
+                                                    <h2 class="text-info">{{ $totalpendaftar }}</h2>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="status-summary-chart-wrapper pb-4">
+                                                        <canvas id="status-summary"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="circle-progress-width">
-                                        <div id="visitperday" class="progressbar-js-circle pr-2"></div>
+                                </div>
+                                <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                                    <div class="card card-rounded">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="d-flex justify-content-between align-items-center mb-2 mb-sm-0">
+                                                        <div class="circle-progress-width">
+                                                            <div id="totalVisitors" class="progressbar-js-circle pr-2"></div>
+                                                        </div>
+                                                        <div>
+                                                            <p class="text-small mb-2">Sangat Mampu</p>
+                                                            <h4 class="mb-0 fw-bold">
+                                                                {{ App\Models\BiodataOne::where('family','sangat-mampu')->whereHas('academy_year',function($query){$query->where('is_active', true);})->count() }}
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="circle-progress-width">
+                                                            <div id="visitperday" class="progressbar-js-circle pr-2"></div>
+                                                        </div>
+                                                        <div>
+                                                            <p class="text-small mb-2">Mampu</p>
+                                                            <h4 class="mb-0 fw-bold">
+                                                                {{ App\Models\BiodataOne::where('family','mampu')->whereHas('academy_year',function($query){$query->where('is_active', true);})->count() }}
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="circle-progress-width">
+                                                            <div id="visitperdays" class="progressbar-js-circle pr-2"></div>
+                                                        </div>
+                                                        <div>
+                                                            <p class="text-small mb-2">Tidak Mampu</p>
+                                                            <h4 class="mb-0 fw-bold">
+                                                                {{ App\Models\BiodataOne::where('family','tidak-mampu')->whereHas('academy_year',function($query){$query->where('is_active', true);})->count() }}
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div>
-                                        <p class="text-small mb-2">Visits per day</p>
-                                        <h4 class="mb-0 fw-bold">9065</h4>
-                                        </div>
-                                    </div>
                                     </div>
                                 </div>
-                                </div>
                             </div>
-                            </div>
-                        </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-8 d-flex flex-column">
-                        <div class="row flex-grow">
-                            <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                                <div class="card-body">
-                                <div class="d-sm-flex justify-content-between align-items-start">
-                                    <div>
-                                    <h4 class="card-title card-title-dash">Market Overview</h4>
-                                    <p class="card-subtitle card-subtitle-dash">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-                                    </div>
-                                    <div>
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle toggle-dark btn-lg mb-0 me-0" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> This month </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                        <h6 class="dropdown-header">Settings</h6>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Separated link</a>
+                            {{-- <div class="row flex-grow">
+                                <div class="col-12 grid-margin stretch-card">
+                                <div class="card card-rounded">
+                                    <div class="card-body">
+                                    <div class="d-sm-flex justify-content-between align-items-start">
+                                        <div>
+                                        <h4 class="card-title card-title-dash">Market Overview</h4>
+                                        <p class="card-subtitle card-subtitle-dash">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                        </div>
+                                        <div>
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle toggle-dark btn-lg mb-0 me-0" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> This month </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                            <h6 class="dropdown-header">Settings</h6>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Separated link</a>
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
+                                    <div class="d-sm-flex align-items-center mt-1 justify-content-between">
+                                        <div class="d-sm-flex align-items-center mt-4 justify-content-between"><h2 class="me-2 fw-bold">$36,2531.00</h2><h4 class="me-2">USD</h4><h4 class="text-success">(+1.37%)</h4></div>
+                                        <div class="me-3"><div id="marketing-overview-legend"></div></div>
+                                    </div>
+                                    <div class="chartjs-bar-wrapper mt-3">
+                                        <canvas id="marketingOverview"></canvas>
+                                    </div>
                                     </div>
                                 </div>
-                                <div class="d-sm-flex align-items-center mt-1 justify-content-between">
-                                    <div class="d-sm-flex align-items-center mt-4 justify-content-between"><h2 class="me-2 fw-bold">$36,2531.00</h2><h4 class="me-2">USD</h4><h4 class="text-success">(+1.37%)</h4></div>
-                                    <div class="me-3"><div id="marketing-overview-legend"></div></div>
                                 </div>
-                                <div class="chartjs-bar-wrapper mt-3">
-                                    <canvas id="marketingOverview"></canvas>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        {{-- <div class="row flex-grow">
-                            <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-rounded table-darkBGImg">
-                                <div class="card-body">
-                                <div class="col-sm-8">
-                                    <h3 class="text-white upgrade-info mb-0">
-                                    Enhance your <span class="fw-bold">Campaign</span> for better outreach
-                                    </h3>
-                                    <a href="#" class="btn btn-info upgrade-btn">Upgrade Account!</a>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div> --}}
-                        {{-- <div class="row flex-grow">
-                            <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                                <div class="card-body">
-                                <div class="d-sm-flex justify-content-between align-items-start">
-                                    <div>
-                                    <h4 class="card-title card-title-dash">Pending Requests</h4>
-                                    <p class="card-subtitle card-subtitle-dash">You have 50+ new requests</p>
+                            </div> --}}
+                            {{-- <div class="row flex-grow">
+                                <div class="col-12 grid-margin stretch-card">
+                                <div class="card card-rounded table-darkBGImg">
+                                    <div class="card-body">
+                                    <div class="col-sm-8">
+                                        <h3 class="text-white upgrade-info mb-0">
+                                        Enhance your <span class="fw-bold">Campaign</span> for better outreach
+                                        </h3>
+                                        <a href="#" class="btn btn-info upgrade-btn">Upgrade Account!</a>
                                     </div>
-                                    <div>
-                                    <button class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i>Add new member</button>
                                     </div>
                                 </div>
-                                <div class="table-responsive  mt-1">
-                                    <table class="table select-table">
-                                    <thead>
-                                        <tr>
-                                        <th>
-                                            <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                            </div>
-                                        </th>
-                                        <th>Customer</th>
-                                        <th>Company</th>
-                                        <th>Progress</th>
-                                        <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        <td>
-                                            <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex ">
-                                            <img src="{{ asset('template/images/faces/face1.jpg') }}" alt="">
-                                            <div>
-                                                <h6>Brandon Washington</h6>
-                                                <p>Head admin</p>
-                                            </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h6>Company name 1</h6>
-                                            <p>company type</p>
-                                        </td>
-                                        <td>
-                                            <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                                <p class="text-success">79%</p>
-                                                <p>85/162</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                                <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                            </div>
-                                        </td>
-                                        <td><div class="badge badge-opacity-warning">In progress</div></td>
-                                        </tr>
-                                        <tr>
-                                        <td>
-                                            <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex">
-                                            <img src="{{ asset('template/images/faces/face2.jpg') }}" alt="">
-                                            <div>
-                                                <h6>Laura Brooks</h6>
-                                                <p>Head admin</p>
-                                            </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h6>Company name 1</h6>
-                                            <p>company type</p>
-                                        </td>
-                                        <td>
-                                            <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                                <p class="text-success">65%</p>
-                                                <p>85/162</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                                <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                            </div>
-                                        </td>
-                                        <td><div class="badge badge-opacity-warning">In progress</div></td>
-                                        </tr>
-                                        <tr>
-                                        <td>
-                                            <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex">
-                                            <img src="{{ asset('template/images/faces/face3.jpg') }}" alt="">
-                                            <div>
-                                                <h6>Wayne Murphy</h6>
-                                                <p>Head admin</p>
-                                            </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h6>Company name 1</h6>
-                                            <p>company type</p>
-                                        </td>
-                                        <td>
-                                            <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                                <p class="text-success">65%</p>
-                                                <p>85/162</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                                <div class="progress-bar bg-warning" role="progressbar" style="width: 38%" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                            </div>
-                                        </td>
-                                        <td><div class="badge badge-opacity-warning">In progress</div></td>
-                                        </tr>
-                                        <tr>
-                                        <td>
-                                            <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex">
-                                            <img src="{{ asset('template/images/faces/face4.jpg') }}" alt="">
-                                            <div>
-                                                <h6>Matthew Bailey</h6>
-                                                <p>Head admin</p>
-                                            </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h6>Company name 1</h6>
-                                            <p>company type</p>
-                                        </td>
-                                        <td>
-                                            <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                                <p class="text-success">65%</p>
-                                                <p>85/162</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                            </div>
-                                        </td>
-                                        <td><div class="badge badge-opacity-danger">Pending</div></td>
-                                        </tr>
-                                        <tr>
-                                        <td>
-                                            <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex">
-                                            <img src="{{ asset('template/images/faces/face5.jpg') }}" alt="">
-                                            <div>
-                                                <h6>Katherine Butler</h6>
-                                                <p>Head admin</p>
-                                            </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h6>Company name 1</h6>
-                                            <p>company type</p>
-                                        </td>
-                                        <td>
-                                            <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                                <p class="text-success">65%</p>
-                                                <p>85/162</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                                <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                            </div>
-                                        </td>
-                                        <td><div class="badge badge-opacity-success">Completed</div></td>
-                                        </tr>
-                                    </tbody>
-                                    </table>
+                                </div>
+                            </div> --}}
+                            <div class="row flex-grow">
+                                <div class="col-12 grid-margin stretch-card">
+                                <div class="card card-rounded">
+                                    <div class="card-body">
+                                    <div class="d-sm-flex justify-content-between align-items-start">
+                                        <div>
+                                        <h4 class="card-title card-title-dash">New Registration</h4>
+                                        {{-- <p class="card-subtitle card-subtitle-dash">You have 50+ new requests</p> --}}
+                                        </div>
+                                        {{-- <div>
+                                        <button class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i>Add new member</button>
+                                        </div> --}}
+                                    </div>
+                                    <div class="table-responsive  mt-1">
+                                        <table class="table select-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Pendaftar</th>
+                                                    <th>Keluarga</th>
+                                                    <th>Register On</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($newusers as $item)
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex ">
+                                                        <img src="{{ asset('template/images/faces/face1.jpg') }}" alt="">
+                                                        <div>
+                                                            <h6>{{ $item->name }}</h6>
+                                                            <p>{{ $item->age }} Tahun</p>
+                                                        </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ $item->family }}</h6>
+                                                        <p>{{ $item->no_wa }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            {{-- <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
+                                                                <p class="text-success">79%</p>
+                                                                <p>85/162</p>
+                                                            </div>
+                                                            <div class="progress progress-md">
+                                                                <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div> --}}
+                                                            {{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}
+                                                        </div>
+                                                    </td>
+                                                    <td><div class="badge badge-opacity-warning">In progress</div></td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    </div>
                                 </div>
                                 </div>
                             </div>
-                            </div>
-                        </div> --}}
-                        <div class="row flex-grow">
-                            <div class="col-md-6 col-lg-6 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                                <div class="card-body card-rounded">
-                                <h4 class="card-title  card-title-dash">Recent Events</h4>
-                                @foreach ($informasi as $info)
-                                <div class="list align-items-center border-bottom py-2">
-                                    <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                        {{ $info->title }}
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">{{ $info->created_at }}</p>
+                            <div class="row flex-grow">
+                                <div class="col-md-5 col-lg-5 grid-margin stretch-card">
+                                <div class="card card-rounded">
+                                    <div class="card-body card-rounded">
+                                    <h4 class="card-title  card-title-dash">Informasi Terbaru</h4>
+                                    @foreach ($informasi as $info)
+                                    <div class="list align-items-center border-bottom py-2">
+                                        <div class="wrapper w-100">
+                                        <p class="mb-2 font-weight-medium">
+                                            {{ $info->title }}
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                            <i class="mdi mdi-calendar text-muted me-1"></i>
+                                            <p class="mb-0 text-small text-muted">{{ $info->created_at }}</p>
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
-                                    </div>
-                                </div>
-                                @endforeach
+                                    @endforeach
 
-                                <div class="list align-items-center pt-3">
-                                    <div class="wrapper w-100">
-                                    <p class="mb-0">
-                                        <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
-                                    </p>
+                                    <div class="list align-items-center pt-3">
+                                        <div class="wrapper w-100">
+                                        <p class="mb-0">
+                                            <a href="{{ route('schdules.index') }}" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
+                                        </p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-md-7 col-lg-7 grid-margin stretch-card">
+                                <div class="card card-rounded">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between mb-3">
+                                            <h4 class="card-title card-title-dash">Activities</h4>
+                                            <p class="mb-0">{{ $activitiescount }} aktifitas hari ini</p>
+                                        </div>
+                                        <ul class="bullet-line-list">
+                                            @forelse ($activities as $activity)
+                                            <li>
+                                                <div class="d-flex justify-content-between">
+                                                    <div><span class="text-light-green">{{ $activity->user->name }}</span> {{ $activity->description }}</div>
+                                                    <p>{{ Carbon\Carbon::parse($activity->created_at)->diffForHumans() }}</p>
+                                                </div>
+                                            </li>
+                                            @empty
+                                            <li>
+                                                Tidak ada aktifitas hari ini
+                                            </li>
+                                            @endforelse
+                                        </ul>
+                                        <div class="list align-items-center pt-3">
+                                            <div class="wrapper w-100">
+                                                <p class="mb-0">
+                                                    <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 </div>
                             </div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                                <div class="card-body">
-                                <div class="d-flex align-items-center justify-content-between mb-3">
-                                    <h4 class="card-title card-title-dash">Activities</h4>
-                                    <p class="mb-0">20 finished, 5 remaining</p>
-                                </div>
-                                <ul class="bullet-line-list">
-                                    <li>
-                                    <div class="d-flex justify-content-between">
-                                        <div><span class="text-light-green">Ben Tossell</span> assign you a task</div>
-                                        <p>Just now</p>
-                                    </div>
-                                    </li>
-                                    <li>
-                                    <div class="d-flex justify-content-between">
-                                        <div><span class="text-light-green">Oliver Noah</span> assign you a task</div>
-                                        <p>1h</p>
-                                    </div>
-                                    </li>
-                                    <li>
-                                    <div class="d-flex justify-content-between">
-                                        <div><span class="text-light-green">Jack William</span> assign you a task</div>
-                                        <p>1h</p>
-                                    </div>
-                                    </li>
-                                    <li>
-                                    <div class="d-flex justify-content-between">
-                                        <div><span class="text-light-green">Leo Lucas</span> assign you a task</div>
-                                        <p>1h</p>
-                                    </div>
-                                    </li>
-                                    <li>
-                                    <div class="d-flex justify-content-between">
-                                        <div><span class="text-light-green">Thomas Henry</span> assign you a task</div>
-                                        <p>1h</p>
-                                    </div>
-                                    </li>
-                                    <li>
-                                    <div class="d-flex justify-content-between">
-                                        <div><span class="text-light-green">Ben Tossell</span> assign you a task</div>
-                                        <p>1h</p>
-                                    </div>
-                                    </li>
-                                    <li>
-                                    <div class="d-flex justify-content-between">
-                                        <div><span class="text-light-green">Ben Tossell</span> assign you a task</div>
-                                        <p>1h</p>
-                                    </div>
-                                    </li>
-                                </ul>
-                                <div class="list align-items-center pt-3">
-                                    <div class="wrapper w-100">
-                                    <p class="mb-0">
-                                        <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
-                                    </p>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
                         </div>
                         <div class="col-lg-4 d-flex flex-column">
                         {{-- <div class="row flex-grow">
@@ -613,24 +459,32 @@
                                     <div class="col-lg-12">
                                         <div class="d-flex justify-content-between align-items-center mb-3">
                                             <div>
-                                            <h4 class="card-title card-title-dash">Pendaftar Baru</h4>
+                                            <h4 class="card-title card-title-dash">Calon Santri Baru</h4>
                                             </div>
                                         </div>
                                         <div class="mt-3">
-                                            @foreach ($newusers as $newuser)
+                                            @foreach ($lolos->take(5) as $calon)
                                             <div class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
                                                 <div class="d-flex">
                                                     <img class="img-sm rounded-10" src="{{ asset('template/images/faces/face1.jpg') }}" alt="profile">
                                                     <div class="wrapper ms-3">
-                                                    <p class="ms-1 mb-1 fw-bold">{{ $newuser->full_name }}</p>
-                                                    <small class="text-muted mb-0">{{ $newuser->age }} Tahun</small>
+                                                    <p class="ms-1 mb-1 fw-bold">{{ $calon->user->biodataOne->name }}</p>
+                                                    <small class="text-muted mb-0">{{ $calon->user->biodataOne->age }} Tahun</small>
                                                     </div>
                                                 </div>
                                                 <div class="text-muted text-small">
-                                                    {{ \Carbon\Carbon::parse($newuser->created_at)->diffForHumans() }}
+                                                    <p class="fw-bold">Yogyakarta</p>
+                                                    <p>Sleman</p>
                                                 </div>
                                             </div>
                                             @endforeach
+                                            <div class="list align-items-center pt-3">
+                                                <div class="wrapper w-100">
+                                                    <p class="mb-0">
+                                                        <a href="{{ route('passes.index') }}" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -658,44 +512,490 @@
 </div>
 @endsection
 
-{{-- @push('after-script')
-<script src="path/to/chartjs/dist/chart.js"></script>
-
-<script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-        labels: [
-            '16',
-            '17',
-            '18',
-            '19',
-            '20',
-            '21',
-        ],
-        datasets: [{
-            label: 'My First Dataset',
-            data: [{{ $age['16'] }}, {{ $age['17'] }}, {{ $age['18'] }}, {{ $age['19'] }}, {{ $age['20'] }}, {{ $age['21'] }}],
-            offset: 100,
-            backgroundColor: [
-            'rgb(24, 90, 219, 0.7)',
-            'rgb(255, 201, 71, 0.7)',
-            ],
-            hoverBorderColor: [
-                'rgb(255, 201, 71, 0.9)',
-                'rgb(24, 90, 219, 0.6)',
-            ],
-            hoverOffset: 4,
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
+@push('after-script')
+    <script>
+        (function($) {
+        'use strict';
+        $(function() {
+            if ($("#performaneLine").length) {
+            var graphGradient = document.getElementById("performaneLine").getContext('2d');
+            var graphGradient2 = document.getElementById("performaneLine").getContext('2d');
+            var saleGradientBg = graphGradient.createLinearGradient(5, 0, 5, 100);
+            saleGradientBg.addColorStop(0, 'rgba(26, 115, 232, 0.18)');
+            saleGradientBg.addColorStop(1, 'rgba(26, 115, 232, 0.02)');
+            var saleGradientBg2 = graphGradient2.createLinearGradient(100, 0, 50, 150);
+            saleGradientBg2.addColorStop(0, 'rgba(0, 208, 255, 0.19)');
+            saleGradientBg2.addColorStop(1, 'rgba(0, 208, 255, 0.03)');
+            var salesTopData = {
+                labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
+                datasets: [{
+                    label: 'Tahun ini',
+                    data: <?php echo json_encode($tahunIni); ?>,
+                    backgroundColor: saleGradientBg,
+                    borderColor: [
+                        '#1F3BB3',
+                    ],
+                    borderWidth: 1.5,
+                    fill: true, // 3: no fill
+                    pointBorderWidth: 1,
+                    pointRadius: [4, 4, 4, 4, 4,4, 4, 4, 4, 4,4, 4, 4],
+                    pointHoverRadius: [2, 2, 2, 2, 2,2, 2, 2, 2, 2,2, 2, 2],
+                    pointBackgroundColor: ['#1F3BB3', '#1F3BB3', '#1F3BB3', '#1F3BB3','#1F3BB3', '#1F3BB3', '#1F3BB3', '#1F3BB3','#1F3BB3)', '#1F3BB3', '#1F3BB3', '#1F3BB3','#1F3BB3)'],
+                    pointBorderColor: ['#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff',],
+                },
+                // {
+                //     label: 'Tahun lalu',
+                //     data: <?php echo json_encode($tahunIni); ?>,
+                //     backgroundColor: saleGradientBg2,
+                //     borderColor: [
+                //         '#52CDFF',
+                //     ],
+                //     borderWidth: 1.5,
+                //     fill: true, // 3: no fill
+                //     pointBorderWidth: 1,
+                //     pointRadius: [0, 0, 0, 4, 0],
+                //     pointHoverRadius: [0, 0, 0, 2, 0],
+                //     pointBackgroundColor: ['#52CDFF', '#52CDFF', '#52CDFF', '#52CDFF','#52CDFF', '#52CDFF', '#52CDFF', '#52CDFF','#52CDFF)', '#52CDFF', '#52CDFF', '#52CDFF','#52CDFF)'],
+                //     pointBorderColor: ['#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff',],
+                // }
+                ]
+            };
+        
+            var salesTopOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        gridLines: {
+                            display: true,
+                            drawBorder: false,
+                            color:"#F0F0F0",
+                            zeroLineColor: '#F0F0F0',
+                        },
+                        ticks: {
+                            beginAtZero: false,
+                            autoSkip: true,
+                            maxTicksLimit: 4,
+                            fontSize: 10,
+                            color:"#6B778C"
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            display: false,
+                            drawBorder: false,
+                        },
+                        ticks: {
+                        beginAtZero: false,
+                        autoSkip: true,
+                        maxTicksLimit: 7,
+                        fontSize: 10,
+                        color:"#6B778C"
+                        }
+                    }],
+                },
+                legend:false,
+                legendCallback: function (chart) {
+                    var text = [];
+                    text.push('<div class="chartjs-legend"><ul>');
+                    for (var i = 0; i < chart.data.datasets.length; i++) {
+                    console.log(chart.data.datasets[i]); // see what's inside the obj.
+                    text.push('<li>');
+                    text.push('<span style="background-color:' + chart.data.datasets[i].borderColor + '">' + '</span>');
+                    text.push(chart.data.datasets[i].label);
+                    text.push('</li>');
+                    }
+                    text.push('</ul></div>');
+                    return text.join("");
+                },
+                
+                elements: {
+                    line: {
+                        tension: 0.4,
+                    }
+                },
+                tooltips: {
+                    backgroundColor: 'rgba(31, 59, 179, 1)',
+                }
             }
-        },
-    }
-});
-</script>
-@endpush --}}
+            var salesTop = new Chart(graphGradient, {
+                type: 'line',
+                data: salesTopData,
+                options: salesTopOptions
+            });
+            document.getElementById('performance-line-legend').innerHTML = salesTop.generateLegend();
+            }
+            
+            if ($("#status-summary").length) {
+            var statusSummaryChartCanvas = document.getElementById("status-summary").getContext('2d');;
+            var statusData = {
+                labels: ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [50, 68, 70, 10, 12, 80],
+                    backgroundColor: "#ffcc00",
+                    borderColor: [
+                        '#01B6A0',
+                    ],
+                    borderWidth: 2,
+                    fill: false, // 3: no fill
+                    pointBorderWidth: 0,
+                    pointRadius: [0, 0, 0, 0, 0, 0],
+                    pointHoverRadius: [0, 0, 0, 0, 0, 0],
+                }]
+            };
+        
+            var statusOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        display:false,
+                        gridLines: {
+                            display: false,
+                            drawBorder: false,
+                            color:"#F0F0F0"
+                        },
+                        ticks: {
+                            beginAtZero: false,
+                            autoSkip: true,
+                            maxTicksLimit: 4,
+                            fontSize: 10,
+                            color:"#6B778C"
+                        }
+                    }],
+                    xAxes: [{
+                        display:false,
+                        gridLines: {
+                            display: false,
+                            drawBorder: false,
+                        },
+                        ticks: {
+                        beginAtZero: false,
+                        autoSkip: true,
+                        maxTicksLimit: 7,
+                        fontSize: 10,
+                        color:"#6B778C"
+                        }
+                    }],
+                },
+                legend:false,
+                
+                elements: {
+                    line: {
+                        tension: 0.4,
+                    }
+                },
+                tooltips: {
+                    backgroundColor: 'rgba(31, 59, 179, 1)',
+                }
+            }
+            var statusSummaryChart = new Chart(statusSummaryChartCanvas, {
+                type: 'line',
+                data: statusData,
+                options: statusOptions
+            });
+            }
+            if ($('#totalVisitors').length) {
+            var bar = new ProgressBar.Circle(totalVisitors, {
+                color: '#fff',
+                // This has to be the same size as the maximum width to
+                // prevent clipping
+                strokeWidth: 15,
+                trailWidth: 15, 
+                easing: 'easeInOut',
+                duration: 1400,
+                text: {
+                autoStyleContainer: false
+                },
+                from: {
+                color: '#52CDFF',
+                width: 15
+                },
+                to: {
+                color: '#677ae4',
+                width: 15
+                },
+                // Set default step function for all animate calls
+                step: function(state, circle) {
+                circle.path.setAttribute('stroke', state.color);
+                circle.path.setAttribute('stroke-width', state.width);
+        
+                var value = Math.round(circle.value() * 100);
+                if (value === 0) {
+                    circle.setText('');
+                } else {
+                    circle.setText(value);
+                }
+        
+                }
+            });
+        
+            bar.text.style.fontSize = '0rem';
+            bar.animate(.64); // Number from 0.0 to 1.0
+            }
+            if ($('#visitperday').length) {
+            var bar = new ProgressBar.Circle(visitperday, {
+                color: '#fff',
+                // This has to be the same size as the maximum width to
+                // prevent clipping
+                strokeWidth: 15,
+                trailWidth: 15,
+                easing: 'easeInOut',
+                duration: 1400,
+                text: {
+                autoStyleContainer: false
+                },
+                from: {
+                color: '#34B1AA',
+                width: 15
+                },
+                to: {
+                color: '#677ae4',
+                width: 15
+                },
+                // Set default step function for all animate calls
+                step: function(state, circle) {
+                circle.path.setAttribute('stroke', state.color);
+                circle.path.setAttribute('stroke-width', state.width);
+        
+                var value = Math.round(circle.value() * 100);
+                if (value === 0) {
+                    circle.setText('');
+                } else {
+                    circle.setText(value);
+                }
+        
+                }
+            });
+        
+            bar.text.style.fontSize = '0rem';
+            bar.animate(.34); // Number from 0.0 to 1.0
+            }
+            if ($('#visitperdays').length) {
+            var bar = new ProgressBar.Circle(visitperdays, {
+                color: '#fff',
+                // This has to be the same size as the maximum width to
+                // prevent clipping
+                strokeWidth: 15,
+                trailWidth: 15,
+                easing: 'easeInOut',
+                duration: 1400,
+                text: {
+                autoStyleContainer: false
+                },
+                from: {
+                color: '#34B11A',
+                width: 15
+                },
+                to: {
+                color: '#677aa4',
+                width: 15
+                },
+                // Set default step function for all animate calls
+                step: function(state, circle) {
+                circle.path.setAttribute('stroke', state.color);
+                circle.path.setAttribute('stroke-width', state.width);
+        
+                var value = Math.round(circle.value() * 100);
+                if (value === 0) {
+                    circle.setText('');
+                } else {
+                    circle.setText(value);
+                }
+        
+                }
+            });
+        
+            bar.text.style.fontSize = '0rem';
+            bar.animate(.79); // Number from 0.0 to 1.0
+            }
+            if ($("#marketingOverview").length) {
+            var marketingOverviewChart = document.getElementById("marketingOverview").getContext('2d');
+            var marketingOverviewData = {
+                labels: ["JAN","FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
+                datasets: [{
+                    label: 'Last week',
+                    data: [110, 220, 200, 190, 220, 110, 210, 110, 205, 202, 201, 150],
+                    backgroundColor: "#52CDFF",
+                    borderColor: [
+                        '#52CDFF',
+                    ],
+                    borderWidth: 0,
+                    fill: true, // 3: no fill
+                    
+                },{
+                    label: 'This week',
+                    data: [215, 290, 210, 250, 290, 230, 290, 210, 280, 220, 190, 300],
+                    backgroundColor: "#1F3BB3",
+                    borderColor: [
+                        '#1F3BB3',
+                    ],
+                    borderWidth: 0,
+                    fill: true, // 3: no fill
+                }]
+            };
+        
+            var marketingOverviewOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        gridLines: {
+                            display: true,
+                            drawBorder: false,
+                            color:"#F0F0F0",
+                            zeroLineColor: '#F0F0F0',
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            autoSkip: true,
+                            maxTicksLimit: 5,
+                            fontSize: 10,
+                            color:"#6B778C"
+                        }
+                    }],
+                    xAxes: [{
+                        stacked: true,
+                        barPercentage: 0.35,
+                        gridLines: {
+                            display: false,
+                            drawBorder: false,
+                        },
+                        ticks: {
+                        beginAtZero: false,
+                        autoSkip: true,
+                        maxTicksLimit: 12,
+                        fontSize: 10,
+                        color:"#6B778C"
+                        }
+                    }],
+                },
+                legend:false,
+                legendCallback: function (chart) {
+                    var text = [];
+                    text.push('<div class="chartjs-legend"><ul>');
+                    for (var i = 0; i < chart.data.datasets.length; i++) {
+                    console.log(chart.data.datasets[i]); // see what's inside the obj.
+                    text.push('<li class="text-muted text-small">');
+                    text.push('<span style="background-color:' + chart.data.datasets[i].borderColor + '">' + '</span>');
+                    text.push(chart.data.datasets[i].label);
+                    text.push('</li>');
+                    }
+                    text.push('</ul></div>');
+                    return text.join("");
+                },
+                
+                elements: {
+                    line: {
+                        tension: 0.4,
+                    }
+                },
+                tooltips: {
+                    backgroundColor: 'rgba(31, 59, 179, 1)',
+                }
+            }
+            var marketingOverview = new Chart(marketingOverviewChart, {
+                type: 'bar',
+                data: marketingOverviewData,
+                options: marketingOverviewOptions
+            });
+            document.getElementById('marketing-overview-legend').innerHTML = marketingOverview.generateLegend();
+            }
+            if ($("#doughnutChart").length) {
+            var doughnutChartCanvas = $("#doughnutChart").get(0).getContext("2d");
+            var doughnutPieData = {
+                datasets: [{
+                data: [{{ $age['16'] }}, {{ $age['17'] }}, {{ $age['18'] }}, {{ $age['19'] }}, {{ $age['20'] }}, {{ $age['21'] }}],
+                backgroundColor: [
+                    "#1F3BB3",
+                    "#FDD0C7",
+                    "#52CDFF",
+                    "#7442eb",
+                    "#81DADA",
+                    "#c442eb"
+                ],
+                borderColor: [
+                    "#1F3BB3",
+                    "#FDD0C7",
+                    "#52CDFF",
+                    "#7442eb",
+                    "#81DADA",
+                    "#c442eb"
+                ],
+                }],
+        
+                // These labels appear in the legend and in the tooltips when hovering different arcs
+                labels: [
+                '16',
+                '17',
+                '18',
+                '19',
+                '20',
+                '21',
+                ]
+            };
+            var doughnutPieOptions = {
+                cutoutPercentage: 50,
+                animationEasing: "easeOutBounce",
+                animateRotate: true,
+                animateScale: false,
+                responsive: true,
+                maintainAspectRatio: true,
+                showScale: true,
+                legend: false,
+                legendCallback: function (chart) {
+                var text = [];
+                text.push('<div class="chartjs-legend"><ul class="justify-content-center">');
+                for (var i = 0; i < chart.data.datasets[0].data.length; i++) {
+                    text.push('<li><span style="background-color:' + chart.data.datasets[0].backgroundColor[i] + '">');
+                    text.push('</span>');
+                    if (chart.data.labels[i]) {
+                    text.push(chart.data.labels[i]);
+                    }
+                    text.push('</li>');
+                }
+                text.push('</div></ul>');
+                return text.join("");
+                },
+                
+                layout: {
+                padding: {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                }
+                },
+                tooltips: {
+                callbacks: {
+                    title: function(tooltipItem, data) {
+                    return data['labels'][tooltipItem[0]['index']];
+                    },
+                    label: function(tooltipItem, data) {
+                    return data['datasets'][0]['data'][tooltipItem['index']];
+                    }
+                },
+                    
+                backgroundColor: '#fff',
+                titleFontSize: 14,
+                titleFontColor: '#0B0F32',
+                bodyFontColor: '#737F8B',
+                bodyFontSize: 11,
+                displayColors: false
+                }
+            };
+            var doughnutChart = new Chart(doughnutChartCanvas, {
+                type: 'doughnut',
+                data: doughnutPieData,
+                options: doughnutPieOptions
+            });
+            document.getElementById('doughnut-chart-legend').innerHTML = doughnutChart.generateLegend();
+            }
+        });
+        })(jQuery);
+    </script>
+@endpush
+
+
+

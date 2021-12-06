@@ -22,7 +22,7 @@ class BiodataTwoSeeder extends Seeder
         // $kota=IndonesiaCity::all()->pluck('id');
         // $kota_id=$kota->toArray();
 
-        for ($i=2; $i <10 ; $i++) { 
+        for ($i=1; $i <11 ; $i++) { 
             BiodataTwo::create([
                 'user_id'=>$i,
                 'stage_id'=>$faker->randomElement([1,2,3,4]),

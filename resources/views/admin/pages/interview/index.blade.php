@@ -75,7 +75,7 @@
                                                 <div class="input-group">
                                                     <input value="{{ $interview->user->phone }}" id="copy" disabled type="text" class="form-control fw-bold">
                                                     <div class="input-group-append">
-                                                        <button onclick="myFunction()"  class="input-group-text btn-success text-light">copy</button>
+                                                        <button type="button" onclick="myFunction()"  class="input-group-text btn-success text-light">copy</button>
                                                     </div>
                                                 </div>
                                             </td>
