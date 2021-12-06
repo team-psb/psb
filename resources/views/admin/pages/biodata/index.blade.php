@@ -74,6 +74,7 @@
                                         <tr class="
                                             {{ $biodata->status == 'lolos' ? 'text-success' : '' }}
                                             {{ $biodata->status == 'tidak' ? 'text-danger' : '' }}
+                                            fw-bold
                                             " >
                                             <td>
                                                 <div class="form-check form-check-success">

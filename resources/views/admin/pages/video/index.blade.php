@@ -61,7 +61,11 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($videos as $video)
-                                        <tr>
+                                        <tr class="
+                                            {{ $video->status == 'lolos' ? 'text-success' : '' }}
+                                            {{ $video->status == 'tidak' ? 'text-danger' : '' }}
+                                            fw-bold
+                                        " >
                                             <td>
                                                 <div class="form-check form-check-success">
                                                     <label class="form-check-label">

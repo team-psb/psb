@@ -53,7 +53,11 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($passes as $pass)
-                                    <tr>
+                                    <tr class="
+                                        {{ $pass->status == 'lolos' ? 'text-success' : '' }}
+                                        {{ $pass->status == 'tidak' ? 'text-danger' : '' }}
+                                        fw-bold
+                                    " >
                                         <td>
                                             <div class="form-check form-check-success">
                                                 <label class="form-check-label">

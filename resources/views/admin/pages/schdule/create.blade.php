@@ -48,10 +48,10 @@
 @push('after-script')
     <script src="{{ asset('template/js/file-upload.js') }}"></script>
     {{-- <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script> --}}
-    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
     <script>
         CKEDITOR.replace( 'content' );
-    </script>
+    </script> --}}
     {{-- <script>
         ClassicEditor
             .create( document.querySelector( '#editor' ) )

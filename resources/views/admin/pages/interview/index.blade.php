@@ -61,7 +61,11 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($interviews as $interview)
-                                        <tr>
+                                        <tr class="
+                                            {{ $interview->status == 'lolos' ? 'text-success' : '' }}
+                                            {{ $interview->status == 'tidak' ? 'text-danger' : '' }}
+                                            fw-bold
+                                        " >
                                             <td>
                                                 <div class="form-check form-check-success">
                                                     <label class="form-check-label">

@@ -62,7 +62,11 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($scores as $score)
-                                        <tr>
+                                        <tr class="
+                                            {{ $score->status == 'lolos' ? 'text-success' : '' }}
+                                            {{ $score->status == 'tidak' ? 'text-danger' : '' }}
+                                            fw-bold
+                                        " >
                                             <td>
                                                 <div class="form-check form-check-success">
                                                     <label class="form-check-label">
