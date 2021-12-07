@@ -77,10 +77,15 @@
                                             <td>{{ $interview->user->biodataOne->name }}</td>
                                             <td>
                                                 <div class="input-group">
-                                                    <input value="{{ $interview->user->phone }}" id="copy" disabled type="text" class="form-control fw-bold">
+                                                    {{-- <input value="{{ $interview->user->phone }}" id="copy" disabled type="text" class="form-control fw-bold">
                                                     <div class="input-group-append">
                                                         <button type="button" onclick="myFunction()"  class="input-group-text btn-success text-light">copy</button>
-                                                    </div>
+                                                    </div> --}}
+                                                    {{-- <span class="hp">{{ $interview->user->phone }}</span> --}}
+                                                    <p>
+                                                        {{ $interview->user->phone }}
+                                                        <a href="https://api.whatsapp.com/send?phone={{ $interview->user->phone }}" class="btn btn-success px-1">Chat Wa</a>
+                                                    </p>
                                                 </div>
                                             </td>
                                             <td>
@@ -152,8 +157,42 @@
     $('#del').click(function(){
         $('#del2').click();
     });
+
 </script>
+
 <script>
+    var color = document.querySelectorAll('.hp') //DOM selector
+
+//Loop through all elements and attaching event listener
+color.forEach(el => {
+  el.addEventListener('click',copyText)
+})
+
+// function for selecting the text of an element based on the event.target (supporting IE)
+function selectText() {
+    var element = event.target
+    var range;
+    if (document.selection) {
+        // IE
+        range = document.body.createTextRange();
+        range.moveToElementText(element);
+        range.select();
+    } else if (window.getSelection) {
+        range = document.createRange();
+        range.selectNode(element);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+    }
+}
+
+// function for copying selected text in clipboard
+function copyText() {
+    selectText();
+    alert('No whatsapp ' + event.target.innerText + ' Berhasil di copy')
+    document.execCommand("copy");
+}
+</script>
+{{-- <script>
     function myFunction() {
     /* Get the text field */
     var copyText = document.getElementById("copy");
@@ -168,5 +207,5 @@
     /* Alert the copied text */
     // alert("Berhasil di salin : " + copyText.value);
     }
-    </script>
+</script> --}}
 @endpush

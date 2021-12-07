@@ -16,7 +16,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('scores.index') }}">
                 <i class="menu-icon  mdi mdi-numeric-9-plus-box-multiple-outline "></i>
-                <span class="menu-title">Nilai</span>
+                <span class="menu-title">Nilai Tes</span>
             </a>
         </li>
         <li class="nav-item">
@@ -79,7 +79,7 @@
         </li> --}}
         <li class="nav-item">
             <a class="nav-link" href="{{ route('academies.index') }}">
-                <i class="menu-icon  mdi mdi-account-card-details "></i>
+                <i class="menu-icon  mdi mdi-television-guide"></i>
                 <span class="menu-title">Data Tahun Ajaran</span>
             </a>
         </li>

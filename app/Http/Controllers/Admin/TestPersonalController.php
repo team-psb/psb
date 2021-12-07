@@ -18,7 +18,7 @@ class TestPersonalController extends Controller
      */
     public function index()
     {
-        $questions = QuestionPersonal::orderBy('id', 'asc')->get();
+        $questions = QuestionPersonal::orderBy('id', 'desc')->get();
         return view('admin.pages.questionPersonal.index', [
             'questions' => $questions
         ]);

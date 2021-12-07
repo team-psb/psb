@@ -78,7 +78,7 @@
                                         <div class="card-body">
                                             <div class="d-sm-flex justify-content-between align-items-start">
                                                 <div>
-                                                <h4 class="card-title card-title-dash">Performance New Registration</h4>
+                                                <h4 class="card-title card-title-dash">Performa Pendaftar Baru</h4>
                                                 <h5 class="card-subtitle card-subtitle-dash">monitor the progress of registrants in a year </h5>
                                                 </div>
                                                 <div id="performance-line-legend"></div>
@@ -99,7 +99,7 @@
                                             <h4 class="card-title card-title-dash text-white mb-4">Total Pendaftar Aktif</h4>
                                             <div class="row">
                                                 <div class="col-sm-4">
-                                                    {{-- <p class="status-summary-ight-white mb-1">Closed Value</p> --}}
+                                                    <p class="status-summary-ight-white mb-1">Closed Value</p>
                                                     <h2 class="text-info">{{ $totalpendaftar }}</h2>
                                                 </div>
                                                 <div class="col-sm-8">
@@ -217,7 +217,7 @@
                                     <div class="card-body">
                                     <div class="d-sm-flex justify-content-between align-items-start">
                                         <div>
-                                        <h4 class="card-title card-title-dash">New Registration</h4>
+                                        <h4 class="card-title card-title-dash">Pendaftar Baru</h4>
                                         {{-- <p class="card-subtitle card-subtitle-dash">You have 50+ new requests</p> --}}
                                         </div>
                                         {{-- <div>
@@ -262,7 +262,15 @@
                                                             {{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}
                                                         </div>
                                                     </td>
-                                                    <td><div class="badge badge-opacity-warning">In progress</div></td>
+                                                    <td>
+                                                        @if ($item->user->biodataTwo->status == 'lolos')
+                                                            <div class="badge badge-opacity-success">lolos biodata</div>
+                                                        @elseif ($item->user->biodataTwo->status == 'tidak')
+                                                            <div class="badge badge-opacity-warning">tidak lolos biodata</div>
+                                                        @else()
+                                                            <div class="badge badge-opacity-warning">In progress</div>
+                                                        @endif
+                                                    </td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>

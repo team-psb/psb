@@ -16,6 +16,13 @@
 <!-- endinject -->
 <!-- Custom js for this page-->
 {{-- <script src="{{ asset('template/js/dashboard.js') }}"></script> --}}
+<script>
+    $('#datepicker-popup').datepicker({
+        enableOnReadonly: true,
+        todayHighlight: true,
+        });
+        $("#datepicker-popup").datepicker("setDate", "0");
+</script>
 <script src="{{ asset('template/js/Chart.roundedBarCharts.js') }}"></script>
 <!-- End custom js for this page-->
 
@@ -23,6 +30,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.3/r-2.2.9/datatables.min.js"></script>
+
+
+
 <script>
     $(document).ready( function () {
     $('#myTable').DataTable({

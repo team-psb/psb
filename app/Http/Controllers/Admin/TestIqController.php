@@ -18,7 +18,7 @@ class TestIqController extends Controller
      */
     public function index()
     {
-        $iqs = QuestionIq::orderBy('id', 'asc')->get();
+        $iqs = QuestionIq::orderBy('id', 'desc')->get();
         return view('admin.pages.questionIq.index', [
             'iqs' => $iqs
         ]);

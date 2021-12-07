@@ -7,7 +7,7 @@
         <div class="content-wrapper">
             <div class="row">
                 <div class="col-lg-12 grid-margin stretch-card">
-                    <div class="card">
+                    <div class="card  card-rounded">
                         <div class="card-body">
                             <h4 class="card-title">Buat Informasi</h4>
                             <form class="forms-sample" action="{{ route('schdules.store') }}" method="POST" enctype="multipart/form-data">

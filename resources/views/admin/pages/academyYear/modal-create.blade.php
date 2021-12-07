@@ -23,7 +23,7 @@
         <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="status" id="inlineRadio1" value="aktif"
         >
-        <label class="form-check-label" for="inlineRadio1"                           >Aktif</label>
+        <label class="form-check-label" for="inlineRadio1">Aktif</label>
         </div>
         <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="tidak-aktif"
