@@ -55,7 +55,7 @@
 										<td class="pl-5">
 											<div class="selectgroup selectgroup-pills">
 											<label class="selectgroup-item">
-												<input type="checkbox" class="form-check-input"  style="width: 20px; height: 20px" name="answer_key" value="a">
+												<input type="radio" class="form-check-input"  style="width: 20px; height: 20px" name="answer_key" value="a">
 												<span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"></i></span>
 											</label>
 											</div>
@@ -72,7 +72,7 @@
 										<td class="pl-5">
 											<div class="selectgroup selectgroup-pills">
 											<label class="selectgroup-item">
-												<input type="checkbox" class="form-check-input"  style="width: 20px; height: 20px" name="answer_key" value="b">
+												<input type="radio" class="form-check-input"  style="width: 20px; height: 20px" name="answer_key" value="b">
 												<span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"></i></span>
 											</label>
 											</div>
@@ -89,7 +89,7 @@
 										<td class="pl-5">
 											<div class?="selectgroup selectgroup-pills">
 											<label class="selectgroup-item">
-												<input type="checkbox" class="form-check-input"  style="width: 20px; height: 20px" >
+												<input type="radio" class="form-check-input"  style="width: 20px; height: 20px" name="answer_key" value="c">
 												<span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"></i></span>
 											</label>
 											</div>
@@ -106,7 +106,7 @@
 										<td class="pl-5">
 											<div class="selectgroup selectgroup-pills">
 											<label class="selectgroup-item">
-												<input type="checkbox" class="form-check-input"  style="width: 20px; height: 20px" name="answer_key" value="d">
+												<input type="radio" class="form-check-input"  style="width: 20px; height: 20px" name="answer_key" value="d">
 												<span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"></i></span>
 											</label>
 											</div>
@@ -123,7 +123,7 @@
 										<td class="pl-5">
 											<div class="selectgroup selectgroup-pills">
 											<label class="selectgroup-item">
-												<input type="checkbox" class="form-check-input"  style="width: 20px; height: 20px" name="answer_key" value="e">
+												<input type="radio" class="form-check-input"  style="width: 20px; height: 20px" name="answer_key" value="e">
 												<span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"></i></span>
 											</label>
 											</div>

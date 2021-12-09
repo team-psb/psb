@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Nilai Pendaftar')
+@section('title', 'Nilai Tes Pendaftar')
 
 @section('content')
 <div class="main-panel">
@@ -62,7 +62,11 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($scores as $score)
-                                        <tr>
+                                        <tr class="
+                                            {{ $score->status == 'lolos' ? 'text-success' : '' }}
+                                            {{ $score->status == 'tidak' ? 'text-danger' : '' }}
+                                            fw-bold
+                                        " >
                                             <td>
                                                 <div class="form-check form-check-success">
                                                     <label class="form-check-label">
@@ -71,7 +75,7 @@
                                                 </div>
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $score->user->biodataOne->full_name }}</td>
+                                            <td>{{ $score->user->biodataOne->name }}</td>
                                             <td class="text-success"> {{ $score->score_question_iq }}</td>
                                             <td class="text-success"> {{ $score->score_question_personal }}</td>
                                             <td>
@@ -79,6 +83,16 @@
                                             </td>
                                             <td>
                                                 <div class="btn-wrapper">
+                                                    @if ($score->status == null)
+                                                        <a href="{{ route('scores.status', $score->id) }}?status=lolos"
+                                                            class="btn btn-success btn-icon-text p-2">
+                                                                <i class="icon-check btn-icon-prepend"></i> Lolos
+                                                        </a>
+                                                        <a href="{{ route('scores.status', $score->id) }}?status=tidak"
+                                                            class="btn btn-warning mx-1 btn-icon-text p-2">
+                                                                <i class="icon-close btn-icon-prepend"></i> Tidak Lolos
+                                                        </a>
+                                                    @endif
                                                     <button formaction="{{ route('scores.delete', $score->id) }}" class="btn ms-1 btn-danger btn-icon-text text-white p-2"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
                                                 </div>
                                             </td>

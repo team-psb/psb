@@ -5,7 +5,7 @@
             <table cellpadding="5">
                 <tr>
                     <td style="width: 280px;" >Nama</td>
-                    <td>{{ $biodata->user->biodataOne->full_name }}</td>
+                    <td>{{ $biodata->user->biodataOne->name }}</td>
                 </tr>
                 <tr>
                     <td>Umur</td>

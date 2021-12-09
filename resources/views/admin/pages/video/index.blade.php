@@ -61,7 +61,11 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($videos as $video)
-                                        <tr>
+                                        <tr class="
+                                            {{ $video->status == 'lolos' ? 'text-success' : '' }}
+                                            {{ $video->status == 'tidak' ? 'text-danger' : '' }}
+                                            fw-bold
+                                        " >
                                             <td>
                                                 <div class="form-check form-check-success">
                                                     <label class="form-check-label">
@@ -70,13 +74,23 @@
                                                 </div>
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $video->user->biodataOne->full_name }}</td>
+                                            <td>{{ $video->user->biodataOne->name }}</td>
                                             <td class="text-success"> <a href="{{ $video->url }}" target="_blank">{{ $video->url }}</a></td>
                                             <td>
                                                 <span class="badge badge-{{ $video->status == 'lolos' ? 'success':'' }}{{ $video->status == 'tidak' ? 'danger':'' }}">{{ $video->status }}</span>
                                             </td>
                                             <td>
                                                 <div class="btn-wrapper">
+                                                    @if ($video->status == null)
+                                                        <a href="{{ route('videos.status', $video->id) }}?status=lolos"
+                                                            class="btn btn-success btn-icon-text p-2">
+                                                                <i class="icon-check btn-icon-prepend"></i> Lolos
+                                                        </a>
+                                                        <a href="{{ route('videos.status', $video->id) }}?status=tidak"
+                                                            class="btn btn-warning mx-1 btn-icon-text p-2">
+                                                                <i class="icon-close btn-icon-prepend"></i> Tidak Lolos
+                                                        </a>
+                                                    @endif
                                                     <button formaction="{{ route('videos.delete', $video->id) }}" class="btn ms-1 btn-danger btn-icon-text text-white p-2"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
                                                 </div>
                                             </td>

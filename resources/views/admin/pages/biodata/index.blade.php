@@ -57,14 +57,25 @@
                                             <th>No WA</th>
                                             <th>Umur</th>
                                             <th>Pendidikan</th>
+                                            <th>Cita Cita</th>
+                                            <th>Prestasi</th>
+                                            <th>Skill</th>
                                             <th>Hafalan</th>
+                                            <th>Gamer</th>
+                                            <th>Keluarga</th>
+                                            <th>Orang Tua</th>
+                                            <th>Penghasilan Ortu</th>
                                             <th>Status</th>
                                             <th width="10%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($biodatas as $biodata)
-                                        <tr>
+                                        <tr class="
+                                            {{ $biodata->status == 'lolos' ? 'text-success' : '' }}
+                                            {{ $biodata->status == 'tidak' ? 'text-danger' : '' }}
+                                            fw-bold
+                                            " >
                                             <td>
                                                 <div class="form-check form-check-success">
                                                     <label class="form-check-label">
@@ -77,18 +88,35 @@
                                             <td>{{ $biodata->user->biodataOne->no_wa }}</td>
                                             <td>{{ $biodata->user->biodataOne->age }}</td>
                                             <td>{{ $biodata->last_education }}</td>
+                                            <td>{{ $biodata->goal }}</td>
+                                            <td>{{ $biodata->achievment }}</td>
+                                            <td>{{ $biodata->skill }}</td>
                                             <td>{{ $biodata->memorization }}</td>
+                                            <td>{{ $biodata->gamer }}</td>
+                                            <td>{{ $biodata->user->biodataOne->family }}</td>
+                                            <td>{{ $biodata->parent }}</td>
+                                            <td class="fw-bold">Rp {{ number_format($biodata->parent_income) }}</td>
                                             <td>
                                                 <span class="fw-bold  badge badge-{{ $biodata->status == 'lolos' ? 'success':'' }}{{ $biodata->status == 'tidak' ? 'danger':'' }}">{{ $biodata->status }}</span>
                                             </td>
                                             <td>
-                                                <div class="d-flex">
+                                                <div class="d-flex justify-content-end">
+                                                    @if ($biodata->status == null)
+                                                        <a href="{{ route('biodatas.status', $biodata->id) }}?status=lolos"
+                                                            class="btn btn-success btn-icon-text p-2">
+                                                                <i class="icon-check btn-icon-prepend"></i> Lolos
+                                                        </a>
+                                                        <a href="{{ route('biodatas.status', $biodata->id) }}?status=tidak"
+                                                            class="btn btn-warning mx-1 btn-icon-text p-2">
+                                                                <i class="icon-close btn-icon-prepend"></i> Tidak Lolos
+                                                        </a>
+                                                    @endif
                                                     <a href="#mymodal"
                                                         data-remote="{{ route('biodatas.show', $biodata->id) }}"
                                                         data-toggle="modal"
                                                         data-target="#mymodal"
                                                         data-title="Detail Biodata {{ $loop->iteration }}" 
-                                                        class="btn btn-success btn-icon-text  p-2"
+                                                        class="btn btn-info btn-icon-text  p-2"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                         <i class="icon-eye btn-icon-prepend"></i> Detail
                                                     </a>
@@ -185,7 +213,7 @@
                         <div class="form-group">
                         <label class="form-label">Perokok</label>
                         <div class="selectgroup selectgroup-pills">
-                            <label class="selectgroup-item">
+                            <label class="selectgroup-biodata">
                                 <input type="radio" name="smoker" value="iya" class="selectgroup-input" {{ request()->get('smoker') == 'iya' ? 'checked' :''  }}>
                                 <span class="selectgroup-button selectgroup-button-icon"><i class="ti-check"></i></span>
                             </label>

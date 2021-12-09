@@ -53,7 +53,11 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($passes as $pass)
-                                    <tr>
+                                    <tr class="
+                                        {{ $pass->status == 'lolos' ? 'text-success' : '' }}
+                                        {{ $pass->status == 'tidak' ? 'text-danger' : '' }}
+                                        fw-bold
+                                    " >
                                         <td>
                                             <div class="form-check form-check-success">
                                                 <label class="form-check-label">
@@ -62,7 +66,7 @@
                                             </div>
                                         </td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $pass->user->biodataOne->full_name }}</td>
+                                        <td>{{ $pass->user->biodataOne->name }}</td>
                                         <td>{{ $pass->user->biodataOne->age }}</td>
                                         <td>Sleman</td>
                                         <td>Yoygakarta</td>

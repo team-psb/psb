@@ -31,6 +31,6 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-sm btn-icon icon-left"> <i class="fas fa-save"></i> Kirimkan</button>
+        <button type="submit" class="btn btn-primary  btn-icon icon-left"> <i class="fas fa-save"></i> Kirimkan</button>
     </div>
 </form>

@@ -39,6 +39,19 @@ class InterviewController extends Controller
         return back();
     }
 
+    public function setStatus(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|in:lolos,tidak'
+        ]);
+
+        $item = Interview::findOrFail($id);
+        $item->status = $request->status;
+        $item->save();
+
+        return redirect()->route('interviews.index')->with('success-edit', 'Berhasil Mengganti Status Data');
+    }
+
     public function passAll(Request $request)
     {
         $ids=$request->get('ids');

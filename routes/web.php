@@ -34,6 +34,12 @@ use App\Http\Controllers\User\UserDashboardController;
 Route::get('/', function () {
     return view('landingpage_2.BizLand.index');
 })->name('home');
+Route::get('/masuk', function () {
+    return view('auth.login');
+})->name('login');
+Route::get('/daftar', function () {
+    return view('auth.register');
+})->name('register');
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){
     Route::get('home', [UserDashboardController::class, 'index'])->name('user-dashboard');
@@ -84,20 +90,6 @@ Route::group(['prefix' => ''], function () {
     // Route::post('/reset-password', [ForgotPasswordController::class, 'updatePassword'])->name('update-password');
 });
 
-// Process selection
-Route::group(['prefix' => 'test','middleware'=>['auth','register']], function () {
-    Route::get('/step-one',[BiodataOneController::class,'index'])->name('step-one');
-    Route::post('/step-one',[BiodataOneController::class,'store'])->name('step-one-store');
-    Route::get('/step-two',[BiodataTwoController::class,'index'])->name('step-two');
-    Route::post('/step-two',[BiodataTwoController::class,'store'])->name('step-two-store');
-    Route::get('/step-tree/test-iq',[TestController::class,'iq'])->name('step-tree-iq');
-    Route::post('/step-tree/test-iq',[TestController::class,'iqstore'])->name('iq-store');
-    Route::get('/step-tree/test-personal',[TestController::class,'personal'])->name('step-tree-personal');
-    Route::post('/step-tree/test-personal',[TestController::class,'personalstore'])->name('personal-store');
-    Route::get('/step-four/link-video',[VideoController::class,'video'])->name('step-four-video');
-    Route::post('/step-four/link-video',[VideoController::class,'videostore'])->name('step-four-video.store');
-    Route::get('/step-five/interview',[VideoController::class,'interview'])->name('step-five-interview');
-});
 
 //Admin
 Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
@@ -105,6 +97,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
     Route::get('biodatas', [BiodataController::class, 'index'])->name('biodatas.index');
     Route::get('biodatas/{id}', [BiodataController::class, 'show'])->name('biodatas.show');
+    Route::get('biodatas/{id}/set-status', [BiodataController::class, 'setStatus'])->name('biodatas.status');
     Route::get('biodatas/edit/{id}', [BiodataController::class, 'edit'])->name('biodatas.edit');
     Route::post('biodatas/edit/{id}', [BiodataController::class, 'update'])->name('biodatas.update');
     Route::post('biodatas/delete/{id}', [BiodataController::class, 'delete'])->name('biodatas.delete');
@@ -117,6 +110,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
     
     Route::get('scores', [ScoreController::class, 'index'])->name('scores.index');
+    Route::get('scores/{id}/set-status', [ScoreController::class, 'setStatus'])->name('scores.status');
     Route::post('scores/delete/{id}', [ScoreController::class, 'delete'])->name('scores.delete');
     Route::post('scores/delete', [ScoreController::class, 'deleteAll'])->name('scores.deleteAll');
     Route::post('scores/pass/all', [ScoreController::class, 'passAll'])->name('scores.passAll');
@@ -124,8 +118,10 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('scores/filter/reset', [ScoreController::class, 'filterreset'])->name('scores.filter-reset');
     Route::get('scores/export', [ScoreController::class, 'export'])->name('scores.export');
 
+
     
     Route::get('videos', [AdminVideoController::class, 'index'])->name('videos.index');
+    Route::get('videos/{id}/set-status', [AdminVideoController::class, 'setStatus'])->name('videos.status');
     Route::post('videos/delete/{id}', [AdminVideoController::class, 'delete'])->name('videos.delete');
     Route::post('videos/delete', [AdminVideoController::class, 'deleteAll'])->name('videos.deleteAll');
     Route::post('videos/pass/all', [AdminVideoController::class, 'passAll'])->name('videos.passAll');
@@ -135,6 +131,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
     
     Route::get('interviews', [InterviewController::class, 'index'])->name('interviews.index');
+    Route::get('interviews/{id}/set-status', [InterviewController::class, 'setStatus'])->name('interviews.status');
     Route::post('interviews/delete/{id}', [InterviewController::class, 'delete'])->name('interviews.delete');
     Route::post('interviews/delete', [InterviewController::class, 'deleteAll'])->name('interviews.deleteAll');
     Route::post('interviews/pass/all', [InterviewController::class, 'passAll'])->name('interviews.passAll');

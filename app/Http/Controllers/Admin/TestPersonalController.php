@@ -18,7 +18,7 @@ class TestPersonalController extends Controller
      */
     public function index()
     {
-        $questions = QuestionPersonal::orderBy('id', 'asc')->get();
+        $questions = QuestionPersonal::orderBy('id', 'desc')->get();
         return view('admin.pages.questionPersonal.index', [
             'questions' => $questions
         ]);
@@ -74,6 +74,7 @@ class TestPersonalController extends Controller
             'poin_d' => $request->poin_d,
             'poin_e' => $request->poin_e
         ]);
+        activity()->log('Membuat soal kepribadian');
 
         return redirect()->route('personals.index')->with('success-create', 'Berhasil Membuat Data');
     }
@@ -146,6 +147,7 @@ class TestPersonalController extends Controller
             'poin_d' => $request->poin_d,
             'poin_e' => $request->poin_e
         ]);
+        activity()->log('Mengedit soal kepribadian id '.$id);
 
         return redirect()->route('personals.index')->with('success-edit', 'Berhasil Mengedit Data');
     }
@@ -161,6 +163,7 @@ class TestPersonalController extends Controller
         $data = QuestionPersonal::find($id);
 
         $data->delete();
+        activity()->log('Menghapus soal kepribadian id '.$id);
 
         return back()->with('success-create', 'Berhasil Menghapus Data');
     }
@@ -175,6 +178,7 @@ class TestPersonalController extends Controller
             foreach ($ids as $id) {
                 QuestionPersonal::find($id)->delete();
             }
+            activity()->log('Menghapus semua tes kepribadian');
 
             return redirect()->route('personals.index')->with('success-delete', 'Berhasil Menghapus Semua Data');
         }
@@ -182,13 +186,8 @@ class TestPersonalController extends Controller
 
     public function import(Request $request) 
     {
-        $validatedData = $request->validate([
-
-            'file' => 'required',
-
-        ]);
-
         Excel::import(new QuestionPersonalImport,$request->file('file'));
+        activity()->log('Mengimpor soal tes kepribadian');
 
         return redirect()->route('personals.index')->with('success', 'Berhasil mengimport file excel');
     }
@@ -196,6 +195,8 @@ class TestPersonalController extends Controller
     public function downloadtemplate()
     {
         $template ="./template-import/template-import-soal-tes-kepribadian.csv";
+        activity()->log('Mendownload template soal tes kepribadian');
+
         return Response::download($template);
     }
 }

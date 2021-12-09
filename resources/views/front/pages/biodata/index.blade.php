@@ -86,6 +86,7 @@
                           class="form-control"
                           id="exampleInputPassword1"
                           {{-- x-model="tempat_lahir" --}}
+                          value="{{ old('birth_place') }}"
                           required
                         />
                       </div>
@@ -98,7 +99,7 @@
                           class="form-control h-100"
                           id="exampleInputPassword1"
                           required
-                        ></textarea>
+                        >{{ old('address') }}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Provinsi<b>*</b></label>
@@ -132,6 +133,7 @@
                         class="form-control"
                         id="exampleInputPassword1"
                         name="facebook"
+                        value="{{ old('facebook') }}"
                         required
                       />
                       </div>
@@ -142,6 +144,7 @@
                           class="form-control"
                           id="exampleInputPassword1"
                           name="instagram"
+                          value="{{ old('instagram') }}"
                           required
                         />
                       </div>
@@ -180,6 +183,7 @@
                         class="form-control"
                         id="name_school"
                         name="name_school"
+                        value="{{ old('name_school') }}"
                         required
                       />
                       </div>
@@ -190,30 +194,31 @@
                         class="form-control"
                         id="major"
                         name="major"
+                        value="{{ old('major') }}"
                       />
                       </div>
                       <div class="form-group">
                         <label for="organization">Pengalaman Organisasi<b>*</b></label>
-                        <textarea name="organization" id="" class="form-control h-50"  required></textarea>
+                        <textarea name="organization" id="" class="form-control h-50"  required>{{ old('organization') }}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="achievment">Prestasi<b>*</b></label>
-                        <textarea name="achievment" id="" class="form-control h-50"  required></textarea>
+                        <textarea name="achievment" id="" class="form-control h-50"  required>{{ old('achievment') }}</textarea>
                         <small>di isi 'tidak ada' jika tidak ada </small>
                       </div>
                       <div class="form-group">
                         <label for="hobby">Hobi<b>*</b></label>
-                        <textarea name="hobby" id="" class="form-control h-50"  required></textarea>
+                        <textarea name="hobby" id="" class="form-control h-50"  required>{{ old('hobby') }}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="goal">Cita-Cita<b>*</b></label>
-                        <textarea name="goal" id="" class="form-control h-50"  required></textarea>
+                        <textarea name="goal" id="" class="form-control h-50"  required>{{ old('goal') }}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="skill"
                           >Skill/Kelebihan<b>*</b></label
                         >
-                        <textarea name="skill" id="" class="form-control h-50"  required></textarea>
+                        <textarea name="skill" id="" class="form-control h-50"  required>{{ old('skill') }}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="memorization"
@@ -224,6 +229,7 @@
                           class="form-control"
                           id="memorization"
                           name="memorization"
+                          value="{{ old('memorization') }}"
                           required
                         />
                       </div>
@@ -236,6 +242,7 @@
                           class="form-control"
                           id="figure_idol"
                           name="figure_idol"
+                          value="{{ old('figure_idol') }}"
                           required
                         />
                       </div>
@@ -248,6 +255,7 @@
                           class="form-control"
                           id="chaplain_idol"
                           name="chaplain_idol"
+                          value="{{ old('chaplain_idol') }}"
                           required
                         />
                       </div>
@@ -260,6 +268,7 @@
                           class="form-control"
                           id="tauhid"
                           name="tauhid"
+                          value="{{ old('tauhid') }}"
                           required
                         />
                       </div>
@@ -272,6 +281,7 @@
                           class="form-control"
                           id="study_islamic"
                           name="study_islamic"
+                          value="{{ old('study_islamic') }}"
                           required
                         />
                       </div>
@@ -284,6 +294,7 @@
                           class="form-control"
                           id="read_book"
                           name="read_book"
+                          value="{{ old('read_book') }}"
                           required
                         />
                       </div>
@@ -386,6 +397,7 @@
                             class="form-control"
                             id="exampleInputPassword1"
                             name="game_name"
+                            value="{{ old('game_name') }}"
                           />
                         </div>
                         <div class="form-group">
@@ -397,6 +409,7 @@
                             class="form-control"
                             id="exampleInputPassword1"
                             name="game_duration"
+                            value="{{ old('game_duration') }}"
                           />
                         </div>
                       </div>
@@ -404,20 +417,20 @@
                         <label for="exampleInputPassword1"
                           >Alasan Mendaftar <b>*</b></label
                         >
-                        <textarea name="reason_registration" id="" class="form-control h-50" required></textarea>
+                        <textarea name="reason_registration" id="" class="form-control h-50" required>{{ old('reason_registration') }}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1"
                           >Ceritakan Kegiatan Anda Dari Pagi Sampai Malam
                           <b>*</b></label
                         >
-                        <textarea name="activity" id="" class="form-control h-50" required></textarea>
+                        <textarea name="activity" id="" class="form-control h-50" required>{{ old('activity') }}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1"
                           >Ceritakan Dengan Singkat Kepribadian Anda <b>*</b></label
                         >
-                        <textarea name="personal" id="" class="form-control h-50"  required></textarea>
+                        <textarea name="personal" id="" class="form-control h-50"  required>{{ old('personal') }}</textarea>
                       </div>
                       <div class="mt-4">
                         <button
@@ -454,6 +467,7 @@
                           class="form-control"
                           id="father"
                           name="father"
+                          value="{{ old('father') }}"
                           required
                         />
                       </div>
@@ -466,6 +480,7 @@
                           class="form-control"
                           id="father_work"
                           name="father_work"
+                          value="{{ old('father_work') }}"
                           required
                         />
                       </div>
@@ -476,6 +491,7 @@
                           class="form-control"
                           id="mother"
                           name="mother"
+                          value="{{ old('mother') }}"
                           required
                         />
                       </div>
@@ -488,6 +504,7 @@
                           class="form-control"
                           id="mother_work"
                           name="mother_work"
+                          value="{{ old('mother_work') }}"
                           required
                         />
                       </div>
@@ -500,6 +517,7 @@
                           class="form-control"
                           id="parent_income"
                           name="parent_income"
+                          value="{{ old('parent_income') }}"
                           required
                         />
                         <p>di isi dengan bilangan bulat contoh 1000000.</p>
@@ -511,18 +529,20 @@
                           class="form-control"
                           id="child_to"
                           name="child_to"
+                          value="{{ old('child_to') }}"
                           required
                         />
                       </div>
                       <div class="form-group">
                         <label for="brother"
-                          >Jumlah brother ?<b>*</b></label
+                          >Jumlah Saudara ?<b>*</b></label
                         >
                         <input
                           type="number"
                           class="form-control"
                           id="brother"
                           name="brother"
+                          value="{{ old('brother') }}"
                           required
                         />
                       </div>
@@ -534,21 +554,21 @@
                           type="text"
                           class="form-control"
                           id="no_guardian"
-                          name="no_wali"
+                          name="no_guardian"
+                          value="{{ old('no_guardian') }}"
                           required
                         />
                       </div>
                       <div class="form-group">
-                        <label for="no_guardian"
+                        <label for="description_guardian"
                           >Tambah Keterangan Jika Ada</label
                         >
                         <textarea
                           type="text"
                           class="form-control"
-                          id="no_guardian"
-                          name="no_guardian"
-                          
-                        ></textarea>
+                          id="description_guardian"
+                          name="description_guardian"
+                        >{{ old('description_guardian') }}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="">Izin Orang Tua Atau TIdak ?<b>*</b></label>

@@ -554,27 +554,33 @@
       var doughnutChartCanvas = $("#doughnutChart").get(0).getContext("2d");
       var doughnutPieData = {
         datasets: [{
-          data: [40, 20, 30, 10],
+          data: [40, 20, 30, 10, 10, 5],
           backgroundColor: [
             "#1F3BB3",
             "#FDD0C7",
             "#52CDFF",
-            "#81DADA"
+            "#7442eb",
+            "#81DADA",
+            "#c442eb"
           ],
           borderColor: [
             "#1F3BB3",
             "#FDD0C7",
             "#52CDFF",
-            "#81DADA"
+            "#7442eb",
+            "#81DADA",
+            "#c442eb"
           ],
         }],
   
         // These labels appear in the legend and in the tooltips when hovering different arcs
         labels: [
-          'Total',
-          'Net',
-          'Gross',
-          'AVG',
+          '16',
+          '17',
+          '18',
+          '19',
+          '20',
+          '21',
         ]
       };
       var doughnutPieOptions = {

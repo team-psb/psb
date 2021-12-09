@@ -61,7 +61,11 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($interviews as $interview)
-                                        <tr>
+                                        <tr class="
+                                            {{ $interview->status == 'lolos' ? 'text-success' : '' }}
+                                            {{ $interview->status == 'tidak' ? 'text-danger' : '' }}
+                                            fw-bold
+                                        " >
                                             <td>
                                                 <div class="form-check form-check-success">
                                                     <label class="form-check-label">
@@ -70,13 +74,18 @@
                                                 </div>
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $interview->user->biodataOne->full_name }}</td>
+                                            <td>{{ $interview->user->biodataOne->name }}</td>
                                             <td>
                                                 <div class="input-group">
-                                                    <input value="{{ $interview->user->phone }}" id="copy" disabled type="text" class="form-control fw-bold">
+                                                    {{-- <input value="{{ $interview->user->phone }}" id="copy" disabled type="text" class="form-control fw-bold">
                                                     <div class="input-group-append">
-                                                        <button onclick="myFunction()"  class="input-group-text btn-success text-light">copy</button>
-                                                    </div>
+                                                        <button type="button" onclick="myFunction()"  class="input-group-text btn-success text-light">copy</button>
+                                                    </div> --}}
+                                                    {{-- <span class="hp">{{ $interview->user->phone }}</span> --}}
+                                                    <p>
+                                                        {{ $interview->user->phone }}
+                                                        <a href="https://api.whatsapp.com/send?phone={{ $interview->user->phone }}" class="btn btn-success px-1">Chat Wa</a>
+                                                    </p>
                                                 </div>
                                             </td>
                                             <td>
@@ -84,6 +93,16 @@
                                             </td>
                                             <td>
                                                 <div class="btn-wrapper">
+                                                    @if ($interview->status == null)
+                                                        <a href="{{ route('interviews.status', $interview->id) }}?status=lolos"
+                                                            class="btn btn-success btn-icon-text p-2">
+                                                                <i class="icon-check btn-icon-prepend"></i> Lolos
+                                                        </a>
+                                                        <a href="{{ route('interviews.status', $interview->id) }}?status=tidak"
+                                                            class="btn btn-warning mx-1 btn-icon-text p-2">
+                                                                <i class="icon-close btn-icon-prepend"></i> Tidak Lolos
+                                                        </a>
+                                                    @endif
                                                     <button formaction="{{ route('interviews.delete', $interview->id) }}" class="btn ms-1 btn-danger btn-icon-text text-white p-2"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
                                                 </div>
                                             </td>
@@ -148,8 +167,42 @@
     $('#del').click(function(){
         $('#del2').click();
     });
+
 </script>
+
 <script>
+    var color = document.querySelectorAll('.hp') //DOM selector
+
+//Loop through all elements and attaching event listener
+color.forEach(el => {
+  el.addEventListener('click',copyText)
+})
+
+// function for selecting the text of an element based on the event.target (supporting IE)
+function selectText() {
+    var element = event.target
+    var range;
+    if (document.selection) {
+        // IE
+        range = document.body.createTextRange();
+        range.moveToElementText(element);
+        range.select();
+    } else if (window.getSelection) {
+        range = document.createRange();
+        range.selectNode(element);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+    }
+}
+
+// function for copying selected text in clipboard
+function copyText() {
+    selectText();
+    alert('No whatsapp ' + event.target.innerText + ' Berhasil di copy')
+    document.execCommand("copy");
+}
+</script>
+{{-- <script>
     function myFunction() {
     /* Get the text field */
     var copyText = document.getElementById("copy");
@@ -164,5 +217,5 @@
     /* Alert the copied text */
     // alert("Berhasil di salin : " + copyText.value);
     }
-    </script>
+</script> --}}
 @endpush

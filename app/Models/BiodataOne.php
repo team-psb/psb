@@ -26,7 +26,7 @@ class BiodataOne extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class,'user_id', 'id')->withTrashed();
+        return $this->belongsTo(User::class,'user_id', 'id');
     }
 
     public function category()
@@ -34,9 +34,9 @@ class BiodataOne extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function academy()
+    public function academy_year()
     {
-        return $this->belongsTo(AcademyYear::class, 'academy_year_id', 'id')->withTrashed();
+        return $this->belongsTo(AcademyYear::class, 'academy_year_id', 'id');
     }
 
     public function stage()

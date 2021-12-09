@@ -57,6 +57,19 @@ class ScoreController extends Controller
         return back();
     }
 
+    public function setStatus(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|in:lolos,tidak'
+        ]);
+
+        $item = Score::findOrFail($id);
+        $item->status = $request->status;
+        $item->save();
+
+        return redirect()->route('scores.index')->with('success-edit', 'Berhasil Mengganti Status Data');
+    }
+
     public function passAll(Request $request)
     {
         $ids=$request->get('ids');
