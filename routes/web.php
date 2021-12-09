@@ -20,6 +20,7 @@ use App\Http\Controllers\Exam\BiodataOneController;
 use App\Http\Controllers\Exam\BiodataTwoController;
 use App\Http\Controllers\Exam\TesIqController;
 use App\Http\Controllers\User\UserDashboardController;
+use App\Http\Controllers\User\UserProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,17 +45,11 @@ Route::get('/daftar', function () {
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){
     Route::get('home', [UserDashboardController::class, 'index'])->name('user-dashboard');
 
-    Route::get('profile', function () {
-        return view('front.pages.profile.index');
-    })->name('user-profile');
+    Route::get('profile', [UserDashboardController::class, 'profile'])->name('user-profile');
     
-    Route::get('qna', function () {
-        return view('front.pages.qna.index');
-    })->name('user-qna');
+    Route::get('qna', [UserDashboardController::class, 'qna'])->name('user-qna');
     
-    Route::get('informasi', function () {
-        return view('front.pages.information.index');
-    })->name('user-informasi');
+    Route::get('informasi', [UserDashboardController::class, 'information'])->name('user-informasi');
     
     Route::get('success', function () {
         return view('screens.success');

@@ -7,6 +7,7 @@ use App\Models\AcademyYear;
 use App\Models\BiodataOne;
 use App\Models\BiodataTwo;
 use App\Models\Pass;
+use App\Models\Qna;
 use App\Models\Schdule;
 use App\Models\Score;
 use App\Models\Video;
@@ -32,5 +33,26 @@ class UserDashboardController extends Controller
         $schdule = Schdule::orderBy('created_at', 'desc')->take(4)->get();
         
         return view('front.index', compact('biodata1', 'tahap1', 'tahap2', 'tahap3', 'tahap4', 'schdule'));
+    }
+
+    public function profile()
+    {
+        $profile = BiodataOne::where('id', Auth::user()->id)->first();
+
+        return view('front.pages.profile.index', compact('profile'));
+    }
+
+    public function qna()
+    {
+        $qna = Qna::get();
+
+        return view('front.pages.qna.index', compact('qna'));
+    }
+
+    public function information()
+    {
+        $informations = Schdule::get();
+
+        return view('front.pages.information.index', compact('informations'));
     }
 }

@@ -19,47 +19,47 @@
                       <table class="table table-bordered table-md">
                         <tr>
                           <th>Name</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->name }}</td>
                         </tr>
                         <tr>
                           <th>Umur</th>
-                          <td>20</td>
+                          <td>{{ $profile->age }}</td>
                         </tr>
                         <tr>
                           <th>Tanggal Lahir</th>
-                          <td>28-0-2000</td>
+                          <td>{{ $profile->birth_date }}</td>
                         </tr>
                         <tr>
                           <th>Hobi</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->hobby }}</td>
                         </tr>
                         <tr>
                           <th>Cita-cita</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->goal }}</td>
                         </tr>
                         <tr>
                           <th>Pendidikan Terakhir</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->last_education }}</td>
                         </tr>
                         <tr>
                           <th>Asal Sekolah</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->name_school }}</td>
                         </tr>
                         <tr>
                           <th>Jurusan</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->major }}</td>
                         </tr>
                         <tr>
                           <th>Prestasi</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->achievment }}</td>
                         </tr>
                         <tr>
                           <th>Pengalaman Organisasi</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->organization }}</td>
                         </tr>
                         <tr>
                           <th>Alamat Lengkap</th>
-                          <td>Jl. Krapyak No. 05</td>
+                          <td>{{ $profile->user->biodataTwo->address }}</td>
                         </tr>
                         <tr>
                           <th>Kabupaten</th>
@@ -86,39 +86,39 @@
                       <table class="table table-bordered table-md">
                         <tr>
                           <th>Orang Tua</th>
-                          <td>Lengkap</td>
+                          <td>{{ $profile->user->biodataTwo->parent }}</td>
                         </tr>
                         <tr>
                           <th>Nama Ayah</th>
-                          <td>An</td>
+                          <td>{{ $profile->user->biodataTwo->father }}</td>
                         </tr>
                         <tr>
                           <th>Nama Ibu</th>
-                          <td>Den</td>
+                          <td>{{ $profile->user->biodataTwo->mother }}</td>
                         </tr>
                         <tr>
                           <th>Kondisi Keluarga</th>
-                          <td>Mampu</td>
+                          <td>{{ $profile->user->biodataOne->family }}</td>
                         </tr>
                         <tr>
                           <th>Pekerjaan Ayah</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->father_work }}</td>
                         </tr>
                         <tr>
                           <th>Pekerjaan Ibu</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->mother_work }}</td>
                         </tr>
                         <tr>
                           <th>Penghasilan Orang Tua</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>Rp. {{ number_format($profile->user->biodataTwo->parent_income) }}</td>
                         </tr>
                         <tr>
                           <th>Jumlah Saudara</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->brother }}</td>
                         </tr>
                         <tr>
                           <th>Anak Ke-</th>
-                          <td>2</td>
+                          <td>{{ $profile->user->biodataTwo->child_to }}</td>
                         </tr>
                       </table>
                     </div>
@@ -135,14 +135,16 @@
                   <div class="card-body">
                     <div class="table-responsive">
                       <table class="table table-bordered table-md">
-                        <tr>
+                        @if (isset($profile->user->score))
+                          <tr>
                             <th>Tes IQ</th>
-                            <td>90</td>
+                            <td>{{ $profile->user->score->score_question_iq }}</td>
                           </tr>
                           <tr>
                             <th>Tes Kepribadian</th>
-                            <td>100</td>
+                            <td>{{ $profile->user->score->score_question_personal }}</td>
                           </tr>
+                        @endif
                       </table>
                     </div>
                   </div>
@@ -160,15 +162,15 @@
                       <table class="table table-bordered table-md">
                         <tr>
                             <th>Whatsapp</th>
-                            <td>08192138123</td>
+                            <td>{{ $profile->user->phone }}</td>
                         </tr>
                         <tr>
                             <th>Link Facebook</th>
-                            <td>https://www.facebook.com/septian.faiz.75/</td>
+                            <td>{{ $profile->user->biodataTwo->facebook }}</td>
                         </tr>
                         <tr>
                             <th>Instagram</th>
-                            <td>Rizky.28</td>
+                            <td>{{ $profile->user->biodataTwo->instagram }}</td>
                         </tr>
                       </table>
                     </div>
@@ -187,27 +189,27 @@
                       <table class="table table-bordered table-md">
                         <tr>
                           <th>Jumlah Hafalan</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->memorization }}</td>
                         </tr>
                         <tr>
                           <th>Ustadz Idola</th>
-                          <td>20</td>
+                          <td>{{ $profile->user->biodataTwo->chaplain_idol }}</td>
                         </tr>
                         <tr>
                           <th>Tokoh Idola</th>
-                          <td>28-0-2000</td>
+                          <td>{{ $profile->user->biodataTwo->figure_idol }}</td>
                         </tr>
                         <tr>
                           <th>Dimana Allah?</th>
-                          <td>Di Atas Arsy</td>
+                          <td>{{ $profile->user->biodataTwo->tauhid }}</td>
                         </tr>
                         <tr>
                           <th>Kajian yang sering dihadiri</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->study_islamic }}</td>
                         </tr>
                         <tr>
                           <th>Buku bacaan favorit</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->read_book }}</td>
                         </tr>
                       </table>
                     </div>
@@ -226,27 +228,29 @@
                       <table class="table table-bordered table-md">
                         <tr>
                           <th>Merokok</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->smoker }}</td>
                         </tr>
                         <tr>
                           <th>Punya pacar?</th>
-                          <td>20</td>
+                          <td>{{ $profile->user->biodataTwo->girlfriend }}</td>
                         </tr>
                         <tr>
                           <th>Suka game?</th>
-                          <td>28-0-2000</td>
+                          <td>{{ $profile->user->biodataTwo->gamer }}</td>
                         </tr>
+                        @if ($profile->user->biodataOne->gemer == 'iya')
                         <tr>
                           <th>Nama game</th>
-                          <td>Point blank</td>
+                          <td>{{ $profile->user->biodataTwo->game_name }}</td>
                         </tr>
                         <tr>
                           <th>Durasi main game</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->game_duration }}</td>
                         </tr>
+                        @endif
                         <tr>
                           <th>Punya laptop?</th>
-                          <td>Irwansyah Saputra</td>
+                          <td>{{ $profile->user->biodataTwo->have_laptop }}</td>
                         </tr>
                       </table>
                     </div>
@@ -265,15 +269,15 @@
                       <table class="table table-bordered table-md">
                         <tr>
                             <th>Alasan Mendaftar</th>
-                            <td>08192138123</td>
+                            <td>{{ $profile->user->biodataTwo->reason_registration }}</td>
                         </tr>
                         <tr>
                             <th>Kegiatan Dari Bangun Sampai Tidur</th>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed arcu libero, dignissim varius augue ac, faucibus tincidunt sapien. Nullam tempor, quam sit amet semper faucibus, enim elit rutrum purus, vel fringilla massa mauris nec mauris. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi pellentesque lorem et pellentesque dignissim. Quisque posuere, massa id pellentesque hendrerit, ex velit rhoncus augue, et imperdiet eros nulla vitae turpis. Vivamus nisl risus, tristique id tempus ut, feugiat vel neque. Proin sodales turpis vel arcu vehicula, sed bibendum velit pretium. Vivamus libero enim, molestie at mi vel, porttitor fringilla erat. In pretium tellus quis faucibus lobortis. Mauris viverra ac orci in vulputate. Ut vel nisl elementum, cursus nisi vitae, vulputate magna. Sed eu velit metus. Duis imperdiet, lectus id luctus mattis, neque nisl hendrerit sem, at tincidunt nisi augue eget dolor. Phasellus rhoncus ac quam quis scelerisque. Nulla tempus, libero in tempor gravida, tellus dui maximus eros, ut dignissim elit sapien non justo. Proin finibus dolor ac dignissim scelerisque.</td>
+                            <td>{{ $profile->user->biodataTwo->activity }}</td>
                         </tr>
                         <tr>
                             <th>Kepribadian</th>
-                            <td>Rizky.28</td>
+                            <td>{{ $profile->user->biodataTwo->personal }}</td>
                         </tr>
                       </table>
                     </div>

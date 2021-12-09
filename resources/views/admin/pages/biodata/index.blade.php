@@ -199,9 +199,9 @@
                         <label for="exampleInputEmail1">Pendidikan Terakhir</label>
                         <select name="last_education" class="form-select">
                             <option selected value="{{ null }}">-- Pendidikan --</option>
-                            <option value="SD" {{ request()->get('last_education') == 'SD' ? 'selected' :''  }}>SD Tahun</option>
-                            <option value="SMP" {{ request()->get('last_education') == 'SMP' ? 'selected' :''  }}>SMP Tahun</option>
-                            <option value="SMA" {{ request()->get('last_education') == 'SMA' ? 'selected' :''  }}>SMA Tahun</option>
+                            <option value="SD" {{ request()->get('last_education') == 'SD' ? 'selected' :''  }}>SD Sederajat</option>
+                            <option value="SMP" {{ request()->get('last_education') == 'SMP' ? 'selected' :''  }}>SMP Sederajat</option>
+                            <option value="SMA" {{ request()->get('last_education') == 'SMA' ? 'selected' :''  }}>SMA Sederajat</option>
                         </select>
                         </div>
                     </div>
@@ -214,11 +214,11 @@
                         <label class="form-label">Perokok</label>
                         <div class="selectgroup selectgroup-pills">
                             <label class="selectgroup-biodata">
-                                <input type="radio" name="smoker" value="iya" class="selectgroup-input" {{ request()->get('smoker') == 'iya' ? 'checked' :''  }}>
+                                <input class="form-check-input" type="radio" name="smoker" value="iya" class="selectgroup-input" {{ request()->get('smoker') == 'iya' ? 'checked' :''  }}>
                                 <span class="selectgroup-button selectgroup-button-icon"><i class="ti-check"></i></span>
                             </label>
                             <label class="selectgroup-item">
-                                <input type="radio" name="smoker" value="tidak" {{ request()->get('smoker') == 'tidak' ? 'checked' :''  }} class="selectgroup-input">
+                                <input class="form-check-input" type="radio" name="smoker" value="tidak" {{ request()->get('smoker') == 'tidak' ? 'checked' :''  }} class="selectgroup-input">
                                 <span class="selectgroup-button selectgroup-button-icon"><i class="ti-close"></i></span>
                             </label>
                         </div>
@@ -230,11 +230,11 @@
                         <label class="form-label">Punya Pacar</label>
                         <div class="selectgroup selectgroup-pills">
                             <label class="selectgroup-item">
-                                <input type="radio" name="girlfriend" value="iya" class="selectgroup-input" {{ request()->get('girlfriend') == 'iya' ? 'checked' :''  }}>
+                                <input class="form-check-input" type="radio" name="girlfriend" value="iya" class="selectgroup-input" {{ request()->get('girlfriend') == 'iya' ? 'checked' :''  }}>
                                 <span class="selectgroup-button selectgroup-button-icon"><i class="ti-check"></i></span>
                             </label>
                             <label class="selectgroup-item">
-                                <input type="radio" name="girlfriend" value="tidak" {{ request()->get('girlfriend') == 'tidak' ? 'checked' :''  }} class="selectgroup-input">
+                                <input class="form-check-input" type="radio" name="girlfriend" value="tidak" {{ request()->get('girlfriend') == 'tidak' ? 'checked' :''  }} class="selectgroup-input">
                                 <span class="selectgroup-button selectgroup-button-icon"><i class="ti-close"></i></span>
                             </label>
                         </div>
@@ -246,11 +246,11 @@
                         <label class="form-label">Gamer</label>
                         <div class="selectgroup selectgroup-pills">
                             <label class="selectgroup-item">
-                                <input type="radio" name="gamer" value="iya" class="selectgroup-input" {{ request()->get('gamer') == 'iya' ? 'checked' :''  }}>
+                                <input class="form-check-input" type="radio" name="gamer" value="iya" class="selectgroup-input" {{ request()->get('gamer') == 'iya' ? 'checked' :''  }}>
                                 <span class="selectgroup-button selectgroup-button-icon"><i class="ti-check"></i></span>
                             </label>
                             <label class="selectgroup-item">
-                                <input type="radio" name="gamer" value="tidak" {{ request()->get('gamer') == 'tidak' ? 'checked' :''  }} class="selectgroup-input">
+                                <input class="form-check-input" type="radio" name="gamer" value="tidak" {{ request()->get('gamer') == 'tidak' ? 'checked' :''  }} class="selectgroup-input">
                                 <span class="selectgroup-button selectgroup-button-icon"><i class="ti-close"></i></span>
                             </label>
                         </div>
