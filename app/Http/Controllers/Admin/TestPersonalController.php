@@ -178,7 +178,7 @@ class TestPersonalController extends Controller
             foreach ($ids as $id) {
                 QuestionPersonal::find($id)->delete();
             }
-            activity()->log('Menghapus semua data soal tes kepribadian');
+            activity()->log('Menghapus semua tes kepribadian');
 
             return redirect()->route('personals.index')->with('success-delete', 'Berhasil Menghapus Semua Data');
         }
@@ -186,14 +186,8 @@ class TestPersonalController extends Controller
 
     public function import(Request $request) 
     {
-        $validatedData = $request->validate([
-
-            'file' => 'required',
-
-        ]);
-
         Excel::import(new QuestionPersonalImport,$request->file('file'));
-        activity()->log('Mengimpor data soal tes kepribadian');
+        activity()->log('Mengimpor soal tes kepribadian');
 
         return redirect()->route('personals.index')->with('success', 'Berhasil mengimport file excel');
     }
@@ -201,7 +195,7 @@ class TestPersonalController extends Controller
     public function downloadtemplate()
     {
         $template ="./template-import/template-import-soal-tes-kepribadian.csv";
-        activity()->log('Mendownload template data soal tes kepribadian');
+        activity()->log('Mendownload template soal tes kepribadian');
 
         return Response::download($template);
     }

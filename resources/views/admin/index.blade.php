@@ -239,7 +239,7 @@
                                                 <tr>
                                                     <td>
                                                         <div class="d-flex ">
-                                                        <img src="{{ asset('template/images/faces/face1.jpg') }}" alt="">
+                                                        <img src="{{ Avatar::create($item->name)->toGravatar(['d' => 'wavatar', 'r' => 'pg', 's' => 100])}}" alt="">
                                                         <div>
                                                             <h6>{{ $item->name }}</h6>
                                                             <p>{{ $item->age }} Tahun</p>
@@ -266,9 +266,12 @@
                                                         @if ($item->user->biodataTwo->status == 'lolos')
                                                             <div class="badge badge-opacity-success">lolos biodata</div>
                                                         @elseif ($item->user->biodataTwo->status == 'tidak')
-                                                            <div class="badge badge-opacity-warning">tidak lolos biodata</div>
+                                                            <div class="badge badge-opacity-primary">tidak lolos biodata</div>
                                                         @else()
-                                                            <div class="badge badge-opacity-warning">In progress</div>
+                                                            <div class="badge badge-opacity-warning">
+                                                                belum di seleksi 
+                                                                <a href="{{ route('biodatas.index') }}" class="text-decoration-none"><i class="ti-eye"></i></a>
+                                                            </div>
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -474,7 +477,7 @@
                                             @foreach ($lolos->take(5) as $calon)
                                             <div class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
                                                 <div class="d-flex">
-                                                    <img class="img-sm rounded-10" src="{{ asset('template/images/faces/face1.jpg') }}" alt="profile">
+                                                    <img class="img-sm rounded-10" src="{{ Avatar::create($calon->user->biodataOne->name)->toGravatar(['d' => 'wavatar', 'r' => 'pg', 's' => 100])}}" alt="profile">
                                                     <div class="wrapper ms-3">
                                                     <p class="ms-1 mb-1 fw-bold">{{ $calon->user->biodataOne->name }}</p>
                                                     <small class="text-muted mb-0">{{ $calon->user->biodataOne->age }} Tahun</small>

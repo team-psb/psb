@@ -36,11 +36,11 @@ class BiodataController extends Controller
         if (request()->get('stage_id') && request()->get('stage_id') != null){
             $data = BiodataTwo::with(['academy_year'=>function($query){
                 $query->where('stage_id','=', request()->get('stage_id'));
-            },'user.biodataOne'])->orderBy('id','desc');
+            },'user.biodataOne'])->orderBy('created_at','desc');
         }else {
             $data = BiodataTwo::with(['academy_year'=>function($query){
                 $query->where('is_active','=', true);
-            },'user.biodataOne'])->orderBy('id','desc');
+            },'user.biodataOne'])->orderBy('created_at','desc');
         }
         
         if(request()->get('age') && request()->get('age') != null){

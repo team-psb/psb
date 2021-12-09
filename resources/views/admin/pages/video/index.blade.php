@@ -81,6 +81,16 @@
                                             </td>
                                             <td>
                                                 <div class="btn-wrapper">
+                                                    @if ($video->status == null)
+                                                        <a href="{{ route('videos.status', $video->id) }}?status=lolos"
+                                                            class="btn btn-success btn-icon-text p-2">
+                                                                <i class="icon-check btn-icon-prepend"></i> Lolos
+                                                        </a>
+                                                        <a href="{{ route('videos.status', $video->id) }}?status=tidak"
+                                                            class="btn btn-warning mx-1 btn-icon-text p-2">
+                                                                <i class="icon-close btn-icon-prepend"></i> Tidak Lolos
+                                                        </a>
+                                                    @endif
                                                     <button formaction="{{ route('videos.delete', $video->id) }}" class="btn ms-1 btn-danger btn-icon-text text-white p-2"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
                                                 </div>
                                             </td>
