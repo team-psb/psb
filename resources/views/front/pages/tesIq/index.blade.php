@@ -1,11 +1,8 @@
-@extends('front.layouts.app')
+@extends('front.layouts.exam')
 
 @section('title', 'Tes IQ')
 
 @section('content')
-<div class="main-content">
-    <section class="section">
-        <div class="section-body">
             <div class="container py-5">
                 <div class="my-4">
                   <div class="row justify-content-center px-4">
@@ -16,12 +13,12 @@
                       
                       <p class="card-text">Silahkan Jawab Soal-Soal Dibawah Ini !</p>
                       <div class="card text-left" >
-                        <form method="POST" action="">
+                        <form method="POST" action="{{ route('second-tes.store') }}">
                           @csrf 
                           <div x-data="soal()">
                             {{-- page 1--}}
                             <div class="row" x-show="soal_1">
-                              
+                              @foreach ($question_iq[0] as $index=>$item)
                                 <div class="col-md-12 col-sm-12">
                                   <div class="card-body mb-1">
                                     <div class="card text-left">
@@ -30,15 +27,16 @@
                                           <div class="row">
                                             <div class="col-md-12">
                                               <p>
-                                                <b class="title">1</b>
-                                                <br>
-        
-                                                <a href="https://pondokinformatika.xyz/storage/img/cEMoOxMiyR3FnO8fP6mTo6TjLye3QOzPeL4bpUvv.jpeg" target="blank">
-                                                  <img id="myImg" src="https://pondokinformatika.xyz/storage/img/cEMoOxMiyR3FnO8fP6mTo6TjLye3QOzPeL4bpUvv.jpeg" alt="" class="w-50 d-none d-md-block"><br>
-                                                  <img id="myImg" src="https://pondokinformatika.xyz/storage/img/cEMoOxMiyR3FnO8fP6mTo6TjLye3QOzPeL4bpUvv.jpeg" alt="" class="w-100 d-sm-block d-md-none"><br>
-                                                </a>
-        
-                                                Sebuah pesawat terbang berangkat dari kota Kupang menuju kota Jakarta pukul 7 pagi dan perjalanan ke Jakarta selama 4 jam. Transit di Denpasar selama 30 menit. Pada pukul berapa pesawat tersebut tiba di Jakarta?
+                                                <b class="title text-dark">{{ $index+1 }}</b>. 
+                                                @if (isset($item->image))
+                                                  <br>
+                                                  <a href="{{ Storage::url($item->image) }}" target="blank">
+                                                    <img id="myImg" src="{{ Storage::url($item->image) }}" alt="" class="w-50 d-none d-md-block"><br>
+                                                    <img id="myImg" src="{{ Storage::url($item->image) }}" alt="" class="w-100 d-sm-block d-md-none"><br>
+                                                  </a>
+                                                @endif
+
+                                                {{ $item->question }}
                                               </p>
                                             </div>
                                           </div>
@@ -52,15 +50,15 @@
                                               >
                                                 <input
                                                   type="radio"
-                                                  id="pilihana"
-                                                  name="pilihan"
+                                                  id="pilihan{{ $item->id }}a"
+                                                  name="pilihan[{{ $item->id }}]"
                                                   class="custom-control-input"
                                                   value="a"
                                                 />
                                                 <label
                                                   class="custom-control-label"
-                                                  for="pilihana"
-                                                  > <strong>A .</strong> a
+                                                  for="pilihan{{ $item->id }}a"
+                                                  > <strong>A .</strong> {{ $item->a }}  
                                                 </label>
                                               </div>
                                               <!-- jawaban 2 -->
@@ -69,15 +67,15 @@
                                               >
                                                 <input
                                                   type="radio"
-                                                  id="pilihanb"
-                                                  name="pilihan"
+                                                  id="pilihan{{ $item->id }}b"
+                                                  name="pilihan[{{ $item->id }}]"
                                                   class="custom-control-input"
                                                   value="b"
                                                 />
                                                 <label
                                                   class="custom-control-label"
-                                                  for="pilihanb"
-                                                  ><strong>B .</strong>b
+                                                  for="pilihan{{ $item->id }}b"
+                                                  ><strong>B .</strong>{{ $item->b }}
                                                 </label>
                                               </div>
                                               <!-- jawaban 3 -->
@@ -86,16 +84,16 @@
                                               >
                                                 <input
                                                   type="radio"
-                                                  id="pilihanc"
-                                                  name="pilihan"
+                                                  id="pilihan{{ $item->id }}c"
+                                                  name="pilihan[{{ $item->id }}]"
                                                   class="custom-control-input"
                                                   value="c"
                                                 />
                                                 <label
                                                   class="custom-control-label"
-                                                  for="pilihanc"
+                                                  for="pilihan{{ $item->id }}c"
                                                   ><strong>C .</strong>
-                                                    c
+                                                    {{ $item->c }}  
                                                 </label>
                                               </div>
                                               <!-- jawaban 4 -->
@@ -104,16 +102,16 @@
                                               >
                                                 <input
                                                   type="radio"
-                                                  id="pilihand"
-                                                  name="pilihan"
+                                                  id="pilihan{{ $item->id }}d"
+                                                  name="pilihan[{{ $item->id }}]"
                                                   class="custom-control-input"
                                                   value="d"
                                                 />
                                                 <label
                                                   class="custom-control-label"
-                                                  for="pilihand"
+                                                  for="pilihan{{ $item->id }}d"
                                                   ><strong>D .</strong>
-                                                  d
+                                                  {{ $item->d }}
                                                 </label>
                                               </div>
                                               <!-- jawaban 5 -->
@@ -122,16 +120,16 @@
                                               >
                                                 <input
                                                   type="radio"
-                                                  id="pilihane"
-                                                  name="pilihan"
+                                                  id="pilihan{{ $item->id }}e"
+                                                  name="pilihan[{{ $item->id }}]"
                                                   class="custom-control-input"
                                                   value="e"
                                                 />
                                                 <label
                                                   class="custom-control-label"
-                                                  for="pilihane"
+                                                  for="pilihan{{ $item->id }}e"
                                                   ><strong>E .</strong>
-                                                  e
+                                                  {{ $item->e }}  
                                                 </label>
                                               </div>
                                             </div>
@@ -141,128 +139,133 @@
                                     </div>
                                   </div>
                                 </div>
-                              
-                                <div class="pb-3 m-5 d-block">
-                                    <button
-                                        type="button"
-                                        class="btn btn-primary float-right px-3"
-                                        x-on:click="soal1()"
-                                    >
-                                        Lanjut
-                                    </button>
-                                </div>
+                              @endforeach
+                              <div class="pb-3 m-5 d-block">
+                                  <button
+                                      type="button"
+                                      class="btn btn-primary float-right px-3"
+                                      x-on:click="soal1()"
+                                  >
+                                      Lanjut
+                                  </button>
+                              </div>
                             </div>
                             {{-- page 2 --}}
                             <div x-show="soal_2">
-                              
-                                <div class="card-body mb-1">
-                                  <div class="card text-left">
-                                    <div class="card-body">
-                                      <div class="soal">
-                                        <div class="row">
-                                          <div class="col">
-                                            <p>
-                                              <b class="title">2</b>
-                                              <a href="https://pondokinformatika.xyz/storage/img/cEMoOxMiyR3FnO8fP6mTo6TjLye3QOzPeL4bpUvv.jpeg" target="blank">
-                                                <img id="myImg" src="https://pondokinformatika.xyz/storage/img/cEMoOxMiyR3FnO8fP6mTo6TjLye3QOzPeL4bpUvv.jpeg" alt="" class="w-50 d-none d-md-block"><br>
-                                                <img id="myImg" src="https://pondokinformatika.xyz/storage/img/cEMoOxMiyR3FnO8fP6mTo6TjLye3QOzPeL4bpUvv.jpeg" alt="" class="w-100 d-sm-block d-md-none">
-                                              </a>
-                                              <br>
-                                              Sebuah pesawat terbang berangkat dari kota Kupang menuju kota Jakarta pukul 7 pagi dan perjalanan ke Jakarta selama 4 jam. Transit di Denpasar selama 30 menit. Pada pukul berapa pesawat tersebut tiba di Jakarta?
-                                            </p>
+                              @foreach ($question_iq[1] as $index=>$item)
+                                <div class="col-md-12 col-sm-12">
+                                  <div class="card-body mb-1">
+                                    <div class="card text-left">
+                                      <div class="card-body">
+                                        <div class="soal">
+                                          <div class="row">
+                                            <div class="col-md-12">
+                                              <p>
+                                                <b class="title text-dark">{{ $index+1 }}</b>. 
+                                                @if (isset($item->image))
+                                                  <br>
+                                                  <a href="{{ Storage::url($item->image) }}" target="blank">
+                                                    <img id="myImg" src="{{ Storage::url($item->image) }}" alt="" class="w-50 d-none d-md-block"><br>
+                                                    <img id="myImg" src="{{ Storage::url($item->image) }}" alt="" class="w-100 d-sm-block d-md-none"><br>
+                                                  </a>
+                                                @endif
+
+                                                {{ $item->question }}
+                                              </p>
+                                            </div>
                                           </div>
                                         </div>
-                                      </div>
-                                      <div class="jawaban">
-                                        <div class="row">
-                                          <div class="col">
-                                            <!-- jawaban 1 -->
-                                            <div
-                                              class="custom-control custom-radio d-block custom-control-inline my-2"
-                                            >
-                                              <input
-                                                type="radio"
-                                                id="pilihana"
-                                                name="pilihan"
-                                                class="custom-control-input"
-                                                value="a"
-                                              />
-                                              <label
-                                                class="custom-control-label"
-                                                for="pilihana"
-                                                > <strong>A .</strong> a
-                                              </label>
-                                            </div>
-                                            <!-- jawaban 2 -->
-                                            <div
-                                              class="custom-control custom-radio d-block custom-control-inline my-2"
-                                            >
-                                              <input
-                                                type="radio"
-                                                id="pilihanb"
-                                                name="pilihan"
-                                                class="custom-control-input"
-                                                value="b"
-                                              />
-                                              <label
-                                                class="custom-control-label"
-                                                for="pilihanb"
-                                                ><strong>B .</strong>b
-                                              </label>
-                                            </div>
-                                            <!-- jawaban 3 -->
-                                            <div
-                                              class="custom-control custom-radio d-block custom-control-inline my-2"
-                                            >
-                                              <input
-                                                type="radio"
-                                                id="pilihanc"
-                                                name="pilihan"
-                                                class="custom-control-input"
-                                                value="c"
-                                              />
-                                              <label
-                                                class="custom-control-label"
-                                                for="pilihanc"
-                                                ><strong>C .</strong>
-                                                  c
-                                              </label>
-                                            </div>
-                                            <!-- jawaban 4 -->
-                                            <div
-                                              class="custom-control custom-radio d-block custom-control-inline my-2"
-                                            >
-                                              <input
-                                                type="radio"
-                                                id="pilihand"
-                                                name="pilihan"
-                                                class="custom-control-input"
-                                                value="d"
-                                              />
-                                              <label
-                                                class="custom-control-label"
-                                                for="pilihand"
-                                                ><strong>D .</strong>
-                                                d
-                                              </label>
-                                            </div>
-                                            <!-- jawaban 5 -->
-                                            <div
-                                              class="custom-control custom-radio d-block custom-control-inline my-2"
-                                            >
-                                              <input
-                                                type="radio"
-                                                id="pilihane"
-                                                name="pilihan"
-                                                class="custom-control-input"
-                                                value="e"
-                                              />
-                                              <label
-                                                class="custom-control-label"
-                                                for="pilihane"
-                                                ><strong>E .</strong>
-                                                e
-                                              </label>
+                                        <div class="jawaban">
+                                          <div class="row">
+                                            <div class="col">
+                                              <!-- jawaban 1 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}a"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="a"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}a"
+                                                  > <strong>A .</strong> {{ $item->a }}  
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 2 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}b"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="b"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}b"
+                                                  ><strong>B .</strong>{{ $item->b }}
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 3 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}c"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="c"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}c"
+                                                  ><strong>C .</strong>
+                                                    {{ $item->c }}  
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 4 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}d"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="d"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}d"
+                                                  ><strong>D .</strong>
+                                                  {{ $item->d }}
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 5 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}e"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="e"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}e"
+                                                  ><strong>E .</strong>
+                                                  {{ $item->e }}  
+                                                </label>
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
@@ -270,7 +273,7 @@
                                     </div>
                                   </div>
                                 </div>
-                              
+                              @endforeach
                               <div class="pb-3 m-5">
                                 <button
                                   type="button"
@@ -288,117 +291,122 @@
                                 </button>
                               </div>
                             </div>
-                            {{-- page 5 --}}
-                            <div x-show="soal_5">
-                              
-                                <div class="card-body mb-1">
-                                  <div class="card text-left">
-                                    <div class="card-body">
-                                      <div class="soal">
-                                        <div class="row">
-                                          <div class="col">
-                                            <p>
-                                              <b class="title">5</b>
-                                              <a href="https://pondokinformatika.xyz/storage/img/cEMoOxMiyR3FnO8fP6mTo6TjLye3QOzPeL4bpUvv.jpeg" target="blank">
-                                                <img id="myImg" src="https://pondokinformatika.xyz/storage/img/cEMoOxMiyR3FnO8fP6mTo6TjLye3QOzPeL4bpUvv.jpeg" alt="" class="w-50 d-none d-md-block"><br>
-                                                <img id="myImg" src="https://pondokinformatika.xyz/storage/img/cEMoOxMiyR3FnO8fP6mTo6TjLye3QOzPeL4bpUvv.jpeg" alt="" class="w-100 d-sm-block d-md-none">
-                                              </a>
-                                              <br>
-                                              Sebuah pesawat terbang berangkat dari kota Kupang menuju kota Jakarta pukul 7 pagi dan perjalanan ke Jakarta selama 4 jam. Transit di Denpasar selama 30 menit. Pada pukul berapa pesawat tersebut tiba di Jakarta?
-                                            </p>
+                            {{-- page 3 --}}
+                            <div x-show="soal_3">
+                              @foreach ($question_iq[2] as $index=>$item)
+                                <div class="col-md-12 col-sm-12">
+                                  <div class="card-body mb-1">
+                                    <div class="card text-left">
+                                      <div class="card-body">
+                                        <div class="soal">
+                                          <div class="row">
+                                            <div class="col-md-12">
+                                              <p>
+                                                <b class="title text-dark">{{ $index+1 }}</b>. 
+                                                @if (isset($item->image))
+                                                  <br>
+                                                  <a href="{{ Storage::url($item->image) }}" target="blank">
+                                                    <img id="myImg" src="{{ Storage::url($item->image) }}" alt="" class="w-50 d-none d-md-block"><br>
+                                                    <img id="myImg" src="{{ Storage::url($item->image) }}" alt="" class="w-100 d-sm-block d-md-none"><br>
+                                                  </a>
+                                                @endif
+
+                                                {{ $item->question }}
+                                              </p>
+                                            </div>
                                           </div>
                                         </div>
-                                      </div>
-                                      <div class="jawaban">
-                                        <div class="row">
-                                          <div class="col">
-                                            <!-- jawaban 1 -->
-                                            <div
-                                              class="custom-control custom-radio d-block custom-control-inline my-2"
-                                            >
-                                              <input
-                                                type="radio"
-                                                id="pilihana"
-                                                name="pilihan"
-                                                class="custom-control-input"
-                                                value="a"
-                                              />
-                                              <label
-                                                class="custom-control-label"
-                                                for="pilihana"
-                                                > <strong>A .</strong> a
-                                              </label>
-                                            </div>
-                                            <!-- jawaban 2 -->
-                                            <div
-                                              class="custom-control custom-radio d-block custom-control-inline my-2"
-                                            >
-                                              <input
-                                                type="radio"
-                                                id="pilihanb"
-                                                name="pilihan"
-                                                class="custom-control-input"
-                                                value="b"
-                                              />
-                                              <label
-                                                class="custom-control-label"
-                                                for="pilihanb"
-                                                ><strong>B .</strong>b
-                                              </label>
-                                            </div>
-                                            <!-- jawaban 3 -->
-                                            <div
-                                              class="custom-control custom-radio d-block custom-control-inline my-2"
-                                            >
-                                              <input
-                                                type="radio"
-                                                id="pilihanc"
-                                                name="pilihan"
-                                                class="custom-control-input"
-                                                value="c"
-                                              />
-                                              <label
-                                                class="custom-control-label"
-                                                for="pilihanc"
-                                                ><strong>C .</strong>
-                                                  c
-                                              </label>
-                                            </div>
-                                            <!-- jawaban 4 -->
-                                            <div
-                                              class="custom-control custom-radio d-block custom-control-inline my-2"
-                                            >
-                                              <input
-                                                type="radio"
-                                                id="pilihand"
-                                                name="pilihan"
-                                                class="custom-control-input"
-                                                value="d"
-                                              />
-                                              <label
-                                                class="custom-control-label"
-                                                for="pilihand"
-                                                ><strong>D .</strong>
-                                                d
-                                              </label>
-                                            </div>
-                                            <!-- jawaban 5 -->
-                                            <div
-                                              class="custom-control custom-radio d-block custom-control-inline my-2"
-                                            >
-                                              <input
-                                                type="radio"
-                                                id="pilihane"
-                                                name="pilihan"
-                                                class="custom-control-input"
-                                                value="e"
-                                              />
-                                              <label
-                                                class="custom-control-label"
-                                                for="pilihane"
-                                                ><strong>E .</strong>
-                                                e
-                                              </label>
+                                        <div class="jawaban">
+                                          <div class="row">
+                                            <div class="col">
+                                              <!-- jawaban 1 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}a"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="a"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}a"
+                                                  > <strong>A .</strong> {{ $item->a }}  
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 2 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}b"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="b"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}b"
+                                                  ><strong>B .</strong>{{ $item->b }}
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 3 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}c"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="c"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}c"
+                                                  ><strong>C .</strong>
+                                                    {{ $item->c }}  
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 4 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}d"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="d"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}d"
+                                                  ><strong>D .</strong>
+                                                  {{ $item->d }}
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 5 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}e"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="e"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}e"
+                                                  ><strong>E .</strong>
+                                                  {{ $item->e }}  
+                                                </label>
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
@@ -406,7 +414,289 @@
                                     </div>
                                   </div>
                                 </div>
-                              
+                              @endforeach
+                              <div class="pb-3 m-5">
+                                <button
+                                  type="button"
+                                  class="btn btn-primary float-left px-3"
+                                  x-on:click="soal3back()"
+                                >
+                                  Kembali
+                                </button>
+                                <button
+                                  type="button"
+                                  class="btn btn-primary float-right px-3"
+                                  x-on:click="soal3()"
+                                >
+                                  Lanjut
+                                </button>
+                              </div>
+                            </div>
+                            {{-- page 4 --}}
+                            <div x-show="soal_4">
+                              @foreach ($question_iq[3] as $index=>$item)
+                                <div class="col-md-12 col-sm-12">
+                                  <div class="card-body mb-1">
+                                    <div class="card text-left">
+                                      <div class="card-body">
+                                        <div class="soal">
+                                          <div class="row">
+                                            <div class="col-md-12">
+                                              <p>
+                                                <b class="title text-dark">{{ $index+1 }}</b>. 
+                                                @if (isset($item->image))
+                                                  <br>
+                                                  <a href="{{ Storage::url($item->image) }}" target="blank">
+                                                    <img id="myImg" src="{{ Storage::url($item->image) }}" alt="" class="w-50 d-none d-md-block"><br>
+                                                    <img id="myImg" src="{{ Storage::url($item->image) }}" alt="" class="w-100 d-sm-block d-md-none"><br>
+                                                  </a>
+                                                @endif
+
+                                                {{ $item->question }}
+                                              </p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="jawaban">
+                                          <div class="row">
+                                            <div class="col">
+                                              <!-- jawaban 1 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}a"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="a"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}a"
+                                                  > <strong>A .</strong> {{ $item->a }}  
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 2 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}b"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="b"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}b"
+                                                  ><strong>B .</strong>{{ $item->b }}
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 3 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}c"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="c"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}c"
+                                                  ><strong>C .</strong>
+                                                    {{ $item->c }}  
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 4 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}d"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="d"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}d"
+                                                  ><strong>D .</strong>
+                                                  {{ $item->d }}
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 5 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}e"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="e"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}e"
+                                                  ><strong>E .</strong>
+                                                  {{ $item->e }}  
+                                                </label>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              @endforeach
+                              <div class="pb-3 m-5">
+                                <button
+                                  type="button"
+                                  class="btn btn-primary float-left px-3"
+                                  x-on:click="soal4back()"
+                                >
+                                  Kembali
+                                </button>
+                                <button
+                                  type="button"
+                                  class="btn btn-primary float-right px-3"
+                                  x-on:click="soal4()"
+                                >
+                                  Lanjut
+                                </button>
+                              </div>
+                            </div>
+                            {{-- page 5 --}}
+                            <div x-show="soal_5">
+                              @foreach ($question_iq[4] as $index=>$item)
+                                <div class="col-md-12 col-sm-12">
+                                  <div class="card-body mb-1">
+                                    <div class="card text-left">
+                                      <div class="card-body">
+                                        <div class="soal">
+                                          <div class="row">
+                                            <div class="col-md-12">
+                                              <p>
+                                                <b class="title text-dark">{{ $index+1 }}</b>. 
+                                                @if (isset($item->image))
+                                                  <br>
+                                                  <a href="{{ Storage::url($item->image) }}" target="blank">
+                                                    <img id="myImg" src="{{ Storage::url($item->image) }}" alt="" class="w-50 d-none d-md-block"><br>
+                                                    <img id="myImg" src="{{ Storage::url($item->image) }}" alt="" class="w-100 d-sm-block d-md-none"><br>
+                                                  </a>
+                                                @endif
+
+                                                {{ $item->question }}
+                                              </p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="jawaban">
+                                          <div class="row">
+                                            <div class="col">
+                                              <!-- jawaban 1 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}a"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="a"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}a"
+                                                  > <strong>A .</strong> {{ $item->a }}  
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 2 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}b"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="b"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}b"
+                                                  ><strong>B .</strong>{{ $item->b }}
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 3 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}c"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="c"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}c"
+                                                  ><strong>C .</strong>
+                                                    {{ $item->c }}  
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 4 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}d"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="d"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}d"
+                                                  ><strong>D .</strong>
+                                                  {{ $item->d }}
+                                                </label>
+                                              </div>
+                                              <!-- jawaban 5 -->
+                                              <div
+                                                class="custom-control custom-radio d-block custom-control-inline my-2"
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  id="pilihan{{ $item->id }}e"
+                                                  name="pilihan[{{ $item->id }}]"
+                                                  class="custom-control-input"
+                                                  value="e"
+                                                />
+                                                <label
+                                                  class="custom-control-label"
+                                                  for="pilihan{{ $item->id }}e"
+                                                  ><strong>E .</strong>
+                                                  {{ $item->e }}  
+                                                </label>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              @endforeach
                               <div class="pb-3 m-5">
                                 <button
                                   type="button"
@@ -429,10 +719,6 @@
                     </div>
                   </div>
                 </div>
-            </div>
-        </div>
-    </section>
-</div>
 @endsection
 
 @push('end-script')
