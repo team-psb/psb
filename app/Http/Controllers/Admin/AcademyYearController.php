@@ -16,7 +16,7 @@ class AcademyYearController extends Controller
      */
     public function index()
     {
-        $academies = AcademyYear::get();
+        $academies = AcademyYear::orderby('created_at', 'desc')->get();
         return view('admin.pages.academyYear.index', [
             'academies' => $academies
         ]);

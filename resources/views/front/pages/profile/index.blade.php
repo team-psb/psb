@@ -126,7 +126,7 @@
                 </div>
               </div>
               <div class="col-12 col-md-6 col-lg-6">
-                <h2 class="section-title">Nilai</h2>
+                <h2 class="section-title">Nilai & Video</h2>
                 <p class="section-lead">Silahkan periksa kembali semua data!</p>
                 <div class="card">
                   <div class="card-header">
@@ -149,7 +149,25 @@
                     </div>
                   </div>
                 </div>
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Video Youtube</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-bordered table-md">
+                        @if (isset($profile->user->video))
+                          <tr>
+                            <th>Url Video Youtube</th>
+                            <td>{{ $profile->user->video->url }}</td>
+                          </tr>
+                        @endif
+                      </table>
+                    </div>
+                  </div>
+                </div>
               </div>
+              
               <div class="col-12 col-md-6 col-lg-6">
                 <h2 class="section-title">Kontak</h2>
                 <p class="section-lead">Silahkan periksa kembali semua data!</p>

@@ -169,13 +169,13 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label>Pilih Gelombang</label>
+                                            <label class="fs-6">Pilih Gelombang <span style="font-size: 12px;" class    ="text-danger">* pastikan sudah memilih gelombang sebelum menerapkan</span></label>
                                             <select name="stage_id" class="form-select">
-                                                <option value="" >-- Pilih Gelombang --</option>
+                                                <option value="" >-- pilih gelombang --</option>
                                                 @foreach ($stages as $stage)
                                                     <option value="{{ $stage->id }}">{{ $stage->name }}</option>
                                                 @endforeach
-                                            </select>
+                                                </select>
                                         </div>
                                     </div> 
                                 </div>

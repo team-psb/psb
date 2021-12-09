@@ -50,6 +50,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], functio
     Route::get('qna', [UserDashboardController::class, 'qna'])->name('user-qna');
     
     Route::get('informasi', [UserDashboardController::class, 'information'])->name('user-informasi');
+    Route::get('informasi/{id}', [UserDashboardController::class, 'information_detail'])->name('user-informasi-detail');
     
     Route::get('success', function () {
         return view('screens.success');

@@ -156,7 +156,7 @@
                     <div class="row">
                     <div class="col">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Umur</label>
+                            <label class="fs-6" for="exampleInputEmail1">Umur</label>
                             <select name="age" class="form-select">
                                 <option selected value="{{ null }}">-- umur --</option>
                                 <option value="16" {{ request()->get('age') == '16' ? 'selected' :''  }}>16 Tahun</option>
@@ -170,7 +170,7 @@
                     </div>
                     <div class="col">
                         <div class="form-group">
-                        <label for="exampleInputEmail1">Kondisi Keluarga</label>
+                        <label class="fs-6" for="exampleInputEmail1">Kondisi Keluarga</label>
                         <select name="family" class="form-select">
                             <option selected value="{{ null }}">-- Kondisi Keluarga --</option>
                             <option value="sangat-mampu" {{ request()->get('family') == 'sangat-mampu' ? 'selected' :''  }}>Keluarga Sangat Mampu</option>
@@ -184,7 +184,7 @@
                     <div class="row">
                     <div class="col">
                         <div class="form-group">
-                        <label for="exampleInputEmail1">Orang Tua</label>
+                        <label class="fs-6" for="exampleInputEmail1">Orang Tua</label>
                         <select name="parent" class="form-select">
                             <option selected value="{{ null }}">-- orang tua --</option>
                             <option value="lengkap" {{ request()->get('parent') == 'lengkap' ? 'selected' :''  }}>Lengkap</option>
@@ -196,7 +196,7 @@
                     </div>
                     <div class="col">
                         <div class="form-group">
-                        <label for="exampleInputEmail1">Pendidikan Terakhir</label>
+                        <label class="fs-6" for="exampleInputEmail1">Pendidikan Terakhir</label>
                         <select name="last_education" class="form-select">
                             <option selected value="{{ null }}">-- Pendidikan --</option>
                             <option value="SD" {{ request()->get('last_education') == 'SD' ? 'selected' :''  }}>SD Sederajat</option>
@@ -211,7 +211,7 @@
     
                     <div class="col">
                         <div class="form-group">
-                        <label class="form-label">Perokok</label>
+                        <label class="form-label fs-6">Perokok</label>
                         <div class="selectgroup selectgroup-pills">
                             <label class="selectgroup-biodata">
                                 <input class="form-check-input" type="radio" name="smoker" value="iya" class="selectgroup-input" {{ request()->get('smoker') == 'iya' ? 'checked' :''  }}>
@@ -227,7 +227,7 @@
     
                     <div class="col">
                         <div class="form-group">
-                        <label class="form-label">Punya Pacar</label>
+                        <label class="form-label fs-6">Punya Pacar</label>
                         <div class="selectgroup selectgroup-pills">
                             <label class="selectgroup-item">
                                 <input class="form-check-input" type="radio" name="girlfriend" value="iya" class="selectgroup-input" {{ request()->get('girlfriend') == 'iya' ? 'checked' :''  }}>
@@ -243,7 +243,7 @@
     
                     <div class="col">
                         <div class="form-group">
-                        <label class="form-label">Gamer</label>
+                        <label class="form-label fs-6">Gamer</label>
                         <div class="selectgroup selectgroup-pills">
                             <label class="selectgroup-item">
                                 <input class="form-check-input" type="radio" name="gamer" value="iya" class="selectgroup-input" {{ request()->get('gamer') == 'iya' ? 'checked' :''  }}>
@@ -263,19 +263,19 @@
                     <div class="col">
                         <div class="row">
                         <div class="col">
-                            <label>Pendapatan Orang Tua</label>
+                            <label class="fs-6">Pendapatan Orang Tua</label>
                         </div>
                         </div>
                         <div class="row">
                         <div class="col">
                             <div class="form-group">
-                            <label>Minimal</label>
+                            <label class="fs-6">Minimal</label>
                             <input type="number" class="form-control" name="parent_income_min" placeholder="Rp." value="{{ request()->get('parent_income_min') }}">
                             </div>
                         </div> 
                         <div class="col">
                             <div class="form-group">
-                            <label>Maksimal</label>
+                            <label class="fs-6">Maksimal</label>
                             <input type="number" class="form-control" name="parent_income_max" placeholder="Rp." value="{{ request()->get('parent_income_max') }}">
                             </div>
                         </div>
@@ -285,15 +285,15 @@
     
                     <div class="row">
                         <div class="col">
-                        <div class="form-group">
-                            <label>Pilih Gelombang</label>
-                            <select name="stage_id" class="form-select">
-                            <option value="" >-- pilih gelombang --</option>
-                            @foreach ($stages as $stage)
-                                <option value="{{ $stage->id }}">{{ $stage->name }}</option>
-                            @endforeach
-                            </select>
-                        </div>
+                            <div class="form-group">
+                                <label class="fs-6">Pilih Gelombang <span style="font-size: 12px;" class    ="text-danger">* pastikan sudah memilih gelombang sebelum menerapkan</span></label>
+                                <select name="stage_id" class="form-select">
+                                    <option value="" >-- pilih gelombang --</option>
+                                    @foreach ($stages as $stage)
+                                        <option value="{{ $stage->id }}">{{ $stage->name }}</option>
+                                    @endforeach
+                                    </select>
+                            </div>
                         </div> 
                     </div>
                 </div>  

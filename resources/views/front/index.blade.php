@@ -244,75 +244,33 @@
     <h1 class="text-dark mt-5 mb-0 poppins">INFORMASI</h1>
     <div class="informasi mb-4 col-12 col-lg-2"></div>
     <div class="row">
+      @forelse ($schdules as $schdule)
       <div class="col-12 col-sm-6 col-lg-4">
         <div class="card">
           <div class="card-body">
             <div class="d-flex justify-content-between mb-2">
-              <p class="text-muted">1-Jan-2022</p>
+              <p class="text-muted">{{ $schdule->created_at->format('d-m-Y') }}</p>
               <div class="card-header-action">
-                <a href="#" class="btn btn-outline-success">View All</a>
+                <a href="{{ route('user-informasi-detail', $schdule->id) }}" class="btn btn-outline-success">View All</a>
               </div>
             </div>
             <div class="chocolat-parent">
-              <a href="{{ asset('stisla/assets/img/news/img02.jpg') }}" class="chocolat-image" title="Just an example">
+              <a href="{{ asset('/storage/'.$schdule->image) }}" class="chocolat-image" title="Just an example">
                 <div>
-                  <img alt="image" src="{{ asset('stisla/assets/img/news/img02.jpg') }}" class="img-fluid">
+                  <img alt="image" src="{{ asset('/storage/'.$schdule->image) }}" class="img-fluid">
                 </div>
               </a>
             </div>
           </div>
           <div class="card-header d-flex flex-column">
-            <h5 class="text-dark">Title</h5>
-            <p>Click the picture below to see the magic!Click the picture below to see the magic!Click the picture below to see the magic!</p>
+            <h5 class="text-dark">{{ $schdule->title }}</h5>
+            <p>{{ $schdule->content }}</p>
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between mb-2">
-              <p class="text-muted">1-Jan-2022</p>
-              <div class="card-header-action">
-                <a href="#" class="btn btn-outline-success">View All</a>
-              </div>
-            </div>
-            <div class="chocolat-parent">
-              <a href="{{ asset('stisla/assets/img/news/img02.jpg') }}" class="chocolat-image" title="Just an example">
-                <div>
-                  <img alt="image" src="{{ asset('stisla/assets/img/news/img02.jpg') }}" class="img-fluid">
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="card-header d-flex flex-column">
-            <h5 class="text-dark">Title Click the picture below to see the magic!</h5>
-            <p>Click the picture below to see the magic!Click the picture below to see the magic!Click the picture below to see the magic!</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between mb-2">
-              <p class="text-muted">1-Jan-2022</p>
-              <div class="card-header-action">
-                <a href="#" class="btn btn-outline-success">View All</a>
-              </div>
-            </div>
-            <div class="chocolat-parent">
-              <a href="{{ asset('stisla/assets/img/news/img02.jpg') }}" class="chocolat-image" title="Just an example">
-                <div>
-                  <img alt="image" src="{{ asset('stisla/assets/img/news/img02.jpg') }}" class="img-fluid">
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="card-header d-flex flex-column">
-            <h5 class="text-dark">Title</h5>
-            <p>Click the picture below to see the magic!Click the picture below to see the magic!Click the picture below to see the magic!</p>
-          </div>
-        </div>
-      </div>
+      @empty
+          
+      @endforelse
   </section>
 </div>
 @endsection

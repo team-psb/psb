@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 class UserDashboardController extends Controller
 {
     public function index(){
-        $data = BiodataOne::with(['academy' => function($query){
+        $data = BiodataOne::with(['academy_year' => function($query){
             $query->where('year', date('Y'));
         }]);
 
@@ -30,9 +30,9 @@ class UserDashboardController extends Controller
         $tahap2 = Score::where('user_id', '=', Auth::user()->id)->first();
         $tahap3 = Video::where('user_id', '=', Auth::user()->id)->first();
         $tahap4 = Pass::where('user_id', '=', Auth::user()->id)->first();
-        $schdule = Schdule::orderBy('created_at', 'desc')->take(4)->get();
+        $schdules = Schdule::orderBy('created_at', 'desc')->take(3)->get();
         
-        return view('front.index', compact('biodata1', 'tahap1', 'tahap2', 'tahap3', 'tahap4', 'schdule'));
+        return view('front.index', compact('biodata1', 'tahap1', 'tahap2', 'tahap3', 'tahap4', 'schdules'));
     }
 
     public function profile()
@@ -54,5 +54,12 @@ class UserDashboardController extends Controller
         $informations = Schdule::get();
 
         return view('front.pages.information.index', compact('informations'));
+    }
+
+    public function information_detail($id)
+    {
+        $information = Schdule::findOrFail($id);
+
+        return view('front.pages.information.info_detail', compact('information'));
     }
 }

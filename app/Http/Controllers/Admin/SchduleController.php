@@ -103,14 +103,16 @@ class SchduleController extends Controller
             'title' => 'required',
             'content' => 'required',
         ]);
+
+        $data=Schdule::find($id);
         
-        if ($request->file('image') !== null ) {
+        if ($request->file('image') != null ) {
             $image = $request->file('image')->store('assets/information','public');
         }else{
             $image=null;
         }
         
-        Schdule::create([
+        $data->update([
             'image' => $image,
             'title' => $request->title,
             'content' => $request->content

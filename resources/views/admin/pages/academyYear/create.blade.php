@@ -3,23 +3,24 @@
     @method('POST')
     <div class="card-body">
         <div class="form-group">
-            <label>Tahun ajaran</label>
+            <label class="fs-6">Tahun ajaran</label>
             <div class="input-group">
-                <input type="number" name="year" class="form-control phone-number" placeholder="contoh : 2022">
+                <input type="number" name="year" class="form-control p-3" placeholder="contoh : 2022">
             </div>
         </div>
 
         <div class="form-group">
-            <label>Gelombang</label>
-            <select class="form-control select2" name="stage_id">
+            <label class="fs-6">Pilih Gelombang</label>
+            <select name="stage_id" class="form-select">
+                <option value="" >-- pilih gelombang --</option>
                 @foreach ($stages as $stage)
-                    <option value="{{ $stage->id }}" >{{ $stage->name }}</option>
+                    <option value="{{ $stage->id }}">{{ $stage->name }}</option>
                 @endforeach
-            </select>
+                </select>
         </div>
 
         <div class="form-group">
-            <label>Status</label>
+            <label class="fs-6">Status</label>
             <div class="ps-4">
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="is_active" id="inlineRadio1" value="1">
