@@ -661,6 +661,7 @@ section {
 
 .title-announce {
     margin-bottom: 100px;
+    font-size: 35px;
 }
 .announce .icon-box {
     padding: 70px 30px 20px 30px;
@@ -774,6 +775,7 @@ section {
 }
 .desc1 {
     font-size: 25px;
+    font-weight: 600;
     padding-left: 70px;
 }
 .desc2 {
@@ -784,9 +786,22 @@ section {
 @media screen and (max-width: 420px) {
     .announce .title {
         padding: 10px 45px;
+        font-size: 24px;
     }
     .announce .title2 {
         padding: 10px 65px;
+        font-size: 24px;
+    }
+    .dots {
+        height: 35px;
+        width: 35px;
+        font-size: 20px;
+    }
+    .desc1 {
+        font-size: 20px;
+    }
+    .desc2 {
+        font-size: 15px;
     }
 }
 @media screen and (min-width: 421px) and (max-width: 767px) {
@@ -953,12 +968,15 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Counts
+# Statistic
 --------------------------------------------------------------*/
-.counts {
+.stat {
     padding: 70px 0 60px;
 }
-.counts .count-box {
+.title-stats {
+    font-size: 35px;
+}
+.stat .count-box {
     padding: 30px 30px 25px 30px;
     width: 100%;
     height: 105vh;
@@ -966,14 +984,14 @@ section {
     text-align: center;
     color: #145560 !important;
 }
-.counts .count-box span {
+.stat .count-box span {
     font-size: 36px;
     display: block;
     font-weight: 600;
 }
 
 @media all {
-    .counts .count-box p.text-stats {
+    .stat .count-box p.text-stats {
         padding: 0;
         margin: 0;
         font-family: "Poppins", sans-serif;
@@ -984,7 +1002,7 @@ section {
         left: 35%;
         transform: translate(-50%, -50%);
     }
-    .counts .count-box p.text-stats2 {
+    .stat .count-box p.text-stats2 {
         padding: 0;
         margin: 0;
         font-family: "Poppins", sans-serif;
@@ -995,7 +1013,7 @@ section {
         left: 45%;
         transform: translate(-50%, -50%);
     }
-    .counts .count-box p.text-stats3 {
+    .stat .count-box p.text-stats3 {
         padding: 0;
         margin: 0;
         font-family: "Poppins", sans-serif;
@@ -1027,25 +1045,25 @@ section {
 }
 
 @media screen and (max-width: 420px) {
-    .counts .count-box p.text-stats {
+    .stat .count-box p.text-stats {
         font-size: 10px;
         top: 27%;
         left: 18%;
         transform: translate(-50%, -50%);
     }
-    .counts .count-box p.text-stats2 {
+    .stat .count-box p.text-stats2 {
         font-size: 10px;
         top: 15%;
         left: 40%;
         transform: translate(-50%, -50%);
     }
-    .counts .count-box p.text-stats3 {
+    .stat .count-box p.text-stats3 {
         font-size: 10px;
         top: 22%;
         right: -3%;
         transform: translate(-50%, -50%);
     }
-    .counts .count-box {
+    .stat .count-box {
         height: auto;
     }
     span.img-stats {
@@ -1062,19 +1080,19 @@ section {
     }
 }
 @media screen and (min-width: 421px) and (max-width: 767px) {
-    .counts .count-box p.text-stats {
+    .stat .count-box p.text-stats {
         font-size: 12px;
         top: 21%;
         left: 18%;
         transform: translate(-50%, -50%);
     }
-    .counts .count-box p.text-stats2 {
+    .stat .count-box p.text-stats2 {
         font-size: 12px;
         top: 8%;
         left: 39%;
         transform: translate(-50%, -50%);
     }
-    .counts .count-box p.text-stats3 {
+    .stat .count-box p.text-stats3 {
         font-size: 12px;
         top: 15%;
         right: 10%;
@@ -1094,19 +1112,19 @@ section {
     }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
-    .counts .count-box p.text-stats {
+    .stat .count-box p.text-stats {
         font-size: 14px;
         top: 21%;
         left: 25%;
         transform: translate(-50%, -50%);
     }
-    .counts .count-box p.text-stats2 {
+    .stat .count-box p.text-stats2 {
         font-size: 14px;
         top: 8%;
         left: 42%;
         transform: translate(-50%, -50%);
     }
-    .counts .count-box p.text-stats3 {
+    .stat .count-box p.text-stats3 {
         font-size: 14px;
         top: 15%;
         right: 16%;
@@ -1126,19 +1144,19 @@ section {
     }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-    .counts .count-box p.text-stats {
+    .stat .count-box p.text-stats {
         font-size: 15px;
         top: 19%;
         left: 32%;
         transform: translate(-50%, -50%);
     }
-    .counts .count-box p.text-stats2 {
+    .stat .count-box p.text-stats2 {
         font-size: 15px;
         top: 6%;
         left: 44%;
         transform: translate(-50%, -50%);
     }
-    .counts .count-box p.text-stats3 {
+    .stat .count-box p.text-stats3 {
         font-size: 15px;
         top: 13%;
         right: 24%;
@@ -1164,6 +1182,7 @@ section {
 .clients {
     padding: 15px 0;
     text-align: center;
+    margin-bottom: 200px;
 }
 .clients img {
     max-width: 45%;
@@ -1646,54 +1665,54 @@ section {
 /*--------------------------------------------------------------
 # Frequently Asked Questions
 --------------------------------------------------------------*/
-.faq {
+.qna {
     padding: 60px 0;
+    color: #145560 !important;
 }
-.faq .faq-list {
+.qna .qna-list {
     padding: 0;
     list-style: none;
 }
-.faq .faq-list li {
+.qna .qna-list li {
     border-bottom: 1px solid #d4e5fc;
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
-.faq .faq-list .question {
+.qna .qna-list .question {
     display: block;
     position: relative;
-    font-family: #106eea;
     font-size: 18px;
     line-height: 24px;
     font-weight: 400;
     padding-left: 25px;
     cursor: pointer;
-    color: #0d58ba;
+    color: #145560;
     transition: 0.3s;
 }
-.faq .faq-list i {
+.qna .qna-list i {
     font-size: 16px;
     position: absolute;
     left: 0;
     top: -2px;
 }
-.faq .faq-list p {
+.qna .qna-list p {
     margin-bottom: 0;
     padding: 10px 0 0 25px;
 }
-.faq .faq-list .icon-show {
+.qna .qna-list .icon-show {
     display: none;
 }
-.faq .faq-list .collapsed {
-    color: black;
+.qna .qna-list .collapsed {
+    color: #2b2b2b;
 }
-.faq .faq-list .collapsed:hover {
+.qna .qna-list .collapsed:hover {
     color: #106eea;
 }
-.faq .faq-list .collapsed .icon-show {
+.qna .qna-list .collapsed .icon-show {
     display: inline-block;
     transition: 0.6s;
 }
-.faq .faq-list .collapsed .icon-close {
+.qna .qna-list .collapsed .icon-close {
     display: none;
     transition: 0.6s;
 }
@@ -1701,8 +1720,11 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+.contact .section-title {
+    color: #145560;
+}
 .contact .info-box {
-    color: #444444;
+    color: #145560;
     text-align: center;
     box-shadow: 0 0 30px rgba(214, 215, 216, 0.3);
     padding: 20px 0 0px 0;
@@ -1823,9 +1845,12 @@ section {
     font-size: 14px;
     position: relative;
 }
-
+.content-footer {
+    margin: 0px 80px;
+}
 .copyright {
     color: #145560;
+    margin: 130px 0px 50px 0px;
 }
 @media (max-width: 768px) {
     #footer .copyright {
