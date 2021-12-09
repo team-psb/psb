@@ -20,7 +20,7 @@
                           <strong>Anda Akan Kami Hubungi Untuk Melakukan Wawancara</strong>
                         </h4>
                         <strong class="d-block my-3">Pastikan no wa yang ada di profil anda <br> sudah benar dan bisa kami hubunggi.</strong>
-                        <a  href="" class="btn btn-primary px-3">Kembali Ke Dashboard</a>
+                        <a  href="{{ route('user-dashboard') }}" class="btn btn-primary px-3">Kembali Ke Dashboard</a>
                       </div>
                     </div>
                   </div>

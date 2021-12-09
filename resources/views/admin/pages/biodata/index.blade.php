@@ -73,7 +73,7 @@
                                                 </div>
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $biodata->user->biodataOne->full_name }}</td>
+                                            <td>{{ $biodata->user->biodataOne->name }}</td>
                                             <td>{{ $biodata->user->biodataOne->no_wa }}</td>
                                             <td>{{ $biodata->user->biodataOne->age }}</td>
                                             <td>{{ $biodata->last_education }}</td>

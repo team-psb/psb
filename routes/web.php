@@ -18,8 +18,8 @@ use App\Http\Controllers\Exam\TestController;
 use App\Http\Controllers\Exam\VideoController;
 use App\Http\Controllers\Exam\BiodataOneController;
 use App\Http\Controllers\Exam\BiodataTwoController;
+use App\Http\Controllers\Exam\TesIqController;
 use App\Http\Controllers\User\UserDashboardController;
-use Database\Seeders\QnaSeeder;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +37,7 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){
     Route::get('home', [UserDashboardController::class, 'index'])->name('user-dashboard');
-    
+
     Route::get('profile', function () {
         return view('front.pages.profile.index');
     })->name('user-profile');
@@ -57,20 +57,17 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], functio
     Route::get('tes/tahap-pertama', [BiodataTwoController::class, 'index'])->name('user-first-tes');
     Route::post('tes/tahap-pertama/store', [BiodataTwoController::class, 'store'])->name('first-tes.store');
     
-    Route::get('tes/tahap-kedua', function () {
-        return view('front.pages.tesIq.index');
-    })->name('user-second-tes');
+    Route::get('tes/tahap-kedua', [TesIqController::class, 'iq'])->name('user-second-tes');
+    Route::post('tes/tahap-kedua-store', [TesIqController::class, 'iqStore'])->name('second-tes.store');
     
-    Route::get('tes/tahap-ketiga', function () {
-        return view('exam.pages.tesPersonality.index');
-    })->name('user-third-tes');
+    Route::get('tes/tahap-ketiga', [TesIqController::class, 'personal'])->name('user-third-tes');
+    Route::post('tes/tahap-ketiga-store', [TesIqController::class, 'personalStore'])->name('third-tes.store');
     
-    Route::get('tes/tahap-keempat', function () {
-        return view('exam.pages.video.index');
-    })->name('user-fourth-tes');
+    Route::get('tes/tahap-keempat', [VideoController::class, 'index'])->name('user-fourth-tes');
+    Route::post('tes/tahap-keempat-store', [VideoController::class, 'videoStore'])->name('fourth-tes.store');
     
-    Route::get('/tes/tahap-kelima', function () {
-        return view('exam.pages.wawancara.index');
+    Route::get('tes/tahap-kelima', function () {
+        return view('front.pages.interview.index');
     })->name('user-fifth-tes');
 });
 

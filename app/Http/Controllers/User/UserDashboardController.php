@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\AcademyYear;
 use App\Models\BiodataOne;
 use App\Models\BiodataTwo;
 use App\Models\Pass;
@@ -15,13 +16,13 @@ use Illuminate\Support\Facades\Auth;
 class UserDashboardController extends Controller
 {
     public function index(){
-        // $data = BiodataOne::with(['academy' => function($query){
-        //     $query->where('year', date('Y'));
-        // }]);
+        $data = BiodataOne::with(['academy' => function($query){
+            $query->where('year', date('Y'));
+        }]);
 
         // $registrans = $data->where('academy', '!=', null)->count();
 
-        // $gelombang = AcademyYear::where('is_active', 1)->pluck('stage_id');
+        $gelombang = AcademyYear::where('is_active', 1)->pluck('stage_id');
 
         $biodata1 = BiodataOne::where('user_id', '=', Auth::user()->id)->first(); 
         $tahap1 = BiodataTwo::where('user_id', '=', Auth::user()->id)->first();

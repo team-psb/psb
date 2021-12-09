@@ -6,7 +6,7 @@
 <div class="main-content">
   <section class="section">
     <div class="col-12 mb-4">
-      @if (session('gagal_tes'))
+      {{-- @if (session('gagal_tes'))
         <div class="row">
           <div class="alert alert-danger alert-dismissible show fade">
             <div class="alert-body">
@@ -18,80 +18,81 @@
             </div>
           </div>
         </div>
-      @endif
+      @endif --}}
       <div class="row">
       <div class="col-12 mb-4">
-          <div class="hero text-white
-                      @if (isset($tahap1) && $tahap1->status == null || isset($tahap2) && $tahap2 == null || isset($tahap3) && $tahap3 == null )
+          <div class="hero text-white text-center
+                      @if (isset($tahap1) && $tahap1->status == null || isset($tahap2) && $tahap2->status == null || isset($tahap3) && $tahap3->status == null )
                         bg-warning                      
                       @endif
-                      @if (isset($tahap1) && $tahap1->status == 'lolos' || isset($tahap2) && $tahap2 == 'lolos' || isset($tahap3) && $tahap3 == 'lolos')
+                      @if (isset($tahap1) && $tahap1->status == 'lolos' || isset($tahap2) && $tahap2->status == 'lolos' || isset($tahap3) && $tahap3->status == 'lolos')
                         bg-success
                       @elseif (empty($tahap1) || empty($tahap2) || empty($tahap3))
                         bg-info
                       @endif
-                      @if (isset($tahap1) && $tahap1->status == 'tidak' || isset($tahap2) && $tahap2 == 'tidak' || isset($tahap3) && $tahap3 == 'tidak' )
+                      @if (isset($tahap1) && $tahap1->status == 'tidak' || isset($tahap2) && $tahap2->status == 'tidak' || isset($tahap3) && $tahap3->status == 'tidak' )
                         bg-danger                      
                       @endif"
           >
               @if(empty($tahap1) && isset($biodata1))
-                <div class="hero-inner text-center">
-                  <h2>Halo Selamat datang, {{ Auth::user()->name }}</h2>
-                    <p class="lead">untuk melakukan seleksi <strong class="font-weight-bold">Tahap Pertama</strong> anda silahkan klik tombol di bawah ini</p>
-                <div class="mt-4">
-                  <a href="{{ route('user-first-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                <div class="hero-inner">
+                  <h2 class="poppins">Halo Selamat datang, {{ Auth::user()->name }}</h2>
+                  <p class="lead">untuk melakukan seleksi <strong class="font-weight-bold">Tahap Pertama</strong> anda silahkan klik tombol di bawah ini</p>
+                  <div class="mt-4">
+                    <a href="{{ route('user-first-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                  </div>
                 </div>
               @elseif(!empty($tahap1) && isset($biodata1) && $tahap1->status == null) 
-                <h2>Hallo, {{ Auth::user()->name }}!</h2>
+                <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                 <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Pertama</strong>,Anda bisa lanjut <br>mengikuti tes tahap kedua jika dinyatakan lolos di tes tahap pertama</p>
-              {{-- @elseif(!empty($tahap2) && isset($biodata1) && $tahap2->status == null) 
-                <h2>Hallo, {{ Auth::user()->name }}!</h2>
-                <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Kedua</strong>,Anda bisa lanjut <br>mengikuti tes tahap ke-tiga jika dinyatakan lolos di tes tahap keDua</p>
+              @elseif(!empty($tahap2) && isset($tahap1) && $tahap2->status == null) 
+                <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
+                <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Kedua & Ketiga</strong>,Anda bisa lanjut <br>mengikuti tes tahap Keempat jika dinyatakan lolos di tes tahap Kedua & Ketiga</p>
               @elseif(!empty($tahap3) && isset($tahap3) && $tahap3->status == null) 
-                <h2>Hallo, {{ Auth::user()->name }}!</h2>
-                <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Ke-Tiga</strong>,Anda bisa lanjut <br>mengikuti tes tahap Ke-Empat jika dinyatakan lolos di tes tahap Ke-Tiga</p>
-              @elseif(!empty($biodata1) && $biodata1->status == 'lolos')
-                @if ($biodata1->status == 'lolos' && !isset($tahap2->status) )
-                  <h2>Selamat, {{ Auth::user()->name }}! .</h2>
+                <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
+                <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Keempat</strong>,Anda bisa lanjut <br>mengikuti tes tahap Kelima jika dinyatakan lolos di tes tahap Keempat</p>
+              @elseif(!empty($tahap1) && $tahap1->status == 'lolos')
+                @if ($tahap1->status == 'lolos' && !isset($tahap2->status) )
+                  <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
                   <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
-                  <p class="lead">untuk melakukan tes <strong class="font-weight-bold">Tahap Ke-Dua</strong> anda silahkan klik tombol di bawah ini</p>
+                  <p class="lead">untuk melakukan tes <strong class="font-weight-bold">Tahap Kedua dan Ketiga</strong> anda silahkan klik tombol di bawah ini</p>
 
                   <div class="mt-4">
-                    <a href="{{ route('tahap-ketiga-iq') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                    <a href="{{ route('user-second-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                   </div>
                 @elseif($tahap2->status == 'lolos' && !isset($tahap3->status))
-                  <h2>Selamat, {{ Auth::user()->name }}! .</h2>
+                  <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
                   <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
-                  <p class="lead">untuk melakukan tes <strong class="font-weight-bold">Tahap Ke-Tiga</strong> silahkan anda klik tombol di bawah ini.</p>
+                  <p class="lead">untuk melakukan tes <strong class="font-weight-bold">Tahap Keempat</strong> silahkan anda klik tombol di bawah ini.</p>
 
                   <div class="mt-4">
-                    <a href="{{ route('tahap-empat-video') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                    <a href="{{ route('user-fourth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                   </div>
                 @elseif($tahap3->status == 'lolos' && !isset($tahap4->status))
-                  <h2>Selamat, {{ Auth::user()->name }}! .</h2>
+                  <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
                   <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
-                  <p class="lead">untuk  tes <strong class="font-weight-bold">Tahap Ke-Empat</strong> anda akan kami hubungi untuk melakukan tes wawancara.</p>
+                  <p class="lead">untuk  tes <strong class="font-weight-bold">Tahap Kelima</strong> anda akan kami hubungi untuk melakukan tes wawancara</p>
                   <div class="mt-4">
-                    <a href="{{ route('tahap-lima-wawancara') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes wawancara</a>
+                    <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes wawancara</a>
                   </div>
                 @elseif( isset($tahap3->status) && isset($tahap4->status) && $tahap4->status == 'lolos')
-                  <h2>Selamat, {{ Auth::user()->name }}! .</h2>
+                  <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
                   <p><strong>Anda Dinyatakan Lolos sebagai calon santri Pondok Informatika-Almadinah</strong></p>
                   <p class="lead">untuk informasi selanjutnya akan di infokan melalui whatsapp
                   </p>
                 @elseif( isset($tahap3->status) && isset($tahap4->status) && $tahap4->status == 'tidak')
-                  <h2>Mohon Maaf, {{ Auth::user()->name }}! .</h2>
+                  <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}! .</h2>
                   <p><strong>Anda Dinyatakan Tidak Lolos sebagai calon santri Pondok Informatika-Almadinah</strong></p>
                 
                 @elseif( isset($biodata1->status) == 'tidak' || isset($tahap2->status) == 'tidak' || isset($tahap3->status) == 'tidak')
-                  <h2>Mohon Maaf, {{ Auth::user()->name }}! .</h2>
+                  <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}! .</h2>
                   <p><strong>Anda Dinyatakan Tidak Lolos ke tahap selanjutnya
                   </p>				
                 @endif
               @else
-                <h2>Mohon Maaf, {{ Auth::user()->name }}! .</h2>
+                <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}! .</h2>
                 <p><strong>Anda Dinyatakan Tidak Lolos ke tahap selanjutnya
-                </p> --}}
+                </p>
               @endif
             </div>
           </div>
