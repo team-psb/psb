@@ -18,7 +18,7 @@
                     @method("POST")
                     <div class="form-group">
                         <label for="exampleTextarea1" class="fs-6 fw-bold">Soal :</label>
-                        <textarea name="question" class="form-control" id="exampleTextarea1" rows="4" style="height: 150px;"></textarea>    
+                        <textarea name="question" class="form-control" id="exampleTextarea1" rows="4" style="height: 150px;" placeholder="Ketikkan pertanyaan..."></textarea>    
                     </div>
                     <table class="w-100" cellpadding="10" cellspacing="10">
                         <tr>
@@ -35,7 +35,7 @@
                                 <strong> A .</strong>
                             </td>
                             <td width="74%">
-                                <input type="text" style="height: 40px;" name="a" class="form-control"  value="">
+                                <input type="text" style="height: 40px;" name="a" class="form-control"  value="" placeholder="Ketikkan jawaban...">
                             </td>
                             <td>
                                 <select class="form-select" name="poin_a">
@@ -54,7 +54,7 @@
                                 <strong> B .</strong>
                             </td>
                             <td width="74%">
-                                <input type="text" style="height: 40px;" name="b" class="form-control"  value="">
+                                <input type="text" style="height: 40px;" name="b" class="form-control"  value="" placeholder="Ketikkan jawaban...">
                             </td>
                             <td>
                                 <select class="form-select" name="poin_b">
@@ -73,7 +73,7 @@
                                 <strong> C .</strong>
                             </td>
                             <td width="74%">
-                                <input type="text" style="height: 40px;" name="c" class="form-control"  value="">
+                                <input type="text" style="height: 40px;" name="c" class="form-control"  value="" placeholder="Ketikkan jawaban...">
                             </td>
                             <td>
                                 <select class="form-select" name="poin_c">
@@ -92,7 +92,7 @@
                                 <strong> D .</strong>
                             </td>
                             <td width="74%">
-                                <input type="text" style="height: 40px;" name="d" class="form-control"  value="">
+                                <input type="text" style="height: 40px;" name="d" class="form-control"  value="" placeholder="Ketikkan jawaban...">
                             </td>
                             <td>
                                 <select class="form-select" name="poin_d">
@@ -111,7 +111,7 @@
                                 <strong> E .</strong>
                             </td>
                             <td width="74%">
-                                <input  type="text" style="height:40px;" name="e" class="form-control"  value="">
+                                <input  type="text" style="height:40px;" name="e" class="form-control"  value="" placeholder="Ketikkan jawaban...">
                             </td>
                             <td>
                             <select class="form-select" name="poin_e">

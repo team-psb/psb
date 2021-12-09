@@ -16,8 +16,8 @@
 								@method("POST")
 								<div class="form-group d-flex">
 									<div class="mx-2" style="width: 72%;">
-										<label for="exampleTextarea1" class="fw-bold">Soal</label>
-										<textarea name="question" class="form-control" id="exampleTextarea1" rows="4" style="height: 150px;"></textarea>    
+										<label for="exampleTextarea1" class="fw-bold fs-6">Soal</label>
+										<textarea name="question" class="form-control" id="exampleTextarea1" rows="4" style="height: 150px;" placeholder="Ketikkan pertanyaan..."></textarea>    
 									</div>
 									<div class="mx-2" style="width: 28%;">
 										<div class="form-group">
@@ -50,7 +50,7 @@
 											<strong> A .</strong>
 										</td>
 										<td>
-											<input type="text" style="height: 50px;" name="a" class="form-control"  value="">
+											<input type="text" style="height: 50px;" name="a" class="form-control"  value="" placeholder="Ketikkan jawaban...">
 										</td>
 										<td class="pl-5">
 											<div class="selectgroup selectgroup-pills">
@@ -67,7 +67,7 @@
 											<strong> B .</strong>
 										</td>
 										<td>
-											<input type="text" style="height: 50px;" name="b" class="form-control"  value="">
+											<input type="text" style="height: 50px;" name="b" class="form-control"  value="" placeholder="Ketikkan jawaban...">
 										</td>
 										<td class="pl-5">
 											<div class="selectgroup selectgroup-pills">
@@ -84,7 +84,7 @@
 											<strong> C .</strong>
 										</td>
 										<td>
-											<input type="text" style="height: 50px;" name="c" class="form-control"  value="">
+											<input type="text" style="height: 50px;" name="c" class="form-control"  value="" placeholder="Ketikkan jawaban...">
 										</td>
 										<td class="pl-5">
 											<div class?="selectgroup selectgroup-pills">
@@ -101,7 +101,7 @@
 											<strong> D .</strong>
 										</td>
 										<td>
-											<input type="text" style="height: 50px;" name="d" class="form-control"  value="">
+											<input type="text" style="height: 50px;" name="d" class="form-control"  value="" placeholder="Ketikkan jawaban...">
 										</td>
 										<td class="pl-5">
 											<div class="selectgroup selectgroup-pills">
@@ -118,7 +118,7 @@
 											<strong> E .</strong>
 										</td>
 										<td>
-											<input type="text" style="height: 50px;" name="e" class="form-control"  value="">
+											<input type="text" style="height: 50px;" name="e" class="form-control"  value="" placeholder="Ketikkan jawaban...">
 										</td>
 										<td class="pl-5">
 											<div class="selectgroup selectgroup-pills">

@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <h5>Tahun Ajaran Aktif</h5>
+                                    <h5>Tahun Ajaran Aktif <span class="badge badge-success">{{ $academies->count() }}</span></h5>
                                     <div class="form-group">
                                         @foreach ($academies as $academy)
                                             <div class="form-check form-check-success">
@@ -32,7 +32,7 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <h5>Gelombang Aktif</h5>
+                                    <h5>Gelombang Aktif <span class="badge badge-success">{{ $stages->count() }}</span></h5>
                                     <div class="form-group">
                                         @foreach ($stages as $stages)
                                             <div class="form-check form-check-success">
@@ -47,13 +47,13 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <h5>Soal Tes IQ Aktif</h5>
+                                    <h5>Soal Tes IQ Aktif <span class="badge badge-success">{{ $iqs->count() }}</span></h5>
                                     {{-- <textarea name="editor1" class="form-control"></textarea> --}}
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <h5>Soal Tes Kepribadian Aktif</h5>
+                                    <h5>Soal Tes Kepribadian Aktif <span class="badge badge-success">{{ $personals->count() }}</span></h5>
                                     {{-- <textarea name="editor1" class="form-control"></textarea> --}}
                                 </div>
                             </div>
