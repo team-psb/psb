@@ -103,21 +103,18 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Provinsi<b>*</b></label>
-                        <select name="province_id" class="custom-select" x-on:change="getKabupaten(provin_id)" x-model="provin_id">
+                        <select name="indonesia_provinces_id" class="custom-select" x-on:change="getKabupaten(provin_id)" x-model="provin_id">
                           @foreach ($provinsi as $provin)
-                              <option value="{{ $provin->id }}" >{{ $provin->name }}</option>
+                              <option value="{{ $provin->code }}" >{{ $provin->name }}</option>
                           @endforeach
                         </select>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Kota<b>*</b></label>
-                        <select name="regency_id" class="custom-select" >
+                        <select name="indonesia_cities_id" class="custom-select" >
                           <template x-for="an in kabupatenids">
                             <option :value="an.id"><span x-html="an.name"></span></option>
-                          </template>
-                          @foreach ($kabupaten as $kab)
-                              <option value="{{ $kab->id }}" >{{ $kab->name }}</option>
-                          @endforeach
+                          </template>											
                         </select>
                       </div>
                       <button type="button" x-on:click="form1Button()" class="btn btn-primary float-right px-3">
@@ -747,11 +744,11 @@
           this.form_4=null;
           window.scrollTo(0, 0); 
         },
-				getKabupaten(id){
-					const dataKabupaten = kabupatens.filter((kabupaten) => kabupaten.province_id == id);
+				getKabupaten(code){
+					const dataKabupaten = kabupatens.filter((kabupaten) => kabupaten.province_code == code);
 					this.kabupatenids=dataKabupaten;
 				}
 			}
     }
-  </script>  
+  </script>   
 @endpush
