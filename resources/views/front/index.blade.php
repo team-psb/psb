@@ -198,7 +198,7 @@
                         @if (empty($tahap1))
                           <a href="{{ route('user-first-tes') }}" class="btn btn-primary">Ikuti Tes</a>
                         @else
-                          <span class="btn btn-success">Sudah Di Ikuti</span>
+                          <span class="badge badge-primary">Selesai tes</span>
                         @endif
                       </td>
                     </tr>
@@ -232,7 +232,7 @@
                         @elseif ($tahap1->status == 'lolos' && empty($tahap2))
                           <a href="{{ route('user-second-tes') }}" class="btn btn-primary">Ikuti Tes</a>
                         @else
-                          <span class="btn btn-success">Sudah Di Ikuti</span>
+                          <span class="badge badge-primary">Selesai tes</span>
                         @endif
                       </td>
                     </tr>
@@ -266,7 +266,7 @@
                         @elseif ($tahap2->status == 'lolos' && empty($tahap4))
                           <a href="{{ route('user-fourth-tes') }}" class="btn btn-primary">Ikuti Tes</a>
                         @else
-                          <span class="btn btn-success">Sudah Di Ikuti</span>
+                          <span class="badge badge-primary">Selesai tes</span>
                         @endif
                       </td>
                     </tr>
@@ -300,7 +300,7 @@
                         @elseif ($tahap4->status == 'lolos' && empty($tahap5))
                           <a href="{{ route('user-fifth-tes') }}" class="btn btn-primary">Ikuti Tes</a>
                         @else
-                          <span class="btn btn-success">Sudah Di Ikuti</span>
+                          <span class="badge badge-success">Selesai tes</span>
                         @endif
                       </td>
                     </tr>
