@@ -28,11 +28,12 @@ class UserDashboardController extends Controller
         $biodata1 = BiodataOne::where('user_id', '=', Auth::user()->id)->first(); 
         $tahap1 = BiodataTwo::where('user_id', '=', Auth::user()->id)->first();
         $tahap2 = Score::where('user_id', '=', Auth::user()->id)->first();
-        $tahap3 = Video::where('user_id', '=', Auth::user()->id)->first();
-        $tahap4 = Pass::where('user_id', '=', Auth::user()->id)->first();
-        $schdules = Schdule::orderBy('created_at', 'desc')->take(3)->get();
+        $tahap4 = Video::where('user_id', '=', Auth::user()->id)->first();
+        $tahap5 = Pass::where('user_id', '=', Auth::user()->id)->first();
+        $schdules = Schdule::orderBy('created_at', 'desc')->get();
+        $qna    = Qna::first();
         
-        return view('front.index', compact('biodata1', 'tahap1', 'tahap2', 'tahap3', 'tahap4', 'schdules'));
+        return view('front.index', compact('biodata1', 'tahap1', 'tahap2', 'tahap4', 'tahap5', 'schdules', 'qna'));
     }
 
     public function profile()
