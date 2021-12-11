@@ -572,7 +572,8 @@ section {
 
 .section-title {
     text-align: center;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
+    color: #145560 !important;
 }
 .section-title h2 {
     font-size: 13px;
@@ -586,9 +587,9 @@ section {
     text-transform: uppercase;
     border-radius: 50px;
 }
-.section-title h3 {
+.section-title h1 {
     margin: 15px 0 0 0;
-    font-size: 32px;
+    font-size: 40px;
     font-weight: 700;
 }
 .section-title h3 span {
@@ -661,7 +662,7 @@ section {
 
 .title-announce {
     margin-bottom: 100px;
-    font-size: 35px;
+    font-size: 40px;
 }
 .announce .icon-box {
     padding: 70px 30px 20px 30px;
@@ -784,6 +785,9 @@ section {
 }
 
 @media screen and (max-width: 420px) {
+    .title-announce {
+        font-size: 35px;
+    }
     .announce .title {
         padding: 10px 45px;
         font-size: 24px;
@@ -807,6 +811,7 @@ section {
 @media screen and (min-width: 421px) and (max-width: 767px) {
     .announce .title {
         padding: 10px 70px;
+        font-size: 24px;
     }
     .announce .title2 {
         padding: 10px 88px;
@@ -971,10 +976,10 @@ section {
 # Statistic
 --------------------------------------------------------------*/
 .stat {
-    padding: 70px 0 60px;
+    padding: 100px 0 60px 0px;
 }
 .title-stats {
-    font-size: 35px;
+    font-size: 40px;
 }
 .stat .count-box {
     padding: 30px 30px 25px 30px;
@@ -1032,7 +1037,7 @@ section {
     }
     .img-stats2 {
         position: absolute;
-        top: 43%;
+        top: 40%;
         left: 45.5%;
         transform: translate(-50%, -50%);
     }
@@ -1045,37 +1050,40 @@ section {
 }
 
 @media screen and (max-width: 420px) {
+    .title-stats {
+        font-size: 35px;
+    }
     .stat .count-box p.text-stats {
         font-size: 10px;
-        top: 27%;
+        top: 26%;
         left: 18%;
         transform: translate(-50%, -50%);
     }
     .stat .count-box p.text-stats2 {
         font-size: 10px;
-        top: 15%;
+        top: 13%;
         left: 40%;
         transform: translate(-50%, -50%);
     }
     .stat .count-box p.text-stats3 {
         font-size: 10px;
-        top: 22%;
-        right: -3%;
+        top: 21%;
+        right: -2%;
         transform: translate(-50%, -50%);
     }
     .stat .count-box {
         height: auto;
     }
     span.img-stats {
-        top: 58%;
+        top: 57%;
         left: 20%;
     }
     span.img-stats2 {
-        top: 44%;
+        top: 47%;
         left: 40%;
     }
     span.img-stats3 {
-        top: 50%;
+        top: 53%;
         right: 24%;
     }
 }
@@ -1194,8 +1202,11 @@ section {
     transform: scale(1.15);
 }
 @media (max-width: 768px) {
+    .clients {
+        margin-bottom: 100px;
+    }
     .clients img {
-        max-width: 40%;
+        max-width: 70%;
     }
 }
 
@@ -1674,7 +1685,7 @@ section {
     list-style: none;
 }
 .qna .qna-list li {
-    border-bottom: 1px solid #d4e5fc;
+    border-bottom: 1px solid transparent;
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
@@ -1853,8 +1864,26 @@ section {
     margin: 130px 0px 50px 0px;
 }
 @media (max-width: 768px) {
-    #footer .copyright {
-        text-align: center;
+    #footer {
+        background: #3dbb99;
+        padding: 50px 0px;
+    }
+    #footer .footer-top {
+        padding: 0px;
+    }
+    .footer-contact h4 {
+        font-size: 18px;
+    }
+    .footer-contact .btn-footer button {
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .footer-contact img {
+        width: 130px;
+    }
+    .copyright {
         padding: 2px 0;
+        font-size: 13px;
+        margin: 50px 0px 50px 0px;
     }
 }
