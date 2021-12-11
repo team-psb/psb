@@ -203,7 +203,7 @@ class TestIqController extends Controller
         Excel::import(new QuestionIqImport,$request->file('file'));
         activity()->log('Mengimpor soal tes IQ');
 
-        return redirect()->route('iqs.index')->with('success', 'Berhasil mengimport file excel');
+        return redirect()->route('iqs.index')->with('success-create', 'Berhasil mengimport file excel');
     }
 
     public function downloadtemplate()

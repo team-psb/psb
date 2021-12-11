@@ -14,6 +14,36 @@
                         Daftar Video Pendaftar
                         </p>
                         <div class="row mb-4 ">
+                            {{-- message --}}
+                            @if (session('success-create'))
+                                <div class="alert alert-success alert-dismissible show fade">
+                                    <div class="alert-body fw-bold">
+                                        <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                            <span>&times;</span>
+                                        </button>
+                                        {{ session('success-create') }}
+                                    </div>
+                                </div>
+                            @elseif(session('success-delete'))
+                                <div class="alert alert-danger alert-dismissible show fade">
+                                    <div class="alert-body fw-bold">
+                                        <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                            <span>&times;</span>
+                                        </button>
+                                        {{ session('success-delete') }}
+                                    </div>
+                                </div>
+                            @elseif(session('success-edit'))
+                                <div class="alert alert-warning alert-dismissible show fade">
+                                    <div class="alert-body fw-bold">
+                                        <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                            <span>&times;</span>
+                                        </button>
+                                        {{ session('success-edit') }}
+                                    </div>
+                                </div>
+                            @else
+                            @endif
                             <div class="d-flex justify-content-between">
                                 <div class="dropdown">
                                     <button class="btn btn-danger dropdown-toggle text-white p-2" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -81,7 +111,7 @@
                                             </td>
                                             <td>
                                                 <div class="btn-wrapper">
-                                                    @if ($video->status == null)
+                                                    {{-- @if ($video->status == null)
                                                         <a href="{{ route('videos.status', $video->id) }}?status=lolos"
                                                             class="btn btn-success btn-icon-text p-2">
                                                                 <i class="icon-check btn-icon-prepend"></i> Lolos
@@ -90,6 +120,10 @@
                                                             class="btn btn-warning mx-1 btn-icon-text p-2">
                                                                 <i class="icon-close btn-icon-prepend"></i> Tidak Lolos
                                                         </a>
+                                                    @endif --}}
+                                                    @if ($video->status == null)
+                                                        <button formaction="{{ route('videos.lolos', $video->id ) }}" class="btn btn-success btn-icon-text p-2"> <i class="icon-check btn-icon-prepend"></i> Lolos</button>
+                                                        <button formaction="{{ route('videos.tidak-lolos', $video->id ) }}" class="btn btn-warning mx-1 btn-icon-text p-2"> <i class="icon-close btn-icon-prepend"></i> Tidak</button>
                                                     @endif
                                                     <button formaction="{{ route('videos.delete', $video->id) }}" class="btn ms-1 btn-danger btn-icon-text text-white p-2"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
                                                 </div>

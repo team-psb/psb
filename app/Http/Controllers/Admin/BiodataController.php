@@ -123,7 +123,7 @@ class BiodataController extends Controller
         ]);
 
         $biodata2->update($request->except(['full_name','age','no_wa','family']));
-        return redirect()->route('biodatas.index')->with('edit-sukses','Data Berhasil Diedit');
+        return redirect()->route('biodatas.index')->with('success-edit','Data Berhasil Diedit');
     }
 
     public function delete($id)
@@ -131,7 +131,7 @@ class BiodataController extends Controller
         $data = BiodataTwo::findOrFail($id);
         $data->delete();
 
-        return back();
+        return back()->with('success-delete','Berhasil Menghapus Data');
     }
 
     public function setStatus(Request $request, $id)
@@ -155,7 +155,7 @@ class BiodataController extends Controller
                 BiodataTwo::find($id)->update(['status'=>'lolos']);
             }
 
-            return redirect()->route('biodatas.index');
+            return redirect()->route('biodatas.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
             return redirect()->back();
         }
@@ -169,7 +169,7 @@ class BiodataController extends Controller
                 BiodataTwo::find($id)->update(['status'=>'tidak']);
             }
 
-            return redirect()->route('biodatas.index');
+            return redirect()->route('biodatas.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
             return redirect()->back();
         }
@@ -184,7 +184,7 @@ class BiodataController extends Controller
                 BiodataTwo::find($id)->delete();
             }
 
-            return redirect()->route('biodatas.index');
+            return redirect()->route('biodatas.index')->with('success-delete','Berhasil Menghapus Semua Data');
         }else{
             return redirect()->back();
         }

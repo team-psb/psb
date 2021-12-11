@@ -78,7 +78,7 @@ class ScoreController extends Controller
                 Score::find($id)->update(['status'=>'lolos']);
             }
 
-            return redirect()->route('scores.index');
+            return redirect()->route('scores.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
             return redirect()->back();
         }
@@ -92,7 +92,7 @@ class ScoreController extends Controller
                 Score::find($id)->update(['status'=>'tidak']);
             }
 
-            return redirect()->route('scores.index');
+            return redirect()->route('scores.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
             return redirect()->back();
         }
@@ -107,7 +107,7 @@ class ScoreController extends Controller
                 Score::find($id)->delete();
             }
 
-            return redirect()->route('scores.index');
+            return redirect()->route('scores.index')->with('success-delete','Berhasil Menghapus Semua Status Data');
         }else{
             return redirect()->back();
         }

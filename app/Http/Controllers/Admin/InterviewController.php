@@ -36,7 +36,7 @@ class InterviewController extends Controller
         $data = Pass::findOrFail($id);
         $data->delete();
 
-        return back();
+        return back()->with('success-delete','Berhasil Menghapus Data');
     }
 
     public function setStatus(Request $request, $id)
@@ -60,7 +60,7 @@ class InterviewController extends Controller
                 Pass::find($id)->update(['status'=>'lolos']);
             }
 
-            return redirect()->route('interviews.index');
+            return redirect()->route('interviews.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
             return redirect()->back();
         }
@@ -74,7 +74,7 @@ class InterviewController extends Controller
                 Pass::find($id)->update(['status'=>'tidak']);
             }
 
-            return redirect()->route('interviews.index');
+            return redirect()->route('interviews.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
             return redirect()->back();
         }
@@ -89,7 +89,7 @@ class InterviewController extends Controller
                 Pass::find($id)->delete();
             }
 
-            return redirect()->route('interviews.index');
+            return redirect()->route('interviews.index')->with('success-delete','Berhasil Mengganti Semua Status Data');
         }else{
             return redirect()->back();
         }

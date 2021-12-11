@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\VideoExport;
 use App\Http\Controllers\Controller;
+use App\Models\Interview;
 use App\Models\Stage;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -36,20 +37,46 @@ class VideoController extends Controller
         $data = Video::findOrFail($id);
         $data->delete();
 
-        return back();
+        return back()->with('success-delete','Berhasil Menghapus Data');
     }
 
-    public function setStatus(Request $request, $id)
+    // public function setStatus(Request $request, $id)
+    // {
+    //     $request->validate([
+    //         'status' => 'required|in:lolos,tidak'
+    //     ]);
+
+    //     $item = Video::findOrFail($id);
+    //     $item->status = $request->status;
+    //     $item->save();
+
+    //     return redirect()->route('videos.index')->with('success-edit', 'Berhasil Mengganti Status Data');
+    // }
+
+    public function lolos($id)
     {
-        $request->validate([
-            'status' => 'required|in:lolos,tidak'
+        $data=Video::findOrFail($id);
+        $data->update(['status'=>'lolos']);
+        
+        Interview::create([
+            'user_id'=>$data->user_id,
+            'academy_year_id'=>$data->academy_year_id,
         ]);
 
-        $item = Video::findOrFail($id);
-        $item->status = $request->status;
-        $item->save();
+        return redirect()->route('videos.index')->with('success-edit','Berhasil Mengganti Status Data');
+    }
 
-        return redirect()->route('videos.index')->with('success-edit', 'Berhasil Mengganti Status Data');
+    public function tidaklolos($id)
+    {
+        $data=Video::findOrFail($id);
+        $data->update(['status'=>'tidak']);
+
+        $cek = Interview::where('user_id','=',$data->user_id)->get();
+        if (isset($cek)) {
+            Interview::where('user_id','=',$data->user_id)->delete();
+        }
+
+        return redirect()->route('videos.index')->with('success-edit','Berhasil Mengganti Status Data');
     }
 
     public function passAll(Request $request)
@@ -59,8 +86,7 @@ class VideoController extends Controller
             foreach ($ids as $id) {
                 Video::find($id)->update(['status'=>'lolos']);
             }
-
-            return redirect()->route('videos.index');
+            return redirect()->route('videos.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
             return redirect()->back();
         }
@@ -74,7 +100,7 @@ class VideoController extends Controller
                 Video::find($id)->update(['status'=>'tidak']);
             }
 
-            return redirect()->route('videos.index');
+            return redirect()->route('videos.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
             return redirect()->back();
         }
@@ -89,7 +115,7 @@ class VideoController extends Controller
                 Video::find($id)->delete();
             }
 
-            return redirect()->route('videos.index');
+            return redirect()->route('videos.index')->with('success-delete','Berhasil Menghapus Semua Data');
         }else{
             return redirect()->back();
         }

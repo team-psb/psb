@@ -118,7 +118,9 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
     
     Route::get('videos', [AdminVideoController::class, 'index'])->name('videos.index');
-    Route::get('videos/{id}/set-status', [AdminVideoController::class, 'setStatus'])->name('videos.status');
+    // Route::get('videos/{id}/set-status', [AdminVideoController::class, 'setStatus'])->name('videos.status');
+    Route::post('/videos/lolos/{id}',[AdminVideoController::class,'lolos'])->name('videos.lolos');
+    Route::post('/videos/tidak-lolos/{id}',[AdminVideoController::class,'tidaklolos'])->name('videos.tidak-lolos');
     Route::post('videos/delete/{id}', [AdminVideoController::class, 'delete'])->name('videos.delete');
     Route::post('videos/delete', [AdminVideoController::class, 'deleteAll'])->name('videos.deleteAll');
     Route::post('videos/pass/all', [AdminVideoController::class, 'passAll'])->name('videos.passAll');

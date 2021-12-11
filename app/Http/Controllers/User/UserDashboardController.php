@@ -38,7 +38,7 @@ class UserDashboardController extends Controller
 
     public function profile()
     {
-        $profile = BiodataOne::where('id', Auth::user()->id)->first();
+        $profile = BiodataOne::firstWhere('user_id', Auth::user()->id);
 
         return view('front.pages.profile.index', compact('profile'));
     }

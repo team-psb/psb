@@ -165,7 +165,7 @@ class TestPersonalController extends Controller
         $data->delete();
         activity()->log('Menghapus soal kepribadian id '.$id);
 
-        return back()->with('success-create', 'Berhasil Menghapus Data');
+        return back()->with('success-delete', 'Berhasil Menghapus Data');
     }
 
     public function deleteAll(Request $request)
@@ -189,7 +189,7 @@ class TestPersonalController extends Controller
         Excel::import(new QuestionPersonalImport,$request->file('file'));
         activity()->log('Mengimpor soal tes kepribadian');
 
-        return redirect()->route('personals.index')->with('success', 'Berhasil mengimport file excel');
+        return redirect()->route('personals.index')->with('success-create', 'Berhasil mengimport file excel');
     }
 
     public function downloadtemplate()

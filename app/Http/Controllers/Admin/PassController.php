@@ -36,7 +36,7 @@ class PassController extends Controller
         $data = Pass::findOrFail($id);
         $data->delete();
 
-        return back();
+        return back()->with('success-delete','Berhasil Menghapus Data');
     }
 
     public function deleteAll(Request $request)
@@ -48,7 +48,7 @@ class PassController extends Controller
                 Pass::find($id)->delete();
             }
 
-            return redirect()->route('passes.index');
+            return redirect()->route('passes.index')->with('success-delete','Berhasil Menghapus Semua Data');
         }else{
             return redirect()->back();
         }
