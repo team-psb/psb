@@ -84,6 +84,7 @@
                                 <tbody>
                                     @foreach ($passes as $pass)
                                     <tr class="
+                                        {{ $pass->status == null ? 'text-warning' : '' }}
                                         {{ $pass->status == 'lolos' ? 'text-success' : '' }}
                                         {{ $pass->status == 'tidak' ? 'text-danger' : '' }}
                                         fw-bold
@@ -96,10 +97,24 @@
                                             </div>
                                         </td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $pass->user->biodataOne->name }}</td>
+                                        <td>
+                                            <a 
+                                                href="#mymodal"
+                                                data-remote="{{ route('biodatas.show', $pass->user->biodataTwo->id) }}"
+                                                data-toggle="modal"
+                                                data-target="#mymodal"
+                                                data-title="Detail Data" 
+                                                class="badge text-decoration-none fw-bold
+                                                    {{ $pass->status == null ? 'text-warning badge-opacity-warning' : '' }}
+                                                    {{ $pass->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
+                                                    {{ $pass->status == 'tidak' ? 'text-danger badge-opacity-danger' : '' }}"
+                                            >
+                                                {{ $pass->user->biodataOne->name }}
+                                            </a>
+                                        </td>
                                         <td>{{ $pass->user->biodataOne->age }}</td>
-                                        <td>Sleman</td>
-                                        <td>Yoygakarta</td>
+                                        <td>{{ $pass->user->biodataTwo->city->name }}</td>
+                                        <td>{{ $pass->user->biodataTwo->provincy->name }}</td>
                                         <td>
                                             <div class="btn-wrapper">
                                                 <button formaction="{{ route('passes.delete', $pass->id) }}" class="btn ms-1 btn-danger btn-icon-text text-white p-2"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>

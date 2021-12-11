@@ -266,7 +266,7 @@
                                                         @if ($item->user->biodataTwo->status == 'lolos')
                                                             <div class="badge badge-opacity-success">lolos biodata</div>
                                                         @elseif ($item->user->biodataTwo->status == 'tidak')
-                                                            <div class="badge badge-opacity-primary">tidak lolos biodata</div>
+                                                            <div class="badge badge-opacity-danger">tidak lolos biodata</div>
                                                         @else()
                                                             <div class="badge badge-opacity-warning">
                                                                 belum di seleksi 
@@ -484,8 +484,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="text-muted text-small">
-                                                    <p class="fw-bold">Yogyakarta</p>
-                                                    <p>Sleman</p>
+                                                    <p class="fw-bold">{{ $calon->user->biodataTwo->provincy->name }}</p>
+                                                    <p>{{ $calon->user->biodataTwo->city->name }}</p>
                                                 </div>
                                             </div>
                                             @endforeach

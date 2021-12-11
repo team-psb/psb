@@ -92,6 +92,7 @@
                                     <tbody>
                                         @foreach ($interviews as $interview)
                                         <tr class="
+                                            {{ $interview->status == null ? 'text-warning' : '' }}
                                             {{ $interview->status == 'lolos' ? 'text-success' : '' }}
                                             {{ $interview->status == 'tidak' ? 'text-danger' : '' }}
                                             fw-bold
@@ -104,7 +105,21 @@
                                                 </div>
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $interview->user->biodataOne->name }}</td>
+                                            <td>
+                                                <a 
+                                                    href="#mymodal"
+                                                    data-remote="{{ route('biodatas.show', $interview->user->biodataTwo->id) }}"
+                                                    data-toggle="modal"
+                                                    data-target="#mymodal"
+                                                    data-title="Detail Data" 
+                                                    class="badge text-decoration-none fw-bold
+                                                        {{ $interview->status == null ? 'text-warning badge-opacity-warning' : '' }}
+                                                        {{ $interview->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
+                                                        {{ $interview->status == 'tidak' ? 'text-danger badge-opacity-danger' : '' }}"
+                                                >
+                                                    {{ $interview->user->biodataOne->name }}
+                                                </a>
+                                            </td>
                                             <td>
                                                 <div class="input-group">
                                                     {{-- <input value="{{ $interview->user->phone }}" id="copy" disabled type="text" class="form-control fw-bold">

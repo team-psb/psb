@@ -93,6 +93,7 @@
                                     <tbody>
                                         @foreach ($scores as $score)
                                         <tr class="
+                                            {{ $score->status == null ? 'text-warning' : '' }}
                                             {{ $score->status == 'lolos' ? 'text-success' : '' }}
                                             {{ $score->status == 'tidak' ? 'text-danger' : '' }}
                                             fw-bold
@@ -105,7 +106,21 @@
                                                 </div>
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $score->user->biodataOne->name }}</td>
+                                            <td>
+                                                <a 
+                                                    href="#mymodal"
+                                                    data-remote="{{ route('biodatas.show', $score->user->biodataTwo->id) }}"
+                                                    data-toggle="modal"
+                                                    data-target="#mymodal"
+                                                    data-title="Detail Data" 
+                                                    class="badge text-decoration-none fw-bold
+                                                        {{ $score->status == null ? 'text-warning badge-opacity-warning' : '' }}
+                                                        {{ $score->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
+                                                        {{ $score->status == 'tidak' ? 'text-danger badge-opacity-danger' : '' }}"
+                                                >
+                                                    {{ $score->user->biodataOne->name }}
+                                                </a>
+                                            </td>
                                             <td class="text-success"> {{ $score->score_question_iq }}</td>
                                             <td class="text-success"> {{ $score->score_question_personal }}</td>
                                             <td>

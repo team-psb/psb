@@ -102,6 +102,7 @@
                                     <tbody>
                                         @foreach ($biodatas as $biodata)
                                         <tr class="
+                                            {{ $biodata->status == null ? 'text-warning' : '' }}
                                             {{ $biodata->status == 'lolos' ? 'text-success' : '' }}
                                             {{ $biodata->status == 'tidak' ? 'text-danger' : '' }}
                                             fw-bold
@@ -114,7 +115,21 @@
                                                 </div>
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $biodata->user->biodataOne->name }}</td>
+                                            <td>
+                                                <a 
+                                                    href="#mymodal"
+                                                    data-remote="{{ route('biodatas.show', $biodata->user->biodataTwo->id) }}"
+                                                    data-toggle="modal"
+                                                    data-target="#mymodal"
+                                                    data-title="Detail Data" 
+                                                    class="badge text-decoration-none fw-bold
+                                                        {{ $biodata->status == null ? 'text-warning badge-opacity-warning' : '' }}
+                                                        {{ $biodata->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
+                                                        {{ $biodata->status == 'tidak' ? 'text-danger badge-opacity-danger' : '' }}"
+                                                >
+                                                    {{ $biodata->user->biodataOne->name }}
+                                                </a>
+                                            </td>
                                             <td>{{ $biodata->user->biodataOne->no_wa }}</td>
                                             <td>{{ $biodata->user->biodataOne->age }}</td>
                                             <td>{{ $biodata->last_education }}</td>

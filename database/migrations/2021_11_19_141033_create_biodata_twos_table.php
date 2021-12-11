@@ -18,8 +18,8 @@ class CreateBiodataTwosTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('stage_id');
             $table->foreignId('academy_year_id');
-            $table->foreignId('province_id');
-            $table->foreignId('regency_id');
+            $table->foreignId('indonesia_provinces_id');
+            $table->foreignId('indonesia_cities_id');
             $table->string('birth_place');
             $table->text('address');
             $table->string('facebook');

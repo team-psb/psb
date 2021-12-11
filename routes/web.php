@@ -140,6 +140,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
 
     Route::get('passes', [PassController::class, 'index'])->name('passes.index');
+    Route::get('passes/{id}', [PassController::class, 'show'])->name('passes.show');
     Route::post('passes/delete/{id}', [PassController::class, 'delete'])->name('passes.delete');
     Route::post('passes/delete', [PassController::class, 'deleteAll'])->name('passes.deleteAll');
     Route::get('passes/filter/reset', [PassController::class, 'filterreset'])->name('passes.filter-reset');

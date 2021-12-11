@@ -104,7 +104,21 @@
                                                 </div>
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $video->user->biodataOne->name }}</td>
+                                            <td>
+                                                <a 
+                                                    href="#mymodal"
+                                                    data-remote="{{ route('biodatas.show', $video->user->biodataTwo->id) }}"
+                                                    data-toggle="modal"
+                                                    data-target="#mymodal"
+                                                    data-title="Detail Data" 
+                                                    class="badge text-decoration-none fw-bold
+                                                        {{ $video->status == null ? 'text-warning badge-opacity-warning' : '' }}
+                                                        {{ $video->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
+                                                        {{ $video->status == 'tidak' ? 'text-danger badge-opacity-danger' : '' }}"
+                                                >
+                                                    {{ $video->user->biodataOne->name }}
+                                                </a>
+                                            </td>
                                             <td class="text-success"> <a href="{{ $video->url }}" target="_blank">{{ $video->url }}</a></td>
                                             <td>
                                                 <span class="badge badge-{{ $video->status == 'lolos' ? 'success':'' }}{{ $video->status == 'tidak' ? 'danger':'' }}">{{ $video->status }}</span>

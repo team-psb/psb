@@ -15,8 +15,8 @@ class BiodataTwo extends Model
         'user_id',
         'academy_year_id',
         'stage_id',
-        'province_id',
-        'regency_id',
+        'indonesia_cities_id',
+        'indonesia_provinces_id',
         'birth_place',
         'address',
         'facebook',
@@ -67,6 +67,16 @@ class BiodataTwo extends Model
     public function academy_year()
     {
         return $this->belongsTo(AcademyYear::class, 'academy_year_id', 'id');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(IndonesiaCity::class,'indonesia_cities_id','id');
+    }
+
+    public function provincy()
+    {
+        return $this->belongsTo(IndonesiaProvince::class,'indonesia_provinces_id','id');
     }
 
 }
