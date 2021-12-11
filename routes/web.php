@@ -21,6 +21,7 @@ use App\Http\Controllers\Exam\BiodataTwoController;
 use App\Http\Controllers\Exam\TesIqController;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\User\UserProfileController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,10 +81,10 @@ Route::group(['prefix' => ''], function () {
     Route::get('/register',[AuthController::class,'register'])->name('register');
     Route::post('/register-proses',[AuthController::class,'registerProses'])->name('register-proses');
     Route::post('/logout',[AuthController::class,'logout'])->name('logout');
-    // Route::get('/forget-password', [ForgotPasswordController::class, 'getEmail'])->name('password-getemail');
-    // Route::post('/forget-password',[ForgotPasswordController::class, 'postEmail'])->name('pasword-postemail');
-    // Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'getPassword'])->name('getPassword');
-    // Route::post('/reset-password', [ForgotPasswordController::class, 'updatePassword'])->name('update-password');
+    Route::get('/forget-password', [ForgotPasswordController::class, 'getWhatsapp'])->name('password-getwhatsapp');
+    Route::post('/forget-password',[ForgotPasswordController::class, 'postWhatsapp'])->name('pasword-postwhatsapp');
+    Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'getPassword'])->name('getPassword');
+    Route::post('/reset-password', [ForgotPasswordController::class, 'updatePassword'])->name('update-password');
 });
 
 

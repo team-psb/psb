@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->enum('role', ['admin', 'pendaftar']);
             $table->string('code_otp')->nullable();
             $table->timestamp('email_verified_at')->nullable();
+
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });

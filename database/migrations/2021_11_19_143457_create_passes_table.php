@@ -18,6 +18,8 @@ class CreatePassesTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('academy_year_id');
             $table->enum('status',['sudah-dikerjakan','lolos','tidak'])->nullable();
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

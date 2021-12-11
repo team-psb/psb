@@ -20,6 +20,8 @@ class CreateScoresTable extends Migration
             $table->integer('score_question_iq');
             $table->integer('score_question_personal');
             $table->enum('status',['sudah-dikerjakan','lolos','tidak'])->nullable();
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

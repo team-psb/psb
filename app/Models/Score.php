@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Score extends Model
 {
-    use HasFactory;
-    // use SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected   $fillable = [
         'user_id', 'academy_year_id', 'score_question_iq', 'score_question_personal', 'status' 

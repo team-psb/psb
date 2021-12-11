@@ -1,5 +1,5 @@
 @php
-    $tahun_ajaran= App\Models\AcademyYear::where('is_active', true)->first();
+    $tahun_ajaran=App\Models\AcademyYear::where('is_active', true)->first();
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +28,7 @@
           <div class="col-md-6 col-12 m-auto">
             <div class="login-brand">
             </div>
+
             <div class="card card-primary">
               <div class="card-header"><h4>Lupa Password</h4></div>
               @if (session('sukses-buat'))
@@ -39,12 +40,11 @@
                   <div class="alert alert-danger">
                     {{ session('gagal-kirim') }} <br>
                   </div>
-              @endif          
+              @endif               
               <div class="card-body">
-                <form method="POST" action="{{ route('update-password') }}" class="needs-validation" novalidate="">
+                <form method="POST" action="{{ route('pasword-postwhatsapp') }}" class="needs-validation" novalidate="">
                   @csrf
                   @method('POST')
-                  <input type="hidden" value="{{ $token }}" name="token">
                   <div class="form-group">
                     <label for="phone">No Whatsapp</label>
                     <input id="phone" value="{{ old('phone') }}" placeholder="contoh : +6285747245474" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" tabindex="1" required autofocus>
@@ -54,36 +54,12 @@
                         {{ $message }} 
                       </div>
                     @enderror
-                  </div>
 
-                  <div class="form-group">
-                    <div class="d-block">
-                    	<label for="password" class="control-label">Password</label>
-                    </div>
-                    <input id="password" value="{{ old('password') }}" type="password" class="form-control @error('password') is-invalid @enderror" name="password" tabindex="2" required>
-                    <div class="row d-flex ">
-                      <div class="col">
-                        <input
-                            class="form-check-input ml-1"
-                            type="checkbox"
-                            onclick="myFunction()"
-                        />
-                        <small class="ml-4">show password</small>
-                      </div>
-                    </div>
-                    
-                    <br>
-                    <small>silahkan isi dengan password baru anda, min 6 karakter max 20 karakter.</small>
-                    @error('password')
-                      <div class="invalid-feedback">
-                        {{ $message }} 
-                      </div>
-                    @enderror
                   </div>
 
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                      Reset password
+                      Kirim link reset Password 
                     </button>
                   </div>
                 </form>
@@ -92,6 +68,7 @@
 
             <div class="simple-footer">
               Copyright &copy; pondok Informatika {{ date('Y') }}
+              <a href="{{ route('getPassword', '8c80') }}">get password</a>
             </div>
           </div>
         </div>

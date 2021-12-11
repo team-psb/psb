@@ -60,6 +60,8 @@ class CreateBiodataTwosTable extends Migration
             $table->enum('have_laptop', ['iya', 'tidak']);
             $table->boolean('agree');
             $table->enum('status',['sudah-dikerjakan','lolos','tidak'])->nullable();
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

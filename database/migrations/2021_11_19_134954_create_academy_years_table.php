@@ -18,6 +18,8 @@ class CreateAcademyYearsTable extends Migration
             $table->string('year');
             $table->foreignId('stage_id');
             $table->boolean('is_active');
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

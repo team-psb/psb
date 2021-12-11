@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AcademyYear extends Model
 {
-    use HasFactory;
-    // use SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'academy_years';
 

@@ -320,11 +320,6 @@
                                 >
                                     Login Here
                                 </h1>
-                                @if (session('sukses-daftar'))
-                                    <div class="alert alert-success">
-                                        {{ session('sukses-daftar') }} <br>
-                                    </div>
-                                @endif
                                 <div class="card-text">
                                     <form action="{{ route('login-proses') }}" method="POST">
                                         @csrf
@@ -412,8 +407,6 @@
                                                 Sign In
                                             </button>
                                         </div>
-                                            <a href="{{ route('password-getwhatsapp') }}"><small class="tex-center">Lupa password ?</small></a>
-
                                     </form>
                                 </div>
                             </div>

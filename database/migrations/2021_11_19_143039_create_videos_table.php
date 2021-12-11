@@ -19,6 +19,8 @@ class CreateVideosTable extends Migration
             $table->foreignId('academy_year_id');
             $table->string('url');
             $table->enum('status',['sudah-dikerjakan','lolos','tidak'])->nullable();
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

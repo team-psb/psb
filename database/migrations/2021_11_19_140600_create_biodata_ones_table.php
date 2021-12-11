@@ -24,6 +24,8 @@ class CreateBiodataOnesTable extends Migration
             $table->date('birth_date');
             $table->string('no_wa')->unique();
             $table->enum('gender', ['l', 'p']);
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }
