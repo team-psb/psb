@@ -7,6 +7,7 @@ use App\Models\AcademyYear;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Stage;
 
 class VideoController extends Controller
 {
@@ -20,7 +21,10 @@ class VideoController extends Controller
     {
         $request->validate(['url' => 'required']);
         $tahun_ajaran=AcademyYear::where('is_active', '=', 1)->orderBy('created_at', 'desc')->pluck('id')->first();
-        $request->merge(['user_id'=>Auth::user()->id, 'academy_year_id'=>$tahun_ajaran]);
+        $stage_id = Stage::whereHas('academy_year', function($query){
+            $query->where('is_active', true);
+        })->orderBy('created_at', 'desc')->pluck('id')->first();
+        $request->merge(['user_id'=>Auth::user()->id, 'stage_id' => $stage_id,'academy_year_id'=>$tahun_ajaran]);
         Video::create($request->all());
 
         return redirect()->route('success');

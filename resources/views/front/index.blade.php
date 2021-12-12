@@ -139,7 +139,7 @@
               <h4>Pendaftar</h4>
             </div>
             <div class="card-body">
-              {{ Auth::user()->count(); }}
+              {{ $data->count() }}
             </div>
           </div>
         </div>

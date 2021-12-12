@@ -20,7 +20,7 @@ class VideoSeeder extends Seeder
 
         $faker=Factory::create();
         $user=User::all()->pluck('id');
-        $user_id=$user->toArray();
+        $user_id = $user->toArray();
 
         for ($i=1; $i <11; $i++) { 
             Video::create([

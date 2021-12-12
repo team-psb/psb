@@ -475,15 +475,15 @@
                                         </div>
                                         <div class="mt-3">
                                             @foreach ($lolos->take(5) as $calon)
-                                            <div class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
-                                                <div class="d-flex">
+                                            <div class="wrapper d-flex  justify-content-between py-2 border-bottom">
+                                                <div class="d-flex  align-items-center">
                                                     <img class="img-sm rounded-10" src="{{ Avatar::create($calon->user->biodataOne->name)->toGravatar(['d' => 'wavatar', 'r' => 'pg', 's' => 100])}}" alt="profile">
                                                     <div class="wrapper ms-3">
-                                                    <p class="ms-1 mb-1 fw-bold">{{ $calon->user->biodataOne->name }}</p>
-                                                    <small class="text-muted mb-0">{{ $calon->user->biodataOne->age }} Tahun</small>
+                                                        <p class="mb-1 fw-bold">{{ $calon->user->biodataOne->name }}</p>
+                                                        <small class="text-muted mb-0">{{ $calon->user->biodataOne->age }} Tahun</small>
                                                     </div>
                                                 </div>
-                                                <div class="text-muted text-small">
+                                                <div class="text-muted" style="text-align: right">
                                                     <p class="fw-bold">{{ $calon->user->biodataTwo->provincy->name }}</p>
                                                     <p>{{ $calon->user->biodataTwo->city->name }}</p>
                                                 </div>

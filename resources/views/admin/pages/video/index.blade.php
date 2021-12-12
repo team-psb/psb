@@ -107,7 +107,7 @@
                                             <td>
                                                 <a 
                                                     href="#mymodal"
-                                                    data-remote="{{ route('biodatas.show', $video->user->biodataTwo->id) }}"
+                                                    data-remote="{{ route('biodatas.show', $video->id) }}"
                                                     data-toggle="modal"
                                                     data-target="#mymodal"
                                                     data-title="Detail Data" 
@@ -116,6 +116,9 @@
                                                         {{ $video->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
                                                         {{ $video->status == 'tidak' ? 'text-danger badge-opacity-danger' : '' }}"
                                                 >
+                                                    @if ($video->user->biodataOne->family == 'sangat-mampu')
+                                                        <i class="ti-star text-warning"></i>
+                                                    @endif
                                                     {{ $video->user->biodataOne->name }}
                                                 </a>
                                             </td>
@@ -124,7 +127,7 @@
                                                 <span class="badge badge-{{ $video->status == 'lolos' ? 'success':'' }}{{ $video->status == 'tidak' ? 'danger':'' }}">{{ $video->status }}</span>
                                             </td>
                                             <td>
-                                                <div class="btn-wrapper">
+                                                <div class="d-flex justify-content-end">
                                                     {{-- @if ($video->status == null)
                                                         <a href="{{ route('videos.status', $video->id) }}?status=lolos"
                                                             class="btn btn-success btn-icon-text p-2">

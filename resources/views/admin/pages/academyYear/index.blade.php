@@ -111,7 +111,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <div class="d-flex">
+                                                <div class="d-flex justify-content-end">
                                                     <a href="{{ route('academies.status', $academy->id) }}?is_active=1"
                                                         class="btn btn-success btn-icon-text p-2">
                                                             <i class="icon-check btn-icon-prepend"></i> Aktif

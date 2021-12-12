@@ -12,7 +12,7 @@ class Video extends Model
     // use SoftDeletes;
 
     protected   $fillable = [
-        'user_id', 'academy_year_id', 'url', 'status'
+        'user_id', 'stage_id', 'academy_year_id', 'url', 'status'
     ];
 
     public function user()
