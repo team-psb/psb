@@ -11,8 +11,8 @@
             @foreach ($lolos as $item)
                 <tr>
                     <td>{{ $item->user->biodataOne->name }}</td>
-                    {{-- <td>{{ $item->user->biodataTwo->kabupaten->name }}</td>
-                    <td>{{ $item->user->biodataTwo->provinsi->name }}</td> --}}
+                    <td>{{ $item->user->biodataTwo->city->name }}</td>
+                    <td>{{ $item->user->biodataTwo->provincy->name }}</td>
                 </tr>
             @endforeach
         </tbody>

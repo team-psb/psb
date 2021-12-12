@@ -45,11 +45,11 @@
                 </tr>
                 <tr>
                     <td>Kabupaten</td>
-                    {{-- <td>{{ $biodata->kabupaten->name }}</td> --}}
+                    <td>{{ $biodata->city->name }}</td>
                 </tr>
                 <tr>
                     <td>Provinsi</td>
-                    {{-- <td>{{ $biodata->provinsi->name }}</td> --}}
+                    <td>{{ $biodata->provincy->name }}</td>
                 </tr>
                 <tr>
                     <td>Alamat Lengkap</td>
@@ -137,7 +137,7 @@
                 </tr>
                 <tr>
                     <td>Penghasilan Ortu</td>
-                    <td>Rp.{{ $biodata->parent_income }}</td>
+                    <td>Rp. {{ number_format($biodata->parent_income) }}</td>
                 </tr>
                 <tr>
                     <td>Jumlah Saudara</td>

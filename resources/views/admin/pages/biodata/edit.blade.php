@@ -309,12 +309,12 @@
                                       </label>
                                   </div>
                                   <div class="form-check me-2">
-                                    <label class="form-check-label" for="tidak_mampu">
+                                    <label class="form-check-label" for="tidak-mampu">
                                       <input
                                           class="form-check-input"
                                           type="radio"
                                           name="family"
-                                          id="tidak_mampu"
+                                          id="tidak-mampu"
                                           value="tidak-mampu"
                                           required
                                           {{ $biodata->user->biodataOne->family = 'tidak-mampu' ? 'checked' : '' }}
