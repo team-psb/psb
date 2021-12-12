@@ -22,7 +22,6 @@ class UserDashboardController extends Controller
         }]);
 
         // $registrans = $data->where('academy', '!=', null)->count();
-
         $gelombang = AcademyYear::where('is_active', 1)->pluck('stage_id');
 
         $biodata1 = BiodataOne::where('user_id', '=', Auth::user()->id)->first(); 

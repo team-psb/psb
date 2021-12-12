@@ -28,14 +28,10 @@ class BiodataTwoController extends Controller
         $tahun_ajaran_id = AcademyYear::where('is_active', '1')->pluck('id')->first();
         $stage_id = AcademyYear::where('stage_id', '4')->pluck('id')->first();
         
-        if (BiodataOne::where('user_id', $users_id)->where('family', 'sangat-mampu')) {
+        if (Auth::user()->BiodataOne->family == 'sangat-mampu') {
             $request->merge(['user_id' => $users_id, 'academy_year_id' => $tahun_ajaran_id, 'stage_id' => $stage_id, 'status' => 'lolos']);
-        }else{
-            $request->merge(['user_id' => $users_id, 'academy_year_id' => $tahun_ajaran_id, 'stage_id' => $stage_id]);
-        }
-        BiodataTwo::create($request->all());
+            BiodataTwo::create($request->all());
 
-        if (BiodataOne::where('user_id', $users_id)->where('family', 'sangat-mampu')) {
             Score::create([
                 'user_id' => $users_id,
                 'academy_year_id' => $tahun_ajaran_id,
@@ -54,6 +50,9 @@ class BiodataTwoController extends Controller
                 'academy_year_id' => $tahun_ajaran_id,
                 'status' => null
             ]);
+        }else{
+            $request->merge(['user_id' => $users_id, 'academy_year_id' => $tahun_ajaran_id, 'stage_id' => $stage_id]);
+            BiodataTwo::create($request->all());
         }
 
         return redirect()->route('success');
