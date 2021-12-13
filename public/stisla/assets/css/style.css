@@ -1319,11 +1319,11 @@ h6 .badge {
   background-color: #3bda9f;
   border-color: #3bda9f; }
   .btn-primary:focus, .btn-primary.disabled:focus {
-    background-color: #394eea !important; }
+    background-color: #188038 !important; }
     .btn-primary:focus:active, .btn-primary.disabled:focus:active {
-      background-color: #394eea !important; }
+      background-color: #188038 !important; }
   .btn-primary:active, .btn-primary:hover, .btn-primary.disabled:active, .btn-primary.disabled:hover {
-    background-color: #394eea !important; }
+    background-color: #188038 !important; }
 
 .btn-outline-primary, .btn-outline-primary.disabled {
   border-color: #6777ef;
@@ -1963,7 +1963,7 @@ body {
 
 a.bb {
   text-decoration: none;
-  border-bottom: 1px solid #3bda9f;
+  border-bottom: 1px solid #6777ef;
   padding-bottom: 1px; }
 
 .form-divider {
@@ -2626,7 +2626,7 @@ body.layout-2 .main-sidebar {
     body.layout-2 .main-sidebar .sidebar-menu li a.has-dropdown:after {
       right: 0; }
     body.layout-2 .main-sidebar .sidebar-menu li a:hover {
-      color: #3bda9f;
+      color: #6777ef;
       background-color: transparent; }
   body.layout-2 .main-sidebar .sidebar-menu li ul.dropdown-menu li a {
     padding-left: 34px; }

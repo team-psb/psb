@@ -99,7 +99,8 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+    {{-- Dekstop --}}
+      <div class="col-lg-4 col-md-6 col-12 d-none d-sm-block">
         <div class="card card-statistic-1">
           <div class="card-icon bg-danger">
             <i class="far fa-newspaper"></i>
@@ -114,7 +115,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-sm-block">
         <div class="card card-statistic-1">
           <div class="card-icon bg-warning">
             <i class="fas fa-question-circle"></i>
@@ -129,7 +130,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-sm-block">
         <div class="card card-statistic-1">
           <div class="card-icon bg-primary">
             <i class="fas fa-user"></i>
@@ -143,6 +144,38 @@
             </div>
           </div>
         </div>
+      </div>
+
+      {{-- Mobile --}}
+      <div class="col-lg-4 col-md-6 col-sm-6 d-xl-none d-md-none d-lg-block">
+        <a href="{{ route('user-profile') }}">
+          <div class="card card-statistic-1 d-flex flex-row align-items-center">
+            <div class="card-icon bg-primary">
+              <i class="fas fa-user"></i>
+            </div>
+            <p href="" class="h1 text-primary font-weight-bold"><u>Profile</u></p>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6 d-xl-none d-md-none d-lg-block">
+        <a href="{{ route('user-qna') }}">
+          <div class="card card-statistic-1 d-flex flex-row align-items-center">
+            <div class="card-icon bg-success">
+              <i class="fas fa-question-circle"></i>
+            </div>
+            <p href="" class="h1 text-success font-weight-bold"><u>Q & A</u></p>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6 d-xl-none d-md-none d-lg-block">
+        <a href="{{ route('user-informasi') }}">
+          <div class="card card-statistic-1 d-flex flex-row align-items-center">
+            <div class="card-icon bg-warning">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <p href="" class="h1 text-warning font-weight-bold"><u>Informasi</u></p>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -190,7 +223,7 @@
                           </div>
                         @else
                           <div class="badge badge-info">
-                            Sudah Mengikuti Tes
+                            Menunggu hasil tes
                           </div>
                         @endif
                       </td>
@@ -222,15 +255,17 @@
                           </div>
                         @else
                           <div class="badge badge-info">
-                            Sudah Mengikuti Tes
+                            Menunggu hasil tes
                           </div>
                         @endif
                       </td>
                       <td class="align-middle">
-                        @if (empty($tahap1))
+                        @if (empty($tahap1));
                           <span></span>
                         @elseif ($tahap1->status == 'lolos' && empty($tahap2))
                           <a href="{{ route('user-second-tes') }}" class="btn btn-primary">Ikuti Tes</a>
+                        @elseif ($tahap1->status == null && empty($tahap2))
+                          <span></span>
                         @else
                           <span class="badge badge-primary">Selesai tes</span>
                         @endif
@@ -256,7 +291,7 @@
                           </div>
                         @else
                           <div class="badge badge-info">
-                            Sudah Mengikuti Tes
+                            Menunggu hasil tes
                           </div>
                         @endif
                       </td>
@@ -265,6 +300,8 @@
                           <span></span>
                         @elseif ($tahap2->status == 'lolos' && empty($tahap4))
                           <a href="{{ route('user-fourth-tes') }}" class="btn btn-primary">Ikuti Tes</a>
+                        @elseif ($tahap2->status == null && empty($tahap4))
+                          <span></span>
                         @else
                           <span class="badge badge-primary">Selesai tes</span>
                         @endif
@@ -290,7 +327,7 @@
                           </div>
                         @else
                           <div class="badge badge-info">
-                            Sudah Mengikuti Tes
+                            Menunggu hasil tes
                           </div>
                         @endif
                       </td>
@@ -299,8 +336,10 @@
                           <span></span>
                         @elseif ($tahap4->status == 'lolos' && empty($tahap5))
                           <a href="{{ route('user-fifth-tes') }}" class="btn btn-primary">Ikuti Tes</a>
+                        @elseif ($tahap4->status == null  && empty($tahap5))
+                          <span></span>
                         @else
-                          <span class="badge badge-success">Selesai tes</span>
+                          <span class="badge badge-primary">Selesai tes</span>
                         @endif
                       </td>
                     </tr>
