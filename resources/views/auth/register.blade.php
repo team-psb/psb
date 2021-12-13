@@ -1,5 +1,5 @@
 @php
-    $academy_year = \App\Models\AcademyYear::where('is_active','=','1')->first();
+    $tahun_ajaran = \App\Models\AcademyYear::where('is_active','=','1')->first();
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -207,7 +207,7 @@
         <!-- End Header -->
 
         <!-- ======= Home Section ======= -->
-        <section id="home" class="d-flex">
+        <section id="home" class="d-flex mb-5">
             <div class="container" data-aos="zoom-out" data-aos-delay="100">
                 <div class="row">
                     {{-- <div class="col-md-6 col-sm-12 mb-5 mb-lg-0 mb-md-0">
@@ -295,8 +295,8 @@
                                 {{-- float-md-end --}}
                                 overflow-hidden
                                 mx-auto
+                                w-100 w-lg-50
                             "
-                            style="width: 600px"
                             data-aos="zoom-in"
                         >
                             <div>
@@ -321,444 +321,364 @@
                                         mb-5
                                     "
                                 >
-                                    Login Here
+                                    Register Here
                                 </h1>
                                 <div class="card-text">
                                     <form action="{{ route('register-proses') }}" method="POST">
-                                            @csrf
-                                            @method('POST')
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="name"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Nama
-                                                            Pengguna</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                            "
-                                                            id="name"
-                                                            name="name"
-                                                            placeholder="Masukkan Nama Pengguna"
-                                                        />
-                                                    </div>
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="full_name"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Nama Lengkap</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                            "
-                                                            id="full_name"
-                                                            name="full_name"
-                                                            placeholder="Masukkan Nama Lengkap"
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="address"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Alamat
-                                                            Lengkap</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                            "
-                                                            id="address"
-                                                            name="address"
-                                                            placeholder="Masukkan Alamat Lengkap"
-                                                        />
-                                                    </div>
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="no_wa"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >No Whatsapp</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                            "
-                                                            maxlength="13"
-                                                            style="
-                                                                font-size: 15px;
-                                                            "
-                                                            id="no_wa"
-                                                            name="no_wa"
-                                                            placeholder="Masukkan No Whatsapp"
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="email"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Email</label
-                                                        >
-                                                        <input
-                                                            type="email"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                            "
-                                                            id="email"
-                                                            name="email"
-                                                            placeholder="Masukkan Email"
-                                                        />
-                                                    </div>
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="family"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Keluarga</label
-                                                        >
-                                                        <select
-                                                            class="
-                                                                form-select
-                                                                form-select-lg
-                                                                rounded-pill
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                                color: #145560;
-                                                            "
-                                                            aria-label="family"
-                                                            id="family"
-                                                            name="family"
-                                                        >
-                                                            <option selected>
-                                                                -- Keluarga --
-                                                            </option>
-                                                            <option
-                                                                value="sangat-mampu"
-                                                            >
-                                                                Sangat Mampu
-                                                            </option>
-                                                            <option
-                                                                value="mampu"
-                                                            >
-                                                                Mampu
-                                                            </option>
-                                                            <option
-                                                                value="tidak-mampu"
-                                                            >
-                                                                Tidak Mampu
-                                                            </option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="place_birth"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Tempat Lahir</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                            "
-                                                            id="place_birth"
-                                                            name="place_birth"
-                                                            placeholder="Masukkan Tempat Lahir"
-                                                        />
-                                                    </div>
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="birth_date"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Tanggal
-                                                            Lahir</label
-                                                        >
-                                                        <input
-                                                            type="date"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                                color: #145560;
-                                                            "
-                                                            id="birth_date"
-                                                            name="age"
-                                                            placeholder="01 Desember 2001"
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="password"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Password</label
-                                                        >
-                                                        <input
-                                                            type="password"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                            "
-                                                            id="password"
-                                                            name="password"
-                                                            placeholder="Masukkan Password"
-                                                        />
-                                                        <div
-                                                            class="
-                                                                d-flex
-                                                                justify-content-between
-                                                            "
-                                                        >
-                                                            <div
-                                                                class="
-                                                                    d-flex
-                                                                    align-items-center
-                                                                    px-2
-                                                                    pt-1
-                                                                "
-                                                                style="
-                                                                    font-size: 12px;
-                                                                    color: #efefef;
-                                                                "
-                                                            >
-                                                                <input
-                                                                    type="checkbox"
-                                                                    onclick="showFunction()"
-                                                                    class="form-check-input"
-                                                                />&nbsp; Show
-                                                                Password
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="confirm_password"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Konfirmasi
-                                                            Password</label
-                                                        >
-                                                        <input
-                                                            type="password"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                                color: #145560;
-                                                            "
-                                                            id="confirm_password"
-                                                            name="password_confirmation"
-                                                            placeholder="Masukkan Ulang Password"
-                                                        />
-                                                        <div
-                                                            class="
-                                                                d-flex
-                                                                justify-content-between
-                                                            "
-                                                        >
-                                                            <div
-                                                                class="
-                                                                    d-flex
-                                                                    align-items-center
-                                                                    px-2
-                                                                    pt-1
-                                                                "
-                                                                style="
-                                                                    font-size: 12px;
-                                                                    color: #efefef;
-                                                                "
-                                                            >
-                                                                <input
-                                                                    type="checkbox"
-                                                                    onclick="seeFunction()"
-                                                                    class="form-check-input"
-                                                                />&nbsp; Show
-                                                                Password
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="gender" 
+                                        @csrf
+                                        @method('POST')
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div
                                                     class="
-                                                    form-label
-                                                    text-white
-                                                    "
-                                                    >Jenis Kelamin, Wanita Belum Diterima <b>*</b></label
-                                                    >
-                                                    <div class="form-check">
-                                                    <input
-                                                        class="form-check-input"
-                                                        type="checkbox"
-                                                        name="gender"
-                                                        id="gender"
-                                                        value="l"
-                                                        required
-                                                        
-                                                    />
-                                                    <label class="form-check-label text-white" for="gender">
-                                                        Laki-Laki
-                                                    </label>
-                                                    <div class="invalid-feedback">
-                                                        jenis kelamin harus di isi
-                                                    </div>
-                                                    </div>
-                                                </div>
-
-                                                <br />
-                                                <button
-                                                    class="
-                                                        btn
-                                                        sign-in
-                                                        rounded-pill
-                                                        text-uppercase
-                                                        px-4
-                                                        py-2
-                                                        col-12
+                                                        mb-4
+                                                        col-lg-6 col-sm-12
                                                     "
                                                 >
-                                                    Daftar
-                                                </button>
+                                                    <label
+                                                        for="name"
+                                                        class="
+                                                            form-label
+                                                            text-white
+                                                            px-3
+                                                        "
+                                                        >Nama
+                                                        Pengguna</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="
+                                                            form-control
+                                                            form-control-lg
+                                                            rounded-pill
+                                                        "
+                                                        style="
+                                                            font-size: 15px;
+                                                        "
+                                                        id="name"
+                                                        name="name"
+                                                        placeholder="Masukkan Nama Pengguna"
+                                                    />
+                                                </div>
+                                                <div
+                                                    class="
+                                                        mb-4
+                                                        col-lg-6 col-sm-12
+                                                    "
+                                                >
+                                                    <label
+                                                        for="full_name"
+                                                        class="
+                                                            form-label
+                                                            text-white
+                                                            px-3
+                                                        "
+                                                        >Nama Lengkap</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="
+                                                            form-control
+                                                            form-control-lg
+                                                            rounded-pill
+                                                        "
+                                                        style="
+                                                            font-size: 15px;
+                                                        "
+                                                        id="full_name"
+                                                        name="full_name"
+                                                        placeholder="Masukkan Nama Lengkap"
+                                                    />
+                                                </div>
                                             </div>
-                                        </form>
+                                            <div class="row">
+                                                <div
+                                                    class="
+                                                        mb-4
+                                                        col-lg-6 col-sm-12
+                                                    "
+                                                >
+                                                    <label
+                                                        for="birth_date"
+                                                        class="
+                                                            form-label
+                                                            text-white
+                                                            px-3
+                                                        "
+                                                        >Tanggal
+                                                        Lahir</label
+                                                    >
+                                                    <input
+                                                        type="date"
+                                                        class="
+                                                            form-control
+                                                            form-control-lg
+                                                            rounded-pill
+                                                        "
+                                                        style="
+                                                            font-size: 15px;
+                                                            color: #145560;
+                                                        "
+                                                        id="birth_date"
+                                                        name="age"
+                                                        placeholder="01 Desember 2001"
+                                                    />
+                                                </div>
+                                                <div
+                                                    class="
+                                                        mb-4
+                                                        col-lg-6 col-sm-12
+                                                    "
+                                                >
+                                                    <label
+                                                        for="family"
+                                                        class="
+                                                            form-label
+                                                            text-white
+                                                            px-3
+                                                        "
+                                                        >Keluarga</label
+                                                    >
+                                                    <select
+                                                        class="
+                                                            form-select
+                                                            form-select-lg
+                                                            rounded-pill
+                                                        "
+                                                        style="
+                                                            font-size: 15px;
+                                                            color: #145560;
+                                                        "
+                                                        aria-label="family"
+                                                        id="family"
+                                                        name="family"
+                                                    >
+                                                        <option selected>
+                                                            -- Keluarga --
+                                                        </option>
+                                                        <option
+                                                            value="sangat-mampu"
+                                                        >
+                                                            Sangat Mampu
+                                                        </option>
+                                                        <option
+                                                            value="mampu"
+                                                        >
+                                                            Mampu
+                                                        </option>
+                                                        <option
+                                                            value="tidak-mampu"
+                                                        >
+                                                            Tidak Mampu
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div
+                                                    class="
+                                                        mb-4
+                                                        col-lg-12 col-sm-12
+                                                    "
+                                                >
+                                                    <label
+                                                        for="no_wa"
+                                                        class="
+                                                            form-label
+                                                            text-white
+                                                            px-3
+                                                        "
+                                                        >No Whatsapp</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="
+                                                            form-control
+                                                            form-control-lg
+                                                            rounded-pill
+                                                        "
+                                                        maxlength="13"
+                                                        style="
+                                                            font-size: 15px;
+                                                        "
+                                                        id="no_wa"
+                                                        name="no_wa"
+                                                        placeholder="Masukkan No Whatsapp"
+                                                    />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div
+                                                    class="
+                                                        mb-4
+                                                        col-lg-6 col-sm-12
+                                                    "
+                                                >
+                                                    <label
+                                                        for="password"
+                                                        class="
+                                                            form-label
+                                                            text-white
+                                                            px-3
+                                                        "
+                                                        >Password</label
+                                                    >
+                                                    <input
+                                                        type="password"
+                                                        class="
+                                                            form-control
+                                                            form-control-lg
+                                                            rounded-pill
+                                                        "
+                                                        style="
+                                                            font-size: 15px;
+                                                        "
+                                                        id="password"
+                                                        name="password"
+                                                        placeholder="Masukkan Password"
+                                                    />
+                                                    <div
+                                                        class="
+                                                            d-flex
+                                                            justify-content-between
+                                                        "
+                                                    >
+                                                        <div
+                                                            class="
+                                                                d-flex
+                                                                align-items-center
+                                                                px-2
+                                                                pt-1
+                                                            "
+                                                            style="
+                                                                font-size: 12px;
+                                                                color: #efefef;
+                                                            "
+                                                        >
+                                                            <input
+                                                                type="checkbox"
+                                                                onclick="showFunction()"
+                                                                class="form-check-input"
+                                                            />&nbsp; Show
+                                                            Password
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="
+                                                        mb-4
+                                                        col-lg-6 col-sm-12
+                                                    "
+                                                >
+                                                    <label
+                                                        for="confirm_password"
+                                                        class="
+                                                            form-label
+                                                            text-white
+                                                            px-3
+                                                        "
+                                                        >Konfirmasi
+                                                        Password</label
+                                                    >
+                                                    <input
+                                                        type="password"
+                                                        class="
+                                                            form-control
+                                                            form-control-lg
+                                                            rounded-pill
+                                                        "
+                                                        style="
+                                                            font-size: 15px;
+                                                            color: #145560;
+                                                        "
+                                                        id="confirm_password"
+                                                        name="password_confirmation"
+                                                        placeholder="Masukkan Ulang Password"
+                                                    />
+                                                    <div
+                                                        class="
+                                                            d-flex
+                                                            justify-content-between
+                                                        "
+                                                    >
+                                                        <div
+                                                            class="
+                                                                d-flex
+                                                                align-items-center
+                                                                px-2
+                                                                pt-1
+                                                            "
+                                                            style="
+                                                                font-size: 12px;
+                                                                color: #efefef;
+                                                            "
+                                                        >
+                                                            <input
+                                                                type="checkbox"
+                                                                onclick="seeFunction()"
+                                                                class="form-check-input"
+                                                            />&nbsp; Show
+                                                            Password
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="gender" 
+                                                class="
+                                                form-label
+                                                text-white
+                                                "
+                                                >Jenis Kelamin, Wanita Belum Diterima <b>*</b></label
+                                                >
+                                                <div class="form-check">
+                                                <input
+                                                    class="form-check-input"
+                                                    type="checkbox"
+                                                    name="gender"
+                                                    id="gender"
+                                                    value="l"
+                                                    required
+                                                    
+                                                />
+                                                <label class="form-check-label text-white" for="gender">
+                                                    Laki-Laki
+                                                </label>
+                                                <div class="invalid-feedback">
+                                                    jenis kelamin harus di isi
+                                                </div>
+                                                </div>
+                                            </div>
+
+                                            <br />
+                                            @if (is_null($tahun_ajaran))
+                                            <button 
+                                            type="submit" 
+                                            class="btn
+                                            sign-in
+                                            rounded-pill
+                                            text-uppercase
+                                            px-4
+                                            py-2
+                                            col-12" disabled tabindex="4">
+                                                Pendaftaran belum di buka
+                                            </button>
+                                            @else
+                                            <button 
+                                            type="submit" 
+                                            class="btn
+                                            sign-in
+                                            rounded-pill
+                                            text-uppercase
+                                            px-4
+                                            py-2
+                                            col-12" tabindex="4">
+                                                Daftar
+                                            </button>
+                                            @endif
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

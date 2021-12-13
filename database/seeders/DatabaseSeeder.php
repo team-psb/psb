@@ -20,16 +20,16 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AcademyYearSeeder::class,
             UserSeeder::class,
-            VideoSeeder::class,
+            // VideoSeeder::class,
             StageSeeder::class,
             SchduleSeeder::class,
             BiodataOneSeeder::class,
-            BiodataTwoSeeder::class,
-            PassSeeder::class,
+            // BiodataTwoSeeder::class,
+            // PassSeeder::class,
             QnaSeeder::class,
             QuestionIqSeeder::class,
             QuestionPersonalSeeder::class,
-            ScoreSeeder::class,
+            // ScoreSeeder::class,
             ProvincesSeeder::class,
             CitiesSeeder::class
         ]);

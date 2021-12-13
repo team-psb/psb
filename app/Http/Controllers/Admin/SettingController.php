@@ -25,4 +25,20 @@ class SettingController extends Controller
             'personals' => $personals,
         ]);
     }
+
+    public function stageStore(Request $request)
+    {
+        $data = $request->all();
+
+        Stage::create($data);
+
+        return back();
+    }
+
+    public function stageDelete($id)        
+    {
+        $data = Stage::findOrFail($id);
+        $data->delete();
+        return back();
+    }
 }

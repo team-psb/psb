@@ -32,14 +32,39 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <h5>Gelombang Aktif <span class="badge badge-success">{{ $stages->count() }}</span></h5>
+                                    <h5>Gelombang Aktif 
+                                        <span class="badge badge-success">{{ $stages->count() }}</span>
+                                        {{-- <a href="#mymodal"
+                                            data-remote="{{ route('settings.stage-store') }}"
+                                            data-toggle="modal"
+                                            data-target="#mymodal"
+                                            data-title="Buat Gelombang Baru" 
+                                            class="btn ms-1 btn-primary  btn-icon-text p-2"
+                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                            <i class="icon-plus btn-icon-prepend"></i>
+                                        </a> --}}
+                                        <a href="" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i class="icon-plus"></i>
+                                        </a>
+                                    </h5>
                                     <div class="form-group">
-                                        @foreach ($stages as $stages)
-                                            <div class="form-check form-check-success">
-                                                <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input" checked>
-                                                    {{ $stages->name }}
-                                                </label>
+                                        @foreach ($stages as $stage)
+                                            <div class="form-check form-check-success d-flex align-items-center justify-content-between border-bottom">
+                                                <div class="">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input" checked>
+                                                        {{ $stage->name }}
+                                                    </label>
+                                                </div>
+                                                <div class="">
+                                                    <form action="" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button formaction="{{ route('settings.stage-delete', $stage->id) }}" class="btn btn-danger p-1 ms-2">
+                                                            <i class="icon-trash btn-icon-prepend"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         @endforeach
                                     </div>
@@ -67,6 +92,33 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Buat Tahun Ajaran</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('settings.stage-store') }}" method="POST">
+                    @csrf
+                    @method('POST')
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Nama Gelombang</label>
+                            <div class="input-group">
+                                <input type="text" name="name" class="form-control" placeholder="contoh : gel-1">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-icon icon-left"> <i class="fas fa-save"></i> Kirimkan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
 @endsection
 
 @push('after-script')

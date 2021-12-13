@@ -33,15 +33,18 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('landingpage_2.BizLand.index');
-})->name('home');
 Route::get('/masuk', function () {
     return view('auth.login');
 })->name('login');
 Route::get('/daftar', function () {
     return view('auth.register');
 })->name('register');
+
+Route::group(['prefix' => '', 'middleware' => ['guest']], function () {
+    Route::get('/', function () {
+        return view('landingpage_2.BizLand.index');
+    })->name('home');
+});
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){
     Route::get('home', [UserDashboardController::class, 'index'])->name('user-dashboard');
@@ -181,4 +184,6 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
 
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
+    Route::post('/settings/stage', [SettingController::class, 'stageStore'])->name('settings.stage-store');
+    Route::delete('/settings/stage/{id}', [SettingController::class, 'stageDelete'])->name('settings.stage-delete');
 });

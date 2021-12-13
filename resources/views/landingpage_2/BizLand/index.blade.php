@@ -1,3 +1,11 @@
+@php
+    $tahun_ajaran = App\Models\AcademyYear::where('is_active', true)->first();
+    $gelombang = App\Models\Stage::whereHas('academy_year', function($query){
+        $query->where('is_active', true);
+    })->orderBy('created_at', 'desc')->pluck('name')->first();
+    $informations = App\Models\Schdule::orderBy('created_at', 'desc')->limit(6)->get();
+    $qnas = App\Models\Qna::get();
+@endphp
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,7 +17,7 @@
             content="HTML, CSS, JavaScript, PHP, Pendaftaran"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Pondok Informatika Al Madinah</title>
+        <title>Pondok Informatika Almadinah</title>
 
         <!-- Favicons -->
         <link href="assets/Logo-Pondok.png" rel="icon" />
@@ -186,13 +194,13 @@
                             >
                         </li>
                         <li>
-                            <a class="nav-link scrollto" href="#qna" id="link5"
-                                >Q&A</a
+                            <a class="nav-link scrollto" href="#info" id="link6"
+                                >Informasi</a
                             >
                         </li>
                         <li>
-                            <a class="nav-link scrollto" href="#info" id="link6"
-                                >Informasi</a
+                            <a class="nav-link scrollto" href="#qna" id="link5"
+                                >Q&A</a
                             >
                         </li>
                     </ul>
@@ -545,7 +553,7 @@
                                             text-center text-white
                                         "
                                     >
-                                        Formulir Peserta
+                                        Formulir Peserta {{ $gelombang }}
                                     </h1>
                                     <h6
                                         class="
@@ -634,17 +642,17 @@
                                                         "
                                                     >
                                                         <label
-                                                            for="address"
+                                                            for="birth_date"
                                                             class="
                                                                 form-label
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >Alamat
-                                                            Lengkap</label
+                                                            >Tanggal
+                                                            Lahir</label
                                                         >
                                                         <input
-                                                            type="text"
+                                                            type="date"
                                                             class="
                                                                 form-control
                                                                 form-control-lg
@@ -652,73 +660,11 @@
                                                             "
                                                             style="
                                                                 font-size: 15px;
+                                                                color: #145560;
                                                             "
-                                                            id="address"
-                                                            name="address"
-                                                            placeholder="Masukkan Alamat Lengkap"
-                                                        />
-                                                    </div>
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="no_wa"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >No Whatsapp</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                            "
-                                                            maxlength="13"
-                                                            style="
-                                                                font-size: 15px;
-                                                            "
-                                                            id="no_wa"
-                                                            name="no_wa"
-                                                            placeholder="Masukkan No Whatsapp"
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="email"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Email</label
-                                                        >
-                                                        <input
-                                                            type="email"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                            "
-                                                            id="email"
-                                                            name="email"
-                                                            placeholder="Masukkan Email"
+                                                            id="birth_date"
+                                                            name="age"
+                                                            placeholder="01 Desember 2001"
                                                         />
                                                     </div>
                                                     <div
@@ -775,17 +721,17 @@
                                                     <div
                                                         class="
                                                             mb-4
-                                                            col-lg-6 col-sm-12
+                                                            col-lg-12 col-sm-12
                                                         "
                                                     >
                                                         <label
-                                                            for="place_birth"
+                                                            for="no_wa"
                                                             class="
                                                                 form-label
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >Tempat Lahir</label
+                                                            >No Whatsapp</label
                                                         >
                                                         <input
                                                             type="text"
@@ -794,47 +740,17 @@
                                                                 form-control-lg
                                                                 rounded-pill
                                                             "
+                                                            maxlength="13"
                                                             style="
                                                                 font-size: 15px;
                                                             "
-                                                            id="place_birth"
-                                                            name="place_birth"
-                                                            placeholder="Masukkan Tempat Lahir"
-                                                        />
-                                                    </div>
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="birth_date"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Tanggal
-                                                            Lahir</label
-                                                        >
-                                                        <input
-                                                            type="date"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                                color: #145560;
-                                                            "
-                                                            id="birth_date"
-                                                            name="age"
-                                                            placeholder="01 Desember 2001"
+                                                            id="no_wa"
+                                                            name="no_wa"
+                                                            placeholder="Masukkan No Whatsapp"
                                                         />
                                                     </div>
                                                 </div>
+                                                
                                                 <div class="row">
                                                     <div
                                                         class="
@@ -979,19 +895,31 @@
                                                 </div>
 
                                                 <br />
-                                                <button
-                                                    class="
-                                                        btn
-                                                        sign-in
-                                                        rounded-pill
-                                                        text-uppercase
-                                                        px-4
-                                                        py-2
-                                                        col-12
-                                                    "
-                                                >
+                                                @if (is_null($tahun_ajaran))
+                                                <button 
+                                                type="submit" 
+                                                class="btn
+                                                sign-in
+                                                rounded-pill
+                                                text-uppercase
+                                                px-4
+                                                py-2
+                                                col-12" disabled tabindex="4">
+                                                    Pendaftaran belum di buka
+                                                </button>
+                                                @else
+                                                <button 
+                                                type="submit" 
+                                                class="btn
+                                                sign-in
+                                                rounded-pill
+                                                text-uppercase
+                                                px-4
+                                                py-2
+                                                col-12" tabindex="4">
                                                     Daftar
                                                 </button>
+                                                @endif
                                             </div>
                                         </form>
                                     </div>
@@ -1162,8 +1090,8 @@
             </section>
             <!-- End Regis Section -->
 
-            <!-- ======= Counts Section ======= -->
-            <section id="stat" class="counts">
+            <!-- ======= Statistic Section ======= -->
+            <section id="stat" class="stat">
                 <div
                     class="container"
                     data-aos="fade-up"
@@ -1241,9 +1169,9 @@
                     </div>
                 </div>
             </section>
-            <!-- End Counts Section -->
+            <!-- End Statistic Section -->
 
-            <!-- ======= Featured Services Section ======= -->
+            <!-- ======= Announce Section ======= -->
             <section id="announce" class="announce">
                 <div class="container" data-aos="fade-up">
                     <!-- Background Image -->
@@ -1270,21 +1198,21 @@
                                 </h3>
 
                                 <div class="description mb-5">
-                                    <span class="dot1 dot"></span>
+                                    <span class="dot"></span>
                                     <h4 class="desc1">Pengumuman</h5>
                                     <p class="desc">
-                                        Pengumuman akan di umumkan pada tanggal 23 November 2022.
+                                        Pengumuman akan di umumkan pada tanggal <b>23 November 2022</b>.
                                     </p>
                                 </div>
                                 <div class="description mb-5">
-                                    <span class="dot2 dot"></span>
+                                    <span class="dot"></span>
                                     <h4 class="desc1">Penting</h5>
                                     <p class="desc">
                                         Mengecek ulang formulir pendaftran secara menyeluruh.
                                     </p>
                                 </div>
                                 <div class="description mb-5">
-                                    <span class="dot3 dot"></span>
+                                    <span class="dot"></span>
                                     <h4 class="desc1">Test</h5>
                                     <p class="desc">
                                         Mengikuti semua tes yang ada dengan Teliti dan Tertib.
@@ -1303,24 +1231,24 @@
                                 </h3>
 
                                 <div class="description mb-4 mt-1">
-                                    <span class="dots dots4 d-flex align-items-center justify-content-center">1.</span>
+                                    <span class="dots d-flex align-items-center justify-content-center">1.</span>
                                     <p class="desc2">
                                         Calon santri mengisi formulir pendaftaran di website <a href="https://pondokinformatika.com/" class="text-white text-decoration-underline">pondokinformatika.com</a>. 
                                     </p>
                                 </div>
                                 <div class="description mb-4">
-                                    <span class="dots dot5 d-flex align-items-center justify-content-center">2.</span>
+                                    <span class="dots d-flex align-items-center justify-content-center">2.</span>
                                     <p class="desc2">
                                         Lengkapi formulir pendaftaran dengan data diri yang benar dan isi dengan teliti.
                                     </p>
                                 </div>
                                 <div class="description mb-4">
-                                    <span class="dots dot6 d-flex align-items-center justify-content-center">3.</span>
+                                    <span class="dots d-flex align-items-center justify-content-center">3.</span>
                                     <p class="desc2">Jika telah selesai mengisi formulir pendaftaran, cek kembali data yang sudah dimasukkan, apabila sudah benar tekan tombol <b>Daftar</b>.
                                     </p>
                                 </div>
                                 <div class="description mb-5 mb-xl-4">
-                                    <span class="dots dot7 d-flex align-items-center justify-content-center">4.</span>
+                                    <span class="dots d-flex align-items-center justify-content-center">4.</span>
                                     <p class="desc2">Selanjutnya silahkan login dengan akun anda menggunakan nomor handphone dan password yang anda isikan di dalam fomulir pendaftaran.
                                     </p>
                                 </div>
@@ -1329,161 +1257,49 @@
                     </div>
                 </div>
             </section>
-            <!-- End Featured Services Section -->
+            <!-- ======= End Announce Section ======= -->
 
-            <!-- ======= Services Section ======= -->
-            <section id="services" class="services">
+            <!-- ======= Information Section ======= -->
+            <section id="info" class="services">
                 <div class="container" data-aos="fade-up">
-                    <div class="section-title">
-                        <h2>Services</h2>
-                        <h3>Check our <span>Services</span></h3>
-                        <p>
-                            Ut possimus qui ut temporibus culpa velit eveniet
-                            modi omnis est adipisci expedita at voluptas atque
-                            vitae autem.
-                        </p>
+                    <div class="section-title mb-3">
+                        <h1>Information</h1>
                     </div>
 
                     <div class="row">
+                        @forelse ($informations as $informasi)
                         <div
-                            class="col-lg-4 col-md-6 d-flex align-items-stretch"
-                            data-aos="zoom-in"
-                            data-aos-delay="100"
-                        >
+                                class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4"
+                                data-aos="zoom-in"
+                                data-aos-delay="100"
+                            >
                             <div class="icon-box">
                                 <div class="icon">
-                                    <i class="bx bxl-dribbble"></i>
+                                    <img src="{{ asset('/storage/'.$informasi->image) }}" alt="" style="width: 200px">
+                                    {{-- <i class="bx bxl-dribbble"></i> --}}
                                 </div>
-                                <h4><a href="">Lorem Ipsum</a></h4>
+                                <h4><a href="">{{ $informasi->title }} </a></h4>
                                 <p>
-                                    Voluptatum deleniti atque corrupti quos
-                                    dolores et quas molestias excepturi
+                                    {{ Str::limit($informasi->content, 200, '...') }}
                                 </p>
                             </div>
                         </div>
-
-                        <div
-                            class="
-                                col-lg-4 col-md-6
-                                d-flex
-                                align-items-stretch
-                                mt-4 mt-md-0
-                            "
-                            data-aos="zoom-in"
-                            data-aos-delay="200"
-                        >
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <i class="bx bx-file"></i>
-                                </div>
-                                <h4><a href="">Sed ut perspiciatis</a></h4>
-                                <p>
-                                    Duis aute irure dolor in reprehenderit in
-                                    voluptate velit esse cillum dolore
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="
-                                col-lg-4 col-md-6
-                                d-flex
-                                align-items-stretch
-                                mt-4 mt-lg-0
-                            "
-                            data-aos="zoom-in"
-                            data-aos-delay="300"
-                        >
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <i class="bx bx-tachometer"></i>
-                                </div>
-                                <h4><a href="">Magni Dolores</a></h4>
-                                <p>
-                                    Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="
-                                col-lg-4 col-md-6
-                                d-flex
-                                align-items-stretch
-                                mt-4
-                            "
-                            data-aos="zoom-in"
-                            data-aos-delay="100"
-                        >
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <i class="bx bx-world"></i>
-                                </div>
-                                <h4><a href="">Nemo Enim</a></h4>
-                                <p>
-                                    At vero eos et accusamus et iusto odio
-                                    dignissimos ducimus qui blanditiis
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="
-                                col-lg-4 col-md-6
-                                d-flex
-                                align-items-stretch
-                                mt-4
-                            "
-                            data-aos="zoom-in"
-                            data-aos-delay="200"
-                        >
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <i class="bx bx-slideshow"></i>
-                                </div>
-                                <h4><a href="">Dele cardo</a></h4>
-                                <p>
-                                    Quis consequatur saepe eligendi voluptatem
-                                    consequatur dolor consequuntur
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="
-                                col-lg-4 col-md-6
-                                d-flex
-                                align-items-stretch
-                                mt-4
-                            "
-                            data-aos="zoom-in"
-                            data-aos-delay="300"
-                        >
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <i class="bx bx-arch"></i>
-                                </div>
-                                <h4><a href="">Divera don</a></h4>
-                                <p>
-                                    Modi nostrum vel laborum. Porro fugit error
-                                    sit minus sapiente sit aspernatur
-                                </p>
-                            </div>
-                        </div>
+                        @empty
+                            
+                        @endforelse
                     </div>
                 </div>
             </section>
-            <!-- End Services Section -->
+            <!-- End Information Section -->
 
             <!-- ======= Testimonials Section ======= -->
-            <section id="info" class="testimonials">
+            <!-- <section id="testimonials" class="testimonials">
                 <div class="container" data-aos="zoom-in">
                     <div
                         class="testimonials-slider swiper"
                         data-aos="fade-up"
                         data-aos-delay="100"
-                    >
+                        >
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
@@ -1492,7 +1308,7 @@
                                         class="testimonial-img"
                                         alt=""
                                     />
-                                    <h3>Saul Goodman</h3>
+                                    <h3>Abu Bakar As-Shiddiq</h3>
                                     <h4>Ceo &amp; Founder</h4>
                                     <p>
                                         <i
@@ -1502,11 +1318,7 @@
                                                 quote-icon-left
                                             "
                                         ></i>
-                                        Proin iaculis purus consequat sem cure
-                                        digni ssim donec porttitora entum
-                                        suscipit rhoncus. Accusantium quam,
-                                        ultricies eget id, aliquam eget nibh et.
-                                        Maecen aliquam, risus at semper.
+                                        Siapa yang menjauhkan diri dari sifat suka mengeluh maka berarti ia mengundang kebahagiaan.
                                         <i
                                             class="
                                                 bx
@@ -1517,7 +1329,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- End testimonial item -->
 
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
@@ -1551,7 +1362,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- End testimonial item -->
 
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
@@ -1585,7 +1395,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- End testimonial item -->
 
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
@@ -1620,7 +1429,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- End testimonial item -->
 
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
@@ -1655,12 +1463,11 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- End testimonial item -->
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- End Testimonials Section -->
 
             <!-- ======= Portfolio Section ======= -->
@@ -1942,7 +1749,7 @@
             <!-- End Portfolio Section -->
 
             <!-- ======= Team Section ======= -->
-            <section id="team" class="team section-bg">
+            <!-- <section id="team" class="team section-bg">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
                         <h2>Team</h2>
@@ -2092,11 +1899,11 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- End Team Section -->
 
             <!-- ======= Pricing Section ======= -->
-            <section id="pricing" class="pricing">
+            <!-- <section id="pricing" class="pricing">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
                         <h2>Pricing</h2>
@@ -2195,33 +2002,33 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- End Pricing Section -->
 
             <!-- ======= Frequently Asked Questions Section ======= -->
-            <section id="faq" class="faq section-bg">
+            <section id="qna" class="qna section-bg">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
-                        <h2>F.A.Q</h2>
-                        <h3>Frequently Asked <span>Questions</span></h3>
-                        <p>
+                        <h2 class="mb-3">Q.&.A</h2>
+                        <h1 class="fw-bold mb-3">Questions and Answers</h1>
+                        <!-- <p>
                             Ut possimus qui ut temporibus culpa velit eveniet
                             modi omnis est adipisci expedita at voluptas atque
                             vitae autem.
-                        </p>
+                        </p> -->
                     </div>
 
                     <div class="row justify-content-center">
                         <div class="col-xl-10">
-                            <ul class="faq-list">
+                            <ul class="qna-list">
+                                @forelse ($qnas as $qna)
                                 <li>
                                     <div
                                         data-bs-toggle="collapse"
                                         class="collapsed question"
-                                        href="#faq1"
+                                        href="#qna{{ $qna->id }}"
                                     >
-                                        Non consectetur a erat nam at lectus
-                                        urna duis?
+                                        {{ $qna->question }}
                                         <i
                                             class="bi bi-chevron-down icon-show"
                                         ></i
@@ -2230,194 +2037,18 @@
                                         ></i>
                                     </div>
                                     <div
-                                        id="faq1"
+                                        id="qna{{ $qna->id }}"
                                         class="collapse"
-                                        data-bs-parent=".faq-list"
+                                        data-bs-parent=".qna-list"
                                     >
                                         <p>
-                                            Feugiat pretium nibh ipsum
-                                            consequat. Tempus iaculis urna id
-                                            volutpat lacus laoreet non curabitur
-                                            gravida. Venenatis lectus magna
-                                            fringilla urna porttitor rhoncus
-                                            dolor purus non.
+                                        {{ $qna->answer }}
                                         </p>
                                     </div>
                                 </li>
-
-                                <li>
-                                    <div
-                                        data-bs-toggle="collapse"
-                                        href="#faq2"
-                                        class="collapsed question"
-                                    >
-                                        Feugiat scelerisque varius morbi enim
-                                        nunc faucibus a pellentesque?
-                                        <i
-                                            class="bi bi-chevron-down icon-show"
-                                        ></i
-                                        ><i
-                                            class="bi bi-chevron-up icon-close"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        id="faq2"
-                                        class="collapse"
-                                        data-bs-parent=".faq-list"
-                                    >
-                                        <p>
-                                            Dolor sit amet consectetur
-                                            adipiscing elit pellentesque
-                                            habitant morbi. Id interdum velit
-                                            laoreet id donec ultrices. Fringilla
-                                            phasellus faucibus scelerisque
-                                            eleifend donec pretium. Est
-                                            pellentesque elit ullamcorper
-                                            dignissim. Mauris ultrices eros in
-                                            cursus turpis massa tincidunt dui.
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div
-                                        data-bs-toggle="collapse"
-                                        href="#faq3"
-                                        class="collapsed question"
-                                    >
-                                        Dolor sit amet consectetur adipiscing
-                                        elit pellentesque habitant morbi?
-                                        <i
-                                            class="bi bi-chevron-down icon-show"
-                                        ></i
-                                        ><i
-                                            class="bi bi-chevron-up icon-close"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        id="faq3"
-                                        class="collapse"
-                                        data-bs-parent=".faq-list"
-                                    >
-                                        <p>
-                                            Eleifend mi in nulla posuere
-                                            sollicitudin aliquam ultrices
-                                            sagittis orci. Faucibus pulvinar
-                                            elementum integer enim. Sem nulla
-                                            pharetra diam sit amet nisl
-                                            suscipit. Rutrum tellus pellentesque
-                                            eu tincidunt. Lectus urna duis
-                                            convallis convallis tellus. Urna
-                                            molestie at elementum eu facilisis
-                                            sed odio morbi quis
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div
-                                        data-bs-toggle="collapse"
-                                        href="#faq4"
-                                        class="collapsed question"
-                                    >
-                                        Ac odio tempor orci dapibus. Aliquam
-                                        eleifend mi in nulla?
-                                        <i
-                                            class="bi bi-chevron-down icon-show"
-                                        ></i
-                                        ><i
-                                            class="bi bi-chevron-up icon-close"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        id="faq4"
-                                        class="collapse"
-                                        data-bs-parent=".faq-list"
-                                    >
-                                        <p>
-                                            Dolor sit amet consectetur
-                                            adipiscing elit pellentesque
-                                            habitant morbi. Id interdum velit
-                                            laoreet id donec ultrices. Fringilla
-                                            phasellus faucibus scelerisque
-                                            eleifend donec pretium. Est
-                                            pellentesque elit ullamcorper
-                                            dignissim. Mauris ultrices eros in
-                                            cursus turpis massa tincidunt dui.
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div
-                                        data-bs-toggle="collapse"
-                                        href="#faq5"
-                                        class="collapsed question"
-                                    >
-                                        Tempus quam pellentesque nec nam aliquam
-                                        sem et tortor consequat?
-                                        <i
-                                            class="bi bi-chevron-down icon-show"
-                                        ></i
-                                        ><i
-                                            class="bi bi-chevron-up icon-close"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        id="faq5"
-                                        class="collapse"
-                                        data-bs-parent=".faq-list"
-                                    >
-                                        <p>
-                                            Molestie a iaculis at erat
-                                            pellentesque adipiscing commodo.
-                                            Dignissim suspendisse in est ante
-                                            in. Nunc vel risus commodo viverra
-                                            maecenas accumsan. Sit amet nisl
-                                            suscipit adipiscing bibendum est.
-                                            Purus gravida quis blandit turpis
-                                            cursus in
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div
-                                        data-bs-toggle="collapse"
-                                        href="#faq6"
-                                        class="collapsed question"
-                                    >
-                                        Tortor vitae purus faucibus ornare.
-                                        Varius vel pharetra vel turpis nunc eget
-                                        lorem dolor?
-                                        <i
-                                            class="bi bi-chevron-down icon-show"
-                                        ></i
-                                        ><i
-                                            class="bi bi-chevron-up icon-close"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        id="faq6"
-                                        class="collapse"
-                                        data-bs-parent=".faq-list"
-                                    >
-                                        <p>
-                                            Laoreet sit amet cursus sit amet
-                                            dictum sit amet justo. Mauris vitae
-                                            ultricies leo integer malesuada nunc
-                                            vel. Tincidunt eget nullam non nisi
-                                            est sit amet. Turpis nunc eget lorem
-                                            dolor sed. Ut venenatis tellus in
-                                            metus vulputate eu scelerisque.
-                                            Pellentesque diam volutpat commodo
-                                            sed egestas egestas fringilla
-                                            phasellus faucibus. Nibh tellus
-                                            molestie nunc non blandit massa enim
-                                            nec.
-                                        </p>
-                                    </div>
-                                </li>
+                                @empty
+                                    <p>belum ada pertanyaan</p>
+                                @endforelse
                             </ul>
                         </div>
                     </div>
@@ -2426,114 +2057,53 @@
             <!-- End Frequently Asked Questions Section -->
 
             <!-- ======= Contact Section ======= -->
-            <section id="contact" class="contact mb-5">
+            <section id="contact" class="contact">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
-                        <h2>Contact</h2>
-                        <h3><span>Contact Us</span></h3>
-                        <p>
+                        <!-- <h2>Contact</h2> -->
+                        <h1 class="fw-bold contact-title"><span>About Us</span></h1>
+                        <!-- <p>
                             Ut possimus qui ut temporibus culpa velit eveniet
                             modi omnis est adipisci expedita at voluptas atque
                             vitae autem.
-                        </p>
+                        </p> -->
                     </div>
 
                     <div class="row" data-aos="fade-up" data-aos-delay="100">
                         <div class="col-lg-6">
                             <div class="info-box mb-4">
                                 <i class="bx bx-map"></i>
-                                <h3>Our Address</h3>
-                                <p>A108 Adam Street, New York, NY 535022</p>
+                                <h3>Alamat</h3>
+                                <p>Jl. Raya Krapyak, RT.05, Karanganyar, Wedomartani, Ngemplak, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55584</p>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-6">
                             <div class="info-box mb-4">
                                 <i class="bx bx-envelope"></i>
-                                <h3>Email Us</h3>
-                                <p>contact@example.com</p>
+                                <h3>Email</h3>
+                                <p>pondokitalmadinah@gmail.com</p>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-6">
                             <div class="info-box mb-4">
                                 <i class="bx bx-phone-call"></i>
-                                <h3>Call Us</h3>
-                                <p>+1 5589 55488 55</p>
+                                <h3>Kontak</h3>
+                                <p>085 725 249 265</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row" data-aos="fade-up" data-aos-delay="100">
-                        <div class="col-lg-6">
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <div class="col-lg-12">
                             <iframe
                                 class="mb-4 mb-lg-0"
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1662.272102301785!2d110.42290172593329!3d-7.729023614407029!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd648398dc4db70c6!2sPondok%20Informatika%20Al-Madinah%20-%20Pondok%20IT!5e0!3m2!1sen!2sus!4v1638843146450!5m2!1sen!2sus"
                                 frameborder="0"
                                 style="border: 0; width: 100%; height: 384px"
                                 allowfullscreen
                             ></iframe>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <form
-                                action="forms/contact.php"
-                                method="post"
-                                role="form"
-                                class="php-email-form"
-                            >
-                                <div class="row">
-                                    <div class="col form-group">
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            class="form-control"
-                                            id="name"
-                                            placeholder="Your Name"
-                                            required
-                                        />
-                                    </div>
-                                    <div class="col form-group">
-                                        <input
-                                            type="email"
-                                            class="form-control"
-                                            name="email"
-                                            id="email"
-                                            placeholder="Your Email"
-                                            required
-                                        />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        name="subject"
-                                        id="subject"
-                                        placeholder="Subject"
-                                        required
-                                    />
-                                </div>
-                                <div class="form-group">
-                                    <textarea
-                                        class="form-control"
-                                        name="message"
-                                        rows="5"
-                                        placeholder="Message"
-                                        required
-                                    ></textarea>
-                                </div>
-                                <div class="my-3">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">
-                                        Your message has been sent. Thank you!
-                                    </div>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit">Send Message</button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -2543,7 +2113,7 @@
         <!-- End #main -->
 
         <!-- ======= Clients Section ======= -->
-            <section id="qna" class="clients section-bg">
+            <section class="clients section-bg">
                 <div class="container" data-aos="zoom-in">
                     <div class="row">
                         <div
@@ -2556,8 +2126,8 @@
                         >
                             <img
                                 src="assets/img/clients/client-1.png"
-                                class="img-fluid"
-                                alt=""
+                                class="img-fluid "
+                                alt="logo-mahirtechno"
                             />
                         </div>
 
@@ -2572,7 +2142,7 @@
                             <img
                                 src="assets/img/clients/client-2.png"
                                 class="img-fluid"
-                                alt=""
+                                alt="logo-ywj"
                             />
                         </div>
                     </div>
@@ -2583,40 +2153,39 @@
         <!-- ======= Footer ======= -->
         <footer id="footer">
             <div class="footer-top">
-                <div class="container overflow-hidden">
+                <div class="overflow-hidden content-footer">
                     <img
                         src="./assets/footer.png"
                         alt="logo"
-                        class="position-absolute mx-auto d-block"
+                        class="position-absolute d-none d-md-block"
                         width="2300"
-                        style="z-index: -1; top: 50%; left: 60%; transform: translate(-50%, -50%);"
+                        style="z-index: -1; top: 30%; left: 60%; transform: translate(-50%, -50%);"
                     />
-                    <div class="row align-items-center mt-5">
-                        <div class="col-12 col-lg-4 footer-contact mx-auto">
-                            <h3 class="text-uppercase">Pondok Informatika Al-Madinah<span>.</span></h3>
-                            <p>
-                                
-                            </p>
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-5 footer-contact mx-auto text-center">
+                            <h4 class="text-uppercase mb-5">Pondok Informatika Al-Madinah</h4>
+                            <a
+                                href="https://pondokinformatika.com/"
+                                class="text-decoration-none btn-footer"
+                            >
+                                <button class="btn rounded-pill px-3 py-2 text-white text-uppercase" style="background: #3adb9f;">Info lebih lanjut</button>
+                            </a>
                         </div>
-                        <div class="col-12 col-lg-4 footer-contact text-center">
+                        <div class="col-12 col-lg-2 footer-contact text-center my-5 my-lg-0">
                             <img src="./assets/logo-putih.png" alt="Logo Pondok" width="150">
                         </div>
-                        <div class="col-12 col-lg-4 footer-contact">
-                            <p>
-                                A108 Adam Street <br />
-                                New York, NY 535022<br />
-                                United States
+                        <div class="col-12 col-lg-5 footer-contact">
+                            <p class="fs-6 px-0 px-lg-5">
+                                Pondok Informatika Al-Madinah membuka penerimaan santri baru yang siap menjadi ahli IT yang bertauhid lurus, mencintai sunnah, berakhlak mulia serta profesional dan siap membela islam dengan keahlian dan mau mendedikasikan waktu dan tenaganya untuk dakwah islam. 
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
-        <div class="container d-flex justify-content-center bg-danger">
-            <div class="copyright text-center align-middle" style="height: 100px;">
-                &copy; 2021 Copyright <strong><span>Pondok Informatika Al-Madinah</span></strong
-                >.
-            </div>
+        <div class="copyright text-center">
+            &copy; 2021 Copyright <strong><span>Pondok Informatika Al-Madinah</span></strong
+            >.
         </div>
         <!-- End Footer -->
 
