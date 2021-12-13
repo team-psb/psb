@@ -11,7 +11,7 @@ class Score extends Model
     use HasFactory, SoftDeletes;
 
     protected   $fillable = [
-        'user_id', 'academy_year_id', 'score_question_iq', 'score_question_personal', 'status' 
+        'user_id', 'stage_id', 'academy_year_id', 'score_question_iq', 'score_question_personal', 'status' 
     ];
 
     public function user()

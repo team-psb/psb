@@ -11,7 +11,7 @@ class Pass extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'user_id', 'academy_year_id', 'status'
+        'user_id', 'stage_id', 'academy_year_id', 'status'
     ];
 
     public function user()

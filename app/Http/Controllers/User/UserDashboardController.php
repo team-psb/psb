@@ -18,10 +18,10 @@ class UserDashboardController extends Controller
 {
     public function index(){
         $data = BiodataOne::with(['academy_year' => function($query){
-            $query->where('year', date('Y'));
+            $query->where('is_active', true);
         }]);
 
-        // $registrans = $data->where('academy', '!=', null)->count();
+        // $registrans = $data->where('year', date('Y'))->where('academy', '!=', null)->count();
         $gelombang = AcademyYear::where('is_active', 1)->pluck('stage_id');
 
         $biodata1 = BiodataOne::where('user_id', '=', Auth::user()->id)->first(); 
@@ -32,7 +32,7 @@ class UserDashboardController extends Controller
         $schdules = Schdule::orderBy('created_at', 'desc')->get();
         $qna    = Qna::first();
         
-        return view('front.index', compact('biodata1', 'tahap1', 'tahap2', 'tahap4', 'tahap5', 'schdules', 'qna'));
+        return view('front.index', compact('biodata1', 'tahap1', 'tahap2', 'tahap4', 'tahap5', 'schdules', 'qna', 'data'));
     }
 
     public function profile()

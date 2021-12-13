@@ -109,7 +109,7 @@
                                             <td>
                                                 <a 
                                                     href="#mymodal"
-                                                    data-remote="{{ route('biodatas.show', $score->user->biodataTwo->id) }}"
+                                                    data-remote="{{ route('biodatas.show', $score->id) }}"
                                                     data-toggle="modal"
                                                     data-target="#mymodal"
                                                     data-title="Detail Data" 
@@ -118,6 +118,9 @@
                                                         {{ $score->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
                                                         {{ $score->status == 'tidak' ? 'text-danger badge-opacity-danger' : '' }}"
                                                 >
+                                                    @if ($score->user->biodataOne->family == 'sangat-mampu')
+                                                        <i class="ti-star text-warning"></i>
+                                                    @endif
                                                     {{ $score->user->biodataOne->name }}
                                                 </a>
                                             </td>
@@ -127,7 +130,7 @@
                                                 <span class="badge badge-{{ $score->status == 'lolos' ? 'success':'' }}{{ $score->status == 'tidak' ? 'danger':'' }}">{{ $score->status }}</span>
                                             </td>
                                             <td>
-                                                <div class="btn-wrapper">
+                                                <div class="d-flex justify-content-end">
                                                     @if ($score->status == null)
                                                         <a href="{{ route('scores.status', $score->id) }}?status=lolos"
                                                             class="btn btn-success btn-icon-text p-2">

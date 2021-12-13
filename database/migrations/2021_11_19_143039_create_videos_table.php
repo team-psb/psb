@@ -16,6 +16,7 @@ class CreateVideosTable extends Migration
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->foreignId('stage_id');
             $table->foreignId('academy_year_id');
             $table->string('url');
             $table->enum('status',['sudah-dikerjakan','lolos','tidak'])->nullable();

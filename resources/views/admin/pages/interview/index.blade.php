@@ -108,7 +108,7 @@
                                             <td>
                                                 <a 
                                                     href="#mymodal"
-                                                    data-remote="{{ route('biodatas.show', $interview->user->biodataTwo->id) }}"
+                                                    data-remote="{{ route('biodatas.show', $interview->id) }}"
                                                     data-toggle="modal"
                                                     data-target="#mymodal"
                                                     data-title="Detail Data" 
@@ -117,6 +117,9 @@
                                                         {{ $interview->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
                                                         {{ $interview->status == 'tidak' ? 'text-danger badge-opacity-danger' : '' }}"
                                                 >
+                                                    @if ($interview->user->biodataOne->family == 'sangat-mampu')
+                                                        <i class="ti-star text-warning"></i>
+                                                    @endif
                                                     {{ $interview->user->biodataOne->name }}
                                                 </a>
                                             </td>
@@ -137,7 +140,7 @@
                                                 <span class="badge badge-{{ $interview->status == 'lolos' ? 'success':'' }}{{ $interview->status == 'tidak' ? 'danger':'' }}">{{ $interview->status }}</span>
                                             </td>
                                             <td>
-                                                <div class="btn-wrapper">
+                                                <div class="d-flex justify-content-end">
                                                     @if ($interview->status == null)
                                                         <a href="{{ route('interviews.status', $interview->id) }}?status=lolos"
                                                             class="btn btn-success btn-icon-text p-2">

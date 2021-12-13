@@ -100,7 +100,7 @@
                                         <td>
                                             <a 
                                                 href="#mymodal"
-                                                data-remote="{{ route('biodatas.show', $pass->user->biodataTwo->id) }}"
+                                                data-remote="{{ route('biodatas.show', $pass->id) }}"
                                                 data-toggle="modal"
                                                 data-target="#mymodal"
                                                 data-title="Detail Data" 
@@ -109,6 +109,9 @@
                                                     {{ $pass->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
                                                     {{ $pass->status == 'tidak' ? 'text-danger badge-opacity-danger' : '' }}"
                                             >
+                                                @if ($pass->user->biodataOne->family == 'sangat-mampu')
+                                                    <i class="ti-star text-warning"></i>
+                                                @endif
                                                 {{ $pass->user->biodataOne->name }}
                                             </a>
                                         </td>

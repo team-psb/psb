@@ -13,7 +13,7 @@ class Interview extends Model
     protected $table = 'passes';
 
     protected $fillable = [
-        'user_id', 'academy_year_id', 'is_active'
+        'user_id', 'stage_id', 'academy_year_id', 'is_active'
     ];
 
     public function user()
