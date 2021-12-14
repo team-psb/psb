@@ -180,8 +180,7 @@
     </div>
 
     <div class="section-body">
-      <h1 class="text-dark mt-5 mb-0 poppins">TES</h1>
-      <div class="informasi mb-4 col-12 col-lg-1"></div>
+      <h1 class="text-muted px-0 mt-5 mb-3 poppins pb-2 col-lg-2 col-md-4 col-8 rounded informasi">Tes Anda</h1>
       <div class="row">
         <div class="col-12">
           <div class="card">
@@ -353,8 +352,7 @@
       </div>
     </div>
 
-    <h1 class="text-dark mt-5 mb-0 poppins">INFORMASI</h1>
-    <div class="informasi mb-4 col-12 col-lg-2"></div>
+    <h1 class="text-muted px-0 mt-5 mb-3 poppins pb-2 col-lg-2 col-md-4 col-8 rounded informasi">Informasi</h1>
     <div class="row">
       @forelse ($schdules->take(3) as $schdule)
       <div class="col-12 col-sm-6 col-lg-4">
