@@ -1274,7 +1274,7 @@
                                 <div class="description mb-4 mt-1">
                                     <span class="dots d-flex align-items-center justify-content-center">1.</span>
                                     <p class="desc2">
-                                        Calon santri mengisi formulir pendaftaran di website <a href="https://pondokinformatika.com/" class="text-white text-decoration-underline">pondokinformatika.com</a>. 
+                                        Calon santri mengisi formulir pendaftaran di website <a href="https://pondokinformatika.com/" class="text-white text-decoration-underline">pondokinformatika.com</a>.
                                     </p>
                                 </div>
                                 <div class="description mb-4">
@@ -1314,7 +1314,7 @@
                             data-aos-delay="100"
                         >
                             <div class="icon-box">
-                                <a href="#">
+                                <a href="portfolio-details.html">
                                     <div class="icon">
                                         <img src="https://pondokinformatika.xyz/storage/img/P9F8lHy1M1Ee8CXe4OJEYSebI5vnI77UkGUrOaya.png" alt="tutorial" class="img-fluid">
                                     </div>
@@ -1901,26 +1901,26 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-app"
                         >
                             <img
-                                src="assets/img/portfolio/portfolio-1.jpg"
+                                src="https://pondokinformatika.com/wp-content/uploads/2019/03/volly.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
                             <div class="portfolio-info">
-                                <h4>App 1</h4>
-                                <p>App</p>
+                                <h4>Volly</h4>
+                                <p>Bermain volly bersama <br>dilapangan, setelah pemanasan.</p>
                                 <a
-                                    href="assets/img/portfolio/portfolio-1.jpg"
+                                    href="https://pondokinformatika.com/wp-content/uploads/2019/03/volly.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
-                                    title="App 1"
+                                    title="Bermain volly bersama dilapangan, setelah pemanasan."
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <a
+                                <!-- <a
                                     href="portfolio-details.html"
                                     class="details-link"
                                     title="More Details"
                                     ><i class="bx bx-link"></i
-                                ></a>
+                                ></a> -->
                             </div>
                         </div>
 
@@ -1928,7 +1928,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-web"
                         >
                             <img
-                                src="assets/img/portfolio/portfolio-2.jpg"
+                                src="https://pondokinformatika.com/wp-content/uploads/2019/03/panahan.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1942,12 +1942,12 @@
                                     title="Web 3"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <a
+                                <!-- <a
                                     href="portfolio-details.html"
                                     class="details-link"
                                     title="More Details"
                                     ><i class="bx bx-link"></i
-                                ></a>
+                                ></a> -->
                             </div>
                         </div>
 
@@ -1955,7 +1955,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-app"
                         >
                             <img
-                                src="assets/img/portfolio/portfolio-3.jpg"
+                                src="https://pondokinformatika.com/wp-content/uploads/2019/03/futsal.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1969,12 +1969,12 @@
                                     title="App 2"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <a
+                                <!-- <a
                                     href="portfolio-details.html"
                                     class="details-link"
                                     title="More Details"
                                     ><i class="bx bx-link"></i
-                                ></a>
+                                ></a> -->
                             </div>
                         </div>
 
@@ -1982,7 +1982,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-card"
                             >
                             <img
-                                src="assets/img/portfolio/portfolio-4.jpg"
+                                src="https://pondokinformatika.com/wp-content/uploads/2018/01/Renang.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1996,12 +1996,12 @@
                                     title="Card 2"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <a
+                                <!-- <a
                                     href="portfolio-details.html"
                                     class="details-link"
                                     title="More Details"
                                     ><i class="bx bx-link"></i
-                                ></a>
+                                ></a> -->
                             </div>
                         </div>
 
@@ -2009,7 +2009,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-web"
                         >
                             <img
-                                src="assets/img/portfolio/portfolio-5.jpg"
+                                src="https://pondokinformatika.com/wp-content/uploads/2019/03/ceramah.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -2023,12 +2023,12 @@
                                     title="Web 2"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <a
+                                <!-- <a
                                     href="portfolio-details.html"
                                     class="details-link"
                                     title="More Details"
                                     ><i class="bx bx-link"></i
-                                ></a>
+                                ></a> -->
                             </div>
                         </div>
 
@@ -2036,7 +2036,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-app"
                         >
                             <img
-                                src="assets/img/portfolio/portfolio-6.jpg"
+                                src="https://pondokinformatika.com/wp-content/uploads/2017/11/WhatsApp-Image-2017-11-29-at-07.55.01-1.jpeg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -2050,12 +2050,12 @@
                                     title="App 3"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <a
+                                <!-- <a
                                     href="portfolio-details.html"
                                     class="details-link"
                                     title="More Details"
                                     ><i class="bx bx-link"></i
-                                ></a>
+                                ></a> -->
                             </div>
                         </div>
 
@@ -2063,7 +2063,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-card"
                         >
                             <img
-                                src="assets/img/portfolio/portfolio-7.jpg"
+                                src="https://pondokinformatika.com/wp-content/uploads/2018/02/santri-ammar.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -2077,12 +2077,12 @@
                                     title="Card 1"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <a
+                                <!-- <a
                                     href="portfolio-details.html"
                                     class="details-link"
                                     title="More Details"
                                     ><i class="bx bx-link"></i
-                                ></a>
+                                ></a> -->
                             </div>
                         </div>
 
@@ -2104,12 +2104,12 @@
                                     title="Card 3"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <a
+                                <!-- <a
                                     href="portfolio-details.html"
                                     class="details-link"
                                     title="More Details"
                                     ><i class="bx bx-link"></i
-                                ></a>
+                                ></a> -->
                             </div>
                         </div>
 
@@ -2131,12 +2131,12 @@
                                     title="Web 3"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <a
+                                <!-- <a
                                     href="portfolio-details.html"
                                     class="details-link"
                                     title="More Details"
                                     ><i class="bx bx-link"></i
-                                ></a>
+                                ></a> -->
                             </div>
                         </div>
                     </div>
@@ -2509,7 +2509,7 @@
         <!-- ======= Footer ======= -->
         <footer id="footer">
             <div class="footer-top">
-                <div class="overflow-hidden content-footer">
+                <div class="content-footer overflow-hidden">
                     <img
                         src="./assets/footer.png"
                         alt="logo"
@@ -2532,7 +2532,7 @@
                         </div>
                         <div class="col-12 col-lg-5 footer-contact">
                             <p class="fs-6 px-0 px-lg-5">
-                                Pondok Informatika Al-Madinah membuka penerimaan santri baru yang siap menjadi ahli IT yang bertauhid lurus, mencintai sunnah, berakhlak mulia serta profesional dan siap membela islam dengan keahlian dan mau mendedikasikan waktu dan tenaganya untuk dakwah islam. 
+                                Pondok Informatika Al-Madinah membuka penerimaan santri baru yang siap menjadi ahli IT yang bertauhid lurus, mencintai sunnah, berakhlak mulia serta profesional dan siap membela islam dengan keahlian dan mau mendedikasikan waktu dan tenaganya untuk dakwah islam.
                             </p>
                         </div>
                     </div>
