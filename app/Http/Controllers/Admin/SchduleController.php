@@ -109,7 +109,7 @@ class SchduleController extends Controller
         if ($request->file('image') != null ) {
             $image = $request->file('image')->store('assets/information','public');
         }else{
-            $image=null;
+            $image = $data->image;
         }
         
         $data->update([
