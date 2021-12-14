@@ -36,6 +36,7 @@ class VideoController extends Controller
     {
         $data = Video::findOrFail($id);
         $data->delete();
+        activity()->log('Menghapus video id '.$id);
 
         return back()->with('success-delete','Berhasil Menghapus Data');
     }
@@ -114,6 +115,7 @@ class VideoController extends Controller
             foreach ($ids as $id) {
                 Video::find($id)->delete();
             }
+            activity()->log('Menghapus semua data video');
 
             return redirect()->route('videos.index')->with('success-delete','Berhasil Menghapus Semua Data');
         }else{

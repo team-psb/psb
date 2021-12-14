@@ -35,6 +35,7 @@ class InterviewController extends Controller
     {
         $data = Pass::findOrFail($id);
         $data->delete();
+        activity()->log('Menghapus wawancara id '.$id);
 
         return back()->with('success-delete','Berhasil Menghapus Data');
     }
@@ -88,6 +89,7 @@ class InterviewController extends Controller
             foreach ($ids as $id) {
                 Pass::find($id)->delete();
             }
+            activity()->log('Menghapus semua wawancara');
 
             return redirect()->route('interviews.index')->with('success-delete','Berhasil Mengganti Semua Status Data');
         }else{

@@ -20,12 +20,12 @@
                               
                               {{-- nama --}}
                               <div class="form-group mb-3">
-                                <label for="">Nama</label>
+                                <label for="name">Nama</label>
                                 <input
                                     type="text"
                                     class="form-control"
-                                    id="full_name"
-                                    name="full_name"
+                                    id="name"
+                                    name="name"
                                     value="{{ $biodata->user->biodataOne->name }}"
                                     required
                                 />

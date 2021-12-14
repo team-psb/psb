@@ -53,6 +53,7 @@ class ScoreController extends Controller
     {
         $data = Score::findOrFail($id);
         $data->delete();
+        activity()->log('Menghapus tes nilai id '.$id);
 
         return back();
     }
@@ -106,6 +107,7 @@ class ScoreController extends Controller
             foreach ($ids as $id) {
                 Score::find($id)->delete();
             }
+        activity()->log('Menghapus semua data tes nilai');
 
             return redirect()->route('scores.index')->with('success-delete','Berhasil Menghapus Semua Status Data');
         }else{

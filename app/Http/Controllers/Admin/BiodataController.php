@@ -116,13 +116,15 @@ class BiodataController extends Controller
         $biodata2 = BiodataTwo::find($id);
 
         $biodata1->update([
-            'full_name'=>$request->full_name,
+            'name'=>$request->name,
             'age'=>$request->age,
             'no_wa'=>$request->no_wa,
             'family'=>$request->family
         ]);
 
         $biodata2->update($request->except(['full_name','age','no_wa','family']));
+        activity()->log('Mengedit biodata '.$request->name);
+
         return redirect()->route('biodatas.index')->with('success-edit','Data Berhasil Diedit');
     }
 
@@ -130,6 +132,7 @@ class BiodataController extends Controller
     {
         $data = BiodataTwo::findOrFail($id);
         $data->delete();
+        activity()->log('Menghapus biodata id '.$data->name);
 
         return back()->with('success-delete','Berhasil Menghapus Data');
     }
@@ -183,6 +186,7 @@ class BiodataController extends Controller
             foreach ($ids as $id) {
                 BiodataTwo::find($id)->delete();
             }
+            activity()->log('Menghapus semua biodata');
 
             return redirect()->route('biodatas.index')->with('success-delete','Berhasil Menghapus Semua Data');
         }else{

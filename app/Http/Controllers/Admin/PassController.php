@@ -35,6 +35,7 @@ class PassController extends Controller
     {
         $data = Pass::findOrFail($id);
         $data->delete();
+        activity()->log('Menghapus data calon santri id '.$id);
 
         return back()->with('success-delete','Berhasil Menghapus Data');
     }
@@ -47,6 +48,7 @@ class PassController extends Controller
             foreach ($ids as $id) {
                 Pass::find($id)->delete();
             }
+        activity()->log('Menghapus semua data calon santri');
 
             return redirect()->route('passes.index')->with('success-delete','Berhasil Menghapus Semua Data');
         }else{
