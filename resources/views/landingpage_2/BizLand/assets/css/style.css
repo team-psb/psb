@@ -811,7 +811,6 @@ section {
 @media screen and (min-width: 421px) and (max-width: 767px) {
     .announce .title {
         padding: 10px 70px;
-        font-size: 24px;
     }
     .announce .title2 {
         padding: 10px 88px;
@@ -1214,18 +1213,20 @@ section {
 # Services
 --------------------------------------------------------------*/
 .services .icon-box {
-    text-align: center;
+    /* text-align: center; */
     border: 1px solid #e2eefd;
-    padding: 80px 20px;
+    padding: 40px 30px;
     transition: all ease-in-out 0.3s;
     background: #fff;
+    position: relative;
+    border-radius: 10px;
 }
 .services .icon-box .icon {
     margin: 0 auto;
-    width: 64px;
-    height: 64px;
+    height: 180px;
+    overflow-y: hidden;
     background: #f1f6fe;
-    border-radius: 4px;
+    border-radius: 5px;
     border: 1px solid #deebfd;
     display: flex;
     align-items: center;
@@ -1233,15 +1234,10 @@ section {
     margin-bottom: 20px;
     transition: ease-in-out 0.3s;
 }
-.services .icon-box .icon i {
-    color: #3b8af2;
-    font-size: 28px;
-    transition: ease-in-out 0.3s;
-}
 .services .icon-box h4 {
     font-weight: 700;
     margin-bottom: 15px;
-    font-size: 24px;
+    font-size: 23px;
 }
 .services .icon-box h4 a {
     color: #222222;
@@ -1254,7 +1250,8 @@ section {
 }
 .services .icon-box:hover {
     border-color: #fff;
-    box-shadow: 0px 0 25px 0 rgba(16, 110, 234, 0.1);
+    box-shadow: 0px 0 25px 0 #a2b29f;
+    transform: scale(1.05);
 }
 .services .icon-box:hover h4 a,
 .services .icon-box:hover .icon i {
