@@ -42,7 +42,7 @@ Route::get('/daftar', function () {
 
 Route::group(['prefix' => '', 'middleware' => ['guest']], function () {
     Route::get('/', function () {
-        return view('landingpage_2.BizLand.index');
+        return view('landingpage.index');
     })->name('home');
 });
 
