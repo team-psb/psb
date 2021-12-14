@@ -1,5 +1,9 @@
 @php
     $tahun_ajaran = \App\Models\AcademyYear::where('is_active','=','1')->first();
+    $gelombang = App\Models\Stage::whereHas('academy_year', function($query){
+        $query->where('is_active', true);
+    })->orderBy('created_at', 'desc')->pluck('name')->first();
+    
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -272,13 +276,24 @@
                             mb-5 mb-lg-0
                         "
                     >
+                    @if (session('success-register'))
+                        <div class="alert alert-success alert-dismissible show fade">
+                            <div class="alert-body fw-bold">
+                                <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                    <span>&times;</span>
+                                </button>
+                                {{ session('success-register') }}
+                            </div>
+                        </div>
+                    @endif
                         <!-- Animate -->
                         <img
                             src="./assets/people.png"
                             alt="people"
                             class="
                                 position-absolute
-                                d-none d-xl-inline
+                                d-none 
+                                {{-- d-xl-inline --}}
                                 img-fluid
                             "
                             style="left: 120px"
@@ -321,7 +336,7 @@
                                         mb-5
                                     "
                                 >
-                                    Register Here
+                                    Pendaftaran Santri {{ $gelombang }}
                                 </h1>
                                 <div class="card-text">
                                     <form action="{{ route('register-proses') }}" method="POST">

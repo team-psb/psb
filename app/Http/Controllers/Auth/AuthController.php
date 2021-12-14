@@ -12,6 +12,7 @@ use App\Models\User;
 use Illuminate\Support\Carbon;
 use App\Http\Requests\AuthRequest;
 use App\Models\Stage;
+use App\Models\VerifyUser;
 
 class AuthController extends Controller
 {
@@ -70,11 +71,11 @@ class AuthController extends Controller
             'name'=>$request->name,
             'phone'=>$request->no_wa,
             'password'=>bcrypt($request->password),
-            'role'=>'pendaftar'
+            'role'=>'pendaftar',
         ]);
 
         $no_wa= $request->get('no_wa');
-        $no = str_split($no_wa,3);
+        $no = str_split($no_wa, 3);
 
         $date=$request->get('age');
         
@@ -82,11 +83,11 @@ class AuthController extends Controller
 
         if ($no[0] == "+62") {
             $no1= array(0=>"08");
-            $wa1=array_replace($no,$no1);
-            $wa=implode("",$wa1);
+            $wa1= array_replace($no, $no1);
+            $wa = implode("", $wa1);
 
         }else{
-            $wa=$no_wa;
+            $wa = $no_wa;
         }
         
         $academy_year = AcademyYear::where('is_active','=','1')->orderBy('id','desc')->pluck('id');
@@ -103,6 +104,12 @@ class AuthController extends Controller
             'gender'=>$request->gender,
             'stage_id'=>$stage->first(),
         ]);
+
+        // kirim wa verify
+        VerifyUser::create([
+            'user_id' => $user->id,
+            'token' => bin2hex(random_bytes(8))
+        ]);
         
         // kirim email untuk verifikasi
         // VerifyUser::create([
@@ -112,12 +119,28 @@ class AuthController extends Controller
         // Mail::to('bangfkr002@gmail.com')->send(new VerifikasiEmail($user));
         // return redirect()->back();
 
-        return redirect('/')->with('sukses-daftar','Selamat anda berhasil mendaftar, silahkan login untuk memulai pendaftaran !');
+        // return redirect('/')->with('sukses-daftar','Selamat anda berhasil mendaftar, silahkan login untuk memulai pendaftaran !');
+        return back()->with('success-register','Selamat anda berhasil mendaftar, silahkan lakukan konfirmasi pendaftaran yang telah kami kirim di whatsapp !');
     }
 
     public function logout()
     {
         Auth::logout();
         return redirect('/');
+    }
+
+    public function getToken()
+    {
+        return view('auth.inputToken');
+    }
+
+    public function postToken(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        $user->where('id', $user->id)->update([
+            'token' => $request->token
+        ]);
+        return redirect('login')->with('success-verify', 'Selamat anda berhasil konfirmasi pendaftaran, akun anda sekarang sudah bisa untuk proses seleksi selanjutnya !');
     }
 }
