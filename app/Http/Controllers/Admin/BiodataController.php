@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\BiodataTwo;
 use App\Models\Score;
 use App\Models\Stage;
+use Laravolt\Indonesia\Models\Province;
 use Maatwebsite\Excel\Facades\Excel;
 
 class BiodataController extends Controller

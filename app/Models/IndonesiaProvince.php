@@ -13,6 +13,6 @@ class IndonesiaProvince extends Model
     
     public function biodataTwo()
     {
-        return $this->hasMany(BiodataTwo::class,' id');
+        return $this->hasMany(BiodataTwo::class,'id');
     }
 }

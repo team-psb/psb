@@ -42,7 +42,7 @@ Route::get('/daftar', function () {
 
 Route::group(['prefix' => '', 'middleware' => ['guest']], function () {
     Route::get('/', function () {
-        return view('landingpage.index');
+        return view('landingpage_2.BizLand.index');
     })->name('home');
 });
 
@@ -84,8 +84,8 @@ Route::group(['prefix' => ''], function () {
     Route::get('/register',[AuthController::class,'register'])->name('register');
     Route::post('/register-proses',[AuthController::class,'registerProses'])->name('register-proses');
     Route::get('/token', [AuthController::class, 'getToken'])->name('get-token');
-    Route::post('/token/{id}', [AuthController::class, 'postToken'])->name('post-token');
-    Route::post('/logout',[AuthController::class,'logout'])->name('logout');
+    // Route::post('/token/{id}', [AuthController::class, 'postToken'])->name('post-token');
+    // Route::post('/logout',[AuthController::class,'logout'])->name('logout');
     Route::get('/forget-password', [ForgotPasswordController::class, 'getWhatsapp'])->name('password-getwhatsapp');
     Route::post('/forget-password',[ForgotPasswordController::class, 'postWhatsapp'])->name('pasword-postwhatsapp');
     Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'getPassword'])->name('getPassword');
