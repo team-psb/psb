@@ -26,8 +26,8 @@ class BiodataTwoRequest extends FormRequest
         return [
             'birth_place'=>'required',
             'address'=>'required',
-            'indonesia_provinces'=>'required',
-            'indonesia_cities'=>'required',
+            'indonesia_provinces_id'=>'required',
+            'indonesia_cities_id'=>'required',
             'facebook'=>'required',
             'instagram'=>'required',
             'last_education'=>'required',
@@ -70,8 +70,8 @@ class BiodataTwoRequest extends FormRequest
         return [
             'birth_place'=>'Tempat lahir wajib di isi',
             'address'=>'Alamat lengkap wajib di isi',
-            'indonesia_provinces'=>'Provinsi wajib di isi',
-            'indonesia_cities'=>'Kabupaten/Kota wajib di isi',
+            'indonesia_provinces_id'=>'Provinsi wajib di isi',
+            'indonesia_cities_id'=>'Kabupaten/Kota wajib di isi',
             'facebook'=>'Facebook wajib di isi',
             'instagram'=>'Instagram wajib di isi',
             'last_education'=>'Pendidikan terakhir wajib di isi',

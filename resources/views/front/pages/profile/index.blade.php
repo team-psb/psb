@@ -64,11 +64,11 @@
                       </tr>
                       <tr>
                         <th>Kabupaten</th>
-                        <td>{{ $profile->user->biodataTwo->city }}</td>
+                        {{-- <td>{{ $profile->user->biodataTwo->city }}</td> --}}
                       </tr>
                       <tr>
                         <th>Provinsi</th>
-                        <td>{{ $profile->user->biodataTwo->provincy->name }}</td>
+                        {{-- <td>{{ $profile->user->biodataTwo->provincy->name }}</td> --}}
                       </tr>
                     </table>
                   </div>
