@@ -20,6 +20,15 @@
         </div>
       @endif --}}
       <div class="row">
+        <div class="d-none d-lg-inline">
+          <img
+              src="{{ asset('assets/logo-bg.png') }}"
+              alt="logo"
+              class="position-absolute img-fluid"
+              width="1100"
+              style="z-index: -1; top: 0px; right: 600px"
+          />
+        </div>
       <div class="col-12 mb-4">
           <div class="hero text-white text-center
                       @if (isset($tahap1) && $tahap1->status == null || isset($tahap2) && $tahap2->status == null || isset($tahap4) && $tahap4->status == null )
@@ -95,7 +104,7 @@
                 </p>
               @endif
             </div>
-          </div>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -178,10 +187,23 @@
         </a>
       </div>
     </div>
+  </section>
+</div>
 
+<div class="main-content">
+  <section class="section">
     <div class="section-body">
-      <h1 class="text-muted px-0 mt-5 mb-3 poppins pb-2 col-lg-2 col-md-4 col-8 rounded informasi">Tes Anda</h1>
+      <h1 class="text-dark px-0 mb-3 poppins pb-2 col-lg-2 col-md-4 col-8 rounded informasi">Tes Anda</h1>
       <div class="row">
+        <div class="d-none d-lg-inline">
+          <img
+              src="{{ asset('assets/logo-bg.png') }}"
+              alt="logo"
+              class="position-absolute img-fluid"
+              width="1100"
+              style="z-index: -1; top: 0; left: 600px"
+          />
+        </div>
         <div class="col-12">
           <div class="card">
             <div class="card-header">
@@ -351,29 +373,42 @@
         </div>
       </div>
     </div>
+  </section>
+</div>
 
-    <h1 class="text-muted px-0 mt-5 mb-3 poppins pb-2 col-lg-2 col-md-4 col-8 rounded informasi">Informasi</h1>
+<div class="main-content">
+  <section class="section">
+    <h1 class="text-dark px-0 mb-3 poppins pb-2 col-lg-2 col-md-4 col-8 rounded informasi">Informasi</h1>
     <div class="row">
+      <div class="d-none d-lg-inline">
+        <img
+            src="{{ asset('assets/logo-bg.png') }}"
+            alt="logo"
+            class="position-absolute img-fluid"
+            width="1100"
+            style="z-index: -1; top: 0px; right: 600px"
+        />
+      </div>
       @forelse ($schdules->take(3) as $schdule)
       <div class="col-12 col-sm-6 col-lg-4">
         <div class="card">
           <div class="card-body">
             <div class="d-flex justify-content-between mb-2">
-              <p class="text-muted">{{ $schdule->created_at->format('d-m-Y') }}</p>
+              <p class="text-muted poppins">{{ $schdule->created_at->format('d-m-Y') }}</p>
               <div class="card-header-action">
                 <a href="{{ route('user-informasi-detail', $schdule->id) }}" class="btn btn-outline-success">View All</a>
               </div>
             </div>
-            <div class="chocolat-parent">
+            <div class="chocolat-parent" style="border: 0.1px solid #e0e2e5;">
               <a href="{{ asset('/storage/'.$schdule->image) }}" class="chocolat-image" title="Just an example">
-                <div>
+                <div class="d-flex justify-content-center align-items-center">
                   <img alt="image" src="{{ asset('/storage/'.$schdule->image) }}" class="img-fluid">
                 </div>
               </a>
             </div>
           </div>
           <div class="card-header d-flex flex-column">
-            <h5 class="text-dark">{{ $schdule->title }}</h5>
+            <h5 class="text-dark poppins text-center">{{ $schdule->title }}</h5>
             <p>{{ Str::limit($schdule->content, 200, '...') }}</p>
           </div>
         </div>
