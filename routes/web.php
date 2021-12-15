@@ -83,8 +83,8 @@ Route::group(['prefix' => ''], function () {
     Route::post('/login-proses',[AuthController::class,'loginProses'])->name('login-proses');
     Route::get('/register',[AuthController::class,'register'])->name('register');
     Route::post('/register-proses',[AuthController::class,'registerProses'])->name('register-proses');
-    Route::get('/token', [AuthController::class, 'getToken'])->name('get-token');
-    Route::post('/token/{id}', [AuthController::class, 'postToken'])->name('post-token');
+    // Route::get('/token', [AuthController::class, 'getToken'])->name('get-token');
+    // Route::post('/token/{id}', [AuthController::class, 'postToken'])->name('post-token');
     Route::post('/logout',[AuthController::class,'logout'])->name('logout');
     Route::get('/forget-password', [ForgotPasswordController::class, 'getWhatsapp'])->name('password-getwhatsapp');
     Route::post('/forget-password',[ForgotPasswordController::class, 'postWhatsapp'])->name('pasword-postwhatsapp');

@@ -28416,7 +28416,10 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav {
-  overflow: hidden;
+  /* position: fixed;
+  top: 0; */
+  /* left: 0; */
+  /* overflow: hidden; */
   flex-wrap: nowrap;
   flex-direction: column;
   margin-bottom: 60px;

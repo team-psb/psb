@@ -131,7 +131,7 @@ class TestIqController extends Controller
         if ($request->file('image') !== null ) {
             $image = $request->file('image')->store('assets/iq','public');
         }else{
-            $image = null;
+            $image = $data->image;
         }
         $data->update([
             'question' => $request->question,

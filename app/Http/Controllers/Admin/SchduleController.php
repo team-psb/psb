@@ -52,6 +52,7 @@ class SchduleController extends Controller
         Schdule::create([
             'image' => $image,
             'title' => $request->title,
+            'video' => $request->video,
             'content' => $request->content
         ]);
         activity()->log('Membuat  data informasi');

@@ -106,10 +106,10 @@ class AuthController extends Controller
         ]);
 
         // kirim wa verify
-        VerifyUser::create([
-            'user_id' => $user->id,
-            'token' => bin2hex(random_bytes(8))
-        ]);
+        // VerifyUser::create([
+        //     'user_id' => $user->id,
+        //     'token' => bin2hex(random_bytes(8))
+        // ]);
         
         // kirim email untuk verifikasi
         // VerifyUser::create([
@@ -129,18 +129,18 @@ class AuthController extends Controller
         return redirect('/');
     }
 
-    public function getToken()
-    {
-        return view('auth.inputToken');
-    }
+    // public function getToken()
+    // {
+    //     return view('auth.inputToken');
+    // }
 
-    public function postToken(Request $request, $id)
-    {
-        $user = User::find($id);
+    // public function postToken(Request $request, $id)
+    // {
+    //     $user = User::find($id);
 
-        $user->where('id', $user->id)->update([
-            'token' => $request->token
-        ]);
-        return redirect('login')->with('success-verify', 'Selamat anda berhasil konfirmasi pendaftaran, akun anda sekarang sudah bisa untuk proses seleksi selanjutnya !');
-    }
+    //     $user->where('id', $user->id)->update([
+    //         'token' => $request->token
+    //     ]);
+    //     return redirect('login')->with('success-verify', 'Selamat anda berhasil konfirmasi pendaftaran, akun anda sekarang sudah bisa untuk proses seleksi selanjutnya !');
+    // }
 }

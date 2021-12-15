@@ -263,15 +263,19 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        @if ($item->user->biodataTwo->status == 'lolos')
+                                                        @if ($item->user->biodataTwo->count() >= 1)
+                                                            @if ($item->user->biodataTwo->status == 'lolos')
                                                             <div class="badge badge-opacity-success">lolos biodata</div>
-                                                        @elseif ($item->user->biodataTwo->status == 'tidak')
-                                                            <div class="badge badge-opacity-danger">tidak lolos biodata</div>
+                                                            @elseif ($item->user->biodataTwo->status == 'tidak')
+                                                                <div class="badge badge-opacity-danger">tidak lolos biodata</div>
+                                                            @else()
+                                                                <div class="badge badge-opacity-warning">
+                                                                    belum di seleksi 
+                                                                    <a href="{{ route('biodatas.index') }}" class="text-decoration-none"><i class="ti-eye"></i></a>
+                                                                </div>
+                                                            @endif
                                                         @else()
-                                                            <div class="badge badge-opacity-warning">
-                                                                belum di seleksi 
-                                                                <a href="{{ route('biodatas.index') }}" class="text-decoration-none"><i class="ti-eye"></i></a>
-                                                            </div>
+                                                            <div class="badge badge-opacity-danger">belum mengisi biodata</div>
                                                         @endif
                                                     </td>
                                                 </tr>

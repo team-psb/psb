@@ -58,6 +58,7 @@ class BiodataTwoController extends Controller
             ]);
         }else{
             $request->merge(['user_id' => $users_id, 'academy_year_id' => $tahun_ajaran_id, 'stage_id' => $stage_id]);
+            // dd($request->all());
             BiodataTwo::create($request->all());
         }
 

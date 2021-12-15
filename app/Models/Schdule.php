@@ -13,6 +13,6 @@ class Schdule extends Model
 
     protected $table = 'schdules';
     protected   $fillable = [
-        'image', 'title', 'content'
+        'image', 'title', 'video', 'content'
     ];
 }
