@@ -64,11 +64,11 @@
                       </tr>
                       <tr>
                         <th>Kabupaten</th>
-                        {{-- <td>{{ $profile->user->biodataTwo->city }}</td> --}}
+                        <td>{{ $profile->user->biodataTwo->city }}</td>
                       </tr>
                       <tr>
                         <th>Provinsi</th>
-                        {{-- <td>{{ $profile->user->biodataTwo->provincy->name }}</td> --}}
+                        <td>{{ $profile->user->biodataTwo->provincy->name }}</td>
                       </tr>
                     </table>
                   </div>
@@ -306,7 +306,7 @@
             <div class="text-center min-vh-100 pt-5">
               <div class="mt-5 pt-5">
                   <i>Tidak ada data yang ditampilkan <br> Anda belum mengisi biodata</i><br>
-                  <a href="{{ route('user-second-tes') }}" class="btn btn-sm btn-info px-4 my-4"><i class="fas fa-arrow-left"></i> ikuti tes sekarang</a>
+                  <a href="{{ route('user-first-tes') }}" class="btn btn-sm btn-info px-4 my-4"><i class="fas fa-arrow-left"></i> ikuti tes sekarang</a>
               </div>
             </div>
           </div>

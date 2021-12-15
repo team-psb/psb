@@ -201,7 +201,7 @@
               alt="logo"
               class="position-absolute img-fluid"
               width="1100"
-              style="z-index: -1; top: 0; left: 600px"
+              style="z-index: -1; top: 0;"
           />
         </div>
         {{-- tes yang di ikuti 1--}}
