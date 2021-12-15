@@ -301,6 +301,12 @@
                     </table>
                   </div>
                 </div>
+            </div>
+          @else
+            <div class="text-center min-vh-100 pt-5">
+              <div class="mt-5 pt-5">
+                  <i>Tidak ada data yang ditampilkan <br> Anda belum mengisi biodata</i><br>
+                  <a href="{{ route('user-first-tes') }}" class="btn btn-sm btn-info px-4 my-4"><i class="fas fa-arrow-left"></i> ikuti tes sekarang</a>
               </div>
             </div>
           </div>

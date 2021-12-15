@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             // VideoSeeder::class,
             StageSeeder::class,
             SchduleSeeder::class,
-            BiodataOneSeeder::class,
+            // BiodataOneSeeder::class,
             // BiodataTwoSeeder::class,
             // PassSeeder::class,
             QnaSeeder::class,

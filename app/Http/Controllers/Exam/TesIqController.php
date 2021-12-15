@@ -46,7 +46,6 @@ class TesIqController extends Controller
 
             Score::create([
                 'user_id' => Auth::user()->id,
-                'stage_id' => $stage_id,
                 'academy_year_id'=>$tahun_ajaran,
                 'score_question_iq'=>$nilai,
                 'score_question_personal'=>0,
@@ -55,7 +54,6 @@ class TesIqController extends Controller
         }else{
             Score::create([
                 'user_id'=>Auth::user()->id,
-                'stage_id' => $stage_id,
                 'academy_year_id'=>$tahun_ajaran,
                 'score_question_iq'=>0,
                 'score_question_personal'=>0,
