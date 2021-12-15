@@ -62,6 +62,7 @@ class VideoController extends Controller
         Interview::create([
             'user_id'=>$data->user_id,
             'academy_year_id'=>$data->academy_year_id,
+            'stage_id'=>$data->stage_id,
         ]);
 
         return redirect()->route('videos.index')->with('success-edit','Berhasil Mengganti Status Data');

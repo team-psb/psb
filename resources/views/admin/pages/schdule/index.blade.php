@@ -92,7 +92,7 @@
                                                     </td>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ Str::limit($schdule->title, 50, '...') }}</td>
-                                                    <td>{{ Str::limit($schdule->content, 50, '...') }}</td>
+                                                    <td>{!! Str::limit($schdule->content, 50, '...') !!}</td>
                                                     <td>
                                                         <div class="d-flex">
                                                             <a href="#mymodal"

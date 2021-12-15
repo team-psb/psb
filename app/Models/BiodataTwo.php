@@ -76,7 +76,7 @@ class BiodataTwo extends Model
 
     public function provincy()
     {
-        return $this->belongsTo(IndonesiaProvince::class,'indonesia_provinces_id','id');
+        return $this->belongsTo(IndonesiaProvince::class,'indonesia_provinces_id','code');
     }
 
 }

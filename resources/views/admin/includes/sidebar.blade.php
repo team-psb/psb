@@ -1,6 +1,5 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
-    {{-- <div style="position: fixed; overflow: scroll; top: 0; background-color: red;"> --}}
-    <div  class="h-100 overflow-auto position-fixed pe-5">
+    <div  class="h-100 overflow-auto position-fixed pe-4">
         <ul class="nav pb-5">
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('dashboard') }}">
@@ -119,10 +118,10 @@
                 </a>
             </li>
             <li class="nav-item">
-                <form method="POST" action="{{ url('/logout') }}">
+                <form method="POST" action="{{ url('/logout') }}" class="nav-link" >
                     @csrf
                         <a 
-                        class="nav-link" 
+                        class="nav-link ps-0" 
                         href="{{ url('/logout') }}"
                         onclick="event.preventDefault();
                         this.closest('form').submit();">

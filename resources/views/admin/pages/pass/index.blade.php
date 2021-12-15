@@ -149,7 +149,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label class="fs-6">Pilih Gelombang <span style="font-size: 12px;" class    ="text-danger">* pastikan sudah memilih gelombang sebelum menerapkan</span></label>
+                                    <label class="fs-6">Pilih Gelombang</label>
                                     <select name="stage_id" class="form-select">
                                         <option value="" >-- pilih gelombang --</option>
                                         @foreach ($stages as $stage)
