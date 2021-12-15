@@ -5,6 +5,7 @@
     <div class="card-body">
         <div class="card-body-content">
             <h5 class="card-title">{{ $schdule->title }}</h5>
+            <div>{!! $schdule->video !!}</div>
             <p class="card-text">
                 {!! $schdule->content !!}
             </p>

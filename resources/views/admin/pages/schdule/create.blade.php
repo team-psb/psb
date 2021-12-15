@@ -30,9 +30,13 @@
                                     <label for="exampleInputPassword4">Judul</label>
                                     <input type="text" name="title" class="form-control" id="exampleInputPassword4" placeholder="Judul">
                                 </div>
+                                {{-- <div class="form-group">
+                                    <label for="exampleTextarea1">video</label>
+                                    <textarea name="content" class="form-control" style="height: 150px;"></textarea>
+                                </div> --}}
                                 <div class="form-group">
                                     <label for="exampleTextarea1">Konten</label>
-                                    <textarea name="content" class="form-control" style="height: 150px;"></textarea>
+                                    <textarea name="content" id="editor" class="form-control" style="height: 150px;"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary me-2">Submit</button>
                                 <button class="btn btn-light">Cancel</button>
@@ -47,11 +51,28 @@
 
 @push('after-script')
     <script src="{{ asset('template/js/file-upload.js') }}"></script>
-    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script> --}}
-    {{-- <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
+    <script>
+        var editors = [];   
+        function createEditor( elementId, data ) {
+            return ClassicEditor
+                .create( document.querySelector( '#' + elementId ) )
+                .then( editor => {
+                editors[ elementId ] = editor;
+                editor.setData( data ); // You should set editor data here
+            } )
+                .catch( err => console.error( err ) );
+        }
+
+        $(document).ready( function() {
+            createEditor( 'editor', 'test' );
+            createEditor( 'director1', 'test' );
+        });
+    </script> --}}
+    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
     <script>
         CKEDITOR.replace( 'content' );
-    </script> --}}
+    </script>
     {{-- <script>
         ClassicEditor
             .create( document.querySelector( '#editor' ) )
