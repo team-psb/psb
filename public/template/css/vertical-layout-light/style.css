@@ -30133,7 +30133,7 @@ div.tagsinput span.tag a {
   }
   .sidebar-icon-only .sidebar .nav {
     overflow: visible;
-    margin-left: 0;
+    margin-left: 14px;
     margin-right: 0;
   }
   .sidebar-icon-only .sidebar .nav .nav-item {

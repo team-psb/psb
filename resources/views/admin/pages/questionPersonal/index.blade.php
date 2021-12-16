@@ -91,7 +91,7 @@
                                                     </div>
                                                 </td>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ Str::limit($question->question, 120, '...') }}</td>
+                                                <td>{{ Str::limit($question->question, 100, '...') }}</td>
                                                 <td>
                                                     <div class="d-flex">
                                                         <a href="#mymodal"

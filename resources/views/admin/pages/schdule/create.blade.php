@@ -16,10 +16,10 @@
                                 <div class="form-group">
                                     <label class="fs-6">Gambar Informasi</label>
                                     <div class="row">
-                                        <div class="col-sm-3 mb-1">
-                                            <img src="https://placehold.it/100x100" id="preview" class="img-thumbnail" style="width: 307px ;height: 200px;">
+                                        <div class="col-sm-4 mb-1">
+                                            <img src="https://placehold.it/100x100" id="preview" class="img-fluid">
                                         </div>
-                                        <div class="col-sm-9 mb-1">
+                                        <div class="col-sm-8 mb-1">
                                             <div class="form-group">
                                                 <div class="pb-2">Pilih Thumbnail</div>
                                                 <input type="file" name="image">

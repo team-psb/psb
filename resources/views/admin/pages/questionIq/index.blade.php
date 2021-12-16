@@ -92,7 +92,7 @@
                                                     </div>
                                                 </td>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ Str::limit( $iq->question, 100, '...') }}</td>
+                                                <td>{{ Str::limit( $iq->question, 80, '...') }}</td>
                                                 <td class="text-uppercase">{{ $iq->answer_key }}</td>
                                                 <td>
                                                     <div class="d-flex">
