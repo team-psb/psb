@@ -488,143 +488,62 @@
               @endif
               {{-- tes tahap ke empat --}}
               @if (!empty($tahap2) && $tahap2->status == "lolos")
-              <div class="row px-4 d-flex align-items-center pt-2">
-                <div class="col-md-1 py-2 d-none d-sm-block"><i class="fas fa-th"></i></div>
-                <div class="col-md-3"><i class="fas fa-th d-lg-none"></i> &nbsp; <b>Tes Tahap Keempat</b></div>
-                  <div class="col-md-4 mt-4">
-                    <table class="table table-md">
-                      <tr>
-                        <th class="d-lg-none">Status</th>
-                        <td>
-                          @if (empty($tahap4))
-                            <div class="badge badge-warning">
-                            Belum mengikuti tes 
-                            </div>
-                          @elseif($tahap4->status == null && $tahap4->link != null)
-                            <div class="badge badge-info">
-                            Sudah Kirim Link Video
-                            </div>
-                          @elseif($tahap4->status == 'lolos')
-                            <div class="badge badge-success">
-                            Lolos
-                            </div>
-                          @elseif($tahap4->status == 'tidak')
-                            <div class="badge badge-danger">
-                            tidak
-                            </div>
-                          @else
-                          @endif
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-                  <div class="col-md-4">
-                    <table class="table table-md">
-                      <tr>
-                        <th class="d-lg-none">Status Tes</th>
-                        <td>
-                          @if (empty($tahap4))
-                            <a href="{{ route('user-fourth-tes') }}" class="btn btn-primary">Ikuti Tes</a>
-                          @elseif($tahap2->nilai_tes_iq != 0 && $tahap2->nilai_tes_kepribadian == 0)
-                            <a href="{{ route('user-third-tes') }}" class="btn btn-primary">Ikuti Tes Kepribadian</a>
-                          @else
-                            <span class="badge badge-primary">Selesai Tes</span>
-                          @endif
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-              </div>
-              @endif
-              {{-- tes tahap ke empat --}}
-              @if (!empty($tahap4) && $tahap4->status == "lolos")
-              <div class="row px-4 d-flex align-items-center pt-2">
-                <div class="col-md-1 py-2 d-none d-sm-block"><i class="fas fa-th"></i></div>
-                <div class="col-md-3"><i class="fas fa-th d-lg-none"></i> &nbsp; <b>Tes Tahap ketiga</b></div>
-                  <div class="col-md-4 mt-4">
-                    <table class="table table-md">
-                      <tr>
-                        <th class="d-lg-none">Status</th>
-                        <td>
-                          @if (empty($tahap4))
-                            <div class="badge badge-warning">
-                            Belum mengikuti tes 
-                            </div>
-                          @elseif($tahap4->status == null && $tahap4->link != null)
-                            <div class="badge badge-info">
-                            Sudah Kirim Link Video
-                            </div>
-                          @elseif($tahap4->status == 'lolos')
-                            <div class="badge badge-success">
-                            Lolos
-                            </div>
-                          @elseif($tahap4->status == 'tidak')
-                            <div class="badge badge-danger">
-                            tidak
-                            </div>
-                          @else
-                          @endif
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-                  <div class="col-md-4">
-                    <table class="table table-md">
-                      <tr>
-                        <th class="d-lg-none">Status Tes</th>
-                        <td>
-                          @if (empty($tahap4))
-                            <a href="{{ route('user-fourth-tes') }}" class="btn btn-primary">Ikuti Tes</a>
-                          @elseif($tahap2->nilai_tes_iq != 0 && $tahap2->nilai_tes_kepribadian == 0)
-                            <a href="{{ route('user-third-tes') }}" class="btn btn-primary">Ikuti Tes Kepribadian</a>
-                          @else
-                            <span class="btn btn-success">Sudah Di Ikuti</span>
-                          @endif
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-              </div>
-              <div class="row px-4">
-                <div class="col-md-1 py-2"><i class="fas fa-th"></i></div>
-                <div class="col-md-3 py-2">tes tahap Ke Empat</div>
-                <div class="col-md-4 py-2">
-                  @isset($tahap5)
-                  @if ($tahap5->status == null)
-                    <div class="badge badge-info">
-                    Menunggu Di Hubunggi
+                <div class="row px-4 d-flex align-items-center pt-2">
+                  <div class="col-md-1 py-2 d-none d-sm-block"><i class="fas fa-th"></i></div>
+                  <div class="col-md-3"><i class="fas fa-th d-lg-none"></i> &nbsp; <b>Tes Tahap Keempat</b></div>
+                    <div class="col-md-4 mt-4">
+                      <table class="table table-md">
+                        <tr>
+                          <th class="d-lg-none">Status</th>
+                          <td>
+                            @if (empty($tahap4))
+                              <div class="badge badge-warning">
+                              Belum mengikuti tes 
+                              </div>
+                            @elseif($tahap4->status == null && $tahap4->link != null)
+                              <div class="badge badge-info">
+                              Sudah Kirim Link Video
+                              </div>
+                            @elseif($tahap4->status == 'lolos')
+                              <div class="badge badge-success">
+                              Lolos
+                              </div>
+                            @elseif($tahap4->status == 'tidak')
+                              <div class="badge badge-danger">
+                              tidak
+                              </div>
+                            @else
+                            @endif
+                          </td>
+                        </tr>
+                      </table>
                     </div>
-                  @elseif($tahap5->status == 'lolos')
-                    <div class="badge badge-success">
-                    Lolos
+                    <div class="col-md-4">
+                      <table class="table table-md">
+                        <tr>
+                          <th class="d-lg-none">Status Tes</th>
+                          <td>
+                            @if (empty($tahap4))
+                              <a href="{{ route('tahap-empat-video') }}" class="btn btn-primary">Ikuti Tes</a>
+                            @elseif($tahap2->nilai_tes_iq != 0 && $tahap2->nilai_tes_kepribadian == 0)
+                              <a href="{{ route('tahap-ketiga-kepribadian') }}" class="btn btn-primary">Ikuti Tes Kepribadian</a>
+                            @else
+                              <span class="badge badge-primary">Selesai Tes</span>
+                            @endif
+                          </td>
+                        </tr>
+                      </table>
                     </div>
-                  @elseif($tahap5->status == 'tidak')
-                    <div class="badge badge-danger">
-                    tidak
-                    </div>
-                  @else
-                  @endif
-                  @endisset
                 </div>
-                <div class="col-md-4 my-2">
-                  @isset($tahap5)
-                  @if ($tahap5->status == null)
-                    <a href="{{ route('user-fifth-tes') }}" class="btn btn-primary">Info Wawancara</a>
-                  @else
-                    <span class="btn btn-success">Sudah Di Ikuti</span>
-                  @endif
-                  @endisset
-                </div>
-              </div> 
               @endif
             {{-- selamat --}}
             @if (!empty($tahap5) && $tahap5->status == "lolos")
-            <div class="row px-4">
+            <div class="row px-4 py-5 d-flex align-items-center">
               <div class="col-md-1 py-2 text-success"><i class="fas fa-th"></i></div>
               <div class="col-md-11 text-success"><smal><strong><i>Selamat Anda Lolos Seleksi, Unuk Info Selanjutnya Akan Diasampaikan Melalui WhatsApp</i></strong></smal></div>
             </div> 
             @elseif(!empty($tahap5) && $tahap5->status == "tidak")
-            <div class="row px-4">
+            <div class="row px-4 py-5 d-flex align-items-center">
               <div class="col-md-1 py-2 text-danger"><i class="fas fa-th"></i></div>
               <div class="col-md-11 text-danger"><smal><strong><i>Mohon Maaf Anda Tidak Lolos Tes Seleksi</i></strong></smal></div>
             </div> 
