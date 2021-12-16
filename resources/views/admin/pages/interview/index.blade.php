@@ -132,7 +132,7 @@
                                                     {{-- <span class="hp">{{ $interview->user->phone }}</span> --}}
                                                     <p>
                                                         {{ $interview->user->phone }}
-                                                        <a href="https://api.whatsapp.com/send?phone={{ $interview->user->phone }}" class="btn btn-success px-1">Chat Wa</a>
+                                                        <a target="_black" href="https://api.whatsapp.com/send?phone={{ $interview->user->phone }}" class="btn btn-success px-1">Chat Wa</a>
                                                     </p>
                                                 </div>
                                             </td>
@@ -181,7 +181,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label class="fs-6">Pilih Gelombang <span style="font-size: 12px;" class    ="text-danger">* pastikan sudah memilih gelombang sebelum menerapkan</span></label>
+                                    <label class="fs-6">Pilih Gelombang</label>
                                     <select name="stage_id" class="form-select">
                                         <option value="" >-- pilih gelombang --</option>
                                         @foreach ($stages as $stage)
