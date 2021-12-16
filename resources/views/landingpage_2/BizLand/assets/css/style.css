@@ -319,6 +319,10 @@ h6 {
     left: 100%;
     visibility: visible;
 }
+
+.back-button {
+    background: #119e77;
+}
 @media (max-width: 1366px) {
     .navbar .dropdown .dropdown ul {
         left: -90%;
@@ -915,6 +919,11 @@ section {
 @media (max-width: 400px) {
     #alur {
         height: auto;
+        order: 1;
+        padding-bottom: 150px;
+    }
+    #regis-form {
+        order: 2;
     }
     .alur-text {
         font-size: 10px;
@@ -942,8 +951,12 @@ section {
 }
 @media (max-width: 764px) and (min-width: 400px) {
     #alur {
-        padding-top: 100px;
+        padding: 150px 0px 200px 0px;
         height: 300px;
+        order: 1;
+    }
+    #regis-form {
+        order: 2;
     }
 }
 /*--------------------------------------------------------------
@@ -1487,6 +1500,7 @@ section {
 --------------------------------------------------------------*/
 .portfolio-details {
     padding-top: 40px;
+    color: #145560 !important;
 }
 .portfolio-details .portfolio-details-slider img {
     width: 100%;
