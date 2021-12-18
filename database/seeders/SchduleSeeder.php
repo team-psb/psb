@@ -23,6 +23,7 @@ class SchduleSeeder extends Seeder
             Schdule::create([
                 'image'=>$faker->randomElement(['img/banner-pondok.jpg','img/banner-pondok1.jpg','img/banner-pondok2.jpg']),
                 'title'=>$faker->sentence(4,true),
+                'video'=>$faker->url,
                 'content'=>$faker->paragraphs(6,true)
             ]);
         }

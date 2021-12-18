@@ -94,7 +94,7 @@
 
         <!-- WA Live -->
         <a id="Wa" class="wa" title="Chat Live Wa" href="#">
-            <img src=".//assets/wa.png" alt="logo-wa" width="80" />
+            <img src="/assets/wa.png" alt="logo-wa" width="80" />
         </a>
 
         <!-- ======= Header ======= -->
@@ -110,7 +110,7 @@
                 <h1 class="logo">
                     <a href="index.html">
                         <img
-                            src=".//assets/Logo-Pondok.png"
+                            src="/assets/Logo-Pondok.png"
                             alt="Logo-Pondok"
                             width="60"
                             class="img-fluid"
@@ -252,7 +252,7 @@
             <div class="footer-top">
                 <div class="content-footer overflow-hidden">
                     <img
-                        src=".//assets/footer.png"
+                        src="/assets/footer.png"
                         alt="logo"
                         class="position-absolute d-none d-md-block"
                         width="2300"
@@ -302,7 +302,7 @@
                             "
                         >
                             <img
-                                src=".//assets/logo-putih.png"
+                                src="/assets/logo-putih.png"
                                 alt="Logo Pondok"
                                 width="150"
                             />
