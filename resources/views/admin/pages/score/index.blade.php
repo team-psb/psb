@@ -109,7 +109,7 @@
                                             <td>
                                                 <a 
                                                     href="#mymodal"
-                                                    data-remote="{{ route('biodatas.show', $score->id) }}"
+                                                    data-remote="{{ route('biodatas.show', $score->user->biodataTwo->id) }}"
                                                     data-toggle="modal"
                                                     data-target="#mymodal"
                                                     data-title="Detail Data" 

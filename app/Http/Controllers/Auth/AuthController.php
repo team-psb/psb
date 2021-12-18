@@ -100,14 +100,14 @@ class AuthController extends Controller
         
         BiodataOne::create([
             'user_id'=>$user->id,
-            'academy_year_id'=>$academy_year->first(),
+            'academy_year_id'=>$academy_year,
             'name'=>$request->name,
             'family'=>$request->family,
             'age'=>$age,
             'birth_date'=>$date,
             'no_wa'=>$wa,
             'gender'=>$request->gender,
-            'stage_id'=>$stage->first(),
+            'stage_id'=>$stage,
         ]);
 
         // kirim wa verify
