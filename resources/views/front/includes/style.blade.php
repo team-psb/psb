@@ -16,3 +16,50 @@
 
 {{-- Front --}}
 <link rel="stylesheet" href="{{ asset('front/style/style.css') }}">
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+    #myBtn {
+        width: 50px;
+        height: 50px;
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: #32c193;
+        color: white;
+        cursor: pointer;
+        border-radius: 25px;
+    }
+
+    #myBtn:hover {
+        background-color: #188038;
+        transition: all 0.5s;
+    }
+
+    #myBtnWa {
+        width: 50px;
+        height: 50px;
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        left: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: #32c193;
+        color: white;
+        cursor: pointer;
+        border-radius: 25px;
+    }
+
+    #myBtnWa:hover {
+        background-color: #188038;
+        transition: all 0.5s;
+    }
+</style>

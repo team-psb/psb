@@ -7,6 +7,10 @@
     @isset($profile->user->biodataTwo)
     <section class="section">
       <div class="section-body">
+          <div class="col-12 d-sm-none">
+            <div class="btn text-white" onclick="history.back()"><i class="fas fa-chevron-left"></i> Back</div>
+            <a href="{{ route('user-dashboard') }}" class="btn text-white"><i class="fas fa-home"></i> Home</a>
+          </div>
           <div class="row mt-5">
             <div class="col-12 col-md-6 col-lg-6">
               <h2 class="section-title">Biodata</h2>
@@ -305,6 +309,10 @@
                 </div>
             </div>
           @else
+          <div class="col-12 d-sm-none">
+            <div class="btn text-white" onclick="history.back()"><i class="fas fa-chevron-left"></i> Back</div>
+            <a href="{{ route('user-dashboard') }}" class="btn text-white"><i class="fas fa-home"></i> Home</a>
+          </div>
             <div class="text-center min-vh-100 pt-5">
               <div class="mt-5 pt-5">
                   <i>Tidak ada data yang ditampilkan <br> Anda belum mengisi biodata</i><br>
@@ -313,7 +321,7 @@
             </div>
           </div>
       </div>
-  </section>
+    </section>
     @endisset
 </div>
 @endsection
