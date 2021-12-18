@@ -57,6 +57,7 @@
               @elseif(!empty($tahap2) && isset($tahap1) && $tahap2->status == null) 
                 <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                 <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Kedua & Ketiga</strong>,Anda bisa lanjut <br>mengikuti tes tahap Keempat jika dinyatakan lolos di tes tahap Kedua & Ketiga</p>
+                <p class="lead">Anda Dapat Melihat <strong class="font-weight-bold" >Nilai Hasil Tes IQ dan Kepribadian</strong> <a class="font-weight-bold text-primary" href="{{ route('user-profile') }}">Disini</a></p>
               @elseif(!empty($tahap4) && isset($tahap4) && $tahap4->status == null) 
                 <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                 <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Keempat</strong>,Anda bisa lanjut <br>mengikuti tes tahap Kelima jika dinyatakan lolos di tes tahap Keempat</p>
@@ -670,7 +671,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-body">
+          <div class="card-body"> 
             <div class="d-flex justify-content-between mb-2">
               <p class="text-muted poppins">{{ $schdule->created_at->format('d-m-Y') }}</p>
               <div class="card-header-action">
@@ -686,7 +687,7 @@
             </div>
           </div>
           <div class="card-header d-flex flex-column">
-            <h5 class="text-dark poppins text-center">{{ $schdule->title }}</h5>
+            <h5 class="text-dark poppins">{{ $schdule->title }}</h5>
             <p>{!! Str::limit($schdule->content, 200, '...') !!}</p>
           </div>
         </div>

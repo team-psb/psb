@@ -103,7 +103,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Provinsi<b>*</b></label>
-                        <select name="indonesia_provinces" class="custom-select" x-on:change="getKabupaten(provin_id)" x-model="provin_id">
+                        <select name="indonesia_provinces_id" class="custom-select" x-on:change="getKabupaten(provin_id)" x-model="provin_id">
                           @foreach ($provinsi as $provin)
                               <option value="{{ $provin->code }}" >{{ $provin->name }}</option>
                           @endforeach
@@ -111,7 +111,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Kota<b>*</b></label>
-                        <select name="indonesia_cities" class="custom-select" >
+                        <select name="indonesia_cities_id" class="custom-select" >
                           <template x-for="an in kabupatenids">
                             <option :value="an.id"><span x-html="an.name"></span></option>
                           </template>											
@@ -608,7 +608,7 @@
                             required
                             
                           />
-                          <label class="form-check-label" for="punyalaptop1">
+                          <label class="form-check-label" for="have_laptop1">
                             Iya
                           </label>
                         </div>

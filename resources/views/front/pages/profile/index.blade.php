@@ -160,7 +160,9 @@
                       @if (isset($profile->user->video))
                         <tr>
                           <th>Url Video Youtube</th>
-                          <td>{{ $profile->user->video->url }}</td>
+                          <td>
+                              <a target="_blank" href="{{ $profile->user->video->url }}">{{ $profile->user->video->url }}</a>
+                          </td>
                         </tr>
                       @endif
                     </table>

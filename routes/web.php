@@ -22,6 +22,7 @@ use App\Http\Controllers\Exam\TesIqController;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\LandingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,9 +42,8 @@ Route::get('/daftar', function () {
 })->name('register');
 
 Route::group(['prefix' => '', 'middleware' => ['guest']], function () {
-    Route::get('/', function () {
-        return view('landingpage_2.BizLand.index');
-    })->name('home');
+    Route::get('/', [LandingController::class, 'index'])->name('home');
+    Route::get('/information/{id}', [LandingController::class, 'information'])->name('information');
 });
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){

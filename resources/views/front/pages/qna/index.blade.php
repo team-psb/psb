@@ -20,7 +20,7 @@
                           @foreach ($qna as $index => $item)
                           <div class="accordion">
                             <div class="accordion-header" role="button" data-toggle="collapse" data-target="#panel-body-{{ $item->id }}" aria-expanded="true" aria-controls="collapse{{ $item->id }}">
-                              <h4>{{ $item->question }}</h4>
+                              <h4 class="text-uppercase">{{ $item->question }}</h4>
                             </div>
                             <div class="accordion-body collapse {{ $index == 0 ? 'show' : '' }}" id="panel-body-{{ $item->id }}" data-parent="#accordion">
                               <p class="mb-0">{{$item->answer}}</p>

@@ -14,18 +14,18 @@
                                 @csrf
                                 @method('POST')
                                 <div class="form-group">
-                                    <label class="fs-6">Gambar Informasi</label>
+                                    <label class="fw-bold fs-6">Gambar Informasi</label>
                                     <div class="row">
                                         <div class="col-sm-4 mb-1">
                                             <img src="https://placehold.it/100x100" id="preview" class="img-fluid">
                                         </div>
                                         <div class="col-sm-8 mb-1">
                                             <div class="form-group">
-                                                <div class="pb-2">Pilih Thumbnail</div>
+                                                <div class="fw-bold pb-2">Pilih Thumbnail</div>
                                                 <input type="file" name="image">
                                             </div>
                                             <div class="form-group">
-                                                <label class="fs-6" for="exampleInputPassword4">Judul</label>
+                                                <label class="fw-bold fs-6" for="exampleInputPassword4">Judul</label>
                                                 <input type="text" name="title" class="form-control" id="exampleInputPassword4" placeholder="Judul">
                                             </div>
                                         </div>
@@ -38,12 +38,14 @@
                                     </div> --}}
                                 </div>
                                 
-                                {{-- <div class="form-group">
-                                    <label class="fs-6" for="exampleTextarea1">video</label>
-                                    <textarea name="content" class="form-control" style="height: 150px;"></textarea>
-                                </div> --}}
                                 <div class="form-group">
-                                    <label class="fs-6" for="exampleTextarea1">Konten</label>
+                                    <label class="fw-bold fs-6" for="exampleTextarea1">Code Video Youtube <span class="text-danger" style="font-size: 12px;">*Optional, Input URL video example : https://www.youtube.com/embed/<span class="text-success">RkRdR-LYC_E</span></span></label>
+                                    {{-- <textarea name="video" class="form-control" style="height: 150px;"></textarea> --}}
+                                    <input type="text" class="form-control" name="video" value="https://www.youtube.com/embed/...">
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="fw-bold fs-6" for="exampleTextarea1">Konten</label>
                                     <textarea name="content" id="editor" class="form-control" style="height: 150px;"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary me-2">Submit</button>

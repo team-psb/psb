@@ -116,6 +116,7 @@ class SchduleController extends Controller
         $data->update([
             'image' => $image,
             'title' => $request->title,
+            'video' => $request->video,
             'content' => $request->content
         ]);
         activity()->log('Mengedit informasi id '.$id);

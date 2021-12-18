@@ -216,7 +216,7 @@
             <div class="container" data-aos="zoom-out" data-aos-delay="100">
                 <div class="row">
                     <div class="col-md-6 col-sm-12 mb-5 mb-lg-0 mb-md-0">
-                        <h3 class="fw-bold mb-4 banner-title"></h3>
+                        <h3 class="fw-bold mb-4 banner-title">Selamat Datang Di Web PSB Online Pondok Informatika Al-Madinah</h3>
 
                         <div class="paragraf-text mb-5">
                             <p class="sub-banner1">
@@ -532,8 +532,8 @@
                                 col-md-6 col-sm-12
                                 position-relative
                                 login-banner
-                                mb-5 mb-lg-0
                             "
+                            id="regis-form"
                         >
                             <div
                                 class="
@@ -553,7 +553,7 @@
                                             text-center text-white
                                         "
                                     >
-                                        Formulir Peserta {{ $gelombang }}
+                                        Formulir Peserta
                                     </h1>
                                     <h6
                                         class="
@@ -929,8 +929,6 @@
                         <div
                             class="
                                 col-md-6 col-sm-12
-                                mt-4 mt-lg-0 mt-md-5
-                                pb-5 pb-lg-0 pb-md-0
                                 d-flex
                                 align-items-center
                                 justify-content-around
@@ -1211,7 +1209,7 @@
                                         Mengecek ulang formulir pendaftran secara menyeluruh.
                                     </p>
                                 </div>
-                                <div class="description mb-5">
+                                <div class="description mb-5 mb-xl-4">
                                     <span class="dot"></span>
                                     <h4 class="desc1">Test</h5>
                                     <p class="desc">
@@ -1233,7 +1231,7 @@
                                 <div class="description mb-4 mt-1">
                                     <span class="dots d-flex align-items-center justify-content-center">1.</span>
                                     <p class="desc2">
-                                        Calon santri mengisi formulir pendaftaran di website <a href="https://pondokinformatika.com/" class="text-white text-decoration-underline">pondokinformatika.com</a>. 
+                                        Calon santri mengisi formulir pendaftaran di website <a href="https://pondokinformatika.com/" class="text-white text-decoration-underline">pondokinformatika.com</a>.
                                     </p>
                                 </div>
                                 <div class="description mb-4">
@@ -1262,7 +1260,7 @@
             <!-- ======= Information Section ======= -->
             <section id="info" class="services">
                 <div class="container" data-aos="fade-up">
-                    <div class="section-title mb-3">
+                    <div class="section-title mb-4">
                         <h1>Information</h1>
                     </div>
 
@@ -1274,18 +1272,23 @@
                                 data-aos-delay="100"
                             >
                             <div class="icon-box">
-                                <div class="icon">
-                                    <img src="{{ asset('/storage/'.$informasi->image) }}" alt="" style="width: 200px">
-                                    {{-- <i class="bx bxl-dribbble"></i> --}}
-                                </div>
-                                <h4><a href="">{{ $informasi->title }} </a></h4>
-                                <p>
-                                    {{ Str::limit($informasi->content, 200, '...') }}
-                                </p>
+                                <a href="{{ route('information', $informasi->id) }}" class="text-dark">
+                                    <div class="icon">
+                                        <img src="{{ asset('/storage/'.$informasi->image) }}" alt="thumbnail tutorial" class="img-fluid">
+                                        {{-- <i class="bx bxl-dribbble"></i> --}}
+                                    </div>
+                                    <h5>{{ $informasi->title }}</h5>
+                                    <p>
+                                        {!! Str::limit($informasi->content, 200, '...') !!}
+                                    </p>
+                                    <div class="text-muted mt-2">
+                                        <p>{{ Carbon\Carbon::parse($informasi->created_at)->diffForHumans() }}</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                         @empty
-                            
+                            <p class="text-center">Belum ada informasi</p>
                         @endforelse
                     </div>
                 </div>
@@ -1469,284 +1472,6 @@
                 </div>
             </section> -->
             <!-- End Testimonials Section -->
-
-            <!-- ======= Portfolio Section ======= -->
-            <section id="portfolio" class="portfolio">
-                <div class="container" data-aos="fade-up">
-                    <div class="section-title">
-                        <h2>Portfolio</h2>
-                        <h3>Check our <span>Portfolio</span></h3>
-                        <p>
-                            Ut possimus qui ut temporibus culpa velit eveniet
-                            modi omnis est adipisci expedita at voluptas atque
-                            vitae autem.
-                        </p>
-                    </div>
-
-                    <div class="row" data-aos="fade-up" data-aos-delay="100">
-                        <div class="col-lg-12 d-flex justify-content-center">
-                            <ul id="portfolio-flters">
-                                <li data-filter="*" class="filter-active">
-                                    All
-                                </li>
-                                <li data-filter=".filter-app">App</li>
-                                <li data-filter=".filter-card">Card</li>
-                                <li data-filter=".filter-web">Web</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div
-                        class="row portfolio-container"
-                        data-aos="fade-up"
-                        data-aos-delay="200"
-                    >
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-app"
-                        >
-                            <img
-                                src="assets/img/portfolio/portfolio-1.jpg"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>App 1</h4>
-                                <p>App</p>
-                                <a
-                                    href="assets/img/portfolio/portfolio-1.jpg"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link"
-                                    title="App 1"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-web"
-                        >
-                            <img
-                                src="assets/img/portfolio/portfolio-2.jpg"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>Web 3</h4>
-                                <p>Web</p>
-                                <a
-                                    href="assets/img/portfolio/portfolio-2.jpg"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link"
-                                    title="Web 3"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-app"
-                        >
-                            <img
-                                src="assets/img/portfolio/portfolio-3.jpg"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>App 2</h4>
-                                <p>App</p>
-                                <a
-                                    href="assets/img/portfolio/portfolio-3.jpg"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link"
-                                    title="App 2"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-card"
-                        >
-                            <img
-                                src="assets/img/portfolio/portfolio-4.jpg"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>Card 2</h4>
-                                <p>Card</p>
-                                <a
-                                    href="assets/img/portfolio/portfolio-4.jpg"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link"
-                                    title="Card 2"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-web"
-                        >
-                            <img
-                                src="assets/img/portfolio/portfolio-5.jpg"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>Web 2</h4>
-                                <p>Web</p>
-                                <a
-                                    href="assets/img/portfolio/portfolio-5.jpg"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link"
-                                    title="Web 2"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-app"
-                        >
-                            <img
-                                src="assets/img/portfolio/portfolio-6.jpg"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>App 3</h4>
-                                <p>App</p>
-                                <a
-                                    href="assets/img/portfolio/portfolio-6.jpg"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link"
-                                    title="App 3"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-card"
-                        >
-                            <img
-                                src="assets/img/portfolio/portfolio-7.jpg"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>Card 1</h4>
-                                <p>Card</p>
-                                <a
-                                    href="assets/img/portfolio/portfolio-7.jpg"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link"
-                                    title="Card 1"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-card"
-                        >
-                            <img
-                                src="assets/img/portfolio/portfolio-8.jpg"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>Card 3</h4>
-                                <p>Card</p>
-                                <a
-                                    href="assets/img/portfolio/portfolio-8.jpg"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link"
-                                    title="Card 3"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-web"
-                        >
-                            <img
-                                src="assets/img/portfolio/portfolio-9.jpg"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>Web 3</h4>
-                                <p>Web</p>
-                                <a
-                                    href="assets/img/portfolio/portfolio-9.jpg"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link"
-                                    title="Web 3"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End Portfolio Section -->
 
             <!-- ======= Team Section ======= -->
             <!-- <section id="team" class="team section-bg">
@@ -2005,6 +1730,282 @@
             </section> -->
             <!-- End Pricing Section -->
 
+            <!-- ======= Activity Section ======= -->
+            <section id="portfolio" class="portfolio">
+                <div class="container" data-aos="fade-up">
+                    <div class="section-title">
+                        <!-- <h2>Keseharian</h2> -->
+                        <h1>Kegiatan</h1>
+                        <p>
+                            Terdapat banyak kegiatan seru dan bermanfaat untuk semua santri Pondok Informatika Al-Madinah.
+                        </p>
+                    </div>
+
+                    <div class="row" data-aos="fade-up" data-aos-delay="100">
+                        <div class="col-lg-12 d-flex justify-content-center">
+                            <ul id="portfolio-flters">
+                                <li data-filter="*" class="filter-active">
+                                    Semua
+                                </li>
+                                <li data-filter=".filter-app">Programming</li>
+                                <li data-filter=".filter-card">Design</li>
+                                <li data-filter=".filter-web">Olahraga</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div
+                        class="row portfolio-container"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                    >
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter-app"
+                        >
+                            <img
+                                src="https://pondokinformatika.com/wp-content/uploads/2019/03/volly.jpg"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Volly</h4>
+                                <p>Bermain volly bersama <br>dilapangan, setelah pemanasan.</p>
+                                <a
+                                    href="https://pondokinformatika.com/wp-content/uploads/2019/03/volly.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Bermain volly bersama dilapangan, setelah pemanasan."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter-web"
+                        >
+                            <img
+                                src="https://pondokinformatika.com/wp-content/uploads/2019/03/panahan.jpg"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Web 3</h4>
+                                <p>Web</p>
+                                <a
+                                    href="assets/img/portfolio/portfolio-2.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Web 3"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter-app"
+                        >
+                            <img
+                                src="https://pondokinformatika.com/wp-content/uploads/2019/03/futsal.jpg"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>App 2</h4>
+                                <p>App</p>
+                                <a
+                                    href="assets/img/portfolio/portfolio-3.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="App 2"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter-card"
+                            >
+                            <img
+                                src="https://pondokinformatika.com/wp-content/uploads/2018/01/Renang.jpg"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Card 2</h4>
+                                <p>Card</p>
+                                <a
+                                    href="assets/img/portfolio/portfolio-4.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Card 2"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter-web"
+                        >
+                            <img
+                                src="https://pondokinformatika.com/wp-content/uploads/2019/03/ceramah.jpg"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Web 2</h4>
+                                <p>Web</p>
+                                <a
+                                    href="assets/img/portfolio/portfolio-5.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Web 2"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter-app"
+                        >
+                            <img
+                                src="https://pondokinformatika.com/wp-content/uploads/2017/11/WhatsApp-Image-2017-11-29-at-07.55.01-1.jpeg"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>App 3</h4>
+                                <p>App</p>
+                                <a
+                                    href="assets/img/portfolio/portfolio-6.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="App 3"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter-card"
+                        >
+                            <img
+                                src="https://pondokinformatika.com/wp-content/uploads/2018/02/santri-ammar.jpg"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Card 1</h4>
+                                <p>Card</p>
+                                <a
+                                    href="assets/img/portfolio/portfolio-7.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Card 1"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter-card"
+                        >
+                            <img
+                                src="assets/img/portfolio/portfolio-8.jpg"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Card 3</h4>
+                                <p>Card</p>
+                                <a
+                                    href="assets/img/portfolio/portfolio-8.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Card 3"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter-web"
+                        >
+                            <img
+                                src="assets/img/portfolio/portfolio-9.jpg"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Web 3</h4>
+                                <p>Web</p>
+                                <a
+                                    href="assets/img/portfolio/portfolio-9.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Web 3"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Activity Section -->
+
             <!-- ======= Frequently Asked Questions Section ======= -->
             <section id="qna" class="qna section-bg">
                 <div class="container" data-aos="fade-up">
@@ -2025,7 +2026,7 @@
                                 <li>
                                     <div
                                         data-bs-toggle="collapse"
-                                        class="collapsed question"
+                                        class="collapsed question text-uppercase"
                                         href="#qna{{ $qna->id }}"
                                     >
                                         {{ $qna->question }}
@@ -2056,7 +2057,7 @@
             </section>
             <!-- End Frequently Asked Questions Section -->
 
-            <!-- ======= Contact Section ======= -->
+            <!-- ======= About Section ======= -->
             <section id="contact" class="contact">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
@@ -2108,7 +2109,7 @@
                     </div>
                 </div>
             </section>
-            <!-- End Contact Section -->
+            <!-- End About Section -->
         </main>
         <!-- End #main -->
 
@@ -2153,7 +2154,7 @@
         <!-- ======= Footer ======= -->
         <footer id="footer">
             <div class="footer-top">
-                <div class="overflow-hidden content-footer">
+                <div class="content-footer overflow-hidden">
                     <img
                         src="./assets/footer.png"
                         alt="logo"
@@ -2176,7 +2177,7 @@
                         </div>
                         <div class="col-12 col-lg-5 footer-contact">
                             <p class="fs-6 px-0 px-lg-5">
-                                Pondok Informatika Al-Madinah membuka penerimaan santri baru yang siap menjadi ahli IT yang bertauhid lurus, mencintai sunnah, berakhlak mulia serta profesional dan siap membela islam dengan keahlian dan mau mendedikasikan waktu dan tenaganya untuk dakwah islam. 
+                                Pondok Informatika Al-Madinah membuka penerimaan santri baru yang siap menjadi ahli IT yang bertauhid lurus, mencintai sunnah, berakhlak mulia serta profesional dan siap membela islam dengan keahlian dan mau mendedikasikan waktu dan tenaganya untuk dakwah islam.
                             </p>
                         </div>
                     </div>
@@ -2211,8 +2212,14 @@
         <script>
             //GSAP
             gsap.from(".logo", {
+                x: -100,
                 delay: 1.5,
-                duration: 1,
+                duration: 1.5,
+                opacity: 0,
+            });
+            gsap.from(".navbar", {
+                delay: 2,
+                duration: 2,
                 opacity: 0,
             });
             gsap.from(".line-1", {
@@ -2321,7 +2328,7 @@
                 delay: 2,
             });
             gsap.to(".no-hp", {
-                text: "085 725 249 265",
+                text: " 085 725 249 265",
                 duration: 2,
                 delay: 4,
             });
@@ -2331,32 +2338,33 @@
                 duration: 1,
                 delay: 6,
             });
-            gsap.to(".banner-title", {
-                text: "Selamat Datang Di Web PSB Online Pondok Informatika Al-Madinah",
-                duration: 5,
+            gsap.from(".banner-title", {
+                x: -100,
+                duration: 2,
+                opacity: 0,
                 delay: 2,
             });
             gsap.from(".sub-banner1", {
                 x: -100,
                 duration: 2,
                 opacity: 0,
-                delay: 7,
+                delay: 2.5,
             });
             gsap.from(".sub-banner2", {
                 x: -100,
                 duration: 2,
                 opacity: 0,
-                delay: 8,
+                delay: 3,
             });
             gsap.from(".button-banner", {
                 duration: 1,
                 opacity: 0,
-                delay: 9,
+                delay: 4.5,
             });
             gsap.from(".button-banner2", {
                 duration: 1,
                 opacity: 0,
-                delay: 10,
+                delay: 5.5,
             });
             gsap.from(".title-stats", {
                 y: -50,
@@ -2413,3 +2421,4 @@
         </script>
     </body>
 </html>
+

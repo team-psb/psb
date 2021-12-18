@@ -104,13 +104,17 @@
                                                                 data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                                 <i class="icon-eye btn-icon-prepend"></i> Detail
                                                             </a>
-                                                            <a href="#mymodal"
+                                                            {{-- <a href="#mymodal"
                                                                 data-remote="{{ route('schdules.edit', $schdule->id) }}"
                                                                 data-toggle="modal"
                                                                 data-target="#mymodal"
                                                                 data-title="Edit Informasi {{ $loop->iteration }}" 
                                                                 class="btn ms-1 btn-primary  btn-icon-text p-2"
                                                                 data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                                                <i class="icon-pencil btn-icon-prepend"></i> Edit
+                                                            </a> --}}
+
+                                                            <a href="{{ route('schdules.edit', $schdule->id) }}"  class="btn ms-1 btn-primary  btn-icon-text p-2">
                                                                 <i class="icon-pencil btn-icon-prepend"></i> Edit
                                                             </a>
                                                             <button formaction="{{ route('schdules.delete', $schdule->id) }}" class="btn ms-1 btn-danger  me-0  btn-icon-text p-2">

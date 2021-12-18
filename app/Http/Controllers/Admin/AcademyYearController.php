@@ -53,7 +53,7 @@ class AcademyYearController extends Controller
         AcademyYear::create($data);
         activity()->log('Membuat data tahun ajaran');
 
-        return redirect()->route('academies.index')->with('success-create', 'Berhasil Membuat Data');
+        return redirect()->back()->with('success-create', 'Berhasil Membuat Data');
     }
 
     /**
@@ -108,7 +108,7 @@ class AcademyYearController extends Controller
         AcademyYear::findOrFail($id)->update($data);
         activity()->log('Mengedit tahun ajaran id '.$id);
 
-        return redirect()->route('academies.index')->with('success-edit', 'Berhasil Mengedit Data');
+        return redirect()->back()->with('success-edit', 'Berhasil Mengedit Data');
     }
 
     /**

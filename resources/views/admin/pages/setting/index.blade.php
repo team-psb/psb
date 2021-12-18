@@ -17,14 +17,43 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <h5>Tahun Ajaran Aktif <span class="badge badge-success">{{ $academies->count() }}</span></h5>
+                                    <h5>Tahun Ajaran Aktif <span class="badge badge-success">{{ $academies->count() }}</span>
+                                        <a href="#mymodal"
+                                            data-remote="{{ route('academies.create') }}"
+                                            data-toggle="modal"
+                                            data-target="#mymodal"
+                                            data-title="Buat Tahun Ajaran" 
+                                            class="btn btn-info btn-sm">
+                                            <i class="icon-plus"></i>
+                                        </a>
+                                    </h5>
                                     <div class="form-group">
                                         @foreach ($academies as $academy)
-                                            <div class="form-check form-check-success">
-                                                <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input" {{ $academy->is_active == 1 ? 'checked' : ''}}>
-                                                    {{ $academy->year }}({{ $academy->stage->name }})
-                                                </label>
+                                            <div class="form-check form-check-success d-flex align-items-center justify-content-between border-bottom">
+                                                <div class="form-check form-check-success">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input" {{ $academy->is_active == 1 ? 'checked' : ''}}>
+                                                        {{ $academy->year }}({{ $academy->stage->name }})
+                                                    </label>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <a href="#mymodal"
+                                                        data-remote="{{ route('academies.edit', $academy->id) }}"
+                                                        data-toggle="modal"
+                                                        data-target="#mymodal"
+                                                        data-title="Edit Tahun Ajaran {{ $academy->year }}" 
+                                                        class="btn btn-primary p-1 ms-2"
+                                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                                        <i class="icon-pencil"></i>
+                                                    </a>
+                                                    <form action="" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button formaction="{{ route('academies.delete', $academy->id) }}" class="btn btn-danger p-1 ms-2">
+                                                            <i class="icon-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         @endforeach
                                     </div>
@@ -50,7 +79,7 @@
                                     <div class="form-group">
                                         @foreach ($stages as $stage)
                                             <div class="form-check form-check-success d-flex align-items-center justify-content-between border-bottom">
-                                                <div class="">
+                                                <div class="form-check form-check-success">
                                                     <label class="form-check-label">
                                                         <input type="checkbox" class="form-check-input" checked>
                                                         {{ $stage->name }}
@@ -98,7 +127,7 @@
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Buat Tahun Ajaran</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Buat Gelombang Pendafatran</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
