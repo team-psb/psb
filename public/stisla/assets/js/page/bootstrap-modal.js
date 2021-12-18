@@ -1,7 +1,10 @@
 "use strict";
 
 $("#modal-1").fireModal({body: 'Modal body text goes here.'});
-$("#modal-2").fireModal({body: 'Modal body text goes here.', center: true});
+$("#modal-2").fireModal({title: 'Perhatikan ini sebelum mengisi hafalan !',
+  body: 'Bagi yang hafalannya kurang dari 1 Juz Silahkan isi dengan "0 Juz"' + "</br>" +
+        'Bagi yang hafalannya misal: "1 Juz setengah", Silahkan dibulatkan menjadi "1 juz"'
+, center: true});
 
 let modal_3_body = '<p>Object to create a button on the modal.</p><pre class="language-javascript"><code>';
 modal_3_body += '[\n';

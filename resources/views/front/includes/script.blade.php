@@ -7,7 +7,8 @@
   <script src="{{ asset('stisla/assets/js/stisla.js') }}"></script>
 
   <!-- JS Libraies -->
-
+  <script src="{{ asset('stisla/node_modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
+  <script src="{{ asset('stisla/node_modules/jquery-ui-dist/jquery-ui.min.js') }}"></script>
   <!-- Page Specific JS File -->
 
   <!-- Template JS File -->

@@ -13,6 +13,7 @@
             <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-topfas fa-arrow-up"></i></button>
         </div>
     </div>
+    @stack('start-script')
     @include('front.includes.script')
     @stack('end-script')
 </body>

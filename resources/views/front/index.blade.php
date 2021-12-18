@@ -110,7 +110,7 @@
     </div>
     <div class="row">
     {{-- Dekstop --}}
-      <div class="col-lg-4 col-md-6 col-12 d-none d-sm-block">
+      <div class="col-lg-4 col-md-6 col-12 d-none d-md-none d-lg-block">
         <div class="card card-statistic-1">
           <div class="card-icon bg-danger">
             <i class="far fa-newspaper"></i>
@@ -125,7 +125,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-md-none d-lg-block">
         <div class="card card-statistic-1">
           <div class="card-icon bg-warning">
             <i class="fas fa-question-circle"></i>
@@ -140,7 +140,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-md-none d-lg-block">
         <div class="card card-statistic-1">
           <div class="card-icon bg-primary">
             <i class="fas fa-user"></i>
@@ -157,7 +157,7 @@
       </div>
 
       {{-- Mobile --}}
-      <div class="col-lg-4 col-md-6 col-sm-6 d-xl-none d-md-none d-lg-block">
+      <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none">
         <a href="{{ route('user-profile') }}">
           <div class="card card-statistic-1 d-flex flex-row align-items-center">
             <div class="card-icon bg-primary">
@@ -167,7 +167,7 @@
           </div>
         </a>
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-6 d-xl-none d-md-none d-lg-block">
+      <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none">
         <a href="{{ route('user-qna') }}">
           <div class="card card-statistic-1 d-flex flex-row align-items-center">
             <div class="card-icon bg-success">
@@ -177,7 +177,7 @@
           </div>
         </a>
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-6 d-xl-none d-md-none d-lg-block">
+      <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none">
         <a href="{{ route('user-informasi') }}">
           <div class="card card-statistic-1 d-flex flex-row align-items-center">
             <div class="card-icon bg-warning">
@@ -193,7 +193,7 @@
 
   <section class="section mt-5 container">
       <div class="section-body">
-        <h1 class="text-muted px-0 mb-3 poppins pb-2 col-lg-3 col-md-4 col-10 rounded informasi"><i class="fa fa-book ico"></i> Tes Anda</h1>
+        <h1 class="text-muted px-0 mb-3 poppins pb-2 col-10 col-sm-6 col-md-5 col-lg-4 col-xl-3 rounded informasi"><i class="fa fa-book ico"></i> Tes Anda</h1>
         <div class="row">
           {{-- tes yang di ikuti 1--}}
           {{-- <div class="col-12">
@@ -595,7 +595,7 @@
 
 <div class="main-content">
   <section class="section">
-    <h1 class="text-muted px-0 mb-3 poppins pb-2 col-lg-3 col-md-4 col-10 rounded informasi"><i class="fas fa-newspaper" style="font-size: 40px;"></i> Informasi</h1>
+    <h1 class="text-muted px-0 mb-3 poppins pb-2 col-10 col-sm-6 col-md-5 col-lg-4 col-xl-3 rounded informasi"><i class="fas fa-newspaper" style="font-size: 40px;"></i> Informasi</h1>
     <div class="row">
       <div class="d-none d-lg-inline">
         <img
@@ -609,27 +609,9 @@
       @forelse ($schdules->take(3) as $schdule)
       <div class="col-12 col-sm-6 col-lg-4">
         <div class="card">
-          <div class="card-header">
-            <h4>My Picture</h4>
-            <div class="card-header-action">
-              <a href="#" class="btn btn-primary">View All</a>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="mb-2 text-muted">Click the picture below to see the magic!</div>
-            <div class="chocolat-parent">
-              <a href="{{ asset('stisla/assets/img/example-image.jpg') }}" class="chocolat-image" title="Just an example">
-                <div data-crop-image="285">
-                  <img alt="image" src="{{ asset('stisla/assets/img/example-image.jpg') }}" class="img-fluid">
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="card">
           <div class="card-body"> 
             <div class="d-flex justify-content-between mb-2">
-              <p class="text-muted poppins">{{ $schdule->created_at->format('d-m-Y') }}</p>
+              <p class="text-muted poppins font-italic">{{ $schdule->created_at->format('d-m-Y') }}</p>
               <div class="card-header-action">
                 <a href="{{ route('user-informasi-detail', $schdule->id) }}" class="btn btn-outline-success">View All</a>
               </div>

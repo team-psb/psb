@@ -221,15 +221,21 @@
                         <label for="memorization"
                           >Jumlah Hafalan Al Qur'an<b>*</b></label
                         >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="memorization"
-                          name="memorization"
-                          value="{{ old('memorization') }}"
-                          required
-                        />
+                        <div class="input-group mb-3">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="memorization"
+                            name="memorization"
+                            value="{{ old('memorization') }}"
+                            required
+                          />
+                          <div class="input-group-append">
+                            <button class="btn btn-danger" id="modal-2"><i class="fas fa-exclamation-circle"></i></button>
+                          </div>
+                        </div>
                       </div>
+
                       <div class="form-group">
                         <label for="figure_idol"
                           >Tokoh Idola<b>*</b></label
@@ -683,6 +689,9 @@
 @endsection
 
 @push('end-script')
+  <script src="{{ asset('stisla/node_modules/prismjs/prism.js') }}"></script>
+  <script src="{{ asset('stisla/assets/js/page/bootstrap-modal.js') }}"></script>
+
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
 
   <script>

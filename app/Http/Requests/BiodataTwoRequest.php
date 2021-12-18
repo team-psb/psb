@@ -38,7 +38,7 @@ class BiodataTwoRequest extends FormRequest
             'hobby'=>'required|string|min:5|max:225',
             'goal'=>'required|string|min:5|max:225',
             'skill'=>'required|string|min:5|max:225',
-            'memorization'=>'required|string|min:5|max:225',
+            'memorization'=>'required|string|max:225',
             'figure_idol'=>'required|string|min:5|max:225',
             'chaplain_idol'=>'required|string|min:5|max:225',
             'tauhid'=>'required',

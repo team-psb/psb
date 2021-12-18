@@ -6,6 +6,10 @@
 <div class="main-content">
   <section class="section">
       <div class="section-body">
+        <div class="col-12 d-xl-none">
+          <div class="btn text-white" onclick="history.back()"><i class="fas fa-chevron-left"></i> Back</div>
+          <a href="{{ route('user-dashboard') }}" class="btn text-white"><i class="fas fa-home"></i> Home</a>
+        </div>
         <div class="row">
           <div class="col">
             <div class="row">
