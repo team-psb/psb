@@ -26,10 +26,10 @@ class BiodataTwoController extends Controller
 
     public function store(BiodataTwoRequest $request){
         $users_id = Auth::user()->id;
-        $tahun_ajaran_id = AcademyYear::where('is_active', true)->orderBy('created_at', 'desc')->pluck('id')->first();
+        $tahun_ajaran_id = AcademyYear::where('is_active', true)->orderBy('id', 'desc')->pluck('id')->first();
         $stage_id = Stage::whereHas('academy_year', function($query){
             $query->where('is_active', true);
-        })->orderBy('created_at', 'desc')->pluck('id')->first();
+        })->orderBy('id', 'desc')->pluck('id')->first();
 
         if (Auth::user()->BiodataOne->family == 'sangat-mampu') {
             $request->merge(['user_id' => $users_id, 'academy_year_id' => $tahun_ajaran_id, 'stage_id' => $stage_id, 'status' => 'lolos']);

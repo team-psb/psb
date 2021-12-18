@@ -93,11 +93,11 @@ class AuthController extends Controller
         // $academy_year = AcademyYear::where('is_active','=','1')->orderBy('id','desc')->pluck('id');
         // $stage = AcademyYear::where('is_active','=','1')->orderBy('id','desc')->pluck('stage_id');
 
-        $academy_year = AcademyYear::where('is_active', true)->orderBy('created_at', 'desc')->pluck('id')->first();
+        $academy_year = AcademyYear::where('is_active', true)->orderBy('id', 'desc')->pluck('id')->first();
         $stage = Stage::whereHas('academy_year', function($query){
             $query->where('is_active', true);
-        })->orderBy('created_at', 'desc')->pluck('id')->first();
-        
+        })->orderBy('id', 'desc')->pluck('id')->first();
+
         BiodataOne::create([
             'user_id'=>$user->id,
             'academy_year_id'=>$academy_year,

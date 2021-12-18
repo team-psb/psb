@@ -48,7 +48,7 @@
                                                     </a>
                                                     <form action="" method="POST">
                                                         @csrf
-                                                        @method('DELETE')
+                                                        @method('POST')
                                                         <button formaction="{{ route('academies.delete', $academy->id) }}" class="btn btn-danger p-1 ms-2">
                                                             <i class="icon-trash"></i>
                                                         </button>

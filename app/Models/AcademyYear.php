@@ -18,7 +18,7 @@ class AcademyYear extends Model
 
     public function biodataOne()
     {
-        return $this->hasMany(Biodata1::class)->withTrashed();
+        return $this->hasMany(BiodataOne::class, 'academy_year_id', 'id');
     }
 
     public function stage()

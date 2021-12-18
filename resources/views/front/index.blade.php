@@ -57,7 +57,7 @@
               @elseif(!empty($tahap2) && isset($tahap1) && $tahap2->status == null) 
                 <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                 <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Kedua & Ketiga</strong>,Anda bisa lanjut <br>mengikuti tes tahap Keempat jika dinyatakan lolos di tes tahap Kedua & Ketiga</p>
-                <p class="lead">Anda Dapat Melihat <strong class="font-weight-bold" >Nilai Hasil Tes IQ dan Kepribadian</strong> <a class="font-weight-bold text-primary" href="{{ route('user-profile') }}">Disini</a></p>
+                <p class="lead">Anda Dapat Melihat <strong class="font-weight-bold" >Nilai Hasil Tes IQ dan Kepribadian</strong> <a class="font-weight-bold text-primary" href="{{ route('user-profile','#nilai') }}">Disini</a></p>
               @elseif(!empty($tahap4) && isset($tahap4) && $tahap4->status == null) 
                 <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                 <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Keempat</strong>,Anda bisa lanjut <br>mengikuti tes tahap Kelima jika dinyatakan lolos di tes tahap Keempat</p>
