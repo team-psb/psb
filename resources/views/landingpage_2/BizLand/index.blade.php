@@ -1,8 +1,14 @@
 @php
     $tahun_ajaran = App\Models\AcademyYear::where('is_active', true)->first();
+    $users = App\Models\BiodataOne::whereHas('academy_year', function($query){
+        $query->where('is_active', true);
+    })->count();
+    $userregister = App\Models\BiodataTwo::whereHas('user')->whereHas('academy_year', function($query){
+        $query->where('is_active', true);
+    })->get();
     $gelombang = App\Models\Stage::whereHas('academy_year', function($query){
         $query->where('is_active', true);
-    })->orderBy('created_at', 'desc')->pluck('name')->first();
+    })->orderBy('id', 'desc')->pluck('name')->first();
     $informations = App\Models\Schdule::orderBy('created_at', 'desc')->limit(6)->get();
     $qnas = App\Models\Qna::get();
 @endphp
@@ -553,7 +559,7 @@
                                             text-center text-white
                                         "
                                     >
-                                        Formulir Peserta
+                                        Formulir Peserta {{ $gelombang }}
                                     </h1>
                                     <h6
                                         class="
@@ -740,7 +746,7 @@
                                                                 form-control-lg
                                                                 rounded-pill
                                                             "
-                                                            maxlength="13"
+                                                            maxlength="15"
                                                             style="
                                                                 font-size: 15px;
                                                             "
@@ -1130,7 +1136,7 @@
                                     />
                                     <span
                                         data-purecounter-start="0"
-                                        data-purecounter-end="500"
+                                        data-purecounter-end="{{ $users }}"
                                         data-purecounter-duration="1"
                                         class="
                                             purecounter
@@ -1141,7 +1147,7 @@
                                     ></span>
                                     <span
                                         data-purecounter-start="0"
-                                        data-purecounter-end="232"
+                                        data-purecounter-end="11"
                                         data-purecounter-duration="1"
                                         class="
                                             purecounter
@@ -1152,7 +1158,7 @@
                                     ></span>
                                     <span
                                         data-purecounter-start="0"
-                                        data-purecounter-end="331"
+                                        data-purecounter-end="{{ $userregister->count() }}"
                                         data-purecounter-duration="1"
                                         class="
                                             purecounter

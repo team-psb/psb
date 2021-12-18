@@ -131,7 +131,7 @@
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-6">
-              <h2 class="section-title">Nilai & Video</h2>
+              <h2 id="nilai" class="section-title">Nilai & Video</h2>
               <p class="section-lead">Silahkan periksa kembali semua data!</p>
               <div class="card">
                 <div class="card-header">

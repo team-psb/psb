@@ -5,7 +5,10 @@
     <div class="card-body">
         <div class="card-body-content">
             <h5 class="card-title">{{ $schdule->title }}</h5>
-            <div>{!! $schdule->video !!}</div>
+            {{-- <div>{!! $schdule->video !!}</div> --}}
+            @if ($schdule->video)
+                <iframe class="w-100" style="height: 400px" src="{{ $schdule->video ? $schdule->video : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            @endif
             <p class="card-text">
                 {!! $schdule->content !!}
             </p>
