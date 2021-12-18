@@ -208,7 +208,7 @@
             <div class="container" data-aos="zoom-out" data-aos-delay="100">
                 <div class="row">
                     <div class="col-md-6 col-sm-12 mb-5 mb-lg-0 mb-md-0">
-                        <h3 class="fw-bold mb-4 banner-title"></h3>
+                        <h3 class="fw-bold mb-4 banner-title">Selamat Datang Di Web PSB Online Pondok Informatika Al-Madinah</h3>
 
                         <div class="paragraf-text mb-5">
                             <p class="sub-banner1">
@@ -523,8 +523,8 @@
                                 col-md-6 col-sm-12
                                 position-relative
                                 login-banner
-                                mb-5 mb-lg-0
                             "
+                            id="regis-form"
                         >
                             <div
                                 class="
@@ -970,8 +970,6 @@
                         <div
                             class="
                                 col-md-6 col-sm-12
-                                mt-4 mt-lg-0 mt-md-5
-                                pb-5 pb-lg-0 pb-md-0
                                 d-flex
                                 align-items-center
                                 justify-content-around
@@ -1318,7 +1316,7 @@
                                     <div class="icon">
                                         <img src="https://pondokinformatika.xyz/storage/img/P9F8lHy1M1Ee8CXe4OJEYSebI5vnI77UkGUrOaya.png" alt="tutorial" class="img-fluid">
                                     </div>
-                                    <h4><a href="#">Video Tata Cara Pendaftaran Calon Santri</a></h4>
+                                    <h4><a href="portfolio-details.html">Video Tata Cara Pendaftaran Calon Santri</a></h4>
                                     <small class="text-muted"><p>Last updated 3 mins ago</p></small>
                                 </a>
                             </div>
@@ -2567,8 +2565,14 @@
         <script>
             //GSAP
             gsap.from(".logo", {
+                x: -100,
                 delay: 1.5,
-                duration: 1,
+                duration: 1.5,
+                opacity: 0,
+            });
+            gsap.from(".navbar", {
+                delay: 2,
+                duration: 2,
                 opacity: 0,
             });
             gsap.from(".line-1", {
@@ -2677,7 +2681,7 @@
                 delay: 2,
             });
             gsap.to(".no-hp", {
-                text: "085 725 249 265",
+                text: " 085 725 249 265",
                 duration: 2,
                 delay: 4,
             });
@@ -2687,32 +2691,33 @@
                 duration: 1,
                 delay: 6,
             });
-            gsap.to(".banner-title", {
-                text: "Selamat Datang Di Web PSB Online Pondok Informatika Al-Madinah",
-                duration: 5,
+            gsap.from(".banner-title", {
+                x: -100,
+                duration: 2,
+                opacity: 0,
                 delay: 2,
             });
             gsap.from(".sub-banner1", {
                 x: -100,
                 duration: 2,
                 opacity: 0,
-                delay: 7,
+                delay: 2.5,
             });
             gsap.from(".sub-banner2", {
                 x: -100,
                 duration: 2,
                 opacity: 0,
-                delay: 8,
+                delay: 3,
             });
             gsap.from(".button-banner", {
                 duration: 1,
                 opacity: 0,
-                delay: 9,
+                delay: 4.5,
             });
             gsap.from(".button-banner2", {
                 duration: 1,
                 opacity: 0,
-                delay: 10,
+                delay: 5.5,
             });
             gsap.from(".title-stats", {
                 y: -50,
