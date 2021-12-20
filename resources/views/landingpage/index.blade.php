@@ -1,3 +1,17 @@
+@php
+    $tahun_ajaran = App\Models\AcademyYear::where('is_active', true)->first();
+    $users = App\Models\BiodataOne::whereHas('academy_year', function($query){
+        $query->where('is_active', true);
+    })->count();
+    $userregister = App\Models\BiodataTwo::whereHas('user')->whereHas('academy_year', function($query){
+        $query->where('is_active', true);
+    })->get();
+    $gelombang = App\Models\Stage::whereHas('academy_year', function($query){
+        $query->where('is_active', true);
+    })->orderBy('id', 'desc')->pluck('name')->first();
+    $informations = App\Models\Schdule::orderBy('created_at', 'desc')->limit(6)->get();
+    $qnas = App\Models\Qna::get();
+@endphp
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -318,7 +332,8 @@
                                     Login Here
                                 </h1>
                                 <div class="card-text">
-                                    <form action="#" method="POST">
+                                    <form action="{{ route('login-proses') }}" method="POST">
+                                        @csrf
                                         <div class="form-group">
                                             <div class="form-floating">
                                                 <input
@@ -330,7 +345,7 @@
                                                     "
                                                     id="floatingInput"
                                                     placeholder="1111111111"
-                                                    name="no_hp"
+                                                    name="phone"
                                                 />
                                                 <label
                                                     for="floatingInput"
@@ -469,7 +484,9 @@
                                         lengkap dan benar
                                     </h6>
                                     <div class="card-text">
-                                        <form action="#" method="POST">
+                                        <form action="{{ route('register-proses') }}" method="POST">
+                                            @csrf
+                                            @method('POST')
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div
@@ -497,7 +514,6 @@
                                                             "
                                                             style="
                                                                 font-size: 15px;
-                                                                color: #145560;
                                                             "
                                                             id="name"
                                                             name="name"
@@ -511,7 +527,7 @@
                                                         "
                                                     >
                                                         <label
-                                                            for="name"
+                                                            for="full_name"
                                                             class="
                                                                 form-label
                                                                 text-white
@@ -528,10 +544,9 @@
                                                             "
                                                             style="
                                                                 font-size: 15px;
-                                                                color: #145560;
                                                             "
-                                                            id="name"
-                                                            name="name"
+                                                            id="full_name"
+                                                            name="full_name"
                                                             placeholder="Masukkan Nama Lengkap"
                                                         />
                                                     </div>
@@ -544,17 +559,17 @@
                                                         "
                                                     >
                                                         <label
-                                                            for="address"
+                                                            for="birth_date"
                                                             class="
                                                                 form-label
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >Alamat
-                                                            Lengkap</label
+                                                            >Tanggal
+                                                            Lahir</label
                                                         >
                                                         <input
-                                                            type="text"
+                                                            type="date"
                                                             class="
                                                                 form-control
                                                                 form-control-lg
@@ -564,74 +579,9 @@
                                                                 font-size: 15px;
                                                                 color: #145560;
                                                             "
-                                                            id="address"
-                                                            name="address"
-                                                            placeholder="Masukkan Alamat Lengkap"
-                                                        />
-                                                    </div>
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="no_wa"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >No Whatsapp</label
-                                                        >
-                                                        <input
-                                                            type="number"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                            "
-                                                            maxlength="13"
-                                                            style="
-                                                                font-size: 15px;
-                                                                color: #145560;
-                                                            "
-                                                            id="no_wa"
-                                                            name="no_wa"
-                                                            placeholder="Masukkan No Whatsapp"
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="email"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Email</label
-                                                        >
-                                                        <input
-                                                            type="email"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                                color: #145560;
-                                                            "
-                                                            id="email"
-                                                            name="email"
-                                                            placeholder="Masukkan Email"
+                                                            id="birth_date"
+                                                            name="age"
+                                                            placeholder="01 Desember 2001"
                                                         />
                                                     </div>
                                                     <div
@@ -667,7 +617,7 @@
                                                                 -- Keluarga --
                                                             </option>
                                                             <option
-                                                                value="sangat_mampu"
+                                                                value="sangat-mampu"
                                                             >
                                                                 Sangat Mampu
                                                             </option>
@@ -677,7 +627,7 @@
                                                                 Mampu
                                                             </option>
                                                             <option
-                                                                value="tidak_mampu"
+                                                                value="tidak-mampu"
                                                             >
                                                                 Tidak Mampu
                                                             </option>
@@ -688,17 +638,17 @@
                                                     <div
                                                         class="
                                                             mb-4
-                                                            col-lg-6 col-sm-12
+                                                            col-lg-12 col-sm-12
                                                         "
                                                     >
                                                         <label
-                                                            for="place_birth"
+                                                            for="no_wa"
                                                             class="
                                                                 form-label
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >Tempat Lahir</label
+                                                            >No Whatsapp</label
                                                         >
                                                         <input
                                                             type="text"
@@ -707,52 +657,21 @@
                                                                 form-control-lg
                                                                 rounded-pill
                                                             "
+                                                            maxlength="15"
                                                             style="
                                                                 font-size: 15px;
-                                                                color: #145560;
                                                             "
-                                                            id="place_birth"
-                                                            name="place_birth"
-                                                            placeholder="Masukkan Tempat Lahir"
-                                                        />
-                                                    </div>
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="date_birth"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Tanggal
-                                                            Lahir</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                                color: #145560;
-                                                            "
-                                                            id="date_birth"
-                                                            name="date_birth"
-                                                            placeholder="01 Desember 2001"
+                                                            id="no_wa"
+                                                            name="no_wa"
+                                                            placeholder="Masukkan No Whatsapp"
                                                         />
                                                     </div>
                                                 </div>
+                                                
                                                 <div class="row">
                                                     <div
                                                         class="
-                                                            mb-5 mb-lg-0 mb-md-0
+                                                            mb-4
                                                             col-lg-6 col-sm-12
                                                         "
                                                     >
@@ -774,7 +693,6 @@
                                                             "
                                                             style="
                                                                 font-size: 15px;
-                                                                color: #145560;
                                                             "
                                                             id="password"
                                                             name="password"
@@ -801,6 +719,7 @@
                                                                 <input
                                                                     type="checkbox"
                                                                     onclick="showFunction()"
+                                                                    class="form-check-input"
                                                                 />&nbsp; Show
                                                                 Password
                                                             </div>
@@ -811,7 +730,7 @@
                                                             mb-4
                                                             col-lg-6 col-sm-12
                                                         "
-                                                        >
+                                                    >
                                                         <label
                                                             for="confirm_password"
                                                             class="
@@ -834,26 +753,90 @@
                                                                 color: #145560;
                                                             "
                                                             id="confirm_password"
-                                                            name="confirm_password"
+                                                            name="password_confirmation"
                                                             placeholder="Masukkan Ulang Password"
                                                         />
+                                                        <div
+                                                            class="
+                                                                d-flex
+                                                                justify-content-between
+                                                            "
+                                                        >
+                                                            <div
+                                                                class="
+                                                                    d-flex
+                                                                    align-items-center
+                                                                    px-2
+                                                                    pt-1
+                                                                "
+                                                                style="
+                                                                    font-size: 12px;
+                                                                    color: #efefef;
+                                                                "
+                                                            >
+                                                                <input
+                                                                    type="checkbox"
+                                                                    onclick="seeFunction()"
+                                                                    class="form-check-input"
+                                                                />&nbsp; Show
+                                                                Password
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="gender" 
+                                                    class="
+                                                    form-label
+                                                    text-white
+                                                    "
+                                                    >Jenis Kelamin, Wanita Belum Diterima <b>*</b></label
+                                                    >
+                                                    <div class="form-check">
+                                                    <input
+                                                        class="form-check-input"
+                                                        type="checkbox"
+                                                        name="gender"
+                                                        id="gender"
+                                                        value="l"
+                                                        required
+                                                        
+                                                    />
+                                                    <label class="form-check-label text-white" for="gender">
+                                                        Laki-Laki
+                                                    </label>
+                                                    <div class="invalid-feedback">
+                                                        jenis kelamin harus di isi
+                                                    </div>
                                                     </div>
                                                 </div>
 
                                                 <br />
-                                                <button
-                                                    class="
-                                                        btn
-                                                        sign-in
-                                                        rounded-pill
-                                                        text-uppercase
-                                                        px-4
-                                                        py-2
-                                                        col-12
-                                                    "
-                                                >
+                                                @if (is_null($tahun_ajaran))
+                                                <button 
+                                                type="submit" 
+                                                class="btn
+                                                sign-in
+                                                rounded-pill
+                                                text-uppercase
+                                                px-4
+                                                py-2
+                                                col-12" disabled tabindex="4">
+                                                    Pendaftaran belum di buka
+                                                </button>
+                                                @else
+                                                <button 
+                                                type="submit" 
+                                                class="btn
+                                                sign-in
+                                                rounded-pill
+                                                text-uppercase
+                                                px-4
+                                                py-2
+                                                col-12" tabindex="4">
                                                     Daftar
                                                 </button>
+                                                @endif
                                             </div>
                                         </form>
                                     </div>
@@ -1063,7 +1046,7 @@
                                     />
                                     <span
                                         data-purecounter-start="0"
-                                        data-purecounter-end="500"
+                                        data-purecounter-end="{{ $users }}"
                                         data-purecounter-duration="1"
                                         class="
                                             purecounter
@@ -1074,7 +1057,7 @@
                                     ></span>
                                     <span
                                         data-purecounter-start="0"
-                                        data-purecounter-end="232"
+                                        data-purecounter-end="11"
                                         data-purecounter-duration="1"
                                         class="
                                             purecounter
@@ -1085,7 +1068,7 @@
                                     ></span>
                                     <span
                                         data-purecounter-start="0"
-                                        data-purecounter-end="331"
+                                        data-purecounter-end="{{ $userregister->count() }}"
                                         data-purecounter-duration="1"
                                         class="
                                             purecounter
@@ -1198,126 +1181,31 @@
                     </div>
 
                     <div class="row">
+                        @forelse ($informations as $informasi)
                         <div
-                            class="col-lg-4 col-md-6 d-flex align-items-stretch"
-                            data-aos="zoom-in"
-                            data-aos-delay="100"
-                        >
+                                class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4"
+                                data-aos="zoom-in"
+                                data-aos-delay="100"
+                            >
                             <div class="icon-box">
-                                <a href="portfolio-details.html">
+                                <a href="{{ route('information', $informasi->id) }}" class="text-dark">
                                     <div class="icon">
-                                        <img src="https://pondokinformatika.xyz/storage/img/P9F8lHy1M1Ee8CXe4OJEYSebI5vnI77UkGUrOaya.png" alt="tutorial" class="img-fluid">
+                                        <img src="{{ asset('/storage/'.$informasi->image) }}" alt="thumbnail tutorial" class="img-fluid">
+                                        {{-- <i class="bx bxl-dribbble"></i> --}}
                                     </div>
-                                    <h4><a href="portfolio-details.html">Video Tata Cara Pendaftaran Calon Santri</a></h4>
-                                    <small class="text-muted"><p>Last updated 3 mins ago</p></small>
+                                    <h5>{{ $informasi->title }}</h5>
+                                    <p>
+                                        {!! Str::limit($informasi->content, 200, '...') !!}
+                                    </p>
+                                    <div class="text-muted mt-2">
+                                        <p>{{ Carbon\Carbon::parse($informasi->created_at)->diffForHumans() }}</p>
+                                    </div>
                                 </a>
                             </div>
                         </div>
-
-                        <div
-                            class="
-                                col-lg-4 col-md-6
-                                d-flex
-                                align-items-stretch
-                                mt-4 mt-md-0
-                            "
-                            data-aos="zoom-in"
-                            data-aos-delay="200"
-                        >
-                            <div class="icon-box">
-                                <a href="#">
-                                    <div class="icon">
-                                        <img src="https://pondokinformatika.xyz/storage/img/mLYl9R0A0NYAzlUUpTZ8HqmIEqi35qG4vU9HVIoA.jpeg" alt="tutorial" class="img-fluid">
-                                    </div>
-                                    <h4 class=""><a href="#">Tahapan dalam Penerimaan Santri Baru Tahun 2021</a></h4>
-                                    <small class="text-muted"><p>Last updated 3 mins ago</p></small>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="
-                                col-lg-4 col-md-6
-                                d-flex
-                                align-items-stretch
-                                mt-4 mt-lg-0
-                            "
-                            data-aos="zoom-in"
-                            data-aos-delay="300"
-                        >
-                            <div class="icon-box">
-                                <a href="#">
-                                    <div class="icon">
-                                        <img src="https://pondokinformatika.xyz/storage/img/didxdpevD58vN1k4eXSBAlV7nPc9uBbwSjpRIdFQ.png" alt="tutorial" class="img-fluid">
-                                    </div>
-                                    <h4><a href="#">Cara mengikuti Tes Tahap Pertama Pondok Informatika Al-Madinah</a></h4>
-                                    <small class="text-muted"><p>Last updated 3 mins ago</p></small>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="
-                                col-lg-4 col-md-6
-                                d-flex
-                                align-items-stretch
-                                mt-4
-                            "
-                            data-aos="zoom-in"
-                            data-aos-delay="100"
-                        >
-                            <div class="icon-box">
-                                <a href="#">
-                                    <div class="icon">
-                                        <img src="https://pondokinformatika.xyz/storage/img/P9F8lHy1M1Ee8CXe4OJEYSebI5vnI77UkGUrOaya.png" alt="tutorial" class="img-fluid">
-                                    </div>
-                                    <h4><a href="#">Video Tata Cara Pendaftaran Calon Santri</a></h4>
-                                    <small class="text-muted"><p>Last updated 3 mins ago</p></small>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="
-                                col-lg-4 col-md-6
-                                d-flex
-                                align-items-stretch
-                                mt-4
-                            "
-                            data-aos="zoom-in"
-                            data-aos-delay="200"
-                        >
-                            <div class="icon-box">
-                                <a href="#">
-                                    <div class="icon">
-                                        <img src="https://pondokinformatika.xyz/storage/img/P9F8lHy1M1Ee8CXe4OJEYSebI5vnI77UkGUrOaya.png" alt="tutorial" class="img-fluid">
-                                    </div>
-                                    <h4><a href="#">Video Tata Cara Pendaftaran Calon Santri</a></h4>
-                                    <small class="text-muted"><p>Last updated 3 mins ago</p></small>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="
-                                col-lg-4 col-md-6
-                                d-flex
-                                align-items-stretch
-                                mt-4
-                            "
-                            data-aos="zoom-in"
-                            data-aos-delay="300"
-                        >
-                            <div class="icon-box">
-                                <a href="#">
-                                    <div class="icon">
-                                        <img src="https://pondokinformatika.xyz/storage/img/P9F8lHy1M1Ee8CXe4OJEYSebI5vnI77UkGUrOaya.png" alt="tutorial" class="img-fluid">
-                                    </div>
-                                    <h4><a href="#">Video Tata Cara Pendaftaran Calon Santri</a></h4>
-                                    <small class="text-muted"><p>Last updated 3 mins ago</p></small>
-                                </a>
-                            </div>
-                        </div>
+                        @empty
+                            <p class="text-center">Belum ada informasi</p>
+                        @endforelse
                     </div>
                 </div>
             </section>
@@ -2318,13 +2206,14 @@
                     <div class="row justify-content-center">
                         <div class="col-xl-10">
                             <ul class="qna-list">
-                                <li class="qna1">
+                                @forelse ($qnas as $qna)
+                                <li>
                                     <div
                                         data-bs-toggle="collapse"
-                                        class="collapsed question"
-                                        href="#qna1"
+                                        class="collapsed question text-lowercase"
+                                        href="#qna{{ $qna->id }}"
                                     >
-                                        Apakah langkah selanjutnya setelah mendaftar ?
+                                        {{ $qna->question }}
                                         <i
                                             class="bi bi-chevron-down icon-show"
                                         ></i
@@ -2333,231 +2222,18 @@
                                         ></i>
                                     </div>
                                     <div
-                                        id="qna1"
+                                        id="qna{{ $qna->id }}"
                                         class="collapse"
                                         data-bs-parent=".qna-list"
                                     >
                                         <p>
-                                            Silahkan ikuti tes yang sudah di infokan lewat halaman dashboard.
+                                        {{ $qna->answer }}
                                         </p>
                                     </div>
                                 </li>
-                                <li class="qna2">
-                                    <div
-                                        data-bs-toggle="collapse"
-                                        href="#qna2"
-                                        class="collapsed question"
-                                    >
-                                        Apakah saya harus ke pondok untuk tes atau daftar ?
-                                        <i
-                                            class="bi bi-chevron-down icon-show"
-                                        ></i
-                                        ><i
-                                            class="bi bi-chevron-up icon-close"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        id="qna2"
-                                        class="collapse"
-                                        data-bs-parent=".qna-list"
-                                    >
-                                        <p>
-                                            Tidak perlu, cukup daftar dan tes online.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="qna3">
-                                    <div
-                                        data-bs-toggle="collapse"
-                                        href="#qna3"
-                                        class="collapsed question"
-                                    >
-                                        Apakah pendidikan di Pondok setara SMA atau Perguruan Tinggi ?
-                                        <i
-                                            class="bi bi-chevron-down icon-show"
-                                        ></i
-                                        ><i
-                                            class="bi bi-chevron-up icon-close"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        id="qna3"
-                                        class="collapse"
-                                        data-bs-parent=".qna-list"
-                                    >
-                                        <p>
-                                            Pondok kami berstatus Pendidikan Informal yang berarti bukan SMA atau Perguruan Tinggi. Namun, nanti akan ada sertifikat dari kami dan insyaallah kami akan bantu Anda untuk mengikuti ujian persamaan SMA tapi ada biaya khusus baik keluarga mampu dan tidak mampu.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="qna4">
-                                    <div
-                                        data-bs-toggle="collapse"
-                                        href="#qna4"
-                                        class="collapsed question"
-                                    >
-                                        Apakkah setelah lulus bisa dapat kerja ?
-                                        <i
-                                            class="bi bi-chevron-down icon-show"
-                                        ></i
-                                        ><i
-                                            class="bi bi-chevron-up icon-close"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        id="qna4"
-                                        class="collapse"
-                                        data-bs-parent=".qna-list"
-                                    >
-                                        <p>
-                                            Jika Anda belajar dengan baik maka InsyaAllah akan banyak lowongan pekerjaan atau bahkan Anda bisa membuka lapangan pekerjaan sendiri.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="qna5">
-                                    <div
-                                        data-bs-toggle="collapse"
-                                        href="#qna5"
-                                        class="collapsed question"
-                                    >
-                                        Jika lolos, apakah biaya keberangkatan di biayai ?
-                                        <i
-                                            class="bi bi-chevron-down icon-show"
-                                        ></i
-                                        ><i
-                                            class="bi bi-chevron-up icon-close"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        id="qna5"
-                                        class="collapse"
-                                        data-bs-parent=".qna-list"
-                                    >
-                                        <p>
-                                            Tidak, jika Anda sudah tiba di Jogja maka kami akan menaggung kebutuhan Anda selama menjadi santri di pondok kami.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="qna6">
-                                    <div
-                                        data-bs-toggle="collapse"
-                                        href="#qna6"
-                                        class="collapsed question"
-                                    >
-                                        Apakah setelah lulus, apakah gaji kami akan dipotong dan diambil oleh Pondok ?
-                                        <i
-                                            class="bi bi-chevron-down icon-show"
-                                        ></i
-                                        ><i
-                                            class="bi bi-chevron-up icon-close"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        id="qna6"
-                                        class="collapse"
-                                        data-bs-parent=".qna-list"
-                                    >
-                                        <p>
-                                            Tidak, karena jika sudah kerja semua gaji Anda adalah hak Anda. Namun, Anda tetap dapat berbagi ke pondok dengan cara berinfaq seikhlasnya.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="qna7">
-                                    <div
-                                        data-bs-toggle="collapse"
-                                        href="#qna7"
-                                        class="collapsed question"
-                                    >
-                                        Ada berapa tahap dalam mengikuti tes masuk ?
-                                        <i
-                                            class="bi bi-chevron-down icon-show"
-                                        ></i
-                                        ><i
-                                            class="bi bi-chevron-up icon-close"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        id="qna7"
-                                        class="collapse"
-                                        data-bs-parent=".qna-list"
-                                    >
-                                        <p>
-                                            Ada 4 tahap dalam mengikuti tes masuk santri baru, yaitu: <br> 1. Kelengkapan biodata <br> 2. tes iq dan kepribadian <br> 3. mengirim video <br> 4. wawancara dan setelah itu akan ada info kelulusan.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="qna8">
-                                    <div
-                                        data-bs-toggle="collapse"
-                                        href="#qna8"
-                                        class="collapsed question"
-                                    >
-                                        Saya punya banyak pertanyaan, bagaimana cara mendapatkan jawaban ?
-                                        <i
-                                            class="bi bi-chevron-down icon-show"
-                                        ></i
-                                        ><i
-                                            class="bi bi-chevron-up icon-close"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        id="qna8"
-                                        class="collapse"
-                                        data-bs-parent=".qna-list"
-                                    >
-                                        <p>
-                                            Silahkan gunakan fasilitas chat live WA yang ada pada sistem.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="qna9">
-                                    <div
-                                        data-bs-toggle="collapse"
-                                        href="#qna9"
-                                        class="collapsed question"
-                                    >
-                                        Pemahaman agama saya kurang, apakah bisa daftar ?
-                                        <i
-                                            class="bi bi-chevron-down icon-show"
-                                        ></i
-                                        ><i
-                                            class="bi bi-chevron-up icon-close"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        id="qna9"
-                                        class="collapse"
-                                        data-bs-parent=".qna-list"
-                                    >
-                                        <p>
-                                            Iya bisa, banyak yang diterima dengan agama masih minim, asal mau benar-benar belajar selama di pondok.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="qna10">
-                                    <div
-                                        data-bs-toggle="collapse"
-                                        href="#qna10"
-                                        class="collapsed question"
-                                    >
-                                        Pendaftarnya ada banyak, apakah saya ada kesempatan untuk diterima ?
-                                        <i
-                                            class="bi bi-chevron-down icon-show"
-                                        ></i
-                                        ><i
-                                            class="bi bi-chevron-up icon-close"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        id="qna10"
-                                        class="collapse"
-                                        data-bs-parent=".qna-list"
-                                    >
-                                        <p>
-                                            Semua ada kesempatan untuk diterima, hanya orang-orang yang selalu optimis dan yakin dirinya terpilih yang akan lolos. Jika anda minder karena banyak saingan artinya memang kapasitas anda hanya di bawah rata-rata. Silahkan maju jika anda adalah seorang pejuang dan jika anda mundur tidak masalah bagi kami, karena pondok ini khusus buat orang-orang yang pemberani dan siap berjuang untuk masa depannya.
-                                        </p>
-                                    </div>
-                                </li>
+                                @empty
+                                    <p>belum ada pertanyaan</p>
+                                @endforelse
                             </ul>
                         </div>
                     </div>
@@ -2689,7 +2365,7 @@
             </div>
         </footer>
         <div class="copyright text-center">
-            &copy; 2021 Copyright <strong><span>Pondok Informatika Al-Madinah</span></strong
+            &copy; {{ date('Y') }} Copyright <strong><span>Pondok Informatika Al-Madinah</span></strong
             >.
         </div>
         <!-- End Footer -->

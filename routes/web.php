@@ -41,19 +41,21 @@ Route::get('/daftar', function () {
     return view('auth.register');
 })->name('register');
 
+//landingpage
 Route::group(['prefix' => '', 'middleware' => ['guest']], function () {
     Route::get('/', [LandingController::class, 'index'])->name('home');
     Route::get('/information/{id}', [LandingController::class, 'information'])->name('information');
 });
 
 // Landingpage
-Route::get('landingpage', function () {
-    return view("landingpage.index");
-});
-Route::get('information-detail', function () {
-    return view("landingpage.information_detail");
-});
+// Route::get('landingpage', function () {
+//     return view("landingpage.index");
+// });
+// Route::get('information-detail', function () {
+//     return view("landingpage.information_detail");
+// });
 
+//user
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){
     Route::get('home', [UserDashboardController::class, 'index'])->name('user-dashboard');
 

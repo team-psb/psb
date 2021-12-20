@@ -9,13 +9,13 @@ class LandingController extends Controller
 {
     public function index()
     {
-        return view('landingpage_2.BizLand.index');
+        return view('landingpage.index');
     }
 
     public function information($id)
     {
         $infodetail =  Schdule::findOrFail($id);
 
-        return view('landingpage_2.BizLand.information-detail', compact('infodetail'));
+        return view('landingpage.information_detail', compact('infodetail'));
     }
 }
