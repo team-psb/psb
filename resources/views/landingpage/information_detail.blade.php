@@ -12,8 +12,8 @@
         <title>Pondok Informatika Almadinah</title>
 
         <!-- Favicons -->
-        <link href="assets/Logo-Pondok.png" rel="icon" />
-        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+        <link href="/assets/Logo-Pondok.png" rel="icon" />
+        <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
         <!-- Google Fonts -->
         <link
@@ -22,30 +22,30 @@
         />
 
         <!-- Vendor CSS Files -->
-        <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+        <link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
         <link
-            href="assets/vendor/bootstrap/css/bootstrap.min.css"
+            href="/assets/vendor/bootstrap/css/bootstrap.min.css"
             rel="stylesheet"
         />
         <link
-            href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+            href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
             rel="stylesheet"
         />
         <link
-            href="assets/vendor/boxicons/css/boxicons.min.css"
+            href="/assets/vendor/boxicons/css/boxicons.min.css"
             rel="stylesheet"
         />
         <link
-            href="assets/vendor/glightbox/css/glightbox.min.css"
+            href="/assets/vendor/glightbox/css/glightbox.min.css"
             rel="stylesheet"
         />
         <link
-            href="assets/vendor/swiper/swiper-bundle.min.css"
+            href="/assets/vendor/swiper/swiper-bundle.min.css"
             rel="stylesheet"
         />
 
         <!-- Template Main CSS File -->
-        <link href="assets/css/style.css" rel="stylesheet" />
+        <link href="/assets/css/style.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -94,7 +94,7 @@
 
         <!-- WA Live -->
         <a id="Wa" class="wa" title="Chat Live Wa" href="#">
-            <img src="./assets/wa.png" alt="logo-wa" width="80" />
+            <img src="/assets/img/wa.png" alt="logo-wa" width="80" />
         </a>
 
         <!-- ======= Header ======= -->
@@ -110,7 +110,7 @@
                 <h1 class="logo">
                     <a href="index.html">
                         <img
-                            src="./assets/Logo-Pondok.png"
+                            src="/assets/img/Logo-Pondok.png"
                             alt="Logo-Pondok"
                             width="60"
                             class="img-fluid"
@@ -123,7 +123,7 @@
                 </h1>
 
                 <nav id="navbar" class="navbar">
-                    <a class="nav-link" href="index.html" id="link1"
+                    <a class="nav-link" href="{{ url()->previous() }}" id="link1"
                         ><button
                             class="
                                 btn
@@ -161,7 +161,7 @@
                     >
                         <h2>Detail Informasi</h2>
                         <ol>
-                            <li><a href="index.html">Informasi</a></li>
+                            <li><a href="{{ route('home','#info') }}">Informasi</a></li>
                             <li>Detail Informasi</li>
                         </ol>
                     </div>
@@ -180,18 +180,31 @@
                         <div class="col-lg-7">
                             <div class="information-details-slider">
                                 <div class="swiper-wrapper align-items-center">
-                                    <div>
-                                        <a
-                                            href="https://pondokinformatika.xyz/storage/img/mLYl9R0A0NYAzlUUpTZ8HqmIEqi35qG4vU9HVIoA.jpeg"
-                                            class="portfolio-lightbox"
-                                        >
+                                        @if ($infodetail->video == null)
                                             <img
-                                                src="https://pondokinformatika.xyz/storage/img/mLYl9R0A0NYAzlUUpTZ8HqmIEqi35qG4vU9HVIoA.jpeg"
+                                                src="{{ asset('/storage/'.$infodetail->image) }}"
                                                 alt="image"
-                                                class="img-fluid rounded"
+                                                class="img-fluid"
                                             />
-                                        </a>
+                                        @else
+                                            <div class="vh-100 w-100">
+                                                <iframe class="w-100 h-75" src="{{ $infodetail->video ? $infodetail->video : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            </div>
+                                        @endif
+
+                                    <!-- <div class="swiper-slide">
+                                        <img
+                                            src="/assets/img/portfolio/portfolio-details-2.jpg"
+                                            alt=""
+                                        />
                                     </div>
+
+                                    <div class="swiper-slide">
+                                        <img
+                                            src="/assets/img/portfolio/portfolio-details-3.jpg"
+                                            alt=""
+                                        />
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -206,17 +219,9 @@
                                     rounded
                                 "
                             >
-                                <h2>Tahapan Dalam Penerimaan Santri Baru</h2>
+                                <h2>{{ $infodetail->title }}</h2>
                                 <p>
-                                    Assalamualaikum Warahmatullahi Wabarakatuh
-                                    <br />Berikut ini tahapan dalam penerimaan
-                                    santri baru yaitu : <br /><br />1. Input
-                                    biodata <br />2. Mengikuti Tes IQ dan
-                                    Kepribadian <br />3. Mengirim video profil
-                                    ke Youtube <br />4. Wawancara
-                                    <br /><br />Semua Kegiatan tahapan tersebut
-                                    dilakukan secara online dan informasinya di
-                                    sistem ini .
+                                    {!! $infodetail->content !!}
                                 </p>
                             </div>
                         </div>
@@ -232,7 +237,7 @@
             <div class="footer-top">
                 <div class="content-footer overflow-hidden">
                     <img
-                        src="./assets/footer.png"
+                        src="/assets/img/footer.png"
                         alt="logo"
                         class="position-absolute d-none d-md-block"
                         width="2300"
@@ -284,7 +289,7 @@
                             "
                         >
                             <img
-                                src="./assets/logo-putih.png"
+                                src="/assets/img/logo-putih.png"
                                 alt="Logo Pondok"
                                 width="150"
                             />
@@ -304,7 +309,7 @@
             </div>
         </footer>
         <div class="copyright text-center">
-            &copy; 2021 Copyright
+            &copy; {{ date("Y") }} Copyright
             <strong><span>Pondok Informatika Al-Madinah</span></strong
             >.
         </div>
@@ -318,14 +323,14 @@
         ></a>
 
         <!-- Vendor JS Files -->
-        <script src="assets/vendor/purecounter/purecounter.js"></script>
-        <script src="assets/vendor/aos/aos.js"></script>
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-        <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-        <script src="assets/vendor/php-email-form/validate.js"></script>
+        <script src="/assets/vendor/purecounter/purecounter.js"></script>
+        <script src="/assets/vendor/aos/aos.js"></script>
+        <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
+        <script src="/assets/vendor/php-email-form/validate.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
         <script>
@@ -396,6 +401,6 @@
         </script>
 
         <!-- Template Main JS File -->
-        <script src="assets/js/main.js"></script>
+        <script src="/assets/js/main.js"></script>
     </body>
 </html>
