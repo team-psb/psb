@@ -41,37 +41,47 @@ Route::get('/daftar', function () {
     return view('auth.register');
 })->name('register');
 
+//landingpage
 Route::group(['prefix' => '', 'middleware' => ['guest']], function () {
     Route::get('/', [LandingController::class, 'index'])->name('home');
     Route::get('/information/{id}', [LandingController::class, 'information'])->name('information');
 });
 
+// Landingpage
+// Route::get('landingpage', function () {
+//     return view("landingpage.index");
+// });
+// Route::get('information-detail', function () {
+//     return view("landingpage.information_detail");
+// });
+
+//user
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){
     Route::get('home', [UserDashboardController::class, 'index'])->name('user-dashboard');
 
     Route::get('profile', [UserDashboardController::class, 'profile'])->name('user-profile');
-    
+
     Route::get('qna', [UserDashboardController::class, 'qna'])->name('user-qna');
-    
+
     Route::get('informasi', [UserDashboardController::class, 'information'])->name('user-informasi');
     Route::get('informasi/{id}', [UserDashboardController::class, 'information_detail'])->name('user-informasi-detail');
-    
+
     Route::get('success', function () {
         return view('screens.success');
     })->name('success');
-    
+
     Route::get('tes/tahap-pertama', [BiodataTwoController::class, 'index'])->name('user-first-tes');
     Route::post('tes/tahap-pertama/store', [BiodataTwoController::class, 'store'])->name('first-tes.store');
-    
+
     Route::get('tes/tahap-kedua', [TesIqController::class, 'iq'])->name('user-second-tes');
     Route::post('tes/tahap-kedua-store', [TesIqController::class, 'iqStore'])->name('second-tes.store');
-    
+
     Route::get('tes/tahap-ketiga', [TesIqController::class, 'personal'])->name('user-third-tes');
     Route::post('tes/tahap-ketiga-store', [TesIqController::class, 'personalStore'])->name('third-tes.store');
-    
+
     Route::get('tes/tahap-keempat', [VideoController::class, 'index'])->name('user-fourth-tes');
     Route::post('tes/tahap-keempat-store', [VideoController::class, 'videoStore'])->name('fourth-tes.store');
-    
+
     Route::get('tes/tahap-kelima', function () {
         return view('front.pages.interview.index');
     })->name('user-fifth-tes');
@@ -110,7 +120,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('biodatas/export/data', [BiodataController::class, 'export'])->name('biodatas.export');
 
 
-    
+
     Route::get('scores', [ScoreController::class, 'index'])->name('scores.index');
     Route::get('scores/{id}/set-status', [ScoreController::class, 'setStatus'])->name('scores.status');
     Route::post('scores/delete/{id}', [ScoreController::class, 'delete'])->name('scores.delete');
@@ -121,7 +131,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('scores/export', [ScoreController::class, 'export'])->name('scores.export');
 
 
-    
+
     Route::get('videos', [AdminVideoController::class, 'index'])->name('videos.index');
     // Route::get('videos/{id}/set-status', [AdminVideoController::class, 'setStatus'])->name('videos.status');
     Route::post('videos/lolos/{id}',[AdminVideoController::class,'lolos'])->name('videos.lolos');
@@ -133,7 +143,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('videos/filter/reset', [AdminVideoController::class, 'filterreset'])->name('videos.filter-reset');
     Route::get('videos/export', [AdminVideoController::class, 'export'])->name('videos.export');
 
-    
+
     Route::get('interviews', [InterviewController::class, 'index'])->name('interviews.index');
     Route::get('interviews/{id}/set-status', [InterviewController::class, 'setStatus'])->name('interviews.status');
     Route::post('interviews/delete/{id}', [InterviewController::class, 'delete'])->name('interviews.delete');
@@ -152,7 +162,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('passes/export/data', [PassController::class, 'export'])->name('passes.export');
 
 
-    
+
     Route::resource('iqs', TestIqController::class);
     Route::get('iqs/make/questioniq', [TestIqController::class, 'questionCreate'])->name('iqs.questionCreate');
     Route::post('iqs/delete/{id}', [TestIqController::class, 'destroy'])->name('iqs.delete');
@@ -171,7 +181,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('qna/make/qna', [QnaController::class, 'createPage'])->name('qna.make');
     Route::post('qna/delete/{id}', [QnaController::class, 'destroy'])->name('qna.delete');
     Route::post('qna/delete', [QnaController::class, 'deleteAll'])->name('qna.deleteAll');
-    
+
     Route::resource('schdules', SchduleController::class);
     Route::get('schdules/make/schdule', [SchduleController::class, 'create'])->name('schdules.make');
     Route::post('schdules/delete/{id}', [SchduleController::class, 'destroy'])->name('schdules.delete');
