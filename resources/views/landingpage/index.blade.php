@@ -23,7 +23,7 @@
             content="HTML, CSS, JavaScript, PHP, Pendaftaran"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Pondok Informatika Almadinah</title>
+        <title>Pondok Informatika Al Madinah</title>
 
         <!-- Favicons -->
         <link href="assets/img/Logo-Pondok.png" rel="icon" />
