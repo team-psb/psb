@@ -161,7 +161,7 @@
                             id="logo-image"
                         />
                         <span class="text-logo d-none d-sm-inline" id="text-lg">
-                            Pondok Informatika Al-Madinah
+                            Pondok Informatika Al Madinah
                         </span>
                     </a>
                 </h1>
