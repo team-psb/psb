@@ -12,8 +12,7 @@
         <title>Pondok Informatika Almadinah</title>
 
         <!-- Favicons -->
-        <link href="assets/Logo-Pondok.png" rel="icon" />
-        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+        <link href="assets/img/Logo-Pondok.png" rel="icon" />
 
         <!-- Google Fonts -->
         <link
@@ -95,7 +94,7 @@
         <!-- ======= Background Image ======= -->
         <div class="d-none d-lg-inline">
             <img
-                src="./assets/logo-bg.png"
+                src="./assets/img/logo-bg.png"
                 alt="logo"
                 class="position-absolute img-fluid"
                 width="1100"
@@ -104,7 +103,7 @@
         </div>
         <div class="d-none d-lg-inline">
             <img
-                src="./assets/bawah.png"
+                src="./assets/img/bawah.png"
                 alt="bg-bawah"
                 class="position-absolute img-fluid"
                 width="400"
@@ -113,7 +112,7 @@
         </div>
         <div class="d-none d-lg-inline">
             <img
-                src="./assets/Atas.png"
+                src="./assets/img/Atas.png"
                 class="position-absolute"
                 alt="bg-atas"
                 width="700"
@@ -124,8 +123,9 @@
 
         <!-- WA Live -->
         <a id="Wa" class="wa" title="Chat Live Wa" href="#">
-            <img src="./assets/wa.png" alt="logo-wa" width="80" />
+            <img src="./assets/img/wa.png" alt="logo-wa" width="80" />
         </a>
+        <!-- End WA Live -->
 
         <!-- ======= Header ======= -->
         <header id="header" class="d-flex align-items-center user-select-none">
@@ -140,7 +140,7 @@
                 <h1 class="logo">
                     <a href="#">
                         <img
-                            src="./assets/Logo-Pondok.png"
+                            src="assets/img/Logo-Pondok.png"
                             alt="Logo-Pondok"
                             width="60"
                             class="img-fluid"
@@ -152,7 +152,7 @@
                     </a>
                 </h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
+                <!-- <a href="index.html" class="logo"><img src="./assets/img/logo.png" alt=""></a>-->
 
                 <nav id="navbar" class="navbar">
                     <ul>
@@ -198,17 +198,17 @@
                     </ul>
                     <i class="bi bi-list mobile-nav-toggle"></i>
                 </nav>
-                <!-- .navbar -->
+                <!-- End Navbar -->
             </div>
         </header>
-        <!-- End Header -->
+        <!-- ======= End Header ======= -->
 
         <!-- ======= Home Section ======= -->
         <section id="home" class="d-flex align-items-center">
-            <div class="container" data-aos="zoom-out" data-aos-delay="100">
+            <div class="container" data-aos="zoom-out">
                 <div class="row">
                     <div class="col-md-6 col-sm-12 mb-5 mb-lg-0 mb-md-0">
-                        <h3 class="fw-bold mb-4 banner-title"></h3>
+                        <h3 class="fw-bold mb-4 banner-title">Selamat Datang Di Web PSB Online Pondok Informatika Al-Madinah</h3>
 
                         <div class="paragraf-text mb-5">
                             <p class="sub-banner1">
@@ -271,7 +271,7 @@
                     >
                         <!-- Animate -->
                         <img
-                            src="./assets/people.png"
+                            src="./assets/img/people.png"
                             alt="people"
                             class="
                                 position-absolute
@@ -414,102 +414,13 @@
         <!-- End Home -->
 
         <main id="main">
-            <!-- ======= About Section ======= -->
-            <!-- <section id="regis" class="about section-bg">
-                <div class="container" data-aos="fade-up">
-                    <div class="section-title">
-                        <h2>About</h2>
-                        <h3>Find Out More <span>About Us</span></h3>
-                        <p>
-                            Ut possimus qui ut temporibus culpa velit eveniet
-                            modi omnis est adipisci expedita at voluptas atque
-                            vitae autem.
-                        </p>
-                    </div>
-
-                    <div class="row">
-                        <div
-                            class="col-lg-6"
-                            data-aos="fade-right"
-                            data-aos-delay="100"
-                        >
-                            <img
-                                src="assets/img/about.jpg"
-                                class="img-fluid"
-                                alt=""
-                            />
-                        </div>
-                        <div
-                            class="
-                                col-lg-6
-                                pt-4 pt-lg-0
-                                content
-                                d-flex
-                                flex-column
-                                justify-content-center
-                            "
-                            data-aos="fade-up"
-                            data-aos-delay="100"
-                        >
-                            <h3>
-                                Voluptatem dignissimos provident quasi corporis
-                                voluptates sit assumenda.
-                            </h3>
-                            <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.
-                            </p>
-                            <ul>
-                                <li>
-                                    <i class="bx bx-store-alt"></i>
-                                    <div>
-                                        <h5>
-                                            Ullamco laboris nisi ut aliquip
-                                            consequat
-                                        </h5>
-                                        <p>
-                                            Magni facilis facilis repellendus
-                                            cum excepturi quaerat praesentium
-                                            libre trade
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="bx bx-images"></i>
-                                    <div>
-                                        <h5>
-                                            Magnam soluta odio exercitationem
-                                            reprehenderi
-                                        </h5>
-                                        <p>
-                                            Quo totam dolorum at pariatur aut
-                                            distinctio dolorum laudantium illo
-                                            direna pasata redi
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum
-                                dolore eu fugiat nulla pariatur. Excepteur sint
-                                occaecat cupidatat non proident, sunt in culpa
-                                qui officia deserunt mollit anim id est laborum
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-
             <!-- Section Regis -->
             <section id="regis" class="d-flex align-items-center">
-                <div class="container" data-aos="fade-up" data-aos-delay="200">
+                <div class="container" data-aos="fade-up">
                     <!-- Background Image -->
                     <div class="d-none d-lg-inline">
                         <img
-                            src="./assets/logo-bg.png"
+                            src="assets/img/logo-bg.png"
                             alt="logo"
                             class="position-absolute img-fluid"
                             width="1100"
@@ -523,8 +434,8 @@
                                 col-md-6 col-sm-12
                                 position-relative
                                 login-banner
-                                mb-5 mb-lg-0
                             "
+                            id="regis-form"
                         >
                             <div
                                 class="
@@ -586,6 +497,7 @@
                                                             "
                                                             style="
                                                                 font-size: 15px;
+                                                                color: #145560;
                                                             "
                                                             id="name"
                                                             name="name"
@@ -616,6 +528,7 @@
                                                             "
                                                             style="
                                                                 font-size: 15px;
+                                                                color: #145560;
                                                             "
                                                             id="name"
                                                             name="name"
@@ -649,6 +562,7 @@
                                                             "
                                                             style="
                                                                 font-size: 15px;
+                                                                color: #145560;
                                                             "
                                                             id="address"
                                                             name="address"
@@ -671,7 +585,7 @@
                                                             >No Whatsapp</label
                                                         >
                                                         <input
-                                                            type="text"
+                                                            type="number"
                                                             class="
                                                                 form-control
                                                                 form-control-lg
@@ -680,6 +594,7 @@
                                                             maxlength="13"
                                                             style="
                                                                 font-size: 15px;
+                                                                color: #145560;
                                                             "
                                                             id="no_wa"
                                                             name="no_wa"
@@ -712,6 +627,7 @@
                                                             "
                                                             style="
                                                                 font-size: 15px;
+                                                                color: #145560;
                                                             "
                                                             id="email"
                                                             name="email"
@@ -793,6 +709,7 @@
                                                             "
                                                             style="
                                                                 font-size: 15px;
+                                                                color: #145560;
                                                             "
                                                             id="place_birth"
                                                             name="place_birth"
@@ -857,6 +774,7 @@
                                                             "
                                                             style="
                                                                 font-size: 15px;
+                                                                color: #145560;
                                                             "
                                                             id="password"
                                                             name="password"
@@ -893,7 +811,7 @@
                                                             mb-4
                                                             col-lg-6 col-sm-12
                                                         "
-                                                    >
+                                                        >
                                                         <label
                                                             for="confirm_password"
                                                             class="
@@ -919,31 +837,6 @@
                                                             name="confirm_password"
                                                             placeholder="Masukkan Ulang Password"
                                                         />
-                                                        <div
-                                                            class="
-                                                                d-flex
-                                                                justify-content-between
-                                                            "
-                                                        >
-                                                            <div
-                                                                class="
-                                                                    d-flex
-                                                                    align-items-center
-                                                                    px-2
-                                                                    pt-1
-                                                                "
-                                                                style="
-                                                                    font-size: 12px;
-                                                                    color: #efefef;
-                                                                "
-                                                            >
-                                                                <input
-                                                                    type="checkbox"
-                                                                    onclick="seeFunction()"
-                                                                />&nbsp; Show
-                                                                Password
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -970,8 +863,6 @@
                         <div
                             class="
                                 col-md-6 col-sm-12
-                                mt-4 mt-lg-0 mt-md-5
-                                pb-5 pb-lg-0 pb-md-0
                                 d-flex
                                 align-items-center
                                 justify-content-around
@@ -991,13 +882,13 @@
                                     Daftar Akun dan Mengisi Formulir Pendaftaran
                                 </p>
                                 <img
-                                    src="./assets/daftar.png"
+                                    src="assets/img/daftar.png"
                                     alt="daftar"
                                     width="90px"
                                     class="img-fluid alur_image_1"
                                 />
                                 <img
-                                    src="./assets/line_1.png"
+                                    src="assets/img/line_1.png"
                                     alt="daftar"
                                     width="115px"
                                     class="
@@ -1010,13 +901,13 @@
                             </div>
                             <div class="position-relative">
                                 <img
-                                    src="./assets/tes.png"
+                                    src="assets/img/tes.png"
                                     alt="tes"
                                     width="90px"
                                     class="img-fluid alur_image_2"
                                 />
                                 <img
-                                    src="./assets/line_2.png"
+                                    src="assets/img/line_2.png"
                                     alt="daftar"
                                     width="115px"
                                     class="
@@ -1049,13 +940,13 @@
                                     Selanjutnya Membuat dan Upload Video
                                 </p>
                                 <img
-                                    src="./assets/video.png"
+                                    src="assets/img/video.png"
                                     alt="daftar"
                                     width="90px"
                                     class="img-fluid alur_image_3"
                                 />
                                 <img
-                                    src="./assets/line_1.png"
+                                    src="assets/img/line_1.png"
                                     alt="daftar"
                                     width="115px"
                                     class="
@@ -1068,7 +959,7 @@
                             </div>
                             <div class="position-relative">
                                 <img
-                                    src="./assets/line_2.png"
+                                    src="assets/img/line_2.png"
                                     alt="daftar"
                                     width="115px"
                                     class="
@@ -1079,7 +970,7 @@
                                     style="left: -13px; top: -15px"
                                 />
                                 <img
-                                    src="./assets/wawancara.png"
+                                    src="assets/img/wawancara.png"
                                     alt="tes"
                                     width="90px"
                                     class="img-fluid alur_image_4"
@@ -1108,13 +999,13 @@
                                     panitia
                                 </p>
                                 <img
-                                    src="./assets/lolos.png"
+                                    src="assets/img/lolos.png"
                                     alt="daftar"
                                     width="90px"
                                     class="img-fluid alur_image_5"
                                 />
                                 <img
-                                    src="./assets/line_1.png"
+                                    src="assets/img/line_1.png"
                                     alt="daftar"
                                     width="115px"
                                     class="
@@ -1136,12 +1027,11 @@
                 <div
                     class="container"
                     data-aos="fade-up"
-                    data-aos-duration="100"
                 >
                     <!-- Background Image -->
                     <div class="d-none d-lg-inline">
                         <img
-                            src="./assets/logo-bg.png"
+                            src="assets/img/logo-bg.png"
                             alt="logo"
                             class="position-absolute img-fluid"
                             width="1100"
@@ -1166,7 +1056,7 @@
                                         Total Pengisi Formulir
                                     </p>
                                     <img
-                                        src="./assets/users_stats.png"
+                                        src="assets/img/users_stats.png"
                                         alt="stat_image"
                                         width="500"
                                         class="img-fluid pt-5"
@@ -1214,11 +1104,11 @@
 
             <!-- ======= Announce Section ======= -->
             <section id="announce" class="announce">
-                <div class="container" data-aos="fade-up">
+                <div class="container"  data-aos="fade-up">
                     <!-- Background Image -->
                     <div class="d-none d-lg-inline">
                         <img
-                            src="./assets/logo-bg.png"
+                            src="assets/img/logo-bg.png"
                             alt="logo"
                             class="position-absolute img-fluid"
                             width="1100"
@@ -1238,21 +1128,21 @@
                                     Pengumuman
                                 </h3>
 
-                                <div class="description mb-5">
+                                <div class="description gsap-desc1 mb-5">
                                     <span class="dot"></span>
                                     <h4 class="desc1">Pengumuman</h5>
                                     <p class="desc">
                                         Pengumuman akan di umumkan pada tanggal <b>23 November 2022</b>.
                                     </p>
                                 </div>
-                                <div class="description mb-5">
+                                <div class="description gsap-desc2 mb-5">
                                     <span class="dot"></span>
                                     <h4 class="desc1">Penting</h5>
                                     <p class="desc">
                                         Mengecek ulang formulir pendaftran secara menyeluruh.
                                     </p>
                                 </div>
-                                <div class="description mb-5 mb-xl-4">
+                                <div class="description gsap-desc3 mb-5 mb-xl-4">
                                     <span class="dot"></span>
                                     <h4 class="desc1">Test</h5>
                                     <p class="desc">
@@ -1271,24 +1161,24 @@
                                     Cara Daftar
                                 </h3>
 
-                                <div class="description mb-4 mt-1">
+                                <div class="description gsap-desc1 mb-4 mt-1">
                                     <span class="dots d-flex align-items-center justify-content-center">1.</span>
                                     <p class="desc2">
                                         Calon santri mengisi formulir pendaftaran di website <a href="https://pondokinformatika.com/" class="text-white text-decoration-underline">pondokinformatika.com</a>.
                                     </p>
                                 </div>
-                                <div class="description mb-4">
+                                <div class="description gsap-desc2 mb-4">
                                     <span class="dots d-flex align-items-center justify-content-center">2.</span>
                                     <p class="desc2">
                                         Lengkapi formulir pendaftaran dengan data diri yang benar dan isi dengan teliti.
                                     </p>
                                 </div>
-                                <div class="description mb-4">
+                                <div class="description gsap-desc3 mb-4">
                                     <span class="dots d-flex align-items-center justify-content-center">3.</span>
                                     <p class="desc2">Jika telah selesai mengisi formulir pendaftaran, cek kembali data yang sudah dimasukkan, apabila sudah benar tekan tombol <b>Daftar</b>.
                                     </p>
                                 </div>
-                                <div class="description mb-5 mb-xl-4">
+                                <div class="description gsap-desc4 mb-5 mb-xl-4">
                                     <span class="dots d-flex align-items-center justify-content-center">4.</span>
                                     <p class="desc2">Selanjutnya silahkan login dengan akun anda menggunakan nomor handphone dan password yang anda isikan di dalam fomulir pendaftaran.
                                     </p>
@@ -1303,7 +1193,7 @@
             <!-- ======= Information Section ======= -->
             <section id="info" class="services">
                 <div class="container" data-aos="fade-up">
-                    <div class="section-title mb-4">
+                    <div class="section-title mb-4 title-info">
                         <h1>Information</h1>
                     </div>
 
@@ -1318,7 +1208,7 @@
                                     <div class="icon">
                                         <img src="https://pondokinformatika.xyz/storage/img/P9F8lHy1M1Ee8CXe4OJEYSebI5vnI77UkGUrOaya.png" alt="tutorial" class="img-fluid">
                                     </div>
-                                    <h4><a href="#">Video Tata Cara Pendaftaran Calon Santri</a></h4>
+                                    <h4><a href="portfolio-details.html">Video Tata Cara Pendaftaran Calon Santri</a></h4>
                                     <small class="text-muted"><p>Last updated 3 mins ago</p></small>
                                 </a>
                             </div>
@@ -1474,7 +1364,7 @@
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
                                     <img
-                                        src="assets/img/testimonials/testimonials-2.jpg"
+                                        src="./assets/img/testimonials/testimonials-2.jpg"
                                         class="testimonial-img"
                                         alt=""
                                     />
@@ -1507,7 +1397,7 @@
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
                                     <img
-                                        src="assets/img/testimonials/testimonials-3.jpg"
+                                        src="./assets/img/testimonials/testimonials-3.jpg"
                                         class="testimonial-img"
                                         alt=""
                                     />
@@ -1540,7 +1430,7 @@
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
                                     <img
-                                        src="assets/img/testimonials/testimonials-4.jpg"
+                                        src="./assets/img/testimonials/testimonials-4.jpg"
                                         class="testimonial-img"
                                         alt=""
                                     />
@@ -1574,7 +1464,7 @@
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
                                     <img
-                                        src="assets/img/testimonials/testimonials-5.jpg"
+                                        src="./assets/img/testimonials/testimonials-5.jpg"
                                         class="testimonial-img"
                                         alt=""
                                     />
@@ -1633,7 +1523,7 @@
                             <div class="member">
                                 <div class="member-img">
                                     <img
-                                        src="assets/img/team/team-1.jpg"
+                                        src="./assets/img/team/team-1.jpg"
                                         class="img-fluid"
                                         alt=""
                                     />
@@ -1667,7 +1557,7 @@
                             <div class="member">
                                 <div class="member-img">
                                     <img
-                                        src="assets/img/team/team-2.jpg"
+                                        src="./assets/img/team/team-2.jpg"
                                         class="img-fluid"
                                         alt=""
                                     />
@@ -1701,7 +1591,7 @@
                             <div class="member">
                                 <div class="member-img">
                                     <img
-                                        src="assets/img/team/team-3.jpg"
+                                        src="./assets/img/team/team-3.jpg"
                                         class="img-fluid"
                                         alt=""
                                     />
@@ -1735,7 +1625,7 @@
                             <div class="member">
                                 <div class="member-img">
                                     <img
-                                        src="assets/img/team/team-4.jpg"
+                                        src="./assets/img/team/team-4.jpg"
                                         class="img-fluid"
                                         alt=""
                                     />
@@ -1872,11 +1762,8 @@
             <section id="portfolio" class="portfolio">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
-                        <!-- <h2>Keseharian</h2> -->
-                        <h1>Kegiatan</h1>
-                        <p>
-                            Terdapat banyak kegiatan seru dan bermanfaat untuk semua santri Pondok Informatika Al-Madinah.
-                        </p>
+                        <h1 class="title-activity">Kegiatan</h1>
+                        <p class="subtitle-activity">Terdapat banyak kegiatan seru dan bermanfaat untuk semua santri Pondok Informatika Al-Madinah.</p>
                     </div>
 
                     <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -1936,7 +1823,7 @@
                                 <h4>Web 3</h4>
                                 <p>Web</p>
                                 <a
-                                    href="assets/img/portfolio/portfolio-2.jpg"
+                                    href="./assets/img/portfolio/portfolio-2.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Web 3"
@@ -1963,7 +1850,7 @@
                                 <h4>App 2</h4>
                                 <p>App</p>
                                 <a
-                                    href="assets/img/portfolio/portfolio-3.jpg"
+                                    href="./assets/img/portfolio/portfolio-3.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="App 2"
@@ -1990,7 +1877,7 @@
                                 <h4>Card 2</h4>
                                 <p>Card</p>
                                 <a
-                                    href="assets/img/portfolio/portfolio-4.jpg"
+                                    href="./assets/img/portfolio/portfolio-4.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Card 2"
@@ -2017,7 +1904,7 @@
                                 <h4>Web 2</h4>
                                 <p>Web</p>
                                 <a
-                                    href="assets/img/portfolio/portfolio-5.jpg"
+                                    href="./assets/img/portfolio/portfolio-5.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Web 2"
@@ -2044,7 +1931,7 @@
                                 <h4>App 3</h4>
                                 <p>App</p>
                                 <a
-                                    href="assets/img/portfolio/portfolio-6.jpg"
+                                    href="./assets/img/portfolio/portfolio-6.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="App 3"
@@ -2071,7 +1958,7 @@
                                 <h4>Card 1</h4>
                                 <p>Card</p>
                                 <a
-                                    href="assets/img/portfolio/portfolio-7.jpg"
+                                    href="./assets/img/portfolio/portfolio-7.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Card 1"
@@ -2090,7 +1977,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-card"
                         >
                             <img
-                                src="assets/img/portfolio/portfolio-8.jpg"
+                                src="./assets/img/portfolio/portfolio-8.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -2098,7 +1985,7 @@
                                 <h4>Card 3</h4>
                                 <p>Card</p>
                                 <a
-                                    href="assets/img/portfolio/portfolio-8.jpg"
+                                    href="./assets/img/portfolio/portfolio-8.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Card 3"
@@ -2117,7 +2004,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-web"
                         >
                             <img
-                                src="assets/img/portfolio/portfolio-9.jpg"
+                                src="./assets/img/portfolio/portfolio-9.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -2125,7 +2012,7 @@
                                 <h4>Web 3</h4>
                                 <p>Web</p>
                                 <a
-                                    href="assets/img/portfolio/portfolio-9.jpg"
+                                    href="./assets/img/portfolio/portfolio-9.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Web 3"
@@ -2144,23 +2031,294 @@
             </section>
             <!-- End Activity Section -->
 
+            <!-- ======= Work Section ======= -->
+            <section id="portfolio" class="portfolio">
+                <div class="container" data-aos="fade-up">
+                    <div class="section-title">
+                        <h1 class="title-activity">Karya Santri</h1>
+                        <p class="subtitle-activity">Banyak karya yang sudah di buat oleh santri Pondok Informatika Al-Madinah dan berikut ini adalah beberapa contohnya.</p>
+                    </div>
+
+                    <div class="row" data-aos="fade-up" data-aos-delay="100">
+                        <div class="col-lg-12 d-flex justify-content-center">
+                            <ul id="portfolio-flters-work">
+                                <li data-filter="*" class="filter-active">
+                                    Semua
+                                </li>
+                                <li data-filter=".filter-programming">Programming</li>
+                                <li data-filter=".filter-design">Design</li>
+                                <li data-filter=".filter-video">Video</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div
+                        class="row portfolio-container-work"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                        >
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item-work filter-programming"
+                        >
+                            <img
+                                src="https://media.istockphoto.com/photos/team-of-young-computer-programmers-cooperating-in-the-office-picture-id1157345255?b=1&k=20&m=1157345255&s=170667a&w=0&h=prDhzMeI5tUoecj4kQwxOnRSI6X2vyVMkHbYOGU1Stw="
+                                class="img-fluid"
+                                alt="image"
+                            />
+                            <div class="portfolio-info">
+                                <h4>Volly</h4>
+                                <p>Bermain volly bersama <br>dilapangan, setelah pemanasan.</p>
+                                <a
+                                    href="https://media.istockphoto.com/photos/team-of-young-computer-programmers-cooperating-in-the-office-picture-id1157345255?b=1&k=20&m=1157345255&s=170667a&w=0&h=prDhzMeI5tUoecj4kQwxOnRSI6X2vyVMkHbYOGU1Stw="
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox-work preview-link"
+                                    title="Bermain volly bersama dilapangan, setelah pemanasan."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item-work filter-design"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGRlc2lnbiUyMHdvcmt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Web 3</h4>
+                                <p>Web</p>
+                                <a
+                                    href="./assets/img/portfolio/portfolio-2.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox-work preview-link"
+                                    title="Web 3"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item-work filter-programming"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHByb2dyYW1taW5nJTIwd29ya3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>App 2</h4>
+                                <p>App</p>
+                                <a
+                                    href="./assets/img/portfolio/portfolio-3.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox-work preview-link"
+                                    title="App 2"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item-work filter-video"
+                            >
+                            <img
+                                src="https://media.istockphoto.com/photos/laptop-pc-with-many-people-having-a-meeting-at-distance-picture-id1226068276?b=1&k=20&m=1226068276&s=170667a&w=0&h=4CEo3YjPzJpyAVMMopkhRICuf5Z8zWWcQ11XuUF-B74="
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Card 2</h4>
+                                <p>Card</p>
+                                <a
+                                    href="./assets/img/portfolio/portfolio-4.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox-work preview-link"
+                                    title="Card 2"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item-work filter-design"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1493932484895-752d1471eab5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGRlc2lnbiUyMHdvcmt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Web 2</h4>
+                                <p>Web</p>
+                                <a
+                                    href="./assets/img/portfolio/portfolio-5.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox-work preview-link"
+                                    title="Web 2"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item-work filter-programming"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHByb2dyYW1taW5nJTIwd29ya3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>App 3</h4>
+                                <p>App</p>
+                                <a
+                                    href="./assets/img/portfolio/portfolio-6.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox-work preview-link"
+                                    title="App 3"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item-work filter-video"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1629956874549-a21316bfe0a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmlkZW8lMjBpc2xhbXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Card 1</h4>
+                                <p>Card</p>
+                                <a
+                                    href="./assets/img/portfolio/portfolio-7.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox-work preview-link"
+                                    title="Card 1"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item-work filter-video"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1620802232352-8ad6533690ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlkZW8lMjBpc2xhbXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Card 3</h4>
+                                <p>Card</p>
+                                <a
+                                    href="./assets/img/portfolio/portfolio-8.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox-work preview-link"
+                                    title="Card 3"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item-work filter-design"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGRlc2lnbiUyMHdvcmt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Web 3</h4>
+                                <p>Web</p>
+                                <a
+                                    href="./assets/img/portfolio/portfolio-9.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox-work preview-link"
+                                    title="Web 3"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Work Section -->
+
             <!-- ======= Frequently Asked Questions Section ======= -->
             <section id="qna" class="qna section-bg">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
-                        <h2 class="mb-3">Q.&.A</h2>
-                        <h1 class="fw-bold mb-3">Questions and Answers</h1>
-                        <!-- <p>
-                            Ut possimus qui ut temporibus culpa velit eveniet
-                            modi omnis est adipisci expedita at voluptas atque
-                            vitae autem.
-                        </p> -->
+                        <h2 class="mb-3 subtitle-activity">Q.&.A</h2>
+                        <h1 class="fw-bold mb-3 title-activity">Questions and Answers</h1>
+                        <p class="subtitle-activity">
+                            Temukan berbagai pertanyaan seputar pendaftaran Pondok Informatika Al-Madinah dibawah ini.
+                        </p>
                     </div>
 
                     <div class="row justify-content-center">
                         <div class="col-xl-10">
                             <ul class="qna-list">
-                                <li>
+                                <li class="qna1">
                                     <div
                                         data-bs-toggle="collapse"
                                         class="collapsed question"
@@ -2184,8 +2342,7 @@
                                         </p>
                                     </div>
                                 </li>
-
-                                <li>
+                                <li class="qna2">
                                     <div
                                         data-bs-toggle="collapse"
                                         href="#qna2"
@@ -2209,8 +2366,7 @@
                                         </p>
                                     </div>
                                 </li>
-
-                                <li>
+                                <li class="qna3">
                                     <div
                                         data-bs-toggle="collapse"
                                         href="#qna3"
@@ -2234,8 +2390,7 @@
                                         </p>
                                     </div>
                                 </li>
-
-                                <li>
+                                <li class="qna4">
                                     <div
                                         data-bs-toggle="collapse"
                                         href="#qna4"
@@ -2259,8 +2414,7 @@
                                         </p>
                                     </div>
                                 </li>
-
-                                <li>
+                                <li class="qna5">
                                     <div
                                         data-bs-toggle="collapse"
                                         href="#qna5"
@@ -2284,8 +2438,7 @@
                                         </p>
                                     </div>
                                 </li>
-
-                                <li>
+                                <li class="qna6">
                                     <div
                                         data-bs-toggle="collapse"
                                         href="#qna6"
@@ -2309,7 +2462,7 @@
                                         </p>
                                     </div>
                                 </li>
-                                <li>
+                                <li class="qna7">
                                     <div
                                         data-bs-toggle="collapse"
                                         href="#qna7"
@@ -2333,7 +2486,7 @@
                                         </p>
                                     </div>
                                 </li>
-                                <li>
+                                <li class="qna8">
                                     <div
                                         data-bs-toggle="collapse"
                                         href="#qna8"
@@ -2357,7 +2510,7 @@
                                         </p>
                                     </div>
                                 </li>
-                                <li>
+                                <li class="qna9">
                                     <div
                                         data-bs-toggle="collapse"
                                         href="#qna9"
@@ -2381,7 +2534,7 @@
                                         </p>
                                     </div>
                                 </li>
-                                <li>
+                                <li class="qna10">
                                     <div
                                         data-bs-toggle="collapse"
                                         href="#qna10"
@@ -2413,21 +2566,15 @@
             <!-- End Frequently Asked Questions Section -->
 
             <!-- ======= About Section ======= -->
-            <section id="contact" class="contact">
+            <section id="about" class="about">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
-                        <!-- <h2>Contact</h2> -->
-                        <h1 class="fw-bold contact-title"><span>About Us</span></h1>
-                        <!-- <p>
-                            Ut possimus qui ut temporibus culpa velit eveniet
-                            modi omnis est adipisci expedita at voluptas atque
-                            vitae autem.
-                        </p> -->
+                        <h1 class="fw-bold about-title title-activity"><span>About Us</span></h1>
                     </div>
 
                     <div class="row" data-aos="fade-up" data-aos-delay="100">
                         <div class="col-lg-6">
-                            <div class="info-box mb-4">
+                            <div class="info-box mb-4 sub-address">
                                 <i class="bx bx-map"></i>
                                 <h3>Alamat</h3>
                                 <p>Jl. Raya Krapyak, RT.05, Karanganyar, Wedomartani, Ngemplak, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55584</p>
@@ -2435,7 +2582,7 @@
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <div class="info-box mb-4">
+                            <div class="info-box mb-4 sub-email">
                                 <i class="bx bx-envelope"></i>
                                 <h3>Email</h3>
                                 <p>pondokitalmadinah@gmail.com</p>
@@ -2443,7 +2590,7 @@
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <div class="info-box mb-4">
+                            <div class="info-box mb-4 sub-contact">
                                 <i class="bx bx-phone-call"></i>
                                 <h3>Kontak</h3>
                                 <p>085 725 249 265</p>
@@ -2454,7 +2601,7 @@
                     <div data-aos="fade-up" data-aos-delay="100">
                         <div class="col-lg-12">
                             <iframe
-                                class="mb-4 mb-lg-0"
+                                class="mb-4 mb-lg-0 sub-map"
                                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1662.272102301785!2d110.42290172593329!3d-7.729023614407029!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd648398dc4db70c6!2sPondok%20Informatika%20Al-Madinah%20-%20Pondok%20IT!5e0!3m2!1sen!2sus!4v1638843146450!5m2!1sen!2sus"
                                 frameborder="0"
                                 style="border: 0; width: 100%; height: 384px"
@@ -2468,8 +2615,8 @@
         </main>
         <!-- End #main -->
 
-        <!-- ======= Clients Section ======= -->
-            <section class="clients section-bg">
+        <!-- ====== Sponsor Section ======= -->
+            <section class="sponsor section-bg">
                 <div class="container" data-aos="zoom-in">
                     <div class="row">
                         <div
@@ -2478,10 +2625,11 @@
                                 d-flex
                                 align-items-center
                                 justify-content-center
+                                logo-sponsor
                             "
                         >
                             <img
-                                src="assets/img/clients/client-1.png"
+                                src="./assets/img/client-1.png"
                                 class="img-fluid "
                                 alt="logo-mahirtechno"
                             />
@@ -2493,10 +2641,11 @@
                                 d-flex
                                 align-items-center
                                 justify-content-center
+                                logo-sponsor
                             "
                         >
                             <img
-                                src="assets/img/clients/client-2.png"
+                                src="./assets/img/client-2.png"
                                 class="img-fluid"
                                 alt="logo-ywj"
                             />
@@ -2504,14 +2653,14 @@
                     </div>
                 </div>
             </section>
-            <!-- End Clients Section -->
+            <!-- End Sponsor Section -->
 
         <!-- ======= Footer ======= -->
         <footer id="footer">
             <div class="footer-top">
                 <div class="content-footer overflow-hidden">
                     <img
-                        src="./assets/footer.png"
+                        src="./assets/img/footer.png"
                         alt="logo"
                         class="position-absolute d-none d-md-block"
                         width="2300"
@@ -2519,19 +2668,19 @@
                     />
                     <div class="row align-items-center">
                         <div class="col-12 col-lg-5 footer-contact mx-auto text-center">
-                            <h4 class="text-uppercase mb-5">Pondok Informatika Al-Madinah</h4>
+                            <h4 class="text-uppercase mb-5 title-footer-left"></h4>
                             <a
                                 href="https://pondokinformatika.com/"
                                 class="text-decoration-none btn-footer"
                             >
-                                <button class="btn rounded-pill px-3 py-2 text-white text-uppercase" style="background: #3adb9f;">Info lebih lanjut</button>
+                                <button class="btn rounded-pill px-3 py-2 text-white text-uppercase button-footer-left" style="background: #3adb9f;">Info lebih lanjut</button>
                             </a>
                         </div>
-                        <div class="col-12 col-lg-2 footer-contact text-center my-5 my-lg-0">
-                            <img src="./assets/logo-putih.png" alt="Logo Pondok" width="150">
+                        <div class="col-12 col-lg-2 footer-contact text-center my-5 my-lg-0 logo-sponsor">
+                            <img src="./assets/img/logo-putih.png" alt="Logo Pondok" width="150">
                         </div>
                         <div class="col-12 col-lg-5 footer-contact">
-                            <p class="fs-6 px-0 px-lg-5">
+                            <p class="fs-6 px-0 px-lg-5 footer-right">
                                 Pondok Informatika Al-Madinah membuka penerimaan santri baru yang siap menjadi ahli IT yang bertauhid lurus, mencintai sunnah, berakhlak mulia serta profesional dan siap membela islam dengan keahlian dan mau mendedikasikan waktu dan tenaganya untuk dakwah islam.
                             </p>
                         </div>
@@ -2554,130 +2703,27 @@
         ></a>
 
         <!-- Vendor JS Files -->
-        <script src="assets/vendor/purecounter/purecounter.js"></script>
-        <script src="assets/vendor/aos/aos.js"></script>
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-        <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-        <script src="assets/vendor/php-email-form/validate.js"></script>
+        <script src="./assets/vendor/purecounter/purecounter.js"></script>
+        <script src="./assets/vendor/aos/aos.js"></script>
+        <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="./assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="./assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="./assets/vendor/waypoints/noframework.waypoints.js"></script>
+        <script src="./assets/vendor/php-email-form/validate.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
         <script>
-            //GSAP
-            gsap.from(".logo", {
-                delay: 1.5,
-                duration: 1,
-                opacity: 0,
-            });
-            gsap.from(".line-1", {
-                delay: 2,
-                duration: 0.5,
-                scale: 0,
-                opacity: 0,
-            });
+            /* GSAP */
 
-            gsap.from(".line-2", {
-                delay: 3,
-                duration: 0.5,
-                scale: 0,
-                opacity: 0,
-            });
-
-            gsap.from(".line-3", {
-                delay: 4,
-                duration: 0.5,
-                scale: 0,
-                opacity: 0,
-            });
-
-            gsap.from(".line-4", {
-                delay: 5,
-                duration: 0.5,
-                scale: 0,
-                opacity: 0,
-            });
-
-            gsap.from(".line-5", {
-                delay: 6,
-                duration: 0.5,
-                scale: 0,
-                opacity: 0,
-            });
-            gsap.from(".alur_image_1", {
-                delay: 7,
-                duration: 2,
-                y: -100,
-                opacity: 0,
-                ease: "bounce",
-            });
-            gsap.from(".alur_image_2", {
-                delay: 9,
-                duration: 2,
-                y: 100,
-                opacity: 0,
-                ease: "bounce",
-            });
-            gsap.from(".alur_image_3", {
-                delay: 11,
-                duration: 2,
-                y: -100,
-                opacity: 0,
-                ease: "bounce",
-            });
-            gsap.from(".alur_image_4", {
-                delay: 13,
-                duration: 2,
-                y: 100,
-                opacity: 0,
-                ease: "bounce",
-            });
-            gsap.from(".alur_image_5", {
-                delay: 15,
-                duration: 2,
-                y: -100,
-                opacity: 0,
-                ease: "bounce",
-            });
-            gsap.from(".alur-text", {
-                delay: 8,
-                duration: 1,
-                scale: 0,
-                opacity: 0,
-            });
-            gsap.from(".alur-text2", {
-                delay: 10,
-                duration: 1,
-                scale: 0,
-                opacity: 0,
-            });
-            gsap.from(".alur-text3", {
-                delay: 12,
-                duration: 1,
-                scale: 0,
-                opacity: 0,
-            });
-            gsap.from(".alur-text4", {
-                delay: 14,
-                duration: 1,
-                scale: 0,
-                opacity: 0,
-            });
-            gsap.from(".alur-text5", {
-                delay: 16,
-                duration: 1,
-                scale: 0,
-                opacity: 0,
-            });
-
+            //Top-Navbar
             gsap.to(".email-address", {
                 text: "pondokitalmadinah@gmail.com",
                 duration: 2,
                 delay: 2,
             });
             gsap.to(".no-hp", {
-                text: "085 725 249 265",
+                text: " 085 725 249 265",
                 duration: 2,
                 delay: 4,
             });
@@ -2687,33 +2733,152 @@
                 duration: 1,
                 delay: 6,
             });
-            gsap.to(".banner-title", {
-                text: "Selamat Datang Di Web PSB Online Pondok Informatika Al-Madinah",
-                duration: 5,
+
+            //Navbar
+            gsap.from(".logo", {
+                x: -100,
+                delay: 1.5,
+                duration: 1.5,
+                opacity: 0,
+            });
+            gsap.from(".navbar", {
+                delay: 2,
+                duration: 2,
+                opacity: 0,
+            });
+
+            //Section Home
+            gsap.from(".banner-title", {
+                x: -100,
+                duration: 2,
+                opacity: 0,
                 delay: 2,
             });
             gsap.from(".sub-banner1", {
                 x: -100,
                 duration: 2,
                 opacity: 0,
-                delay: 7,
+                delay: 2.5,
             });
             gsap.from(".sub-banner2", {
                 x: -100,
                 duration: 2,
                 opacity: 0,
-                delay: 8,
+                delay: 3,
             });
             gsap.from(".button-banner", {
                 duration: 1,
                 opacity: 0,
-                delay: 9,
+                delay: 4.5,
             });
             gsap.from(".button-banner2", {
                 duration: 1,
                 opacity: 0,
-                delay: 10,
+                delay: 5.5,
             });
+
+            //Section Registration
+            gsap.from(".line-1", {
+                delay: 2,
+                duration: 0.5,
+                scale: 0,
+                opacity: 0,
+            });
+
+            gsap.from(".line-2", {
+                delay: 2.5,
+                duration: 0.5,
+                scale: 0,
+                opacity: 0,
+            });
+
+            gsap.from(".line-3", {
+                delay: 3,
+                duration: 0.5,
+                scale: 0,
+                opacity: 0,
+            });
+
+            gsap.from(".line-4", {
+                delay: 3.5,
+                duration: 0.5,
+                scale: 0,
+                opacity: 0,
+            });
+
+            gsap.from(".line-5", {
+                delay: 4,
+                duration: 0.5,
+                scale: 0,
+                opacity: 0,
+            });
+            gsap.from(".alur_image_1", {
+                delay: 4.5,
+                duration: 2,
+                y: -100,
+                opacity: 0,
+                ease: "bounce",
+            });
+            gsap.from(".alur_image_2", {
+                delay: 5.5,
+                duration: 2,
+                y: 100,
+                opacity: 0,
+                ease: "bounce",
+            });
+            gsap.from(".alur_image_3", {
+                delay: 6.5,
+                duration: 2,
+                y: -100,
+                opacity: 0,
+                ease: "bounce",
+            });
+            gsap.from(".alur_image_4", {
+                delay: 7.5,
+                duration: 2,
+                y: 100,
+                opacity: 0,
+                ease: "bounce",
+            });
+            gsap.from(".alur_image_5", {
+                delay: 8.5,
+                duration: 2,
+                y: -100,
+                opacity: 0,
+                ease: "bounce",
+            });
+            gsap.from(".alur-text", {
+                delay: 9,
+                duration: 1,
+                scale: 0,
+                opacity: 0,
+            });
+            gsap.from(".alur-text2", {
+                delay: 9.5,
+                duration: 1,
+                scale: 0,
+                opacity: 0,
+            });
+            gsap.from(".alur-text3", {
+                delay: 10,
+                duration: 1,
+                scale: 0,
+                opacity: 0,
+            });
+            gsap.from(".alur-text4", {
+                delay: 10.5,
+                duration: 1,
+                scale: 0,
+                opacity: 0,
+            });
+            gsap.from(".alur-text5", {
+                delay: 11,
+                duration: 1,
+                scale: 0,
+                opacity: 0,
+            });
+
+            //Section Stats
             gsap.from(".title-stats", {
                 y: -50,
                 duration: 1.5,
@@ -2736,10 +2901,190 @@
                 duration: 2,
                 delay: 5,
             });
+
+            // Announce
+            gsap.from(".title-announce", {
+                y: -50,
+                duration: 1.5,
+                opacity: 0,
+                delay: 2,
+                ease: "bounce",
+            });
+            gsap.from(".gsap-desc1", {
+                duration: 1.5,
+                opacity: 0,
+                delay: 2.5,
+            });
+            gsap.from(".gsap-desc2", {
+                duration: 1.5,
+                opacity: 0,
+                delay: 3,
+            });
+            gsap.from(".gsap-desc3", {
+                duration: 1.5,
+                opacity: 0,
+                delay: 3.5,
+            });
+            gsap.from(".gsap-desc4", {
+                duration: 1.5,
+                opacity: 0,
+                delay: 4,
+            });
+
+            //Section Stats
+            gsap.from(".title-info", {
+                y: -50,
+                duration: 1.5,
+                opacity: 0,
+                delay: 2,
+                ease: "bounce",
+            });
+
+            //Section Activity
+            gsap.from(".title-activity", {
+                y: -50,
+                duration: 1.5,
+                opacity: 0,
+                delay: 2,
+                ease: "bounce",
+            });
+            gsap.from(".subtitle-activity", {
+                duration: 2,
+                delay: 3,
+                opacity:0
+            });
+
+            //Section Q&A
+            gsap.from(".qna1", {
+                duration: 1,
+                delay: 3.5,
+                opacity:0,
+                x: -50,
+            });
+            gsap.from(".qna2", {
+                duration: 1,
+                delay: 4,
+                opacity:0,
+                x: -50,
+            });
+            gsap.from(".qna3", {
+                duration: 1,
+                delay: 4.5,
+                opacity:0,
+                x: -50,
+            });
+            gsap.from(".qna4", {
+                duration: 1,
+                delay: 5,
+                opacity:0,
+                x: -50,
+            });
+            gsap.from(".qna5", {
+                duration: 1,
+                delay: 5.5,
+                opacity:0,
+                x: -50,
+            });
+            gsap.from(".qna6", {
+                duration: 1,
+                delay: 6,
+                opacity:0,
+                x: -50,
+            });
+            gsap.from(".qna7", {
+                duration: 1,
+                delay: 6.5,
+                opacity:0,
+                x: -50,
+            });
+            gsap.from(".qna8", {
+                duration: 1,
+                delay: 7,
+                opacity:0,
+                x: -50,
+            });
+            gsap.from(".qna9", {
+                duration: 1,
+                delay: 7.5,
+                opacity:0,
+                x: -50,
+            });
+            gsap.from(".qna10", {
+                duration: 1,
+                delay: 8,
+                opacity:0,
+                x: -50,
+            });
+
+            //Section About
+            gsap.from(".sub-address", {
+                y: 100,
+                ease: "back",
+                delay: 3.5,
+                duration: 1.5,
+                opacity: 0
+            });
+            gsap.from(".sub-email", {
+                y: 100,
+                ease: "back",
+                delay: 4.5,
+                duration: 1.5,
+                opacity: 0
+            });
+            gsap.from(".sub-contact", {
+                y: 100,
+                ease: "back",
+                delay: 5.5,
+                duration: 1.5,
+                opacity: 0
+            });
+            gsap.from(".sub-map", {
+                delay: 6,
+                duration: 1.5,
+                opacity: 0
+            });
+
+            //Section Sponsor
+            gsap.from(".logo-sponsor", {
+                delay: 2,
+                duration: 2,
+                rotateY: 360,
+                opacity: 0
+            });
+
+            //Section Footer
+            gsap.to(".title-footer-left", {
+                text: "Pondok Informatika Al-Madinah",
+                duration: 2,
+                delay: 2
+            });
+            gsap.from(".button-footer-left", {
+                duration: 1.5,
+                delay: 3,
+                y: 50,
+                ease: "back",
+                opacity: 0
+            });
+            gsap.from(".footer-right", {
+                duration: 1.5,
+                delay: 2,
+                x: 50,
+                ease: "back",
+                opacity: 0
+            });
+
+            //Copyright
+            gsap.from(".copyright", {
+                duration: 1.5,
+                delay: 2,
+                y: 50,
+                ease: "elastic",
+                opacity: 0,
+            });
         </script>
 
         <!-- Template Main JS File -->
-        <script src="assets/js/main.js"></script>
+        <script src="./assets/js/main.js"></script>
         <script>
             // Show Password
             function myFunction() {
@@ -2752,18 +3097,14 @@
             }
             function showFunction() {
                 var x = document.getElementById("password");
+                var y = document.getElementById("confirm_password");
                 if (x.type === "password") {
                     x.type = "text";
+                } if (y.type === "password") {
+                    y.type = "text";
                 } else {
                     x.type = "password";
-                }
-            }
-            function seeFunction() {
-                var x = document.getElementById("confirm_password");
-                if (x.type === "password") {
-                    x.type = "text";
-                } else {
-                    x.type = "password";
+                    y.type = "password";
                 }
             }
         </script>

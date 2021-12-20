@@ -94,7 +94,7 @@
         ) {
             document.getElementById("header").style.background = "#23c193";
             document.getElementById("logo-image").src =
-                "./assets/logo-putih.png";
+                "./assets/img/logo-putih.png";
             document.getElementById("header").style.boxShadow =
                 "0px 2px 15px rgba(0, 0, 0, 0.1)";
             document.getElementById("text-lg").style.color = "#fff";
@@ -107,7 +107,7 @@
         } else {
             document.getElementById("header").style.background = "transparent";
             document.getElementById("logo-image").src =
-                "./assets/Logo-Pondok.png";
+                "assets/img/Logo-Pondok.png";
             document.getElementById("header").style.boxShadow = "";
             document.getElementById("text-lg").style.color = "";
             document.getElementById("link1").style.color = "";
