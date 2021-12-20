@@ -14,11 +14,10 @@
 
 <!-- Template CSS -->
 <link rel="stylesheet" href="{{ asset('stisla/assets/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('front/style/style.css') }}">
 <link rel="stylesheet" href="{{ asset('stisla/assets/css/components.css') }}">
 
 {{-- Front --}}
-<link rel="stylesheet" href="{{ asset('front/style/style.css') }}">
-
 <style>
     html {
         scroll-behavior: smooth;
@@ -33,14 +32,14 @@
         z-index: 99;
         border: none;
         outline: none;
-        background-color: #32c193;
+        background-color: #114551;
         color: white;
         cursor: pointer;
         border-radius: 25px;
     }
 
     #myBtn:hover {
-        background-color: #188038;
+        background-color: #177896;
         transition: all 0.5s;
     }
 

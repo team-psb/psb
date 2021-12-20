@@ -10,13 +10,8 @@
               <i class="fas fa-ellipsis-v"></i>
             </a>
           </div> --}}
-          <form class="form-inline ml-auto">
-            <ul class="navbar-nav">
-              <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
-            </ul>
-          </form>
           <ul class="navbar-nav navbar-right">
-            <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
+            {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
               <div class="dropdown-menu dropdown-list dropdown-menu-right">
                 <div class="dropdown-header">Notifications
                   <div class="float-right">
@@ -74,18 +69,12 @@
                   <a href="#">View All <i class="fas fa-chevron-right"></i></a>
                 </div>
               </div>
-            </li>
+            </li> --}}
             <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
               <img alt="image" src="{{ asset('stisla/assets/img/avatar/avatar-2.png') }}" class="rounded-circle mr-1">
               <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::user()->name }}</div></a>
               <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">Logged in 5 min ago</div>
-                <a href="features-profile.html" class="dropdown-item has-icon">
-                  <i class="far fa-user"></i> Profile
-                </a>
-                <a href="features-settings.html" class="dropdown-item has-icon">
-                  <i class="fas fa-cog"></i> Settings
-                </a>
                 <div class="dropdown-divider"></div>
                   <form method="POST" action="{{ url('/logout') }}">
                     @csrf

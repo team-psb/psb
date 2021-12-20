@@ -222,16 +222,19 @@
                           >Jumlah Hafalan Al Qur'an<b>*</b></label
                         >
                         <div class="input-group mb-3">
-                          <input
-                            type="text"
+                          <select 
                             class="form-control"
                             id="memorization"
                             name="memorization"
                             value="{{ old('memorization') }}"
                             required
-                          />
+                          >
+                            @for ($i = 0; $i <= 30; $i++)
+                                <option value="{{ $i }}JUZ">{{ $i }} JUZ</option>
+                            @endfor
+                          </select>
                           <div class="input-group-append">
-                            <button class="btn btn-danger" id="modal-2"><i class="fas fa-exclamation-circle"></i></button>
+                            <button class="btn btn-danger" id="modal-1"><i class="fas fa-exclamation-circle"></i></button>
                           </div>
                         </div>
                       </div>
