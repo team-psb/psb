@@ -470,7 +470,7 @@
                                             text-center text-white
                                         "
                                     >
-                                        Formulir Peserta
+                                        Formulir Peserta {{ $gelombang }}
                                     </h1>
                                     <h6
                                         class="
