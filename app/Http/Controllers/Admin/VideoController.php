@@ -41,19 +41,6 @@ class VideoController extends Controller
         return back()->with('success-delete','Berhasil Menghapus Data');
     }
 
-    // public function setStatus(Request $request, $id)
-    // {
-    //     $request->validate([
-    //         'status' => 'required|in:lolos,tidak'
-    //     ]);
-
-    //     $item = Video::findOrFail($id);
-    //     $item->status = $request->status;
-    //     $item->save();
-
-    //     return redirect()->route('videos.index')->with('success-edit', 'Berhasil Mengganti Status Data');
-    // }
-
     public function lolos($id)
     {
         $data=Video::findOrFail($id);

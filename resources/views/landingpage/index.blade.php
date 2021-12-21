@@ -1,5 +1,5 @@
 @php
-    $tahun_ajaran = App\Models\AcademyYear::where('is_active', true)->first();
+    $tahun_ajaran = App\Models\AcademyYear::where('is_active', true)->orderBy('id','desc')->first();
     $users = App\Models\BiodataOne::whereHas('academy_year', function($query){
         $query->where('is_active', true);
     })->count();
@@ -254,7 +254,7 @@
                         <div class="paragraf-text mb-5">
                             <p class="sub-banner1">
                                 Web Penerimaan Peserta Didik Baru <br />
-                                Tahun Pelajaran 2021/2022 <br />
+                                Tahun Pelajaran {{ isset($tahun_ajaran->year) ? $tahun_ajaran->year.' / '. intval($tahun_ajaran->year +1) : '' }} <br />
                                 Pondok Informatika Al-Madinah
                             </p>
                             <p class="pt-2 sub-banner2">

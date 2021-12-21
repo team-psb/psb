@@ -85,7 +85,16 @@
                                                         {{ $stage->name }}
                                                     </label>
                                                 </div>
-                                                <div class="">
+                                                <div class="d-flex">
+                                                    <a href="#mymodal"
+                                                        data-remote="{{ route('settings.stage-edit', $stage->id) }}"
+                                                        data-toggle="modal"
+                                                        data-target="#mymodal"
+                                                        data-title="Edit Gelombang {{ $stage->name }}" 
+                                                        class="btn btn-primary p-1 ms-2"
+                                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                                        <i class="icon-pencil"></i>
+                                                    </a>
                                                     <form action="" method="POST">
                                                         @csrf
                                                         @method('DELETE')
@@ -112,9 +121,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="border-top border-2">
+                        {{-- <div class="border-top border-2">
                             <button  class="btn btn-primary btn-md mt-2">Simpan</button>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

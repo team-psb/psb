@@ -11,12 +11,18 @@
 
         <div class="form-group">
             <label class="fs-6">Pilih Gelombang</label>
-            <select name="stage_id" class="form-select">
-                <option value="" >-- pilih gelombang --</option>
-                @foreach ($stages as $stage)
-                    <option value="{{ $stage->id }}">{{ $stage->name }}</option>
-                @endforeach
+            @if(!empty($stages->first()))
+                <select name="stage_id" class="form-select">
+                    <option value="" >-- pilih gelombang --</option>
+                    @foreach ($stages as $stage)
+                        <option value="{{ $stage->id }}">{{ $stage->name }}</option>
+                    @endforeach
                 </select>
+            @else
+                <a href="{{ route('settings.index') }}" class="btn btn-info btn-sm">
+                    <i class="icon-plus"></i>
+                </a>    
+            @endif
         </div>
 
         <div class="form-group">
@@ -35,3 +41,4 @@
         <button type="submit" class="btn btn-primary  btn-icon icon-left"> <i class="fas fa-save"></i> Kirimkan</button>
     </div>
 </form>
+

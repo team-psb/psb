@@ -10,9 +10,6 @@
                 <div class="card card-rounded">
                 <div class="card-body">
                     <h4 class="card-title">Tambah Data Soal Tes Kepribadian</h4>
-                    {{-- <p class="card-description">
-                        Silahkan lengkapi formulir untuk menambahkan data !
-                    </p> --}}
                 <form class="forms-sample" action="{{ route('personals.store') }}" method="POST">
                     @csrf
                     @method("POST")

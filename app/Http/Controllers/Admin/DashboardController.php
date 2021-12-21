@@ -37,7 +37,6 @@ class DashboardController extends Controller
         $informasi = Schdule::orderBy('id', 'desc')->limit(5)->get();
         $qna = Qna::get()->count();
         $newusers = BiodataOne::orderBy('id', 'desc')->take(5)->get();  
-        // $activities = ActivityLog::with('user')->whereDate('created_at', Carbon::today())->orderBy('id', 'desc')->limit(10)->get();
         $activities = ActivityLog::with('user')->orderBy('id', 'desc')->limit(10)->get();
         $activitiescount = ActivityLog::with('user')->whereDate('created_at', Carbon::today())->count();
         $label  = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
@@ -53,11 +52,6 @@ class DashboardController extends Controller
             // $jumlah_move[] = $chartMove->jumlah;
         }
 
-        // for($a = 1; $a < 13; $a++) {
-        //     $tahunIni[$a] = BiodataOne::whereMonth('created_at', $a)->whereYear('created_at', Carbon::now()->year)->count();
-        //     $tahunLalu[$a] = BiodataOne::whereMonth('created_at', $a)->whereYear('created_at', date('Y', strtotime('-1 year')))->count();
-        // }
-        // dd(json_encode($tahunLalu));
         $age = [
             '16' => BiodataOne::where('age', '16')->count(),
             '17' => BiodataOne::where('age', '17')->count(),
@@ -67,29 +61,6 @@ class DashboardController extends Controller
             '21' => BiodataOne::where('age', '21')->count(),
         ];
 
-        // $items = Revenue::groupBy('channel')->get(['channel']);
-        // $re = [];
-        // foreach ($items as $key => $value) {
-        //     $re['daily'][$value] = Revenue::where('channel',$value)->whereDate('created_at',date('Y-m-d'))->sum('amount');
-        //     $re['weekly'][$value] = Revenue::where('channel',$value)->whereBetween('date', [
-        //         Carbon::parse('last monday')->startOfDay(),
-        //         Carbon::parse('next friday')->endOfDay(),
-        //     ])->sum('amount');
-        //     $re['monthly'][$value] = Revenue::where('channel',$value)->whereMonth('created_at',date('m'))->sum('amount');
-        //     $re['yearly'][$value] = Revenue::where('channel',$value)->whereYear('created_at',date('Y'))->sum('amount');
-        // }
-
-        // $week = BiodataOne::whereBetween('date', [
-        //     Carbon::parse('last monday')->startOfDay(),
-        //     Carbon::parse('next friday')->endOfDay(),
-        // ]);
-
-        // $a = BiodataOne::whereBetween('date', [
-        //         Carbon::parse('last monday')->startOfDay(),
-        //         Carbon::parse('next friday')->endOfDay(),
-        //     ])->get(); 
-
-        // dd($a);
         
         return view('admin.index', [
             'pendaftar' => $pendaftar,
@@ -107,7 +78,6 @@ class DashboardController extends Controller
             'label' => $label,
             'tahunIni' => $tahunIni,
             'tahunLalu' => $tahunLalu,
-            // 'weekday' => $weekday,
         ]);
     }
 }

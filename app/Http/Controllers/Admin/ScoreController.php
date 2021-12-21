@@ -11,16 +11,6 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ScoreController extends Controller
 {
-    // public function index()
-    // {
-    //     $scores = Score::get();
-
-    //     return view('admin.pages.score.index', [
-    //         'scores' => $scores
-    //     ]);
-        
-    // }
-
     public function index()
     {
         $stages = Stage::get();
