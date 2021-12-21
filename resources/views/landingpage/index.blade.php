@@ -165,8 +165,6 @@
                         </span>
                     </a>
                 </h1>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html" class="logo"><img src="./assets/img/logo.png" alt=""></a>-->
 
                 <nav id="navbar" class="navbar">
                     <ul>
@@ -667,7 +665,7 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                
+
                                                 <div class="row">
                                                     <div
                                                         class="
@@ -785,7 +783,7 @@
                                                     <small class="text-light pt-0">Di isi dengan password untuk masuk ke akun anda, min 6 karakter max 20 karakter.</small>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="gender" 
+                                                    <label for="gender"
                                                     class="
                                                     form-label
                                                     text-white
@@ -800,7 +798,7 @@
                                                         id="gender"
                                                         value="l"
                                                         required
-                                                        
+
                                                     />
                                                     <label class="form-check-label text-white" for="gender">
                                                         Laki-Laki
@@ -813,8 +811,8 @@
 
                                                 <br />
                                                 @if (is_null($tahun_ajaran))
-                                                <button 
-                                                type="submit" 
+                                                <button
+                                                type="submit"
                                                 class="btn
                                                 sign-in
                                                 rounded-pill
@@ -825,8 +823,8 @@
                                                     Pendaftaran belum di buka
                                                 </button>
                                                 @else
-                                                <button 
-                                                type="submit" 
+                                                <button
+                                                type="submit"
                                                 class="btn
                                                 sign-in
                                                 rounded-pill
@@ -1174,7 +1172,7 @@
             <!-- ======= End Announce Section ======= -->
 
             <!-- ======= Information Section ======= -->
-            <section id="info" class="services">
+            <section id="info" class="information">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title mb-4 title-info">
                         <h1>Information</h1>
@@ -1210,441 +1208,6 @@
                 </div>
             </section>
             <!-- End Information Section -->
-
-            <!-- ======= Testimonials Section ======= -->
-            <!-- <section id="testimonials" class="testimonials">
-                <div class="container" data-aos="zoom-in">
-                    <div
-                        class="testimonials-slider swiper"
-                        data-aos="fade-up"
-                        data-aos-delay="100"
-                        >
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <img
-                                        src="assets/img/testimonials/testimonials-1.jpg"
-                                        class="testimonial-img"
-                                        alt=""
-                                    />
-                                    <h3>Abu Bakar As-Shiddiq</h3>
-                                    <h4>Ceo &amp; Founder</h4>
-                                    <p>
-                                        <i
-                                            class="
-                                                bx
-                                                bxs-quote-alt-left
-                                                quote-icon-left
-                                            "
-                                        ></i>
-                                        Siapa yang menjauhkan diri dari sifat suka mengeluh maka berarti ia mengundang kebahagiaan.
-                                        <i
-                                            class="
-                                                bx
-                                                bxs-quote-alt-right
-                                                quote-icon-right
-                                            "
-                                        ></i>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <img
-                                        src="./assets/img/testimonials/testimonials-2.jpg"
-                                        class="testimonial-img"
-                                        alt=""
-                                    />
-                                    <h3>Sara Wilsson</h3>
-                                    <h4>Designer</h4>
-                                    <p>
-                                        <i
-                                            class="
-                                                bx
-                                                bxs-quote-alt-left
-                                                quote-icon-left
-                                            "
-                                        ></i>
-                                        Export tempor illum tamen malis malis
-                                        eram quae irure esse labore quem cillum
-                                        quid cillum eram malis quorum velit fore
-                                        eram velit sunt aliqua noster fugiat
-                                        irure amet legam anim culpa.
-                                        <i
-                                            class="
-                                                bx
-                                                bxs-quote-alt-right
-                                                quote-icon-right
-                                            "
-                                        ></i>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <img
-                                        src="./assets/img/testimonials/testimonials-3.jpg"
-                                        class="testimonial-img"
-                                        alt=""
-                                    />
-                                    <h3>Jena Karlis</h3>
-                                    <h4>Store Owner</h4>
-                                    <p>
-                                        <i
-                                            class="
-                                                bx
-                                                bxs-quote-alt-left
-                                                quote-icon-left
-                                            "
-                                        ></i>
-                                        Enim nisi quem export duis labore cillum
-                                        quae magna enim sint quorum nulla quem
-                                        veniam duis minim tempor labore quem
-                                        eram duis noster aute amet eram fore
-                                        quis sint minim.
-                                        <i
-                                            class="
-                                                bx
-                                                bxs-quote-alt-right
-                                                quote-icon-right
-                                            "
-                                        ></i>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <img
-                                        src="./assets/img/testimonials/testimonials-4.jpg"
-                                        class="testimonial-img"
-                                        alt=""
-                                    />
-                                    <h3>Matt Brandon</h3>
-                                    <h4>Freelancer</h4>
-                                    <p>
-                                        <i
-                                            class="
-                                                bx
-                                                bxs-quote-alt-left
-                                                quote-icon-left
-                                            "
-                                        ></i>
-                                        Fugiat enim eram quae cillum dolore
-                                        dolor amet nulla culpa multos export
-                                        minim fugiat minim velit minim dolor
-                                        enim duis veniam ipsum anim magna sunt
-                                        elit fore quem dolore labore illum
-                                        veniam.
-                                        <i
-                                            class="
-                                                bx
-                                                bxs-quote-alt-right
-                                                quote-icon-right
-                                            "
-                                        ></i>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <img
-                                        src="./assets/img/testimonials/testimonials-5.jpg"
-                                        class="testimonial-img"
-                                        alt=""
-                                    />
-                                    <h3>John Larson</h3>
-                                    <h4>Entrepreneur</h4>
-                                    <p>
-                                        <i
-                                            class="
-                                                bx
-                                                bxs-quote-alt-left
-                                                quote-icon-left
-                                            "
-                                        ></i>
-                                        Quis quorum aliqua sint quem legam fore
-                                        sunt eram irure aliqua veniam tempor
-                                        noster veniam enim culpa labore duis
-                                        sunt culpa nulla illum cillum fugiat
-                                        legam esse veniam culpa fore nisi cillum
-                                        quid.
-                                        <i
-                                            class="
-                                                bx
-                                                bxs-quote-alt-right
-                                                quote-icon-right
-                                            "
-                                        ></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-            </section> -->
-            <!-- End Testimonials Section -->
-
-            <!-- ======= Team Section ======= -->
-            <!-- <section id="team" class="team section-bg">
-                <div class="container" data-aos="fade-up">
-                    <div class="section-title">
-                        <h2>Team</h2>
-                        <h3>Our Hardworking <span>Team</span></h3>
-                        <p>
-                            Ut possimus qui ut temporibus culpa velit eveniet
-                            modi omnis est adipisci expedita at voluptas atque
-                            vitae autem.
-                        </p>
-                    </div>
-
-                    <div class="row">
-                        <div
-                            class="col-lg-3 col-md-6 d-flex align-items-stretch"
-                            data-aos="fade-up"
-                            data-aos-delay="100"
-                        >
-                            <div class="member">
-                                <div class="member-img">
-                                    <img
-                                        src="./assets/img/team/team-1.jpg"
-                                        class="img-fluid"
-                                        alt=""
-                                    />
-                                    <div class="social">
-                                        <a href=""
-                                            ><i class="bi bi-twitter"></i
-                                        ></a>
-                                        <a href=""
-                                            ><i class="bi bi-facebook"></i
-                                        ></a>
-                                        <a href=""
-                                            ><i class="bi bi-instagram"></i
-                                        ></a>
-                                        <a href=""
-                                            ><i class="bi bi-linkedin"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                                <div class="member-info">
-                                    <h4>Walter White</h4>
-                                    <span>Chief Executive Officer</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-3 col-md-6 d-flex align-items-stretch"
-                            data-aos="fade-up"
-                            data-aos-delay="200"
-                        >
-                            <div class="member">
-                                <div class="member-img">
-                                    <img
-                                        src="./assets/img/team/team-2.jpg"
-                                        class="img-fluid"
-                                        alt=""
-                                    />
-                                    <div class="social">
-                                        <a href=""
-                                            ><i class="bi bi-twitter"></i
-                                        ></a>
-                                        <a href=""
-                                            ><i class="bi bi-facebook"></i
-                                        ></a>
-                                        <a href=""
-                                            ><i class="bi bi-instagram"></i
-                                        ></a>
-                                        <a href=""
-                                            ><i class="bi bi-linkedin"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                                <div class="member-info">
-                                    <h4>Sarah Jhonson</h4>
-                                    <span>Product Manager</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-3 col-md-6 d-flex align-items-stretch"
-                            data-aos="fade-up"
-                            data-aos-delay="300"
-                        >
-                            <div class="member">
-                                <div class="member-img">
-                                    <img
-                                        src="./assets/img/team/team-3.jpg"
-                                        class="img-fluid"
-                                        alt=""
-                                    />
-                                    <div class="social">
-                                        <a href=""
-                                            ><i class="bi bi-twitter"></i
-                                        ></a>
-                                        <a href=""
-                                            ><i class="bi bi-facebook"></i
-                                        ></a>
-                                        <a href=""
-                                            ><i class="bi bi-instagram"></i
-                                        ></a>
-                                        <a href=""
-                                            ><i class="bi bi-linkedin"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                                <div class="member-info">
-                                    <h4>William Anderson</h4>
-                                    <span>CTO</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-3 col-md-6 d-flex align-items-stretch"
-                            data-aos="fade-up"
-                            data-aos-delay="400"
-                        >
-                            <div class="member">
-                                <div class="member-img">
-                                    <img
-                                        src="./assets/img/team/team-4.jpg"
-                                        class="img-fluid"
-                                        alt=""
-                                    />
-                                    <div class="social">
-                                        <a href=""
-                                            ><i class="bi bi-twitter"></i
-                                        ></a>
-                                        <a href=""
-                                            ><i class="bi bi-facebook"></i
-                                        ></a>
-                                        <a href=""
-                                            ><i class="bi bi-instagram"></i
-                                        ></a>
-                                        <a href=""
-                                            ><i class="bi bi-linkedin"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                                <div class="member-info">
-                                    <h4>Amanda Jepson</h4>
-                                    <span>Accountant</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-            <!-- End Team Section -->
-
-            <!-- ======= Pricing Section ======= -->
-            <!-- <section id="pricing" class="pricing">
-                <div class="container" data-aos="fade-up">
-                    <div class="section-title">
-                        <h2>Pricing</h2>
-                        <h3>Check our <span>Pricing</span></h3>
-                        <p>
-                            Ut possimus qui ut temporibus culpa velit eveniet
-                            modi omnis est adipisci expedita at voluptas atque
-                            vitae autem.
-                        </p>
-                    </div>
-
-                    <div class="row">
-                        <div
-                            class="col-lg-3 col-md-6"
-                            data-aos="fade-up"
-                            data-aos-delay="100"
-                        >
-                            <div class="box">
-                                <h3>Free</h3>
-                                <h4><sup>$</sup>0<span> / month</span></h4>
-                                <ul>
-                                    <li>Aida dere</li>
-                                    <li>Nec feugiat nisl</li>
-                                    <li>Nulla at volutpat dola</li>
-                                    <li class="na">Pharetra massa</li>
-                                    <li class="na">Massa ultricies mi</li>
-                                </ul>
-                                <div class="btn-wrap">
-                                    <a href="#" class="btn-buy">Buy Now</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-3 col-md-6 mt-4 mt-md-0"
-                            data-aos="fade-up"
-                            data-aos-delay="200"
-                        >
-                            <div class="box featured">
-                                <h3>Business</h3>
-                                <h4><sup>$</sup>19<span> / month</span></h4>
-                                <ul>
-                                    <li>Aida dere</li>
-                                    <li>Nec feugiat nisl</li>
-                                    <li>Nulla at volutpat dola</li>
-                                    <li>Pharetra massa</li>
-                                    <li class="na">Massa ultricies mi</li>
-                                </ul>
-                                <div class="btn-wrap">
-                                    <a href="#" class="btn-buy">Buy Now</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-3 col-md-6 mt-4 mt-lg-0"
-                            data-aos="fade-up"
-                            data-aos-delay="300"
-                        >
-                            <div class="box">
-                                <h3>Developer</h3>
-                                <h4><sup>$</sup>29<span> / month</span></h4>
-                                <ul>
-                                    <li>Aida dere</li>
-                                    <li>Nec feugiat nisl</li>
-                                    <li>Nulla at volutpat dola</li>
-                                    <li>Pharetra massa</li>
-                                    <li>Massa ultricies mi</li>
-                                </ul>
-                                <div class="btn-wrap">
-                                    <a href="#" class="btn-buy">Buy Now</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-3 col-md-6 mt-4 mt-lg-0"
-                            data-aos="fade-up"
-                            data-aos-delay="400"
-                        >
-                            <div class="box">
-                                <span class="advanced">Advanced</span>
-                                <h3>Ultimate</h3>
-                                <h4><sup>$</sup>49<span> / month</span></h4>
-                                <ul>
-                                    <li>Aida dere</li>
-                                    <li>Nec feugiat nisl</li>
-                                    <li>Nulla at volutpat dola</li>
-                                    <li>Pharetra massa</li>
-                                    <li>Massa ultricies mi</li>
-                                </ul>
-                                <div class="btn-wrap">
-                                    <a href="#" class="btn-buy">Buy Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-            <!-- End Pricing Section -->
 
             <!-- ======= Activity Section ======= -->
             <section id="portfolio" class="portfolio">
@@ -2192,7 +1755,7 @@
             </section>
             <!-- End Work Section -->
 
-            <!-- ======= Frequently Asked Questions Section ======= -->
+            <!-- ======= Questions and Answers Section ======= -->
             <section id="qna" class="qna section-bg">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
@@ -2239,7 +1802,7 @@
                     </div>
                 </div>
             </section>
-            <!-- End Frequently Asked Questions Section -->
+            <!-- Questions and Answers Section -->
 
             <!-- ======= About Section ======= -->
             <section id="about" class="about">
@@ -2289,7 +1852,7 @@
             </section>
             <!-- End About Section -->
         </main>
-        <!-- End #main -->
+        <!-- End Main -->
 
         <!-- ====== Sponsor Section ======= -->
             <section class="sponsor section-bg">
@@ -2332,42 +1895,43 @@
             <!-- End Sponsor Section -->
 
         <!-- ======= Footer ======= -->
-        <footer id="footer">
-            <div class="footer-top">
-                <div class="content-footer overflow-hidden">
-                    <img
-                        src="./assets/img/footer.png"
-                        alt="logo"
-                        class="position-absolute d-none d-md-block"
-                        width="2300"
-                        style="z-index: -1; top: 30%; left: 60%; transform: translate(-50%, -50%);"
-                    />
-                    <div class="row align-items-center">
-                        <div class="col-12 col-lg-5 footer-contact mx-auto text-center">
-                            <h4 class="text-uppercase mb-5 title-footer-left"></h4>
-                            <a
-                                href="https://pondokinformatika.com/"
-                                class="text-decoration-none btn-footer"
-                            >
-                                <button class="btn rounded-pill px-3 py-2 text-white text-uppercase button-footer-left" style="background: #3adb9f;">Info lebih lanjut</button>
-                            </a>
-                        </div>
-                        <div class="col-12 col-lg-2 footer-contact text-center my-5 my-lg-0 logo-sponsor">
-                            <img src="./assets/img/logo-putih.png" alt="Logo Pondok" width="150">
-                        </div>
-                        <div class="col-12 col-lg-5 footer-contact">
-                            <p class="fs-6 px-0 px-lg-5 footer-right">
-                                Pondok Informatika Al-Madinah membuka penerimaan santri baru yang siap menjadi ahli IT yang bertauhid lurus, mencintai sunnah, berakhlak mulia serta profesional dan siap membela islam dengan keahlian dan mau mendedikasikan waktu dan tenaganya untuk dakwah islam.
-                            </p>
+            <footer id="footer">
+                <div class="footer-top">
+                    <div class="content-footer overflow-hidden">
+                        <img
+                            src="./assets/img/footer.png"
+                            alt="logo"
+                            class="position-absolute d-none d-md-block"
+                            width="2300"
+                            style="z-index: -1; top: 30%; left: 60%; transform: translate(-50%, -50%);"
+                        />
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-5 footer-contact mx-auto text-center">
+                                <h4 class="text-uppercase mb-5 title-footer-left"></h4>
+                                <a
+                                    href="https://pondokinformatika.com/"
+                                    class="text-decoration-none btn-footer"
+                                >
+                                    <button class="btn rounded-pill px-3 py-2 text-white text-uppercase button-footer-left" style="background: #3adb9f;">Info lebih lanjut</button>
+                                </a>
+                            </div>
+                            <div class="col-12 col-lg-2 footer-contact text-center my-5 my-lg-0 logo-sponsor">
+                                <img src="./assets/img/logo-putih.png" alt="Logo Pondok" width="150">
+                            </div>
+                            <div class="col-12 col-lg-5 footer-contact">
+                                <p class="fs-6 px-0 px-lg-5 footer-right">
+                                    Pondok Informatika Al-Madinah membuka penerimaan santri baru yang siap menjadi ahli IT yang bertauhid lurus, mencintai sunnah, berakhlak mulia serta profesional dan siap membela islam dengan keahlian dan mau mendedikasikan waktu dan tenaganya untuk dakwah islam.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </footer>
+            <!-- ======= Copyright ======= -->
+            <div class="copyright text-center">
+                &copy; {{ date('Y') }} Copyright <strong><span>Pondok Informatika Al-Madinah</span></strong
+                >.
             </div>
-        </footer>
-        <div class="copyright text-center">
-            &copy; {{ date('Y') }} Copyright <strong><span>Pondok Informatika Al-Madinah</span></strong
-            >.
-        </div>
         <!-- End Footer -->
 
         <div id="preloader"></div>

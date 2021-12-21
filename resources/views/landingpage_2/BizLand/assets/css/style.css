@@ -332,9 +332,6 @@ h6 {
     visibility: visible;
 }
 
-.back-button {
-    background: #119e77;
-}
 @media (max-width: 1366px) {
     .navbar .dropdown .dropdown ul {
         left: -90%;
