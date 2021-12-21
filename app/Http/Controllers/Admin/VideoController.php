@@ -57,7 +57,7 @@ class VideoController extends Controller
     public function lolos($id)
     {
         $data=Video::findOrFail($id);
-        $data->update(['status'=>'lolos']);
+        $data->update(['status' => 'lolos']);
         
         Interview::create([
             'user_id'=>$data->user_id,
@@ -71,7 +71,7 @@ class VideoController extends Controller
     public function tidaklolos($id)
     {
         $data=Video::findOrFail($id);
-        $data->update(['status'=>'tidak']);
+        $data->update(['status' => 'tidak']);
 
         $cek = Interview::where('user_id','=',$data->user_id)->get();
         if (isset($cek)) {

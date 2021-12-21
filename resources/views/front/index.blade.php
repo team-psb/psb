@@ -131,7 +131,7 @@
                 <h4>Informasi</h4>
               </div>
               <div class="card-body">
-                {{ $schdules->count() }}
+                {{ $schdules ? $schdules->count() : '0' }}
               </div>
             </div>
           </div>
@@ -146,7 +146,7 @@
                 <h4>Q&A</h4>
               </div>
               <div class="card-body">
-                {{ $qna->count(); }}
+                {{ $qna ? $qna->count() : '0' }}
               </div>
             </div>
           </div>
