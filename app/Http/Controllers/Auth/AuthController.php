@@ -64,7 +64,7 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function registerProses(Request $request)
+    public function registerProses(AuthRequest $request)
     { 
         // dd($request->all());
         $user= User::create([
@@ -125,7 +125,7 @@ class AuthController extends Controller
         // return redirect()->back();
 
         // return redirect('/')->with('sukses-daftar','Selamat anda berhasil mendaftar, silahkan login untuk memulai pendaftaran !');
-        return back()->with('success-register','Selamat anda berhasil mendaftar, silahkan lakukan konfirmasi pendaftaran yang telah kami kirim di whatsapp !');
+        return back()->with('success-create','Selamat anda berhasil mendaftar, silahkan lakukan konfirmasi pendaftaran yang telah kami kirim di whatsapp !');
     }
 
     public function logout()
