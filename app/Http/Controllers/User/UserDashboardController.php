@@ -51,7 +51,7 @@ class UserDashboardController extends Controller
 
     public function information()
     {
-        $informations = Schdule::get();
+        $informations = Schdule::orderBy('id', 'desc')->get();
 
         return view('front.pages.information.index', compact('informations'));
     }

@@ -9,7 +9,7 @@
     $gelombang = App\Models\Stage::whereHas('academy_year', function($query){
         $query->where('is_active', true);
     })->orderBy('id', 'desc')->pluck('name')->first();
-    $informations = App\Models\Schdule::orderBy('created_at', 'desc')->limit(6)->get();
+    $informations = App\Models\Schdule::orderBy('id', 'desc')->limit(6)->get();
     $qnas = App\Models\Qna::get();
 @endphp
 <!DOCTYPE html>
@@ -727,7 +727,6 @@
                                                     </div>
                                                     <div
                                                         class="
-                                                            mb-4
                                                             col-lg-6 col-sm-12
                                                         "
                                                     >
@@ -783,6 +782,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <small class="text-light pt-0">Di isi dengan password untuk masuk ke akun anda, min 6 karakter max 20 karakter.</small>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="gender" 

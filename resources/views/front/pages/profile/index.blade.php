@@ -127,7 +127,7 @@
               </table>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-              <table class="table table-bordered table-hover">
+              <table class="table table-bordered table-hover" id="nilai">
                 <thead>
                   <tr>
                     <th colspan="2">
