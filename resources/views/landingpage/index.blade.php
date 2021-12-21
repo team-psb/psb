@@ -371,7 +371,6 @@
                                                         px-4
                                                     "
                                                     id="floatingInput"
-                                                    placeholder="1111111111"
                                                     name="phone"
                                                 />
                                                 <label
@@ -400,10 +399,9 @@
                                                     "
                                                     name="password"
                                                     id="floatingPassword"
-                                                    placeholder="Password"
                                                 />
-                                                <i class="bi bi-eye-slash position-absolute" style="right: 18px;" id="hide" onclick="myFunction()"></i>
-                                                <i class="bi bi-eye position-absolute" style="right: 18px;" id="show" onclick="myFunction()"></i>
+                                                <i class="bi bi-eye-slash position-absolute" id="hide" onclick="myFunction()"></i>
+                                                <i class="bi bi-eye position-absolute" id="show" onclick="myFunction()"></i>
                                                 <label
                                                     for="floatingPassword"
                                                     class="px-4"
@@ -745,12 +743,11 @@
                                                             <div
                                                                 class="
                                                                     d-flex
-                                                                    align-items-center
                                                                     px-2
                                                                     pt-1
                                                                 "
                                                                 style="
-                                                                    font-size: 12px;
+                                                                    font-size: 15px;
                                                                     color: #efefef;
                                                                 "
                                                             >
@@ -798,7 +795,7 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group px-2">
                                                     <label for="gender"
                                                     class="
                                                     form-label
@@ -806,22 +803,24 @@
                                                     "
                                                     >Jenis Kelamin, Wanita Belum Diterima <b>*</b></label
                                                     >
-                                                    <div class="form-check">
-                                                    <input
-                                                        class="form-check-input"
-                                                        type="checkbox"
-                                                        name="gender"
-                                                        id="gender"
-                                                        value="l"
-                                                        required
+                                                    <div class="form-check" style="
+                                                                font-size: 15px;
+                                                            ">
+                                                        <input
+                                                            class="form-check-input"
+                                                            type="checkbox"
+                                                            name="gender"
+                                                            id="gender"
+                                                            value="l"
+                                                            required
 
-                                                    />
-                                                    <label class="form-check-label text-white" for="gender">
-                                                        Laki-Laki
-                                                    </label>
-                                                    <div class="invalid-feedback">
-                                                        jenis kelamin harus di isi
-                                                    </div>
+                                                        />
+                                                        <label class="form-check-label text-white" for="gender">
+                                                            Laki-Laki
+                                                        </label>
+                                                        <div class="invalid-feedback">
+                                                            jenis kelamin harus di isi
+                                                        </div>
                                                     </div>
                                                 </div>
 
