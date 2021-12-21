@@ -35,15 +35,15 @@
           </div>
           <div class="col-12 mb-4">
             <div class="hero text-white text-center
-                        @if (isset($tahap1) && $tahap1->status == null || isset($tahap2) && $tahap2->status == null || isset($tahap4) && $tahap4->status == null )
+                        @if (isset($tahap1) && $tahap1->status == null || isset($tahap2) && $tahap2->status == null || isset($tahap4) && $tahap4->status == null && $tahap5->status == null )
                           bg-warning                      
                         @endif
-                        @if (isset($tahap1) && $tahap1->status == 'lolos' || isset($tahap2) && $tahap2->status == 'lolos' || isset($tahap4) && $tahap4->status == 'lolos')
+                        @if (isset($tahap1) && $tahap1->status == 'lolos' || isset($tahap2) && $tahap2->status == 'lolos' || isset($tahap4) && $tahap4->status == 'lolos' || isset($tahap5) && $tahap5->status == 'lolos')
                           bg-success
                         @elseif (empty($tahap1) || empty($tahap2) || empty($tahap4))
                           bg-info
                         @endif
-                        @if (isset($tahap1) && $tahap1->status == 'tidak' || isset($tahap2) && $tahap2->status == 'tidak' || isset($tahap4) && $tahap4->status == 'tidak' )
+                        @if (isset($tahap1) && $tahap1->status == 'tidak' || isset($tahap2) && $tahap2->status == 'tidak' || isset($tahap4) && $tahap4->status == 'tidak' || isset($tahap5) && $tahap5->status == 'tidak' )
                           bg-danger                      
                         @endif"
             >
@@ -82,25 +82,32 @@
                     <div class="mt-4">
                       <a href="{{ route('user-fourth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                     </div>	
+                  @elseif( isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'lolos')
+                    <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
+                    <p><strong>Anda Dinyatakan Lolos sebagai calon santri Pondok Informatika Almadinah</strong></p>
+                    <p class="lead">untuk informasi selanjutnya akan di infokan melalui whatsapp
+                    </p>
                   @elseif($tahap4->status == 'lolos' && !isset($tahap5->status))
                     <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
                     <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
-                    <p class="lead">untuk  tes <strong class="font-weight-bold">Tahap Kelima</strong> anda akan kami hubungi untuke melakukan tes wawancara</p>
+                    <p class="lead">untuk  tes <strong class="font-weight-bold">Tahap Kelima</strong> anda akan kami hubungi untuk melakukan tes wawancara</p>
                     <div class="mt-4">
                       <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes wawancara</a>
                     </div>
-                  @elseif( isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'lolos')
-                    <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
-                    <p><strong>Anda Dinyatakan Lolos sebagai calon santri Pondok Informatika-Almadinah</strong></p>
-                    <p class="lead">untuk informasi selanjutnya akan di infokan melalui whatsapp
-                    </p>
-                  @elseif( isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'tidak')
+                  @elseif(isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'tidak')
                     <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}! .</h2>
-                    <p><strong>Anda Dinyatakan Tidak Lolos sebagai calon santri Pondok Informatika-Almadinah</strong></p>
-                  @elseif( isset($tahap1->status) == 'tidak' || isset($tahap2->status) == 'tidak' || isset($tahap4->status) == 'tidak')
+                    <p><strong>Anda Dinyatakan Tidak Lolos sebagai calon santri Pondok Informatika Almadinah</strong></p>
+                  @elseif(isset($tahap1->status) == 'tidak' || isset($tahap2->status) == 'tidak' || isset($tahap4->status) == 'tidak')
                     <h2>Mohon Maaf, {{ Auth::user()->name }}! .</h2>
                     <p><strong>Anda Dinyatakan Tidak Lolos ke tahap selanjutnya
-                    </p>				
+                    </p>
+                  @elseif($tahap4->status == 'lolos' && !isset($tahap5->status))
+                    <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
+                    <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
+                    <p class="lead">untuk  tes <strong class="font-weight-bold">Tahap Kelima</strong> anda akan kami hubungi untuk melakukan tes wawancara</p>
+                    <div class="mt-4">
+                      <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes wawancara</a>
+                    </div>
                   @endif
                 @else
                   <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}! .</h2>
