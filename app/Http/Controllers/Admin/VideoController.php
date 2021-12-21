@@ -86,7 +86,13 @@ class VideoController extends Controller
         $ids=$request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
-                Video::find($id)->update(['status'=>'lolos']);
+                $data = Video::findOrFail($id);
+                $data->update(['status'=>'lolos']);
+                Interview::create([
+                    'user_id'=>$data->user_id,
+                    'academy_year_id'=>$data->academy_year_id,
+                    'stage_id'=>$data->stage_id,
+                ]);
             }
             return redirect()->route('videos.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
@@ -99,7 +105,13 @@ class VideoController extends Controller
         $ids=$request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
-                Video::find($id)->update(['status'=>'tidak']);
+                $data = Video::findOrFail($id);
+                $data->update(['status'=>'tidak']);
+
+                $cek = Interview::where('user_id','=',$data->user_id)->get();
+                if (isset($cek)) {
+                    Interview::where('user_id','=',$data->user_id)->delete();
+                }
             }
 
             return redirect()->route('videos.index')->with('success-edit','Berhasil Mengganti Semua Status Data');

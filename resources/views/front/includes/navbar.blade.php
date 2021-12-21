@@ -74,7 +74,7 @@
               <img alt="image" src="{{ Avatar::create(Auth::user()->name)->toGravatar(['d' => 'wavatar', 'r' => 'pg', 's' => 100])}}" class="rounded-circle mr-1">
               <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::user()->name }}</div></a>
               <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-title">Logged in 5 min ago</div>
+                <div class="dropdown-title">Login {{ \Carbon\Carbon::parse(Auth::user()->last_login)->diffForHumans() }}</div>
                 <div class="dropdown-divider"></div>
                   <form method="POST" action="{{ url('/logout') }}">
                     @csrf

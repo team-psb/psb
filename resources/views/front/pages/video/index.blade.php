@@ -21,11 +21,9 @@
               <p>bagi yang kesulitan mangikuti tes tahap ini bisa simak video di bawah ini</p>
               <div class="row">
                 <div class="col m-auto ">
-                  <div class="d-none d-md-block">
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/_ZJLc9FgvSM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                  </div>
-                  <div class="d-sm-block d-md-none">
-                      <iframe width="295" height="172" src="https://www.youtube.com/embed/_ZJLc9FgvSM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  {{-- responsive iframa --}}
+                  <div class="responsive">
+                    <iframe class="responsive-iframe" src="https://www.youtube.com/embed/_ZJLc9FgvSM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                   </div>
                 </div>
               </div>
@@ -56,3 +54,25 @@
     </div>
   </div>
 @endsection
+
+@push('end-style')
+  <style>
+    .responsive {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding-top: 62.5%;
+    }
+
+    .responsive-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+  </style>
+@endpush

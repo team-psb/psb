@@ -38,6 +38,11 @@ class AuthController extends Controller
             $user_id = $role_user->pluck('id')->first();
             // $biodata_2 = BiodataTwo::where('id' ==)
 
+            $user = User::findOrFail(Auth::user()->id);
+            $user->update([
+                'last_login' => Carbon::now()->toDateTimeString(),
+            ]);
+
             if ($role == 'admin') {
                 return redirect()->route('dashboard');            
             }else{
