@@ -107,7 +107,7 @@
                 "
             >
                 <h1 class="logo">
-                    <a href="{{ route("home") }}">
+                    <a href="{{ route('home') }}">
                         <img
                             src="/assets/img/Logo-Pondok.png"
                             alt="Logo-Pondok"
@@ -131,14 +131,14 @@
                                 rounded-pill
                                 px-3
                                 py-1
+                                back-button
                             "
-                            id="back-button"
                         >
                             Back
                         </button>
                     </a>
                 </nav>
-                <!-- End Navbar -->
+                <!-- .navbar -->
             </div>
         </header>
         <!-- End Header -->
@@ -172,17 +172,14 @@
                 <div class="container mb-lg-5 mb-0">
                     <div class="row gy-4">
                         <div class="col-lg-7">
-                            <div class="portfolio-details-slider">
-                                <div class="align-items-center">
+                            <div class="portfolio-details-slider swiper">
+                                <div class="swiper-wrapper align-items-center">
                                     @if ($infodetail->video == null)
-                                        <a
-                                            href="{{ asset('/storage/'.$infodetail->image) }}"
-                                            class="portfolio-lightbox"
-                                        >
+                                        <a href="{{ asset('/storage/'.$infodetail->image) }}" class="portfolio-lightbox">
                                             <img
-                                                src="{{ asset('/storage/'.$infodetail->image) }}"
-                                                alt="image"
-                                                class="img-fluid rounded"
+                                            src="{{ asset('/storage/'.$infodetail->image) }}"
+                                            alt="image"
+                                            class="img-fluid"
                                             />
                                         </a>
                                     @else
@@ -216,7 +213,7 @@
             </section>
             <!-- End Portfolio Details Section -->
         </main>
-        <!-- End Main -->
+        <!-- End #main -->
 
         <!-- ======= Footer ======= -->
         <footer id="footer">
@@ -312,6 +309,7 @@
         <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
         <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
         <script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
         <script src="/assets/vendor/php-email-form/validate.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
