@@ -493,6 +493,15 @@ h6 {
     position: relative;
 }
 
+/* Show Password */
+.password-login i {
+    cursor: pointer;
+    font-size: 18px;
+}
+#hide {
+    display: none;
+}
+/*  */
 .sign-in {
     color: darkslategray;
     font-weight: 500;
@@ -1537,6 +1546,24 @@ section {
 }
 .information-details .information-description p {
     padding: 0;
+}
+
+.responsive {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 62.5%;
+}
+
+.responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 /*--------------------------------------------------------------

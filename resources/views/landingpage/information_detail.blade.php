@@ -107,7 +107,7 @@
                 "
             >
                 <h1 class="logo">
-                    <a href="{{ route('home') }}">
+                    <a href="#">
                         <img
                             src="/assets/img/Logo-Pondok.png"
                             alt="Logo-Pondok"
@@ -122,7 +122,7 @@
                 </h1>
 
                 <nav id="navbar" class="navbar">
-                    <a class="nav-link" href="{{ url()->previous() }}" id="link1"
+                    <a class="nav-link" href="{{ route('home','#info') }}" id="link1"
                         ><button
                             class="
                                 btn
@@ -172,8 +172,8 @@
                 <div class="container mb-lg-5 mb-0">
                     <div class="row gy-4">
                         <div class="col-lg-7">
-                            <div class="portfolio-details-slider swiper">
-                                <div class="swiper-wrapper align-items-center">
+                            <div class="portfolio-details-sliders">
+                                <div class="align-items-center">
                                     @if ($infodetail->video == null)
                                         <a href="{{ asset('/storage/'.$infodetail->image) }}" class="portfolio-lightbox">
                                             <img
@@ -183,12 +183,11 @@
                                             />
                                         </a>
                                     @else
-                                        <div class="vh-100 w-100">
-                                            <iframe class="w-100 h-75" src="{{ $infodetail->video ? $infodetail->video : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <div class="responsive">
+                                            <iframe class="responsive-iframe" src="{{ $infodetail->video ? $infodetail->video : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         </div>
                                     @endif
                                 </div>
-                                <div class="swiper-pagination"></div>
                             </div>
                         </div>
 
