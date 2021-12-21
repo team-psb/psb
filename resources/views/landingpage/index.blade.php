@@ -385,7 +385,10 @@
                                                 class="
                                                     form-floating
                                                     d-flex
+                                                    align-items-center
                                                     mt-4
+                                                    position-relative
+                                                    password-login
                                                 "
                                             >
                                                 <input
@@ -399,13 +402,15 @@
                                                     id="floatingPassword"
                                                     placeholder="Password"
                                                 />
+                                                <i class="bi bi-eye-slash position-absolute" style="right: 18px;" id="hide" onclick="myFunction()"></i>
+                                                <i class="bi bi-eye position-absolute" style="right: 18px;" id="show" onclick="myFunction()"></i>
                                                 <label
                                                     for="floatingPassword"
                                                     class="px-4"
                                                     >Password</label
                                                 >
                                             </div>
-                                            <div
+                                            {{-- <div
                                                 class="
                                                     d-flex
                                                     justify-content-between
@@ -429,7 +434,7 @@
                                                         onclick="myFunction()"
                                                     />&nbsp; Show Password
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <br />
                                             <button
                                                 class="
@@ -791,32 +796,6 @@
                                                             name="password_confirmation"
                                                             placeholder="Masukkan Ulang Password"
                                                         />
-                                                        <div
-                                                            class="
-                                                                d-flex
-                                                                justify-content-between
-                                                            "
-                                                        >
-                                                            <div
-                                                                class="
-                                                                    d-flex
-                                                                    align-items-center
-                                                                    px-2
-                                                                    pt-1
-                                                                "
-                                                                style="
-                                                                    font-size: 12px;
-                                                                    color: #efefef;
-                                                                "
-                                                            >
-                                                                <input
-                                                                    type="checkbox"
-                                                                    onclick="seeFunction()"
-                                                                    class="form-check-input"
-                                                                />&nbsp; Show
-                                                                Password
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -2363,13 +2342,20 @@
         <!-- Template Main JS File -->
         <script src="./assets/js/main.js"></script>
         <script>
-            // Show Password
+            //Show Password Icon
+
+
+            // Show Password Checkbox
             function myFunction() {
                 var x = document.getElementById("floatingPassword");
                 if (x.type === "password") {
                     x.type = "text";
+                    document.getElementById("hide").style.display = "inline-block";
+                    document.getElementById("show").style.display = "none";
                 } else {
                     x.type = "password";
+                    document.getElementById("hide").style.display = "none";
+                    document.getElementById("show").style.display = "inline-block";
                 }
             }
             function showFunction() {
