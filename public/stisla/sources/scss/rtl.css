@@ -18,6 +18,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: Vazir;
   src: url("../fonts/vazir/Vazir-Bold.eot");
@@ -25,6 +26,7 @@
   font-weight: bold;
   font-style: normal;
 }
+
 @font-face {
   font-family: Vazir;
   src: url("../fonts/vazir/Vazir-Black.eot");
@@ -32,6 +34,7 @@
   font-weight: 900;
   font-style: normal;
 }
+
 @font-face {
   font-family: Vazir;
   src: url("../fonts/vazir/Vazir-Medium.eot");
@@ -39,6 +42,7 @@
   font-weight: 500;
   font-style: normal;
 }
+
 @font-face {
   font-family: Vazir;
   src: url("../fonts/vazir/Vazir-Light.eot");
@@ -46,6 +50,7 @@
   font-weight: 300;
   font-style: normal;
 }
+
 @font-face {
   font-family: Vazir;
   src: url("../fonts/vazir/Vazir-Thin.eot");
@@ -53,6 +58,7 @@
   font-weight: 100;
   font-style: normal;
 }
+
 body, html {
   direction: rtl;
   font-family: Vazir, Tahoma, Arial;
@@ -83,6 +89,7 @@ h1, h2, h3, h4, h5, h6, p, a, span, input, textarea, select, option, label {
 .section .section-header {
   font: normal normal 24px "IRANSans Bold";
 }
+
 .section .section-header div {
   float: right;
 }
@@ -92,7 +99,8 @@ h1, h2, h3, h4, h5, h6, p, a, span, input, textarea, select, option, label {
 }
 
 body.sidebar-mini .main-sidebar:after {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
   content: " ";
   position: fixed;
   width: 65px;
@@ -114,13 +122,13 @@ body.sidebar-mini .main-sidebar:after {
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 0.255em;
-  vertical-align: 0.255em;
+  margin-left: .255em;
+  vertical-align: .255em;
   content: "";
-  border-top: 0.3em solid;
-  border-left: 0.4em solid transparent;
+  border-top: .3em solid;
+  border-left: .4em solid transparent;
   border-bottom: 0;
-  border-right: 0.4em solid transparent;
+  border-right: .4em solid transparent;
   padding: 0px;
   margin-right: 3px;
 }
@@ -133,23 +141,28 @@ body.sidebar-mini .main-sidebar:after {
 body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-menu li a {
   padding-left: 0;
 }
+
 body.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu {
   left: auto;
   right: 65px;
 }
+
 body.layout-2 .main-sidebar .sidebar-menu li a.has-dropdown::after {
   left: 0;
   right: auto;
 }
+
 body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu > li.active > a::before {
   right: 0;
 }
+
 body.layout-2 .main-content {
   padding-top: 107px;
   padding-right: 30px;
   padding-left: 0;
   width: calc(100% - 200px);
 }
+
 body.layout-2 .main-sidebar .sidebar-menu li ul.dropdown-menu li a {
   padding-right: 34px;
   padding-left: 0;
@@ -164,10 +177,12 @@ body.sidebar-mini .navbar {
   right: 65px;
   left: 0px;
 }
+
 body.sidebar-mini .main-content, body.sidebar-mini .main-footer {
   padding-right: 90px;
   padding-left: 30px;
 }
+
 body.layout-2 .main-footer {
   margin-right: 230px;
   width: calc(100% - 230px);
@@ -217,6 +232,7 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .ion, a:not(.btn-social
 .dropdown-list .dropdown-item .dropdown-item-avatar {
   float: right;
 }
+
 .dropdown-list .dropdown-item .dropdown-item-desc {
   margin-right: 60px;
   margin-left: 0;
@@ -229,9 +245,11 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .ion, a:not(.btn-social
 body.sidebar-gone .main-sidebar {
   right: -250px;
 }
+
 body.sidebar-gone .main-content {
   padding-right: 30px;
 }
+
 body.sidebar-gone .navbar {
   right: 0;
 }
@@ -241,19 +259,23 @@ body.sidebar-gone .navbar {
   margin-left: 15px;
   margin-right: 10px;
 }
+
 .card.card-sm .card-icon {
   float: right;
   text-align: left;
   padding-left: 15px;
 }
+
 .card.card-sm .card-options {
   float: left;
   margin-left: 20px;
 }
+
 .card.card-sm .card-wrap {
   margin-right: 30px;
   margin-left: 15px;
 }
+
 .card.card-sm-2 .card-icon {
   left: 20px;
   right: auto;
@@ -267,6 +289,7 @@ body.sidebar-gone .navbar {
   margin-right: auto;
   margin-left: 0px;
 }
+
 .card .card-header h4 + .card-header-action .btn-group .btn:first-child, .card .card-header h4 + .card-header-form .btn-group .btn:first-child {
   border-radius: 0 30px 30px 0 !important;
 }
@@ -313,13 +336,15 @@ body.sidebar-gone .navbar {
   font-size: 90%;
   border-top: solid 1px #EEE;
   background-color: #FFF;
-  box-shadow: -3px 0px 7px 1px #EEE;
+  -webkit-box-shadow: -3px 0px 7px 1px #EEE;
+          box-shadow: -3px 0px 7px 1px #EEE;
   margin-bottom: -5px;
 }
 
 body.layout-2 .main-footer, body.layout-3 .main-footer {
   background-color: transparent;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   margin-bottom: -5px;
 }
 
@@ -333,6 +358,7 @@ body.layout-2 .main-footer, body.layout-3 .main-footer {
 .navbar .form-inline .search-result::before {
   right: 34px;
 }
+
 .navbar .form-inline .form-control {
   padding-right: 20px;
   padding-left: 0;
@@ -340,6 +366,7 @@ body.layout-2 .main-footer, body.layout-3 .main-footer {
   margin-right: inherit;
   border-radius: 0 3px 3px 0px;
 }
+
 .navbar .form-inline .btn {
   border-radius: 3px 0 0 3px;
   padding: 9px 15px;
@@ -360,11 +387,12 @@ body.layout-2 .main-footer, body.layout-3 .main-footer {
 }
 
 .breadcrumb-item + .breadcrumb-item {
-  padding-right: 0.5rem;
+  padding-right: .5rem;
   padding-left: 0;
 }
+
 .breadcrumb-item + .breadcrumb-item::before {
-  padding-left: 0.5rem;
+  padding-left: .5rem;
   padding-right: 0;
   display: inline-block;
   color: #6c757d;
@@ -381,14 +409,17 @@ body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item > .nav-link.has-d
   margin-left: 35px;
   margin-right: 0;
 }
+
 body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item > .nav-link.has-dropdown::after {
   position: absolute;
   top: 50%;
+  -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
   font-size: 12px;
   right: unset;
   left: -20px;
 }
+
 body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item.active > .nav-link::before {
   right: 35px;
   left: 0;
@@ -397,6 +428,7 @@ body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item.active > .nav-lin
 .dropdown-menu-left {
   right: 0;
 }
+
 .dropdown-menu-left .dropdown-menu-left {
   right: 100%;
 }
@@ -404,6 +436,7 @@ body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item.active > .nav-lin
 body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item .dropdown-menu .nav-item .nav-link.has-dropdown::after {
   position: absolute;
   top: 50%;
+  -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
   font-size: 12px;
   right: unset;
@@ -424,12 +457,15 @@ body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item .dropdown-menu .n
 .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
   border-radius: 0 5px 5px 0;
 }
+
 .input-group > .input-group-append:not(:last-child) > .btn, .input-group > .input-group-append:not(:last-child) > .input-group-text {
   border-radius: 0 5px 5px 0;
 }
+
 .input-group > .input-group-prepend > .btn, .input-group > .input-group-prepend > .input-group-text {
   border-radius: 0 5px 5px 0;
 }
+
 .input-group > .custom-select:not(:first-child), .input-group > .form-control:not(:first-child) {
   border-radius: 5px 0 0 5px;
 }
@@ -437,6 +473,7 @@ body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item .dropdown-menu .n
 .card .card-header h4 + .card-header-action .input-group .form-control, .card .card-header h4 + .card-header-form .input-group .form-control {
   border-radius: 0 30px 30px 0 !important;
 }
+
 .card .card-header h4 + .card-header-action .input-group .form-control + .input-group-btn .btn, .card .card-header h4 + .card-header-form .input-group .form-control + .input-group-btn .btn {
   border-radius: 30px 0 0 30px !important;
 }
@@ -444,11 +481,13 @@ body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item .dropdown-menu .n
 .btn-group > .btn-group:not(:first-child) > .btn, .btn-group > .btn:not(:first-child) {
   border-radius: 5px 0px 0px 5px;
 }
+
 .btn-group > .btn-group:not(:last-child) > .btn, .btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
   border-radius: 0px 5px 5px 0px;
 }
 
 .dropleft .dropdown-toggle::before {
-  margin-left: 0.255em;
+  margin-left: .255em;
   margin-right: unset;
-}/*# sourceMappingURL=rtl.css.map */
+}
+/*# sourceMappingURL=rtl.css.map */
