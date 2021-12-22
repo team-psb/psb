@@ -239,9 +239,7 @@
                                 text-center
                             "
                         >
-                            <h4 class="text-uppercase mb-5">
-                                Pondok Informatika Al-Madinah
-                            </h4>
+                            <h4 class="text-uppercase mb-5 title-footer-left"></h4>
                             <a
                                 href="https://pondokinformatika.com/"
                                 class="text-decoration-none btn-footer"
@@ -252,7 +250,7 @@
                                         rounded-pill
                                         px-3
                                         py-2
-                                        text-white text-uppercase
+                                        text-white text-uppercase button-footer-left
                                     "
                                     style="background: #3adb9f"
                                 >
@@ -266,6 +264,7 @@
                                 footer-contact
                                 text-center
                                 my-5 my-lg-0
+                                logo-sponsor
                             "
                         >
                             <img
@@ -275,7 +274,7 @@
                             />
                         </div>
                         <div class="col-12 col-lg-5 footer-contact">
-                            <p class="fs-6 px-0 px-lg-5">
+                            <p class="fs-6 px-0 px-lg-5 footer-right">
                                 Pondok Informatika Al-Madinah membuka penerimaan
                                 santri baru yang siap menjadi ahli IT yang
                                 bertauhid lurus, mencintai sunnah, berakhlak
@@ -314,119 +313,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
         <script>
-            //GSAP
-            gsap.from(".logo", {
-                x: -100,
-                delay: 2.5,
-                duration: 1,
-                opacity: 0,
-            });
-            gsap.from(".back-button", {
-                delay: 2,
-                duration: 1,
-                opacity: 0,
-            });
+            /* GSAP */
 
-            gsap.from(".line-1", {
-                delay: 2,
-                duration: 0.5,
-                scale: 0,
-                opacity: 0,
-            });
-
-            gsap.from(".line-2", {
-                delay: 3,
-                duration: 0.5,
-                scale: 0,
-                opacity: 0,
-            });
-
-            gsap.from(".line-3", {
-                delay: 4,
-                duration: 0.5,
-                scale: 0,
-                opacity: 0,
-            });
-
-            gsap.from(".line-4", {
-                delay: 5,
-                duration: 0.5,
-                scale: 0,
-                opacity: 0,
-            });
-
-            gsap.from(".line-5", {
-                delay: 6,
-                duration: 0.5,
-                scale: 0,
-                opacity: 0,
-            });
-            gsap.from(".alur_image_1", {
-                delay: 7,
-                duration: 2,
-                y: -100,
-                opacity: 0,
-                ease: "bounce",
-            });
-            gsap.from(".alur_image_2", {
-                delay: 9,
-                duration: 2,
-                y: 100,
-                opacity: 0,
-                ease: "bounce",
-            });
-            gsap.from(".alur_image_3", {
-                delay: 11,
-                duration: 2,
-                y: -100,
-                opacity: 0,
-                ease: "bounce",
-            });
-            gsap.from(".alur_image_4", {
-                delay: 13,
-                duration: 2,
-                y: 100,
-                opacity: 0,
-                ease: "bounce",
-            });
-            gsap.from(".alur_image_5", {
-                delay: 15,
-                duration: 2,
-                y: -100,
-                opacity: 0,
-                ease: "bounce",
-            });
-            gsap.from(".alur-text", {
-                delay: 8,
-                duration: 1,
-                scale: 0,
-                opacity: 0,
-            });
-            gsap.from(".alur-text2", {
-                delay: 10,
-                duration: 1,
-                scale: 0,
-                opacity: 0,
-            });
-            gsap.from(".alur-text3", {
-                delay: 12,
-                duration: 1,
-                scale: 0,
-                opacity: 0,
-            });
-            gsap.from(".alur-text4", {
-                delay: 14,
-                duration: 1,
-                scale: 0,
-                opacity: 0,
-            });
-            gsap.from(".alur-text5", {
-                delay: 16,
-                duration: 1,
-                scale: 0,
-                opacity: 0,
-            });
-
+            //Top-Navbar
             gsap.to(".email-address", {
                 text: "pondokitalmadinah@gmail.com",
                 duration: 2,
@@ -443,55 +332,59 @@
                 duration: 1,
                 delay: 6,
             });
-            gsap.from(".banner-title", {
+
+            //Navbar
+            gsap.from(".logo", {
                 x: -100,
-                duration: 2,
-                opacity: 0,
-                delay: 2,
-            });
-            gsap.from(".sub-banner1", {
-                x: -100,
-                duration: 2,
-                opacity: 0,
-                delay: 3.5,
-            });
-            gsap.from(".sub-banner2", {
-                x: -100,
-                duration: 2,
-                opacity: 0,
-                delay: 4,
-            });
-            gsap.from(".button-banner", {
-                duration: 1,
-                opacity: 0,
-                delay: 5.5,
-            });
-            gsap.from(".button-banner2", {
-                duration: 1,
-                opacity: 0,
-                delay: 6,
-            });
-            gsap.from(".title-stats", {
-                y: -50,
+                delay: 1.5,
                 duration: 1.5,
                 opacity: 0,
+            });
+            gsap.from(".navbar", {
                 delay: 2,
-                ease: "bounce",
-            });
-            gsap.from(".text-stats", {
-                opacity: 0,
                 duration: 2,
+                opacity: 0,
+            });
+
+
+            // Section Informasi Detail
+
+            //Section Sponsor
+            gsap.from(".logo-sponsor", {
+                delay: 2,
+                duration: 2,
+                rotateY: 360,
+                opacity: 0
+            });
+
+            //Section Footer
+            gsap.to(".title-footer-left", {
+                text: "Pondok Informatika Al-Madinah",
+                duration: 2,
+                delay: 2,
+            });
+            gsap.from(".button-footer-left", {
+                duration: 1.5,
                 delay: 3,
-            });
-            gsap.from(".text-stats2", {
+                y: 50,
+                ease: "back",
                 opacity: 0,
-                duration: 2,
-                delay: 4,
             });
-            gsap.from(".text-stats3", {
+            gsap.from(".footer-right", {
+                duration: 1.5,
+                delay: 2,
+                x: 50,
+                ease: "back",
                 opacity: 0,
-                duration: 2,
-                delay: 5,
+            });
+
+            //Copyright
+            gsap.from(".copyright", {
+                duration: 1.5,
+                delay: 2,
+                y: 50,
+                ease: "elastic",
+                opacity: 0,
             });
         </script>
 

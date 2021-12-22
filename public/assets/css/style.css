@@ -971,15 +971,7 @@ section {
         width: 90px;
     }
 }
-@media (max-width: 764px) and (min-width: 400px) {
-    #alur {
-        padding: 150px 0px 250px 0px;
-        height: 300px;
-        order: 1;
-    }
-    #regis-form {
-        order: 2;
-    }
+@media (max-width: 1400px) {
 }
 
 /*--------------------------------------------------------------

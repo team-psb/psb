@@ -334,51 +334,18 @@
                                         @csrf
                                         <div class="form-group">
                                             <div class="form-floating">
-                                                <input
-                                                    type="number"
-                                                    class="
-                                                        form-control
-                                                        rounded-pill
-                                                        px-4
-                                                    "
-                                                    id="floatingInput"
-                                                    name="phone"
-                                                />
-                                                <label
-                                                    for="floatingInput"
-                                                    class="px-4"
-                                                    >Nomor Handphone</label
-                                                >
+                                                <input type="number" class="form-control rounded-pill
+                                                        px-4" id="floatingInput" placeholder="Nomor Handphone">
+                                                <label for="floatingInput" class="px-4">Nomor Handphone</label>
                                             </div>
 
-                                            <div
-                                                class="
-                                                    form-floating
-                                                    d-flex
-                                                    align-items-center
-                                                    mt-4
-                                                    position-relative
-                                                    password-login
-                                                "
-                                            >
-                                                <input
-                                                    type="password"
-                                                    class="
-                                                        form-control
-                                                        rounded-pill
-                                                        px-4
-                                                    "
-                                                    name="password"
-                                                    id="floatingPassword"
-                                                />
+                                            <div class="form-floating d-flex align-items-center mt-4 position-relative password-login">
+                                                <input type="password" class="form-control rounded-pill px-4" id="floatingPassword" placeholder="Password" name="password">
                                                 <i class="bi bi-eye-slash position-absolute" id="hide" onclick="myFunction()"></i>
                                                 <i class="bi bi-eye position-absolute" id="show" onclick="myFunction()"></i>
-                                                <label
-                                                    for="floatingPassword"
-                                                    class="px-4"
-                                                    >Password</label
-                                                >
+                                                <label for="floatingPassword" class="px-4">Password</label>
                                             </div>
+
                                             {{-- <div
                                                 class="
                                                     d-flex
@@ -2120,7 +2087,7 @@
                 delay: 5,
             });
 
-            // Announce
+            // Section Announce
             gsap.from(".title-announce", {
                 y: -50,
                 duration: 1.5,
