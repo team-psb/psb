@@ -66,18 +66,6 @@
                 </div>
             </li>
             <li class="nav-item nav-category">Lain-lain</li>
-            {{-- <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                    <i class="menu-icon  mdi mdi-calendar"></i>
-                    <span class="menu-title">Data Tahun Ajaran</span>
-                    {{-- <i class="menu-arrow"></i> --}}
-                {{-- </a>
-                <div class="collapse" id="auth">
-                    <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                    </ul>
-                </div>
-            </li> --}}
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('academies.index') }}">
                     <i class="menu-icon  mdi mdi-television-guide"></i>

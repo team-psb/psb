@@ -35,6 +35,29 @@ class SettingController extends Controller
         return back();
     }
 
+    public function stageEdit($id)
+    {
+        $stage = Stage::findOrFail($id);
+
+        return view('admin.pages.setting.stage_edit', [
+            'stage' => $stage
+        ]);
+    }
+
+    public function stageUpdate(Request $request, $id)
+    {
+        $data = $request->all();
+
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        Stage::findOrFail($id)->update($data);
+        activity()->log('Mengedit  data Gelombang id '.$id);
+
+        return back();
+    }
+
     public function stageDelete($id)        
     {
         $data = Stage::findOrFail($id);

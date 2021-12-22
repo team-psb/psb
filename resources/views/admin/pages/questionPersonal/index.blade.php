@@ -165,19 +165,8 @@
                                     </td>
                                     <td>
                                         <input type="text" style="height: 50px;" name="a" class="form-control"  value="{{-- $cek?$data->a:'' --}}">
-                                        </input>
                                     </td>
                                     <td class="pl-5">
-                                        {{-- <select name="poin_a" id="">
-                                        @if ($cek)
-                                            <option value="{{ $data->poin_a }}">{{ $data->poin_a }}</option>
-                                        @else
-                                            <option value="">-- scrore --</option>
-                                        @endif
-                                        <template x-for="poin in poins" index="poin.id">
-                                            <option :value="poin" x-text="poin" ></option>
-                                        </template>
-                                        </select> --}}
                                         <select>
                                         <option>--score--</option>
                                         <option>1</option>
@@ -195,19 +184,8 @@
                                     </td>
                                     <td>
                                         <input type="text" style="height: 50px;" name="b" class="form-control"  value="{{-- $cek?$data->b:'' --}}">
-                                        </input>
                                     </td>
                                     <td class="pl-5">
-                                        {{-- <select name="poin_b" id="">
-                                        @if ($cek)
-                                            <option value="{{ $data->poin_b }}">{{ $data->poin_b }}</option>
-                                        @else
-                                            <option value="">-- scrore --</option>
-                                        @endif
-                                        <template x-for="poin in poins" index="poin.id">
-                                            <option :value="poin" x-text="poin" ></option>
-                                        </template>
-                                        </select> --}}
                                         <select>
                                         <option>--score--</option>
                                         <option>1</option>
@@ -225,19 +203,8 @@
                                     </td>
                                     <td>
                                         <input type="text" style="height: 50px;" name="c" class="form-control"  value="{{-- $cek?$data->c:'' --}}">
-                                        </input>
                                     </td>
                                     <td class="pl-5">
-                                        {{-- <select name="poin_c" id="">
-                                        @if ($cek)
-                                            <option value="{{ $data->poin_c }}">{{ $data->poin_c }}</option>
-                                        @else
-                                            <option value="">-- scrore --</option>
-                                        @endif
-                                        <template x-for="poin in poins" index="poin.id">
-                                            <option :value="poin" x-text="poin" ></option>
-                                        </template>
-                                        </select> --}}
                                         <select>
                                         <option>--score--</option>
                                         <option>1</option>
@@ -255,19 +222,8 @@
                                     </td>
                                     <td>
                                         <input type="text" style="height: 50px;" name="d" class="form-control"  value="{{-- $cek?$data->d:'' --}}">
-                                        </input>
                                     </td>
                                     <td class="pl-5">
-                                        {{-- <select name="poin_d" id="" >
-                                        @if ($cek)
-                                            <option value="{{ $data->poin_d }}">{{ $data->poin_d }}</option>
-                                        @else
-                                            <option value="">-- scrore --</option>
-                                        @endif
-                                        <template x-for="poin in poins" index="poin.id">
-                                            <option :value="poin" x-text="poin" x-on:change="coba(poin)"></option>
-                                        </template>
-                                        </select> --}}
                                         <select>
                                         <option>--score--</option>
                                         <option>1</option>
@@ -285,19 +241,8 @@
                                     </td>
                                     <td>
                                         <input  type="text" style="height: 50px;" name="e" class="form-control"  value="{{-- $cek?$data->e:'' --}}">
-                                        </input>
                                     </td>
                                     <td class="pl-5">
-                                    {{-- <select name="poin_e" id="">
-                                        @if ($cek)
-                                            <option value="{{ $data->poin_e }}" >{{ $data->poin_e }}</option>
-                                        @else
-                                        <option value="">-- scrore --</option>
-                                        @endif
-                                        <template x-for="poin in poins" index="poin.id">
-                                        <option :value="poin" x-text="poin"></option>
-                                        </template>
-                                    </select> --}}
                                     <select>
                                         <option>--score--</option>
                                         <option>1</option>
@@ -355,33 +300,6 @@
 @endsection
 
 @push('after-script')
-{{-- <script>
-    jQuery(document).ready(function($){
-        $('#mymodal').on('show.bs.modal',function(e){
-        var button=$(e.relatedTarget);
-        var modal =$(this);
-
-        modal.find('.modal-body').load(button.data('remote'));
-        modal.find('.modal-title').html(button.data('title'));
-        });
-    });
-</script>
-<div class="modal" id="mymodal" tabindex="-1" role="dialog">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-    <div class="modal-header">
-        <button class="close" type="button" data-dismiss-v="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        
-    </div>
-    <div class="modal-body">
-        <i class="fas fa-spiner fa-spin"></i>
-    </div>
-    </div>
-</div>
-</div> --}}
-
 <script>
     $(document).ready( function () {
     $('#myTable1').DataTable({

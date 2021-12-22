@@ -41,23 +41,10 @@ class VideoController extends Controller
         return back()->with('success-delete','Berhasil Menghapus Data');
     }
 
-    // public function setStatus(Request $request, $id)
-    // {
-    //     $request->validate([
-    //         'status' => 'required|in:lolos,tidak'
-    //     ]);
-
-    //     $item = Video::findOrFail($id);
-    //     $item->status = $request->status;
-    //     $item->save();
-
-    //     return redirect()->route('videos.index')->with('success-edit', 'Berhasil Mengganti Status Data');
-    // }
-
     public function lolos($id)
     {
         $data=Video::findOrFail($id);
-        $data->update(['status'=>'lolos']);
+        $data->update(['status' => 'lolos']);
         
         Interview::create([
             'user_id'=>$data->user_id,
@@ -71,7 +58,7 @@ class VideoController extends Controller
     public function tidaklolos($id)
     {
         $data=Video::findOrFail($id);
-        $data->update(['status'=>'tidak']);
+        $data->update(['status' => 'tidak']);
 
         $cek = Interview::where('user_id','=',$data->user_id)->get();
         if (isset($cek)) {
@@ -86,7 +73,13 @@ class VideoController extends Controller
         $ids=$request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
-                Video::find($id)->update(['status'=>'lolos']);
+                $data = Video::findOrFail($id);
+                $data->update(['status'=>'lolos']);
+                Interview::create([
+                    'user_id'=>$data->user_id,
+                    'academy_year_id'=>$data->academy_year_id,
+                    'stage_id'=>$data->stage_id,
+                ]);
             }
             return redirect()->route('videos.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
@@ -99,7 +92,13 @@ class VideoController extends Controller
         $ids=$request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
-                Video::find($id)->update(['status'=>'tidak']);
+                $data = Video::findOrFail($id);
+                $data->update(['status'=>'tidak']);
+
+                $cek = Interview::where('user_id','=',$data->user_id)->get();
+                if (isset($cek)) {
+                    Interview::where('user_id','=',$data->user_id)->delete();
+                }
             }
 
             return redirect()->route('videos.index')->with('success-edit','Berhasil Mengganti Semua Status Data');

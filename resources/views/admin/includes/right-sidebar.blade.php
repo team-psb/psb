@@ -1,6 +1,3 @@
-<!-- partial -->
-<!-- partial:partials/_sidebar.html -->
-<!-- partial:partials/_settings-panel.html -->
 <div class="theme-setting-wrapper">
     <div id="settings-trigger"><i class="ti-settings"></i></div>
     <div id="theme-settings" class="settings-panel">

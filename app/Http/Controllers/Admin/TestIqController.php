@@ -180,18 +180,6 @@ class TestIqController extends Controller
         }
     }
 
-    // public function export() 
-
-    // {
-    //     return Excel::download(new UsersExport, 'users.xlsx');
-    // }
-
-    // public function import() 
-    // {
-    //     Excel::import(new QuestionIqImport,request()->file('file'));
-    //     return back();
-    // }
-
     public function import(Request $request) 
     {
         $validatedData = $request->validate([

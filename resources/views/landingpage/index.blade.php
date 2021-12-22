@@ -1,5 +1,5 @@
 @php
-    $tahun_ajaran = App\Models\AcademyYear::where('is_active', true)->first();
+    $tahun_ajaran = App\Models\AcademyYear::where('is_active', true)->orderBy('id','desc')->first();
     $users = App\Models\BiodataOne::whereHas('academy_year', function($query){
         $query->where('is_active', true);
     })->count();
@@ -9,7 +9,7 @@
     $gelombang = App\Models\Stage::whereHas('academy_year', function($query){
         $query->where('is_active', true);
     })->orderBy('id', 'desc')->pluck('name')->first();
-    $informations = App\Models\Schdule::orderBy('created_at', 'desc')->limit(6)->get();
+    $informations = App\Models\Schdule::orderBy('id', 'desc')->limit(6)->get();
     $qnas = App\Models\Qna::get();
 @endphp
 <!DOCTYPE html>
@@ -218,6 +218,35 @@
         <!-- ======= Home Section ======= -->
         <section id="home" class="d-flex align-items-center">
             <div class="container" data-aos="zoom-out">
+                @if (session('success-create'))
+                        <div class="alert alert-success alert-dismissible show fade">
+                            <div class="alert-body fw-bold">
+                                <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                    <span>&times;</span>
+                                </button>
+                                {{ session('success-create') }}
+                            </div>
+                        </div>
+                    @elseif(session('success-delete'))
+                        <div class="alert alert-danger alert-dismissible show fade">
+                            <div class="alert-body fw-bold">
+                                <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                    <span>&times;</span>
+                                </button>
+                                {{ session('success-delete') }}
+                            </div>
+                        </div>
+                    @elseif(session('success-edit'))
+                        <div class="alert alert-warning alert-dismissible show fade">
+                            <div class="alert-body fw-bold">
+                                <button class="btn-close" data-dismiss="alert" aria-label="Close">
+                                    <span>&times;</span>
+                                </button>
+                                {{ session('success-edit') }}
+                            </div>
+                        </div>
+                    @else
+                    @endif
                 <div class="row">
                     <div class="col-md-6 col-sm-12 mb-5 mb-lg-0 mb-md-0">
                         <h3 class="fw-bold mb-4 banner-title">Selamat Datang Di Web PSB Online Pondok Informatika Al-Madinah</h3>
@@ -225,7 +254,7 @@
                         <div class="paragraf-text mb-5">
                             <p class="sub-banner1">
                                 Web Penerimaan Peserta Didik Baru <br />
-                                Tahun Pelajaran 2021/2022 <br />
+                                Tahun Pelajaran {{ isset($tahun_ajaran->year) ? $tahun_ajaran->year.' / '. intval($tahun_ajaran->year +1) : '' }} <br />
                                 Pondok Informatika Al-Madinah
                             </p>
                             <p class="pt-2 sub-banner2">
@@ -438,7 +467,7 @@
                                             text-center text-white
                                         "
                                     >
-                                        Formulir Peserta
+                                        Formulir Peserta {{ $gelombang }}
                                     </h1>
                                     <h6
                                         class="
@@ -534,7 +563,8 @@
                                                                 px-3
                                                             "
                                                             >Tanggal
-                                                            Lahir</label
+                                                            Lahir
+                                                            </label
                                                         >
                                                         <input
                                                             type="date"
@@ -616,7 +646,9 @@
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >No Whatsapp</label
+                                                            >No Whatsapp
+                                                            <small style="font-size: 12px;">*mohon di isi denggan no whatsapp aktif yang dapat kami hubungi!.</small>
+                                                            </label
                                                         >
                                                         <input
                                                             type="text"
@@ -650,7 +682,10 @@
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >Password</label
+                                                            >Password
+                                                            <br>
+                                                            <small style="font-size: 12px;">min 6 karakter max 20 karakter.</small>
+                                                            </label
                                                         >
                                                         <input
                                                             type="password"
@@ -694,7 +729,6 @@
                                                     </div>
                                                     <div
                                                         class="
-                                                            mb-4
                                                             col-lg-6 col-sm-12
                                                         "
                                                     >
@@ -706,7 +740,10 @@
                                                                 px-3
                                                             "
                                                             >Konfirmasi
-                                                            Password</label
+                                                            Password
+                                                            <br>
+                                                            <small style="font-size: 12px;">min 6 karakter max 20 karakter.</small>
+                                                            </label
                                                         >
                                                         <input
                                                             type="password"
@@ -1120,7 +1157,7 @@
             <section id="info" class="information">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title mb-4 title-info">
-                        <h1>Information</h1>
+                        <h1>Informasi</h1>
                     </div>
 
                     <div class="row">

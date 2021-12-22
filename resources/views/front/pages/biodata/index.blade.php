@@ -230,7 +230,7 @@
                             required
                           >
                             @for ($i = 0; $i <= 30; $i++)
-                                <option value="{{ $i }}JUZ">{{ $i }} JUZ</option>
+                                <option value="{{ $i }} JUZ">{{ $i }} JUZ</option>
                             @endfor
                           </select>
                           <div class="input-group-append">

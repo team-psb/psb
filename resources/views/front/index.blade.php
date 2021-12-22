@@ -84,7 +84,7 @@
                     </div>	
                   @elseif( isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'lolos')
                     <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
-                    <p><strong>Anda Dinyatakan Lolos sebagai calon santri Pondok Informatika Almadinah</strong></p>
+                    <p><strong>Anda Dinyatakan Lolos sebagai calon santri Pondok Informatika Al Madinah</strong></p>
                     <p class="lead">untuk informasi selanjutnya akan di infokan melalui whatsapp
                     </p>
                   @elseif(isset($tahap4->status) && $tahap4->status == 'lolos' && !isset($tahap5->status))
@@ -96,7 +96,7 @@
                     </div>
                   @elseif(isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'tidak')
                     <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}! .</h2>
-                    <p><strong>Anda Dinyatakan Tidak Lolos sebagai calon santri Pondok Informatika Almadinah</strong></p>
+                    <p><strong>Anda Dinyatakan Tidak Lolos sebagai calon santri Pondok Informatika Al Madinah</strong></p>
                   @elseif(isset($tahap1->status) == 'tidak' || isset($tahap2->status) == 'tidak' || isset($tahap4->status) == 'tidak')
                     <h2>Mohon Maaf, {{ Auth::user()->name }}! .</h2>
                     <p><strong>Anda Dinyatakan Tidak Lolos ke tahap selanjutnya
@@ -132,7 +132,7 @@
                 <h4>Informasi</h4>
               </div>
               <div class="card-body">
-                {{ $schdules->count() }}
+                {{ $schdules ? $schdules->count() : '0' }}
               </div>
             </div>
           </div>
@@ -147,7 +147,7 @@
                 <h4>Q&A</h4>
               </div>
               <div class="card-body">
-                {{ $qna->count(); }}
+                {{ $qna ? $qna->count() : '0' }}
               </div>
             </div>
           </div>
@@ -335,7 +335,7 @@
                 <td>
                   @isset($tahap5)
                   @if ($tahap5->status == null)
-                    <a href="{{ route('user-fifth-tes') }}" class="btn btn-primary">Info Wawancara</a>
+                    <a href="{{ route('user-fifth-tes') }}" class="btn btn-primary">Info</a>
                   @else
                     <span class="badge badge-primary">Selesai Tes</span>
                   @endif
@@ -345,7 +345,7 @@
                   @isset($tahap5)
                   @if ($tahap5->status == null)
                     <div class="badge badge-info">
-                    Menunggu Di Hubunggi
+                    Menunggu Di Hubungi
                     </div>
                   @elseif($tahap5->status == 'lolos')
                     <div class="badge badge-success">
@@ -368,12 +368,12 @@
                 @if (!empty($tahap5) && $tahap5->status == "lolos")
                   <th class="text-success"><i class="fas fa-th"></i></th>
                   <th colspan="2">
-                      <div class="col-md-11 text-success"><smal><strong><i>Selamat! Anda Lolos Seleksi, Unuk Info Selanjutnya Akan Diasampaikan Melalui WhatsApp</i></strong></smal></div>
+                      <div class="col-md-11 text-success"><small><strong><i>Selamat! Anda Lolos Seleksi, Unuk Info Selanjutnya Akan Diasampaikan Melalui WhatsApp</i></strong></small></div>
                   </th>
                 @elseif(!empty($tahap5) && $tahap5->status == "tidak")
                   <th class="text-danger"><i class="fas fa-th"></i></th>
                   <th colspan="2">
-                      <div class="col-md-11 text-danger"><smal><strong><i>Mohon Maaf, Anda Tidak Lolos Tes Seleksi</i></strong></smal></div>
+                      <div class="col-md-11 text-danger"><small><strong><i>Mohon Maaf, Anda Tidak Lolos Tes Seleksi</i></strong></small></div>
                   </th>
                 @endif
               </tr>

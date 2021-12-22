@@ -14,23 +14,6 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class BiodataController extends Controller
 {
-    // public function index()
-    // {
-    //     $stages = Stage::get();
-    //     // $biodatas = BiodataTwo::with(['academy_year'=>function($query){
-    //     //     $query->where('is_active','=','1');
-    //     // },'user.biodataOne'])->orderBy('created_at','desc')->get();
-
-    //         $biodatas = BiodataTwo::get();
-
-    //     // dd($biodatas);
-    //     // $biodata = $data->where('academy_year', '!=', null);
-    //     return view('admin.pages.biodata.index', [
-    //         'biodatas' => $biodatas,
-    //         'stages' => $stages
-    //     ]);
-    // }
-
     public function index()
     {
         $stages = Stage::get();

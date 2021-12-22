@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    @stack('start-style')
     @include('front.includes.style')
+    @stack('end-style')
     <title>@yield('title')</title>
 </head>
 <body class="layout-3">
