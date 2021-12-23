@@ -26,7 +26,7 @@
                                     class="form-control"
                                     id="name"
                                     name="name"
-                                    value="{{ $biodata->user->biodataOne->name }}"
+                                    value="{{ $biodata->user->biodataOne->full_name }}"
                                     required
                                 />
                               </div>
@@ -380,14 +380,26 @@
                               {{-- jumlah hafalan --}}
                               <div class="form-group mb-3">
                                 <label for="">Jumlah Hafalan</label>
-                                <input
+                                {{-- <input
                                     type="text"
                                     class="form-control"
                                     value="{{ $biodata->memorization }}"
                                     name="memorization"
                                     aria-describedby="emailHelp"
                                     required
-                                />
+                                /> --}}
+                                <select 
+                                  class="form-select"
+                                  id="memorization"
+                                  name="memorization"
+                                  value="{{ old('memorization') }}"
+                                  required
+                                >
+                                  <option value="{{ $biodata->memorization }} ? 'selected : '' ">{{ $biodata->memorization }}</option>
+                                  @for ($i = 0; $i <= 30; $i++)
+                                    <option value="{{ $i }} JUZ">{{ $i }} JUZ</option>
+                                  @endfor
+                                </select>
                               </div>
                               {{-- tokh idola --}}
                               <div class="form-group mb-3">

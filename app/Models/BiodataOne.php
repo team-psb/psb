@@ -15,7 +15,7 @@ class BiodataOne extends Model
         'user_id',
         'academy_year_id',
         'family',
-        'name',
+        'full_name',
         'age',
         'birth_date',
         'no_wa',

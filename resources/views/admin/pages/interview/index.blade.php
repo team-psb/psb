@@ -120,7 +120,7 @@
                                                     @if ($interview->user->biodataOne->family == 'sangat-mampu')
                                                         <i class="ti-star text-warning"></i>
                                                     @endif
-                                                    {{ $interview->user->biodataOne->name }}
+                                                    {{ $interview->user->biodataOne->full_name }}
                                                 </a>
                                             </td>
                                             <td>

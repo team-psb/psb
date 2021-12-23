@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AcademyYear;
 use App\Models\QuestionIq;
 use App\Models\QuestionPersonal;
+use App\Models\Setting;
 use App\Models\Stage;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,32 @@ class SettingController extends Controller
         ]);
     }
 
+    public function iqValue(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'question_iq_value' => $request->question_iq_value
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+
+    public function personalValue(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'question_personal_value' => $request->question_personal_value
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+
     public function stageStore(Request $request)
     {
         $data = $request->all();
@@ -34,6 +61,7 @@ class SettingController extends Controller
 
         return back();
     }
+    
 
     public function stageEdit($id)
     {

@@ -363,13 +363,13 @@
                                         @csrf
                                         <div class="form-group">
                                             <div class="form-floating">
-                                                <input type="number" class="form-control rounded-pill
+                                                <input type="number" name="phone" class="form-control rounded-pill
                                                         px-4" id="floatingInput" placeholder="Nomor Handphone">
                                                 <label for="floatingInput" class="px-4">Nomor Handphone</label>
                                             </div>
 
                                             <div class="form-floating d-flex align-items-center mt-4 position-relative password-login">
-                                                <input type="password" class="form-control rounded-pill px-4" id="floatingPassword" placeholder="Password" name="password">
+                                                <input type="password" name="password" class="form-control rounded-pill px-4" id="floatingPassword" placeholder="Password" name="password">
                                                 <i class="bi bi-eye-slash position-absolute" id="hide" onclick="myFunction()"></i>
                                                 <i class="bi bi-eye position-absolute" id="show" onclick="myFunction()"></i>
                                                 <label for="floatingPassword" class="px-4">Password</label>

@@ -1,3 +1,9 @@
+@php
+    $iq = App\Models\Setting::pluck('question_iq_value')->first();
+    $soaliq = App\Models\QuestionIq::get();
+    $personal = App\Models\Setting::pluck('question_personal_value')->first();
+    $soalpersonal = App\Models\QuestionPersonal::get();
+@endphp
 @extends('admin.layouts.app')
 
 @section('title', 'Pengaturan Sistem')
@@ -110,14 +116,46 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <h5>Soal Tes IQ Aktif <span class="badge badge-success">{{ $iqs->count() }}</span></h5>
-                                    {{-- <textarea name="editor1" class="form-control"></textarea> --}}
+                                    <h5>Soal Tes IQ Aktif <span class="badge badge-success">{{ $iq.'/'.$iqs->count() }}</span></h5>
+                                    <form action="{{ route('settings.iq-value') }}" method="POST">
+                                        @csrf
+                                        <label for="">Soal di tampilkan</label>
+                                        <div class="form-group">
+                                            <select 
+                                            class="form-select"
+                                            id="value"
+                                            name="question_iq_value"
+                                            >
+                                            <option value="{{ $iq }} ? 'selected : '' ">{{ $iq }} Soal</option>
+                                            @for ($i = 1; $i <= 10; $i++)
+                                                <option value="{{ $i.'0' }}" {{ $soaliq->count() < $i.'0' ? 'disabled' : '' }}>{{ $i }}0 Soal</option>
+                                            @endfor
+                                            </select>
+                                        </div>
+                                        <button class="btn btn-primary float-right">save</button>
+                                    </form>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <h5>Soal Tes Kepribadian Aktif <span class="badge badge-success">{{ $personals->count() }}</span></h5>
-                                    {{-- <textarea name="editor1" class="form-control"></textarea> --}}
+                                    <h5>Soal Tes Kepribadian Aktif <span class="badge badge-success">{{ $personal.'/'.$personals->count() }}</span></h5>
+                                    <form action="{{ route('settings.personal-value') }}" method="POST">
+                                        @csrf
+                                        <label for="">Soal di tampilkan</label>
+                                        <div class="form-group">
+                                            <select 
+                                            class="form-select"
+                                            id="value"
+                                            name="question_personal_value"
+                                            >
+                                            <option value="{{ $personal }} ? 'selected : '' ">{{ $personal }} Soal</option>
+                                            @for ($i = 1; $i <= 10; $i++)
+                                                <option value="{{ $i.'0' }}" {{ $soalpersonal->count() < $i.'0' ? 'disabled' : '' }}>{{ $i }}0 Soal</option>
+                                            @endfor
+                                            </select>
+                                        </div>
+                                        <button class="btn btn-primary float-right">save</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

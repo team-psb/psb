@@ -1,3 +1,7 @@
+@php
+    $iqshow = App\Models\Setting::pluck('question_iq_value')->first();
+    $personalshow = App\Models\Setting::pluck('question_personal_value')->first();
+@endphp
 @extends('admin.layouts.app')
 
 @section('title', 'Dashboard')
@@ -49,12 +53,12 @@
                                 </div>
                                 <div>
                                     <p class="statistics-title">Soal Tes IQ</p>
-                                    <h3 class="rate-percentage">{{ $iq }}</h3>
+                                    <h3 class="rate-percentage">{{ $iqshow.'/'.$iq }}</h3>
                                     {{-- <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>+0.1%</span></p> --}}
                                 </div>
                                 <div>
                                     <p class="statistics-title">Soal Tes Kepribadian</p>
-                                    <h3 class="rate-percentage">{{ $kepribadian }}</h3>
+                                    <h3 class="rate-percentage">{{ $personalshow.'/'.$kepribadian }}</h3>
                                     {{-- <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p> --}}
                                 </div>
                                 <div class="d-none d-md-block">
@@ -239,9 +243,9 @@
                                                 <tr>
                                                     <td>
                                                         <div class="d-flex ">
-                                                        <img src="{{ Avatar::create($item->name)->toGravatar(['d' => 'wavatar', 'r' => 'pg', 's' => 100])}}" alt="">
+                                                        <img src="{{ Avatar::create($item->no_wa)->toGravatar(['d' => 'wavatar', 'r' => 'pg', 's' => 100])}}" alt="">
                                                         <div>
-                                                            <h6>{{ $item->name }}</h6>
+                                                            <h6>{{ $item->full_name }}</h6>
                                                             <p>{{ $item->age }} Tahun</p>
                                                         </div>
                                                         </div>
@@ -263,7 +267,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        @if ($item->user->biodataTwo)
+                                                        @if (isset($item->user->biodataTwo))
                                                             @if ($item->user->biodataTwo->status == 'lolos')
                                                             <div class="badge badge-opacity-success">lolos biodata</div>
                                                             @elseif ($item->user->biodataTwo->status == 'tidak')
@@ -483,7 +487,7 @@
                                                 <div class="d-flex  align-items-center">
                                                     <img class="img-sm rounded-10" src="{{ Avatar::create($calon->user->biodataOne->name)->toGravatar(['d' => 'wavatar', 'r' => 'pg', 's' => 100])}}" alt="profile">
                                                     <div class="wrapper ms-3">
-                                                        <p class="mb-1 fw-bold">{{ $calon->user->biodataOne->name }}</p>
+                                                        <p class="mb-1 fw-bold">{{ $calon->user->biodataOne->full_name }}</p>
                                                         <small class="text-muted mb-0">{{ $calon->user->biodataOne->age }} Tahun</small>
                                                     </div>
                                                 </div>

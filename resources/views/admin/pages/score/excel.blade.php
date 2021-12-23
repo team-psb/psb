@@ -11,7 +11,7 @@
         <tbody>
             @foreach ($nilai as $item)
                 <tr>
-                    <td>{{ $item->user->biodataOne->name }}</td>
+                    <td>{{ $item->user->biodataOne->full_name }}</td>
                     <td>{{ $item->user->score->score_question_iq }}</td>
                     <td>{{ $item->user->score->score_question_personal }}</td>
                     <td>{{ $item->user->biodataOne->no_wa }}</td>

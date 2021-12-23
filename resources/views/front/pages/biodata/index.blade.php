@@ -131,6 +131,7 @@
                         id="exampleInputPassword1"
                         name="facebook"
                         value="{{ old('facebook') }}"
+                        placeholder="Masukkan link/alamat profile facebook"
                         required
                       />
                       </div>
@@ -142,6 +143,7 @@
                           id="exampleInputPassword1"
                           name="instagram"
                           value="{{ old('instagram') }}"
+                          placeholder="Masukkan link/alamat profile instagram"
                           required
                         />
                       </div>
@@ -167,6 +169,7 @@
                       <div class="form-group">
                         <label for="exampleInputPassword1">Pendidikan Terakhir<b>*</b></label>
                         <select name="last_education" class="custom-select">
+                            <option value="" disabled selected>-- Pilih --</option>
                             <option value="SD" >SD SEDERAJAT</option>
                             <option value="SMP" >SMP SEDERAJAT</option>
                             <option value="SMA" >SMA SEDERAJAT</option>
@@ -223,7 +226,7 @@
                         >
                         <div class="input-group mb-3">
                           <select 
-                            class="form-control"
+                            class="custom-select"
                             id="memorization"
                             name="memorization"
                             value="{{ old('memorization') }}"
@@ -408,15 +411,22 @@
                         </div>
                         <div class="form-group">
                           <label for="exampleInputPassword1"
-                            >Berapa Jam Yang Dihabiskan Untuk Main game</label
+                            >Berapa Jam Yang Dihabiskan Untuk Main Game Dalam Sehari</label
                           >
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="exampleInputPassword1"
+                          <select 
+                            class="custom-select"
+                            id="game_duration"
                             name="game_duration"
                             value="{{ old('game_duration') }}"
-                          />
+                            required
+                          >
+                            <option value="" disabled selected>-- Pilih --</option>
+                            <option value="kurang dari 1">kurang dari 1 jam</option>
+                            @for ($i = 1; $i <= 10; $i++)
+                              <option value="{{ $i }}">{{ $i }} jam</option>
+                            @endfor
+                            <option value="lebih dari 10">lebih dari 10 jam</option>
+                          </select>
                         </div>
                       </div>
                       <div class="form-group">
