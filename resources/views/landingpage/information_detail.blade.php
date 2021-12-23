@@ -156,6 +156,7 @@
                     >
                         <h2>Detail Informasi</h2>
                         <ol>
+                            <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('home','#info') }}">Informasi</a></li>
                             <li>Detail Informasi</li>
                         </ol>

@@ -363,7 +363,7 @@
                                         @csrf
                                         <div class="form-group">
                                             <div class="form-floating">
-                                                <input type="number" class="form-control rounded-pill
+                                                <input type="number" name="phone" class="form-control rounded-pill
                                                         px-4" id="floatingInput" placeholder="Nomor Handphone">
                                                 <label for="floatingInput" class="px-4">Nomor Handphone</label>
                                             </div>
@@ -1207,7 +1207,7 @@
                                 </li>
                                 <li data-filter=".filter-app">Programming</li>
                                 <li data-filter=".filter-card">Design</li>
-                                <li data-filter=".filter-web">Olahraga</li>
+                                <li data-filter=".filter-sport">Olahraga</li>
                             </ul>
                         </div>
                     </div>
@@ -1235,12 +1235,6 @@
                                     title="Bermain volly bersama dilapangan, setelah pemanasan."
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <!-- <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a> -->
                             </div>
                         </div>
 
@@ -1262,12 +1256,6 @@
                                     title="Web 3"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <!-- <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a> -->
                             </div>
                         </div>
 
@@ -1289,12 +1277,6 @@
                                     title="App 2"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <!-- <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a> -->
                             </div>
                         </div>
 
@@ -1316,17 +1298,11 @@
                                     title="Card 2"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <!-- <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a> -->
                             </div>
                         </div>
 
                         <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-web"
+                            class="col-lg-4 col-md-6 portfolio-item filter-sport"
                         >
                             <img
                                 src="https://pondokinformatika.com/wp-content/uploads/2019/03/ceramah.jpg"
@@ -1343,12 +1319,6 @@
                                     title="Web 2"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <!-- <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a> -->
                             </div>
                         </div>
 
@@ -1370,12 +1340,6 @@
                                     title="App 3"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <!-- <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a> -->
                             </div>
                         </div>
 
@@ -1397,12 +1361,6 @@
                                     title="Card 1"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <!-- <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a> -->
                             </div>
                         </div>
 
@@ -1424,17 +1382,11 @@
                                     title="Card 3"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <!-- <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a> -->
                             </div>
                         </div>
 
                         <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-web"
+                            class="col-lg-4 col-md-6 portfolio-item filter-sport"
                         >
                             <img
                                 src="./assets/img/portfolio/portfolio-9.jpg"
@@ -1451,12 +1403,6 @@
                                     title="Web 3"
                                     ><i class="bx bx-plus"></i
                                 ></a>
-                                <!-- <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a> -->
                             </div>
                         </div>
                     </div>
