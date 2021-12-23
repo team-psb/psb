@@ -121,7 +121,7 @@
                                                     @if ($score->user->biodataOne->family == 'sangat-mampu')
                                                         <i class="ti-star text-warning"></i>
                                                     @endif
-                                                    {{ $score->user->biodataOne->name }}
+                                                    {{ $score->user->biodataOne->full_name }}
                                                 </a>
                                             </td>
                                             <td class="text-success"> {{ $score->score_question_iq }}</td>

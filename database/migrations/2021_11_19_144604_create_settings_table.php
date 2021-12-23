@@ -15,11 +15,11 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('academy_year_id');
-            $table->foreignId('stage_id');
-            $table->foreignId('question_iq_id');
-            $table->foreignId('question_personal_id');
-            $table->text('notification');
+            $table->foreignId('academy_year_id')->nullable();
+            $table->foreignId('stage_id')->nullable();
+            $table->integer('question_iq_value')->default(50)->nullable();
+            $table->integer('question_personal_value')->default(50)->nullable();
+            $table->text('notification')->nullable();
             $table->timestamps();
         });
     }

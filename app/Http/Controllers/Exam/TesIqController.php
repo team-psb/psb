@@ -7,15 +7,18 @@ use App\Models\AcademyYear;
 use App\Models\QuestionIq;
 use App\Models\QuestionPersonal;
 use App\Models\Score;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Stage;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class TesIqController extends Controller
 {
-    public function iq(){
-        $question   = QuestionIq::inRandomOrder()->limit(50)->get();
-        $question_iq = $question->chunk(10);
+    public function iq(Request $request){
+        $limit = Setting::pluck('question_iq_value')->first();
+        $question   = QuestionIq::inRandomOrder()->limit($limit)->get();
+        $question_iq = $question->paginate(10);
 
         return view('front.pages.tesIq.index', compact('question_iq'));
     }
@@ -66,8 +69,9 @@ class TesIqController extends Controller
 
     public function personal()
     {
-        $soal=QuestionPersonal::inRandomOrder()->limit(50)->get();
-        $kepribadian = $soal->chunk(10);
+        $limit = Setting::pluck('question_personal_value')->first();
+        $soal = QuestionPersonal::inRandomOrder()->limit($limit)->get();
+        $kepribadian = $soal->paginate(10);
         return view('front.pages.tesPersonality.index',compact('kepribadian'));
     }
 

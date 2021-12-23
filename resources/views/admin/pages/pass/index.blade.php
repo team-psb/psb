@@ -112,7 +112,7 @@
                                                 @if ($pass->user->biodataOne->family == 'sangat-mampu')
                                                     <i class="ti-star text-warning"></i>
                                                 @endif
-                                                {{ $pass->user->biodataOne->name }}
+                                                {{ $pass->user->biodataOne->full_name }}
                                             </a>
                                         </td>
                                         <td>{{ $pass->user->biodataOne->age }}</td>

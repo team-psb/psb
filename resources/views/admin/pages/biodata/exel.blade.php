@@ -29,7 +29,7 @@
                     style="{{ $item->status == 'tidak' || $item->status == 'lolos' ? 'font-weight:bold;' : '' }}">
                     <td width="10">{{ $loop->iteration }}</td>
                     <td>
-                        {{ $item->user->biodataOne->name }}
+                        {{ $item->user->biodataOne->full_name }}
                     </td>
                     <td>
                         @php

@@ -130,7 +130,7 @@
                                                     @if ($biodata->user->biodataOne->family == 'sangat-mampu')
                                                         <i class="ti-star text-warning"></i>
                                                     @endif
-                                                    {{ $biodata->user->biodataOne->name }}
+                                                    {{ $biodata->user->biodataOne->full_name }}
                                                 </a>
                                             </td>
                                             <td>{{ $biodata->user->biodataOne->no_wa }}</td>

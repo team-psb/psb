@@ -71,14 +71,6 @@ class AuthController extends Controller
 
     public function registerProses(AuthRequest $request)
     { 
-        // dd($request->all());
-        $user= User::create([
-            'name'=>$request->name,
-            'phone'=>$request->no_wa,
-            'password'=>bcrypt($request->password),
-            'role'=>'pendaftar',
-        ]);
-
         $no_wa= $request->get('no_wa');
         $no = str_split($no_wa, 3);
 
@@ -87,13 +79,22 @@ class AuthController extends Controller
         $age = Carbon::parse($date)->age;
 
         if ($no[0] == "+62") {
-            $no1= array(0=>"08");
+            $no1= array(0 =>"0");
             $wa1= array_replace($no, $no1);
             $wa = implode("", $wa1);
 
         }else{
             $wa = $no_wa;
         }
+        
+        // dd($request->all());
+        $user= User::create([
+            'name'=>$request->name,
+            'phone'=>$wa,
+            'password'=>bcrypt($request->password),
+            'role'=>'pendaftar',
+        ]);
+
         
         // $academy_year = AcademyYear::where('is_active','=','1')->orderBy('id','desc')->pluck('id');
         // $stage = AcademyYear::where('is_active','=','1')->orderBy('id','desc')->pluck('stage_id');
@@ -106,11 +107,11 @@ class AuthController extends Controller
         BiodataOne::create([
             'user_id'=>$user->id,
             'academy_year_id'=>$academy_year,
-            'name'=>$request->name,
+            'full_name'=>$request->full_name,
             'family'=>$request->family,
             'age'=>$age,
             'birth_date'=>$date,
-            'no_wa'=>$wa,
+            'no_wa'=> $wa,
             'gender'=>$request->gender,
             'stage_id'=>$stage,
         ]);

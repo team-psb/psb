@@ -25,7 +25,7 @@ class AuthRequest extends FormRequest
     {
         return [
             'name'=>'required',
-            'name'=>'required',
+            'full_name'=>'required',
             'age'=>'required',
             'family'=>'required',
             'no_wa'=>'required|unique:biodata_ones,no_wa',

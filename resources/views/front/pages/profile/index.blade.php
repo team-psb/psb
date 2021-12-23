@@ -24,7 +24,7 @@
                 <tbody>
                   <tr>
                     <th>Name</th>
-                    <td>{{ $profile->name }}</td>
+                    <td>{{ $profile->full_name }}</td>
                   </tr>
                   <tr>
                     <th>Umur</th>
@@ -255,7 +255,7 @@
                     <th>Suka game?</th>
                     <td>{{ $profile->user->biodataTwo->gamer }}</td>
                   </tr>
-                  @if ($profile->user->biodataOne->gemer == 'iya')
+                  @if ($profile->user->biodataTwo->gamer == 'iya')
                   <tr>
                     <th>Nama game</th>
                     <td>{{ $profile->user->biodataTwo->game_name }}</td>
