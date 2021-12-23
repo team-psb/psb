@@ -35,21 +35,21 @@ class BiodataTwoController extends Controller
             $request->merge(['user_id' => $users_id, 'academy_year_id' => $tahun_ajaran_id, 'stage_id' => $stage_id, 'status' => 'lolos']);
             BiodataTwo::create($request->all());
 
-            // Score::create([
-            //     'user_id' => $users_id,
-            //     'stage_id' => $stage_id,
-            //     'academy_year_id' => $tahun_ajaran_id,
-            //     'score_question_iq' => 0,
-            //     'score_question_personal' => 0,
-            //     'status' => 'lolos'
-            // ]);
-            // Video::create([
-            //     'user_id' => $users_id,
-            //     'stage_id' => $stage_id,
-            //     'academy_year_id' => $tahun_ajaran_id,
-            //     'url' => 'url',
-            //     'status' => 'lolos'
-            // ]);
+            Score::create([
+                'user_id' => $users_id,
+                'stage_id' => $stage_id,
+                'academy_year_id' => $tahun_ajaran_id,
+                'score_question_iq' => 0,
+                'score_question_personal' => 0,
+                'status' => 'lolos'
+            ]);
+            Video::create([
+                'user_id' => $users_id,
+                'stage_id' => $stage_id,
+                'academy_year_id' => $tahun_ajaran_id,
+                'url' => 'url',
+                'status' => 'lolos'
+            ]);
             Interview::create([
                 'user_id' => $users_id,
                 'stage_id' => $stage_id,

@@ -72,7 +72,7 @@
                 <div class="card-body">
                   <form id="multi-form" class="needs-validation" novalidate="" method="POST" action="{{ route('first-tes.store') }}">
                     @csrf
-                    
+                    @method("POST")
                     {{-- step-1 --}}
                     <div x-show="form_1">
   
@@ -136,11 +136,11 @@
                       />
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Instagram<b>*</b></label>
+                        <label for="exampleInputPassword2">Instagram<b>*</b></label>
                         <input
                           type="text"
                           class="form-control"
-                          id="exampleInputPassword1"
+                          id="exampleInputPassword2"
                           name="instagram"
                           value="{{ old('instagram') }}"
                           placeholder="Masukkan link/alamat profile instagram"
@@ -222,7 +222,7 @@
                       </div>
                       <div class="form-group">
                         <label for="memorization"
-                          >Jumlah Hafalan Al Qur'an<b>*</b></label
+                          >Jumlah Hafalan Al Qur'an Yang Pernah Disetorkan<b>*</b></label
                         >
                         <div class="input-group mb-3">
                           <select 
@@ -418,7 +418,6 @@
                             id="game_duration"
                             name="game_duration"
                             value="{{ old('game_duration') }}"
-                            required
                           >
                             <option value="" disabled selected>-- Pilih --</option>
                             <option value="kurang dari 1">kurang dari 1 jam</option>
