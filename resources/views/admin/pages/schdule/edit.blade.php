@@ -48,8 +48,10 @@
                                     <label class="fw-bold fs-6" for="exampleTextarea1">Konten</label>
                                     <textarea name="content" id="editor" class="form-control" style="height: 150px;">{!! $schdule->content !!}</textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary me-2">Submit</button>
-                                <button class="btn btn-light">Cancel</button>
+                                <div class="d-flex justify-content-between">
+                                    <a href="{{ url()->previous() }}" class="btn btn-md btn-danger mx-3 my-5">Back</a>
+                                    <button class="btn btn-md btn-primary mx-3 my-5">Update</button>
+                                </div>
                             </form>
                             </div>
                         </div>
