@@ -28,19 +28,19 @@
           <div class="col-md-6 col-12 m-auto">
             <div class="login-brand">
             </div>
-            <div class="card card-primary">
+            <div class="card card-success">
               <div class="card-header"><h4>Lupa Password</h4></div>
-              @if (session('sukses-buat'))
-                  <div class="alert alert-success">
-                    {{ session('sukses-buat') }} <br>
-                  </div>
-              @endif
-              @if (session('gagal-kirim'))
-                  <div class="alert alert-danger">
-                    {{ session('gagal-kirim') }} <br>
-                  </div>
-              @endif          
               <div class="card-body">
+                @if (session('sukses-buat'))
+                    <div class="alert alert-success">
+                      {{ session('sukses-buat') }} <br>
+                    </div>
+                @endif
+                @if (session('gagal-kirim'))
+                    <div class="alert alert-danger">
+                      {{ session('gagal-kirim') }} <br>
+                    </div>
+                @endif       
                 <form method="POST" action="{{ route('update-password') }}" class="needs-validation" novalidate="">
                   @csrf
                   @method('POST')
@@ -82,7 +82,7 @@
                   </div>
 
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                    <button type="submit" class="btn btn-success btn-lg btn-block" tabindex="4">
                       Reset password
                     </button>
                   </div>

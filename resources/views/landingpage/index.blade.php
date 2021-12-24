@@ -415,6 +415,9 @@
                                                 Sign In
                                             </button>
                                         </div>
+                                        <div class="form-floating text-center">
+                                            <a href="{{ route('password-getwhatsapp') }}" class="text-light">Lupa password ?</a>
+                                        </div>
                                     </form>
                                 </div>
                             </div>

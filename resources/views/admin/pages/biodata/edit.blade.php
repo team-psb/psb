@@ -148,14 +148,9 @@
                                     />
                                 </div>
                                 @php
-                                    $provinsi = DB::table('indonesia_provinces')->get();
-                                    $kabupaten = DB::table('indonesia_cities')->get();
-                                @endphp
-                                {{-- @php
                                     $provinsi =App\Models\IndonesiaProvince::all();
                                     $kabupaten =App\Models\IndonesiaCity::all();
-                                    //dd($biodata2->provinsi->name);
-                                @endphp --}}
+                                @endphp
                                 {{-- provinsi --}}
                                 <div class="form-group mb-3">
                                     <label for="">Provinsi</label>
@@ -715,7 +710,7 @@
     @endsection
 
 
-@push('end-script')
+@push('after-script')
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
 <script>
     function formdata(){
@@ -729,9 +724,7 @@
             const dataKabupaten = kabupatens.filter((kabupaten) => kabupaten.province_code == code);
             this.kabupatenids = dataKabupaten;
             }
-        
         }
     }
 </script>  
 @endpush
-                            
