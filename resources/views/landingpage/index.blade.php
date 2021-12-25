@@ -363,18 +363,25 @@
                                         @csrf
                                         <div class="form-group">
                                             <div class="form-floating">
-                                                <input type="number" name="phone" class="form-control rounded-pill
-                                                        px-4" id="floatingInput" placeholder="Nomor Handphone">
+                                                <input type="number" name="phone" required class="form-control rounded-pill px-4 @error('phone') is-invalid @enderror" id="floatingInput" placeholder="Nomor Handphone" value="{{ old('phone') }}">
                                                 <label for="floatingInput" class="px-4">Nomor Handphone</label>
                                             </div>
+                                            @error('phone')
+                                                <div class="alert alert-danger rounded-pill py-2 mt-2">{{ $message }}</div>
+                                            @enderror
+
 
                                             <div class="form-floating d-flex align-items-center mt-4 position-relative password-login">
-                                                <input type="password" name="password" class="form-control rounded-pill px-4" id="floatingPassword" placeholder="Password" name="password">
+                                                <input type="password" required class="form-control rounded-pill px-4 @error('password') is-invalid @enderror" id="floatingPassword" placeholder="Password" name="password" value="{{ old('password') }}">
                                                 <i class="bi bi-eye-slash position-absolute" id="hide" onclick="myFunction()"></i>
                                                 <i class="bi bi-eye position-absolute" id="show" onclick="myFunction()"></i>
                                                 <label for="floatingPassword" class="px-4">Password</label>
                                             </div>
+                                            @error('password')
+                                                <div class="alert alert-danger rounded-pill py-2 mt-2">{{ $message }}</div>
+                                            @enderror
 
+                                            {{-- Show Password Checkbox --}}
                                             {{-- <div
                                                 class="
                                                     d-flex
@@ -400,6 +407,7 @@
                                                     />&nbsp; Show Password
                                                 </div>
                                             </div> --}}
+
                                             <br />
                                             <button
                                                 class="
@@ -504,6 +512,8 @@
                                                         >
                                                         <input
                                                             type="text"
+                                                            required
+                                                            autofocus
                                                             class="
                                                                 form-control
                                                                 form-control-lg
@@ -515,6 +525,7 @@
                                                             id="name"
                                                             name="name"
                                                             placeholder="Masukkan Nama Pengguna"
+                                                            value="{{ old('name') }}"
                                                         />
                                                     </div>
                                                     <div
@@ -534,6 +545,7 @@
                                                         >
                                                         <input
                                                             type="text"
+                                                            required
                                                             class="
                                                                 form-control
                                                                 form-control-lg
@@ -545,6 +557,7 @@
                                                             id="full_name"
                                                             name="full_name"
                                                             placeholder="Masukkan Nama Lengkap"
+                                                            value="{{ old("full_name") }}"
                                                         />
                                                     </div>
                                                 </div>
@@ -568,6 +581,7 @@
                                                         >
                                                         <input
                                                             type="date"
+                                                            required
                                                             class="
                                                                 form-control
                                                                 form-control-lg
@@ -579,7 +593,8 @@
                                                             "
                                                             id="birth_date"
                                                             name="age"
-                                                            placeholder="01 Desember 2001"
+                                                            {{-- placeholder="01 Desember 2001" --}}
+                                                            value="{{ old('age') }}"
                                                         />
                                                     </div>
                                                     <div
@@ -602,6 +617,7 @@
                                                                 form-select
                                                                 form-select-lg
                                                                 rounded-pill
+                                                                @error('family') is-invalid @enderror
                                                             "
                                                             style="
                                                                 font-size: 15px;
@@ -611,7 +627,7 @@
                                                             id="family"
                                                             name="family"
                                                         >
-                                                            <option selected>
+                                                            <option selected disabled>
                                                                 -- Keluarga --
                                                             </option>
                                                             <option
@@ -630,6 +646,9 @@
                                                                 Tidak Mampu
                                                             </option>
                                                         </select>
+                                                        @error('family')
+                                                            <div class="alert alert-danger rounded-pill py-2 mt-2">{{ $messages ?? '' }}</div>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -647,15 +666,17 @@
                                                                 px-3
                                                             "
                                                             >No Whatsapp
-                                                            <small style="font-size: 12px;">*mohon di isi denggan no whatsapp aktif yang dapat kami hubungi!.</small>
+                                                            <small style="font-size: 12px;">*Mohon di isi dengan no whatsapp aktif !!!.</small>
                                                             </label
                                                         >
                                                         <input
-                                                            type="text"
+                                                            type="number"
+                                                            required
                                                             class="
                                                                 form-control
                                                                 form-control-lg
                                                                 rounded-pill
+                                                                @error('no_wa') is-invalid @enderror
                                                             "
                                                             maxlength="15"
                                                             style="
@@ -664,8 +685,12 @@
                                                             id="no_wa"
                                                             name="no_wa"
                                                             placeholder="Masukkan No Whatsapp"
+                                                            value="{{ old('no_wa') }}"
                                                         />
                                                     </div>
+                                                    @error('no_wa')
+                                                        <div class="alert alert-danger rounded-pill py-2 mt-2">{{ $messages ?? '' }}</div>
+                                                    @enderror
                                                 </div>
 
                                                 <div class="row">
@@ -684,11 +709,12 @@
                                                             "
                                                             >Password
                                                             <br>
-                                                            <small style="font-size: 12px;">min 6 karakter max 20 karakter.</small>
+                                                            <small style="font-size: 12px;">Wajib diisi 6-20 karakter.</small>
                                                             </label
                                                         >
                                                         <input
                                                             type="password"
+                                                            required
                                                             class="
                                                                 form-control
                                                                 form-control-lg
@@ -700,6 +726,7 @@
                                                             id="password"
                                                             name="password"
                                                             placeholder="Masukkan Password"
+                                                            value="{{ old('password') }}"
                                                         />
                                                         <div
                                                             class="
@@ -742,11 +769,12 @@
                                                             >Konfirmasi
                                                             Password
                                                             <br>
-                                                            <small style="font-size: 12px;">min 6 karakter max 20 karakter.</small>
+                                                            <small style="font-size: 12px;">Wajib diisi 6-20 karakter.</small>
                                                             </label
                                                         >
                                                         <input
                                                             type="password"
+                                                            required
                                                             class="
                                                                 form-control
                                                                 form-control-lg
@@ -759,6 +787,7 @@
                                                             id="confirm_password"
                                                             name="password_confirmation"
                                                             placeholder="Masukkan Ulang Password"
+                                                            value="{{ old('password_confirmation') }}"
                                                         />
                                                     </div>
                                                 </div>
@@ -778,7 +807,7 @@
                                                             type="checkbox"
                                                             name="gender"
                                                             id="gender"
-                                                            value="l"
+                                                            value="{{ old('gender') }}"
                                                             required
 
                                                         />
@@ -1385,6 +1414,26 @@
                             </div>
                         </div>
 
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter-sport"
+                        >
+                            <img
+                                src="./assets/img/portfolio/portfolio-9.jpg"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Web 3</h4>
+                                <p>Web</p>
+                                <a
+                                    href="./assets/img/portfolio/portfolio-9.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Web 3"
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                            </div>
+                        </div>
                         <div
                             class="col-lg-4 col-md-6 portfolio-item filter-sport"
                         >

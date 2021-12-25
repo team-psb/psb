@@ -28,10 +28,20 @@ class AuthRequest extends FormRequest
             'full_name'=>'required',
             'age'=>'required',
             'family'=>'required',
-            'no_wa'=>'required|unique:biodata_ones,no_wa',
+            'no_wa'=>'required|unique:biodata_ones,no_wa|min:10|max:15',
             // 'phone'=>'required',
             'password'=>'required|string|min:6|max:20',
             'gender'=>'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'family.required' => 'Data tidak boleh kosong.',
+            'no_wa.unique' => 'Nomor ini sudah terdaftar.',
+            'no_wa.min' => 'Wajib diisi 12 digit atau lebih.',
+            'no_wa.max' => 'Nomor maksimal 15 digit.',
         ];
     }
 
