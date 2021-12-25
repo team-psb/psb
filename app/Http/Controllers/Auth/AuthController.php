@@ -30,6 +30,16 @@ class AuthController extends Controller
     public function loginProses(Request $request)
     {
         $data = $request->only('phone','password');
+        $this->validate($request, [
+            'phone' => 'confirmed|min:10|max:15',
+            'password' => 'confirmed'
+        ], [
+            'phone.min' => 'Wajib diisi 12 digit atau lebih.',
+            'phone.max' => 'Nomor maksimal 15 digit.',
+            'phone.confirmed' => 'Nomor anda tidak terdaftar.',
+            'password.confirmed' => 'Password salah.',
+
+        ]);
 
         if (Auth::attempt($data)) {
             $role_user=User::where('phone','=',$request->phone)->get();
@@ -44,7 +54,7 @@ class AuthController extends Controller
             ]);
 
             if ($role == 'admin') {
-                return redirect()->route('dashboard');            
+                return redirect()->route('dashboard');
             }else{
                 // if (Auth::user()->email_verified_at == null) {
                 //     Auth::logout();
@@ -70,12 +80,12 @@ class AuthController extends Controller
     }
 
     public function registerProses(AuthRequest $request)
-    { 
+    {
         $no_wa= $request->get('no_wa');
         $no = str_split($no_wa, 3);
 
         $date=$request->get('age');
-        
+
         $age = Carbon::parse($date)->age;
 
         if ($no[0] == "+62") {
@@ -86,7 +96,7 @@ class AuthController extends Controller
         }else{
             $wa = $no_wa;
         }
-        
+
         // dd($request->all());
         $user= User::create([
             'name'=>$request->name,
@@ -95,7 +105,7 @@ class AuthController extends Controller
             'role'=>'pendaftar',
         ]);
 
-        
+
         // $academy_year = AcademyYear::where('is_active','=','1')->orderBy('id','desc')->pluck('id');
         // $stage = AcademyYear::where('is_active','=','1')->orderBy('id','desc')->pluck('stage_id');
 
@@ -121,7 +131,7 @@ class AuthController extends Controller
         //     'user_id' => $user->id,
         //     'token' => bin2hex(random_bytes(8))
         // ]);
-        
+
         // kirim email untuk verifikasi
         // VerifyUser::create([
         //   'users_id' => $user->id,
