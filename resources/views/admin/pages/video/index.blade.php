@@ -119,7 +119,7 @@
                                                     @if ($video->user->biodataOne->family == 'sangat-mampu')
                                                         <i class="ti-star text-warning"></i>
                                                     @endif
-                                                    {{ $video->user->biodataOne->name }}
+                                                    {{ $video->user->biodataOne->full_name }}
                                                 </a>
                                             </td>
                                             <td class="text-success"> <a href="{{ $video->url }}" target="_blank">{{ $video->url }}</a></td>

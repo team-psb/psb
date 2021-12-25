@@ -185,7 +185,7 @@
                                         </a>
                                     @else
                                         <div class="responsive">
-                                            <iframe class="responsive-iframe" src="{{ $infodetail->video ? $infodetail->video : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            <iframe class="responsive-iframe" src="{{ $infodetail->video ? $infodetail->video : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen allow='autoplay'></iframe>
                                         </div>
                                     @endif
                                 </div>

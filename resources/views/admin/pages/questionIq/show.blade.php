@@ -12,7 +12,7 @@
                 @if (isset($question->image))
                     <td>
                         <div>
-                            <h6>Gambar</h6>
+                            <h6 class="fw-bold">Gambar :</h6>
                         </div>
                         <img src="{{ Storage::url($question->image) }}" alt="" style="width: 200px;">
                     </td>

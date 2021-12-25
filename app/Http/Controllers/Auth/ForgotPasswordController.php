@@ -42,7 +42,7 @@ class ForgotPasswordController extends Controller
 
         // Mail::to($user['email'])->send(new VerifikasiEmail($user));
 
-        return back()->with('sukses-buat', 'link reset Password sudah kami kirim ke nomer Whatsapp anda! dengan token : '.$token);
+        return back()->with('sukses-buat', 'Link reset Password sudah kami kirim ke nomer Whatsapp anda! '. $request->phone.' dengan token : '.$token);
     }
 
     public function getPassword($token)
@@ -71,7 +71,7 @@ class ForgotPasswordController extends Controller
             ]);
 
             DB::table('password_resets')->where(['phone'=> $request->phone])->delete();
-            return redirect('/masuk')->with('sukses-daftar', 'Password anda sudah berhasil di update!'); 
+            return redirect('/masuk')->with('sukses-daftar', 'Password anda sudah berhasil di update! Silahkan login ulang.'); 
         }
     }
 }

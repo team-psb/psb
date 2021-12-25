@@ -63,6 +63,6 @@ class PassController extends Controller
 
     public function export() 
     {
-        return Excel::download(new PassExport, 'data calon santri baru.xlsx');
+        return Excel::download(new PassExport, 'data calon santri baru tahun '.date('Y').'.xlsx');
     }
 }

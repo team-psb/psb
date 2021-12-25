@@ -10,7 +10,7 @@
         <tbody>
             @foreach ($video as $item)
                 <tr>
-                    <td>{{ $item->user->biodataOne->name }}</td>
+                    <td>{{ $item->user->biodataOne->full_name }}</td>
                     <td>{{ $item->user->video->url }}</td>
                     <td>{{ $item->user->biodataOne->no_wa }}</td>
                 </tr>
