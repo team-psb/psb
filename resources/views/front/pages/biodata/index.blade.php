@@ -586,7 +586,7 @@
                         >{{ old('description_guardian') }}</textarea>
                       </div>
                       <div class="form-group">
-                        <label for="">Izin Orang Tua Atau TIdak ?<b>*</b></label>
+                        <label for="">Izin Orang Tua Atau Tidak ?<b>*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"

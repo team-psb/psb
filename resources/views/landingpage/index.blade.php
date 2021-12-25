@@ -721,12 +721,14 @@
                                                                     color: #efefef;
                                                                 "
                                                             >
-                                                                <input
-                                                                    type="checkbox"
-                                                                    onclick="showFunction()"
-                                                                    class="form-check-input"
-                                                                />&nbsp; Show
-                                                                Password
+                                                            <input
+                                                            id="pass"
+                                                            type="checkbox"
+                                                            onclick="showFunction()"
+                                                            class="form-check-input"
+                                                            />
+                                                            <label for="pass" class="form-check-label ms-2">Show Password</label>
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
