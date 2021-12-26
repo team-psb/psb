@@ -30,16 +30,16 @@ class AuthController extends Controller
     public function loginProses(Request $request)
     {
         $data = $request->only('phone','password');
-        $this->validate($request, [
-            'phone' => 'confirmed|min:10|max:15',
-            'password' => 'confirmed'
-        ], [
-            'phone.min' => 'Wajib diisi 12 digit atau lebih.',
-            'phone.max' => 'Nomor maksimal 15 digit.',
-            'phone.confirmed' => 'Nomor anda tidak terdaftar.',
-            'password.confirmed' => 'Password salah.',
+        // $this->validate($request, [
+        //     'phone' => 'confirmed|min:10|max:15',
+        //     'password' => 'confirmed'
+        // ], [
+        //     'phone.min' => 'Wajib diisi 12 digit atau lebih.',
+        //     'phone.max' => 'Nomor maksimal 15 digit.',
+        //     'phone.confirmed' => 'Nomor anda tidak terdaftar.',
+        //     'password.confirmed' => 'Password salah.',
 
-        ]);
+        // ]);
 
         if (Auth::attempt($data)) {
             $role_user=User::where('phone','=',$request->phone)->get();
@@ -70,7 +70,7 @@ class AuthController extends Controller
                 }
             }
         }else{
-            return redirect()->route('login');
+            return redirect()->back()->with('failed-danger','nomor handphone atau password salah.');
         }
     }
 
