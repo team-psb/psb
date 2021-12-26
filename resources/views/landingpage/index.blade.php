@@ -363,23 +363,23 @@
                                         @csrf
                                         <div class="form-group">
                                             <div class="form-floating">
-                                                <input type="number" name="phone" required class="form-control rounded-pill px-4 @error('phone') is-invalid @enderror" id="floatingInput" placeholder="Nomor Handphone" value="{{ old('phone') }}">
+                                                <input type="number" name="phone" required class="form-control rounded-pill px-4" id="floatingInput" placeholder="Nomor Handphone" value="{{ old('phone') }}">
                                                 <label for="floatingInput" class="px-4">Nomor Handphone</label>
+                                                {{-- @error('phone')
+                                                    <div class="alert alert-danger rounded-pill py-2 mt-2">{{ $message }}</div>
+                                                @enderror --}}
                                             </div>
-                                            @error('phone')
-                                                <div class="alert alert-danger rounded-pill py-2 mt-2">{{ $message }}</div>
-                                            @enderror
 
 
                                             <div class="form-floating d-flex align-items-center mt-4 position-relative password-login">
-                                                <input type="password" required class="form-control rounded-pill px-4 @error('password') is-invalid @enderror" id="floatingPassword" placeholder="Password" name="password" value="{{ old('password') }}">
+                                                <input type="password" required class="form-control rounded-pill px-4" id="floatingPassword" placeholder="Password" name="password" value="{{ old('password') }}">
                                                 <i class="bi bi-eye-slash position-absolute" id="hide" onclick="myFunction()"></i>
                                                 <i class="bi bi-eye position-absolute" id="show" onclick="myFunction()"></i>
                                                 <label for="floatingPassword" class="px-4">Password</label>
                                             </div>
-                                            @error('password')
+                                            {{-- @error('password')
                                                 <div class="alert alert-danger rounded-pill py-2 mt-2">{{ $message }}</div>
-                                            @enderror
+                                            @enderror --}}
 
                                             {{-- Show Password Checkbox --}}
                                             {{-- <div
@@ -620,7 +620,7 @@
                                                                 form-select
                                                                 form-select-lg
                                                                 rounded-pill
-                                                                @error('family') is-invalid @enderror
+                                                                {{-- @error('family') is-invalid @enderror --}}
                                                             "
                                                             style="
                                                                 font-size: 15px;
@@ -649,9 +649,9 @@
                                                                 Tidak Mampu
                                                             </option>
                                                         </select>
-                                                        @error('family')
-                                                            <div class="alert alert-danger rounded-pill py-2 mt-2">{{ $messages ?? '' }}</div>
-                                                        @enderror
+                                                        {{-- @error('family')
+                                                            <div class="alert alert-danger rounded-pill py-2 mt-2">{{ $message }}</div>
+                                                        @enderror --}}
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -679,7 +679,7 @@
                                                                 form-control
                                                                 form-control-lg
                                                                 rounded-pill
-                                                                @error('no_wa') is-invalid @enderror
+                                                                {{-- @error('no_wa') is-invalid @enderror --}}
                                                             "
                                                             maxlength="15"
                                                             style="
@@ -691,9 +691,9 @@
                                                             value="{{ old('no_wa') }}"
                                                         />
                                                     </div>
-                                                    @error('no_wa')
-                                                        <div class="alert alert-danger rounded-pill py-2 mt-2">{{ $messages ?? '' }}</div>
-                                                    @enderror
+                                                    {{-- @error('no_wa')
+                                                        <div class="alert alert-danger rounded-pill py-2 mt-2">{{ $message }}</div>
+                                                    @enderror --}}
                                                 </div>
 
                                                 <div class="row">
@@ -755,7 +755,7 @@
                                                             class="form-check-input"
                                                             />
                                                             <label for="pass" class="form-check-label ms-2">Show Password</label>
-                                                                
+
                                                             </div>
                                                         </div>
                                                     </div>
