@@ -32,6 +32,17 @@ class AuthController extends Controller
     {
         $data = $request->only('phone','password');
 
+        // $this->validate($request, [
+        //     'phone' => 'confirmed|min:10|max:15',
+        //     'password' => 'confirmed'
+        // ], [
+        //     'phone.min' => 'Wajib diisi 12 digit atau lebih.',
+        //     'phone.max' => 'Nomor maksimal 15 digit.',
+        //     'phone.confirmed' => 'Nomor anda tidak terdaftar.',
+        //     'password.confirmed' => 'Password salah.',
+
+        // ]);
+
         if (Auth::attempt($data)) {
             $role_user=User::where('phone','=',$request->phone)->get();
             $role = $role_user->pluck('role')->first();
@@ -61,7 +72,7 @@ class AuthController extends Controller
                 }
             }
         }else{
-            return redirect()->route('login');
+            return redirect()->back()->with('failed-danger','nomor handphone atau password salah.');
         }
     }
 
