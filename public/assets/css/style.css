@@ -500,11 +500,11 @@ h6 {
 }
 #hide {
     display: none;
-    right: 18px;
+    right: 27px;
 }
 
 #show {
-    right: 18px;
+    right: 27px;
 }
 /*  */
 .sign-in {
@@ -867,7 +867,7 @@ section {
         padding: 10px 120px;
     }
 }
-/*--------------------------------------------------------------
+/*--------------------------------------------------------------respon
 # Regis
 --------------------------------------------------------------*/
 .regis .content h3 {
@@ -938,7 +938,7 @@ section {
     font-size: 14px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 765px) {
     #alur {
         height: auto;
         order: 1;

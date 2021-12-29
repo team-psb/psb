@@ -20,12 +20,14 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $pendaftar = BiodataTwo::whereHas('academy_year', function($q) {
-            $q->where('is_active', true);
-        })->whereDate('created_at', Carbon::today())->count();
-        $totalpendaftar = BiodataTwo::whereHas('academy_year', function($q) {
-            $q->where('is_active', true);
-        })->count();
+        // $pendaftar = BiodataTwo::whereHas('academy_year', function($q) {
+        //     $q->where('is_active', true);
+        // })->whereDate('created_at', Carbon::today())->count();
+        // $totalpendaftar = BiodataTwo::whereHas('academy_year', function($q) {
+        //     $q->where('is_active', true);
+        // })->count();
+        $pendaftar = BiodataTwo::whereRelation('academy_year', 'is_active', true)->whereDate('created_at', Carbon::today())->count();
+        $totalpendaftar = BiodataTwo::whereRelation('academy_year', 'is_active', true)->count();
 
         $lolos = Interview::with(['academy_year'=>function($query){
             $query->where('is_active','=', true);
