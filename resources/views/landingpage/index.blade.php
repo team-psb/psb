@@ -354,22 +354,20 @@
                                         @csrf
                                         <div class="form-group">
                                             @if (session('failed-danger'))
-                                                <div class="alert alert-danger alert-dismissible show fade rounded-pill">
+                                                <div class="alert alert-danger alert-dismissible show fade rounded-pill py-2">
                                                     <div class="alert-body fw-bold text-danger">
                                                         {{ session('failed-danger') }}
                                                     </div>
                                                 </div>
                                             @endif
+
                                             <div class="form-floating">
-                                                <input type="number" name="phone" required class="form-control rounded-pill px-4" id="floatingInput" placeholder="Nomor Handphone" value="{{ old('phone') }}">
+                                                <input type="number" name="phone" required class="form-control rounded-pill px-4" id="floatingInput" placeholder="Nomor Handphone" value="{{ old('phone') }}" required>
                                                 <label for="floatingInput" class="px-4">Nomor Handphone</label>
-                                                {{-- @error('phone')
-                                                    <div class="alert alert-danger rounded-pill py-2 mt-2">{{ $message }}</div>
-                                                @enderror --}}
                                             </div>
 
                                             <div class="form-floating d-flex align-items-center mt-4 position-relative password-login">
-                                                <input type="password" name="password" class="form-control rounded-pill px-4" id="floatingPassword" placeholder="Password" name="password">
+                                                <input type="password" name="password" class="form-control rounded-pill px-4" id="floatingPassword" placeholder="Password" name="password" required>
                                                 <i class="bi bi-eye-slash position-absolute" id="hide" onclick="myFunction()"></i>
                                                 <i class="bi bi-eye position-absolute" id="show" onclick="myFunction()"></i>
                                                 <label for="floatingPassword" class="px-4">Password</label>
