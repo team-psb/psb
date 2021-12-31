@@ -8,7 +8,7 @@
 </head>
 <body class="layout-3">
     <div id="app">
-        <div class="main-wrapper container">
+        <div class="main-wrapper">
             @include('front.includes.navbar')
             @include('front.includes.second-nav')
             @yield('content')
