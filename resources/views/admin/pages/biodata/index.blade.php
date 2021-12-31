@@ -9,6 +9,7 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card card-rounded">
                     <div class="card-body">
+
                         <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Biodata Pendaftar</h4>
                         <p class="card-description">
                         Daftar Biodata Pendaftar
@@ -56,10 +57,13 @@
                                     </div>
                                 </div>
                                 <div class="btn-group dropleft d-inline float-right">
+                                    <button type="button" class="btn btn-success btn-icon-text p-2" data-toggle="modal" data-target="#exampleModalIn">
+                                        <i class="ti-eye btn-icon-prepend"></i> View wide
+                                    </button>
                                     <a href="{{ route('biodatas.export') }}" class="btn btn-primary btn-icon-text p-2">
                                         <i class="ti-export btn-icon-prepend"></i> Export Excel
                                     </a>
-                                    <button type="button" class="btn btn-info btn-icon-text p-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    <button type="button" class="btn btn-info btn-icon-text p-2" data-toggle="modal" data-target="#exampleModalOut"
                                     data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filter Data">
                                         <i class="ti-filter  btn-icon-prepend"></i> Filter
                                     </button>
@@ -189,16 +193,18 @@
     </div>
 </div>
 
-<!--  Filter Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog mt-5">
+<!--  modal filter -->
+<div class="modal fade" id="exampleModalOut" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">-- Filter Data --</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="exampleModalLabel2">Filter</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="modal-body">
-                <form method="GET">
+        <div class="modal-body">
+            <form method="GET">
 
                 <div class="form-group">
                     <div class="row">
@@ -228,7 +234,7 @@
                         </div>
                     </div>  
                     </div>
-    
+
                     <div class="row">
                     <div class="col">
                         <div class="form-group">
@@ -254,9 +260,9 @@
                         </div>
                     </div>
                     </div>
-    
+
                     <div class="row">
-    
+
                     <div class="col">
                         <div class="form-group">
                         <label class="form-label fs-6">Perokok</label>
@@ -272,7 +278,7 @@
                         </div>
                         </div>
                     </div>
-    
+
                     <div class="col">
                         <div class="form-group">
                         <label class="form-label fs-6">Punya Pacar</label>
@@ -288,7 +294,7 @@
                         </div>
                         </div>
                     </div>
-    
+
                     <div class="col">
                         <div class="form-group">
                         <label class="form-label fs-6">Gamer</label>
@@ -304,9 +310,9 @@
                         </div>
                         </div>
                     </div>
-    
+
                     </div>
-    
+
                     <div class="row">
                     <div class="col">
                         <div class="row">
@@ -330,11 +336,10 @@
                         </div>
                     </div>
                     </div>
-    
+
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
-                                {{-- <label class="fs-6">Pilih Gelombang <span style="font-size: 12px;" class    ="text-danger">* pastikan sudah memilih gelombang sebelum menerapkan</span></label> --}}
                                 <label class="fs-6">Pilih Gelombang</label>
                                 <select name="stage_id" class="form-select">
                                     <option value="" >-- pilih gelombang --</option>
@@ -352,11 +357,184 @@
                 </div>    
             </form>
         </div>
+        {{-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div> --}}
+        </div>
+    </div>
+</div>
+
+{{-- modal full --}}
+<div class="modal fade" id="exampleModalIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen m-0" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Biodata</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    @csrf
+                    <button class="d-none" formaction="{{ route('biodatas.passAll') }}" id="lolos4"></button>
+                    <button class="d-none" formaction="{{ route('biodatas.nonpassAll') }}" id="no-lolos4"></button>
+                    <button class="d-none" formaction="{{ route('biodatas.deleteAll') }}" id="del4"></button>
+                    <div class="table-responsive">
+                        <div class="dropdown mb-3">
+                            <button class="btn btn-danger dropdown-toggle text-white p-2" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Aksi Masal
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
+                                <a class="dropdown-item" href="#" id="lolos3">Lolos</a>
+                                <a class="dropdown-item" href="#" id="no-lolos3">Tidak Lolos</a>
+                                <a class="dropdown-item" href="#" id="del3">Hapus</a>
+                            </div>
+                        </div>
+                        <table id="myTable1" class="table-2 table-hover" style="font-size: 10px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="form-check form-check-success">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" id="checkall1">
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>No WA</th>
+                                    <th>Umur</th>
+                                    <th>Pendidikan</th>
+                                    <th>Cita Cita</th>
+                                    <th>Prestasi</th>
+                                    <th>Skill</th>
+                                    <th>Hafalan</th>
+                                    <th>Gamer</th>
+                                    <th>Keluarga</th>
+                                    <th>Orang Tua</th>
+                                    <th>Penghasilan Ortu</th>
+                                    <th>Status</th>
+                                    {{-- <th width="10%">Action</th> --}}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($biodataswide as $biodata)
+                                <tr class="
+                                    {{ $biodata->status == null ? 'text-warning' : '' }}
+                                    {{ $biodata->status == 'lolos' ? 'text-success' : '' }}
+                                    {{ $biodata->status == 'tidak' ? 'text-danger' : '' }}
+                                    fw-bold
+                                    " >
+                                    <td>
+                                        <div class="form-check form-check-success">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input checkbox" name="ids[{{ $biodata->id }}]" value="{{ $biodata->id }}">
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>
+                                        <a 
+                                            href="#mymodal"
+                                            data-remote="{{ route('biodatas.show', $biodata->id) }}"
+                                            data-toggle="modal"
+                                            data-target="#mymodal"
+                                            data-title="Detail Data" 
+                                            class="badge text-decoration-none fw-bold
+                                                {{ $biodata->status == null ? 'text-warning badge-opacity-warning' : '' }}
+                                                {{ $biodata->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
+                                                {{ $biodata->status == 'tidak' ? 'text-danger badge-opacity-danger' : '' }}"
+                                        >
+                                            @if ($biodata->user->biodataOne->family == 'sangat-mampu')
+                                                <i class="ti-star text-warning"></i>
+                                            @endif
+                                            {{ $biodata->user->biodataOne->full_name }}
+                                        </a>
+                                    </td>
+                                    <td>{{ $biodata->user->biodataOne->no_wa }}</td>
+                                    <td>{{ $biodata->user->biodataOne->age }}</td>
+                                    <td>{{ $biodata->last_education }}</td>
+                                    <td>{{ $biodata->goal }}</td>
+                                    <td style="width: 200px">{{ $biodata->achievment }}</td>
+                                    <td style="width: 200px">{{ $biodata->skill }}</td>
+                                    <td>{{ $biodata->memorization }}</td>
+                                    <td>{{ $biodata->gamer }}</td>
+                                    <td>{{ $biodata->user->biodataOne->family }}</td>
+                                    <td>{{ $biodata->parent }}</td>
+                                    <td class="fw-bold" style="width: 150px">Rp {{ number_format($biodata->parent_income) }}</td>
+                                    <td>
+                                        <span class="fw-bold  badge badge-{{ $biodata->status == 'lolos' ? 'success':'' }}{{ $biodata->status == 'tidak' ? 'danger':'' }}">{{ $biodata->status }}</span>
+                                    </td>
+                                    {{-- <td>
+                                        <div class="d-flex justify-content-end">
+                                            @if ($biodata->status == null)
+                                                <a href="{{ route('biodatas.status', $biodata->id) }}?status=lolos"
+                                                    class="btn btn-success btn-icon-text p-2">
+                                                        <i class="icon-check btn-icon-prepend"></i> Lolos
+                                                </a>
+                                                <a href="{{ route('biodatas.status', $biodata->id) }}?status=tidak"
+                                                    class="btn btn-warning mx-1 btn-icon-text p-2">
+                                                        <i class="icon-close btn-icon-prepend"></i> Tidak Lolos
+                                                </a>
+                                            @endif
+                                            <a href="#mymodal"
+                                                data-remote="{{ route('biodatas.show', $biodata->id) }}"
+                                                data-toggle="modal"
+                                                data-target="#mymodal"
+                                                data-title="Detail Biodata {{ $loop->iteration }}" 
+                                                class="btn btn-info btn-icon-text  p-2"
+                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
+                                                <i class="icon-eye btn-icon-prepend"></i> Detail
+                                            </a>
+                                            <a href="{{ route('biodatas.edit', $biodata->id) }}"
+                                                class="btn ms-1 btn-primary btn-icon-text  p-2"
+                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                                <i class="icon-pencil btn-icon-prepend"></i> Edit
+                                            </a>
+                                            <button formaction="{{ route('biodatas.delete', $biodata->id) }}" class="btn btn-danger btn-icon-text  p-2 ms-1"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
+                                        </div>
+                                    </td> --}}
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            {{-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div> --}}
+        </div>
     </div>
 </div>
 @endsection
 
+@push('after-style')
+    <style>
+        .table-2 th{
+            padding: 2px 20px;
+        }
+        .table-2 td{
+            padding: 2px 20px;
+        }
+    </style>
+@endpush
+
 @push('after-script')
+    <script>
+        $(document).ready( function () {
+        $('#myTable1').DataTable({
+            lengthMenu: [10, 20, 50, 100, 200, 500],
+            'columnDefs': [ {
+            'targets': [0], /* column index */
+            'orderable': false, /* true or false */
+                }]
+            });
+        } );
+    </script>
     <script>
         $('#lolos').click(function(){
             $('#lolos2').click();
@@ -366,6 +544,43 @@
         });
         $('#del').click(function(){
             $('#del2').click();
+        });
+        $('#lolos3').click(function(){
+            $('#lolos4').click();
+        });
+        $('#no-lolos3').click(function(){
+            $('#no-lolos4').click();
+        });
+        $('#del3').click(function(){
+            $('#del24').click();
+        });
+    </script>
+    <script type='text/javascript'>
+        $(document).ready(function(){
+          // Check or Uncheck All checkboxes
+        $("#checkall1").change(function(){
+            var checked = $(this).is(':checked');
+            if(checked){
+                $(".checkbox").each(function(){
+                $(this).prop("checked",true);
+                });
+            }else{
+                $(".checkbox").each(function(){
+                $(this).prop("checked",false);
+                });
+            }
+            });
+    
+            // Changing state of CheckAll1 checkbox 
+            $(".checkbox").click(function(){
+    
+            if($(".checkbox").length == $(".checkbox:checked").length) {
+                $("#checkall1").prop("checked", true);
+            } else {
+                $("#checkall1").prop("checked", false);
+            }
+    
+            });
         });
     </script>
 @endpush
