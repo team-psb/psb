@@ -569,7 +569,7 @@
                                                             Lahir
                                                             </label
                                                         >
-                                                        <input
+                                                        {{-- <input
                                                             type="date"
                                                             class="
                                                                 form-control
@@ -584,7 +584,17 @@
                                                             name="age"
                                                             placeholder="01 Desember 2001"
                                                             required
-                                                        />
+                                                        /> --}}
+                                                        {{-- <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            data-field="date"
+                                                            data-format="dd-MMM-yyyy"
+                                                            readonly
+                                                        /> --}}
+                                                        <input type="text" data-field="date" readonly>
+                                                        <div id="dtBox"></div>
+
                                                     </div>
                                                     <div
                                                         class="
@@ -1936,7 +1946,7 @@
         ></a>
 
         <!-- Vendor JS Files -->
-        <script src="./assets/vendor/purecounter/purecounter.js"></script>
+        <script ssrc="./assets/vendor/purecounter/purecounter.js"></script>
         <script src="./assets/vendor/aos/aos.js"></script>
         <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="./assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -2319,10 +2329,7 @@
         <!-- Template Main JS File -->
         <script src="./assets/js/main.js"></script>
         <script>
-            //Show Password Icon
-
-
-            // Show Password Checkbox
+            // Show Password Icon
             function myFunction() {
                 var x = document.getElementById("floatingPassword");
                 if (x.type === "password") {
@@ -2335,6 +2342,8 @@
                     document.getElementById("show").style.display = "inline-block";
                 }
             }
+
+             // Show Password Checkbox
             function showFunction() {
                 var x = document.getElementById("password");
                 var y = document.getElementById("confirm_password");
