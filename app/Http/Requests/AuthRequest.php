@@ -42,6 +42,8 @@ class AuthRequest extends FormRequest
             'no_wa.unique' => 'Nomor ini sudah terdaftar.',
             'no_wa.min' => 'Wajib diisi 12 digit atau lebih.',
             'no_wa.max' => 'Nomor maksimal 15 digit.',
+            'password.min' => 'Minimal password 6 karakter',
+            'password.max' => 'Maksimal password 20 karakter',
         ];
     }
 

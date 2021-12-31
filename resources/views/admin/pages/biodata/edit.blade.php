@@ -317,7 +317,7 @@
                                             id="tidak-mampu"
                                             value="tidak-mampu"
                                             required
-                                            {{ $biodata->user->biodataOne->family = 'tidak-mampu' ? 'checked' : '' }}
+                                            {{ $biodata->user->biodataOne->family == 'tidak-mampu' ? 'checked' : '' }}
                                         />
                                         tidak-mampu
                                         </label>
