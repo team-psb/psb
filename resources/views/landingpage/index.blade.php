@@ -136,7 +136,7 @@
         <!-- ======= End Background Image ======= -->
 
         <!-- WA Live -->
-        <a id="Wa" class="wa" title="Chat Live Wa" href="#">
+        <a id="Wa" class="wa" title="Chat Live Wa" target="_blank" href="https://api.whatsapp.com/send?phone=6285725249265&text=Assalamu'alaikum%20Pondok%20Informatika,%20Saya%20pendaftar%20santri%20baru%20butuh%20bantuan !">
             <img src="./assets/img/wa.png" alt="logo-wa" width="80" />
         </a>
         <!-- End WA Live -->
@@ -509,6 +509,7 @@
                                                                 form-control
                                                                 form-control-lg
                                                                 rounded-pill
+                                                                @error('name') is-invalid @enderror
                                                             "
                                                             style="
                                                                 font-size: 15px;
@@ -517,7 +518,14 @@
                                                             name="name"
                                                             placeholder="Masukkan Nama Pengguna"
                                                             required
+                                                            @error('name') is-invalid @enderror
+                                                            value="{{ old('name') }}"
                                                         />
+                                                        @error('name')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
                                                     </div>
                                                     <div
                                                         class="
@@ -540,6 +548,7 @@
                                                                 form-control
                                                                 form-control-lg
                                                                 rounded-pill
+                                                                @error('full_name') is-invalid @enderror
                                                             "
                                                             style="
                                                                 font-size: 15px;
@@ -548,7 +557,14 @@
                                                             name="full_name"
                                                             placeholder="Masukkan Nama Lengkap"
                                                             required
+                                                            @error('full_name') is-invalid @enderror
+                                                            value="{{ old('full_name') }}"
                                                         />
+                                                        @error('full_name')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -569,12 +585,13 @@
                                                             Lahir
                                                             </label
                                                         >
-                                                        {{-- <input
+                                                        <input
                                                             type="date"
                                                             class="
                                                                 form-control
                                                                 form-control-lg
                                                                 rounded-pill
+                                                                @error('age') is-invalid @enderror
                                                             "
                                                             style="
                                                                 font-size: 15px;
@@ -582,19 +599,9 @@
                                                             "
                                                             id="birth_date"
                                                             name="age"
-                                                            placeholder="01 Desember 2001"
+                                                            {{-- placeholder="01 Desember 2001" --}}
                                                             required
-                                                        /> --}}
-                                                        {{-- <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            data-field="date"
-                                                            data-format="dd-MMM-yyyy"
-                                                            readonly
-                                                        /> --}}
-                                                        <input type="text" data-field="date" readonly>
-                                                        <div id="dtBox"></div>
-
+                                                        />
                                                     </div>
                                                     <div
                                                         class="
@@ -616,6 +623,7 @@
                                                                 form-select
                                                                 form-select-lg
                                                                 rounded-pill
+                                                                @error('family') is-invalid @enderror
                                                             "
                                                             style="
                                                                 font-size: 15px;
@@ -645,6 +653,11 @@
                                                                 Tidak Mampu
                                                             </option>
                                                         </select>
+                                                        @error('family')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -671,6 +684,7 @@
                                                                 form-control
                                                                 form-control-lg
                                                                 rounded-pill
+                                                                @error('no_wa') is-invalid @enderror
                                                             "
                                                             maxlength="15"
                                                             style="
@@ -680,7 +694,14 @@
                                                             name="no_wa"
                                                             placeholder="Masukkan No Whatsapp"
                                                             required
+                                                            @error('no_wa') is-invalid @enderror
+                                                            value="{{ old('no_wa') }}"
                                                         />
+                                                        @error('no_wa')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
                                                     </div>
                                                 </div>
 
@@ -709,6 +730,7 @@
                                                                 form-control
                                                                 form-control-lg
                                                                 rounded-pill
+                                                                @error('password') is-invalid @enderror
                                                             "
                                                             style="
                                                                 font-size: 15px;
@@ -717,7 +739,13 @@
                                                             name="password"
                                                             placeholder="Masukkan Password"
                                                             required
+                                                            @error('password') is-invalid @enderror
                                                         />
+                                                        @error('password')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
                                                         <div
                                                             class="
                                                                 d-flex
@@ -770,6 +798,7 @@
                                                                 form-control
                                                                 form-control-lg
                                                                 rounded-pill
+                                                                @error('password_confirmation') is-invalid @enderror
                                                             "
                                                             style="
                                                                 font-size: 15px;
@@ -779,7 +808,13 @@
                                                             name="password_confirmation"
                                                             placeholder="Masukkan Ulang Password"
                                                             required
+                                                            @error('password_confirmation') is-invalid @enderror
                                                         />
+                                                        @error('password_confirmation')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="form-group px-2">

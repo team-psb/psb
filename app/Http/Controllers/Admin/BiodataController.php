@@ -72,8 +72,11 @@ class BiodataController extends Controller
             $query->where('is_active','=', true);
         },'user.biodataOne'])->get();
 
+        $biodataswide = BiodataTwo::with(['academy_year'=>function($query){
+            $query->where('is_active','=', true);
+        },'user.biodataOne'])->orderBy('created_at','desc')->get();
         $biodatas = $data->where('academy_year','!=', null);
-        return view('admin.pages.biodata.index',compact('biodatas', 'stages'));
+        return view('admin.pages.biodata.index',compact('biodatas', 'stages', 'biodataswide'));
     }
 
     public function show($id)

@@ -34,4 +34,20 @@ class AuthRequest extends FormRequest
             'gender'=>'required',
         ];
     }
+<<<<<<< HEAD
+=======
+
+    public function messages()
+    {
+        return [
+            'family.required' => 'Data tidak boleh kosong.',
+            'no_wa.unique' => 'Nomor ini sudah terdaftar.',
+            'no_wa.min' => 'Wajib diisi 12 digit atau lebih.',
+            'no_wa.max' => 'Nomor maksimal 15 digit.',
+            'password.min' => 'Minimal password 6 karakter',
+            'password.max' => 'Maksimal password 20 karakter',
+        ];
+    }
+
+>>>>>>> 5379080e24fec487cbe5e7588ac978d28d1a1b3e
 }
