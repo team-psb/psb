@@ -336,6 +336,37 @@
                           </label>
                         </div>
                       </div>
+                      
+                      <div class="form-group">
+                        <label for="">Punya tato Atau Tidak ? <b>*</b></label>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="tattoed"
+                            id="tattoed1"
+                            value="iya"
+                            required
+                          />
+                          <label class="form-check-label" for="tattoed1">
+                            Iya
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="tattoed"
+                            id="tattoed2"
+                            value="tidak"
+                            required
+                          />
+                          <label class="form-check-label" for="tattoed2">
+                            Tidak
+                          </label>
+                        </div>
+                      </div>
+
                       <div class="form-group">
                         <label for="">Punya Pacar Atau Tidak ?<b>*</b></label>
                         <div class="form-check">

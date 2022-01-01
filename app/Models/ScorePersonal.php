@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Score extends Model
+class ScorePersonal extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected   $fillable = [
-        'user_id', 'stage_id', 'academy_year_id', 'score_question_iq', 'score_question_personal', 'status' 
+    protected $fillable = [
+        'user_id', 'stage_id', 'academy_year_id', 'score_question_personal', 'status'
     ];
 
     public function user()
@@ -21,6 +21,6 @@ class Score extends Model
 
     public function academy_year()
     {
-        return $this->belongsTo(AcademyYear::class,'academy_year_id', 'id');
+        return $this->belongsTo(AcademyYear::class, 'academy_year_id', 'id');
     }
 }
