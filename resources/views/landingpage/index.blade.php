@@ -622,7 +622,7 @@
                                                             name="family"
                                                             required
                                                         >
-                                                            <option selected>
+                                                            <option selected disabled>
                                                                 -- Keluarga --
                                                             </option>
                                                             <option

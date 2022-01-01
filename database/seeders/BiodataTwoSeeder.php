@@ -48,6 +48,7 @@ class BiodataTwoSeeder extends Seeder
                 'study_islamic'=>$faker->word(3,false),
                 'read_book'=>$faker->sentence(3,true),
                 'smoker'=>$faker->randomElement(['iya','tidak']),
+                'tattoed'=>$faker->randomElement(['iya','tidak']),
                 'girlfriend'=>$faker->randomElement(['iya','tidak']),
                 'gamer'=>$faker->randomElement(['iya','tidak']),
                 'game_name'=>$faker->sentence(6,true),

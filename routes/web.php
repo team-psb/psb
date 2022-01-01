@@ -22,6 +22,7 @@ use App\Http\Controllers\Exam\TesIqController;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Exam\TesPersonalController;
 use App\Http\Controllers\LandingController;
 
 /*
@@ -68,8 +69,8 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], functio
     Route::get('tes/tahap-kedua', [TesIqController::class, 'iq'])->name('user-second-tes');
     Route::post('tes/tahap-kedua-store', [TesIqController::class, 'iqStore'])->name('second-tes.store');
 
-    Route::get('tes/tahap-ketiga', [TesIqController::class, 'personal'])->name('user-third-tes');
-    Route::post('tes/tahap-ketiga-store', [TesIqController::class, 'personalStore'])->name('third-tes.store');
+    Route::get('tes/tahap-ketiga', [TesPersonalController::class, 'personal'])->name('user-third-tes');
+    Route::post('tes/tahap-ketiga-store', [TesPersonalController::class, 'personalStore'])->name('third-tes.store');
 
     Route::get('tes/tahap-keempat', [VideoController::class, 'index'])->name('user-fourth-tes');
     Route::post('tes/tahap-keempat-store', [VideoController::class, 'videoStore'])->name('fourth-tes.store');
