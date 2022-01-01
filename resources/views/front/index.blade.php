@@ -20,182 +20,100 @@
               </div>
           @endif --}}
 
-          {{-- Hero --}}
-          <div class="section-body py-4">
-              <div class="row py-1">
-              <div class="col-12 mb-4">
-                  <div class="hero text-white text-center
-                              @if (isset($tahap1) && $tahap1->status == null || isset($tahap2) && $tahap2->status == null || isset($tahap3) && $tahap3->status == null || isset($tahap4) && $tahap4->status == null )
-                              bg-warning                      
-                              @endif
-                              @if (isset($tahap1) && $tahap1->status == 'lolos' || isset($tahap2) && $tahap2->status == 'lolos' || isset($tahap3) && $tahap3->status == 'lolos' || isset($tahap4) && $tahap4->status == 'lolos' || isset($tahap5) && $tahap5->status == 'lolos')
-                              bg-success
-                              @elseif (empty($tahap1) || empty($tahap2) || empty($tahap4))
-                              bg-info
-                              @endif
-                              @if (isset($tahap1) && $tahap1->status == 'tidak' || isset($tahap2) && $tahap2->status == 'tidak' || isset($tahap3) && $tahap3->status == 'tidak' || isset($tahap4) && $tahap4->status == 'tidak' || isset($tahap5) && $tahap5->status == 'tidak' )
-                              bg-danger                      
-                              @endif"
-                  >
-                      @if(empty($tahap1) && isset($biodata1))
-                      <div class="hero-inner">
-                          <h2 class="poppins">Halo Selamat datang, {{ Auth::user()->name }}</h2>
-                          <p class="lead">untuk melakukan seleksi <strong class="font-weight-bold">Tahap Pertama</strong> anda silahkan klik tombol di bawah ini</p>
-                          <div class="mt-4">
-                          <a href="{{ route('user-first-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
-                          </div>
-                      </div>
-                      @elseif(!empty($tahap1) && isset($biodata1) && $tahap1->status == null) 
-                      <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
-                      <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Pertama</strong>,Anda bisa lanjut <br>mengikuti tes tahap kedua jika dinyatakan lolos di tes tahap pertama</p>
-                      @elseif(!empty($tahap2) && isset($tahap1) && $tahap2->status == null) 
-                      <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
-                      <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Kedua</strong>,Anda bisa lanjut <br>mengikuti tes tahap Ketiga jika dinyatakan lolos di tes tahap Kedua</p>
-                      @elseif(!empty($tahap3) && isset($tahap2) && $tahap3->status == null) 
-                      <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
-                      <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Ketiga</strong>,Anda bisa lanjut <br>mengikuti tes tahap Keempat jika dinyatakan lolos di tes tahap Ketiga</p>
-                      @elseif(!empty($tahap4) && isset($tahap4) && $tahap4->status == null) 
-                      <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
-                      <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Keempat</strong>,Anda bisa lanjut <br>mengikuti tes tahap Kelima jika dinyatakan lolos di tes tahap Keempat</p>
-                      @elseif(!empty($tahap1) && $tahap1->status == 'lolos')
-                      @if ($tahap1->status == 'lolos' && !isset($tahap2->status))
-                          <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
-                          <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
-                          <p class="lead">untuk melakukan tes <strong class="font-weight-bold">Tahap Kedua</strong> anda silahkan klik tombol di bawah ini</p>
-                          <div class="mt-4">
-                          <a href="{{ route('user-second-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
-                          </div>
-                      @elseif($tahap2->status == 'lolos' && !isset($tahap3->status))
-                          <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
-                          <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
-                          <p class="lead">untuk melakukan tes <strong class="font-weight-bold">Tahap Ketiga</strong> silahkan anda klik tombol di bawah ini.</p>
-                          <div class="mt-4">
-                          <a href="{{ route('user-third-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
-                          </div>
-                      @elseif($tahap3->status == 'lolos' && !isset($tahap4->status))
-                          <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
-                          <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
-                          <p class="lead">untuk melakukan tes <strong class="font-weight-bold">Tahap Keempat</strong> silahkan anda klik tombol di bawah ini.</p>
-                          <div class="mt-4">
-                          <a href="{{ route('user-fourth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
-                          </div>	
-                      @elseif( isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'lolos')
-                          <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
-                          <p><strong>Anda Dinyatakan Lolos sebagai calon santri Pondok Informatika Al Madinah</strong></p>
-                          <p class="lead">untuk informasi selanjutnya akan di infokan melalui whatsapp
-                          </p>
-                      @elseif(isset($tahap4->status) && $tahap4->status == 'lolos' && !isset($tahap5->status))
-                          <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
-                          <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
-                          <p class="lead">untuk  tes <strong class="font-weight-bold">Tahap Kelima</strong> anda akan kami hubungi untuk melakukan tes wawancara</p>
-                          <div class="mt-4">
-                          <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes wawancara</a>
-                          </div>
-                      @elseif(isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'tidak')
-                          <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}! .</h2>
-                          <p><strong>Anda Dinyatakan Tidak Lolos sebagai calon santri Pondok Informatika Al Madinah</strong></p>
-                      @elseif(isset($tahap1->status) == 'tidak' || isset($tahap2->status) == 'tidak' || isset($tahap4->status) == 'tidak')
-                          <h2>Mohon Maaf, {{ Auth::user()->name }}! .</h2>
-                          <p><strong>Anda Dinyatakan Tidak Lolos ke tahap selanjutnya
-                          </p>
-                      @elseif($tahap4->status == 'lolos' && !isset($tahap5->status))
-                          <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
-                          <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
-                          <p class="lead">untuk  tes <strong class="font-weight-bold">Tahap Kelima</strong> anda akan kami hubungi untuk melakukan tes wawancara</p>
-                          <div class="mt-4">
-                          <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes wawancara</a>
-                          </div>
-                      @endif
-                      @else
-                      <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}! .</h2>
-                      <p><strong>Anda Dinyatakan Tidak Lolos ke tahap selanjutnya</p>
-                      @endif
-                  </div>
-              </div>
-              </div>
-          </div>
-
-          {{-- News Dashboard Card--}}
-          <div class="row">
-              {{-- Dekstop --}}
-              <div class="col-lg-4 col-md-6 col-12 d-none d-md-none d-lg-block">
-              <div class="card card-statistic-1">
-                  <div class="card-icon bg-danger">
-                  <i class="far fa-newspaper"></i>
-                  </div>
-                  <div class="card-wrap">
-                  <div class="card-header">
-                      <h4>Informasi</h4>
-                  </div>
-                  <div class="card-body">
-                      {{ $schdules ? $schdules->count() : '0' }}
-                  </div>
-                  </div>
-              </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-md-none d-lg-block">
-              <div class="card card-statistic-1">
-                  <div class="card-icon bg-warning">
-                  <i class="fas fa-question-circle"></i>
-                  </div>
-                  <div class="card-wrap">
-                  <div class="card-header">
-                      <h4>Q&A</h4>
-                  </div>
-                  <div class="card-body">
-                      {{ $qna ? $qna->count() : '0' }}
-                  </div>
-                  </div>
-              </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-md-none d-lg-block">
-              <div class="card card-statistic-1">
-                  <div class="card-icon bg-primary">
-                  <i class="fas fa-user"></i>
-                  </div>
-                  <div class="card-wrap">
-                  <div class="card-header">
-                      <h4>Pendaftar</h4>
-                  </div>
-                  <div class="card-body">
-                      {{ $data->count() }}
-                  </div>
-                  </div>
-              </div>
-              </div>
-
-              {{-- Mobile --}}
-              <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none">
-              <a href="{{ route('user-profile') }}">
-                  <div class="card card-statistic-1 d-flex flex-row align-items-center">
-                  <div class="card-icon bg-primary">
-                      <i class="fas fa-user"></i>
-                  </div>
-                  <p href="" class="h1 text-primary font-weight-bold"><u>Profile</u></p>
-                  </div>
-              </a>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none">
-              <a href="{{ route('user-qna') }}">
-                  <div class="card card-statistic-1 d-flex flex-row align-items-center">
-                  <div class="card-icon bg-success">
-                      <i class="fas fa-question-circle"></i>
-                  </div>
-                  <p href="" class="h1 text-success font-weight-bold"><u>Q & A</u></p>
-                  </div>
-              </a>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none">
-              <a href="{{ route('user-informasi') }}">
-                  <div class="card card-statistic-1 d-flex flex-row align-items-center">
-                  <div class="card-icon bg-warning">
-                      <i class="fas fa-leaf"></i>
-                  </div>
-                  <p href="" class="h1 text-warning font-weight-bold"><u>Informasi</u></p>
-                  </div>
-              </a>
-              </div>
-          </div>
+            {{-- Hero --}}
+            <div class="section-body py-4">
+                <div class="row py-1">
+                <div class="col-12 mb-4">
+                    <div class="hero text-white text-center
+                                @if (isset($tahap1) && $tahap1->status == null || isset($tahap2) && $tahap2->status == null || isset($tahap3) && $tahap3->status == null || isset($tahap4) && $tahap4->status == null )
+                                bg-warning                      
+                                @endif
+                                @if (isset($tahap1) && $tahap1->status == 'lolos' || isset($tahap2) && $tahap2->status == 'lolos' || isset($tahap3) && $tahap3->status == 'lolos' || isset($tahap4) && $tahap4->status == 'lolos' || isset($tahap5) && $tahap5->status == 'lolos')
+                                bg-success
+                                @elseif (empty($tahap1) || empty($tahap2) || empty($tahap4))
+                                bg-info
+                                @endif
+                                @if (isset($tahap1) && $tahap1->status == 'tidak' || isset($tahap2) && $tahap2->status == 'tidak' || isset($tahap3) && $tahap3->status == 'tidak' || isset($tahap4) && $tahap4->status == 'tidak' || isset($tahap5) && $tahap5->status == 'tidak' )
+                                bg-danger                      
+                                @endif"
+                    >
+                        @if(empty($tahap1) && isset($biodata1))
+                        <div class="hero-inner">
+                            <h2 class="poppins">Halo Selamat datang, {{ Auth::user()->name }}</h2>
+                            <p class="lead">untuk melakukan seleksi <strong class="font-weight-bold">Tahap Pertama</strong> anda silahkan klik tombol di bawah ini</p>
+                            <div class="mt-4">
+                            <a href="{{ route('user-first-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                            </div>
+                        </div>
+                        @elseif(!empty($tahap1) && isset($biodata1) && $tahap1->status == null) 
+                        <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
+                        <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Pertama</strong>,Anda bisa lanjut <br>mengikuti tes tahap kedua jika dinyatakan lolos di tes tahap pertama</p>
+                        @elseif(!empty($tahap2) && isset($tahap1) && $tahap2->status == null) 
+                        <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
+                        <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Kedua</strong>,Anda bisa lanjut <br>mengikuti tes tahap Ketiga jika dinyatakan lolos di tes tahap Kedua</p>
+                        @elseif(!empty($tahap3) && isset($tahap2) && $tahap3->status == null) 
+                        <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
+                        <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Ketiga</strong>,Anda bisa lanjut <br>mengikuti tes tahap Keempat jika dinyatakan lolos di tes tahap Ketiga</p>
+                        @elseif(!empty($tahap4) && isset($tahap4) && $tahap4->status == null) 
+                        <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
+                        <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Keempat</strong>,Anda bisa lanjut <br>mengikuti tes tahap Kelima jika dinyatakan lolos di tes tahap Keempat</p>
+                        @elseif(!empty($tahap1) && $tahap1->status == 'lolos')
+                        @if ($tahap1->status == 'lolos' && !isset($tahap2->status))
+                            <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
+                            <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
+                            <p class="lead">untuk melakukan tes <strong class="font-weight-bold">Tahap Kedua</strong> anda silahkan klik tombol di bawah ini</p>
+                            <div class="mt-4">
+                            <a href="{{ route('user-second-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                            </div>
+                        @elseif(isset($tahap2->status) && $tahap2->status == 'lolos' && !isset($tahap3->status))
+                            <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
+                            <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
+                            <p class="lead">untuk melakukan tes <strong class="font-weight-bold">Tahap Ketiga</strong> silahkan anda klik tombol di bawah ini.</p>
+                            <div class="mt-4">
+                            <a href="{{ route('user-third-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                            </div>
+                        @elseif(isset($tahap3->status) && $tahap3->status == 'lolos' && !isset($tahap4->status))
+                            <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
+                            <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
+                            <p class="lead">untuk melakukan tes <strong class="font-weight-bold">Tahap Keempat</strong> silahkan anda klik tombol di bawah ini.</p>
+                            <div class="mt-4">
+                            <a href="{{ route('user-fourth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                            </div>	
+                        @elseif( isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'lolos')
+                            <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
+                            <p><strong>Anda Dinyatakan Lolos sebagai calon santri Pondok Informatika Al Madinah</strong></p>
+                            <p class="lead">untuk informasi selanjutnya akan di infokan melalui whatsapp
+                            </p>
+                        @elseif(isset($tahap4->status) && $tahap4->status == 'lolos' && !isset($tahap5->status))
+                            <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
+                            <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
+                            <p class="lead">untuk  tes <strong class="font-weight-bold">Tahap Kelima</strong> anda akan kami hubungi untuk melakukan tes wawancara</p>
+                            <div class="mt-4">
+                            <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes wawancara</a>
+                            </div>
+                        @elseif(isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'tidak')
+                            <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}! .</h2>
+                            <p><strong>Anda Dinyatakan Tidak Lolos sebagai calon santri Pondok Informatika Al Madinah</strong></p>
+                        @elseif(isset($tahap1->status) == 'tidak' || isset($tahap2->status) == 'tidak' || isset($tahap4->status) == 'tidak')
+                            <h2>Mohon Maaf, {{ Auth::user()->name }}! .</h2>
+                            <p><strong>Anda Dinyatakan Tidak Lolos ke tahap selanjutnya
+                            </p>
+                        @elseif($tahap4->status == 'lolos' && !isset($tahap5->status))
+                            <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
+                            <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
+                            <p class="lead">untuk  tes <strong class="font-weight-bold">Tahap Kelima</strong> anda akan kami hubungi untuk melakukan tes wawancara</p>
+                            <div class="mt-4">
+                            <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes wawancara</a>
+                            </div>
+                        @endif
+                        @else
+                        <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}! .</h2>
+                        <p><strong>Anda Dinyatakan Tidak Lolos ke tahap selanjutnya</p>
+                        @endif
+                    </div>
+                </div>
+                </div>
+            </div>
           </section>
       </div>
   </div>
@@ -207,10 +125,100 @@
       <section class="section mt-5 pt-5" >
         <div class="section-body">
           <h1 class="px-0 mb-3 poppins pb-2 col-10 col-sm-6 col-md-5 col-lg-4 col-xl-3 rounded informasi"><i class="fa fa-book ico"></i> Tes Anda</h1>
+          <div class="row py-3">
+            <div
+                class="
+                    col-md-12 col-sm-6
+                    d-flex
+                    align-items-center
+                    justify-content-around
+                    position-relative
+                "
+                id="alur"
+            >
+                <div class="position-relative">
+                    <p
+                        class="
+                            alur-text
+                        "
+                    >
+                        1. Daftar Akun dan Mengisi Formulir Pendaftaran
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/daftar.png') }}"
+                        alt="daftar"
+                        width="90px"
+                        class="img-fluid alur_image_1"
+                    />
+                </div>
+                <div class="position-relative">
+                    <p
+                        class="
+                            alur-text2
+                        "
+                    >
+                        2. Melakukan Tes IQ dan Tes Kepribadian
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/tes.png') }}"
+                        alt="tes"
+                        width="90px"
+                        class="img-fluid alur_image_2"
+                    />
+                </div>
+                <div class="position-relative">
+                    <p
+                        class="
+                            alur-text3
+                        "
+                    >
+                        3. Selanjutnya Membuat dan Upload Video
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/video.png') }}"
+                        alt="daftar"
+                        width="90px"
+                        class="img-fluid alur_image_3"
+                    />
+                    
+                </div>
+                <div class="position-relative">
+                    <p
+                        class="
+                            alur-text4
+                        "
+                    >
+                        4. Melakukan Tahapan Tes Wawancara
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/wawancara.png') }}"
+                        alt="tes"
+                        width="90px"
+                        class="img-fluid alur_image_2"
+                    />
+                </div>
+                <div class="position-relative">
+                  <p
+                      class="
+                          alur-text5
+                      "
+                  >
+                      5. Pengumuman dan tunggu konfirmasi dari
+                        panitia
+                  </p>
+                  <img
+                      src="{{ asset('assets/img/lolos.png') }}"
+                      alt="tes"
+                      width="90px"
+                      class="img-fluid alur_image_2"
+                  />
+              </div>
+            </div>
+          </div>
           <div class="row">
             <div class="col-12">
               @if ($biodata1->count() > 0 )
-              <table class="table table-bordered table-hover">
+              <table class="table table-bordered table-hover text-center">
                 <thead>
                   <tr>
                     <th>Tahap</th>
@@ -250,15 +258,13 @@
                     </td>
                   </tr>
                   
-                  {{-- 2 & 3 --}}
+                  {{-- 2 --}}
                   @if (!empty($tahap1) && $tahap1->status == "lolos")
                   <tr>
-                    <th>2 & 3</th>
+                    <th>2</th>
                     <td>
                       @if (empty($tahap2))
                         <a href="{{ route('user-second-tes') }}" class="btn btn-success">Ikuti Tes</a>
-                      @elseif($tahap2->nilai_tes_iq != 0 && $tahap2->nilai_tes_kepribadian == 0)
-                        <a href="{{ route('user-second-personal') }}" class="btn btn-primary">Ikuti Tes Kepribadian</a>
                       @else
                         <span class="badge badge-primary">Selesai Tes</span>
                       @endif
@@ -268,7 +274,7 @@
                         <div class="badge badge-warning">
                         Belum mengikuti tes
                         </div>
-                      @elseif ($tahap2->nilai_tes_iq != null && $tahap2->nilai_tes_kepribadian != null && $tahap2->status == null)
+                      @elseif ($tahap2->score_question_iq != null && $tahap2->status == null)
                         <div class="badge badge-info">
                         Sudah mengikuti tes 
                         </div>
@@ -288,17 +294,51 @@
                     </td>
                   </tr>
                   @endif
+
+                  {{-- 3 --}}
+                  @if (!empty($tahap2) && $tahap2->status == "lolos")
                   <tr>
+                    <th>3</th>
+                    <td>
+                      @if (empty($tahap3))
+                        <a href="{{ route('user-third-tes') }}" class="btn btn-success">Ikuti Tes</a>
+                      @else
+                        <span class="badge badge-primary">Selesai Tes</span>
+                      @endif
+                    </td>
+                    <td>
+                      @if (empty($tahap3))
+                        <div class="badge badge-warning">
+                        Belum mengikuti tes
+                        </div>
+                      @elseif ($tahap3->score_question_personal != null && $tahap3->status == null)
+                        <div class="badge badge-info">
+                        Sudah mengikuti tes 
+                        </div>
+                      @elseif($tahap3->status == 'lolos')
+                        <div class="badge badge-success">
+                        Lolos
+                        </div>
+                      @elseif($tahap3->status == 'tidak')
+                        <div class="badge badge-danger">
+                        tidak
+                        </div>
+                      @else
+                        <div class="badge badge-info">
+                          Menunggu hasil tes
+                        </div>
+                      @endif
+                    </td>
+                  </tr>
+                  @endif
 
                   {{-- 4 --}}
-                  @if (!empty($tahap2) && $tahap2->status == "lolos")
+                  @if (!empty($tahap3) && $tahap3->status == "lolos")
                   <tr>
                     <th>4</th>
                     <td>
                       @if (empty($tahap4))
                         <a href="{{ route('user-fourth-tes') }}" class="btn btn-success">Ikuti Tes</a>
-                      @elseif($tahap2->nilai_tes_iq != 0 && $tahap2->nilai_tes_kepribadian == 0)
-                        <a href="{{ route('tahap-ketiga-kepribadian') }}" class="btn btn-primary">Ikuti Tes Kepribadian</a>
                       @else
                         <span class="badge badge-primary">Selesai Tes</span>
                       @endif
@@ -336,7 +376,7 @@
                     <td>
                       @isset($tahap5)
                       @if ($tahap5->status == null)
-                        <a href="{{ route('user-fifth-tes') }}" class="btn btn-primary">Info</a>
+                        <a href="{{ route('user-fifth-tes') }}" class="btn btn-success">Info</a>
                       @else
                         <span class="badge badge-primary">Selesai Tes</span>
                       @endif

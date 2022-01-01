@@ -61,3 +61,38 @@
       .poppins{
           font-family: poppins;
       }
+
+
+      /* Alur */
+
+      /* Alur */
+
+#alur {
+  color: #145560;
+}
+
+.alur-text {
+  top: -130px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.alur-text2 {
+  top: 115px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.alur-text3 {
+  top: -130px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.alur-text4 {
+  top: 115px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.alur-text5 {
+  top: -130px;
+  font-weight: 600;
+  font-size: 14px;
+}
