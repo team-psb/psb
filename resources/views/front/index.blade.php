@@ -5,7 +5,7 @@
 @section('hero')
   <div class="main-content">
       <div class="py-5">
-          <section class="section container">
+        <section class="section container">
           {{-- @if (session('gagal_tes'))
               <div class="row">
               <div class="alert alert-danger alert-dismissible show fade">
@@ -22,7 +22,7 @@
 
             {{-- Hero --}}
             <div class="section-body py-4">
-                <div class="row py-1">
+              <div class="row py-1">
                 <div class="col-12 mb-4">
                     <div class="hero text-white text-center
                                 @if (isset($tahap1) && $tahap1->status == null || isset($tahap2) && $tahap2->status == null || isset($tahap3) && $tahap3->status == null || isset($tahap4) && $tahap4->status == null )
@@ -112,9 +112,87 @@
                         @endif
                     </div>
                 </div>
+                
+                {{-- Dekstop --}}
+                <div class="col-lg-4 col-md-6 col-12 d-none d-md-none d-lg-block">
+                  <div class="card card-statistic-1">
+                      <div class="card-icon bg-danger">
+                      <i class="far fa-newspaper"></i>
+                      </div>
+                      <div class="card-wrap">
+                      <div class="card-header">
+                          <h4>Informasi</h4>
+                      </div>
+                      <div class="card-body">
+                          {{ $schdules ? $schdules->count() : '0' }}
+                      </div>
+                      </div>
+                  </div>
                 </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-md-none d-lg-block">
+                  <div class="card card-statistic-1">
+                      <div class="card-icon bg-warning">
+                      <i class="fas fa-question-circle"></i>
+                      </div>
+                      <div class="card-wrap">
+                      <div class="card-header">
+                          <h4>Q&A</h4>
+                      </div>
+                      <div class="card-body">
+                          {{ $qna ? $qna->count() : '0' }}
+                      </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-md-none d-lg-block">
+                  <div class="card card-statistic-1">
+                      <div class="card-icon bg-primary">
+                      <i class="fas fa-user"></i>
+                      </div>
+                      <div class="card-wrap">
+                      <div class="card-header">
+                          <h4>Pendaftar</h4>
+                      </div>
+                      <div class="card-body">
+                          {{ $data->count() }}
+                      </div>
+                      </div>
+                  </div>
+                </div>
+                {{-- Mobile --}}
+                <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none">
+                  <a href="{{ route('user-profile') }}">
+                      <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                      <div class="card-icon bg-primary">
+                          <i class="fas fa-user"></i>
+                      </div>
+                      <p href="" class="h1 text-primary font-weight-bold"><u>Profile</u></p>
+                      </div>
+                  </a>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none">
+                  <a href="{{ route('user-qna') }}">
+                      <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                      <div class="card-icon bg-success">
+                          <i class="fas fa-question-circle"></i>
+                      </div>
+                      <p href="" class="h1 text-success font-weight-bold"><u>Q & A</u></p>
+                      </div>
+                  </a>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none">
+                  <a href="{{ route('user-informasi') }}">
+                      <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                      <div class="card-icon bg-warning">
+                          <i class="fas fa-leaf"></i>
+                      </div>
+                      <p href="" class="h1 text-warning font-weight-bold"><u>Informasi</u></p>
+                      </div>
+                  </a>
+                </div>
+              </div>
             </div>
-          </section>
+        </section>
       </div>
   </div>
 @endsection
@@ -126,7 +204,7 @@
         <div class="section-body">
           <h1 class="px-0 mb-3 poppins pb-2 col-10 col-sm-6 col-md-5 col-lg-4 col-xl-3 rounded informasi"><i class="fa fa-book ico"></i> Tes Anda</h1>
           <div class="row py-3">
-            <div
+            {{-- <div
                 class="
                     col-md-12 col-sm-6
                     d-flex
@@ -213,6 +291,177 @@
                       class="img-fluid alur_image_2"
                   />
               </div>
+            </div> --}}
+
+            {{-- <div
+                class="
+                    col-md-12 col-sm-12
+                    d-flex
+                    align-items-center
+                    justify-content-between
+                    position-relative
+                "
+                id="alur"
+            >
+                <div class="position-relative">
+                    <p
+                        class="alur-text1"
+                    >
+                        1. Daftar Akun dan Mengisi Formulir Pendaftaran
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/daftar.png') }}"
+                        alt="tes"
+                        class="img-fluid alur_image_1"
+                    />
+                </div>
+                <div class="position-relative">
+                    <p
+                        class="alur-text2"
+                    >
+                        2. Melakukan Tes IQ dan Tes Kepribadian
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/tes.png') }}"
+                        alt="tes"
+                        class="img-fluid alur_image_2"
+                    />
+                </div>
+                <div class="position-relative">
+                    <p
+                        class="alur-text3"
+                    >
+                        3. Selanjutnya Membuat dan Upload Video
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/video.png') }}"
+                        alt="daftar"
+                        class="img-fluid alur_image_3"
+                    />
+                </div>
+                <div class="position-relative">
+                    <p
+                        class="alur-text4"
+                    >
+                        4. Melakukan Tes IQ dan Tes Kepribadian
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/wawancara.png') }}"
+                        alt="tes"
+                        class="img-fluid alur_image_4"
+                    />
+                </div>
+                <div class="position-relative">
+                    <p
+                        class="alur-text5"
+                    >
+                        5. Pengumuman dan tunggu konfirmasi dari
+                        panitia
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/daftar.png') }}"
+                        alt="tes"
+                        class="img-fluid alur_image_5"
+                    />
+                </div>
+            </div> --}}
+
+            <div
+                class="
+                    col-md-12 col-sm-12
+                    d-flex
+                    align-items-center
+                    justify-content-around
+                    position-relative
+                "
+                id="alur"
+            >
+                <div class="position-relative">
+                    <p
+                        class="
+                            position-absolute
+                            text-center
+                            alur-text
+                        "
+                    >
+                        1. Daftar Akun dan Mengisi Formulir Pendaftaran
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/daftar.png') }}"
+                        alt="daftar"
+                        width="90px"
+                        class="img-fluid alur_image_1"
+                    />
+                </div>
+                <div class="position-relative">
+                    <p
+                        class="
+                            position-absolute
+                            text-center
+                            alur-text2
+                        "
+                    >
+                        2. Melakukan Tes IQ dan Tes Kepribadian
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/tes.png') }}"
+                        alt="tes"
+                        width="90px"
+                        class="img-fluid alur_image_2"
+                    />
+                </div>
+                <div class="position-relative">
+                    <p
+                        class="
+                            position-absolute
+                            text-center
+                            alur-text3
+                        "
+                    >
+                        3. Selanjutnya Membuat dan Upload Video
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/video.png') }}"
+                        alt="daftar"
+                        width="90px"
+                        class="img-fluid alur_image_3"
+                    />
+                </div>
+                <div class="position-relative">
+                    <p
+                        class="
+                            position-absolute
+                            text-center
+                            alur-text4
+                        "
+                    >
+                        4. Tes Wawancara
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/wawancara.png') }}"
+                        alt="tes"
+                        width="90px"
+                        class="img-fluid alur_image_4"
+                    />
+                </div>
+                <div class="position-relative">
+                    <p
+                        class="
+                            position-absolute
+                            text-center
+                            alur-text5
+                        "
+                    >
+                        5. Pengumuman dan tunggu konfirmasi dari
+                        panitia
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/lolos.png') }}"
+                        alt="daftar"
+                        width="90px"
+                        class="img-fluid alur_image_5"
+                    />
+                </div>
             </div>
           </div>
           <div class="row">
