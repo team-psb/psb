@@ -34,8 +34,6 @@ class AuthRequest extends FormRequest
             'gender'=>'required',
         ];
     }
-<<<<<<< HEAD
-=======
 
     public function messages()
     {
@@ -48,6 +46,4 @@ class AuthRequest extends FormRequest
             'password.max' => 'Maksimal password 20 karakter',
         ];
     }
-
->>>>>>> 5379080e24fec487cbe5e7588ac978d28d1a1b3e
 }
