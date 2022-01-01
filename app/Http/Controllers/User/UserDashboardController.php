@@ -10,6 +10,8 @@ use App\Models\Pass;
 use App\Models\Qna;
 use App\Models\Schdule;
 use App\Models\Score;
+use App\Models\ScoreIq;
+use App\Models\ScorePersonal;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,13 +27,14 @@ class UserDashboardController extends Controller
 
         $biodata1 = BiodataOne::where('user_id', '=', Auth::user()->id)->first(); 
         $tahap1 = BiodataTwo::where('user_id', '=', Auth::user()->id)->first();
-        $tahap2 = Score::where('user_id', '=', Auth::user()->id)->first();
+        $tahap2 = ScoreIq::where('user_id', '=', Auth::user()->id)->first();
+        $tahap3 = ScorePersonal::where('user_id', '=', Auth::user()->id)->first();
         $tahap4 = Video::where('user_id', '=', Auth::user()->id)->first();
         $tahap5 = Pass::where('user_id', '=', Auth::user()->id)->first();
         $schdules = Schdule::orderBy('created_at', 'desc')->get();
         $qna    = Qna::first();
         
-        return view('front.index', compact('biodata1', 'tahap1', 'tahap2', 'tahap4', 'tahap5', 'schdules', 'qna', 'data'));
+        return view('front.index', compact('biodata1', 'tahap1', 'tahap2', 'tahap3', 'tahap4', 'tahap5', 'schdules', 'qna', 'data'));
     }
 
     public function profile()

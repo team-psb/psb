@@ -8,7 +8,7 @@
     <div class="row justify-content-center px-4">
       <div class="col-md-10 col-sm-12 title">
         <h5>
-          <strong> <i class="fa fa-book ico"></i> Tes Kepribadian</strong>
+          <strong> <i class="fa fa-book ico"></i>Tes Kepribadian</strong>
         </h5>
         
         <p class="card-text">Silahkan Jawab Soal-Soal Dibawah Ini !</p>
