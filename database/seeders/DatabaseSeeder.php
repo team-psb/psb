@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Setting;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Database\Seeder;
 use Laravolt\Indonesia\Seeds\CitiesSeeder;
 use Laravolt\Indonesia\Seeds\ProvincesSeeder;
@@ -32,6 +34,14 @@ class DatabaseSeeder extends Seeder
             // ScoreSeeder::class,
             ProvincesSeeder::class,
             CitiesSeeder::class
+        ]);
+
+        Setting::create([
+            'academy_year_id' => null,
+            'stage_id' => null,
+            'question_iq_value' => 50,
+            'question_personal_value' => 50,
+            'notification' => null
         ]);
     }
 }

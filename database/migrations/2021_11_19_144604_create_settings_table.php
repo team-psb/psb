@@ -17,8 +17,8 @@ class CreateSettingsTable extends Migration
             $table->id();
             $table->foreignId('academy_year_id')->nullable();
             $table->foreignId('stage_id')->nullable();
-            $table->integer('question_iq_value')->default(50)->nullable();
-            $table->integer('question_personal_value')->default(50)->nullable();
+            $table->integer('question_iq_value')->nullable();
+            $table->integer('question_personal_value')->nullable();
             $table->text('notification')->nullable();
             $table->timestamps();
         });

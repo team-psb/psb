@@ -72,10 +72,14 @@ class AuthController extends Controller
 
     public function registerProses(AuthRequest $request)
     {
+        // dd($request->all());
         $no_wa= $request->get('no_wa');
         $no = str_split($no_wa, 3);
 
-        $date=$request->get('age');
+        // $date = $request->get('age');
+        $birthday = $request->year."-".$request->month."-".$request->day;
+
+        $date = date('Y-m-d H:i:s', strtotime($birthday));
 
         $age = Carbon::parse($date)->age;
 

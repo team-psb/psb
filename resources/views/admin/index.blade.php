@@ -127,7 +127,7 @@
                                                         <div>
                                                             <p class="text-small mb-2">Sangat Mampu</p>
                                                             <h4 class="mb-0 fw-bold">
-                                                                {{ App\Models\BiodataOne::where('family','sangat-mampu')->whereHas('academy_year',function($query){$query->where('is_active', true);})->count() }}
+                                                                {{ $sangatmampu }}
                                                             </h4>
                                                         </div>
                                                     </div>
@@ -140,7 +140,7 @@
                                                         <div>
                                                             <p class="text-small mb-2">Mampu</p>
                                                             <h4 class="mb-0 fw-bold">
-                                                                {{ App\Models\BiodataOne::where('family','mampu')->whereHas('academy_year',function($query){$query->where('is_active', true);})->count() }}
+                                                                {{ $mampu }}
                                                             </h4>
                                                         </div>
                                                     </div>
@@ -153,7 +153,7 @@
                                                         <div>
                                                             <p class="text-small mb-2">Tidak Mampu</p>
                                                             <h4 class="mb-0 fw-bold">
-                                                                {{ App\Models\BiodataOne::where('family','tidak-mampu')->whereHas('academy_year',function($query){$query->where('is_active', true);})->count() }}
+                                                                {{ $tidakmampu }}
                                                             </h4>
                                                         </div>
                                                     </div>

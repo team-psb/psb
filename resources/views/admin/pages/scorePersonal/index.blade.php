@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Nilai Tes IQ Pendaftar')
+@section('title', 'Nilai Tes Kepribadian Pendaftar')
 
 @section('content')
 <div class="main-panel">
@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                                 <div class="btn-group dropleft d-inline float-right">
-                                    <a href="{{ route('scores.export') }}" class="btn btn-primary btn-icon-text p-2">
+                                    <a href="{{ route('scorePersonal.export') }}" class="btn btn-primary btn-icon-text p-2">
                                         <i class="ti-export btn-icon-prepend"></i> Export Excel
                                     </a>
                                     <button type="button" class="btn btn-info btn-icon-text p-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -68,9 +68,9 @@
                         </div>
                         <form method="POST">
                             @csrf
-                            <button class="d-none" formaction="{{ route('scores.passAll') }}" id="lolos2"></button>
-                            <button class="d-none" formaction="{{ route('scores.nonpassAll') }}" id="no-lolos2"></button>
-                            <button class="d-none" formaction="{{ route('scores.deleteAll') }}" id="del2"></button>
+                            <button class="d-none" formaction="{{ route('scorePersonal.passAll') }}" id="lolos2"></button>
+                            <button class="d-none" formaction="{{ route('scorePersonal.nonpassAll') }}" id="no-lolos2"></button>
+                            <button class="d-none" formaction="{{ route('scorePersonal.deleteAll') }}" id="del2"></button>
                             <div class="table-responsive">
                                 <table id="myTable" class="table table-hover">
                                     <thead>
@@ -84,7 +84,7 @@
                                             </th>
                                             <th>No</th>
                                             <th>Nama</th>
-                                            <th>Nilai Iq</th>
+                                            {{-- <th>Nilai Iq</th> --}}
                                             <th>Nilai Kepribadian</th>
                                             <th>Status</th>
                                             <th width="10%">Action</th>
@@ -124,7 +124,7 @@
                                                     {{ $score->user->biodataOne->full_name }}
                                                 </a>
                                             </td>
-                                            <td class="text-success"> {{ $score->score_question_iq }}</td>
+                                            {{-- <td class="text-success"> {{ $score->score_question_iq }}</td> --}}
                                             <td class="text-success"> {{ $score->score_question_personal }}</td>
                                             <td>
                                                 <span class="badge badge-{{ $score->status == 'lolos' ? 'success':'' }}{{ $score->status == 'tidak' ? 'danger':'' }}">{{ $score->status }}</span>
@@ -132,16 +132,16 @@
                                             <td>
                                                 <div class="d-flex justify-content-end">
                                                     @if ($score->status == null)
-                                                        <a href="{{ route('scores.status', $score->id) }}?status=lolos"
+                                                        <a href="{{ route('scorePersonal.status', $score->id) }}?status=lolos"
                                                             class="btn btn-success btn-icon-text p-2">
                                                                 <i class="icon-check btn-icon-prepend"></i> Lolos
                                                         </a>
-                                                        <a href="{{ route('scores.status', $score->id) }}?status=tidak"
+                                                        <a href="{{ route('scorePersonal.status', $score->id) }}?status=tidak"
                                                             class="btn btn-warning mx-1 btn-icon-text p-2">
                                                                 <i class="icon-close btn-icon-prepend"></i> Tidak Lolos
                                                         </a>
                                                     @endif
-                                                    <button formaction="{{ route('scores.delete', $score->id) }}" class="btn ms-1 btn-danger btn-icon-text text-white p-2"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
+                                                    <button formaction="{{ route('scorePersonal.delete', $score->id) }}" class="btn ms-1 btn-danger btn-icon-text text-white p-2"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -162,14 +162,14 @@
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">-- Filter Score --</h5>
+            <h5 class="modal-title" id="exampleModalLabel">-- Filter Score Kepribadian --</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form method="GET">
             
                     <div class="row">
-                        <div class="col">
+                        {{-- <div class="col">
                             <div class="row">
                                 <div class="col">
                                     <label>Nilai Tes Iq</label>
@@ -190,7 +190,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                 
                         <div class="row">
                             <div class="col">
@@ -231,8 +231,8 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <button type="submit" formaction="{{ route('scores.index') }}" class="btn btn-primary">Terapkan</button>
-                            <button type="submit" formaction="{{ route('scores.filter-reset') }}" class="btn btn-primary">Atur Ulang</button>
+                            <button type="submit" formaction="{{ route('scorePersonal.index') }}" class="btn btn-primary">Terapkan</button>
+                            <button type="submit" formaction="{{ route('scorePersonal.filter-reset') }}" class="btn btn-primary">Atur Ulang</button>
                         </div>
                         
                 </form>

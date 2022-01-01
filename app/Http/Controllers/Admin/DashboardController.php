@@ -28,6 +28,9 @@ class DashboardController extends Controller
         // })->count();
         $pendaftar = BiodataTwo::whereRelation('academy_year', 'is_active', true)->whereDate('created_at', Carbon::today())->count();
         $totalpendaftar = BiodataTwo::whereRelation('academy_year', 'is_active', true)->count();
+        $sangatmampu = BiodataOne::where('family', 'sangat-mampu')->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
+        $mampu = BiodataOne::where('family', 'mampu')->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
+        $tidakmampu = BiodataOne::where('family', 'tidak-mampu')->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
 
         $lolos = Interview::with(['academy_year'=>function($query){
             $query->where('is_active','=', true);
@@ -80,6 +83,9 @@ class DashboardController extends Controller
             'label' => $label,
             'tahunIni' => $tahunIni,
             'tahunLalu' => $tahunLalu,
+            'sangatmampu' => $sangatmampu,
+            'mampu' => $mampu,
+            'tidakmampu' => $tidakmampu,
         ]);
     }
 }

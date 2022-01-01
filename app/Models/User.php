@@ -26,6 +26,7 @@ class User extends Authenticatable
         'last_login'
     ];
 
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -58,6 +59,16 @@ class User extends Authenticatable
     public function score()
     {
         return $this->hasOne(Score::class, 'user_id');
+    }
+
+    public function scoreIq()
+    {
+        return $this->hasOne(ScoreIq::class, 'user_id');
+    }
+
+    public function scorePersonal()
+    {
+        return $this->hasOne(ScorePersonal::class, 'user_id');
     }
 
     public function video()
