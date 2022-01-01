@@ -15,9 +15,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('scores.index') }}">
-                    <i class="menu-icon  mdi mdi-numeric-9-plus-box-multiple-outline "></i>
-                    <span class="menu-title">Nilai Tes</span>
+                <a class="nav-link" href="{{ route('scoreIq.index') }}">
+                    <i class="menu-icon  mdi mdi-brain"></i>
+                    <span class="menu-title">Nilai Tes IQ</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('scorePersonal.index') }}">
+                    <i class="menu-icon  mdi mdi-clipboard-account-outline "></i>
+                    <span class="menu-title">Nilai Tes Kepribadian</span>
                 </a>
             </li>
             <li class="nav-item">

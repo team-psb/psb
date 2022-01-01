@@ -84,7 +84,7 @@ class AuthController extends Controller
         $no_wa= $request->get('no_wa');
         $no = str_split($no_wa, 3);
 
-        $date=$request->get('age');
+        $date = $request->get('age');
 
         $age = Carbon::parse($date)->age;
 

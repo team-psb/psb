@@ -42,4 +42,9 @@ class BiodataOne extends Model
     {
         return $this->belongsTo(Stage::class, 'stage_id', 'id');
     }
+
+    public function biodataTwo()
+    {
+        return $this->hasMany(BiodataTwo::class, 'user_id', 'user_id');
+    }
 }

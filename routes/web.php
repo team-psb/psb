@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ScoreController;
 use App\Http\Controllers\Admin\PassController;
 use App\Http\Controllers\Admin\InterviewController;
+use App\Http\Controllers\Admin\ScoreIqController;
+use App\Http\Controllers\Admin\ScorePersonalController;
 use App\Http\Controllers\Admin\VideoController as AdminVideoController;
 use App\Http\Controllers\Exam\TestController;
 use App\Http\Controllers\Exam\VideoController;
@@ -111,14 +113,23 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/biodatas/filter/reset', [BiodataController::class, 'filterreset'])->name('biodatas.filter-reset');
     Route::get('/biodatas/export/data', [BiodataController::class, 'export'])->name('biodatas.export');
 
-    Route::get('/scores', [ScoreController::class, 'index'])->name('scores.index');
-    Route::get('/scores/{id}/set-status', [ScoreController::class, 'setStatus'])->name('scores.status');
-    Route::post('/scores/delete/{id}', [ScoreController::class, 'delete'])->name('scores.delete');
-    Route::post('/scores/delete', [ScoreController::class, 'deleteAll'])->name('scores.deleteAll');
-    Route::post('/scores/pass/all', [ScoreController::class, 'passAll'])->name('scores.passAll');
-    Route::post('/scores/nonpass/all', [ScoreController::class, 'nonpassAll'])->name('scores.nonpassAll');
-    Route::get('/scores/filter/reset', [ScoreController::class, 'filterreset'])->name('scores.filter-reset');
-    Route::get('/scores/export', [ScoreController::class, 'export'])->name('scores.export');
+    Route::get('/scoreIq', [ScoreIqController::class, 'index'])->name('scoreIq.index');
+    Route::get('/scoreIq/{id}/set-status', [ScoreIqController::class, 'setStatus'])->name('scoreIq.status');
+    Route::post('/scoreIq/delete/{id}', [ScoreIqController::class, 'delete'])->name('scoreIq.delete');
+    Route::post('/scoreIq/delete', [ScoreIqController::class, 'deleteAll'])->name('scoreIq.deleteAll');
+    Route::post('/scoreIq/pass/all', [ScoreIqController::class, 'passAll'])->name('scoreIq.passAll');
+    Route::post('/scoreIq/nonpass/all', [ScoreIqController::class, 'nonpassAll'])->name('scoreIq.nonpassAll');
+    Route::get('/scoreIq/filter/reset', [ScoreIqController::class, 'filterreset'])->name('scoreIq.filter-reset');
+    Route::get('/scoreIq/export', [ScoreIqController::class, 'export'])->name('scoreIq.export');
+
+    Route::get('/scorePersonal', [ScorePersonalController::class, 'index'])->name('scorePersonal.index');
+    Route::get('/scorePersonal/{id}/set-status', [ScorePersonalController::class, 'setStatus'])->name('scorePersonal.status');
+    Route::post('/scorePersonal/delete/{id}', [ScorePersonalController::class, 'delete'])->name('scorePersonal.delete');
+    Route::post('/scorePersonal/delete', [ScorePersonalController::class, 'deleteAll'])->name('scorePersonal.deleteAll');
+    Route::post('/scorePersonal/pass/all', [ScorePersonalController::class, 'passAll'])->name('scorePersonal.passAll');
+    Route::post('/scorePersonal/nonpass/all', [ScorePersonalController::class, 'nonpassAll'])->name('scorePersonal.nonpassAll');
+    Route::get('/scorePersonal/filter/reset', [ScorePersonalController::class, 'filterreset'])->name('scorePersonal.filter-reset');
+    Route::get('/scorePersonal/export', [ScorePersonalController::class, 'export'])->name('scorePersonal.export');
 
     Route::get('/videos', [AdminVideoController::class, 'index'])->name('videos.index');
     // Route::get('videos/{id}/set-status', [AdminVideoController::class, 'setStatus'])->name('videos.status');

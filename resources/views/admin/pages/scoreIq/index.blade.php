@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Nilai Tes Pendaftar')
+@section('title', 'Nilai Tes IQ Pendaftar')
 
 @section('content')
 <div class="main-panel">
@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                                 <div class="btn-group dropleft d-inline float-right">
-                                    <a href="{{ route('scores.export') }}" class="btn btn-primary btn-icon-text p-2">
+                                    <a href="{{ route('scoreIq.export') }}" class="btn btn-primary btn-icon-text p-2">
                                         <i class="ti-export btn-icon-prepend"></i> Export Excel
                                     </a>
                                     <button type="button" class="btn btn-info btn-icon-text p-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -68,9 +68,9 @@
                         </div>
                         <form method="POST">
                             @csrf
-                            <button class="d-none" formaction="{{ route('scores.passAll') }}" id="lolos2"></button>
-                            <button class="d-none" formaction="{{ route('scores.nonpassAll') }}" id="no-lolos2"></button>
-                            <button class="d-none" formaction="{{ route('scores.deleteAll') }}" id="del2"></button>
+                            <button class="d-none" formaction="{{ route('scoreIq.passAll') }}" id="lolos2"></button>
+                            <button class="d-none" formaction="{{ route('scoreIq.nonpassAll') }}" id="no-lolos2"></button>
+                            <button class="d-none" formaction="{{ route('scoreIq.deleteAll') }}" id="del2"></button>
                             <div class="table-responsive">
                                 <table id="myTable" class="table table-hover">
                                     <thead>
@@ -132,16 +132,16 @@
                                             <td>
                                                 <div class="d-flex justify-content-end">
                                                     @if ($score->status == null)
-                                                        <a href="{{ route('scores.status', $score->id) }}?status=lolos"
+                                                        <a href="{{ route('scoreIq.status', $score->id) }}?status=lolos"
                                                             class="btn btn-success btn-icon-text p-2">
                                                                 <i class="icon-check btn-icon-prepend"></i> Lolos
                                                         </a>
-                                                        <a href="{{ route('scores.status', $score->id) }}?status=tidak"
+                                                        <a href="{{ route('scoreIq.status', $score->id) }}?status=tidak"
                                                             class="btn btn-warning mx-1 btn-icon-text p-2">
                                                                 <i class="icon-close btn-icon-prepend"></i> Tidak Lolos
                                                         </a>
                                                     @endif
-                                                    <button formaction="{{ route('scores.delete', $score->id) }}" class="btn ms-1 btn-danger btn-icon-text text-white p-2"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
+                                                    <button formaction="{{ route('scoreIq.delete', $score->id) }}" class="btn ms-1 btn-danger btn-icon-text text-white p-2"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -231,8 +231,8 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <button type="submit" formaction="{{ route('scores.index') }}" class="btn btn-primary">Terapkan</button>
-                            <button type="submit" formaction="{{ route('scores.filter-reset') }}" class="btn btn-primary">Atur Ulang</button>
+                            <button type="submit" formaction="{{ route('scoreIq.index') }}" class="btn btn-primary">Terapkan</button>
+                            <button type="submit" formaction="{{ route('scoreIq.filter-reset') }}" class="btn btn-primary">Atur Ulang</button>
                         </div>
                         
                 </form>
