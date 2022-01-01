@@ -114,6 +114,15 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/biodatas/filter/reset', [BiodataController::class, 'filterreset'])->name('biodatas.filter-reset');
     Route::get('/biodatas/export/data', [BiodataController::class, 'export'])->name('biodatas.export');
 
+    Route::get('/scores', [ScoreController::class, 'index'])->name('scores.index');
+    Route::get('/scores/{id}/set-status', [ScoreController::class, 'setStatus'])->name('scores.status');
+    Route::post('/scores/delete/{id}', [ScoreController::class, 'delete'])->name('scores.delete');
+    Route::post('/scores/delete', [ScoreController::class, 'deleteAll'])->name('scores.deleteAll');
+    Route::post('/scores/pass/all', [ScoreController::class, 'passAll'])->name('scores.passAll');
+    Route::post('/scores/nonpass/all', [ScoreController::class, 'nonpassAll'])->name('scores.nonpassAll');
+    Route::get('/scores/filter/reset', [ScoreController::class, 'filterreset'])->name('scores.filter-reset');
+    Route::get('/scores/export', [ScoreController::class, 'export'])->name('scores.export');
+    
     Route::get('/scoreIq', [ScoreIqController::class, 'index'])->name('scoreIq.index');
     Route::get('/scoreIq/{id}/set-status', [ScoreIqController::class, 'setStatus'])->name('scoreIq.status');
     Route::post('/scoreIq/delete/{id}', [ScoreIqController::class, 'delete'])->name('scoreIq.delete');

@@ -85,7 +85,7 @@
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Nilai Iq</th>
-                                            <th>Nilai Kepribadian</th>
+                                            {{-- <th>Nilai Kepribadian</th> --}}
                                             <th>Status</th>
                                             <th width="10%">Action</th>
                                         </tr>
@@ -125,7 +125,7 @@
                                                 </a>
                                             </td>
                                             <td class="text-success"> {{ $score->score_question_iq }}</td>
-                                            <td class="text-success"> {{ $score->score_question_personal }}</td>
+                                            {{-- <td class="text-success"> {{ $score->score_question_personal }}</td> --}}
                                             <td>
                                                 <span class="badge badge-{{ $score->status == 'lolos' ? 'success':'' }}{{ $score->status == 'tidak' ? 'danger':'' }}">{{ $score->status }}</span>
                                             </td>
@@ -162,7 +162,7 @@
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">-- Filter Data Penduduk --</h5>
+            <h5 class="modal-title" id="exampleModalLabel">-- Filter Score IQ --</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -194,7 +194,7 @@
                 
                         <div class="row">
                             <div class="col">
-                                <div class="row">
+                                {{-- <div class="row">
                                     <div class="col">
                                         <label>Nilai Tes Kepribadian</label>
                                     </div>
@@ -212,7 +212,7 @@
                                             <input type="number" class="form-control" name="score_test_personal_max" placeholder="MAX" value="{{ request()->get('score_test_personal_max') }}">
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                     
                                 <div class="row">
                                     <div class="col">

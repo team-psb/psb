@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Stage;
-use App\Models\Score;
-use Maatwebsite\Excel\Excel;
-
+use App\Models\ScoreIq;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ScoreIqExport;
 class ScoreIqController extends Controller
 {
     public function index()
@@ -15,11 +15,11 @@ class ScoreIqController extends Controller
         $stages = Stage::get();
         
         if (request()->get('stage_id') && request()->get('stage_id') != null){
-            $data = Score::with(['academy_year'=>function($query){
+            $data = ScoreIq::with(['academy_year'=>function($query){
                 $query->where('stage_id','=', request()->get('stage_id'));
             },'user.biodataOne'])->orderBy('id','desc');
         }else {
-            $data = Score::with(['academy_year'=>function($query){
+            $data = ScoreIq::with(['academy_year'=>function($query){
                 $query->where('is_active','=', true);
             },'user.biodataOne'])->orderBy('id','desc');
         }
@@ -29,10 +29,6 @@ class ScoreIqController extends Controller
             $data = $data->whereBetween('score_question_iq',[request()->get('score_test_iq_min'),request()->get('score_test_iq_max')]);
         }
 
-        if((request()->get('score_test_personal_min') && request()->get('score_test_personal_min') != null) && (request()->get('score_test_personal_max') && request()->get('score_test_personal_max') != null)){
-            $data = $data->whereBetween('score_question_personal',[request()->get('score_test_personal_min'),request()->get('score_test_personal_max')]);
-        }
-
         $data = $data->get();
         $scores = $data->where('academy_year', '!=', null);
         return view('admin.pages.scoreIq.index',compact('scores', 'stages'));
@@ -40,7 +36,7 @@ class ScoreIqController extends Controller
 
     public function delete($id)
     {
-        $data = Score::findOrFail($id);
+        $data = ScoreIq::findOrFail($id);
         $data->delete();
         activity()->log('Menghapus tes nilai id '.$id);
 
@@ -53,11 +49,11 @@ class ScoreIqController extends Controller
             'status' => 'required|in:lolos,tidak'
         ]);
 
-        $item = Score::findOrFail($id);
+        $item = ScoreIq::findOrFail($id);
         $item->status = $request->status;
         $item->save();
 
-        return redirect()->route('scores.index')->with('success-edit', 'Berhasil Mengganti Status Data');
+        return redirect()->route('scoreIq.index')->with('success-edit', 'Berhasil Mengganti Status Data');
     }
 
     public function passAll(Request $request)
@@ -65,10 +61,10 @@ class ScoreIqController extends Controller
         $ids=$request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
-                Score::find($id)->update(['status'=>'lolos']);
+                ScoreIq::find($id)->update(['status'=>'lolos']);
             }
 
-            return redirect()->route('scores.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
+            return redirect()->route('scoreIq.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
             return redirect()->back();
         }
@@ -79,10 +75,10 @@ class ScoreIqController extends Controller
         $ids=$request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
-                Score::find($id)->update(['status'=>'tidak']);
+                ScoreIq::find($id)->update(['status'=>'tidak']);
             }
 
-            return redirect()->route('scores.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
+            return redirect()->route('scoreIq.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
             return redirect()->back();
         }
@@ -94,11 +90,11 @@ class ScoreIqController extends Controller
         
         if ($ids != null) {
             foreach ($ids as $id) {
-                Score::find($id)->delete();
+                ScoreIq::find($id)->delete();
             }
         activity()->log('Menghapus semua data tes nilai');
 
-            return redirect()->route('scores.index')->with('success-delete','Berhasil Menghapus Semua Status Data');
+            return redirect()->route('scoreIq.index')->with('success-delete','Berhasil Menghapus Semua Status Data');
         }else{
             return redirect()->back();
         }
@@ -111,11 +107,11 @@ class ScoreIqController extends Controller
 
     public function filterreset()
     {
-        return redirect()->route('scores.index');
+        return redirect()->route('scoreIq.index');
     }
 
     public function export() 
     {
-        return Excel::download(new ScoreExport, 'data nilai.xlsx');
+        return Excel::download(new ScoreIqExport, 'data nilai iq.xlsx');
     }
 }
