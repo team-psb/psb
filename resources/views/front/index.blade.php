@@ -2,6 +2,10 @@
 
 @section('title', 'Dashboard')
 
+@push('end-style')
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+@endpush
+
 @section('hero')
   <div class="main-content">
       <div class="py-5">
@@ -24,7 +28,9 @@
             <div class="section-body py-4">
               <div class="row py-1">
                 <div class="col-12 mb-4">
-                    <div class="hero text-white text-center
+                    <div  data-aos="fade-up"
+                          data-aos-duration="1000"
+                          class="hero text-white text-center
                                 @if (isset($tahap1) && $tahap1->status == null || isset($tahap2) && $tahap2->status == null || isset($tahap3) && $tahap3->status == null || isset($tahap4) && $tahap4->status == null )
                                 bg-warning                      
                                 @endif
@@ -114,7 +120,12 @@
                 </div>
                 
                 {{-- Dekstop --}}
-                <div class="col-lg-4 col-md-6 col-12 d-none d-md-none d-lg-block">
+                <div  class="col-lg-4 col-md-6 col-12 d-none d-md-none d-lg-block"
+                      data-aos="fade-up"
+                      data-aos-offset="100"
+                      data-aos-delay="400"
+                      data-aos-duration="1000"
+                >
                   <div class="card card-statistic-1">
                       <div class="card-icon bg-danger">
                       <i class="far fa-newspaper"></i>
@@ -129,7 +140,12 @@
                       </div>
                   </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-md-none d-lg-block">
+                <div  class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-md-none d-lg-block" 
+                      data-aos="fade-up"
+                      data-aos-offset="100"
+                      data-aos-delay="600"
+                      data-aos-duration="1000"
+                >
                   <div class="card card-statistic-1">
                       <div class="card-icon bg-warning">
                       <i class="fas fa-question-circle"></i>
@@ -144,7 +160,12 @@
                       </div>
                   </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-md-none d-lg-block">
+                <div  class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-md-none d-lg-block" 
+                      data-aos="fade-up"
+                      data-aos-offset="100"
+                      data-aos-delay="800"
+                      data-aos-duration="1000"
+                >
                   <div class="card card-statistic-1">
                       <div class="card-icon bg-primary">
                       <i class="fas fa-user"></i>
@@ -202,170 +223,21 @@
     <div class="container">
       <section class="section mt-5 pt-5" >
         <div class="section-body">
-          <h1 class="px-0 mb-3 poppins pb-2 col-10 col-sm-6 col-md-5 col-lg-4 col-xl-3 rounded informasi"><i class="fa fa-book ico"></i> Tes Anda</h1>
-          <div class="row py-3">
-            {{-- <div
-                class="
-                    col-md-12 col-sm-6
-                    d-flex
-                    align-items-center
-                    justify-content-around
-                    position-relative
-                "
-                id="alur"
-            >
-                <div class="position-relative">
-                    <p
-                        class="
-                            alur-text
-                        "
-                    >
-                        1. Daftar Akun dan Mengisi Formulir Pendaftaran
-                    </p>
-                    <img
-                        src="{{ asset('assets/img/daftar.png') }}"
-                        alt="daftar"
-                        width="90px"
-                        class="img-fluid alur_image_1"
-                    />
-                </div>
-                <div class="position-relative">
-                    <p
-                        class="
-                            alur-text2
-                        "
-                    >
-                        2. Melakukan Tes IQ dan Tes Kepribadian
-                    </p>
-                    <img
-                        src="{{ asset('assets/img/tes.png') }}"
-                        alt="tes"
-                        width="90px"
-                        class="img-fluid alur_image_2"
-                    />
-                </div>
-                <div class="position-relative">
-                    <p
-                        class="
-                            alur-text3
-                        "
-                    >
-                        3. Selanjutnya Membuat dan Upload Video
-                    </p>
-                    <img
-                        src="{{ asset('assets/img/video.png') }}"
-                        alt="daftar"
-                        width="90px"
-                        class="img-fluid alur_image_3"
-                    />
-                    
-                </div>
-                <div class="position-relative">
-                    <p
-                        class="
-                            alur-text4
-                        "
-                    >
-                        4. Melakukan Tahapan Tes Wawancara
-                    </p>
-                    <img
-                        src="{{ asset('assets/img/wawancara.png') }}"
-                        alt="tes"
-                        width="90px"
-                        class="img-fluid alur_image_2"
-                    />
-                </div>
-                <div class="position-relative">
-                  <p
-                      class="
-                          alur-text5
-                      "
-                  >
-                      5. Pengumuman dan tunggu konfirmasi dari
-                        panitia
-                  </p>
-                  <img
-                      src="{{ asset('assets/img/lolos.png') }}"
-                      alt="tes"
-                      width="90px"
-                      class="img-fluid alur_image_2"
-                  />
-              </div>
-            </div> --}}
-
-            {{-- <div
-                class="
-                    col-md-12 col-sm-12
-                    d-flex
-                    align-items-center
-                    justify-content-between
-                    position-relative
-                "
-                id="alur"
-            >
-                <div class="position-relative">
-                    <p
-                        class="alur-text1"
-                    >
-                        1. Daftar Akun dan Mengisi Formulir Pendaftaran
-                    </p>
-                    <img
-                        src="{{ asset('assets/img/daftar.png') }}"
-                        alt="tes"
-                        class="img-fluid alur_image_1"
-                    />
-                </div>
-                <div class="position-relative">
-                    <p
-                        class="alur-text2"
-                    >
-                        2. Melakukan Tes IQ dan Tes Kepribadian
-                    </p>
-                    <img
-                        src="{{ asset('assets/img/tes.png') }}"
-                        alt="tes"
-                        class="img-fluid alur_image_2"
-                    />
-                </div>
-                <div class="position-relative">
-                    <p
-                        class="alur-text3"
-                    >
-                        3. Selanjutnya Membuat dan Upload Video
-                    </p>
-                    <img
-                        src="{{ asset('assets/img/video.png') }}"
-                        alt="daftar"
-                        class="img-fluid alur_image_3"
-                    />
-                </div>
-                <div class="position-relative">
-                    <p
-                        class="alur-text4"
-                    >
-                        4. Melakukan Tes IQ dan Tes Kepribadian
-                    </p>
-                    <img
-                        src="{{ asset('assets/img/wawancara.png') }}"
-                        alt="tes"
-                        class="img-fluid alur_image_4"
-                    />
-                </div>
-                <div class="position-relative">
-                    <p
-                        class="alur-text5"
-                    >
-                        5. Pengumuman dan tunggu konfirmasi dari
-                        panitia
-                    </p>
-                    <img
-                        src="{{ asset('assets/img/daftar.png') }}"
-                        alt="tes"
-                        class="img-fluid alur_image_5"
-                    />
-                </div>
-            </div> --}}
-
+          <h1 class="px-0 mb-3 poppins pb-2 col-10 col-sm-6 col-md-5 col-lg-4 col-xl-3 rounded informasi"
+              data-aos="fade-right"
+              data-aos-offset="200"
+              data-aos-delay="100"
+              data-aos-duration="1000"
+          >
+            <i class="fa fa-book ico"></i>
+            Tes Anda
+          </h1>
+          <div  class="row py-3"
+                data-aos="fade-up"
+                data-aos-offset="200"
+                data-aos-delay="100"
+                data-aos-duration="1000"
+          >
             <div
                 class="
                     col-md-12 col-sm-12
@@ -373,7 +245,7 @@
                     align-items-center
                     justify-content-around
                     position-relative
-                "
+                    "
                 id="alur"
             >
                 <div class="position-relative">
@@ -418,7 +290,7 @@
                             alur-text3
                         "
                     >
-                        3. Selanjutnya Membuat dan Upload Video
+                        3. Membuat dan Upload Video
                     </p>
                     <img
                         src="{{ asset('assets/img/video.png') }}"
@@ -435,7 +307,7 @@
                             alur-text4
                         "
                     >
-                        4. Tes Wawancara
+                        4. Melakukan Tes Wawancara
                     </p>
                     <img
                         src="{{ asset('assets/img/wawancara.png') }}"
@@ -452,8 +324,8 @@
                             alur-text5
                         "
                     >
-                        5. Pengumuman dan tunggu konfirmasi dari
-                        panitia
+                        5. Tunggu konfirmasi dari
+                        panitia dan Pengumuman 
                     </p>
                     <img
                         src="{{ asset('assets/img/lolos.png') }}"
@@ -464,7 +336,12 @@
                 </div>
             </div>
           </div>
-          <div class="row">
+            <div  class="row"
+                  data-aos="fade-up"
+                  data-aos-offset="200"
+                  data-aos-delay="100"
+                  data-aos-duration="1000"
+          >
             <div class="col-12">
               @if ($biodata1->count() > 0 )
               <table class="table table-bordered table-hover text-center">
@@ -679,21 +556,25 @@
       {{-- Information Card --}}
       <section class="section mt-5 pt-5">
         <div class="section-body">
-          <h1 class="px-0 mb-3 poppins pb-2 col-10 col-sm-6 col-md-5 col-lg-4 col-xl-3 rounded informasi"><i class="fas fa-newspaper" style="font-size: 40px;"></i> Informasi</h1>
+          <h1 class="px-0 mb-3 poppins pb-2 col-10 col-sm-6 col-md-5 col-lg-4 col-xl-3 rounded informasi"
+              data-aos="fade-right"
+              data-aos-offset="100"
+              data-aos-delay="100"
+              data-aos-duration="1000"
+          >
+            <i class="fas fa-newspaper" style="font-size: 40px;"></i>
+            Informasi
+          </h1>
             <div class="row">
-                <div class="d-none d-lg-inline">
-                  <img
-                      src="{{ asset('assets/logo-bg.png') }}"
-                      alt="logo"
-                      class="position-absolute img-fluid"
-                      width="1100"
-                      style="z-index: -1; top: 0px; right: 600px"
-                  />
-                </div>
+                @php $aos_delay = 0; @endphp
                 @forelse ($schdules->take(3) as $schdule)
                 <div class="col-12 col-sm-6 col-lg-4">
-                  <div class="card">
-                    <div class="card-body"> 
+                  <div  class="card"
+                        data-aos="fade-up"
+                        data-aos-offset="200"
+                        data-aos-delay="{{ $aos_delay+= 200 }}"
+                        data-aos-duration="1000">
+                    <div  class="card-body"> 
                       <div class="d-flex justify-content-between mb-2">
                         <p class="text-muted poppins font-italic">{{ $schdule->created_at->format('d-m-Y') }}</p>
                         <div class="card-header-action">
@@ -722,3 +603,80 @@
       </section>
     </div>
 @endsection
+
+@push('end-script')
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
+<script>
+    //GSAP
+    gsap.from(".alur_image_1", {
+        delay: 4,
+        duration: 2,
+        y: -100,
+        opacity: 0,
+        ease: "bounce",
+    });
+    gsap.from(".alur_image_2", {
+        delay: 4.5,
+        duration: 2,
+        y: 100,
+        opacity: 0,
+        ease: "bounce",
+    });
+    gsap.from(".alur_image_3", {
+        delay: 5,
+        duration: 2,
+        y: -100,
+        opacity: 0,
+        ease: "bounce",
+    });
+    gsap.from(".alur_image_4", {
+        delay: 5.5,
+        duration: 2,
+        y: 100,
+        opacity: 0,
+        ease: "bounce",
+    });
+    gsap.from(".alur_image_5", {
+        delay: 6,
+        duration: 2,
+        y: -100,
+        opacity: 0,
+        ease: "bounce",
+    });
+    gsap.from(".alur-text", {
+        delay: 7,
+        duration: 1,
+        scale: 0,
+        opacity: 0,
+    });
+    gsap.from(".alur-text2", {
+        delay: 7,
+        duration: 1,
+        scale: 0,
+        opacity: 0,
+    });
+    gsap.from(".alur-text3", {
+        delay: 7,
+        duration: 1,
+        scale: 0,
+        opacity: 0,
+    });
+    gsap.from(".alur-text4", {
+        delay: 7,
+        duration: 1,
+        scale: 0,
+        opacity: 0,
+    });
+    gsap.from(".alur-text5", {
+        delay: 7,
+        duration: 1,
+        scale: 0,
+        opacity: 0,
+    });
+</script>
+@endpush

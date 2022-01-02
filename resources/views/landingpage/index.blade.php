@@ -590,37 +590,22 @@
                                                             Lahir
                                                             </label
                                                         >
-<<<<<<< HEAD
-=======
                                                         <div class="d-flex">
-                                                            <select class="form-select rounded-pill" name="day" id="dobday" required></select>
-                                                            <select class="form-select rounded-pill" name="month" id="dobmonth" required></select>
-                                                            <select class="form-select rounded-pill" name="year" id="dobyear" required></select>
-                                                        </div>
-                                                        {{-- <input
-                                                            type="date"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                                @error('age') is-invalid @enderror
-                                                            "
+                                                            <select class="form-select rounded-pill"
+                                                            name="day" id="dobday"required
                                                             style="
                                                                 font-size: 15px;
                                                                 color: #145560;
-                                                            "
-                                                            id="birth_date"
-                                                            name="age"
-                                                            required
-                                                            @error('age') is-invalid @enderror
-                                                            value="{{ old('age') }}"
-                                                        />
-                                                        @error('age')
-                                                            <div class="invalid-feedback">
-                                                                {{ $message }} 
-                                                            </div>
-                                                        @enderror --}}
->>>>>>> 14035ba542aec48d9a2470f28e152a4c0e841425
+                                                            "></select>
+                                                            <select class="form-select rounded-pill" name="month" id="dobmonth" required style="
+                                                                font-size: 15px;
+                                                                color: #145560;
+                                                            "></select>
+                                                            <select class="form-select rounded-pill" name="year" id="dobyear" required style="
+                                                                font-size: 15px;
+                                                                color: #145560;
+                                                            "></select>
+                                                        </div>
                                                     </div>
                                                     <div
                                                         class="
@@ -2014,15 +1999,12 @@
         <script src="./assets/vendor/jquery/jquery.picky.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
-
-<<<<<<< HEAD
-=======
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
 			jQuery.extend({
-	
+
 			dobPicker: function (params) {
-	
+
 				// apply defaults
 				if (typeof(params.dayDefault) == "undefined") {
 					params.dayDefault = "Day";
@@ -2039,12 +2021,12 @@
 				if (typeof(params.maximumAge) == "undefined") {
 					params.maximumAge = 50;
 				}
-	
+
 				// find elements
 				var dayElement = $(params.daySelector);
 				var monthElement = $(params.monthSelector);
 				var yearElement = $(params.yearSelector);
-	
+
 				// set days
 				dayElement.append("<option value=\"\">" + params.dayDefault + "</option>");
 				for (var i = 1; i <= 31; i++) {
@@ -2052,7 +2034,7 @@
 					var value = i > 9 ? "" + i : "0" + i;
 					dayElement.append("<option value=\"" + value + "\">" + day + "</option>");
 				}
-	
+
 				// set months
 				var months = [
 					"Januari",
@@ -2074,7 +2056,7 @@
 					var value = i > 9 ? "" + i : "0" + i;
 					monthElement.append("<option value=\"" + value + "\">" + month + "</option>");
 				}
-	
+
 				// set years
 				var now = (new Date()).getFullYear();
 				var minimum = now - params.minimumAge;
@@ -2085,16 +2067,16 @@
 					var value = year;
 					yearElement.append("<option value=\"" + value + "\">" + year + "</option>");
 				}
-	
+
 				// disable months
 				dayElement.change(function () {
-	
+
 					monthElement.selectedIndex = 0;
 					yearElement.selectedIndex = 0;
 					yearElement.find("option").removeAttr("disabled");
-	
+
 					var day = parseInt(dayElement.val());
-	
+
 					if (day >= 1 && day <= 29) {
 						monthElement.find("option").removeAttr("disabled");
 					} else if (day == 30) {
@@ -2108,18 +2090,18 @@
 						monthElement.find("option[value=\"09\"]").attr("disabled", "disabled");
 						monthElement.find("option[value=\"11\"]").attr("disabled", "disabled");
 					}
-	
+
 				});
-	
+
 				// disable years
 				monthElement.change(function () {
-	
+
 					yearElement.selectedIndex = 0;
 					yearElement.find("option").removeAttr("disabled");
-	
+
 					var day = parseInt(dayElement.val());
 					var month = parseInt(monthElement.val());
-	
+
 					if (day == 29 && month == 2) {
 						yearElement.find("option").each(function (index, value) {
 							if (index > 0) {
@@ -2131,11 +2113,11 @@
 							}
 						});
 					}
-	
+
 				});
-	
+
 			}
-	
+
 			});
 		</script>
         <script>
@@ -2152,9 +2134,7 @@
 				});
 			});
 		</script>
-        
-        
->>>>>>> 14035ba542aec48d9a2470f28e152a4c0e841425
+
         <script>
             /* GSAP */
 

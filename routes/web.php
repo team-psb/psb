@@ -50,6 +50,9 @@ Route::group(['prefix' => '', 'middleware' => ['guest']], function () {
     Route::get('/information/{id}', [LandingController::class, 'information'])->name('information');
 });
 
+//back-forgot-password
+Route::get('/', [LandingController::class, 'index'])->name('back');
+
 //user
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){
     Route::get('home', [UserDashboardController::class, 'index'])->name('user-dashboard');
@@ -122,7 +125,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/scores/nonpass/all', [ScoreController::class, 'nonpassAll'])->name('scores.nonpassAll');
     Route::get('/scores/filter/reset', [ScoreController::class, 'filterreset'])->name('scores.filter-reset');
     Route::get('/scores/export', [ScoreController::class, 'export'])->name('scores.export');
-    
+
     Route::get('/scoreIq', [ScoreIqController::class, 'index'])->name('scoreIq.index');
     Route::get('/scoreIq/{id}/set-status', [ScoreIqController::class, 'setStatus'])->name('scoreIq.status');
     Route::post('/scoreIq/delete/{id}', [ScoreIqController::class, 'delete'])->name('scoreIq.delete');

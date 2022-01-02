@@ -2,6 +2,10 @@
 
 @section('title', 'Informasi')
 
+@push('end-style')
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+@endpush  
+
 @section('content')
 <div class="main-content">
   <section class="section">
@@ -15,8 +19,17 @@
             <div class="row">
               <div class="card-body">
                 <div class="col-12">
+                    @php
+                      $aos_delay = 0;
+                    @endphp
                     @forelse ($informations as $information)
-                    <a href="{{ route('user-informasi-detail', $information->id) }}" class="text-decoration-none " style="color:#707070;">
+                    <a  href="{{ route('user-informasi-detail', $information->id) }}" 
+                        class="text-decoration-none " 
+                        style="color:#707070;"
+                        data-aos="fade-up"
+                        data-aos-delay="{{ $aos_delay += 200 }}"
+                        data-aos-duration="1000"
+                    >
                       <div class="card mb-3 shadow-sm">
                         <div class="row no-gutters">
                           <div class="col-md-4">
@@ -44,3 +57,10 @@
   </section>
 </div>
 @endsection
+
+@push('end-script')
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+@endpush
