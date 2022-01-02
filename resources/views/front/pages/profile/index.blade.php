@@ -2,6 +2,10 @@
 
 @section('title', 'Profile')
 
+@push('end-style')
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+@endpush
+
 @section('content')
 <div class="main-content">
     @isset($profile->user->biodataTwo)
@@ -12,7 +16,11 @@
             <a href="{{ route('user-dashboard') }}" class="btn text-white"><i class="fas fa-home"></i> Home</a>
           </div>
           <div class="row mt-5">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div  class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                  data-aos-duration="1000"
+            >
               <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
@@ -77,7 +85,11 @@
                 </tbody>
               </table>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                  data-aos="fade-up"
+                  data-aos-delay="400"
+                  data-aos-duration="1000"
+            >
               <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
@@ -126,7 +138,11 @@
                 </tbody>
               </table>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div  class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                  data-aos-duration="1000"
+            >
               <table class="table table-bordered table-hover" id="nilai">
                 <thead>
                   <tr>
@@ -171,7 +187,11 @@
                 </tbody>
               </table>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div  class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                  data-aos="fade-up"
+                  data-aos-delay="400"
+                  data-aos-duration="1000"
+            >
               <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
@@ -196,7 +216,11 @@
                 </tbody>
               </table>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                  data-aos-duration="1000"
+            >
               <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
@@ -233,7 +257,11 @@
                 </tbody>
               </table>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                  data-aos="fade-up"
+                  data-aos-delay="400"
+                  data-aos-duration="1000"
+            >
               <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
@@ -272,7 +300,11 @@
                 </tbody>
               </table>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div  class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                  data-aos-duration="1000"
+            >
               <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
@@ -314,3 +346,10 @@
     @endisset
 </div>
 @endsection
+
+@push('end-script')
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+@endpush
