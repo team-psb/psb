@@ -46,27 +46,57 @@
 
                                 @if(empty($tahap1) && isset($biodata1))
                                     <div class="hero-inner">
-                                        <h2 class="poppins">Halo Selamat Datang {{ Auth::user()->name }}!</h2>
+                                        <div class="mb-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#FFF323" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z"/>
+                                            </svg>
+                                        </div>
+                                        <h2 class="poppins">Halo, Selamat Datang {{ Auth::user()->name }}!</h2>
                                         <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Pertama</strong> silahkan Anda klik tombol di bawah ini.</p>
                                         <div class="mt-4">
                                             <a href="{{ route('user-first-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                                         </div>
                                     </div>
                                 @elseif(!empty($tahap1) && isset($biodata1) && $tahap1->status == null)
+                                    <div class="mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                        </svg>
+                                    </div>
                                     <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                                     <p class="lead">Anda telah selesai melaksanakan tes <strong class="font-weight-bold">Tahap Pertama</strong>,<br>Anda bisa lanjut mengikuti tes Tahap Kedua jika dinyatakan lolos di tes Tahap Pertama.</p>
                                 @elseif(!empty($tahap2) && isset($tahap1) && $tahap2->status == null)
+                                    <div class="mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                        </svg>
+                                    </div>
                                     <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                                     <p class="lead">Anda telah selesai melaksanakan tes <strong class="font-weight-bold">Tahap Kedua</strong>,<br>Anda bisa lanjut mengikuti tes Tahap Ketiga jika dinyatakan lolos di tes Tahap Kedua.</p>
                                 @elseif(!empty($tahap3) && isset($tahap2) && $tahap3->status == null)
+                                    <div class="mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                        </svg>
+                                    </div>
                                     <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                                     <p class="lead">Anda telah selesai melaksanakan tes <strong class="font-weight-bold">Tahap Ketiga</strong>,<br>Anda bisa lanjut mengikuti tes Tahap Keempat jika dinyatakan lolos di tes Tahap Ketiga.</p>
                                 @elseif(!empty($tahap4) && isset($tahap4) && $tahap4->status == null)
+                                    <div class="mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                        </svg>
+                                    </div>
                                     <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                                     <p class="lead">Anda telah selesai melaksanakan tes <strong class="font-weight-bold">Tahap Keempat</strong>,<br>Anda bisa lanjut mengikuti tes Tahap Kelima jika dinyatakan lolos di tes Tahap Keempat.</p>
                                 @elseif(!empty($tahap1) && $tahap1->status == 'lolos')
 
                                 @if ($tahap1->status == 'lolos' && !isset($tahap2->status))
+                                    <div class="mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#FFF323" class="bi bi-emoji-laughing-fill" viewBox="0 0 16 16">
+                                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5c0 .501-.164.396-.415.235C6.42 6.629 6.218 6.5 6 6.5c-.218 0-.42.13-.585.235C5.164 6.896 5 7 5 6.5 5 5.672 5.448 5 6 5s1 .672 1 1.5zm5.331 3a1 1 0 0 1 0 1A4.998 4.998 0 0 1 8 13a4.998 4.998 0 0 1-4.33-2.5A1 1 0 0 1 4.535 9h6.93a1 1 0 0 1 .866.5zm-1.746-2.765C10.42 6.629 10.218 6.5 10 6.5c-.218 0-.42.13-.585.235C9.164 6.896 9 7 9 6.5c0-.828.448-1.5 1-1.5s1 .672 1 1.5c0 .501-.164.396-.415.235z"/>
+                                        </svg>
+                                    </div>
                                     <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
                                     <p><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
                                     <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Kedua</strong>, silahkan Anda klik tombol di bawah ini.</p>
@@ -74,6 +104,11 @@
                                         <a href="{{ route('user-second-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                                     </div>
                                 @elseif(isset($tahap2->status) && $tahap2->status == 'lolos' && !isset($tahap3->status))
+                                    <div class="mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#FFF323" class="bi bi-emoji-laughing-fill" viewBox="0 0 16 16">
+                                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5c0 .501-.164.396-.415.235C6.42 6.629 6.218 6.5 6 6.5c-.218 0-.42.13-.585.235C5.164 6.896 5 7 5 6.5 5 5.672 5.448 5 6 5s1 .672 1 1.5zm5.331 3a1 1 0 0 1 0 1A4.998 4.998 0 0 1 8 13a4.998 4.998 0 0 1-4.33-2.5A1 1 0 0 1 4.535 9h6.93a1 1 0 0 1 .866.5zm-1.746-2.765C10.42 6.629 10.218 6.5 10 6.5c-.218 0-.42.13-.585.235C9.164 6.896 9 7 9 6.5c0-.828.448-1.5 1-1.5s1 .672 1 1.5c0 .501-.164.396-.415.235z"/>
+                                        </svg>
+                                    </div>
                                     <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
                                     <p><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
                                     <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Ketiga</strong>, silahkan Anda klik tombol di bawah ini.</p>
@@ -81,6 +116,11 @@
                                         <a href="{{ route('user-third-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                                     </div>
                                 @elseif(isset($tahap3->status) && $tahap3->status == 'lolos' && !isset($tahap4->status))
+                                    <div class="mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#FFF323" class="bi bi-emoji-laughing-fill" viewBox="0 0 16 16">
+                                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5c0 .501-.164.396-.415.235C6.42 6.629 6.218 6.5 6 6.5c-.218 0-.42.13-.585.235C5.164 6.896 5 7 5 6.5 5 5.672 5.448 5 6 5s1 .672 1 1.5zm5.331 3a1 1 0 0 1 0 1A4.998 4.998 0 0 1 8 13a4.998 4.998 0 0 1-4.33-2.5A1 1 0 0 1 4.535 9h6.93a1 1 0 0 1 .866.5zm-1.746-2.765C10.42 6.629 10.218 6.5 10 6.5c-.218 0-.42.13-.585.235C9.164 6.896 9 7 9 6.5c0-.828.448-1.5 1-1.5s1 .672 1 1.5c0 .501-.164.396-.415.235z"/>
+                                        </svg>
+                                    </div>
                                     <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
                                     <p><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
                                     <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Keempat</strong>, silahkan Anda klik tombol di bawah ini.</p>
@@ -88,35 +128,60 @@
                                         <a href="{{ route('user-fourth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                                     </div>
                                 @elseif( isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'lolos')
+                                    <div class="mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#FFF323" class="bi bi-emoji-laughing-fill" viewBox="0 0 16 16">
+                                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5c0 .501-.164.396-.415.235C6.42 6.629 6.218 6.5 6 6.5c-.218 0-.42.13-.585.235C5.164 6.896 5 7 5 6.5 5 5.672 5.448 5 6 5s1 .672 1 1.5zm5.331 3a1 1 0 0 1 0 1A4.998 4.998 0 0 1 8 13a4.998 4.998 0 0 1-4.33-2.5A1 1 0 0 1 4.535 9h6.93a1 1 0 0 1 .866.5zm-1.746-2.765C10.42 6.629 10.218 6.5 10 6.5c-.218 0-.42.13-.585.235C9.164 6.896 9 7 9 6.5c0-.828.448-1.5 1-1.5s1 .672 1 1.5c0 .501-.164.396-.415.235z"/>
+                                        </svg>
+                                    </div>
                                     <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
                                     <p><strong>Anda dinyatakan Lolos sebagai Calon Santri Pondok Informatika Al Madinah. </strong></p>
                                     <p class="lead">Untuk informasi selanjutnya akan kami kirim melalui WhatsApp.
                                     </p>
                                 @elseif(isset($tahap4->status) && $tahap4->status == 'lolos' && !isset($tahap5->status))
+                                    <div class="mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#FFF323" class="bi bi-emoji-laughing-fill" viewBox="0 0 16 16">
+                                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5c0 .501-.164.396-.415.235C6.42 6.629 6.218 6.5 6 6.5c-.218 0-.42.13-.585.235C5.164 6.896 5 7 5 6.5 5 5.672 5.448 5 6 5s1 .672 1 1.5zm5.331 3a1 1 0 0 1 0 1A4.998 4.998 0 0 1 8 13a4.998 4.998 0 0 1-4.33-2.5A1 1 0 0 1 4.535 9h6.93a1 1 0 0 1 .866.5zm-1.746-2.765C10.42 6.629 10.218 6.5 10 6.5c-.218 0-.42.13-.585.235C9.164 6.896 9 7 9 6.5c0-.828.448-1.5 1-1.5s1 .672 1 1.5c0 .501-.164.396-.415.235z"/>
+                                        </svg>
+                                    </div>
                                     <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
                                     <p><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
                                     <p class="lead">Untuk tes <strong class="font-weight-bold">Tahap Kelima</strong>, Anda akan kami hubungi untuk melakukan Wawancara.</p>
                                     <div class="mt-4">
-                                        <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes Wawancara</a>
+                                        <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info Tes Wawancara</a>
                                     </div>
                                 @elseif(isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'tidak')
+                                    <div class="mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#FFF323" class="bi bi-emoji-frown-fill" viewBox="0 0 16 16">
+                                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm-2.715 5.933a.5.5 0 0 1-.183-.683A4.498 4.498 0 0 1 8 9.5a4.5 4.5 0 0 1 3.898 2.25.5.5 0 0 1-.866.5A3.498 3.498 0 0 0 8 10.5a3.498 3.498 0 0 0-3.032 1.75.5.5 0 0 1-.683.183zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z"/>
+                                        </svg>
+                                    </div>
                                     <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}!</h2>
                                     <p><strong>Anda dinyatakan Tidak Lolos sebagai Calon Santri Pondok Informatika Al Madinah.</strong></p>
                                 @elseif(isset($tahap1->status) == 'tidak' || isset($tahap2->status) == 'tidak' || isset($tahap4->status) == 'tidak')
+                                    <div class="mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#FFF323" class="bi bi-emoji-frown-fill" viewBox="0 0 16 16">
+                                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm-2.715 5.933a.5.5 0 0 1-.183-.683A4.498 4.498 0 0 1 8 9.5a4.5 4.5 0 0 1 3.898 2.25.5.5 0 0 1-.866.5A3.498 3.498 0 0 0 8 10.5a3.498 3.498 0 0 0-3.032 1.75.5.5 0 0 1-.683.183zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z"/>
+                                        </svg>
+                                    </div>
                                     <h2>Mohon Maaf, {{ Auth::user()->name }}!</h2>
                                     <p><strong>Anda dinyatakan Tidak Lolos ke Tahap selanjutnya.</strong>
                                     </p>
                                 @elseif($tahap4->status == 'lolos' && !isset($tahap5->status))
                                     <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
-                                    <p><strong>Anda dinyatakan Lolos Ketahap berikutnya. </strong></p>
+                                    <p><strong>Anda dinyatakan Lolos ke Tahap berikutnya. </strong></p>
                                     <p class="lead">Untuk tes <strong class="font-weight-bold">Tahap Kelima</strong>, Anda akan kami hubungi untuk melakukan tes Wawancara.</p>
                                     <div class="mt-4">
-                                    <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes Wawancara</a>
+                                    <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info Tes Wawancara</a>
                                     </div>
                                 @endif
                                 @else
-                                <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}!</h2>
-                                <p><strong>Anda dinyatakan Tidak Lolos ke Tahap selanjutnya.</strong></p>
+                                    <div class="mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#FFF323" class="bi bi-emoji-frown-fill" viewBox="0 0 16 16">
+                                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm-2.715 5.933a.5.5 0 0 1-.183-.683A4.498 4.498 0 0 1 8 9.5a4.5 4.5 0 0 1 3.898 2.25.5.5 0 0 1-.866.5A3.498 3.498 0 0 0 8 10.5a3.498 3.498 0 0 0-3.032 1.75.5.5 0 0 1-.683.183zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z"/>
+                                        </svg>
+                                    </div>
+                                    <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}!</h2>
+                                    <p><strong>Anda dinyatakan Tidak Lolos ke Tahap selanjutnya.</strong></p>
                                 @endif
                             </div>
                         </div>
@@ -184,56 +249,35 @@
                         </div>
                         {{-- Mobile --}}
                         <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none">
-                        <a href="{{ route('user-profile') }}">
-                            <div class="card card-statistic-1 d-flex flex-row align-items-center">
-                            <div class="card-icon bg-primary">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <p href="" class="h1 text-primary font-weight-bold"><u>Profile</u></p>
-                            </div>
-                        </a>
+                            <a href="{{ route('user-profile') }}">
+                                <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                                    <div class="card-icon bg-primary">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <p href="" class="h1 text-primary font-weight-bold"><u>Profile</u></p>
+                                </div>
+                            </a>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none">
-                        <a href="{{ route('user-qna') }}">
-                            <div class="card card-statistic-1 d-flex flex-row align-items-center">
-                            <div class="card-icon bg-success">
-                                <i class="fas fa-question-circle"></i>
-                            </div>
-                            <p href="" class="h1 text-success font-weight-bold"><u>Q & A</u></p>
-                            </div>
-                        </a>
+                            <a href="{{ route('user-qna') }}">
+                                <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                                    <div class="card-icon bg-success">
+                                        <i class="fas fa-question-circle"></i>
+                                    </div>
+                                    <p href="" class="h1 text-success font-weight-bold"><u>Q & A</u></p>
+                                </div>
+                            </a>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none">
-                        <a href="{{ route('user-informasi') }}">
-                            <div class="card card-statistic-1 d-flex flex-row align-items-center">
-                            <div class="card-icon bg-warning">
-                                <i class="fas fa-leaf"></i>
-                            </div>
-                            <p class="h1 text-warning font-weight-bold"><u>Informasi</u></p>
-                            </div>
-                        </a>
+                            <a href="{{ route('user-informasi') }}">
+                                <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                                    <div class="card-icon bg-warning">
+                                        <i class="fas fa-leaf"></i>
+                                    </div>
+                                    <p class="h1 text-warning font-weight-bold"><u>Informasi</u></p>
+                                </div>
+                            </a>
                         </div>
-                        @elseif(isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'tidak')
-                            <i class="fas fa-exclamation-triangle pb-3" style="font-size: 72px;"></i>
-                            <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}!</h2>
-                            <p><strong>Anda dinyatakan Tidak Lolos sebagai Calon Santri Pondok Informatika Al Madinah.<strong></p>
-                        @elseif(isset($tahap1->status) == 'tidak' || isset($tahap2->status) == 'tidak' || isset($tahap4->status) == 'tidak')
-                            <i class="fas fa-exclamation-triangle pb-3" style="font-size: 72px;"></i>
-                            <h2>Mohon Maaf, {{ Auth::user()->name }}!</h2>
-                            <p><strong>Anda dinyatakan Tidak Lolos ke Tahap selanjutnya.</strong></p>
-                        @elseif($tahap4->status == 'lolos' && !isset($tahap5->status))
-                            <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
-                            <p><strong>Anda dinyatakan Lolos Ketahap berikutnya.</strong></p>
-                            <p class="lead">untuk tes<strong class="font-weight-bold">Tahap Kelima</strong> anda akan kami hubungi untuk melakukan tes Wawancara.</p>
-                            <div class="mt-4">
-                                <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes wawancara</a>
-                            </div>
-                        @endif
-                        @else
-                            <i class="fas fa-exclamation-triangle pb-3" style="font-size: 72px;"></i>
-                            <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}!</h2>
-                            <p><strong>Anda dinyatakan Tidak Lolos ke Tahap selanjutnya</p>
-                        @endif
                     </div>
                 </div>
             </section>
