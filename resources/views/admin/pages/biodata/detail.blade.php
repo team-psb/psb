@@ -81,7 +81,7 @@
                     <table cellpadding="5">
                         <tr>
                             <td style="width: 280px;">Link Viedo</td>
-                            <td><a href="{{ $biodata->user->video->url }}">{{ $biodata->user->video->url }}</a></td>
+                            <td><a target="blank" href="{{ $biodata->user->video->url }}">{{ $biodata->user->video->url }}</a></td>
                         </tr>
                     </table>
                 </div>
@@ -209,7 +209,7 @@
                     <tr>
                         <td>Durasi Main Game</td>
                         <td>{{ $biodata->game_duration }} &nbsp; Jam</td>
-                    </tr> 
+                    </tr>
                 @endif
                 <tr>
                     <td>Punya Laptop</td>
@@ -237,5 +237,5 @@
             </table>
         </div>
     </div>
-    
+
 </div>

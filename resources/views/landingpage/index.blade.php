@@ -679,7 +679,8 @@
                                                                 px-3
                                                             "
                                                             >No Whatsapp
-                                                            <small style="font-size: 12px;">*mohon di isi denggan no whatsapp aktif yang dapat kami hubungi!.</small>
+                                                            <br>
+                                                            <small style="font-size: 12px;">* Mohon isi dengan nomor Whatsapp aktif yang dapat kami hubungi!.</small>
                                                             </label
                                                         >
                                                         <input
