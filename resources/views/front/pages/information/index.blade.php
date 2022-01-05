@@ -24,13 +24,14 @@
                     @endphp
                     @forelse ($informations as $information)
                     <a  href="{{ route('user-informasi-detail', $information->id) }}" 
-                        class="text-decoration-none " 
-                        style="color:#707070;"
-                        data-aos="fade-up"
-                        data-aos-delay="{{ $aos_delay += 200 }}"
-                        data-aos-duration="1000"
+                        class="text-decoration-none"
                     >
-                      <div class="card mb-3 shadow-sm">
+                      <div  class="card mb-3 shadow-sm"
+                            style="color:#707070;"
+                            data-aos="fade-up"
+                            data-aos-delay="{{ $aos_delay += 200 }}"
+                            data-aos-duration="1000"
+                      >
                         <div class="row no-gutters">
                           <div class="col-md-4">
                             <img src="{{ asset('/storage/'.$information->image) }}" class="card-img" alt="...">
