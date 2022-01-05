@@ -98,22 +98,24 @@
                             <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes wawancara</a>
                             </div>
                         @elseif(isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'tidak')
+                            <i class="fas fa-exclamation-triangle pb-3" style="font-size: 72px;"></i>
                             <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}! .</h2>
                             <p><strong>Anda Dinyatakan Tidak Lolos sebagai calon santri Pondok Informatika Al Madinah</strong></p>
                         @elseif(isset($tahap1->status) == 'tidak' || isset($tahap2->status) == 'tidak' || isset($tahap4->status) == 'tidak')
-                            <h2>Mohon Maaf, {{ Auth::user()->name }}! .</h2>
-                            <p><strong>Anda Dinyatakan Tidak Lolos ke tahap selanjutnya
-                            </p>
+                            <i class="fas fa-exclamation-triangle pb-3" style="font-size: 72px;"></i>
+                            <h2>Mohon Maaf, {{ Auth::user()->name }}!</h2>
+                            <p><strong>Anda Dinyatakan Tidak Lolos ke tahap selanjutnya.</strong></p>
                         @elseif($tahap4->status == 'lolos' && !isset($tahap5->status))
                             <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
                             <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
-                            <p class="lead">untuk  tes <strong class="font-weight-bold">Tahap Kelima</strong> anda akan kami hubungi untuk melakukan tes wawancara</p>
+                            <p class="lead">untuk tes<strong class="font-weight-bold">Tahap Kelima</strong> anda akan kami hubungi untuk melakukan tes wawancara</p>
                             <div class="mt-4">
                             <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes wawancara</a>
                             </div>
                         @endif
                         @else
-                        <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}! .</h2>
+                        <i class="fas fa-exclamation-triangle pb-3" style="font-size: 72px;"></i>
+                        <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}!</h2>
                         <p><strong>Anda Dinyatakan Tidak Lolos ke tahap selanjutnya</p>
                         @endif
                     </div>

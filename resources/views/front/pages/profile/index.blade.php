@@ -152,14 +152,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @if (isset($profile->user->score))
+                  @if (isset($profile->user->scoreIq) || isset($profile->user->scorePersonal))
                     <tr>
                       <th>Tes IQ</th>
-                      <td>{{ $profile->user->score->score_question_iq }}</td>
+                      <td>{{ $profile->user->scoreIq->score_question_iq }}</td>
                     </tr>
                     <tr>
                       <th>Tes Kepribadian</th>
-                      <td>{{ $profile->user->score->score_question_personal }}</td>
+                      <td>{{ $profile->user->scorePersonal->score_question_personal }}</td>
                     </tr>
                   @else
                     <tr>

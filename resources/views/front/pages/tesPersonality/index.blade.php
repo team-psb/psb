@@ -24,7 +24,6 @@
                                         <div class="col">
                                             <p>
                                             <b class="title">{{ $index+1 }}</b>
-                                            <br>
                                             {{ $item->question }}
                                             </p>
                                         </div>
