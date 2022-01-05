@@ -16,12 +16,12 @@
               <div class="card-body">
                   <div class="responsive">
                     @if ($information->video == null)
-                    <img src="{{ asset('/storage/'.$information->image) }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('/storage/'.$information->image) }}" class="card-img-top" alt="...">
                     @else
-                    <iframe class="responsive-iframe" src="{{ $information->video ? $information->video : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="responsive-iframe" src="{{ $information->video ? $information->video : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     @endif
                   </div>
-                  <h5 class="card-title mt-2">{{ $information->title }}</h5>
+                  <h5 class="card-title mt-4">{{ $information->title }}</h5>
                   {{-- <h5 class="card-title">{!! $information->video !!}</h5> --}}
                   <p class="card-text">{!! $information->content !!}</p>
                   <p class="card-text">Dibuat pada : <small class="text-muted">{{ $information->created_at->format('d-m-Y') }}</small></p>

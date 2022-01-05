@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 
 @section('title','Tes Tahap Kelima')
-    
+
 @section('content')
 <div class="main-content">
   <section class="section">
@@ -17,9 +17,9 @@
                         <i class="fas fa-microphone text-dark" style="font-size: 5em;"></i>
                         <h4 class="my-3 poppins text-success">
                           <strong>Selamat <span class="text-uppercase">{{ Auth::user()->name }}! </span> </strong>
-                          <strong>Anda Akan Kami Hubungi Untuk Melakukan Wawancara</strong>
+                          <strong>Anda akan Kami hubungi nanti untuk melakukan Wawancara.</strong>
                         </h4>
-                        <strong class="d-block my-3">Pastikan nomor whatsapp yang ada di profil anda <br> sudah benar dan bisa kami hubungi.</strong>
+                        <strong class="d-block my-3">Pastikan nomor Whatsapp yang ada di Profile Anda <br> sudah benar dan aktif.</strong>
                         <a  href="{{ route('user-dashboard') }}" class="btn btn-success px-3">Kembali Ke Dashboard</a>
                       </div>
                     </div>

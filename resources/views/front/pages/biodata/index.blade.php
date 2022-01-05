@@ -1,7 +1,7 @@
 @extends('front.layouts.exam')
 
 @section('title','Tes Tahap Pertama')
-    
+
 @section('content')
     <style>
       b{
@@ -26,7 +26,7 @@
                     <p>Step 1</p>
                   </div>
                   <div class="stepwizard-step" x-on:click="form1Button()">
-                    <a                   
+                    <a
                       href="#step-2"
                       type="button"
                       :class="{ 'btn btn-primary btn-circle' : form_2 === true }"
@@ -58,7 +58,7 @@
                 </div>
               </div>
               <!-- end step wizard -->
-              <p class="card-text">Silahkan isi form dibawah ini</p>
+              <p class="card-text">Silahkan isi form dibawah ini!</p>
               <div class="card text-left">
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -75,7 +75,7 @@
                     @method("POST")
                     {{-- step-1 --}}
                     <div x-show="form_1">
-  
+
                       <div class="form-group">
                         <label for="exampleInputPassword1"
                           >Tempat Lahir<b>*</b></label
@@ -114,7 +114,7 @@
                         <select name="indonesia_cities_id" class="custom-select" >
                           <template x-for="an in kabupatenids">
                             <option :value="an.id"><span x-html="an.name"></span></option>
-                          </template>											
+                          </template>
                         </select>
                       </div>
                       <button type="button" x-on:click="form1Button()" class="btn btn-primary float-right px-3">
@@ -175,7 +175,7 @@
                             <option value="SMA" >SMA SEDERAJAT</option>
                         </select>
                       </div>
-  
+
                       <div class="form-group">
                       <label for="name_school">Asal Sekolah<b>*</b></label>
                       <input
@@ -200,11 +200,12 @@
                       <div class="form-group">
                         <label for="organization">Pengalaman Organisasi<b>*</b></label>
                         <textarea name="organization" id="" class="form-control h-50"  required>{{ old('organization') }}</textarea>
+                        <small>di isi 'Tidak Ada' jika tidak ada. </small>
                       </div>
                       <div class="form-group">
                         <label for="achievment">Prestasi<b>*</b></label>
                         <textarea name="achievment" id="" class="form-control h-50"  required>{{ old('achievment') }}</textarea>
-                        <small>di isi 'tidak ada' jika tidak ada </small>
+                        <small>di isi 'Tidak Ada' jika tidak ada. </small>
                       </div>
                       <div class="form-group">
                         <label for="hobby">Hobi<b>*</b></label>
@@ -222,10 +223,10 @@
                       </div>
                       <div class="form-group">
                         <label for="memorization"
-                          >Jumlah Hafalan Al Qur'an Yang Pernah Disetorkan<b>*</b></label
+                          >Jumlah hafalan Al-Qur'an yang pernah disetorkan<b>*</b></label
                         >
                         <div class="input-group mb-3">
-                          <select 
+                          <select
                             class="custom-select"
                             id="memorization"
                             name="memorization"
@@ -283,7 +284,7 @@
                       </div>
                       <div class="form-group">
                         <label for="study_islamic"
-                          >Pengajian Yang Sering Dihadiri ?<b>*</b></label
+                          >Pengajian yang sering dihadiri ?<b>*</b></label
                         >
                         <input
                           type="text"
@@ -308,7 +309,7 @@
                         />
                       </div>
                       <div class="form-group">
-                        <label for="">Merokok Atau Tidak ? <b>*</b></label>
+                        <label for="">Merokok atau Tidak ? <b>*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -336,9 +337,9 @@
                           </label>
                         </div>
                       </div>
-                      
+
                       <div class="form-group">
-                        <label for="">Punya tato Atau Tidak ? <b>*</b></label>
+                        <label for="">Punya Tato atau Tidak ? <b>*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -362,13 +363,13 @@
                             required
                           />
                           <label class="form-check-label" for="tattoed2">
-                            Tidak
+                            Tidak Punya
                           </label>
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label for="">Punya Pacar Atau Tidak ?<b>*</b></label>
+                        <label for="">Punya Pacar atau Tidak ?<b>*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -392,12 +393,12 @@
                             required
                           />
                           <label class="form-check-label" for="girlfriend2">
-                            Tidak
+                            Tidak Punya
                           </label>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="">Suka Game Atau Tidak? <b>*</b></label>
+                        <label for="">Suka Game atau Tidak? <b>*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -409,7 +410,7 @@
                             x-on:click="gamer(true)"
                           />
                           <label class="form-check-label" for="gamer1">
-                            suka
+                            Suka
                           </label>
                         </div>
                         <div class="form-check">
@@ -423,7 +424,7 @@
                             required
                           />
                           <label class="form-check-label" for="gamer2">
-                            tidak
+                            Tidak Suka
                           </label>
                         </div>
                       </div>
@@ -442,9 +443,9 @@
                         </div>
                         <div class="form-group">
                           <label for="exampleInputPassword1"
-                            >Berapa Jam Yang Dihabiskan Untuk Main Game Dalam Sehari</label
+                            >Berapa jam yang dihabiskan untuk Main Game dalam sehari ?</label
                           >
-                          <select 
+                          <select
                             class="custom-select"
                             id="game_duration"
                             name="game_duration"
@@ -452,9 +453,9 @@
                           >
                             <option value="" disabled selected>-- Pilih --</option>
                             <option value="kurang dari 1">kurang dari 1 jam</option>
-                            @for ($i = 1; $i <= 10; $i++)
-                              <option value="{{ $i }}">{{ $i }} jam</option>
-                            @endfor
+                                @for ($i = 1; $i <= 10; $i++)
+                                    <option value="{{ $i }}">{{ $i }} jam</option>
+                                @endfor
                             <option value="lebih dari 10">lebih dari 10 jam</option>
                           </select>
                         </div>
@@ -467,14 +468,14 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1"
-                          >Ceritakan Kegiatan Anda Dari Pagi Sampai Malam
+                          >Ceritakan Kegiatan Anda dari Pagi sampai Malam
                           <b>*</b></label
                         >
                         <textarea name="activity" id="" class="form-control h-50" required>{{ old('activity') }}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1"
-                          >Ceritakan Dengan Singkat Kepribadian Anda <b>*</b></label
+                          >Ceritakan dengan Singkat Kepribadian Anda <b>*</b></label
                         >
                         <textarea name="personal" id="" class="form-control h-50"  required>{{ old('personal') }}</textarea>
                       </div>
@@ -594,7 +595,7 @@
                       </div>
                       <div class="form-group">
                         <label for="no_guardian"
-                          >Nomor Kontak Orang Tua Wali ?<b>*</b></label
+                          >Nomor Kontak Orang Tua/Wali ?<b>*</b></label
                         >
                         <input
                           type="text"
@@ -617,7 +618,7 @@
                         >{{ old('description_guardian') }}</textarea>
                       </div>
                       <div class="form-group">
-                        <label for="">Izin Orang Tua Atau Tidak ?<b>*</b></label>
+                        <label for="">Izin Orang Tua atau Tidak ?<b>*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -646,7 +647,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="">Punya Laptop Atau Tidak ?<b>*</b></label>
+                        <label for="">Punya Laptop atau Tidak ?<b>*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -655,7 +656,7 @@
                             id="have_laptop1"
                             value="iya"
                             required
-                            
+
                           />
                           <label class="form-check-label" for="have_laptop1">
                             Iya
@@ -677,7 +678,7 @@
                       </div>
                       <div class="form-group mt-4">
                         <label for=""
-                          >Demi Allah , Saya Bersumpah Semua Informasi Ini Benar
+                          >Demi Allah, Saya bersumpah semua informasi ini benar.
                           <b>*</b></label
                         >
                         <div class="form-check">
@@ -690,17 +691,16 @@
                             required
                           />
                           <label class="form-check-label" for="defaultCheck1">
-                            Semua Informasi Ini Adalah Benar
+                            Semua informasi ini adalah benar.
                           </label>
                         </div>
                       </div>
                       <div class="my-5">
                         <b>*</b>
                         <small
-                          >Periksa sekali lagi bahwa data yang anda masukkan sudah
-                          benar dan sesuai, Setelah anda mengirim data tersebut anda
-                          tidak bisa lagi melakukan perubahan terhadap data yang
-                          anda kirim .</small
+                          >Tolong periksa sekali lagi data yang Anda masukkan, Apakah sudah
+                          benar dan sesuai ? Karena setelah Anda mengirim data tersebut, Anda
+                          tidak bisa lagi melakukan perubahan terhadap data yang sudah Anda kirim.</small
                         >
                       </div>
                       <div class="mt-4">
@@ -720,7 +720,7 @@
                       </div>
                     </div>
                       {{-- end --}}
-                    
+
                   </form>
                 </div>
               </div>
@@ -749,7 +749,7 @@
 					provin_id:null,
           kabupatenids:[],
           gamer_in:null,
-					
+
         // method
         gamer(param){
           this.gamer_in=param;
@@ -759,42 +759,42 @@
           this.form_3=null;
           this.form_4=null;
           this.form_2=true;
-          window.scrollTo(0, 0); 
+          window.scrollTo(0, 0);
         },
         form1ButtonBack(){
           this.form_1=true;
           this.form_2=null;
           this.form_3=null;
           this.form_4=null;
-          window.scrollTo(0, 0); 
+          window.scrollTo(0, 0);
         },
         form2Button(){
           this.form_1= null;
           this.form_2= null;
           this.form_4= null;
           this.form_3=true;
-          window.scrollTo(0, 0); 
+          window.scrollTo(0, 0);
         },
         form2ButtonBack(){
           this.form_1= null;
           this.form_4= null;
           this.form_2= true;
           this.form_3=null;
-          window.scrollTo(0, 0); 
+          window.scrollTo(0, 0);
         },
         form3Button(){
           this.form_1= null;
           this.form_2= null;
           this.form_3=null;
           this.form_4=true;
-          window.scrollTo(0, 0); 
+          window.scrollTo(0, 0);
         },
         form3ButtonBack(){
           this.form_1=null;
           this.form_2=null;
           this.form_3=true;
           this.form_4=null;
-          window.scrollTo(0, 0); 
+          window.scrollTo(0, 0);
         },
 				getKabupaten(code){
 					const dataKabupaten = kabupatens.filter((kabupaten) => kabupaten.province_code == code);
@@ -802,5 +802,5 @@
 				}
 			}
     }
-  </script>   
+  </script>
 @endpush
