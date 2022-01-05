@@ -45,7 +45,8 @@
                             >
 
                                 @if(empty($tahap1) && isset($biodata1))
-                                    <div class="hero-inner">
+                                <div class="hero-inner">
+                                        <i class="fas fa-laugh pb-3" style="font-size: 72px;"></i>
                                         <h2 class="poppins">Halo Selamat Datang {{ Auth::user()->name }}!</h2>
                                         <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Pertama</strong> silahkan Anda klik tombol di bawah ini.</p>
                                         <div class="mt-4">
@@ -53,70 +54,80 @@
                                         </div>
                                     </div>
                                 @elseif(!empty($tahap1) && isset($biodata1) && $tahap1->status == null)
+                                    <i class="fas fa-hourglass-half pb-3" style="font-size: 72px;"></i>
                                     <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                                     <p class="lead">Anda telah selesai melaksanakan tes <strong class="font-weight-bold">Tahap Pertama</strong>,<br>Anda bisa lanjut mengikuti tes Tahap Kedua jika dinyatakan lolos di tes Tahap Pertama.</p>
                                 @elseif(!empty($tahap2) && isset($tahap1) && $tahap2->status == null)
+                                    <i class="fas fa-hourglass-half pb-3" style="font-size: 72px;"></i>
                                     <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                                     <p class="lead">Anda telah selesai melaksanakan tes <strong class="font-weight-bold">Tahap Kedua</strong>,<br>Anda bisa lanjut mengikuti tes Tahap Ketiga jika dinyatakan lolos di tes Tahap Kedua.</p>
                                 @elseif(!empty($tahap3) && isset($tahap2) && $tahap3->status == null)
+                                    <i class="fas fa-hourglass-half pb-3" style="font-size: 72px;"></i>
                                     <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                                     <p class="lead">Anda telah selesai melaksanakan tes <strong class="font-weight-bold">Tahap Ketiga</strong>,<br>Anda bisa lanjut mengikuti tes Tahap Keempat jika dinyatakan lolos di tes Tahap Ketiga.</p>
                                 @elseif(!empty($tahap4) && isset($tahap4) && $tahap4->status == null)
+                                    <i class="fas fa-hourglass-half pb-3" style="font-size: 72px;"></i>
                                     <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                                     <p class="lead">Anda telah selesai melaksanakan tes <strong class="font-weight-bold">Tahap Keempat</strong>,<br>Anda bisa lanjut mengikuti tes Tahap Kelima jika dinyatakan lolos di tes Tahap Keempat.</p>
                                 @elseif(!empty($tahap1) && $tahap1->status == 'lolos')
-
-                                @if ($tahap1->status == 'lolos' && !isset($tahap2->status))
-                                    <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
-                                    <p><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
-                                    <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Kedua</strong>, silahkan Anda klik tombol di bawah ini.</p>
-                                    <div class="mt-4">
-                                        <a href="{{ route('user-second-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
-                                    </div>
-                                @elseif(isset($tahap2->status) && $tahap2->status == 'lolos' && !isset($tahap3->status))
-                                    <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
-                                    <p><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
-                                    <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Ketiga</strong>, silahkan Anda klik tombol di bawah ini.</p>
-                                    <div class="mt-4">
-                                        <a href="{{ route('user-third-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
-                                    </div>
-                                @elseif(isset($tahap3->status) && $tahap3->status == 'lolos' && !isset($tahap4->status))
-                                    <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
-                                    <p><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
-                                    <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Keempat</strong>, silahkan Anda klik tombol di bawah ini.</p>
-                                    <div class="mt-4">
-                                        <a href="{{ route('user-fourth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
-                                    </div>
-                                @elseif( isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'lolos')
-                                    <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
-                                    <p><strong>Anda dinyatakan Lolos sebagai Calon Santri Pondok Informatika Al Madinah. </strong></p>
-                                    <p class="lead">Untuk informasi selanjutnya akan kami kirim melalui WhatsApp.
-                                    </p>
-                                @elseif(isset($tahap4->status) && $tahap4->status == 'lolos' && !isset($tahap5->status))
-                                    <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
-                                    <p><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
-                                    <p class="lead">Untuk tes <strong class="font-weight-bold">Tahap Kelima</strong>, Anda akan kami hubungi untuk melakukan Wawancara.</p>
-                                    <div class="mt-4">
-                                        <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes Wawancara</a>
-                                    </div>
-                                @elseif(isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'tidak')
-                                    <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}!</h2>
-                                    <p><strong>Anda dinyatakan Tidak Lolos sebagai Calon Santri Pondok Informatika Al Madinah.</strong></p>
-                                @elseif(isset($tahap1->status) == 'tidak' || isset($tahap2->status) == 'tidak' || isset($tahap4->status) == 'tidak')
-                                    <h2>Mohon Maaf, {{ Auth::user()->name }}!</h2>
-                                    <p><strong>Anda dinyatakan Tidak Lolos ke Tahap selanjutnya.</strong>
-                                    </p>
-                                @elseif($tahap4->status == 'lolos' && !isset($tahap5->status))
-                                    <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
-                                    <p><strong>Anda dinyatakan Lolos Ketahap berikutnya. </strong></p>
-                                    <p class="lead">Untuk tes <strong class="font-weight-bold">Tahap Kelima</strong>, Anda akan kami hubungi untuk melakukan tes Wawancara.</p>
-                                    <div class="mt-4">
-                                    <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes Wawancara</a>
-                                    </div>
-                                @endif
+                                  @if ($tahap1->status == 'lolos' && !isset($tahap2->status))
+                                      <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
+                                      <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
+                                      <p><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
+                                      <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Kedua</strong>, silahkan Anda klik tombol di bawah ini.</p>
+                                      <div class="mt-4">
+                                          <a href="{{ route('user-second-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                                      </div>
+                                  @elseif(isset($tahap2->status) && $tahap2->status == 'lolos' && !isset($tahap3->status))
+                                      <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
+                                      <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
+                                      <p><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
+                                      <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Ketiga</strong>, silahkan Anda klik tombol di bawah ini.</p>
+                                      <div class="mt-4">
+                                          <a href="{{ route('user-third-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                                      </div>
+                                  @elseif(isset($tahap3->status) && $tahap3->status == 'lolos' && !isset($tahap4->status))
+                                      <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
+                                      <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
+                                      <p><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
+                                      <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Keempat</strong>, silahkan Anda klik tombol di bawah ini.</p>
+                                      <div class="mt-4">
+                                          <a href="{{ route('user-fourth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                                      </div>
+                                  @elseif( isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'lolos')
+                                      <i class="fas fa-user-graduate pb-3" style="font-size: 72px;"></i>
+                                      <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
+                                      <p><strong>Anda dinyatakan Lolos sebagai Calon Santri Pondok Informatika Al Madinah. </strong></p>
+                                      <p class="lead">Untuk informasi selanjutnya akan kami kirim melalui WhatsApp.</p>
+                                  @elseif(isset($tahap4->status) && $tahap4->status == 'lolos' && !isset($tahap5->status))
+                                      <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
+                                      <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
+                                      <p><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
+                                      <p class="lead">Untuk tes <strong class="font-weight-bold">Tahap Kelima</strong>, Anda akan kami hubungi untuk melakukan Wawancara.</p>
+                                      <div class="mt-4">
+                                          <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes Wawancara</a>
+                                      </div>
+                                  @elseif(isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'tidak')
+                                      <i class="fas fa-exclamation-triangle pb-3" style="font-size: 72px;"></i>
+                                      <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}!</h2>
+                                      <p><strong>Anda dinyatakan Tidak Lolos sebagai Calon Santri Pondok Informatika Al Madinah.<strong></p>
+                                  @elseif(isset($tahap1->status) == 'tidak' || isset($tahap2->status) == 'tidak' || isset($tahap4->status) == 'tidak')
+                                      <i class="fas fa-exclamation-triangle pb-3" style="font-size: 72px;"></i>
+                                      <h2>Mohon Maaf, {{ Auth::user()->name }}!</h2>
+                                      <p><strong>Anda dinyatakan Tidak Lolos ke Tahap selanjutnya.</strong></p>
+                                  @elseif($tahap4->status == 'lolos' && !isset($tahap5->status))
+                                      <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
+                                      <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
+                                      <p><strong>Anda dinyatakan Lolos Ketahap berikutnya.</strong></p>
+                                      <p class="lead">untuk tes<strong class="font-weight-bold">Tahap Kelima</strong> anda akan kami hubungi untuk melakukan tes Wawancara.</p>
+                                      <div class="mt-4">
+                                          <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes wawancara</a>
+                                      </div>
+                                  @endif
                                 @else
-                                <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}!</h2>
-                                <p><strong>Anda dinyatakan Tidak Lolos ke Tahap selanjutnya.</strong></p>
+                                    <i class="fas fa-exclamation-triangle pb-3" style="font-size: 72px;"></i>
+                                    <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}!</h2>
+                                    <p><strong>Anda dinyatakan Tidak Lolos ke Tahap selanjutnya</p>
                                 @endif
                             </div>
                         </div>
@@ -212,28 +223,6 @@
                             </div>
                         </a>
                         </div>
-                        @elseif(isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'tidak')
-                            <i class="fas fa-exclamation-triangle pb-3" style="font-size: 72px;"></i>
-                            <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}!</h2>
-                            <p><strong>Anda dinyatakan Tidak Lolos sebagai Calon Santri Pondok Informatika Al Madinah.<strong></p>
-                        @elseif(isset($tahap1->status) == 'tidak' || isset($tahap2->status) == 'tidak' || isset($tahap4->status) == 'tidak')
-                            <i class="fas fa-exclamation-triangle pb-3" style="font-size: 72px;"></i>
-                            <h2>Mohon Maaf, {{ Auth::user()->name }}!</h2>
-                            <p><strong>Anda dinyatakan Tidak Lolos ke Tahap selanjutnya.</strong></p>
-                        @elseif($tahap4->status == 'lolos' && !isset($tahap5->status))
-                            <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
-                            <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
-                            <p><strong>Anda dinyatakan Lolos Ketahap berikutnya.</strong></p>
-                            <p class="lead">untuk tes<strong class="font-weight-bold">Tahap Kelima</strong> anda akan kami hubungi untuk melakukan tes Wawancara.</p>
-                            <div class="mt-4">
-                                <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes wawancara</a>
-                            </div>
-                        @endif
-                        @else
-                            <i class="fas fa-exclamation-triangle pb-3" style="font-size: 72px;"></i>
-                            <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}!</h2>
-                            <p><strong>Anda dinyatakan Tidak Lolos ke Tahap selanjutnya</p>
-                        @endif
                     </div>
                 </div>
             </section>
