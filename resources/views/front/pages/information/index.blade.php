@@ -4,7 +4,7 @@
 
 @push('end-style')
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-@endpush  
+@endpush
 
 @section('content')
 <div class="main-content">
@@ -23,7 +23,7 @@
                       $aos_delay = 0;
                     @endphp
                     @forelse ($informations as $information)
-                    <a  href="{{ route('user-informasi-detail', $information->id) }}" 
+                    <a  href="{{ route('user-informasi-detail', $information->id) }}"
                         class="text-decoration-none"
                     >
                       <div  class="card mb-3 shadow-sm"
