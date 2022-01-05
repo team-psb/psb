@@ -22,7 +22,6 @@ class QuestionIqSeeder extends Seeder
         for ($i=0; $i <60 ; $i++) { 
             QuestionIq::create([
                 'question' =>$faker->paragraphs(rand(1,3),true),
-                'image'=>$faker->randomElement(['img/pict1.jpg','img/pict2.png','img/pict3.jpeg']),
                 'a'=>$faker->sentences(rand(1,3),true),
                 'b'=>$faker->sentences(rand(1,3),true),
                 'c'=>$faker->sentences(rand(1,3),true),

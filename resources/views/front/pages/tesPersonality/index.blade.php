@@ -23,7 +23,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <p>
-                                            <b class="title">{{ $index+1 }}</b>
+                                            <b class="title">{{ $index+1 }}</b>.
                                             {{ $item->question }}
                                             </p>
                                         </div>

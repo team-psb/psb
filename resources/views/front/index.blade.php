@@ -51,20 +51,25 @@
                             <a href="{{ route('user-first-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                             </div>
                         </div>
-                        @elseif(!empty($tahap1) && isset($biodata1) && $tahap1->status == null) 
+                        @elseif(!empty($tahap1) && isset($biodata1) && $tahap1->status == null)
+                        <i class="fas fa-hourglass-half pb-3" style="font-size: 72px;"></i>
                         <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                         <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Pertama</strong>,Anda bisa lanjut <br>mengikuti tes tahap kedua jika dinyatakan lolos di tes tahap pertama</p>
                         @elseif(!empty($tahap2) && isset($tahap1) && $tahap2->status == null) 
+                        <i class="fas fa-hourglass-half pb-3" style="font-size: 72px;"></i>
                         <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                         <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Kedua</strong>,Anda bisa lanjut <br>mengikuti tes tahap Ketiga jika dinyatakan lolos di tes tahap Kedua</p>
                         @elseif(!empty($tahap3) && isset($tahap2) && $tahap3->status == null) 
+                        <i class="fas fa-hourglass-half pb-3" style="font-size: 72px;"></i>
                         <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                         <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Ketiga</strong>,Anda bisa lanjut <br>mengikuti tes tahap Keempat jika dinyatakan lolos di tes tahap Ketiga</p>
                         @elseif(!empty($tahap4) && isset($tahap4) && $tahap4->status == null) 
+                        <i class="fas fa-hourglass-half pb-3" style="font-size: 72px;"></i>
                         <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                         <p class="lead">Anda Telah Melaksanakan tes <strong class="font-weight-bold">Tahap Keempat</strong>,Anda bisa lanjut <br>mengikuti tes tahap Kelima jika dinyatakan lolos di tes tahap Keempat</p>
                         @elseif(!empty($tahap1) && $tahap1->status == 'lolos')
                         @if ($tahap1->status == 'lolos' && !isset($tahap2->status))
+                            <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
                             <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
                             <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
                             <p class="lead">untuk melakukan tes <strong class="font-weight-bold">Tahap Kedua</strong> anda silahkan klik tombol di bawah ini</p>
@@ -72,6 +77,7 @@
                             <a href="{{ route('user-second-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                             </div>
                         @elseif(isset($tahap2->status) && $tahap2->status == 'lolos' && !isset($tahap3->status))
+                            <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
                             <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
                             <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
                             <p class="lead">untuk melakukan tes <strong class="font-weight-bold">Tahap Ketiga</strong> silahkan anda klik tombol di bawah ini.</p>
@@ -79,6 +85,7 @@
                             <a href="{{ route('user-third-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                             </div>
                         @elseif(isset($tahap3->status) && $tahap3->status == 'lolos' && !isset($tahap4->status))
+                            <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
                             <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
                             <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
                             <p class="lead">untuk melakukan tes <strong class="font-weight-bold">Tahap Keempat</strong> silahkan anda klik tombol di bawah ini.</p>
@@ -86,11 +93,13 @@
                             <a href="{{ route('user-fourth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                             </div>	
                         @elseif( isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'lolos')
+                            <i class="fas fa-user-graduate pb-3" style="font-size: 72px;"></i>
                             <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
                             <p><strong>Anda Dinyatakan Lolos sebagai calon santri Pondok Informatika Al Madinah</strong></p>
                             <p class="lead">untuk informasi selanjutnya akan di infokan melalui whatsapp
                             </p>
                         @elseif(isset($tahap4->status) && $tahap4->status == 'lolos' && !isset($tahap5->status))
+                            <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
                             <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
                             <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
                             <p class="lead">untuk  tes <strong class="font-weight-bold">Tahap Kelima</strong> anda akan kami hubungi untuk melakukan tes wawancara</p>
@@ -106,6 +115,7 @@
                             <h2>Mohon Maaf, {{ Auth::user()->name }}!</h2>
                             <p><strong>Anda Dinyatakan Tidak Lolos ke tahap selanjutnya.</strong></p>
                         @elseif($tahap4->status == 'lolos' && !isset($tahap5->status))
+                            <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
                             <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
                             <p><strong>Anda Dinyatakan Lolos Ketahap Berikutnya</strong></p>
                             <p class="lead">untuk tes<strong class="font-weight-bold">Tahap Kelima</strong> anda akan kami hubungi untuk melakukan tes wawancara</p>
