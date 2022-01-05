@@ -13,6 +13,7 @@ use Illuminate\Support\Carbon;
 use App\Http\Requests\AuthRequest;
 use App\Models\Stage;
 use App\Models\VerifyUser;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -30,16 +31,6 @@ class AuthController extends Controller
     public function loginProses(Request $request)
     {
         $data = $request->only('phone','password');
-        // $this->validate($request, [
-        //     'phone' => 'confirmed|min:10|max:15',
-        //     'password' => 'confirmed'
-        // ], [
-        //     'phone.min' => 'Wajib diisi 12 digit atau lebih.',
-        //     'phone.max' => 'Nomor maksimal 15 digit.',
-        //     'phone.confirmed' => 'Nomor anda tidak terdaftar.',
-        //     'password.confirmed' => 'Password salah.',
-
-        // ]);
 
         if (Auth::attempt($data)) {
             $role_user=User::where('phone','=',$request->phone)->get();
@@ -62,7 +53,7 @@ class AuthController extends Controller
                 // }
                 $bio = BiodataTwo::where('user_id','=',$user_id)->get();
                 $user_bio = $bio->toArray();
-                //dd($user_bio);
+                // dd($user_bio);
                 if ( count($user_bio) > 0) {
                     return redirect()->route('user-dashboard');
                 }else{
@@ -70,7 +61,7 @@ class AuthController extends Controller
                 }
             }
         }else{
-            return redirect()->back()->with('failed-danger','nomor handphone atau password salah.');
+            return redirect()->back()->with('failed-danger','Nomor Handphone dan Password salah.');
         }
     }
 

@@ -59,6 +59,11 @@
 
         <!-- Template Main CSS File -->
         <link href="assets/css/style.css" rel="stylesheet" />
+        <script>
+            $(document).ready(function () {
+                $("#birth_date").picky();
+            });
+        </script>
     </head>
 
     <body>
@@ -354,20 +359,20 @@
                                         @csrf
                                         <div class="form-group">
                                             @if (session('failed-danger'))
-                                                <div class="alert alert-danger alert-dismissible show fade rounded-pill">
+                                                <div class="alert alert-danger alert-dismissible show fade rounded-pill py-2">
                                                     <div class="alert-body fw-bold text-danger">
                                                         {{ session('failed-danger') }}
                                                     </div>
                                                 </div>
                                             @endif
+
                                             <div class="form-floating">
-                                                <input type="number" name="phone" class="form-control rounded-pill
-                                                        px-4" id="floatingInput" placeholder="Nomor Handphone" value="{{ old('phone') }}">
+                                                <input type="number" name="phone" required class="form-control rounded-pill px-4" id="floatingInput" placeholder="Nomor Handphone" value="{{ old('phone') }}" required>
                                                 <label for="floatingInput" class="px-4">Nomor Handphone</label>
                                             </div>
 
                                             <div class="form-floating d-flex align-items-center mt-4 position-relative password-login">
-                                                <input type="password" name="password" class="form-control rounded-pill px-4" id="floatingPassword" placeholder="Password" name="password">
+                                                <input type="password" name="password" class="form-control rounded-pill px-4" id="floatingPassword" placeholder="Password" name="password" required>
                                                 <i class="bi bi-eye-slash position-absolute" id="hide" onclick="myFunction()"></i>
                                                 <i class="bi bi-eye position-absolute" id="show" onclick="myFunction()"></i>
                                                 <label for="floatingPassword" class="px-4">Password</label>
@@ -523,7 +528,7 @@
                                                         />
                                                         @error('name')
                                                             <div class="invalid-feedback">
-                                                                {{ $message }} 
+                                                                {{ $message }}
                                                             </div>
                                                         @enderror
                                                     </div>
@@ -562,7 +567,7 @@
                                                         />
                                                         @error('full_name')
                                                             <div class="invalid-feedback">
-                                                                {{ $message }} 
+                                                                {{ $message }}
                                                             </div>
                                                         @enderror
                                                     </div>
@@ -586,33 +591,21 @@
                                                             </label
                                                         >
                                                         <div class="d-flex">
-                                                            <select class="form-select rounded-pill" name="day" id="dobday" required></select>
-                                                            <select class="form-select rounded-pill" name="month" id="dobmonth" required></select>
-                                                            <select class="form-select rounded-pill" name="year" id="dobyear" required></select>
-                                                        </div>
-                                                        {{-- <input
-                                                            type="date"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                                @error('age') is-invalid @enderror
-                                                            "
+                                                            <select class="form-select rounded-pill"
+                                                            name="day" id="dobday"required
                                                             style="
                                                                 font-size: 15px;
                                                                 color: #145560;
-                                                            "
-                                                            id="birth_date"
-                                                            name="age"
-                                                            required
-                                                            @error('age') is-invalid @enderror
-                                                            value="{{ old('age') }}"
-                                                        />
-                                                        @error('age')
-                                                            <div class="invalid-feedback">
-                                                                {{ $message }} 
-                                                            </div>
-                                                        @enderror --}}
+                                                            "></select>
+                                                            <select class="form-select rounded-pill" name="month" id="dobmonth" required style="
+                                                                font-size: 15px;
+                                                                color: #145560;
+                                                            "></select>
+                                                            <select class="form-select rounded-pill" name="year" id="dobyear" required style="
+                                                                font-size: 15px;
+                                                                color: #145560;
+                                                            "></select>
+                                                        </div>
                                                     </div>
                                                     <div
                                                         class="
@@ -666,7 +659,7 @@
                                                         </select>
                                                         @error('family')
                                                             <div class="invalid-feedback">
-                                                                {{ $message }} 
+                                                                {{ $message }}
                                                             </div>
                                                         @enderror
                                                     </div>
@@ -710,7 +703,7 @@
                                                         />
                                                         @error('no_wa')
                                                             <div class="invalid-feedback">
-                                                                {{ $message }} 
+                                                                {{ $message }}
                                                             </div>
                                                         @enderror
                                                     </div>
@@ -754,7 +747,7 @@
                                                         />
                                                         @error('password')
                                                             <div class="invalid-feedback">
-                                                                {{ $message }} 
+                                                                {{ $message }}
                                                             </div>
                                                         @enderror
                                                         <div
@@ -781,7 +774,7 @@
                                                             class="form-check-input"
                                                             />
                                                             <label for="pass" class="form-check-label ms-2">Show Password</label>
-                                                                
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -823,7 +816,7 @@
                                                         />
                                                         @error('password_confirmation')
                                                             <div class="invalid-feedback">
-                                                                {{ $message }} 
+                                                                {{ $message }}
                                                             </div>
                                                         @enderror
                                                     </div>
@@ -1992,7 +1985,7 @@
         ></a>
 
         <!-- Vendor JS Files -->
-        <script src="./assets/vendor/purecounter/purecounter.js"></script>
+        <script ssrc="./assets/vendor/purecounter/purecounter.js"></script>
         <script src="./assets/vendor/aos/aos.js"></script>
         <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="./assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -2000,15 +1993,18 @@
         <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
         <script src="./assets/vendor/waypoints/noframework.waypoints.js"></script>
         <script src="./assets/vendor/php-email-form/validate.js"></script>
+        {{-- <script src="./assets/vendor/combodate/combodate.js"></script>
+        <script src="./assets/vendor/moment/moment.js"></script> --}}
+        <script src="./assets/vendor/jquery/jquery.js"></script>
+        <script src="./assets/vendor/jquery/jquery.picky.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
-
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
 			jQuery.extend({
-	
+
 			dobPicker: function (params) {
-	
+
 				// apply defaults
 				if (typeof(params.dayDefault) == "undefined") {
 					params.dayDefault = "Day";
@@ -2025,12 +2021,12 @@
 				if (typeof(params.maximumAge) == "undefined") {
 					params.maximumAge = 50;
 				}
-	
+
 				// find elements
 				var dayElement = $(params.daySelector);
 				var monthElement = $(params.monthSelector);
 				var yearElement = $(params.yearSelector);
-	
+
 				// set days
 				dayElement.append("<option value=\"\">" + params.dayDefault + "</option>");
 				for (var i = 1; i <= 31; i++) {
@@ -2038,7 +2034,7 @@
 					var value = i > 9 ? "" + i : "0" + i;
 					dayElement.append("<option value=\"" + value + "\">" + day + "</option>");
 				}
-	
+
 				// set months
 				var months = [
 					"Januari",
@@ -2060,7 +2056,7 @@
 					var value = i > 9 ? "" + i : "0" + i;
 					monthElement.append("<option value=\"" + value + "\">" + month + "</option>");
 				}
-	
+
 				// set years
 				var now = (new Date()).getFullYear();
 				var minimum = now - params.minimumAge;
@@ -2071,16 +2067,16 @@
 					var value = year;
 					yearElement.append("<option value=\"" + value + "\">" + year + "</option>");
 				}
-	
+
 				// disable months
 				dayElement.change(function () {
-	
+
 					monthElement.selectedIndex = 0;
 					yearElement.selectedIndex = 0;
 					yearElement.find("option").removeAttr("disabled");
-	
+
 					var day = parseInt(dayElement.val());
-	
+
 					if (day >= 1 && day <= 29) {
 						monthElement.find("option").removeAttr("disabled");
 					} else if (day == 30) {
@@ -2094,18 +2090,18 @@
 						monthElement.find("option[value=\"09\"]").attr("disabled", "disabled");
 						monthElement.find("option[value=\"11\"]").attr("disabled", "disabled");
 					}
-	
+
 				});
-	
+
 				// disable years
 				monthElement.change(function () {
-	
+
 					yearElement.selectedIndex = 0;
 					yearElement.find("option").removeAttr("disabled");
-	
+
 					var day = parseInt(dayElement.val());
 					var month = parseInt(monthElement.val());
-	
+
 					if (day == 29 && month == 2) {
 						yearElement.find("option").each(function (index, value) {
 							if (index > 0) {
@@ -2117,11 +2113,11 @@
 							}
 						});
 					}
-	
+
 				});
-	
+
 			}
-	
+
 			});
 		</script>
         <script>
@@ -2138,8 +2134,7 @@
 				});
 			});
 		</script>
-        
-        
+
         <script>
             /* GSAP */
 
@@ -2513,10 +2508,7 @@
         <!-- Template Main JS File -->
         <script src="./assets/js/main.js"></script>
         <script>
-            //Show Password Icon
-
-
-            // Show Password Checkbox
+            // Show Password Icon
             function myFunction() {
                 var x = document.getElementById("floatingPassword");
                 if (x.type === "password") {
@@ -2529,6 +2521,8 @@
                     document.getElementById("show").style.display = "inline-block";
                 }
             }
+
+             // Show Password Checkbox
             function showFunction() {
                 var x = document.getElementById("password");
                 var y = document.getElementById("confirm_password");

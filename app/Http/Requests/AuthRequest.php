@@ -46,5 +46,4 @@ class AuthRequest extends FormRequest
             'password.max' => 'Maksimal password 20 karakter',
         ];
     }
-
 }
