@@ -95,7 +95,7 @@
                                           <a href="{{ route('user-fourth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                                       </div>
                                   @elseif( isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'lolos')
-                                      <i class="fas fa-user-graduate pb-3" style="font-size: 72px;"></i>
+                                      <i class="fas fa-graduation-cap pb-3" style="font-size: 72px;"></i>
                                       <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
                                       <p><strong>Anda dinyatakan Lolos sebagai Calon Santri Pondok Informatika Al Madinah. </strong></p>
                                       <p class="lead">Untuk informasi selanjutnya akan kami kirim melalui WhatsApp.</p>

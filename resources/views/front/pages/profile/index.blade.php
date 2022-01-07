@@ -280,6 +280,10 @@
                     <td>{{ $profile->user->biodataTwo->girlfriend }}</td>
                   </tr>
                   <tr>
+                    <th>Punya tato?</th>
+                    <td>{{ $profile->user->biodataTwo->tattoed }}</td>
+                  </tr>
+                  <tr>
                     <th>Suka game?</th>
                     <td>{{ $profile->user->biodataTwo->gamer }}</td>
                   </tr>

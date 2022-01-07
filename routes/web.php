@@ -51,7 +51,7 @@ Route::group(['prefix' => '', 'middleware' => ['guest']], function () {
 });
 
 //back-forgot-password
-Route::get('/', [LandingController::class, 'index'])->name('back');
+Route::get('/back', [LandingController::class, 'index'])->name('back');
 
 //user
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){
