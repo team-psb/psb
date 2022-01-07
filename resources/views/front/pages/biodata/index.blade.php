@@ -205,7 +205,6 @@
                       <div class="form-group">
                         <label for="achievment">Prestasi<b>*</b></label>
                         <textarea name="achievment" id="" class="form-control h-50"  required>{{ old('achievment') }}</textarea>
-                        <small>di isi 'Tidak Ada' jika tidak ada. </small>
                       </div>
                       <div class="form-group">
                         <label for="hobby">Hobi<b>*</b></label>
@@ -363,7 +362,7 @@
                             required
                           />
                           <label class="form-check-label" for="tattoed2">
-                            Tidak Punya
+                            Tidak punya
                           </label>
                         </div>
                       </div>
@@ -393,7 +392,7 @@
                             required
                           />
                           <label class="form-check-label" for="girlfriend2">
-                            Tidak Punya
+                            Tidak punya
                           </label>
                         </div>
                       </div>
@@ -424,7 +423,7 @@
                             required
                           />
                           <label class="form-check-label" for="gamer2">
-                            Tidak Suka
+                            Tidak suka
                           </label>
                         </div>
                       </div>
@@ -468,14 +467,14 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1"
-                          >Ceritakan Kegiatan Anda dari Pagi sampai Malam
+                          >Ceritakan kegiatan Anda dari Pagi sampai Malam
                           <b>*</b></label
                         >
                         <textarea name="activity" id="" class="form-control h-50" required>{{ old('activity') }}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1"
-                          >Ceritakan dengan Singkat Kepribadian Anda <b>*</b></label
+                          >Ceritakan dengan singkat kepribadian Anda <b>*</b></label
                         >
                         <textarea name="personal" id="" class="form-control h-50"  required>{{ old('personal') }}</textarea>
                       </div>
