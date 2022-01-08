@@ -1994,8 +1994,6 @@
         <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
         <script src="./assets/vendor/waypoints/noframework.waypoints.js"></script>
         <script src="./assets/vendor/php-email-form/validate.js"></script>
-        {{-- <script src="./assets/vendor/combodate/combodate.js"></script>
-        <script src="./assets/vendor/moment/moment.js"></script> --}}
         <script src="./assets/vendor/jquery/jquery.js"></script>
         <script src="./assets/vendor/jquery/jquery.picky.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
