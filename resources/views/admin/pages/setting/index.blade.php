@@ -38,7 +38,7 @@
                                             <div class="form-check form-check-success d-flex align-items-center justify-content-between border-bottom">
                                                 <div class="form-check form-check-success">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" {{ $academy->is_active == 1 ? 'checked' : ''}}>
+                                                        <input type="checkbox" class="form-check-input" {{ $academy->is_active == 1 ? 'checked' : ''}} disabled>
                                                         {{ $academy->year }}({{ $academy->stage->name }})
                                                     </label>
                                                 </div>
@@ -87,7 +87,7 @@
                                             <div class="form-check form-check-success d-flex align-items-center justify-content-between border-bottom">
                                                 <div class="form-check form-check-success">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" checked>
+                                                        <input type="checkbox" class="form-check-input" checked disabled>
                                                         {{ $stage->name }}
                                                     </label>
                                                 </div>

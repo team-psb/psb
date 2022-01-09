@@ -589,6 +589,7 @@
                           id="brother"
                           name="brother"
                           value="{{ old('brother') }}"
+                          min="0"
                           required
                         />
                       </div>

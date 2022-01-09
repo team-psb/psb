@@ -2128,8 +2128,8 @@
 					dayDefault: 'Tgl', /* Optional */
 					monthDefault: 'Bln', /* Optional */
 					yearDefault: 'Thn', /* Optional */
-					minimumAge: 15, /* Optional */
-					maximumAge: 13 /* Optional */
+					minimumAge: 10, /* Optional */
+					maximumAge: 15 /* Optional */
 				});
 			});
 		</script>

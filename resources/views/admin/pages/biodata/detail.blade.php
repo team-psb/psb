@@ -65,11 +65,11 @@
                 <table cellpadding="5">
                     <tr>
                         <td style="width: 280px;">Nilai Tes Iq</td>
-                        <td>{{ $biodata->user->score->score_question_iq }}</td>
+                        <td>{{ $biodata->user->scoreIq->score_question_iq }}</td>
                     </tr>
                     <tr>
                         <td style="width: 280px;">Nilai Tes Kepribadian</td>
-                        <td>{{ $biodata->user->score->score_question_personal }}</td>
+                        <td>{{ $biodata->user->scorePersonal->score_question_personal }}</td>
                     </tr>
                 </table>
             </div>
@@ -98,11 +98,11 @@
                 </tr>
                 <tr>
                     <td>Facebook</td>
-                    <td><a href="{{ $biodata->facebook }}" target="blank">{{ $biodata->facebook }}</a></td>
+                    <td><a href="{{ $biodata->facebook }}" target="_blank">{{ $biodata->facebook }}</a></td>
                 </tr>
                 <tr>
                     <td>Instagram</td>
-                    <td><a href="{{ $biodata->instagram }}" target="blank">{{ $biodata->instagram }}</a></td>
+                    <td><a href="{{ $biodata->instagram }}" target="_blank">{{ $biodata->instagram }}</a></td>
                 </tr>
             </table>
         </div>
@@ -189,6 +189,10 @@
         <div class="col">
         <h6 class="fw-bold">Pertanyaan 2</h6>
             <table cellpadding="5">
+                <tr>
+                    <td style="width: 280px;">Bertato</td>
+                    <td>{{ $biodata->tattoed }}</td>
+                </tr>
                 <tr>
                     <td style="width: 280px;">Perokok</td>
                     <td>{{ $biodata->smoker }}</td>

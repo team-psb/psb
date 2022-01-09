@@ -7,8 +7,12 @@ use App\Http\Controllers\Controller;
 use App\Models\BiodataOne;
 use Illuminate\Http\Request;
 use App\Models\BiodataTwo;
+use App\Models\Interview;
 use App\Models\Score;
+use App\Models\ScoreIq;
+use App\Models\ScorePersonal;
 use App\Models\Stage;
+use App\Models\Video;
 use Laravolt\Indonesia\Models\Province;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -103,7 +107,7 @@ class BiodataController extends Controller
         $biodata2 = BiodataTwo::find($id);
 
         $biodata1->update([
-            'name'=>$request->name,
+            'full_name'=>$request->full_name,
             'age'=>$request->age,
             'no_wa'=>$request->no_wa,
             'family'=>$request->family
@@ -119,6 +123,12 @@ class BiodataController extends Controller
     {
         $data = BiodataTwo::findOrFail($id);
         $data->delete();
+
+        ScoreIq::where('user_id', $data->user_id)->delete();
+        ScorePersonal::where('user_id', $data->user_id)->delete();
+        Video::where('user_id', $data->user_id)->delete();
+        Interview::where('user_id', $data->user_id)->delete();
+        
         activity()->log('Menghapus biodata id '.$data->name);
 
         return back()->with('success-delete','Berhasil Menghapus Data');
@@ -129,10 +139,24 @@ class BiodataController extends Controller
         $request->validate([
             'status' => 'required|in:lolos,tidak'
         ]);
-
+        
         $item = BiodataTwo::findOrFail($id);
-        $item->status = $request->status;
-        $item->save();
+        
+        if ($item->user->biodataOne->family == 'sangat-mampu') {
+            $item->status = $request->status;
+            $item->save();
+
+            Interview::create([
+                'user_id' => $item->user_id,
+                'stage_id' => $item->stage_id,
+                'academy_year_id' => $item->academy_year_id,
+                'status' => null
+            ]);
+        }else{
+            $item->status = $request->status;
+            $item->save();
+        }
+
 
         return redirect()->route('biodatas.index')->with('success-edit', 'Berhasil Mengganti Status Data');
     }
@@ -142,6 +166,15 @@ class BiodataController extends Controller
         $ids=$request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
+                $item = BiodataTwo::find($id);
+                if ($item->user->biodataOne->family == 'sangat-mampu') {
+                    Interview::create([
+                        'user_id' => $item->user_id,
+                        'stage_id' => $item->stage_id,
+                        'academy_year_id' => $item->academy_year_id,
+                        'status' => null
+                    ]);
+                }
                 BiodataTwo::find($id)->update(['status'=>'lolos']);
             }
 

@@ -61,7 +61,7 @@ class AuthController extends Controller
                 }
             }
         }else{
-            return redirect()->back()->with('failed-danger','Nomor Handphone dan Password salah.');
+            return redirect()->back()->with('failed-danger','Nomor Handphone atau Password salah.');
         }
     }
 

@@ -152,25 +152,29 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @if (isset($profile->user->scoreIq) || isset($profile->user->scorePersonal))
+                  @if (isset($profile->user->scoreIq))
                     <tr>
                       <th>Tes IQ</th>
                       <td>{{ $profile->user->scoreIq->score_question_iq }}</td>
-                    </tr>
-                    <tr>
-                      <th>Tes Kepribadian</th>
-                      <td>{{ $profile->user->scorePersonal->score_question_personal }}</td>
                     </tr>
                   @else
                     <tr>
                       <th>Tes IQ</th>
                       <td>-</td>
                     </tr>
+                  @endif
+                  @if (isset($profile->user->scorePersonal))
+                    <tr>
+                      <th>Tes Kepribadian</th>
+                      <td>{{ $profile->user->scorePersonal->score_question_personal }}</td>
+                    </tr>
+                  @else
                     <tr>
                       <th>Tes Kepribadian</th>
                       <td>-</td>
                     </tr>
                   @endif
+                    
                   @if (isset($profile->user->video))
                     <tr>
                       <th>Url Video Youtube</th>
@@ -207,11 +211,15 @@
                   </tr>
                   <tr>
                       <th>Link Facebook</th>
-                      <td>{{ $profile->user->biodataTwo->facebook }}</td>
+                      <td>
+                        <a target="_blank" href="{{ $profile->user->biodataTwo->facebook }}">{{ $profile->user->biodataTwo->facebook }}</a>
+                      </td>
                   </tr>
                   <tr>
                       <th>Instagram</th>
-                      <td>{{ $profile->user->biodataTwo->instagram }}</td>
+                      <td>
+                        <a target="_blank" href="{{ $profile->user->biodataTwo->instagram }}">{{ $profile->user->biodataTwo->instagram }}</a>
+                      </td>
                   </tr>
                 </tbody>
               </table>

@@ -25,7 +25,7 @@
                                         type="text"
                                         class="form-control"
                                         id="name"
-                                        name="name"
+                                        name="full_name"
                                         value="{{ $biodata->user->biodataOne->full_name }}"
                                         required
                                     />
@@ -153,7 +153,7 @@
                                 @endphp
                                 {{-- provinsi --}}
                                 <div class="form-group mb-3">
-                                    <label for="">Provinsi</label>
+                                    <label class="fw-bold" for="">Provinsi</label>
                                     <select name="indonesia_provinces_id" class="form-select" x-on:change="getKabupaten(provin_id)" x-model="provin_id">
                                         <option value="{{ $biodata->indonesia_provinces_id }}">{{ $biodata->provincy->name }}</option>
                                         @foreach ($provinsi as $item)
@@ -163,6 +163,7 @@
                                 </div>
                                 {{-- kabupaten --}}
                                 <div class="form-group mb-3">
+                                    <label class="fw-bold"  for="">Kabupaten</label>
                                     <select name="indonesia_cities_id" class="form-select" >
                                         <option value="{{ $biodata->indonesia_cities_id }}">{{ $biodata->city->name }}</option>
                                         <template x-for="an in kabupatenids">
@@ -449,6 +450,38 @@
                                         aria-describedby="emailHelp"
                                         required
                                     />
+                                </div>
+                                {{-- Tato --}}
+                                <div class="form-group mb-3">
+                                    <label class="fw-bold" for="" class="d-block">Tato</label>
+                                    <div class="form-check">
+                                    <label class="form-check-label" for="tattoed_yes">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="tattoed"
+                                        id="tattoed_yes"
+                                        value="iya"
+                                        {{ $biodata->tattoed == 'iya' ? 'checked' :'' }}
+                                        required
+                                    />
+                                    Iya
+                                    </label>
+                                    </div>
+                                    <div class="form-check" >
+                                    <label class="form-check-label" for="tattoed_no">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="tattoed"
+                                        id="tattoed_no"
+                                        value="tidak"
+                                        {{ $biodata->tattoed != 'iya' ? 'checked' :'' }}
+                                        required
+                                    />
+                                    Tidak
+                                    </label>
+                                    </div>
                                 </div>
                                 {{-- perokok --}}
                                 <div class="form-group mb-3">

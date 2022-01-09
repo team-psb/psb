@@ -154,10 +154,17 @@
                                             <td>
                                                 <div class="d-flex justify-content-end">
                                                     @if ($biodata->status == null)
-                                                        <a href="{{ route('biodatas.status', $biodata->id) }}?status=lolos"
-                                                            class="btn btn-success btn-icon-text p-2">
-                                                                <i class="icon-check btn-icon-prepend"></i> Lolos
-                                                        </a>
+                                                        @if ($biodata->user->biodataOne->family == 'sangat-mampu')
+                                                            <a href="{{ route('biodatas.status', $biodata->id) }}?status=lolos"
+                                                                class="btn btn-success btn-icon-text p-2">
+                                                                    <i class="icon-check btn-icon-prepend"></i> Lolos (Interview)
+                                                            </a>
+                                                        @else
+                                                            <a href="{{ route('biodatas.status', $biodata->id) }}?status=lolos"
+                                                                class="btn btn-success btn-icon-text p-2">
+                                                                    <i class="icon-check btn-icon-prepend"></i> Lolos
+                                                            </a>
+                                                        @endif
                                                         <a href="{{ route('biodatas.status', $biodata->id) }}?status=tidak"
                                                             class="btn btn-warning mx-1 btn-icon-text p-2">
                                                                 <i class="icon-close btn-icon-prepend"></i> Tidak Lolos
