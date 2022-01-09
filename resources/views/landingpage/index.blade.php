@@ -242,7 +242,7 @@
                             </div>
                         </div>
                     @else
-                    @endif
+                @endif
                 <div class="row">
                     <div class="col-md-6 col-sm-12 mb-5 mb-lg-0 mb-md-0">
                         <h3 class="fw-bold mb-4 banner-title">Selamat Datang Di Web PSB Online Pondok Informatika Al-Madinah</h3>
@@ -2128,8 +2128,8 @@
 					dayDefault: 'Tgl', /* Optional */
 					monthDefault: 'Bln', /* Optional */
 					yearDefault: 'Thn', /* Optional */
-					minimumAge: 10, /* Optional */
-					maximumAge: 15 /* Optional */
+					minimumAge: 15, /* Optional */
+					maximumAge: 13 /* Optional */
 				});
 			});
 		</script>

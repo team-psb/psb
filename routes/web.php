@@ -50,9 +50,6 @@ Route::group(['prefix' => '', 'middleware' => ['guest']], function () {
     Route::get('/information/{id}', [LandingController::class, 'information'])->name('information');
 });
 
-//back-forgot-password
-Route::get('/back', [LandingController::class, 'index'])->name('back');
-
 //user
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], function(){
     Route::get('home', [UserDashboardController::class, 'index'])->name('user-dashboard');
