@@ -905,6 +905,29 @@ section {
 .regis .content p:last-child {
     margin-bottom: 0;
 }
+.showpass {
+    right: 0;
+    transform: translate(0, 0);
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .showpass {
+        right: 20em;
+        transform: translate(55%, 0);
+    }
+}
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .showpass {
+        right: 20em;
+        transform: translate(25%, 0);
+    }
+}
+@media (min-width: 1400px) and (max-width: 1440px) {
+    .showpass {
+        right: 20em;
+        transform: translate(6%, 0);
+    }
+}
 
 /* Alur */
 
