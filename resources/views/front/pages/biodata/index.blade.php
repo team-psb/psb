@@ -608,7 +608,7 @@
                       </div>
                       <div class="form-group">
                         <label for="description_guardian"
-                          >Tambah Keterangan Jika Ada</label
+                          >Tambah keterangan jika ada</label
                         >
                         <textarea
                           type="text"

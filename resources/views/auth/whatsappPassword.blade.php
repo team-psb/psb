@@ -33,7 +33,7 @@
                                 <div class="card-header d-flex justify-content-between">
                                     <h4>Lupa Password</h4>
                                     <button class="btn btn-success rounded btn-lg">
-                                        <a class="text-decoration-none" href="{{ route('back') }}">
+                                        <a class="text-decoration-none" href="{{ url()->previous() }}">
                                             <h4 class="text-white ml-1">Back</h4>
                                         </a>
                                     </button>

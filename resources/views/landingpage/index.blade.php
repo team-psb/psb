@@ -243,7 +243,7 @@
                             </div>
                         </div>
                     @else
-                    @endif
+                @endif
                 <div class="row">
                     <div class="col-md-6 col-sm-12 mb-5 mb-lg-0 mb-md-0">
                         <h3 class="fw-bold mb-4 banner-title">Selamat Datang Di Web PSB Online Pondok Informatika Al-Madinah</h3>
@@ -711,7 +711,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="row">
+                                                <div class="row mb-5">
                                                     <div
                                                         class="
                                                             mb-4
@@ -752,33 +752,6 @@
                                                                 {{ $message }}
                                                             </div>
                                                         @enderror
-                                                        <div
-                                                            class="
-                                                                d-flex
-                                                                justify-content-between
-                                                            "
-                                                        >
-                                                            <div
-                                                                class="
-                                                                    d-flex
-                                                                    px-2
-                                                                    pt-1
-                                                                "
-                                                                style="
-                                                                    font-size: 15px;
-                                                                    color: #efefef;
-                                                                "
-                                                            >
-                                                            <input
-                                                            id="pass"
-                                                            type="checkbox"
-                                                            onclick="showFunction()"
-                                                            class="form-check-input"
-                                                            />
-                                                            <label for="pass" class="form-check-label ms-2">Show Password</label>
-
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                     <div
                                                         class="
@@ -792,7 +765,7 @@
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >Konfirmasi
+                                                            >Ulang
                                                             Password
                                                             <br>
                                                             <small style="font-size: 12px;">min 6 karakter max 20 karakter.</small>
@@ -821,6 +794,36 @@
                                                                 {{ $message }}
                                                             </div>
                                                         @enderror
+                                                        <div
+                                                            class="
+                                                                d-flex
+                                                                justify-content-between
+                                                                showpass
+                                                                position-relative
+                                                            "
+                                                        >
+                                                            <div
+                                                                class="
+                                                                    d-flex
+                                                                    px-2
+                                                                    pt-1
+                                                                    position-absolute
+                                                                "
+                                                                style="
+                                                                    font-size: 15px;
+                                                                    color: #efefef;
+                                                                "
+                                                            >
+                                                                <input
+                                                                id="pass"
+                                                                type="checkbox"
+                                                                onclick="showFunction()"
+                                                                class="form-check-input"
+                                                                />
+                                                                <label for="pass" class="form-check-label ms-2">Show Password</label>
+
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group px-2">
@@ -1941,11 +1944,11 @@
         <!-- ======= Footer ======= -->
             <footer id="footer">
                 <div class="footer-top">
-                    <div class="content-footer overflow-hidden">
+                    <div class="content-footer">
                         <img
                             src="./assets/img/footer.png"
                             alt="logo"
-                            class="position-absolute d-none d-md-block"
+                            class="position-absolute d-none d-lg-block"
                             width="2300"
                             style="z-index: -1; top: 30%; left: 60%; transform: translate(-50%, -50%);"
                         />
@@ -2129,8 +2132,8 @@
 					dayDefault: 'Tgl', /* Optional */
 					monthDefault: 'Bln', /* Optional */
 					yearDefault: 'Thn', /* Optional */
-					minimumAge: 10, /* Optional */
-					maximumAge: 15 /* Optional */
+					minimumAge: 15, /* Optional */
+					maximumAge: 13 /* Optional */
 				});
 			});
 		</script>
