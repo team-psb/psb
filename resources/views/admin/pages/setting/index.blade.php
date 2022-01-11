@@ -159,9 +159,14 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="border-top border-2">
-                            <button  class="btn btn-primary btn-md mt-2">Simpan</button>
-                        </div> --}}
+                        <div class="">
+                            <h5>Pengumuman Santri Baru</h5>
+                            <form action="{{ route('settings.announcement') }}" method="POST">
+                                @csrf
+                                <input type="date" name="announc" class="form-input" value="{{ $settings->first()->announcement }}">
+                                <button  class="btn btn-primary btn-md mt-2">Save</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

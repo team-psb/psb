@@ -10,6 +10,6 @@ class Setting extends Model
     use HasFactory;
 
     protected $fillable = [
-        'academy_year_id', 'stage_id', 'question_iq_value', 'question_personal_value'
+        'academy_year_id', 'stage_id', 'question_iq_value', 'question_personal_value', 'notification', 'announcement'
     ];
 }

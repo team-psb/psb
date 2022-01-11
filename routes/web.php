@@ -210,6 +210,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/settings/stage', [SettingController::class, 'stageStore'])->name('settings.stage-store');
     Route::post('/settings/iq', [SettingController::class, 'iqValue'])->name('settings.iq-value');
     Route::post('/settings/personal', [SettingController::class, 'personalValue'])->name('settings.personal-value');
+    Route::post('/settings/announcement', [SettingController::class, 'announcValue'])->name('settings.announcement');
     Route::get('/settings/stage/{id}', [SettingController::class, 'stageEdit'])->name('settings.stage-edit');
     Route::post('/settings/stage/{id}', [SettingController::class, 'stageUpdate'])->name('settings.stage-update');
     Route::delete('/settings/stage/{id}', [SettingController::class, 'stageDelete'])->name('settings.stage-delete');

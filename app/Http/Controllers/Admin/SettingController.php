@@ -18,12 +18,14 @@ class SettingController extends Controller
         $stages = Stage::get();
         $iqs = QuestionIq::get();
         $personals = QuestionPersonal::get();
+        $settings = Setting::get();
 
         return view('admin.pages.setting.index', [
             'academies' => $academies,
             'stages' => $stages,
             'iqs' => $iqs,
             'personals' => $personals,
+            'settings' => $settings,
         ]);
     }
 
@@ -46,6 +48,19 @@ class SettingController extends Controller
         if (isset($setting)) {
             $setting->update([
                 'question_personal_value' => $request->question_personal_value
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+
+    public function announcValue(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'announcement' => $request->announc
             ]);
         }else{
             Setting::create($data);
@@ -92,4 +107,6 @@ class SettingController extends Controller
         $data->delete();
         return back();
     }
+
+    
 }

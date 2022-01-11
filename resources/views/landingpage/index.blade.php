@@ -11,6 +11,7 @@
     })->orderBy('id', 'desc')->pluck('name')->first();
     $informations = App\Models\Schdule::orderBy('id', 'desc')->limit(6)->get();
     $qnas = App\Models\Qna::get();
+    $settings = App\Models\Setting::get();
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -1156,7 +1157,7 @@
                                     <span class="dot"></span>
                                     <h4 class="desc1">Pengumuman</h5>
                                     <p class="desc">
-                                        Pengumuman akan di umumkan pada tanggal <b>23 November 2022</b>.
+                                        Pengumuman akan di umumkan pada tanggal <b>{{ \Carbon\Carbon::parse($settings->first()->announcement)->format('d F Y') }}</b>.
                                     </p>
                                 </div>
                                 <div class="description gsap-desc2 mb-5">
