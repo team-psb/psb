@@ -68,6 +68,19 @@ class SettingController extends Controller
         return back();
     }
 
+    public function noMessage(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'no_msg' => $request->no_msg
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+
     public function stageStore(Request $request)
     {
         $data = $request->all();
@@ -108,5 +121,4 @@ class SettingController extends Controller
         return back();
     }
 
-    
 }

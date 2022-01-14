@@ -208,6 +208,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/settings/iq', [SettingController::class, 'iqValue'])->name('settings.iq-value');
     Route::post('/settings/personal', [SettingController::class, 'personalValue'])->name('settings.personal-value');
     Route::post('/settings/announcement', [SettingController::class, 'announcValue'])->name('settings.announcement');
+    Route::post('/settings/no-message', [SettingController::class, 'noMessage'])->name('settings.no-message');
     Route::get('/settings/stage/{id}', [SettingController::class, 'stageEdit'])->name('settings.stage-edit');
     Route::post('/settings/stage/{id}', [SettingController::class, 'stageUpdate'])->name('settings.stage-update');
     Route::delete('/settings/stage/{id}', [SettingController::class, 'stageDelete'])->name('settings.stage-delete');

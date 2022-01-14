@@ -8,8 +8,10 @@ use App\Models\User;
 use App\Models\VerifyUser;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Setting;
 
 class ForgotPasswordController extends Controller
 {
@@ -31,7 +33,7 @@ class ForgotPasswordController extends Controller
             return back()->with('gagal-kirim', 'nomor whatsapp anda belum terdaftar');
         }
         
-        $token = bin2hex(random_bytes(8));
+        $token = bin2hex(random_bytes(6));
         $user = [
             'phone' => $request->phone,
             'token' => $token,
@@ -40,9 +42,19 @@ class ForgotPasswordController extends Controller
         // dd($user['token']);
         DB::table('password_resets')->insert($user);
 
+        $link =  route('getPassword', $token);
+        // dd($link);
+
+        $data = [
+            'sender' => Setting::pluck('no_msg'),
+            'reciver' => $request->phone,
+            'message' => 'Untuk mereset password akun anda silahkan masuk ke link berikut : '.$link
+        ];
+        sendMessage($data);
+
         // Mail::to($user['email'])->send(new VerifikasiEmail($user));
 
-        return back()->with('sukses-buat', 'Link reset Password sudah kami kirim ke nomer Whatsapp anda! '. $request->phone.' dengan token : '.$token);
+        return back()->with('sukses-buat', 'Link reset Password sudah kami kirim ke nomer Whatsapp anda! Dengan Nomor : '. $request->phone);
     }
 
     public function getPassword($token)
@@ -71,7 +83,15 @@ class ForgotPasswordController extends Controller
             ]);
 
             DB::table('password_resets')->where(['phone'=> $request->phone])->delete();
-            return redirect('/masuk')->with('sukses-daftar', 'Password anda sudah berhasil di update! Silahkan login ulang.'); 
+
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => $request->phone,
+                'message' => 'Selamat anda berhasil mereset password. Nomor anda : '.$request->phone.' dengan password baru '. $request->password.', silahkan untuk login di : '.route('home')
+            ];
+            sendMessage($data);
+
+            return redirect()->route('home')->with('sukses-daftar', 'Password anda sudah berhasil di update! Silahkan login ulang.'); 
         }
     }
 }

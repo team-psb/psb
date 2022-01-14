@@ -72,7 +72,6 @@
 
                             <div class="simple-footer">
                                 Copyright &copy; pondok Informatika {{ date('Y') }}
-                                <a href="{{ route('getPassword', '8c80') }}">get password</a>
                             </div>
                         </div>
                     </div>
