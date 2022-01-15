@@ -48,7 +48,7 @@ class ForgotPasswordController extends Controller
         $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => $request->phone,
-            'message' => 'Untuk mereset password akun anda silahkan masuk ke link berikut : '.$link
+            'message' => 'Untuk mereset *password* akun anda silahkan masuk ke link berikut : '.$link
         ];
         sendMessage($data);
 
@@ -87,7 +87,7 @@ class ForgotPasswordController extends Controller
             $data = [
                 'sender' => Setting::pluck('no_msg'),
                 'reciver' => $request->phone,
-                'message' => 'Selamat anda berhasil mereset password. Nomor anda : '.$request->phone.' dengan password baru '. $request->password.', silahkan untuk login di : '.route('home')
+                'message' => 'Selamat anda berhasil mereset *password*. Nomor anda : *'.$request->phone.'* dengan password baru *'. $request->password.'*, silahkan untuk login di : '.route('home')
             ];
             sendMessage($data);
 
