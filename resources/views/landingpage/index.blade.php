@@ -332,7 +332,7 @@
                         >
                             <div>
                                 <img
-                                    src="./assets/logo-bg.png"
+                                    src="./assets/img/logo-bg.png"
                                     class="position-absolute"
                                     alt="logo"
                                     width="400"

@@ -58,15 +58,20 @@
             -moz-appearance: textfield;
             }
 
+            /* -------- Line -------- */
+
             body{
-                background: #eee;
+                background: linear-gradient(-45deg, lightseagreen, #23d5ab, #23a6d5, steelblue);
+                background-size: 500%, 500%;
+                position: relative;
+                animation: change 10s ease-in-out infinite;
             }
 
             .card {
                 width: 350px;
                 padding: 10px;
                 border-radius: 20px;
-                background: #fff;
+                background-image: linear-gradient(to right bottom, #37b091, #44708b);
                 border: none;
                 position: relative;
             }
@@ -76,62 +81,129 @@
             }
 
             .mobile-text {
-                color: #989696b8;
+                color: #fff;
                 font-size: 15px;
             }
 
-            .form-control:focus {
-                color: #465057;
-                background-color: #fff;
-                border-color: #ff8880;
-                outline: 0;
-                box-shadow: none;
+            .button {
+                color: #fff;
+                border: 2px solid lightseagreen;
+                transition: all 500ms;
+            }
+
+            .button:hover {
+                color: #104852  !important;
+                background: linear-gradient(to right, lightseagreen, steelblue);
+            }
+
+            @keyframes change {
+                0% {
+                    background-position: 0 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0 50%;
+                }
             }
         </style>
     </head>
 
     <body>
         <div class="d-flex justify-content-center align-items-center container">
-            <div class="card py-5 px-4 text-center">
-                <h3 class="m-0">OTP Verification</h3>
+            <div class="card py-5 px-4 text-center shadow position-relative overflow-hidden">
+                <img
+                    src="./assets/img/logo-bg.png"
+                    class="position-absolute"
+                    alt="logo"
+                    width="400"
+                    style="
+                        z-index: -0;
+                        top: 100px;
+                        left: -140px;
+                    "
+                />
+                <h3 class="m-0 text-white">OTP Verification</h3>
                 <span class="mobile-text mt-2">Masukkan kode yang baru saja kami <br> kirim ke apk WA Anda
-                    <b class="text-danger">089538001****</b>
+                    <b style="color:#FFAD60;">089538001****</b>
                 </span>
-                <form action="#" method="POST">
+                <form action="#" method="POST" class="position-relative">
                     @csrf
                     @method('POST')
-                    <div class="row">
-                        <div class="col-md-2">
-                            <input type="text">
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text">
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text">
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text">
-                        </div>
+                    <div class="d-flex justify-content-around py-3">
+                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
+                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
+                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
+                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
                     </div>
-                    {{-- <div class="d-flex justify-content-center my-4">
-                        <button class="btn btn-success rounded-pill">
-                            <a href="#" class="text-decoration-none text-white">
+
+                    <div class="d-flex justify-content-center mt-2 mb-3">
+                        <a href="{{ url()->previous() }}">
+                            <button class="btn rounded-pill button px-4 fw-bold">
                                 Go back
-                            </a>
-                        </button>
-                        <div class="mx-2"></div>
-                        <button class="btn btn-danger rounded-pill">Submit</button>
-                    </div> --}}
+                            </button>
+                        </a>
+                        <div class="mx-3"></div>
+                        <button class="btn rounded-pill button px-4 fw-bold">Submit</button>
+                    </div>
                 </form>
 
-                <div class="text-center">
-                    <span class="d-block mobile-text">Belum menerima kode?</span>
-                    <a href="#" class="fw-bold text-danger" role="button">kirim ulang</a>
+                <div>
+                    <p class="d-block mobile-text" id="countdown"></p>
+                    <div class="text-center">
+                        <span class="d-block mobile-text" id="resend"></span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <script src="./assets/js/main.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            // Auto fokus input kosong
+            document.querySelectorAll('.otpinput').forEach((input) => {
+                input.oninput = function() {
+                    let { nextElementSibling } = this;
+                    while (nextElementSibling && nextElementSibling.tagName !== 'INPUT') {
+                    nextElementSibling = nextElementSibling.nextElementSibling;
+                    }
+                    if (nextElementSibling) {
+                    nextElementSibling.focus();
+                    }
+                }
+            });
+
+            // Timer
+            let timerOn = true;
+
+            function timer(remaining){
+                var m = Math.floor(remaining / 60);
+                var s = remaining % 60;
+                m = m < 10 ? '0' + m : m;
+                s = s < 10 ? '0' + s : s;
+
+                document.getElementById('countdown').innerHTML =
+                'Time Left :' m + ':' + s;
+                remaining -=1;
+                if (remaining >= 0 && timerOn) {
+                    setTimeout( function() {
+                        timer(remaining);
+                    }, 1000);
+                document.getElementById('resend').innerHTML =
+                '';
+
+                return;
+
+                }
+
+                if (!timerOn) {
+                    return;
+                }
+
+                document.getElementById('resend').innerHTML = 'Belum menerima kode? <a href="#" style="color: #FFAD60;font-weight: bold;" onclick="timer(60)">kirim ulang</a>'
+            }
+
+            timer(60);
+        </script>
     </body>
 </html>
