@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Stage;
 use App\Models\ScoreIq;
+use App\Models\Setting;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ScoreIqExport;
 class ScoreIqController extends Controller
@@ -53,6 +54,32 @@ class ScoreIqController extends Controller
         $item->status = $request->status;
         $item->save();
 
+        // Whatsapp Gateway
+        if ($item->status == 'lolos'){
+            $link =  route('user-third-tes');
+
+        $data = [
+            'sender' => Setting::pluck('no_msg'),
+            'reciver' => $item->user->phone,
+            'message' => 'Selamat,' . $item->user->name . '!
+
+Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Ketiga_
+
+Untuk melakukan tes _Tahap Ketiga_, Silahkan anda klik link berikut: ' .$link 
+        ];
+        sendMessage($data);
+        } else {
+        $data = [
+            'sender' => Setting::pluck('no_msg'),
+            'reciver' => $item->user->phone,
+            'message' => 'Mohon maaf,' . $item->user->name . '!
+
+Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Ketiga_
+
+Tetap Semangka (Semangat Karena Allah !)' 
+        ];
+        sendMessage($data);
+        }
         return redirect()->route('scoreIq.index')->with('success-edit', 'Berhasil Mengganti Status Data');
     }
 

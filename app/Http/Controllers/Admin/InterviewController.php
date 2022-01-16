@@ -8,6 +8,7 @@ use App\Models\Interview;
 use Illuminate\Http\Request;
 use App\Models\Pass;
 use App\Models\Stage;
+use App\Models\Setting;
 use Maatwebsite\Excel\Facades\Excel;
 
 class InterviewController extends Controller
@@ -50,6 +51,30 @@ class InterviewController extends Controller
         $item->status = $request->status;
         $item->save();
 
+        // Whatsapp Gateway
+        if ($item->status == 'lolos'){
+        $data = [
+            'sender' => Setting::pluck('no_msg'),
+            'reciver' => $item->user->phone,
+            'message' => 'Selamat,' . $item->user->name . '!
+
+Anda dinyatakan *Lolos* Sebagai calon santri Pondok Informatika Al-Madinah
+
+Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp selalu aktif*.'
+        ];
+        sendMessage($data);
+        } else {
+        $data = [
+            'sender' => Setting::pluck('no_msg'),
+            'reciver' => $item->user->phone,
+            'message' => 'Mohon maaf,' . $item->user->name . '!
+
+Anda dinyatakan *Tidak Lolos* pada sesi wawancara
+
+Tetap Semangka (Semangat Karena Allah !)' 
+        ];
+        sendMessage($data);
+        }
         return redirect()->route('interviews.index')->with('success-edit', 'Berhasil Mengganti Status Data');
     }
 

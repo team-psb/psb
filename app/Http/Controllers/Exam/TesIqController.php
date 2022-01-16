@@ -54,6 +54,18 @@ class TesIqController extends Controller
                 'academy_year_id'=>$tahun_ajaran,
                 'score_question_iq'=>$nilai,
             ]);
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => Auth::user()->phone,
+                'message' => 'Anda telah selesai melaksanakan tes _Tahap Kedua_.
+    
+    Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
+    
+    Anda baru bisa lanjut mengikuti tes _Tahap Ketiga_ jika dinyatakan lolos di tes _Tahap Kedua_'
+    
+    
+            ];
+            sendMessage($data);
             return redirect()->route('user-dashboard');
         }else{
             ScoreIq::create([
@@ -62,50 +74,19 @@ class TesIqController extends Controller
                 'academy_year_id'=>$tahun_ajaran,
                 'score_question_iq'=>0,
             ]);
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => Auth::user()->phone,
+                'message' => 'Anda telah selesai melaksanakan tes _Tahap Kedua_.
+    
+    Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
+    
+    Anda baru bisa lanjut mengikuti tes _Tahap Ketiga_ jika dinyatakan lolos di tes _Tahap Kedua_'
+    
+    
+            ];
+            sendMessage($data);
             return redirect()->route('user-dashboard');
         }
-    }
-
-    public function personal()
-    {
-        $limit = Setting::pluck('question_personal_value')->first();
-        $soal = QuestionPersonal::inRandomOrder()->limit($limit)->get();
-        $kepribadian = $soal->paginate(10);
-        return view('front.pages.tesPersonality.index',compact('kepribadian'));
-    }
-
-    public function personalStore(Request $request)
-    {
-        $jawaban=$request->input('pilihan');
-        
-        if($jawaban != null){
-            
-            
-            $nilai = 0 ;
-            foreach ($jawaban as $key => $value) {
-                $cek=QuestionPersonal::where('id','=',$key)->first();
-                
-                if ($value == 'a') {
-                    $nilai= $nilai + $cek->poin_a;
-                }
-                elseif ($value == 'b') {
-                    $nilai= $nilai + $cek->poin_b;
-                }
-                elseif ($value == 'c') {
-                    $nilai= $nilai + $cek->poin_c;
-                }
-                elseif ($value == 'd') {
-                    $nilai= $nilai + $cek->poin_d;
-                }
-                elseif ($value == 'e') {
-                    $nilai= $nilai + $cek->poin_e;
-                }  
-            }
-            
-            $data=Score::where('user_id','=',Auth::user()->id)->pluck('id')->first();
-            $nilai_kepribadian=Score::find($data); 
-            $nilai_kepribadian->update(['score_question_personal'=>$nilai]);     
-        }
-        return redirect()->route('success');
     }
 }

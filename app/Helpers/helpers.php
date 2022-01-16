@@ -21,4 +21,4 @@
         curl_close($curl);
         
         return $resultData;
-    }    
+    }
