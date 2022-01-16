@@ -52,7 +52,7 @@ class AuthController extends Controller
                 if (Auth::user()->remember_token == null) {
                     Auth::logout();
                     // return redirect()->route('login')->with('sukses-warning','Email anda belum terverifikasi, Silahkan Verifikasi email terlebih dahulu!');
-                    return redirect()->route('get-token')->with('alert-login', 'Silahkan konfirmasi pendaftaran dengan memasukkan Kode OTP yang telah kami kirim di Whatsapp !');
+                    return redirect()->route('get-token', $request->phone)->with('alert-login', 'Silahkan konfirmasi pendaftaran dengan memasukkan Kode OTP yang telah kami kirim di Whatsapp !');
 
                 }
                 $bio = BiodataTwo::where('user_id','=',$user_id)->get();
@@ -129,7 +129,7 @@ class AuthController extends Controller
         //     'token' => bin2hex(random_bytes(8))
         // ]);
 
-        $link =  route('post-token');
+        $link =  route('get-token', $wa);
 
         $data = [
             'sender' => Setting::pluck('no_msg'),
@@ -139,31 +139,29 @@ class AuthController extends Controller
         sendMessage($data);
 
         // return redirect('/')->with('sukses-daftar','Selamat anda berhasil mendaftar, silahkan login untuk memulai pendaftaran !');
-        // return back()->with('success-create','Selamat anda berhasil mendaftar, silahkan lakukan konfirmasi pendaftaran yang telah kami kirim di whatsapp !');
+        return back()->with('success-regis','Selamat anda berhasil mendaftar, silahkan lakukan konfirmasi pendaftaran yang telah kami kirim di Whatsapp !');
 
-        return redirect()->route('get-token')->with('no_wa', $wa);
+        return redirect()->route('get-token', $wa);
         // return view('auth.inputToken', compact('wa'));
     }
 
     public function resendToken($wa)
     {
-        $user = User::where('phone', $wa)->get()->first();
-        $link =  route('post-token', $wa);
+        $link =  route('get-token', $wa);
         $token = mt_rand(1000,9999);
 
-        $userup = User::findOrFail($user->id);
-        $userup->update([
-            'token' => $token,
+        User::wherePhone($wa)->update([
+            'token' => $token
         ]);
 
         $data = [
             'sender' => Setting::pluck('no_msg'),
-            'reciver' => $user->phone,
+            'reciver' => $wa,
             'message' => 'Untuk mengkonfirmasi pendaftaran silahkan masukkan kode OTP : '.$token.' dilink berikut '.$link
         ];
         sendMessage($data);
 
-        return back();
+        return back()->with('resend-msg', 'Token baru telah kami kirim ke no Whatsapp anda silahkan masukkan ulang Kode OTP');
     }
 
     public function logout()
@@ -172,26 +170,24 @@ class AuthController extends Controller
         return redirect('/');
     }
 
-    public function getToken()
+    public function getToken($wa)
     {
-        return view('auth.inputToken');
+        return view('auth.inputToken', compact('wa'));
     }
 
-    public function postToken(Request $request)
+    public function postToken(Request $request, $wa)
     {
-        $user = User::get();
-        if ($request->token == $user->token->last()) {
+        $user = User::where('phone', $wa)->get()->first();
+        if ($request->token == $user->token) {
 
-            $user = User::findOrFail($user->id->last());
-            $user->update([
-                'remember_token' => $request->token,
+            User::wherePhone($wa)->update([
+                'remember_token' => $request->token
             ]);
             
-            $wa = User::pluck('phone')->last();
             $data = [
                 'sender' => Setting::pluck('no_msg'),
                 'reciver' => $wa,
-                'message' => 'Selamat anda berhasil konfirmasi pendaftaran, silahkan login untuk melakukan proses seleksi selanjutnya !. Di link berikut '.route('home')
+                'message' => 'Selamat anda berhasil konfirmasi pendaftaran, silahkan login untuk melakukan proses seleksi selanjutnya ! Di link berikut '.route('home')
             ];
             sendMessage($data);
             

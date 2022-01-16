@@ -224,10 +224,10 @@
         <!-- ======= Home Section ======= -->
         <section id="home" class="d-flex align-items-center">
             <div class="container" data-aos="zoom-out">
-                @if (session('success-create'))
+                @if (session('success-regis'))
                         <div class="alert alert-success alert-dismissible show fade">
                             <div class="alert-body fw-bold">
-                                {{ session('success-create') }}
+                                {{ session('success-regis') }}
                             </div>
                         </div>
                     @elseif(session('success-danger'))
