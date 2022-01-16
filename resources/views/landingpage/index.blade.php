@@ -11,6 +11,7 @@
     })->orderBy('id', 'desc')->pluck('name')->first();
     $informations = App\Models\Schdule::orderBy('id', 'desc')->limit(6)->get();
     $qnas = App\Models\Qna::get();
+    $settings = App\Models\Setting::get();
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -223,10 +224,10 @@
         <!-- ======= Home Section ======= -->
         <section id="home" class="d-flex align-items-center">
             <div class="container" data-aos="zoom-out">
-                @if (session('success-create'))
+                @if (session('success-regis'))
                         <div class="alert alert-success alert-dismissible show fade">
                             <div class="alert-body fw-bold">
-                                {{ session('success-create') }}
+                                {{ session('success-regis') }}
                             </div>
                         </div>
                     @elseif(session('success-danger'))
@@ -242,6 +243,11 @@
                             </div>
                         </div>
                     @else
+                @endif
+                @if (session('sukses-daftar'))
+                    <div class="alert alert-success fw-bold">
+                        {{ session('sukses-daftar') }} <br>
+                    </div>
                 @endif
                 <div class="row">
                     <div class="col-md-6 col-sm-12 mb-5 mb-lg-0 mb-md-0">
@@ -1159,7 +1165,7 @@
                                     <span class="dot"></span>
                                     <h4 class="desc1">Pengumuman</h5>
                                     <p class="desc">
-                                        Pengumuman akan di umumkan pada tanggal <b>23 November 2022</b>.
+                                        Pengumuman akan di umumkan pada tanggal <b>{{ \Carbon\Carbon::parse($settings->first()->announcement)->format('d F Y') }}</b>.
                                     </p>
                                 </div>
                                 <div class="description gsap-desc2 mb-5">

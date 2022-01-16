@@ -16,12 +16,12 @@
                 <div class="card   card-rounded">
                     <div class="card-body">
                         <h4 class="card-title pb-4" style="border-bottom: 1px solid black;">Pengaturan Sistem</h4>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <h5>Pesan Pemberitahuan Whatsapp</h5>
                             <textarea name="notification" class="form-control" style="height: 200px"></textarea>
-                        </div>
+                        </div> --}}
                         <div class="row">
-                            <div class="col">
+                            <div class="col-3">
                                 <div class="form-group">
                                     <h5>Tahun Ajaran Aktif <span class="badge badge-success">{{ $academies->count() }}</span>
                                         <a href="#mymodal"
@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-3">
                                 <div class="form-group">
                                     <h5>Gelombang Aktif 
                                         <span class="badge badge-success">{{ $stages->count() }}</span>
@@ -114,7 +114,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-3">
                                 <div class="form-group">
                                     <h5>Soal Tes IQ Aktif <span class="badge badge-success">{{ $iq.'/'.$iqs->count() }}</span></h5>
                                     <form action="{{ route('settings.iq-value') }}" method="POST">
@@ -135,8 +135,16 @@
                                         <button class="btn btn-primary float-right">save</button>
                                     </form>
                                 </div>
+                                <div class="form-group">
+                                    <h5>Pengumuman Santri Baru</h5>
+                                    <form action="{{ route('settings.announcement') }}" method="POST">
+                                        @csrf
+                                        <input type="date" name="announc" class="form-control" value="{{ $settings->first()->announcement }}">
+                                        <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="col">
+                            <div class="col-3">
                                 <div class="form-group">
                                     <h5>Soal Tes Kepribadian Aktif <span class="badge badge-success">{{ $personal.'/'.$personals->count() }}</span></h5>
                                     <form action="{{ route('settings.personal-value') }}" method="POST">
@@ -157,17 +165,23 @@
                                         <button class="btn btn-primary float-right">save</button>
                                     </form>
                                 </div>
+                                <div class="form-group">
+                                    <h5>No Pesan Whatsapp</h5>
+                                    <form action="{{ route('settings.no-message') }}" method="POST">
+                                        @csrf
+                                        <input type="text" name="no_msg" class="form-control" value="{{ $settings->first()->no_msg }}">
+                                        <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                        {{-- <div class="border-top border-2">
-                            <button  class="btn btn-primary btn-md mt-2">Simpan</button>
-                        </div> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

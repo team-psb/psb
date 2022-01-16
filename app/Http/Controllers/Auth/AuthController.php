@@ -11,8 +11,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use App\Http\Requests\AuthRequest;
+use App\Models\Setting;
 use App\Models\Stage;
 use App\Models\VerifyUser;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -47,10 +49,12 @@ class AuthController extends Controller
             if ($role == 'admin') {
                 return redirect()->route('dashboard');
             }else{
-                // if (Auth::user()->email_verified_at == null) {
-                //     Auth::logout();
-                //     return redirect()->route('login')->with('sukses-warning','Email anda belum terverifikasi, Silahkan Verifikasi email terlebih dahulu!');
-                // }
+                if (Auth::user()->remember_token == null) {
+                    Auth::logout();
+                    // return redirect()->route('login')->with('sukses-warning','Email anda belum terverifikasi, Silahkan Verifikasi email terlebih dahulu!');
+                    return redirect()->route('get-token', $request->phone)->with('alert-login', 'Silahkan konfirmasi pendaftaran dengan memasukkan Kode OTP yang telah kami kirim di Whatsapp !');
+
+                }
                 $bio = BiodataTwo::where('user_id','=',$user_id)->get();
                 $user_bio = $bio->toArray();
                 // dd($user_bio);
@@ -69,7 +73,7 @@ class AuthController extends Controller
     {
         return view('auth.register');
     }
-
+    
     public function registerProses(AuthRequest $request)
     {
         // dd($request->all());
@@ -93,16 +97,14 @@ class AuthController extends Controller
         }
 
         // dd($request->all());
-        $user= User::create([
+        $token = mt_rand(1000,9999);
+        $user = User::create([
             'name'=>$request->name,
             'phone'=>$wa,
             'password'=>bcrypt($request->password),
             'role'=>'pendaftar',
+            'token'=> $token,
         ]);
-
-
-        // $academy_year = AcademyYear::where('is_active','=','1')->orderBy('id','desc')->pluck('id');
-        // $stage = AcademyYear::where('is_active','=','1')->orderBy('id','desc')->pluck('stage_id');
 
         $academy_year = AcademyYear::where('is_active', true)->orderBy('id', 'desc')->pluck('id')->first();
         $stage = Stage::whereHas('academy_year', function($query){
@@ -127,16 +129,39 @@ class AuthController extends Controller
         //     'token' => bin2hex(random_bytes(8))
         // ]);
 
-        // kirim email untuk verifikasi
-        // VerifyUser::create([
-        //   'users_id' => $user->id,
-        //   'token' => bin2hex(random_bytes(40))
-        // ]);
-        // Mail::to('bangfkr002@gmail.com')->send(new VerifikasiEmail($user));
-        // return redirect()->back();
+        $link =  route('get-token', $wa);
+
+        $data = [
+            'sender' => Setting::pluck('no_msg'),
+            'reciver' => $wa,
+            'message' => 'Untuk mengkonfirmasi pendaftaran silahkan masukkan kode OTP : '.$token.' dilink berikut '.$link
+        ];
+        sendMessage($data);
 
         // return redirect('/')->with('sukses-daftar','Selamat anda berhasil mendaftar, silahkan login untuk memulai pendaftaran !');
-        return back()->with('success-create','Selamat anda berhasil mendaftar, silahkan lakukan konfirmasi pendaftaran yang telah kami kirim di whatsapp !');
+        return back()->with('success-regis','Selamat anda berhasil mendaftar, silahkan lakukan konfirmasi pendaftaran yang telah kami kirim di Whatsapp !');
+
+        return redirect()->route('get-token', $wa);
+        // return view('auth.inputToken', compact('wa'));
+    }
+
+    public function resendToken($wa)
+    {
+        $link =  route('get-token', $wa);
+        $token = mt_rand(1000,9999);
+
+        User::wherePhone($wa)->update([
+            'token' => $token
+        ]);
+
+        $data = [
+            'sender' => Setting::pluck('no_msg'),
+            'reciver' => $wa,
+            'message' => 'Untuk mengkonfirmasi pendaftaran silahkan masukkan kode OTP : '.$token.' dilink berikut '.$link
+        ];
+        sendMessage($data);
+
+        return back()->with('resend-msg', 'Token baru telah kami kirim ke no Whatsapp anda silahkan masukkan ulang Kode OTP');
     }
 
     public function logout()
@@ -145,10 +170,37 @@ class AuthController extends Controller
         return redirect('/');
     }
 
-    // public function getToken()
-    // {
-    //     return view('auth.inputToken');
-    // }
+    public function getToken($wa)
+    {
+        return view('auth.inputToken', compact('wa'));
+    }
+
+    public function postToken(Request $request, $wa)
+    {
+        $user = User::where('phone', $wa)->get()->first();
+        if ($request->token == $user->token) {
+
+            User::wherePhone($wa)->update([
+                'remember_token' => $request->token
+            ]);
+            
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => $wa,
+                'message' => 'Selamat anda berhasil konfirmasi pendaftaran, silahkan login untuk melakukan proses seleksi selanjutnya ! Di link berikut '.route('home')
+            ];
+            sendMessage($data);
+            
+            return redirect()->route('home')->with('sukses-kirim', 'Selamat anda berhasil konfirmasi pendaftaran, silahkan login untuk melakukan proses seleksi selanjutnya !');
+        }else{
+            return back()->with('gagal-kirim','Token yang anda masukkan salah / tidak sesuai');
+        }
+        
+        // $user->where('id', $user->id)->update([
+        //     'token' => $request->token
+        // ]);
+        // return redirect('login')->with('success-verify', 'Selamat anda berhasil konfirmasi pendaftaran, akun anda sekarang sudah bisa untuk proses seleksi selanjutnya !');
+    }
 
     // public function postToken(Request $request, $id)
     // {

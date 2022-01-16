@@ -89,8 +89,9 @@ Route::group(['prefix' => ''], function () {
     Route::post('/login-proses',[AuthController::class,'loginProses'])->name('login-proses');
     Route::get('/register',[AuthController::class,'register'])->name('register');
     Route::post('/register-proses',[AuthController::class,'registerProses'])->name('register-proses');
-    // Route::get('/token', [AuthController::class, 'getToken'])->name('get-token');
-    // Route::post('/token/{id}', [AuthController::class, 'postToken'])->name('post-token');
+    Route::get('/token/{wa}', [AuthController::class, 'getToken'])->name('get-token');
+    Route::post('/token/{wa}', [AuthController::class, 'postToken'])->name('post-token');
+    Route::get('/token-resend/{wa}', [AuthController::class, 'resendToken'])->name('resend-token');
     Route::post('/logout',[AuthController::class,'logout'])->name('logout');
     Route::get('/forgot-password', [ForgotPasswordController::class, 'getWhatsapp'])->name('password-getwhatsapp');
     Route::post('/forgot-password',[ForgotPasswordController::class, 'postWhatsapp'])->name('pasword-postwhatsapp');
@@ -208,6 +209,8 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/settings/stage', [SettingController::class, 'stageStore'])->name('settings.stage-store');
     Route::post('/settings/iq', [SettingController::class, 'iqValue'])->name('settings.iq-value');
     Route::post('/settings/personal', [SettingController::class, 'personalValue'])->name('settings.personal-value');
+    Route::post('/settings/announcement', [SettingController::class, 'announcValue'])->name('settings.announcement');
+    Route::post('/settings/no-message', [SettingController::class, 'noMessage'])->name('settings.no-message');
     Route::get('/settings/stage/{id}', [SettingController::class, 'stageEdit'])->name('settings.stage-edit');
     Route::post('/settings/stage/{id}', [SettingController::class, 'stageUpdate'])->name('settings.stage-update');
     Route::delete('/settings/stage/{id}', [SettingController::class, 'stageDelete'])->name('settings.stage-delete');

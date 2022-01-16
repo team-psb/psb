@@ -20,6 +20,8 @@ class CreateSettingsTable extends Migration
             $table->integer('question_iq_value')->nullable();
             $table->integer('question_personal_value')->nullable();
             $table->text('notification')->nullable();
+            $table->date('announcement')->nullable();
+            $table->string('no_msg')->nullable();
             $table->timestamps();
         });
     }
