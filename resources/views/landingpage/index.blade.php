@@ -26,7 +26,7 @@
         <title>Pondok Informatika Al Madinah</title>
 
         <!-- Favicons -->
-        <link href="assets/img/Logo-Pondok.png" rel="icon" />
+        <link rel="shortcut icon" href="assets/img/Logo-Pondok.png" rel="icon" />
 
         <!-- Google Fonts -->
         <link
@@ -2509,6 +2509,7 @@
 
         <!-- Template Main JS File -->
         <script src="./assets/js/main.js"></script>
+
         <script>
             // Show Password Icon
             function myFunction() {
