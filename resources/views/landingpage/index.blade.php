@@ -249,6 +249,11 @@
                         {{ session('sukses-daftar') }} <br>
                     </div>
                 @endif
+                @if (session('sukses-kirim'))
+                    <div class="alert alert-success fw-bold">
+                        {{ session('sukses-kirim') }} <br>
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-md-6 col-sm-12 mb-5 mb-lg-0 mb-md-0">
                         <h3 class="fw-bold mb-4 banner-title">Selamat Datang Di Web PSB Online Pondok Informatika Al-Madinah</h3>
