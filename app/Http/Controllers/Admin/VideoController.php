@@ -52,7 +52,6 @@ class VideoController extends Controller
             'academy_year_id'=>$item->academy_year_id,
             'stage_id'=>$item->stage_id,
         ]);
-        $link =  route('user-fifth-tes');
 
         $data = [
             'sender' => Setting::pluck('no_msg'),
@@ -98,13 +97,25 @@ Tetap Semangka (Semangat Karena Allah !)'
         $ids=$request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
-                $data = Video::findOrFail($id);
-                $data->update(['status'=>'lolos']);
+                $item = Video::findOrFail($id);
+                $item->update(['status'=>'lolos']);
                 Interview::create([
-                    'user_id'=>$data->user_id,
-                    'academy_year_id'=>$data->academy_year_id,
-                    'stage_id'=>$data->stage_id,
+                    'user_id'=>$item->user_id,
+                    'academy_year_id'=>$item->academy_year_id,
+                    'stage_id'=>$item->stage_id,
                 ]);
+                $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => $item->user->phone,
+                'message' => 'Selamat,' . $item->user->name . '!
+
+Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kelima_
+
+Untuk tes _Tahap Kelima_ adalah *wawancara*, Kami akan segera memberitahu anda mengenai waktunya
+
+*Pastikan selalu mengecek whatsapp agar tidak melewatkan jadwal yang kami berikan*' 
+                ];
+                sendMessage($data);
             }
             return redirect()->route('videos.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
@@ -117,13 +128,23 @@ Tetap Semangka (Semangat Karena Allah !)'
         $ids=$request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
-                $data = Video::findOrFail($id);
-                $data->update(['status'=>'tidak']);
+                $item = Video::findOrFail($id);
+                $item->update(['status'=>'tidak']);
 
-                $cek = Interview::where('user_id','=',$data->user_id)->get();
+                $cek = Interview::where('user_id','=',$item->user_id)->get();
                 if (isset($cek)) {
-                    Interview::where('user_id','=',$data->user_id)->delete();
+                    Interview::where('user_id','=',$item->user_id)->delete();
                 }
+                $data = [
+            'sender' => Setting::pluck('no_msg'),
+            'reciver' => $item->user->phone,
+            'message' => 'Mohon maaf,' . $item->user->name . '!
+
+Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kelima_
+
+Tetap Semangka (Semangat Karena Allah !)' 
+        ];
+        sendMessage($data);
             }
 
             return redirect()->route('videos.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
