@@ -28,27 +28,32 @@
           <div class="col-md-6 col-12 m-auto">
             <div class="login-brand">
             </div>
-            <div class="card card-primary">
+            <div class="card card-success">
               <div class="card-header"><h4>Konfirmasi pendaftaran</h4></div>
-              @if (session('sukses-buat'))
-                  <div class="alert alert-success">
-                    {{ session('sukses-buat') }} <br>
-                  </div>
-              @endif
-              @if (session('gagal-kirim'))
-                  <div class="alert alert-danger">
-                    {{ session('gagal-kirim') }} <br>
-                  </div>
-              @endif          
               <div class="card-body">
-                <form method="POST" action="{{ route('post-token', Auth::user()->id) }}" class="needs-validation" novalidate="">
+                @if (session('sukses-kirim'))
+                  <div class="alert alert-success">
+                    {{ session('sukses-kirim') }} <br>
+                  </div>
+                @endif
+                @if (session('gagal-kirim'))
+                    <div class="alert alert-danger">
+                      {{ session('gagal-kirim') }} <br>
+                    </div>
+                @endif  
+                @if (session('alert-login'))
+                    <div class="alert alert-danger">
+                      {{ session('alert-login') }} <br>
+                    </div>
+                @endif           
+                <form method="POST" action="{{ route('post-token') }}" class="needs-validation" novalidate="">
                   @csrf
                   @method('POST')
                   {{-- <input type="hidden" value="{{ Auth::user()->id }}" name="user_id"> --}}
                   <div class="form-group">
-                    <label for="phone">Token</label>
-                    <input id="phone" value="{{ old('token') }}" placeholder="masukkan token di sini ..." type="text" class="form-control @error('token') is-invalid @enderror" name="token" tabindex="1" required autofocus>
-                    <small> silahkan masukkan token pendaftaran yang telah kami kirim di whatsapp!</small>
+                    <label for="phone" class="fw-bold">Kode OTP</label>
+                    <input id="phone" value="{{ old('token') }}" placeholder="Masukkan Kode OTP di sini..." type="text" class="form-control @error('token') is-invalid @enderror" name="token" tabindex="1" required autofocus>
+                    <small class="text-danger"> Silahkan masukkan Kode OTP yang telah kami kirim di whatsapp!</small>
                     @error('phone')
                       <div class="invalid-feedback">
                         {{ $message }} 
@@ -56,11 +61,14 @@
                     @enderror
                   </div>
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                    <button type="submit" class="btn btn-success btn-lg btn-block" tabindex="4">
                       Konfirmasi
                     </button>
                   </div>
                 </form>
+                  {{-- <a href="{{ route('resend-token', $wa) }}" class="btn btn-success btn-lg btn-block" tabindex="4">
+                    Kirim Ulang kode OTP
+                  </a> --}}
               </div>
             </div>
 
