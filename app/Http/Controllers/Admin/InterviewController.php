@@ -83,7 +83,18 @@ Tetap Semangka (Semangat Karena Allah !)'
         $ids=$request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
+                $item = Pass::find($id);
                 Pass::find($id)->update(['status'=>'lolos']);
+                $data = [
+                    'sender' => Setting::pluck('no_msg'),
+                    'reciver' => $item->user->phone,
+                    'message' => 'Selamat,' . $item->user->name . '!
+        
+Anda dinyatakan *Lolos* Sebagai calon santri Pondok Informatika Al-Madinah
+
+Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp selalu aktif*.'
+                ];
+                sendMessage($data);
             }
 
             return redirect()->route('interviews.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
@@ -97,7 +108,18 @@ Tetap Semangka (Semangat Karena Allah !)'
         $ids=$request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
+                $item = Pass::find($id);
                 Pass::find($id)->update(['status'=>'tidak']);
+                $data = [
+                    'sender' => Setting::pluck('no_msg'),
+                    'reciver' => $item->user->phone,
+                    'message' => 'Mohon maaf,' . $item->user->name . '!
+        
+Anda dinyatakan *Tidak Lolos* pada sesi wawancara
+
+Tetap Semangka (Semangat Karena Allah !)' 
+                ];
+                sendMessage($data);
             }
 
             return redirect()->route('interviews.index')->with('success-edit','Berhasil Mengganti Semua Status Data');

@@ -203,6 +203,18 @@ Tetap Semangka (Semangat Karena Allah !)'
                     ]);
                 }
                 BiodataTwo::find($id)->update(['status'=>'lolos']);
+            $link =  route('user-second-tes');
+                
+            $data = [
+            'sender' => Setting::pluck('no_msg'),
+            'reciver' => $item->user->phone,
+            'message' => 'Selamat,' . $item->user->name . '!
+
+Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kedua_
+
+Untuk melakukan tes _Tahap Kedua_, Silahkan anda klik link berikut: ' .$link 
+        ];
+        sendMessage($data);
             }
             return redirect()->route('biodatas.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
@@ -215,7 +227,18 @@ Tetap Semangka (Semangat Karena Allah !)'
         $ids=$request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
+                $item = BiodataTwo::find($id);
                 BiodataTwo::find($id)->update(['status'=>'tidak']);
+            $data = [
+            'sender' => Setting::pluck('no_msg'),
+            'reciver' => $item->user->phone,
+            'message' => 'Mohon maaf,' . $item->user->name . '!
+
+Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kedua_
+
+Tetap Semangka (Semangat Karena Allah !)' 
+        ];
+        sendMessage($data);
             }
 
             return redirect()->route('biodatas.index')->with('success-edit','Berhasil Mengganti Semua Status Data');

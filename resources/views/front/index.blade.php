@@ -128,7 +128,7 @@
                                 @else
                                     <i class="fas fa-exclamation-triangle pb-3" style="font-size: 72px;"></i>
                                     <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}!</h2>
-                                    <p><strong>Anda dinyatakan Tidak Lolos ke Tahap selanjutnya</p>
+                                    <p><strong>Anda dinyatakan Tidak Lolos ke Tahap selanjutnya</strong></p>
                                 @endif
                             </div>
                         @else
