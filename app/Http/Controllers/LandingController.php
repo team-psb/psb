@@ -18,4 +18,9 @@ class LandingController extends Controller
 
         return view('landingpage.information_detail', compact('infodetail'));
     }
+
+    public function OTP()
+    {
+        return view('landingpage.otp');
+    }
 }

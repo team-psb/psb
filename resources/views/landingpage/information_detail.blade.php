@@ -12,7 +12,7 @@
         <title>Pondok Informatika Almadinah</title>
 
         <!-- Favicons -->
-        <link href="/assets/img/Logo-Pondok.png" rel="icon" />
+        <link rel="shortcut icon" href="/assets/img/Logo-Pondok.png" rel="icon" />
 
         <!-- Google Fonts -->
         <link
