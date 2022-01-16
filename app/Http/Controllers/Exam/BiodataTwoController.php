@@ -15,6 +15,7 @@ use App\Models\ScoreIq;
 use App\Models\ScorePersonal;
 use App\Models\Stage;
 use App\Models\Video;
+use App\Models\Setting;
 
 class BiodataTwoController extends Controller
 {
@@ -69,6 +70,19 @@ class BiodataTwoController extends Controller
             // dd($request->all());
             BiodataTwo::create($request->all());
         }
+
+        $data = [
+            'sender' => Setting::pluck('no_msg'),
+            'reciver' => Auth::user()->phone,
+            'message' => 'Anda telah selesai melaksanakan tes _Tahap Pertama_.
+
+Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
+
+Anda baru bisa lanjut mengikuti tes _Tahap Kedua_ jika dinyatakan lolos di tes _Tahap Pertama_'
+
+
+        ];
+        sendMessage($data);
 
         return redirect()->route('success');
     }

@@ -56,6 +56,18 @@ class TesPersonalController extends Controller
                 'academy_year_id'=>$tahun_ajaran,
                 'score_question_personal'=>$nilai,
             ]);
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => Auth::user()->phone,
+                'message' => 'Anda telah selesai melaksanakan tes _Tahap Ketiga_.
+    
+    Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
+    
+    Anda baru bisa lanjut mengikuti tes _Tahap Keempat_ jika dinyatakan lolos di tes _Tahap Ketiga_'
+    
+    
+            ];
+            sendMessage($data);
             return redirect()->route('success');
         }else{
             ScorePersonal::create([
@@ -64,6 +76,18 @@ class TesPersonalController extends Controller
                 'academy_year_id'=>$tahun_ajaran,
                 'score_question_personal'=>0,
             ]);
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => Auth::user()->phone,
+                'message' => 'Anda telah selesai melaksanakan tes _Tahap Ketiga_.
+    
+Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
+
+Anda baru bisa lanjut mengikuti tes _Tahap Keempat_ jika dinyatakan lolos di tes _Tahap Ketiga_'
+    
+    
+            ];
+            sendMessage($data);
             return redirect()->route('user-dashboard');
         }
     } 

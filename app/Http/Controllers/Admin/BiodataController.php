@@ -13,6 +13,7 @@ use App\Models\ScoreIq;
 use App\Models\ScorePersonal;
 use App\Models\Stage;
 use App\Models\Video;
+use App\Models\Setting;
 use Laravolt\Indonesia\Models\Province;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -157,6 +158,32 @@ class BiodataController extends Controller
             $item->save();
         }
 
+        // Whatsapp Gateway
+        if ($item->status == 'lolos'){
+            $link =  route('user-second-tes');
+
+        $data = [
+            'sender' => Setting::pluck('no_msg'),
+            'reciver' => $item->user->phone,
+            'message' => 'Selamat,' . $item->user->name . '!
+
+Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kedua_
+
+Untuk melakukan tes _Tahap Kedua_, Silahkan anda klik link berikut: ' .$link 
+        ];
+        sendMessage($data);
+        } else {
+        $data = [
+            'sender' => Setting::pluck('no_msg'),
+            'reciver' => $item->user->phone,
+            'message' => 'Mohon maaf,' . $item->user->name . '!
+
+Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kedua_
+
+Tetap Semangka (Semangat Karena Allah !)' 
+        ];
+        sendMessage($data);
+        }
 
         return redirect()->route('biodatas.index')->with('success-edit', 'Berhasil Mengganti Status Data');
     }
@@ -177,7 +204,6 @@ class BiodataController extends Controller
                 }
                 BiodataTwo::find($id)->update(['status'=>'lolos']);
             }
-
             return redirect()->route('biodatas.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
             return redirect()->back();
