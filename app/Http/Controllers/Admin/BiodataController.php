@@ -153,37 +153,64 @@ class BiodataController extends Controller
                 'academy_year_id' => $item->academy_year_id,
                 'status' => null
             ]);
+
+            // Whatsapp Gateway
+            if ($item->status == 'lolos'){
+
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => $item->user->phone,
+                'message' => 'Selamat, *' . $item->user->name . '!*
+
+Anda dinyatakan *Lolos* Ketahap berikutnya.
+
+Untuk melakukan tes _Tahap Wawancara_, anda akan kami hubungi untuk melakukan tes Wawancara.'
+            ];
+            sendMessage($data);
+            } else {
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => $item->user->phone,
+                'message' => 'Mohon maaf, *' . $item->user->name . '!*
+
+Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Selanjutnya_
+
+Tetap Semangka (*Semangat Karena Allah !*)' 
+            ];
+            sendMessage($data);
+            }
         }else{
             $item->status = $request->status;
             $item->save();
-        }
 
-        // Whatsapp Gateway
-        if ($item->status == 'lolos'){
-            $link =  route('user-second-tes');
+            // Whatsapp Gateway
+            if ($item->status == 'lolos'){
+                $link =  route('user-second-tes');
 
-        $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => $item->user->phone,
-            'message' => 'Selamat,' . $item->user->name . '!
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => $item->user->phone,
+                'message' => 'Selamat, *' . $item->user->name . '!*
 
 Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kedua_
 
 Untuk melakukan tes _Tahap Kedua_, Silahkan anda klik link berikut: ' .$link 
-        ];
-        sendMessage($data);
-        } else {
-        $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => $item->user->phone,
-            'message' => 'Mohon maaf,' . $item->user->name . '!
+            ];
+            sendMessage($data);
+            } else {
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => $item->user->phone,
+                'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
 Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kedua_
 
-Tetap Semangka (Semangat Karena Allah !)' 
-        ];
-        sendMessage($data);
+Tetap Semangka (*Semangat Karena Allah !*)' 
+            ];
+            sendMessage($data);
+            }
         }
+
 
         return redirect()->route('biodatas.index')->with('success-edit', 'Berhasil Mengganti Status Data');
     }
@@ -201,20 +228,31 @@ Tetap Semangka (Semangat Karena Allah !)'
                         'academy_year_id' => $item->academy_year_id,
                         'status' => null
                     ]);
+                    $data = [
+                    'sender' => Setting::pluck('no_msg'),
+                    'reciver' => $item->user->phone,
+                    'message' => 'Selamat,' . $item->user->name . '!
+                    
+Anda dinyatakan *Lolos* Ketahap berikutnya.
+
+Untuk melakukan tes _Tahap Wawancara_, anda akan kami hubungi untuk melakukan tes Wawancara.'
+                ];
+                sendMessage($data);
+                }else{
+                    $link =  route('user-second-tes');
+                    
+                    $data = [
+                    'sender' => Setting::pluck('no_msg'),
+                    'reciver' => $item->user->phone,
+                    'message' => 'Selamat, *' . $item->user->name . '!*
+    
+Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kedua_
+    
+Untuk melakukan tes _Tahap Kedua_, Silahkan anda klik link berikut: ' .$link 
+                ];
+                sendMessage($data);
                 }
                 BiodataTwo::find($id)->update(['status'=>'lolos']);
-            $link =  route('user-second-tes');
-                
-            $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => $item->user->phone,
-            'message' => 'Selamat,' . $item->user->name . '!
-
-Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kedua_
-
-Untuk melakukan tes _Tahap Kedua_, Silahkan anda klik link berikut: ' .$link 
-        ];
-        sendMessage($data);
             }
             return redirect()->route('biodatas.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
         }else{
@@ -229,16 +267,29 @@ Untuk melakukan tes _Tahap Kedua_, Silahkan anda klik link berikut: ' .$link
             foreach ($ids as $id) {
                 $item = BiodataTwo::find($id);
                 BiodataTwo::find($id)->update(['status'=>'tidak']);
-            $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => $item->user->phone,
-            'message' => 'Mohon maaf,' . $item->user->name . '!
-
+                if ($item->user->biodataOne->family == 'sangat-mampu') {
+                    $data = [
+                        'sender' => Setting::pluck('no_msg'),
+                        'reciver' => $item->user->phone,
+                        'message' => 'Mohon maaf,' . $item->user->name . '!
+            
+Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Selanjutnya_
+            
+Tetap Semangka (*Semangat Karena Allah !*)' 
+                    ];
+                    sendMessage($data);
+                }else{
+                    $data = [
+                        'sender' => Setting::pluck('no_msg'),
+                        'reciver' => $item->user->phone,
+                        'message' => 'Mohon maaf, *' . $item->user->name . '!*
+            
 Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kedua_
-
-Tetap Semangka (Semangat Karena Allah !)' 
-        ];
-        sendMessage($data);
+            
+Tetap Semangka (*Semangat Karena Allah !*)' 
+                    ];
+                    sendMessage($data);
+                }
             }
 
             return redirect()->route('biodatas.index')->with('success-edit','Berhasil Mengganti Semua Status Data');

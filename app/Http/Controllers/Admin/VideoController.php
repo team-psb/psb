@@ -44,7 +44,7 @@ class VideoController extends Controller
 
     public function lolos($id)
     {
-        $item=Video::findOrFail($id);
+        $item = Video::findOrFail($id);
         $item->update(['status' => 'lolos']);
         
         Interview::create([
@@ -56,7 +56,7 @@ class VideoController extends Controller
         $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => $item->user->phone,
-            'message' => 'Selamat,' . $item->user->name . '!
+            'message' => 'Selamat, *' . $item->user->name . '!*
 
 Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kelima_
 
@@ -81,11 +81,11 @@ Untuk tes _Tahap Kelima_ adalah *wawancara*, Kami akan segera memberitahu anda m
         $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => $item->user->phone,
-            'message' => 'Mohon maaf,' . $item->user->name . '!
+            'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
 Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kelima_
 
-Tetap Semangka (Semangat Karena Allah !)' 
+Tetap Semangka (*Semangat Karena Allah !*)' 
         ];
         sendMessage($data);
 
@@ -107,7 +107,7 @@ Tetap Semangka (Semangat Karena Allah !)'
                 $data = [
                 'sender' => Setting::pluck('no_msg'),
                 'reciver' => $item->user->phone,
-                'message' => 'Selamat,' . $item->user->name . '!
+                'message' => 'Selamat, *' . $item->user->name . '!*
 
 Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kelima_
 
@@ -138,11 +138,11 @@ Untuk tes _Tahap Kelima_ adalah *wawancara*, Kami akan segera memberitahu anda m
                 $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => $item->user->phone,
-            'message' => 'Mohon maaf,' . $item->user->name . '!
+            'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
 Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kelima_
 
-Tetap Semangka (Semangat Karena Allah !)' 
+Tetap Semangka (*Semangat Karena Allah !*)' 
         ];
         sendMessage($data);
             }
