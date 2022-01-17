@@ -256,6 +256,9 @@
                 document.getElementById('resend').innerHTML =
                 '';
                 return;
+                }else{
+                document.getElementById('countdown').innerHTML =
+                '';
                 }
                 if (!timerOn) {
                     return;
@@ -263,7 +266,7 @@
                 $("#ExampleButton").prop('disabled',true);
                 document.getElementById('resend').innerHTML = 'Belum menerima kode? <a href="{{ route('resend-token', $wa) }}" style="color: #FFAD60;font-weight: bold;" onclick="timer(60)">kirim ulang</a>'
             }
-            timer(180);
+            timer(10);
         </script>
     </body>
 </html>
