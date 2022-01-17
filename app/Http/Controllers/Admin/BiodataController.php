@@ -175,7 +175,7 @@ Untuk melakukan tes _Tahap Wawancara_, anda akan kami hubungi untuk melakukan te
 
 Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Selanjutnya_
 
-Tetap Semangka (*Semangat Karena Allah !*)' 
+Tetap Semangka (Semangat Karena Allah !)' 
             ];
             sendMessage($data);
             }
@@ -205,7 +205,7 @@ Untuk melakukan tes _Tahap Kedua_, Silahkan anda klik link berikut: ' .$link
 
 Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kedua_
 
-Tetap Semangka (*Semangat Karena Allah !*)' 
+Tetap Semangka (Semangat Karena Allah !)' 
             ];
             sendMessage($data);
             }
@@ -275,7 +275,7 @@ Untuk melakukan tes _Tahap Kedua_, Silahkan anda klik link berikut: ' .$link
             
 Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Selanjutnya_
             
-Tetap Semangka (*Semangat Karena Allah !*)' 
+Tetap Semangka (Semangat Karena Allah !)' 
                     ];
                     sendMessage($data);
                 }else{
@@ -286,7 +286,7 @@ Tetap Semangka (*Semangat Karena Allah !*)'
             
 Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kedua_
             
-Tetap Semangka (*Semangat Karena Allah !*)' 
+Tetap Semangka (Semangat Karena Allah !)' 
                     ];
                     sendMessage($data);
                 }
