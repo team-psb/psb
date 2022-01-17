@@ -27,7 +27,7 @@
         <title>Pondok Informatika Al Madinah</title>
 
         <!-- Favicons -->
-        <link rel="shortcut icon" href="assets/img/Logo-Pondok.png" rel="icon" />
+        <link rel="shortcut icon" href="{{ asset('assets/img/Logo-Pondok.png') }}" rel="icon" />
 
         <!-- Google Fonts -->
         <link
@@ -36,30 +36,30 @@
         />
 
         <!-- Vendor CSS Files -->
-        <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+        <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet" />
         <link
-            href="assets/vendor/bootstrap/css/bootstrap.min.css"
+            href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}"
             rel="stylesheet"
         />
         <link
-            href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+            href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}"
             rel="stylesheet"
         />
         <link
-            href="assets/vendor/boxicons/css/boxicons.min.css"
+            href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}"
             rel="stylesheet"
         />
         <link
-            href="assets/vendor/glightbox/css/glightbox.min.css"
+            href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}"
             rel="stylesheet"
         />
         <link
-            href="assets/vendor/swiper/swiper-bundle.min.css"
+            href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}"
             rel="stylesheet"
         />
 
         <!-- Template Main CSS File -->
-        <link href="assets/css/style.css" rel="stylesheet" />
+        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
         <script>
             $(document).ready(function () {
                 $("#birth_date").picky();
@@ -114,7 +114,7 @@
         <!-- ======= Background Image ======= -->
         <div class="d-none d-lg-inline">
             <img
-                src="./assets/img/logo-bg.png"
+                src="{{ asset('./assets/img/logo-bg.png') }}"
                 alt="logo"
                 class="position-absolute img-fluid"
                 width="1100"
@@ -123,7 +123,7 @@
         </div>
         <div class="d-none d-lg-inline">
             <img
-                src="./assets/img/bawah.png"
+                src="{{ asset('./assets/img/bawah.png') }}"
                 alt="bg-bawah"
                 class="position-absolute img-fluid"
                 width="400"
@@ -132,7 +132,7 @@
         </div>
         <div class="d-none d-lg-inline">
             <img
-                src="./assets/img/Atas.png"
+                src="{{ asset('./assets/img/Atas.png') }}"
                 class="position-absolute"
                 alt="bg-atas"
                 width="700"
@@ -143,7 +143,7 @@
 
         <!-- WA Live -->
         <a id="Wa" class="wa" title="Chat Live Wa" target="_blank" href="https://api.whatsapp.com/send?phone=6285725249265&text=Assalamu'alaikum%20Pondok%20Informatika,%20Saya%20pendaftar%20santri%20baru%20butuh%20bantuan !">
-            <img src="./assets/img/wa.png" alt="logo-wa" width="80" />
+            <img src="{{ asset('./assets/img/wa.png') }}" alt="logo-wa" width="80" />
         </a>
         <!-- End WA Live -->
 
@@ -160,7 +160,7 @@
                 <h1 class="logo">
                     <a href="#">
                         <img
-                            src="assets/img/Logo-Pondok.png"
+                            src="{{ asset('./assets/img/Logo-Pondok.png') }}"
                             alt="Logo-Pondok"
                             width="60"
                             class="img-fluid"
@@ -319,7 +319,7 @@
                     >
                         <!-- Animate -->
                         <img
-                            src="./assets/img/people.png"
+                            src="{{ asset('./assets/img/people.png') }}"
                             alt="people"
                             class="
                                 position-absolute
@@ -343,7 +343,7 @@
                         >
                             <div>
                                 <img
-                                    src="./assets/img/logo-bg.png"
+                                    src="{{ asset('./assets/img/logo-bg.png') }}"
                                     class="position-absolute"
                                     alt="logo"
                                     width="400"
@@ -449,7 +449,7 @@
                     <!-- Background Image -->
                     <div class="d-none d-lg-inline">
                         <img
-                            src="assets/img/logo-bg.png"
+                            src="{{ asset('./assets/img/logo-bg.png') }}"
                             alt="logo"
                             class="position-absolute img-fluid"
                             width="1100"
@@ -920,13 +920,13 @@
                                     Daftar Akun dan Mengisi Formulir Pendaftaran
                                 </p>
                                 <img
-                                    src="assets/img/daftar.png"
+                                    src="{{ asset('./assets/img/daftar.png') }}"
                                     alt="daftar"
                                     width="90px"
                                     class="img-fluid alur_image_1"
                                 />
                                 <img
-                                    src="assets/img/line_1.png"
+                                    src="{{ asset('./assets/img/line_1.png') }}"
                                     alt="daftar"
                                     width="115px"
                                     class="
@@ -939,13 +939,13 @@
                             </div>
                             <div class="position-relative">
                                 <img
-                                    src="assets/img/tes.png"
+                                    src="{{ asset('./assets/img/tes.png') }}"
                                     alt="tes"
                                     width="90px"
                                     class="img-fluid alur_image_2"
                                 />
                                 <img
-                                    src="assets/img/line_2.png"
+                                    src="{{ asset('./assets/img/line_2.png') }}"
                                     alt="daftar"
                                     width="115px"
                                     class="
@@ -978,13 +978,13 @@
                                     Selanjutnya Membuat dan Upload Video
                                 </p>
                                 <img
-                                    src="assets/img/video.png"
+                                    src="{{ asset('./assets/img/video.png') }}"
                                     alt="daftar"
                                     width="90px"
                                     class="img-fluid alur_image_3"
                                 />
                                 <img
-                                    src="assets/img/line_1.png"
+                                    src="{{ asset('./assets/img/line_1.png') }}"
                                     alt="daftar"
                                     width="115px"
                                     class="
@@ -997,7 +997,7 @@
                             </div>
                             <div class="position-relative">
                                 <img
-                                    src="assets/img/line_2.png"
+                                    src="{{ asset('./assets/img/line_2.png') }}"
                                     alt="daftar"
                                     width="115px"
                                     class="
@@ -1008,7 +1008,7 @@
                                     style="left: -13px; top: -15px"
                                 />
                                 <img
-                                    src="assets/img/wawancara.png"
+                                    src="{{ asset('./assets/img/wawancara.png') }}"
                                     alt="tes"
                                     width="90px"
                                     class="img-fluid alur_image_4"
@@ -1037,13 +1037,13 @@
                                     panitia
                                 </p>
                                 <img
-                                    src="assets/img/lolos.png"
+                                    src="{{ asset('assets/img/lolos.png') }}"
                                     alt="daftar"
                                     width="90px"
                                     class="img-fluid alur_image_5"
                                 />
                                 <img
-                                    src="assets/img/line_1.png"
+                                    src="{{ asset('./assets/img/line_1.png') }}"
                                     alt="daftar"
                                     width="115px"
                                     class="
@@ -1069,7 +1069,7 @@
                     <!-- Background Image -->
                     <div class="d-none d-lg-inline">
                         <img
-                            src="assets/img/logo-bg.png"
+                            src="{{ asset('./assets/img/logo-bg.png') }}"
                             alt="logo"
                             class="position-absolute img-fluid"
                             width="1100"
@@ -1094,7 +1094,7 @@
                                         Total Pengisi Formulir
                                     </p>
                                     <img
-                                        src="assets/img/users_stats.png"
+                                        src="{{ asset('./assets/img/users_stats.png') }}"
                                         alt="stat_image"
                                         width="500"
                                         class="img-fluid pt-5"
@@ -1146,7 +1146,7 @@
                     <!-- Background Image -->
                     <div class="d-none d-lg-inline">
                         <img
-                            src="assets/img/logo-bg.png"
+                            src="{{ asset('./assets/img/logo-bg.png') }}"
                             alt="logo"
                             class="position-absolute img-fluid"
                             width="1100"
@@ -1331,7 +1331,7 @@
                                 <h4>Web 3</h4>
                                 <p>Web</p>
                                 <a
-                                    href="./assets/img/portfolio/portfolio-2.jpg"
+                                    href="{{ asset('./assets/img/portfolio/portfolio-2.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Web 3"
@@ -1358,7 +1358,7 @@
                                 <h4>App 2</h4>
                                 <p>App</p>
                                 <a
-                                    href="./assets/img/portfolio/portfolio-3.jpg"
+                                    href="{{ asset('./assets/img/portfolio/portfolio-3.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="App 2"
@@ -1385,7 +1385,7 @@
                                 <h4>Card 2</h4>
                                 <p>Card</p>
                                 <a
-                                    href="./assets/img/portfolio/portfolio-4.jpg"
+                                    href="{{ asset('./assets/img/portfolio/portfolio-4.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Card 2"
@@ -1412,7 +1412,7 @@
                                 <h4>Web 2</h4>
                                 <p>Web</p>
                                 <a
-                                    href="./assets/img/portfolio/portfolio-5.jpg"
+                                    href="{{ asset('./assets/img/portfolio/portfolio-5.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Web 2"
@@ -1439,7 +1439,7 @@
                                 <h4>App 3</h4>
                                 <p>App</p>
                                 <a
-                                    href="./assets/img/portfolio/portfolio-6.jpg"
+                                    href="{{ asset('./assets/img/portfolio/portfolio-6.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="App 3"
@@ -1466,7 +1466,7 @@
                                 <h4>Card 1</h4>
                                 <p>Card</p>
                                 <a
-                                    href="./assets/img/portfolio/portfolio-7.jpg"
+                                    href="{{ asset('./assets/img/portfolio/portfolio-7.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Card 1"
@@ -1485,7 +1485,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-card"
                         >
                             <img
-                                src="./assets/img/portfolio/portfolio-8.jpg"
+                                src="{{ asset('./assets/img/portfolio/portfolio-8.jpg') }}"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1493,7 +1493,7 @@
                                 <h4>Card 3</h4>
                                 <p>Card</p>
                                 <a
-                                    href="./assets/img/portfolio/portfolio-8.jpg"
+                                    href="{{ asset('./assets/img/portfolio/portfolio-8.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Card 3"
@@ -1512,7 +1512,7 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-web"
                         >
                             <img
-                                src="./assets/img/portfolio/portfolio-9.jpg"
+                                src="{{ asset('./assets/img/portfolio/portfolio-9.jpg') }}"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1520,7 +1520,7 @@
                                 <h4>Web 3</h4>
                                 <p>Web</p>
                                 <a
-                                    href="./assets/img/portfolio/portfolio-9.jpg"
+                                    href="{{ asset('./assets/img/portfolio/portfolio-9.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Web 3"
@@ -1604,7 +1604,7 @@
                                 <h4>Web 3</h4>
                                 <p>Web</p>
                                 <a
-                                    href="./assets/img/portfolio/portfolio-2.jpg"
+                                    href="{{ asset('./assets/img/portfolio/portfolio-2.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox-work preview-link"
                                     title="Web 3"
@@ -1631,7 +1631,7 @@
                                 <h4>App 2</h4>
                                 <p>App</p>
                                 <a
-                                    href="./assets/img/portfolio/portfolio-3.jpg"
+                                    href="{{ asset('./assets/img/portfolio/portfolio-3.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox-work preview-link"
                                     title="App 2"
@@ -1658,7 +1658,7 @@
                                 <h4>Card 2</h4>
                                 <p>Card</p>
                                 <a
-                                    href="./assets/img/portfolio/portfolio-4.jpg"
+                                    href="{{ asset('./assets/img/portfolio/portfolio-4.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox-work preview-link"
                                     title="Card 2"
@@ -1685,7 +1685,7 @@
                                 <h4>Web 2</h4>
                                 <p>Web</p>
                                 <a
-                                    href="./assets/img/portfolio/portfolio-5.jpg"
+                                    href="{{ asset('./assets/img/portfolio/portfolio-5.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox-work preview-link"
                                     title="Web 2"
@@ -1712,7 +1712,7 @@
                                 <h4>App 3</h4>
                                 <p>App</p>
                                 <a
-                                    href="./assets/img/portfolio/portfolio-6.jpg"
+                                    href="{{ asset('./assets/img/portfolio/portfolio-6.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox-work preview-link"
                                     title="App 3"
@@ -1739,7 +1739,7 @@
                                 <h4>Card 1</h4>
                                 <p>Card</p>
                                 <a
-                                    href="./assets/img/portfolio/portfolio-7.jpg"
+                                    href="{{ asset('./assets/img/portfolio/portfolio-7.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox-work preview-link"
                                     title="Card 1"
@@ -2000,16 +2000,16 @@
         ></a>
 
         <!-- Vendor JS Files -->
-        <script src="./assets/vendor/purecounter/purecounter.js"></script>
-        <script src="./assets/vendor/aos/aos.js"></script>
-        <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="./assets/vendor/glightbox/js/glightbox.min.js"></script>
-        <script src="./assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-        <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
-        <script src="./assets/vendor/waypoints/noframework.waypoints.js"></script>
-        <script src="./assets/vendor/php-email-form/validate.js"></script>
-        <script src="./assets/vendor/jquery/jquery.js"></script>
-        <script src="./assets/vendor/jquery/jquery.picky.js"></script>
+        <script src="{{ asset('./assets/vendor/purecounter/purecounter.js') }}"></script>
+        <script src="{{ asset('./assets/vendor/aos/aos.js') }}"></script>
+        <script src="{{ asset('./assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('./assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+        <script src="{{ asset('./assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ asset('./assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+        <script src="{{ asset('./assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
+        <script src="{{ asset('./assets/vendor/php-email-form/validate.js') }}"></script>
+        <script src="{{ asset('./assets/vendor/jquery/jquery.js') }}"></script>
+        <script src="{{ asset('./assets/vendor/jquery/jquery.picky.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

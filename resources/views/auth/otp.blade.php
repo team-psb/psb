@@ -12,7 +12,7 @@
         <title>Pondok Informatika Al Madinah</title>
 
         <!-- Favicons -->
-        <link href="assets/img/Logo-Pondok.png" rel="icon" />
+        <link href="{{ asset('assets/img/Logo-Pondok.png') }}" rel="icon" />
 
         <!-- Google Fonts -->
         <link
@@ -21,17 +21,17 @@
         />
 
         <!-- Vendor CSS Files -->
-        <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+        <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet" />
         <link
-            href="assets/vendor/bootstrap/css/bootstrap.min.css"
+            href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}"
             rel="stylesheet"
         />
         <link
-            href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+            href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}"
             rel="stylesheet"
         />
         <link
-            href="assets/vendor/boxicons/css/boxicons.min.css"
+            href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}"
             rel="stylesheet"
         />
         {{-- <link
@@ -114,7 +114,7 @@
         <div class="d-flex justify-content-center align-items-center container">
             <div class="card py-5 px-4 text-center shadow position-relative overflow-hidden">
                 <img
-                    src="./assets/img/logo-bg.png"
+                    src="{{ asset('./assets/img/logo-bg.png') }}"
                     class="position-absolute"
                     alt="logo"
                     width="400"
@@ -125,40 +125,107 @@
                     "
                 />
                 <h3 class="m-0 text-white">OTP Verification</h3>
-                <span class="mobile-text mt-2">Masukkan kode yang baru saja kami <br> kirim ke apk WA Anda
+                @if (session('sukses-kirim'))
+                    <div class="alert alert-success">
+                        {{ session('sukses-kirim') }} <br>
+                    </div>
+                @endif
+                @if (session('gagal-kirim'))
+                    <div class="alert alert-danger">
+                        {{ session('gagal-kirim') }} <br>
+                    </div>
+                @endif  
+                @if (session('resend-msg'))
+                    <div class="alert alert-danger">
+                        {{ session('resend-msg') }} <br>
+                    </div>
+                @endif  
+                @if (session('alert-login'))
+                    <div class="alert alert-danger">
+                        {{ session('alert-login') }} <br>
+                    </div>
+                @endif
+                {{-- <sp class="mobile-text mt-2">Masukkan kode yang baru saja kami <br> kirim ke apk WA Anda
                     <b style="color:#FFAD60;">089538001****</b>
-                </span>
-                <form action="#" method="POST" class="position-relative">
+                </sp> --}}
+                <p>waktu tersisa <span id='time-remaining'></span> detik.</p>
+                <p class="mobile-text"> Silahkan masukkan Kode OTP yang telah kami kirim di whatsapp!</p>
+                <form method="POST" action="{{ route('post-token', $wa) }}" class="position-relative">
                     @csrf
                     @method('POST')
                     <div class="d-flex justify-content-around py-3">
-                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
-                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
-                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
-                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
+                        <input type="text" name="t1" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
+                        <input type="text" name="t2" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
+                        <input type="text" name="t3" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
+                        <input type="text" name="t4" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
                     </div>
 
-                    <div class="d-flex justify-content-center mt-2 mb-3">
+                    {{-- <div class="d-flex justify-content-center mt-2 mb-3">
                         <a href="{{ url()->previous() }}">
                             <button class="btn rounded-pill button px-4 fw-bold">
                                 Go back
                             </button>
                         </a>
                         <div class="mx-3"></div>
-                        <button class="btn rounded-pill button px-4 fw-bold">Submit</button>
-                    </div>
+                    </div> --}}
+                    <button class="btn rounded-pill button px-4 fw-bold" id="ExampleButton">Konfirmasi</button>
                 </form>
-
+                <div class="mt-3">
+                    <a href="{{ route('resend-token', $wa) }}" class="btn rounded-pill button px-4 fw-bold btn-block" tabindex="4" id="ExampleButton1">
+                        Kirim Ulang kode OTP
+                    </a>
+                </div>
                 <div>
                     <p class="d-block mobile-text" id="countdown"></p>
                     <div class="text-center">
                         <span class="d-block mobile-text" id="resend"></span>
                     </div>
                 </div>
+                <div class="mobile-text">
+                    Copyright &copy; pondok Informatika {{ date('Y') }}
+                </div>
             </div>
         </div>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function myFunction() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+            }
+        </script>
+
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script type='text/javascript'>
+            var secondsBeforeExpire = 300;
+            $("#ExampleButton1").hide();
+            
+            // This will trigger your timer to begin
+            var timer = setInterval(function(){
+                // If the timer has expired, disable your button and stop the timer
+                if(secondsBeforeExpire <= 0){
+                    clearInterval(timer);
+                    $("#ExampleButton").prop('disabled',true);
+                    // $("#ExampleButton1").prop('disabled',false);
+
+                    $("#ExampleButton1").show();
+                }
+                // Otherwise the timer should tick and display the results
+                else{
+                    // Decrement your time remaining
+                    secondsBeforeExpire--;
+                    $("#time-remaining").text(secondsBeforeExpire);      
+                }
+            },1000);
+        </script>
+        
+
+		{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
             // Auto fokus input kosong
             document.querySelectorAll('.otpinput').forEach((input) => {
@@ -204,6 +271,6 @@
             }
 
             timer(60);
-        </script>
+        </script> --}}
     </body>
 </html>

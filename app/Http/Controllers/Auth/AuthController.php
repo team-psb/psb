@@ -172,16 +172,17 @@ class AuthController extends Controller
 
     public function getToken($wa)
     {
-        return view('auth.inputToken', compact('wa'));
+        return view('auth.otp', compact('wa'));
     }
 
     public function postToken(Request $request, $wa)
     {
         $user = User::where('phone', $wa)->get()->first();
-        if ($request->token == $user->token) {
+        $token = $request->t1.$request->t2.$request->t3.$request->t4;
+        if ($token == $user->token) {
 
             User::wherePhone($wa)->update([
-                'remember_token' => $request->token
+                'remember_token' => $token
             ]);
             
             $data = [
