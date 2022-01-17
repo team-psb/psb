@@ -49,7 +49,7 @@ class AuthController extends Controller
             if ($role == 'admin') {
                 return redirect()->route('dashboard');
             }else{
-                if (Auth::user()->remember_token == null) {
+                if (Auth::user()->remember_token != Auth::user()->token) {
                     Auth::logout();
                     // return redirect()->route('login')->with('sukses-warning','Email anda belum terverifikasi, Silahkan Verifikasi email terlebih dahulu!');
                     return redirect()->route('get-token', $request->phone)->with('alert-login', 'Silahkan konfirmasi pendaftaran dengan memasukkan Kode OTP yang telah kami kirim di Whatsapp !');

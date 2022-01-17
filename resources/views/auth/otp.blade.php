@@ -145,11 +145,11 @@
                         {{ session('alert-login') }} <br>
                     </div>
                 @endif
-                {{-- <sp class="mobile-text mt-2">Masukkan kode yang baru saja kami <br> kirim ke apk WA Anda
-                    <b style="color:#FFAD60;">089538001****</b>
-                </sp> --}}
-                <p>waktu tersisa <span id='time-remaining'></span> detik.</p>
-                <p class="mobile-text"> Silahkan masukkan Kode OTP yang telah kami kirim di whatsapp!</p>
+                <span class="mobile-text mt-2">Masukkan kode yang baru saja kami kirim ke nomor Whatsapp Anda
+                    <b style="color:#FFAD60;">{{ $wa }}</b>
+                </span>
+                {{-- <p>waktu tersisa <span id='time-remaining'></span> detik.</p> --}}
+                {{-- <p class="mobile-text"> Silahkan masukkan Kode OTP yang telah kami kirim di whatsapp!</p> --}}
                 <form method="POST" action="{{ route('post-token', $wa) }}" class="position-relative">
                     @csrf
                     @method('POST')
@@ -170,13 +170,13 @@
                     </div> --}}
                     <button class="btn rounded-pill button px-4 fw-bold" id="ExampleButton">Konfirmasi</button>
                 </form>
-                <div class="mt-3">
+                {{-- <div class="mt-3">
                     <a href="{{ route('resend-token', $wa) }}" class="btn rounded-pill button px-4 fw-bold btn-block" tabindex="4" id="ExampleButton1">
                         Kirim Ulang kode OTP
                     </a>
-                </div>
+                </div> --}}
                 <div>
-                    <p class="d-block mobile-text" id="countdown">Time Left :</p>
+                    <p class="d-block mobile-text" id="countdown">Sisa Waktu :</p>
                     <div class="text-center">
                         <span class="d-block mobile-text" id="resend"></span>
                     </div>
@@ -188,7 +188,7 @@
         </div>
 
 
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script>
             function myFunction() {
             var x = document.getElementById("password");
@@ -198,9 +198,9 @@
                 x.type = "password";
             }
             }
-        </script>
+        </script> --}}
 
-        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        {{-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script type='text/javascript'>
             var secondsBeforeExpire = 300;
             $("#ExampleButton1").hide();
@@ -222,10 +222,10 @@
                     $("#time-remaining").text(secondsBeforeExpire);      
                 }
             },1000);
-        </script>
+        </script> --}}
         
 
-		{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
             // Auto fokus input kosong
             document.querySelectorAll('.otpinput').forEach((input) => {
@@ -239,18 +239,15 @@
                     }
                 }
             });
-
             // Timer
             let timerOn = true;
-
             function timer(remaining){
                 var m = Math.floor(remaining / 60);
                 var s = remaining % 60;
                 m = m < 10 ? '0' + m : m;
                 s = s < 10 ? '0' + s : s;
-
                 document.getElementById('countdown').innerHTML =
-                'Timer Left :' + ' ' + m + ':' + s;
+                'Sisa Waktu :' + ' ' + m + ':' + s;
                 remaining -=1;
                 if (remaining >= 0 && timerOn) {
                     setTimeout( function() {
@@ -258,20 +255,15 @@
                     }, 1000);
                 document.getElementById('resend').innerHTML =
                 '';
-
                 return;
-
                 }
-
                 if (!timerOn) {
                     return;
                 }
-
-                document.getElementById('resend').innerHTML = 'Belum menerima kode? <a href="#" style="color: #FFAD60;font-weight: bold;" onclick="timer(60)">kirim ulang</a>'
+                $("#ExampleButton").prop('disabled',true);
+                document.getElementById('resend').innerHTML = 'Belum menerima kode? <a href="{{ route('resend-token', $wa) }}" style="color: #FFAD60;font-weight: bold;" onclick="timer(60)">kirim ulang</a>'
             }
-
-<<<<<<< HEAD:resources/views/auth/otp.blade.php
-            timer(60);
-        </script> --}}
+            timer(180);
+        </script>
     </body>
 </html>

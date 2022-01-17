@@ -48,7 +48,7 @@ Route::get('/daftar', function () {
 Route::group(['prefix' => '', 'middleware' => ['guest']], function () {
     Route::get('/', [LandingController::class, 'index'])->name('home');
     Route::get('/information/{id}', [LandingController::class, 'information'])->name('information');
-    // Route::get('/otp', [LandingController::class, 'otp'])->name('otp-auth');
+    Route::get('/otp', [LandingController::class, 'otp'])->name('otp-auth');
 });
 
 //user
