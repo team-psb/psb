@@ -165,7 +165,7 @@
                                     <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
                                     <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
                                     <p><strong>Anda dinyatakan Lolos Ketahap berikutnya.</strong></p>
-                                    <p class="lead">untuk tes<strong class="font-weight-bold">Wawancara</strong> anda akan kami hubungi untuk melakukan tes Wawancara.</p>
+                                    <p class="lead">untuk tes <strong class="font-weight-bold">Wawancara</strong> anda akan kami hubungi untuk melakukan tes Wawancara.</p>
                                     <div class="mt-4">
                                         <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes wawancara</a>
                                     </div>

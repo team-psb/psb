@@ -59,9 +59,9 @@ class TesIqController extends Controller
                 'reciver' => Auth::user()->phone,
                 'message' => 'Anda telah selesai melaksanakan tes _Tahap Kedua_.
     
-    Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
+Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
     
-    Anda baru bisa lanjut mengikuti tes _Tahap Ketiga_ jika dinyatakan lolos di tes _Tahap Kedua_'
+Anda baru bisa lanjut mengikuti tes _Tahap Ketiga_ jika dinyatakan lolos di tes _Tahap Kedua_'
     
     
             ];
@@ -79,9 +79,9 @@ class TesIqController extends Controller
                 'reciver' => Auth::user()->phone,
                 'message' => 'Anda telah selesai melaksanakan tes _Tahap Kedua_.
     
-    Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
+Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
     
-    Anda baru bisa lanjut mengikuti tes _Tahap Ketiga_ jika dinyatakan lolos di tes _Tahap Kedua_'
+Anda baru bisa lanjut mengikuti tes _Tahap Ketiga_ jika dinyatakan lolos di tes _Tahap Kedua_'
     
     
             ];

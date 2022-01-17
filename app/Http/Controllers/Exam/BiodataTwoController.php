@@ -35,8 +35,20 @@ class BiodataTwoController extends Controller
         })->orderBy('id', 'desc')->pluck('id')->first();
 
         if (Auth::user()->BiodataOne->family == 'sangat-mampu') {
-            $request->merge(['user_id' => $users_id, 'academy_year_id' => $tahun_ajaran_id, 'stage_id' => $stage_id, 'status' => 'lolos']);
+            $request->merge(['user_id' => $users_id, 'academy_year_id' => $tahun_ajaran_id, 'stage_id' => $stage_id, 'status' => null]);
             BiodataTwo::create($request->all());
+
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => Auth::user()->phone,
+                'message' => 'Anda telah selesai melaksanakan tes _Biodata_.
+    
+Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
+    
+Anda bisa lanjut mengikuti tes Wawancara jika dinyatakan lolos di tes Biodata.'
+    
+            ];
+            sendMessage($data);
 
             // ScoreIq::create([
             //     'user_id' => $users_id,
@@ -69,20 +81,19 @@ class BiodataTwoController extends Controller
             $request->merge(['user_id' => $users_id, 'academy_year_id' => $tahun_ajaran_id, 'stage_id' => $stage_id]);
             // dd($request->all());
             BiodataTwo::create($request->all());
-        }
 
-        $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => Auth::user()->phone,
-            'message' => 'Anda telah selesai melaksanakan tes _Tahap Pertama_.
-
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => Auth::user()->phone,
+                'message' => 'Anda telah selesai melaksanakan tes _Tahap Pertama_.
+    
 Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
-
+    
 Anda baru bisa lanjut mengikuti tes _Tahap Kedua_ jika dinyatakan lolos di tes _Tahap Pertama_'
-
-
-        ];
-        sendMessage($data);
+    
+            ];
+            sendMessage($data);
+        }
 
         return redirect()->route('success');
     }

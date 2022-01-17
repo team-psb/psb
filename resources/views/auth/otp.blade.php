@@ -12,7 +12,7 @@
         <title>Pondok Informatika Al Madinah</title>
 
         <!-- Favicons -->
-        <link href="assets/img/Logo-Pondok.png" rel="icon" />
+        <link href="{{ asset('assets/img/Logo-Pondok.png') }}" rel="icon" />
 
         <!-- Google Fonts -->
         <link
@@ -52,17 +52,21 @@
             -webkit-appearance: none;
             margin: 0;
             }
+
             /* Firefox */
             input[type=number] {
             -moz-appearance: textfield;
             }
+
             /* -------- Line -------- */
+
             body{
                 background: linear-gradient(-45deg, lightseagreen, #23d5ab, #23a6d5, steelblue);
                 background-size: 500%, 500%;
                 position: relative;
                 animation: change 10s ease-in-out infinite;
             }
+
             .card {
                 width: 350px;
                 padding: 10px;
@@ -71,22 +75,27 @@
                 border: none;
                 position: relative;
             }
+
             .container{
                 height: 100vh;
             }
+
             .mobile-text {
                 color: #fff;
                 font-size: 15px;
             }
+
             .button {
                 color: #fff;
                 border: 2px solid lightseagreen;
                 transition: all 500ms;
             }
+
             .button:hover {
                 color: #104852  !important;
                 background: linear-gradient(to right, lightseagreen, steelblue);
             }
+
             @keyframes change {
                 0% {
                     background-position: 0 50%;
@@ -116,38 +125,105 @@
                     "
                 />
                 <h3 class="m-0 text-white">OTP Verification</h3>
-                <span class="mobile-text mt-2">Masukkan kode yang baru saja kami <br> kirim ke apk WA Anda
-                    <b style="color:#FFAD60;">089538001****</b>
+                @if (session('sukses-kirim'))
+                    <div class="alert alert-success">
+                        {{ session('sukses-kirim') }} <br>
+                    </div>
+                @endif
+                @if (session('gagal-kirim'))
+                    <div class="alert alert-danger">
+                        {{ session('gagal-kirim') }} <br>
+                    </div>
+                @endif  
+                @if (session('resend-msg'))
+                    <div class="alert alert-danger">
+                        {{ session('resend-msg') }} <br>
+                    </div>
+                @endif  
+                @if (session('alert-login'))
+                    <div class="alert alert-danger">
+                        {{ session('alert-login') }} <br>
+                    </div>
+                @endif
+                <span class="mobile-text mt-2">Masukkan kode yang baru saja kami kirim ke nomor Whatsapp Anda
+                    <b style="color:#FFAD60;">{{ $wa }}</b>
                 </span>
-                <form action="#" method="POST" class="position-relative">
+                {{-- <p>waktu tersisa <span id='time-remaining'></span> detik.</p> --}}
+                {{-- <p class="mobile-text"> Silahkan masukkan Kode OTP yang telah kami kirim di whatsapp!</p> --}}
+                <form method="POST" action="{{ route('post-token', $wa) }}" class="position-relative">
                     @csrf
                     @method('POST')
                     <div class="d-flex justify-content-around py-3">
-                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
-                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
-                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
-                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
+                        <input type="text" name="t1" maxlength="1" style="width:50px;" class="otpinput text-center form-control">
+                        <input type="text" name="t2" maxlength="1" style="width:50px;" class="otpinput text-center form-control">
+                        <input type="text" name="t3" maxlength="1" style="width:50px;" class="otpinput text-center form-control">
+                        <input type="text" name="t4" maxlength="1" style="width:50px;" class="otpinput text-center form-control">
                     </div>
 
-                    <div class="d-flex justify-content-center mt-2 mb-3">
+                    {{-- <div class="d-flex justify-content-center mt-2 mb-3">
                         <a href="{{ url()->previous() }}">
                             <button class="btn rounded-pill button px-4 fw-bold">
                                 Go back
                             </button>
                         </a>
                         <div class="mx-3"></div>
-                        <button class="btn rounded-pill button px-4 fw-bold">Submit</button>
-                    </div>
+                    </div> --}}
+                    <button class="btn rounded-pill button px-4 fw-bold" id="ExampleButton">Konfirmasi</button>
                 </form>
-
+                {{-- <div class="mt-3">
+                    <a href="{{ route('resend-token', $wa) }}" class="btn rounded-pill button px-4 fw-bold btn-block" tabindex="4" id="ExampleButton1">
+                        Kirim Ulang kode OTP
+                    </a>
+                </div> --}}
                 <div>
-                    <p class="d-block mobile-text" id="countdown">Time Left :</p>
+                    <p class="d-block mobile-text" id="countdown">Sisa Waktu :</p>
                     <div class="text-center">
                         <span class="d-block mobile-text" id="resend"></span>
                     </div>
                 </div>
+                <div class="mobile-text">
+                    Copyright &copy; pondok Informatika {{ date('Y') }}
+                </div>
             </div>
         </div>
+
+
+        {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function myFunction() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+            }
+        </script> --}}
+
+        {{-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script type='text/javascript'>
+            var secondsBeforeExpire = 300;
+            $("#ExampleButton1").hide();
+            
+            // This will trigger your timer to begin
+            var timer = setInterval(function(){
+                // If the timer has expired, disable your button and stop the timer
+                if(secondsBeforeExpire <= 0){
+                    clearInterval(timer);
+                    $("#ExampleButton").prop('disabled',true);
+                    // $("#ExampleButton1").prop('disabled',false);
+
+                    $("#ExampleButton1").show();
+                }
+                // Otherwise the timer should tick and display the results
+                else{
+                    // Decrement your time remaining
+                    secondsBeforeExpire--;
+                    $("#time-remaining").text(secondsBeforeExpire);      
+                }
+            },1000);
+        </script> --}}
+        
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
@@ -171,7 +247,7 @@
                 m = m < 10 ? '0' + m : m;
                 s = s < 10 ? '0' + s : s;
                 document.getElementById('countdown').innerHTML =
-                'Timer Left :' + ' ' + m + ':' + s;
+                'Sisa Waktu :' + ' ' + m + ':' + s;
                 remaining -=1;
                 if (remaining >= 0 && timerOn) {
                     setTimeout( function() {
@@ -180,13 +256,17 @@
                 document.getElementById('resend').innerHTML =
                 '';
                 return;
+                }else{
+                document.getElementById('countdown').innerHTML =
+                '';
                 }
                 if (!timerOn) {
                     return;
                 }
-                document.getElementById('resend').innerHTML = 'Belum menerima kode? <a href="#" style="color: #FFAD60;font-weight: bold;" onclick="timer(60)">kirim ulang</a>'
+                $("#ExampleButton").prop('disabled',true);
+                document.getElementById('resend').innerHTML = 'Belum menerima kode? <a href="{{ route('resend-token', $wa) }}" style="color: #FFAD60;font-weight: bold;" onclick="timer(60)">kirim ulang</a>'
             }
-            timer(120);
+            timer(180);
         </script>
     </body>
 </html>

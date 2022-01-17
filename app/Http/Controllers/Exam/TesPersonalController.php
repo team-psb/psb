@@ -61,9 +61,9 @@ class TesPersonalController extends Controller
                 'reciver' => Auth::user()->phone,
                 'message' => 'Anda telah selesai melaksanakan tes _Tahap Ketiga_.
     
-    Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
+Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
     
-    Anda baru bisa lanjut mengikuti tes _Tahap Keempat_ jika dinyatakan lolos di tes _Tahap Ketiga_'
+Anda baru bisa lanjut mengikuti tes _Tahap Keempat_ jika dinyatakan lolos di tes _Tahap Ketiga_'
     
     
             ];

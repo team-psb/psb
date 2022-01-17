@@ -56,7 +56,7 @@ class InterviewController extends Controller
         $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => $item->user->phone,
-            'message' => 'Selamat,' . $item->user->name . '!
+            'message' => 'Selamat, *' . $item->user->name . '!*
 
 Anda dinyatakan *Lolos* Sebagai calon santri Pondok Informatika Al-Madinah
 
@@ -88,7 +88,7 @@ Tetap Semangka (Semangat Karena Allah !)'
                 $data = [
                     'sender' => Setting::pluck('no_msg'),
                     'reciver' => $item->user->phone,
-                    'message' => 'Selamat,' . $item->user->name . '!
+                    'message' => 'Selamat, *' . $item->user->name . '!*
         
 Anda dinyatakan *Lolos* Sebagai calon santri Pondok Informatika Al-Madinah
 
@@ -115,7 +115,7 @@ Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp
                     'reciver' => $item->user->phone,
                     'message' => 'Mohon maaf,' . $item->user->name . '!
         
-Anda dinyatakan *Tidak Lolos* pada sesi wawancara
+Anda dinyatakan *Tidak Lolos* pada sesi *Wawancara*
 
 Tetap Semangka (Semangat Karena Allah !)' 
                 ];

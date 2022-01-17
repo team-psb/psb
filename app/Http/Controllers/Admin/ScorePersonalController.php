@@ -61,7 +61,7 @@ class ScorePersonalController extends Controller
         $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => $item->user->phone,
-            'message' => 'Selamat,' . $item->user->name . '!
+            'message' => 'Selamat, *' . $item->user->name . '!*
 
 Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Keempat_
 
@@ -72,7 +72,7 @@ Untuk melakukan tes _Tahap Keempat_, Silahkan anda klik link berikut: ' .$link
         $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => $item->user->phone,
-            'message' => 'Mohon maaf,' . $item->user->name . '!
+            'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
 Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Keempat_
 
@@ -94,7 +94,7 @@ Tetap Semangka (Semangat Karena Allah !)'
                 $data = [
                     'sender' => Setting::pluck('no_msg'),
                     'reciver' => $item->user->phone,
-                    'message' => 'Selamat,' . $item->user->name . '!
+                    'message' => 'Selamat, *' . $item->user->name . '!*
                     
 Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Keempat_
 
@@ -119,7 +119,7 @@ Untuk melakukan tes _Tahap Keempat_, Silahkan anda klik link berikut: ' .$link
                 $data = [
                     'sender' => Setting::pluck('no_msg'),
                     'reciver' => $item->user->phone,
-                    'message' => 'Mohon maaf,' . $item->user->name . '!
+                    'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
 Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Keempat_
 
