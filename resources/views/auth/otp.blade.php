@@ -266,7 +266,7 @@
                 $("#ExampleButton").prop('disabled',true);
                 document.getElementById('resend').innerHTML = 'Belum menerima kode? <a href="{{ route('resend-token', $wa) }}" style="color: #FFAD60;font-weight: bold;" onclick="timer(60)">kirim ulang</a>'
             }
-            timer(10);
+            timer(180);
         </script>
     </body>
 </html>
