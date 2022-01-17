@@ -350,7 +350,7 @@
                                 />
                             </div>
 
-                            <div class="card-body">
+                            <div class="card-body position-relative">
                                 <h1
                                     class="
                                         card-title
@@ -418,7 +418,7 @@
                                                     text-uppercase
                                                     px-4
                                                     py-2
-                                                    mt-4
+                                                    mt-2
                                                 "
                                             >
                                                 Sign In

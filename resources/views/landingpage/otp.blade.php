@@ -150,7 +150,7 @@
                 </form>
 
                 <div>
-                    <p class="d-block mobile-text" id="countdown"></p>
+                    <p class="d-block mobile-text" id="countdown">Time Left :</p>
                     <div class="text-center">
                         <span class="d-block mobile-text" id="resend"></span>
                     </div>
@@ -183,7 +183,7 @@
                 s = s < 10 ? '0' + s : s;
 
                 document.getElementById('countdown').innerHTML =
-                'Time Left :' m + ':' + s;
+                'Timer Left :' + ' ' + m + ':' + s;
                 remaining -=1;
                 if (remaining >= 0 && timerOn) {
                     setTimeout( function() {
@@ -203,7 +203,7 @@
                 document.getElementById('resend').innerHTML = 'Belum menerima kode? <a href="#" style="color: #FFAD60;font-weight: bold;" onclick="timer(60)">kirim ulang</a>'
             }
 
-            timer(60);
+            timer(120);
         </script>
     </body>
 </html>
