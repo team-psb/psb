@@ -445,7 +445,7 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-#  Section
+#  Section Home
 --------------------------------------------------------------*/
 #home {
     width: 100%;
@@ -492,7 +492,6 @@ h6 {
     border-radius: 20px;
     position: relative;
 }
-
 /* Show Password */
 .password-login i {
     cursor: pointer;
@@ -596,6 +595,11 @@ h6 {
     }
 }
 
+@media (max-width: 425px) {
+    #home h3 {
+        margin-top: 40vh;
+    }
+}
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
@@ -636,6 +640,11 @@ section {
 @media (min-width: 1024px) {
     .section-title p {
         width: 50%;
+    }
+}
+@media (max-width: 425px) {
+    section {
+        overflow: visible;
     }
 }
 
@@ -929,6 +938,12 @@ section {
     }
 }
 
+@media (max-width: 425px) {
+    #regis {
+        padding-top: 40vh;
+    }
+}
+
 /* Alur */
 
 #alur {
@@ -992,6 +1007,29 @@ section {
     }
     #alur img {
         width: 90px;
+    }
+}
+
+@media (max-width: 320px) {
+    .alur-text {
+        font-size: 8px;
+        top: 80px;
+    }
+    .alur-text2 {
+        font-size: 8px;
+        top: 80px;
+    }
+    .alur-text3 {
+        font-size: 8px;
+        top: 80px;
+    }
+    .alur-text4 {
+        font-size: 8px;
+        top: 80px;
+    }
+    .alur-text5 {
+        font-size: 8px;
+        top: 80px;
     }
 }
 /* @media (max-width: 1400px) {
@@ -1796,7 +1834,7 @@ section {
     }
     .copyright {
         padding: 2px 0;
-        font-size: 13px;
+        font-size: 12px;
         margin: 50px 0px 50px 0px;
     }
 }
