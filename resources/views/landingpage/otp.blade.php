@@ -123,25 +123,25 @@
                     @csrf
                     @method('POST')
                     <div class="d-flex justify-content-around py-3">
-                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
-                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
-                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
-                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
+                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center form-control">
+                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center form-control">
+                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center form-control">
+                        <input type="text" maxlength="1" style="width:50px;" class="otpinput text-center form-control">
                     </div>
 
                     <div class="d-flex justify-content-center mt-2 mb-3">
-                        <a href="{{ url()->previous() }}">
+                        {{-- <a href="{{ url()->previous() }}">
                             <button class="btn rounded-pill button px-4 fw-bold">
                                 Go back
                             </button>
                         </a>
-                        <div class="mx-3"></div>
-                        <button class="btn rounded-pill button px-4 fw-bold">Submit</button>
+                        <div class="mx-3"></div> --}}
+                        <button class="btn rounded-pill button px-5 fw-bold">Submit</button>
                     </div>
                 </form>
 
                 <div>
-                    <p class="d-block mobile-text" id="countdown">Time Left :</p>
+                    <p class="d-block mobile-text" id="countdown"></p>
                     <div class="text-center">
                         <span class="d-block mobile-text" id="resend"></span>
                     </div>
@@ -163,7 +163,8 @@
                     }
                 }
             });
-            // Timer
+
+            // Countdown timer
             let timerOn = true;
             function timer(remaining){
                 var m = Math.floor(remaining / 60);
@@ -180,13 +181,21 @@
                 document.getElementById('resend').innerHTML =
                 '';
                 return;
+
+                } else {
+                    document.getElementById('countdown').innerHTML =
+                '';
+
                 }
                 if (!timerOn) {
                     return;
                 }
-                document.getElementById('resend').innerHTML = 'Belum menerima kode? <a href="#" style="color: #FFAD60;font-weight: bold;" onclick="timer(60)">kirim ulang</a>'
+
+                document.getElementById('resend').innerHTML = 'Belum menerima kode? <a href="#" style="color: #FFAD60;font-weight: bold;" onclick="timer(30)">kirim ulang</a>'
             }
-            timer(120);
+
+            // setting long timer
+            timer(30);
         </script>
     </body>
 </html>
