@@ -1202,7 +1202,7 @@
                                 <div class="description gsap-desc1 mb-4 mt-1">
                                     <span class="dots d-flex align-items-center justify-content-center">1.</span>
                                     <p class="desc2">
-                                        Calon santri mengisi formulir pendaftaran di website <a href="https://pondokinformatika.com/" class="text-white text-decoration-underline">pondokinformatika.com</a>.
+                                        Calon santri mengisi formulir pendaftaran di website <a href="https://pondokinformatika.xyz/" class="text-white text-decoration-underline">pondokinformatika.xyz</a>.
                                     </p>
                                 </div>
                                 <div class="description gsap-desc2 mb-4">

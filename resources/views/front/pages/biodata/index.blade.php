@@ -105,7 +105,7 @@
                         <label for="exampleInputPassword1">Provinsi<b>*</b></label>
                         <select name="indonesia_provinces_id" class="custom-select" x-on:change="getKabupaten(provin_id)" x-model="provin_id">
                           @foreach ($provinsi as $provin)
-                              <option value="{{ $provin->code }}" >{{ $provin->name }}</option>
+                              <option value="{{ $provin->code }}">{{ $provin->name }}</option>
                           @endforeach
                         </select>
                       </div>
@@ -170,9 +170,9 @@
                         <label for="exampleInputPassword1">Pendidikan Terakhir<b>*</b></label>
                         <select name="last_education" class="custom-select">
                             <option value="" disabled selected>-- Pilih --</option>
-                            <option value="SD" >SD SEDERAJAT</option>
-                            <option value="SMP" >SMP SEDERAJAT</option>
-                            <option value="SMA" >SMA SEDERAJAT</option>
+                            <option value="SD" {{ old('last_education') == 'SD' ? 'selected' : '' }}>SD SEDERAJAT</option>
+                            <option value="SMP" {{ old('last_education') == 'SMP' ? 'selected' : '' }}>SMP SEDERAJAT</option>
+                            <option value="SMA" {{ old('last_education') == 'SMA' ? 'selected' : '' }}>SMA SEDERAJAT</option>
                         </select>
                       </div>
 
@@ -233,7 +233,7 @@
                             required
                           >
                             @for ($i = 0; $i <= 30; $i++)
-                                <option value="{{ $i }} JUZ">{{ $i }} JUZ</option>
+                                <option value="{{ $i }} JUZ" {{ old('memorization') == $i ? 'selected' : '' }}>{{ $i }} JUZ</option>
                             @endfor
                           </select>
                           <div class="input-group-append">
@@ -317,6 +317,7 @@
                             id="smoker1"
                             value="iya"
                             required
+                            {{ old('smoker') == 'iya' ? 'checked' : '' }}
                           />
                           <label class="form-check-label" for="smoker1">
                             Iya
@@ -330,6 +331,7 @@
                             id="smoker2"
                             value="tidak"
                             required
+                            {{ old('smoker') == 'tidak' ? 'checked' : '' }}
                           />
                           <label class="form-check-label" for="smoker2">
                             Tidak
@@ -347,6 +349,7 @@
                             id="tattoed1"
                             value="iya"
                             required
+                            {{ old('tattoed') == 'iya' ? 'checked' : '' }}
                           />
                           <label class="form-check-label" for="tattoed1">
                             Iya
@@ -360,6 +363,7 @@
                             id="tattoed2"
                             value="tidak"
                             required
+                            {{ old('tattoed') == 'tidak' ? 'checked' : '' }}
                           />
                           <label class="form-check-label" for="tattoed2">
                             Tidak punya
@@ -377,6 +381,7 @@
                             id="girlfriend1"
                             value="iya"
                             required
+                            {{ old('girlfriend') == 'iya' ? 'checked' : '' }}
                           />
                           <label class="form-check-label" for="girlfriend1">
                             Punya
@@ -390,6 +395,7 @@
                             id="girlfriend2"
                             value="tidak"
                             required
+                            {{ old('girlfriend') == 'tidak' ? 'checked' : '' }}
                           />
                           <label class="form-check-label" for="girlfriend2">
                             Tidak punya
@@ -406,6 +412,7 @@
                             id="gamer1"
                             value="iya"
                             required
+                            {{ old('gamer') == 'iya' ? 'checked' : '' }}
                             x-on:click="gamer(true)"
                           />
                           <label class="form-check-label" for="gamer1">
@@ -419,6 +426,7 @@
                             name="gamer"
                             id="gamer2"
                             value="tidak"
+                            {{ old('gamer') == 'tidak' ? 'checked' : '' }}
                             x-on:click="gamer(false)"
                             required
                           />
@@ -500,10 +508,11 @@
                       <div class="form-group">
                       <label for="">Orang Tua<b>*</b></label>
                       <select name="parent" class="custom-select">
-                            <option value="lengkap" >LENGKAP</option>
-                            <option value="ayah" >PIATU</option>
-                            <option value="ibu" >YATIM</option>
-                            <option value="yatim-piatu" >YATIM-PIATU</option>
+                        <option value="" disabled selected>-- Pilih --</option>
+                        <option value="lengkap" {{ old('parent') == 'lengkap' ? 'selected' : '' }}>LENGKAP</option>
+                        <option value="ayah" {{ old('parent') == 'ayah' ? 'selected' : '' }}>PIATU</option>
+                        <option value="ibu" {{ old('parent') == 'ibu' ? 'selected' : '' }}>YATIM</option>
+                        <option value="yatim-piatu" {{ old('parent') == 'yatim-piatu' ? 'selected' : '' }}>YATIM-PIATU</option>
                       </select>
                       </div>
                       <div class="form-group">
@@ -563,21 +572,22 @@
                           class="form-control"
                           id="parent_income"
                           name="parent_income"
-                          maxlength="10"
                           min="0"
                           value="{{ old('parent_income') }}"
                           required
+                          onKeyDown="if(this.value.length==10 && event.keyCode>47 && event.keyCode < 58)return false;"
                         />
                         <p>di isi dengan bilangan bulat contoh 1000000.</p>
                       </div>
                       <div class="form-group">
                         <label for="child_to">Anak Ke ?<b>*</b></label>
                         <input
-                          type="text"
+                          type="number"
                           class="form-control"
                           id="child_to"
                           name="child_to"
                           value="{{ old('child_to') }}"
+                          min="0"
                           required
                         />
                       </div>
@@ -628,6 +638,7 @@
                             name="permission_parent"
                             id="permission_parent1"
                             value="iya"
+                            {{ old('permission_parent') == 'iya' ? 'checked' : '' }}
                             required
                           />
                           <label class="form-check-label" for="permission_parent1">
@@ -641,6 +652,7 @@
                             name="permission_parent"
                             id="permission_parent2"
                             value="tidak"
+                            {{ old('permission_parent') == 'tidak' ? 'checked' : '' }}
                             required
                           />
                           <label class="form-check-label" for="permission_parent2">
@@ -657,8 +669,8 @@
                             name="have_laptop"
                             id="have_laptop1"
                             value="iya"
+                            {{ old('have_laptop') == 'iya' ? 'checked' : '' }}
                             required
-
                           />
                           <label class="form-check-label" for="have_laptop1">
                             Iya
@@ -670,8 +682,9 @@
                             type="radio"
                             name="have_laptop"
                             id="have_laptop2"
-                            required
                             value="tidak"
+                            {{ old('have_laptop') == 'tidak' ? 'checked' : '' }}
+                            required
                           />
                           <label class="form-check-label" for="have_laptop2">
                             Tidak

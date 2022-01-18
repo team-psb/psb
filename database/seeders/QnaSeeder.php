@@ -16,7 +16,7 @@ class QnaSeeder extends Seeder
     public function run()
     {
         Qna::truncate();
-        $faker=Factory::create('id_ID');
+        $faker = Factory::create('id_ID');
 
         for ($i=0; $i <20 ; $i++) { 
             Qna::create([

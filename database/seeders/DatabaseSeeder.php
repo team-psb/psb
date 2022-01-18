@@ -41,7 +41,9 @@ class DatabaseSeeder extends Seeder
             'stage_id' => null,
             'question_iq_value' => 50,
             'question_personal_value' => 50,
-            'notification' => null
+            'notification' => null,
+            'announcement' => '2022/09/30', 
+            'no_msg' => null
         ]);
     }
 }

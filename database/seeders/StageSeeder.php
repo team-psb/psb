@@ -16,17 +16,10 @@ class StageSeeder extends Seeder
     {
         Stage::truncate();
 
-        Stage::create([
-            'name' => 'gel-1'
-        ]);
-        Stage::create([
-            'name' => 'gel-2'
-        ]);
-        Stage::create([
-            'name' => 'gel-3'
-        ]);
-        Stage::create([
-            'name' => 'gel-4'
-        ]);
+        for ($i=1; $i < 5; $i++) { 
+            Stage::create([
+                'name' => 'gel-'.$i
+            ]);
+        }
     }
 }
