@@ -71,7 +71,7 @@ Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp
 
 Anda dinyatakan *Tidak Lolos* pada sesi wawancara
 
-Tetap Semangka (*Semangat Karena Allah !*)' 
+Tetap Semangka (Semangat Karena Allah !)' 
         ];
         sendMessage($data);
         }
@@ -117,7 +117,7 @@ Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp
         
 Anda dinyatakan *Tidak Lolos* pada sesi *Wawancara*
 
-Tetap Semangka (*Semangat Karena Allah !*)' 
+Tetap Semangka (Semangat Karena Allah !)' 
                 ];
                 sendMessage($data);
             }

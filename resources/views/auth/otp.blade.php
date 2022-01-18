@@ -154,10 +154,10 @@
                     @csrf
                     @method('POST')
                     <div class="d-flex justify-content-around py-3">
-                        <input type="text" name="t1" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
-                        <input type="text" name="t2" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
-                        <input type="text" name="t3" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
-                        <input type="text" name="t4" maxlength="1" style="width:50px;" class="otpinput text-center rounded border border-0 outline-none border-secondary py-1">
+                        <input type="text" name="t1" maxlength="1" style="width:50px;" class="otpinput text-center form-control">
+                        <input type="text" name="t2" maxlength="1" style="width:50px;" class="otpinput text-center form-control">
+                        <input type="text" name="t3" maxlength="1" style="width:50px;" class="otpinput text-center form-control">
+                        <input type="text" name="t4" maxlength="1" style="width:50px;" class="otpinput text-center form-control">
                     </div>
 
                     {{-- <div class="d-flex justify-content-center mt-2 mb-3">
@@ -256,6 +256,9 @@
                 document.getElementById('resend').innerHTML =
                 '';
                 return;
+                }else{
+                document.getElementById('countdown').innerHTML =
+                '';
                 }
                 if (!timerOn) {
                     return;

@@ -564,6 +564,7 @@
                           id="parent_income"
                           name="parent_income"
                           maxlength="10"
+                          min="0"
                           value="{{ old('parent_income') }}"
                           required
                         />

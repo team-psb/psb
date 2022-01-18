@@ -76,7 +76,7 @@ Untuk melakukan tes _Tahap Keempat_, Silahkan anda klik link berikut: ' .$link
 
 Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Keempat_
 
-Tetap Semangka (*Semangat Karena Allah !*)' 
+Tetap Semangka (Semangat Karena Allah !)' 
         ];
         sendMessage($data);
         }
@@ -123,7 +123,7 @@ Untuk melakukan tes _Tahap Keempat_, Silahkan anda klik link berikut: ' .$link
 
 Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Keempat_
 
-Tetap Semangka (*Semangat Karena Allah !*)' 
+Tetap Semangka (Semangat Karena Allah !)' 
                 ];
                 sendMessage($data);
             }

@@ -85,7 +85,7 @@ Untuk tes _Tahap Kelima_ adalah *wawancara*, Kami akan segera memberitahu anda m
 
 Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kelima_
 
-Tetap Semangka (*Semangat Karena Allah !*)' 
+Tetap Semangka (Semangat Karena Allah !)' 
         ];
         sendMessage($data);
 
@@ -142,7 +142,7 @@ Untuk tes _Tahap Kelima_ adalah *wawancara*, Kami akan segera memberitahu anda m
 
 Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kelima_
 
-Tetap Semangka (*Semangat Karena Allah !*)' 
+Tetap Semangka (Semangat Karena Allah !)' 
         ];
         sendMessage($data);
             }
