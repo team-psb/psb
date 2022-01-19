@@ -19,24 +19,6 @@ class AcademyYearSeeder extends Seeder
         AcademyYear::create([
             'year'=>'2022',
             'stage_id'=>'1',
-            'is_active'=>'0',
-        ]);
-
-        AcademyYear::create([
-            'year'=>'2022',
-            'stage_id'=>'2',
-            'is_active'=>'0',
-        ]);
-
-        AcademyYear::create([
-            'year'=>'2023',
-            'stage_id'=>'3',
-            'is_active'=>'0',
-        ]);
-
-        AcademyYear::create([
-            'year'=>'2023',
-            'stage_id'=>'4',
             'is_active'=>'1',
         ]);
     }

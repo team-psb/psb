@@ -14,6 +14,7 @@ use App\Models\ScorePersonal;
 use App\Models\Stage;
 use App\Models\Video;
 use App\Models\Setting;
+use App\Models\User;
 use Laravolt\Indonesia\Models\Province;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -129,6 +130,8 @@ class BiodataController extends Controller
         ScorePersonal::where('user_id', $data->user_id)->delete();
         Video::where('user_id', $data->user_id)->delete();
         Interview::where('user_id', $data->user_id)->delete();
+        BiodataOne::where('user_id', $data->user_id)->delete();
+        User::where('id', $data->user_id)->delete();
         
         activity()->log('Menghapus biodata id '.$data->name);
 
@@ -304,7 +307,14 @@ Tetap Semangka (Semangat Karena Allah !)'
         
         if ($ids != null) {
             foreach ($ids as $id) {
-                BiodataTwo::find($id)->delete();
+                $data = BiodataTwo::find($id);
+                $data->delete();
+                ScoreIq::where('user_id', $data->user_id)->delete();
+                ScorePersonal::where('user_id', $data->user_id)->delete();
+                Video::where('user_id', $data->user_id)->delete();
+                Interview::where('user_id', $data->user_id)->delete();
+                BiodataOne::where('user_id', $data->user_id)->delete();
+                User::where('id', $data->user_id)->delete();
             }
             activity()->log('Menghapus semua biodata');
 

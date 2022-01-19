@@ -261,13 +261,13 @@
                         <div class="paragraf-text mb-5">
                             <p class="sub-banner1">
                                 Web Penerimaan Peserta Didik Baru <br />
-                                Tahun Pelajaran {{ isset($tahun_ajaran->year) ? $tahun_ajaran->year.' / '. intval($tahun_ajaran->year +1) : '' }} <br />
+                                Tahun Ajaran <b>{{ isset($tahun_ajaran->year) ? $tahun_ajaran->year.' / '. intval($tahun_ajaran->year +1) : '' }}</b><br />
                                 Pondok Informatika Al-Madinah
                             </p>
                             <p class="pt-2 sub-banner2">
                                 Pendaftaran Santri Baru telah dibuka. <br />
-                                Silahkan Segera Daftarkan dan Lengkapi Formulir
-                                Pendaftaran.
+                                Silahkan segera daftarkan dan lengkapi formulir
+                                pendaftaran.
                             </p>
                         </div>
 
@@ -284,6 +284,10 @@
                                         rounded-pill
                                         px-3
                                         py-2
+                                        mb-3
+                                        mb-md-0
+                                        mb-lg-0
+                                        mb-xl-0
                                     "
                                 >
                                     Alur Pendaftaran
@@ -1202,7 +1206,7 @@
                                 <div class="description gsap-desc1 mb-4 mt-1">
                                     <span class="dots d-flex align-items-center justify-content-center">1.</span>
                                     <p class="desc2">
-                                        Calon santri mengisi formulir pendaftaran di website <a href="https://pondokinformatika.com/" class="text-white text-decoration-underline">pondokinformatika.com</a>.
+                                        Calon santri mengisi formulir pendaftaran di website <a href="https://pondokinformatika.xyz/" class="text-white text-decoration-underline">pondokinformatika.xyz</a>.
                                     </p>
                                 </div>
                                 <div class="description gsap-desc2 mb-4">
