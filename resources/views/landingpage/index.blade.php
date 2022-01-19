@@ -1874,7 +1874,7 @@
 
                     <div class="row" data-aos="fade-up" data-aos-delay="100">
                         <div class="col-lg-6">
-                            <div class="info-box mb-4 sub-address">
+                            <div class="info-box pb-3 sub-address">
                                 <i class="bx bx-map"></i>
                                 <h3>Alamat</h3>
                                 <p>Jl. Raya Krapyak, RT.05, Karanganyar, Wedomartani, Ngemplak, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55584</p>
@@ -1882,7 +1882,7 @@
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <div class="info-box mb-4 sub-email">
+                            <div class="info-box pb-3 sub-email">
                                 <i class="bx bx-envelope"></i>
                                 <h3>Email</h3>
                                 <p>pondokitalmadinah@gmail.com</p>
@@ -1890,7 +1890,7 @@
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <div class="info-box mb-4 sub-contact">
+                            <div class="info-box pb-3 sub-contact">
                                 <i class="bx bx-phone-call"></i>
                                 <h3>Kontak</h3>
                                 <p>085 725 249 265</p>
