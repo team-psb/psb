@@ -510,47 +510,7 @@
                                                     <div
                                                         class="
                                                             mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="name"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Nama
-                                                            Pengguna</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                                @error('name') is-invalid @enderror
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                            "
-                                                            id="name"
-                                                            name="name"
-                                                            placeholder="Masukkan Nama Pengguna"
-                                                            required
-                                                            @error('name') is-invalid @enderror
-                                                            value="{{ old('name') }}"
-                                                        />
-                                                        @error('name')
-                                                            <div class="invalid-feedback">
-                                                                {{ $message }}
-                                                            </div>
-                                                        @enderror
-                                                    </div>
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
+                                                            col-lg-12 col-sm-12
                                                         "
                                                     >
                                                         <label
@@ -1063,86 +1023,6 @@
                 </div>
             </section>
             <!-- End Regis Section -->
-
-            <!-- ======= Statistic Section ======= -->
-            <section id="stat" class="stat">
-                <div
-                    class="container"
-                    data-aos="fade-up"
-                >
-                    <!-- Background Image -->
-                    <div class="d-none d-lg-inline">
-                        <img
-                            src="{{ asset('./assets/img/logo-bg.png') }}"
-                            alt="logo"
-                            class="position-absolute img-fluid"
-                            width="1100"
-                            style="z-index: -1; top: 0px; right: 600px"
-                        />
-                    </div>
-                    <!-- End Background Image -->
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <div class="count-box">
-                                <h1 class="mb-5 fw-bold title-stats">
-                                    Statistik Pendaftaran
-                                </h1>
-                                <div
-                                    class="position-relative text-center"
-                                    data-aos="zoom-in"
-                                    data-aos-duration="1000"
-                                >
-                                    <p class="text-stats">Total Pendaftar</p>
-                                    <p class="text-stats2">Quota Penerimaan</p>
-                                    <p class="text-stats3">
-                                        Total Pengisi Formulir
-                                    </p>
-                                    <img
-                                        src="{{ asset('./assets/img/users_stats.png') }}"
-                                        alt="stat_image"
-                                        width="500"
-                                        class="img-fluid pt-5"
-                                    />
-                                    <span
-                                        data-purecounter-start="0"
-                                        data-purecounter-end="{{ $users }}"
-                                        data-purecounter-duration="1"
-                                        class="
-                                            purecounter
-                                            text-white
-                                            fs-1
-                                            img-stats
-                                        "
-                                    ></span>
-                                    <span
-                                        data-purecounter-start="0"
-                                        data-purecounter-end="11"
-                                        data-purecounter-duration="1"
-                                        class="
-                                            purecounter
-                                            text-white
-                                            fs-1
-                                            img-stats2
-                                        "
-                                    ></span>
-                                    <span
-                                        data-purecounter-start="0"
-                                        data-purecounter-end="{{ $userregister->count() }}"
-                                        data-purecounter-duration="1"
-                                        class="
-                                            purecounter
-                                            text-white
-                                            fs-1
-                                            img-stats3
-                                        "
-                                    ></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End Statistic Section -->
 
             <!-- ======= Announce Section ======= -->
             <section id="announce" class="announce">
@@ -2315,30 +2195,6 @@
                 duration: 1,
                 scale: 0,
                 opacity: 0,
-            });
-
-            //Section Stats
-            gsap.from(".title-stats", {
-                y: -50,
-                duration: 1.5,
-                opacity: 0,
-                delay: 2,
-                ease: "bounce",
-            });
-            gsap.from(".text-stats", {
-                opacity: 0,
-                duration: 2,
-                delay: 3,
-            });
-            gsap.from(".text-stats2", {
-                opacity: 0,
-                duration: 2,
-                delay: 4,
-            });
-            gsap.from(".text-stats3", {
-                opacity: 0,
-                duration: 2,
-                delay: 5,
             });
 
             // Section Announce
