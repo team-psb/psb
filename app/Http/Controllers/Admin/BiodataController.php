@@ -130,8 +130,8 @@ class BiodataController extends Controller
         ScorePersonal::where('user_id', $data->user_id)->delete();
         Video::where('user_id', $data->user_id)->delete();
         Interview::where('user_id', $data->user_id)->delete();
-        BiodataOne::where('user_id', $data->user_id)->delete();
-        User::where('id', $data->user_id)->delete();
+        // BiodataOne::where('user_id', $data->user_id)->delete();
+        // User::where('id', $data->user_id)->delete();
         
         activity()->log('Menghapus biodata id '.$data->name);
 
@@ -190,26 +190,38 @@ Tetap Semangka (Semangat Karena Allah !)'
             if ($item->status == 'lolos'){
                 $link =  route('user-second-tes');
 
-            $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => $item->user->phone,
-                'message' => 'Selamat, *' . $item->user->name . '!*
+//             $data = [
+//                 'sender' => Setting::pluck('no_msg'),
+//                 'reciver' => $item->user->phone,
+//                 'message' => 'Selamat, *' . $item->user->name . '!*
 
-Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kedua_
+// Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kedua_
 
-Untuk melakukan tes _Tahap Kedua_, Silahkan anda klik link berikut: ' .$link 
-            ];
+// Untuk melakukan tes _Tahap Kedua_, Silahkan anda klik link berikut: ' .$link 
+//             ];
+                $notif = Setting::get()->first();
+                $data = [
+                    'sender' => Setting::pluck('no_msg'),
+                    'reciver' => $item->user->phone,
+                    'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap1.' '.$link 
+                ];
             sendMessage($data);
             } else {
-            $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => $item->user->phone,
-                'message' => 'Mohon maaf, *' . $item->user->name . '!*
+//             $data = [
+//                 'sender' => Setting::pluck('no_msg'),
+//                 'reciver' => $item->user->phone,
+//                 'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
-Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kedua_
+// Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kedua_
 
-Tetap Semangka (Semangat Karena Allah !)' 
-            ];
+// Tetap Semangka (Semangat Karena Allah !)' 
+//             ];
+                $notif = Setting::get()->first();
+                $data = [
+                    'sender' => Setting::pluck('no_msg'),
+                    'reciver' => $item->user->phone,
+                    'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap1_failed
+                ];
             sendMessage($data);
             }
         }
@@ -244,15 +256,12 @@ Untuk melakukan tes _Tahap Wawancara_, anda akan kami hubungi untuk melakukan te
                 }else{
                     $link =  route('user-second-tes');
                     
+                    $notif = Setting::get()->first();
                     $data = [
-                    'sender' => Setting::pluck('no_msg'),
-                    'reciver' => $item->user->phone,
-                    'message' => 'Selamat, *' . $item->user->name . '!*
-    
-Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kedua_
-    
-Untuk melakukan tes _Tahap Kedua_, Silahkan anda klik link berikut: ' .$link 
-                ];
+                        'sender' => Setting::pluck('no_msg'),
+                        'reciver' => $item->user->phone,
+                        'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap1.' '.$link 
+                    ];
                 sendMessage($data);
                 }
                 BiodataTwo::find($id)->update(['status'=>'lolos']);
@@ -282,14 +291,11 @@ Tetap Semangka (Semangat Karena Allah !)'
                     ];
                     sendMessage($data);
                 }else{
+                    $notif = Setting::get()->first();
                     $data = [
                         'sender' => Setting::pluck('no_msg'),
                         'reciver' => $item->user->phone,
-                        'message' => 'Mohon maaf, *' . $item->user->name . '!*
-            
-Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kedua_
-            
-Tetap Semangka (Semangat Karena Allah !)' 
+                        'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap1_failed
                     ];
                     sendMessage($data);
                 }

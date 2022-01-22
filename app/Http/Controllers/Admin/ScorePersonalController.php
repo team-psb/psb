@@ -54,30 +54,42 @@ class ScorePersonalController extends Controller
         $item->status = $request->status;
         $item->save();
 
+        $notif = Setting::get()->first();
+
         // Whatsapp Gateway
         if ($item->status == 'lolos'){
             $link =  route('user-fourth-tes');
 
-        $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => $item->user->phone,
-            'message' => 'Selamat, *' . $item->user->name . '!*
+//         $data = [
+//             'sender' => Setting::pluck('no_msg'),
+//             'reciver' => $item->user->phone,
+//             'message' => 'Selamat, *' . $item->user->name . '!*
 
-Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Keempat_
+// Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Keempat_
 
-Untuk melakukan tes _Tahap Keempat_, Silahkan anda klik link berikut: ' .$link 
-        ];
+// Untuk melakukan tes _Tahap Keempat_, Silahkan anda klik link berikut: ' .$link 
+//         ];
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => $item->user->phone,
+                'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap3.' '.$link 
+            ];
         sendMessage($data);
         } else {
-        $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => $item->user->phone,
-            'message' => 'Mohon maaf, *' . $item->user->name . '!*
+//         $data = [
+//             'sender' => Setting::pluck('no_msg'),
+//             'reciver' => $item->user->phone,
+//             'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
-Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Keempat_
+// Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Keempat_
 
-Tetap Semangka (Semangat Karena Allah !)' 
-        ];
+// Tetap Semangka (Semangat Karena Allah !)' 
+//         ];
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => $item->user->phone,
+                'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap3_failed
+            ];
         sendMessage($data);
         }
         return redirect()->route('scorePersonal.index')->with('success-edit', 'Berhasil Mengganti Status Data');
@@ -91,14 +103,20 @@ Tetap Semangka (Semangat Karena Allah !)'
             foreach ($ids as $id) {
                 $item = ScorePersonal::find($id);
                 ScorePersonal::find($id)->update(['status'=>'lolos']);
+//                 $data = [
+//                     'sender' => Setting::pluck('no_msg'),
+//                     'reciver' => $item->user->phone,
+//                     'message' => 'Selamat, *' . $item->user->name . '!*
+                    
+// Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Keempat_
+
+// Untuk melakukan tes _Tahap Keempat_, Silahkan anda klik link berikut: ' .$link 
+//                 ];
+                $notif = Setting::get()->first();
                 $data = [
                     'sender' => Setting::pluck('no_msg'),
                     'reciver' => $item->user->phone,
-                    'message' => 'Selamat, *' . $item->user->name . '!*
-                    
-Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Keempat_
-
-Untuk melakukan tes _Tahap Keempat_, Silahkan anda klik link berikut: ' .$link 
+                    'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap3.' '.$link 
                 ];
                 sendMessage($data);
             }
@@ -116,15 +134,21 @@ Untuk melakukan tes _Tahap Keempat_, Silahkan anda klik link berikut: ' .$link
             foreach ($ids as $id) {
                 $item = ScorePersonal::find($id);
                 ScorePersonal::find($id)->update(['status'=>'tidak']);
-                $data = [
-                    'sender' => Setting::pluck('no_msg'),
-                    'reciver' => $item->user->phone,
-                    'message' => 'Mohon maaf, *' . $item->user->name . '!*
+//                 $data = [
+//                     'sender' => Setting::pluck('no_msg'),
+//                     'reciver' => $item->user->phone,
+//                     'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
-Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Keempat_
+// Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Keempat_
 
-Tetap Semangka (Semangat Karena Allah !)' 
-                ];
+// Tetap Semangka (Semangat Karena Allah !)' 
+//                 ];
+                    $notif = Setting::get()->first();
+                    $data = [
+                        'sender' => Setting::pluck('no_msg'),
+                        'reciver' => $item->user->phone,
+                        'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap3_failed
+                    ];
                 sendMessage($data);
             }
 

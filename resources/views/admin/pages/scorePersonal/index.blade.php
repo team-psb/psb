@@ -231,8 +231,8 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-between">
+                            <button type="submit" formaction="{{ route('scorePersonal.filter-reset') }}" class="btn btn-danger">Atur Ulang</button>
                             <button type="submit" formaction="{{ route('scorePersonal.index') }}" class="btn btn-primary">Terapkan</button>
-                            <button type="submit" formaction="{{ route('scorePersonal.filter-reset') }}" class="btn btn-primary">Atur Ulang</button>
                         </div>
                         
                 </form>

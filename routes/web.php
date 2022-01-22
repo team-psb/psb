@@ -211,6 +211,17 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/settings/personal', [SettingController::class, 'personalValue'])->name('settings.personal-value');
     Route::post('/settings/announcement', [SettingController::class, 'announcValue'])->name('settings.announcement');
     Route::post('/settings/no-message', [SettingController::class, 'noMessage'])->name('settings.no-message');
+    Route::post('/settings/biodata-pass', [SettingController::class, 'biodataPass'])->name('settings.biodata-pass');
+    Route::post('/settings/biodata-failed', [SettingController::class, 'biodataFailed'])->name('settings.biodata-failed');
+    Route::post('/settings/iq-pass', [SettingController::class, 'iqPass'])->name('settings.iq-pass');
+    Route::post('/settings/iq-failed', [SettingController::class, 'iqFailed'])->name('settings.iq-failed');
+    Route::post('/settings/personal-pass', [SettingController::class, 'personalPass'])->name('settings.personal-pass');
+    Route::post('/settings/personal-failed', [SettingController::class, 'personalFailed'])->name('settings.personal-failed');
+    Route::post('/settings/video-pass', [SettingController::class, 'videoPass'])->name('settings.video-pass');
+    Route::post('/settings/video-failed', [SettingController::class, 'videoFailed'])->name('settings.video-failed');
+    Route::post('/settings/interview-pass', [SettingController::class, 'interviewPass'])->name('settings.interview-pass');
+    Route::post('/settings/student-pass', [SettingController::class, 'studentPass'])->name('settings.student-pass');
+    Route::post('/settings/student-failed', [SettingController::class, 'studentFailed'])->name('settings.student-failed');
     Route::get('/settings/stage/{id}', [SettingController::class, 'stageEdit'])->name('settings.stage-edit');
     Route::post('/settings/stage/{id}', [SettingController::class, 'stageUpdate'])->name('settings.stage-update');
     Route::delete('/settings/stage/{id}', [SettingController::class, 'stageDelete'])->name('settings.stage-delete');

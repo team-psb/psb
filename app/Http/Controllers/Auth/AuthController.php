@@ -181,7 +181,7 @@ class AuthController extends Controller
         $token = $request->t1.$request->t2.$request->t3.$request->t4;
         if ($token == $user->token) {
 
-            User::wherePhone($wa)->update([
+            User::where('phone', $wa)->update([
                 'remember_token' => $token
             ]);
             

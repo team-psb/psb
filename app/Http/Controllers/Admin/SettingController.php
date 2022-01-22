@@ -121,4 +121,148 @@ class SettingController extends Controller
         return back();
     }
 
+
+    // Notif Wa
+    public function biodataPass(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'notif_tahap1' => $request->notif_tahap1
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+    
+    public function biodataFailed(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'notif_tahap1_failed' => $request->notif_tahap1_failed
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+    
+    public function iqPass(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'notif_tahap2' => $request->notif_tahap2
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+    
+    public function iqFailed(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'notif_tahap2_failed' => $request->notif_tahap2_failed
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+
+    public function personalPass(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'notif_tahap3' => $request->notif_tahap3
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+    
+    public function personalFailed(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'notif_tahap3_failed' => $request->notif_tahap3_failed
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+
+    public function videoPass(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'notif_tahap4' => $request->notif_tahap4
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+    
+    public function videoFailed(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'notif_tahap4_failed' => $request->notif_tahap4_failed
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+
+    public function interviewPass(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'notif_tahap5' => $request->notif_tahap5
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+    
+    public function studentPass(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'notif_tahap5_passed' => $request->notif_tahap5_passed
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+
+    public function studentFailed(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'notif_tahap5_failed' => $request->notif_tahap5_failed
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
 }
