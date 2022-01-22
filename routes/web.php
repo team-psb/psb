@@ -37,12 +37,16 @@ use App\Http\Controllers\LandingController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Login dan Registrasi Halaman Page Sendiri
 Route::get('/masuk', function () {
     return view('auth.login');
 })->name('login');
+
 Route::get('/daftar', function () {
     return view('auth.register');
 })->name('register');
+
 
 //landingpage
 Route::group(['prefix' => '', 'middleware' => ['guest']], function () {
