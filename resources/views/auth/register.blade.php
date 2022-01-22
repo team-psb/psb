@@ -3,7 +3,7 @@
     $gelombang = App\Models\Stage::whereHas('academy_year', function($query){
         $query->where('is_active', true);
     })->orderBy('created_at', 'desc')->pluck('name')->first();
-    
+
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,7 @@
         <title>Pondok Informatika Al Madinah</title>
 
         <!-- Favicons -->
-        <link href="assets/Logo-Pondok.png" rel="icon" />
+        <link href="assets/img/Logo-Pondok.png" rel="icon" />
         <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
         <!-- Google Fonts -->
@@ -292,7 +292,7 @@
                             alt="people"
                             class="
                                 position-absolute
-                                d-none 
+                                d-none
                                 {{-- d-xl-inline --}}
                                 img-fluid
                             "
@@ -522,7 +522,7 @@
                                                     />
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="row">
                                                 <div
                                                     class="
@@ -640,7 +640,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="gender" 
+                                                <label for="gender"
                                                 class="
                                                 form-label
                                                 text-white
@@ -655,7 +655,7 @@
                                                     id="gender"
                                                     value="l"
                                                     required
-                                                    
+
                                                 />
                                                 <label class="form-check-label text-white" for="gender">
                                                     Laki-Laki
@@ -668,8 +668,8 @@
 
                                             <br />
                                             @if (is_null($tahun_ajaran))
-                                            <button 
-                                            type="submit" 
+                                            <button
+                                            type="submit"
                                             class="btn
                                             sign-in
                                             rounded-pill
@@ -680,8 +680,8 @@
                                                 Pendaftaran belum di buka
                                             </button>
                                             @else
-                                            <button 
-                                            type="submit" 
+                                            <button
+                                            type="submit"
                                             class="btn
                                             sign-in
                                             rounded-pill

@@ -428,13 +428,14 @@
                                                     px-4
                                                     py-2
                                                     mt-2
+                                                    float-end
                                                 "
                                             >
                                                 Sign In
                                             </button>
-                                        </div>
-                                        <div class="form-floating text-center">
-                                            <a href="{{ route('password-getwhatsapp') }}" class="text-light">Lupa password ?</a>
+                                            <span class="float-start mx-2 mt-3">
+                                                <a href="{{ route('password-getwhatsapp') }}" class="text-light">Lupa password ?</a>
+                                            </span>
                                         </div>
                                     </form>
                                 </div>
@@ -510,47 +511,7 @@
                                                     <div
                                                         class="
                                                             mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="name"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Nama
-                                                            Pengguna</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                                @error('name') is-invalid @enderror
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                            "
-                                                            id="name"
-                                                            name="name"
-                                                            placeholder="Masukkan Nama Pengguna"
-                                                            required
-                                                            @error('name') is-invalid @enderror
-                                                            value="{{ old('name') }}"
-                                                        />
-                                                        @error('name')
-                                                            <div class="invalid-feedback">
-                                                                {{ $message }}
-                                                            </div>
-                                                        @enderror
-                                                    </div>
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
+                                                            col-lg-12 col-sm-12
                                                         "
                                                     >
                                                         <label
@@ -654,7 +615,7 @@
                                                             required
                                                         >
                                                             <option selected disabled>
-                                                                -- Keluarga --
+                                                                -- Pilih --
                                                             </option>
                                                             <option
                                                                 value="sangat-mampu"
@@ -1064,7 +1025,7 @@
             </section>
             <!-- End Regis Section -->
 
-            <!-- ======= Statistic Section ======= -->
+            {{-- <!-- ======= Statistic Section ======= -->
             <section id="stat" class="stat">
                 <div
                     class="container"
@@ -1142,7 +1103,7 @@
                     </div>
                 </div>
             </section>
-            <!-- End Statistic Section -->
+            <!-- End Statistic Section --> --}}
 
             <!-- ======= Announce Section ======= -->
             <section id="announce" class="announce">
@@ -2318,28 +2279,28 @@
             });
 
             //Section Stats
-            gsap.from(".title-stats", {
-                y: -50,
-                duration: 1.5,
-                opacity: 0,
-                delay: 2,
-                ease: "bounce",
-            });
-            gsap.from(".text-stats", {
-                opacity: 0,
-                duration: 2,
-                delay: 3,
-            });
-            gsap.from(".text-stats2", {
-                opacity: 0,
-                duration: 2,
-                delay: 4,
-            });
-            gsap.from(".text-stats3", {
-                opacity: 0,
-                duration: 2,
-                delay: 5,
-            });
+            // gsap.from(".title-stats", {
+            //     y: -50,
+            //     duration: 1.5,
+            //     opacity: 0,
+            //     delay: 2,
+            //     ease: "bounce",
+            // });
+            // gsap.from(".text-stats", {
+            //     opacity: 0,
+            //     duration: 2,
+            //     delay: 3,
+            // });
+            // gsap.from(".text-stats2", {
+            //     opacity: 0,
+            //     duration: 2,
+            //     delay: 4,
+            // });
+            // gsap.from(".text-stats3", {
+            //     opacity: 0,
+            //     duration: 2,
+            //     delay: 5,
+            // });
 
             // Section Announce
             gsap.from(".title-announce", {
