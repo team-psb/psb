@@ -177,7 +177,7 @@
                     </a>
                 </h1>
                 <a
-                    href="#"
+                    href="{{ route('home') }}"
                     class="text-decoration-none button-banner"
                 >
                     <button
@@ -190,7 +190,7 @@
                             py-2
                         "
                     >
-                        Back
+                        Home
                     </button>
                 </a>
             </div>
@@ -233,6 +233,12 @@
                                     "
                                 />
                             </div>
+
+                            @if (session('sukses-kirim'))
+                                <div class="alert alert-success fw-bold">
+                                    {{ session('sukses-kirim') }} <br>
+                                </div>
+                            @endif
 
                             <div class="card-body position-relative">
                                 <h1

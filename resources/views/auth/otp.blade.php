@@ -175,6 +175,19 @@
                         Kirim Ulang kode OTP
                     </a>
                 </div> --}}
+
+                {{-- post with login --}}
+
+                {{-- @php
+                    $pass = App\Models\User::where('phone', $wa)->pluck('password');
+                @endphp
+                <form action="{{ route('login-proses') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="phone" value="{{ $wa }}">
+                    <input type="hidden" name="password" value="{{ $pass }}">
+                    <button class="d-none" id="post1"></button>
+                </form> --}}
+
                 <div>
                     <p class="d-block mobile-text" id="countdown">Sisa Waktu :</p>
                     <div class="text-center">
@@ -264,9 +277,15 @@
                     return;
                 }
                 $("#ExampleButton").prop('disabled',true);
-                document.getElementById('resend').innerHTML = 'Belum menerima kode? <a href="{{ route('resend-token', $wa) }}" style="color: #FFAD60;font-weight: bold;" onclick="timer(120)">kirim ulang</a>'
+                document.getElementById('resend').innerHTML = 'Belum menerima kode? <a href="{{ route('resend-token', $wa) }}" style="color: #FFAD60;font-weight: bold;" onclick="timer(180)">kirim ulang</a>'
             }
             timer(180);
+        </script>
+
+        <script>
+            $('#post').click(function(){
+                $('#post1').click();
+            });
         </script>
     </body>
 </html>

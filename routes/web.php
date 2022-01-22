@@ -39,13 +39,12 @@ use App\Http\Controllers\LandingController;
 */
 
 // Login dan Registrasi Halaman Page Sendiri
-Route::get('/masuk', function () {
-    return view('auth.login');
-})->name('login');
-
-Route::get('/daftar', function () {
-    return view('auth.register');
-})->name('register');
+// Route::get('/masuk', function () {
+//     return view('auth.login');
+// })->name('login');
+// Route::get('/daftar', function () {
+//     return view('auth.register');
+// })->name('register');
 
 
 //landingpage
