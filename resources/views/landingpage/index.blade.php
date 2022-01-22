@@ -511,47 +511,7 @@
                                                     <div
                                                         class="
                                                             mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="name"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Nama
-                                                            Pengguna</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                                @error('name') is-invalid @enderror
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                            "
-                                                            id="name"
-                                                            name="name"
-                                                            placeholder="Masukkan Nama Pengguna"
-                                                            required
-                                                            @error('name') is-invalid @enderror
-                                                            value="{{ old('name') }}"
-                                                        />
-                                                        @error('name')
-                                                            <div class="invalid-feedback">
-                                                                {{ $message }}
-                                                            </div>
-                                                        @enderror
-                                                    </div>
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
+                                                            col-lg-12 col-sm-12
                                                         "
                                                     >
                                                         <label
@@ -655,7 +615,7 @@
                                                             required
                                                         >
                                                             <option selected disabled>
-                                                                -- Keluarga --
+                                                                -- Pilih --
                                                             </option>
                                                             <option
                                                                 value="sangat-mampu"
