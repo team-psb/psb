@@ -131,7 +131,7 @@ class AuthController extends Controller
 
 *'.$token.'* 
 
-dilink berikut '.$link
+Atau masuk dilink berikut '.$link
         ];
         sendMessage($data);
 
@@ -190,7 +190,7 @@ Keluarga : *'.$user->BiodataOne->family.'*
 No Wa : *'.$user->phone.'*
 Tanggal Registrasi : '.$user->created_at->format('d-m-Y H:i').' WIB
 
-silahkan *login*, 
+Silahkan *login*, 
 untuk melakukan proses seleksi selanjutnya !, 
 Di link berikut '.route('login')
             ];
