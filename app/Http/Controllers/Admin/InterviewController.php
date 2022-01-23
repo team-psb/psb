@@ -92,7 +92,7 @@ class InterviewController extends Controller
 
     public function passAll(Request $request)
     {
-        $ids=$request->get('ids');
+        $ids=$request->get('ids'); 
         if ($ids != null) {
             foreach ($ids as $id) {
                 $item = Pass::find($id);

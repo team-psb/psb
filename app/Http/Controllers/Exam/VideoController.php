@@ -41,6 +41,6 @@ Anda baru bisa lanjut mengikuti tes _Tahap Kelima_ jika dinyatakan lolos di tes 
 
         ];
         sendMessage($data);
-        return redirect()->route('success');
+        return redirect()->route('user-dashboard');
     }
 }

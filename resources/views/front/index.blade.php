@@ -3,6 +3,7 @@
 @section('title', 'Dashboard')
 
 @push('end-style')
+  <link rel="stylesheet" href="{{ asset('front/sweetalert2/sweetalert2.min.css') }}" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 @endpush
 
@@ -56,7 +57,7 @@
                                         <h2 class="poppins">Halo Selamat Datang {{ Auth::user()->name }}!</h2>
                                         <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Pertama</strong> silahkan Anda klik tombol di bawah ini.</p>
                                         <div class="mt-4">
-                                            <a href="{{ route('user-first-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                                            <a href="{{ route('user-first-tes') }}" id="swal-biodata" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                                         </div>
                                     </div>
                                 @elseif(!empty($tahap1) && isset($biodata1) && $tahap1->status == null)
@@ -82,7 +83,7 @@
                                       <p><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
                                       <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Kedua</strong>, silahkan Anda klik tombol di bawah ini.</p>
                                       <div class="mt-4">
-                                          <a href="{{ route('user-second-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                                          <a href="{{ route('user-second-tes') }}" id="swal-biodata" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                                       </div>
                                   @elseif(isset($tahap2->status) && $tahap2->status == 'lolos' && !isset($tahap3->status))
                                       <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
@@ -90,7 +91,7 @@
                                       <p><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
                                       <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Ketiga</strong>, silahkan Anda klik tombol di bawah ini.</p>
                                       <div class="mt-4">
-                                          <a href="{{ route('user-third-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                                          <a href="{{ route('user-third-tes') }}" id="swal-biodata" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                                       </div>
                                   @elseif(isset($tahap3->status) && $tahap3->status == 'lolos' && !isset($tahap4->status))
                                       <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
@@ -98,7 +99,7 @@
                                       <p><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
                                       <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Keempat</strong>, silahkan Anda klik tombol di bawah ini.</p>
                                       <div class="mt-4">
-                                          <a href="{{ route('user-fourth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                                          <a href="{{ route('user-fourth-tes') }}" id="swal-biodata" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                                       </div>
                                   @elseif( isset($tahap4->status) && isset($tahap5->status) && $tahap5->status == 'lolos')
                                       <i class="fas fa-graduation-cap pb-3" style="font-size: 72px;"></i>
@@ -197,14 +198,14 @@
                         @endif
                       </div>
                         {{-- Dekstop --}}
-                        <div  class="col-lg-4 col-md-6 col-12 d-none d-md-none d-lg-block"
+                        <div  class="col-lg-6 col-md-6 col-12 d-none d-md-none d-lg-block"
                             data-aos="fade-up"
                             data-aos-offset="100"
                             data-aos-delay="400"
                             data-aos-duration="1000"
                         >
                         <div class="card card-statistic-1">
-                            <div class="card-icon bg-danger">
+                            <div class="card-icon bg-info">
                             <i class="far fa-newspaper"></i>
                             </div>
                             <div class="card-wrap">
@@ -217,14 +218,14 @@
                             </div>
                         </div>
                         </div>
-                        <div  class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-md-none d-lg-block"
+                        <div  class="col-lg-6 col-md-6 col-sm-6 col-12 d-none d-md-none d-lg-block"
                             data-aos="fade-up"
                             data-aos-offset="100"
                             data-aos-delay="600"
                             data-aos-duration="1000"
                         >
                         <div class="card card-statistic-1">
-                            <div class="card-icon bg-warning">
+                            <div class="card-icon bg-primary">
                             <i class="fas fa-question-circle"></i>
                             </div>
                             <div class="card-wrap">
@@ -233,26 +234,6 @@
                             </div>
                             <div class="card-body">
                                 {{ $qna ? $qna->count() : '0' }}
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div  class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-md-none d-lg-block"
-                            data-aos="fade-up"
-                            data-aos-offset="100"
-                            data-aos-delay="800"
-                            data-aos-duration="1000"
-                        >
-                        <div class="card card-statistic-1">
-                            <div class="card-icon bg-primary">
-                            <i class="fas fa-user"></i>
-                            </div>
-                            <div class="card-wrap">
-                            <div class="card-header">
-                                <h4>Pendaftar</h4>
-                            </div>
-                            <div class="card-body">
-                                {{ $data->count() }}
                             </div>
                             </div>
                         </div>
@@ -719,11 +700,14 @@
     </div>
 @endsection
 
-@push('end-script')
+@push('start-script')
+//AOS
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
     AOS.init();
     </script>
+
+    //Alur
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
     <script>
@@ -795,3 +779,29 @@
         });
     </script>
 @endpush
+
+@push('end-script')
+    //sweetalert2
+    <script src="{{ asset('front/sweetalert2/sweetalert2.min.js') }}"></script>
+    <script>
+
+      $(document).on('click', '#swal-biodata', function(e){
+        e.preventDefault();
+        var link = $(this).attr('href');
+ 
+        Swal.fire({
+          title: 'Apakah sudah siap?',
+          // text: "",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Ya, saya siap!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location = link;
+          }
+        })
+      });
+    </script>
+  @endpush
