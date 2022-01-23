@@ -62,6 +62,7 @@
                     class="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
+                    placeholder="https://www.youtube.com/watch?v=mbyC-4ufrG4"
                     name="url"
                   />
                 </div>
@@ -114,8 +115,8 @@
             ) {
                 swalWithBootstrapButtons.fire(
                     'Dibatalkan !',
-                    'Silahkan dikerjakan kembali :)'
-                );
+                    'Silahkan dikerjakan kembali :')
+                ;
             }
         });
       });

@@ -158,7 +158,7 @@
                           id="exampleInputPassword2"
                           name="instagram"
                           value="{{ old('instagram') }}"
-                          placeholder="@pondokinformatika"
+                          placeholder="https://www.instagram.com/pondokinformatika/"
                           required
                         />
                         <small class="form-text text-muted">
@@ -173,7 +173,7 @@
                           id="exampleInputPassword3"
                           name="tiktok"
                           value="{{ old('tiktok') }}"
-                          placeholder="@pondokinformatika"
+                          placeholder="https://www.tiktok.com/@pondokinformatika"
                           required
                         />
                         <small class="form-text text-muted">
@@ -212,7 +212,7 @@
                             {{ old('last_education') == 'tidak-ada' ? 'checked' : '' }}
                             x-on:click="education(false)"
                           />
-                          <label class="form-check-label" for="gamer1">
+                          <label class="form-check-label" for="education1">
                             Tidak ada
                           </label>
                         </div>
@@ -227,7 +227,7 @@
                             {{ old('last_education') == 'SD' ? 'checked' : '' }}
                             x-on:click="education(false)"
                           />
-                          <label class="form-check-label" for="education4">
+                          <label class="form-check-label" for="education2">
                             SD
                           </label>
                         </div>
@@ -242,7 +242,7 @@
                             {{ old('last_education') == 'SMP' ? 'checked' : '' }}
                             x-on:click="education(false)"
                           />
-                          <label class="form-check-label" for="education4">
+                          <label class="form-check-label" for="education3">
                             SMP
                           </label>
                         </div>
@@ -970,8 +970,8 @@
             ) {
                 swalWithBootstrapButtons.fire(
                     'Dibatalkan !',
-                    'Silahkan isi kembali dengan benar :)'
-                );
+                    'Silahkan isi kembali dengan benar :')
+                ;
             }
         });
       });

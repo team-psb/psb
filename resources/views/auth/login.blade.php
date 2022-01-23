@@ -239,6 +239,11 @@
                                     {{ session('sukses-kirim') }} <br>
                                 </div>
                             @endif
+                            @if (session('sukses-daftar'))
+                                <div class="alert alert-success fw-bold">
+                                    {{ session('sukses-daftar') }} <br>
+                                </div>
+                            @endif
 
                             <div class="card-body position-relative">
                                 <h1

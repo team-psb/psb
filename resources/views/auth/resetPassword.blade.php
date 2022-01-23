@@ -69,11 +69,12 @@
                                             <div class="row d-flex ">
                                                 <div class="col">
                                                     <input
+                                                        id="showpass"
                                                         class="form-check-input ml-1"
                                                         type="checkbox"
                                                         onclick="myFunction()"
                                                     />
-                                                    <small class="ml-4">show password</small>
+                                                    <label for="showpass" class="ml-4">show password</label>
                                                 </div>
                                             </div>
                                             <br>

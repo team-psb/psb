@@ -104,6 +104,10 @@
                     <td>Instagram</td>
                     <td><a href="{{ $biodata->instagram }}" target="_blank">{{ $biodata->instagram }}</a></td>
                 </tr>
+                <tr>
+                    <td>Tiktok</td>
+                    <td><a href="{{ $biodata->tiktok }}" target="_blank">{{ $biodata->tiktok }}</a></td>
+                </tr>
             </table>
         </div>
     </div>
@@ -120,8 +124,16 @@
                     <td>{{ $biodata->father }}</td>
                 </tr>
                 <tr>
+                    <td >NIK Ayah</td>
+                    <td>{{ $biodata->father_id }}</td>
+                </tr>
+                <tr>
                     <td>Nama Ibu</td>
                     <td>{{ $biodata->mother }}</td>
+                </tr>
+                <tr>
+                    <td>NIK Ibu</td>
+                    <td>{{ $biodata->mother_id }}</td>
                 </tr>
                 <tr>
                     <td>Kondidi Keluarga</td>
@@ -137,7 +149,7 @@
                 </tr>
                 <tr>
                     <td>Penghasilan Ortu</td>
-                    <td>Rp. {{ number_format($biodata->parent_income) }}</td>
+                    <td>{{ $biodata->parent_income }}</td>
                 </tr>
                 <tr>
                     <td>Jumlah Saudara</td>
@@ -146,6 +158,10 @@
                 <tr>
                     <td>Anak Ke</td>
                     <td>{{ $biodata->child_to }}</td>
+                </tr>
+                <tr>
+                    <td>Nama Wali</td>
+                    <td>{{ $biodata->guardian }}</td>
                 </tr>
                 <tr>
                     <td>No Hp Wali</td>
