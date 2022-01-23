@@ -23,6 +23,7 @@ class CreateSettingsTable extends Migration
             $table->string('no_msg')->nullable();
             $table->text('notification')->nullable();
             $table->text('notif_tahap1')->nullable();
+            $table->text('notif_tahap1_sm')->nullable();
             $table->text('notif_tahap1_failed')->nullable();
             $table->text('notif_tahap2')->nullable();
             $table->text('notif_tahap2_failed')->nullable();
@@ -33,6 +34,11 @@ class CreateSettingsTable extends Migration
             $table->text('notif_tahap5')->nullable();
             $table->text('notif_tahap5_passed')->nullable();
             $table->text('notif_tahap5_failed')->nullable();
+            $table->text('complete_tahap1')->nullable();
+            $table->text('complete_tahap1_sm')->nullable();
+            $table->text('complete_tahap2')->nullable();
+            $table->text('complete_tahap3')->nullable();
+            $table->text('complete_tahap4')->nullable();
             $table->timestamps();
         });
     }

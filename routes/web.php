@@ -215,6 +215,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/settings/announcement', [SettingController::class, 'announcValue'])->name('settings.announcement');
     Route::post('/settings/no-message', [SettingController::class, 'noMessage'])->name('settings.no-message');
     Route::post('/settings/biodata-pass', [SettingController::class, 'biodataPass'])->name('settings.biodata-pass');
+    Route::post('/settings/biodata-pass-sm', [SettingController::class, 'biodataPassSm'])->name('settings.biodata-pass-sm');
     Route::post('/settings/biodata-failed', [SettingController::class, 'biodataFailed'])->name('settings.biodata-failed');
     Route::post('/settings/iq-pass', [SettingController::class, 'iqPass'])->name('settings.iq-pass');
     Route::post('/settings/iq-failed', [SettingController::class, 'iqFailed'])->name('settings.iq-failed');
@@ -225,6 +226,12 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/settings/interview-pass', [SettingController::class, 'interviewPass'])->name('settings.interview-pass');
     Route::post('/settings/student-pass', [SettingController::class, 'studentPass'])->name('settings.student-pass');
     Route::post('/settings/student-failed', [SettingController::class, 'studentFailed'])->name('settings.student-failed');
+    Route::post('/settings/complete-tahap1', [SettingController::class, 'completeTahap1'])->name('settings.complete-tahap1');
+    Route::post('/settings/complete-tahap1-sm', [SettingController::class, 'completeTahap1Sm'])->name('settings.complete-tahap1-sm');
+    Route::post('/settings/complete-tahap2', [SettingController::class, 'completeTahap2'])->name('settings.complete-tahap2');
+    Route::post('/settings/complete-tahap3', [SettingController::class, 'completeTahap3'])->name('settings.complete-tahap3');
+    Route::post('/settings/complete-tahap4', [SettingController::class, 'completeTahap4'])->name('settings.complete-tahap4');
+    
     Route::get('/settings/stage/{id}', [SettingController::class, 'stageEdit'])->name('settings.stage-edit');
     Route::post('/settings/stage/{id}', [SettingController::class, 'stageUpdate'])->name('settings.stage-update');
     Route::delete('/settings/stage/{id}', [SettingController::class, 'stageDelete'])->name('settings.stage-delete');

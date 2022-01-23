@@ -33,6 +33,8 @@ class BiodataTwoController extends Controller
         $stage_id = Stage::whereHas('academy_year', function($query){
             $query->where('is_active', true);
         })->orderBy('id', 'desc')->pluck('id')->first();
+        
+        $notif = Setting::get()->first();
 
         if (Auth::user()->BiodataOne->family == 'sangat-mampu') {
             $request->merge(['user_id' => $users_id, 'academy_year_id' => $tahun_ajaran_id, 'stage_id' => $stage_id, 'status' => null]);
@@ -41,11 +43,7 @@ class BiodataTwoController extends Controller
             $data = [
                 'sender' => Setting::pluck('no_msg'),
                 'reciver' => Auth::user()->phone,
-                'message' => 'Anda telah selesai melaksanakan tes _Biodata_.
-    
-Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
-    
-Anda bisa lanjut mengikuti tes Wawancara jika dinyatakan lolos di tes Biodata.'
+                'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap1_sm
     
             ];
             sendMessage($data);
@@ -85,12 +83,7 @@ Anda bisa lanjut mengikuti tes Wawancara jika dinyatakan lolos di tes Biodata.'
             $data = [
                 'sender' => Setting::pluck('no_msg'),
                 'reciver' => Auth::user()->phone,
-                'message' => 'Anda telah selesai melaksanakan tes _Tahap Pertama_.
-    
-Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
-    
-Anda baru bisa lanjut mengikuti tes _Tahap Kedua_ jika dinyatakan lolos di tes _Tahap Pertama_'
-    
+                'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap1
             ];
             sendMessage($data);
         }

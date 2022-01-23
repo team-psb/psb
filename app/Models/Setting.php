@@ -18,6 +18,7 @@ class Setting extends Model
         'no_msg',
         'notification', 
         'notif_tahap1',
+        'notif_tahap1_sm',
         'notif_tahap1_failed',
         'notif_tahap2',
         'notif_tahap2_failed',
@@ -28,5 +29,10 @@ class Setting extends Model
         'notif_tahap5',
         'notif_tahap5_passed',
         'notif_tahap5_failed',
+        'complete_tahap1',
+        'complete_tahap1_sm',
+        'complete_tahap2',
+        'complete_tahap3',
+        'complete_tahap4',
     ];
 }

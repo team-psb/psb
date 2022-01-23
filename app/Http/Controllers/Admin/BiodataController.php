@@ -145,6 +145,7 @@ class BiodataController extends Controller
         ]);
         
         $item = BiodataTwo::findOrFail($id);
+        $notif = Setting::get()->first();
         
         if ($item->user->biodataOne->family == 'sangat-mampu') {
             $item->status = $request->status;
@@ -159,26 +160,18 @@ class BiodataController extends Controller
 
             // Whatsapp Gateway
             if ($item->status == 'lolos'){
-
+            
             $data = [
                 'sender' => Setting::pluck('no_msg'),
                 'reciver' => $item->user->phone,
-                'message' => 'Selamat, *' . $item->user->name . '!*
-
-Anda dinyatakan *Lolos* Ketahap berikutnya.
-
-Untuk melakukan tes _Tahap Wawancara_, anda akan kami hubungi untuk melakukan tes Wawancara.'
+                'message' => '*'.$item->user->name.'*, '. $notif->notif_tahap1_sm
             ];
             sendMessage($data);
             } else {
             $data = [
                 'sender' => Setting::pluck('no_msg'),
                 'reciver' => $item->user->phone,
-                'message' => 'Mohon maaf, *' . $item->user->name . '!*
-
-Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Selanjutnya_
-
-Tetap Semangka (Semangat Karena Allah !)' 
+                'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap1_failed
             ];
             sendMessage($data);
             }
@@ -189,17 +182,7 @@ Tetap Semangka (Semangat Karena Allah !)'
             // Whatsapp Gateway
             if ($item->status == 'lolos'){
                 $link =  route('user-second-tes');
-
-//             $data = [
-//                 'sender' => Setting::pluck('no_msg'),
-//                 'reciver' => $item->user->phone,
-//                 'message' => 'Selamat, *' . $item->user->name . '!*
-
-// Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kedua_
-
-// Untuk melakukan tes _Tahap Kedua_, Silahkan anda klik link berikut: ' .$link 
-//             ];
-                $notif = Setting::get()->first();
+                
                 $data = [
                     'sender' => Setting::pluck('no_msg'),
                     'reciver' => $item->user->phone,
@@ -207,16 +190,7 @@ Tetap Semangka (Semangat Karena Allah !)'
                 ];
             sendMessage($data);
             } else {
-//             $data = [
-//                 'sender' => Setting::pluck('no_msg'),
-//                 'reciver' => $item->user->phone,
-//                 'message' => 'Mohon maaf, *' . $item->user->name . '!*
-
-// Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kedua_
-
-// Tetap Semangka (Semangat Karena Allah !)' 
-//             ];
-                $notif = Setting::get()->first();
+                
                 $data = [
                     'sender' => Setting::pluck('no_msg'),
                     'reciver' => $item->user->phone,
@@ -233,6 +207,8 @@ Tetap Semangka (Semangat Karena Allah !)'
     public function passAll(Request $request)
     {
         $ids=$request->get('ids');
+        $notif = Setting::get()->first();
+
         if ($ids != null) {
             foreach ($ids as $id) {
                 $item = BiodataTwo::find($id);
@@ -246,17 +222,12 @@ Tetap Semangka (Semangat Karena Allah !)'
                     $data = [
                     'sender' => Setting::pluck('no_msg'),
                     'reciver' => $item->user->phone,
-                    'message' => 'Selamat,' . $item->user->name . '!
-                    
-Anda dinyatakan *Lolos* Ketahap berikutnya.
-
-Untuk melakukan tes _Tahap Wawancara_, anda akan kami hubungi untuk melakukan tes Wawancara.'
+                    'message' => '*'.$item->user->name.'*, '. $notif->notif_tahap1_sm
                 ];
                 sendMessage($data);
                 }else{
                     $link =  route('user-second-tes');
                     
-                    $notif = Setting::get()->first();
                     $data = [
                         'sender' => Setting::pluck('no_msg'),
                         'reciver' => $item->user->phone,
@@ -275,6 +246,8 @@ Untuk melakukan tes _Tahap Wawancara_, anda akan kami hubungi untuk melakukan te
     public function nonpassAll(Request $request)
     {
         $ids=$request->get('ids');
+        $notif = Setting::get()->first();
+
         if ($ids != null) {
             foreach ($ids as $id) {
                 $item = BiodataTwo::find($id);
@@ -283,15 +256,10 @@ Untuk melakukan tes _Tahap Wawancara_, anda akan kami hubungi untuk melakukan te
                     $data = [
                         'sender' => Setting::pluck('no_msg'),
                         'reciver' => $item->user->phone,
-                        'message' => 'Mohon maaf,' . $item->user->name . '!
-            
-Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Selanjutnya_
-            
-Tetap Semangka (Semangat Karena Allah !)' 
+                        'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap1_failed
                     ];
                     sendMessage($data);
                 }else{
-                    $notif = Setting::get()->first();
                     $data = [
                         'sender' => Setting::pluck('no_msg'),
                         'reciver' => $item->user->phone,

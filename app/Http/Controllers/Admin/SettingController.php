@@ -135,6 +135,19 @@ class SettingController extends Controller
         }
         return back();
     }
+
+    public function biodataPassSm(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'notif_tahap1_sm' => $request->notif_tahap1_sm
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
     
     public function biodataFailed(Request $request){
         $data = $request->all();
@@ -259,6 +272,71 @@ class SettingController extends Controller
         if (isset($setting)) {
             $setting->update([
                 'notif_tahap5_failed' => $request->notif_tahap5_failed
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+
+    public function completeTahap1(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'complete_tahap1' => $request->complete_tahap1
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+
+    public function completeTahap1Sm(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'complete_tahap1_sm' => $request->complete_tahap1_sm
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+
+    public function completeTahap2(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'complete_tahap2' => $request->complete_tahap2
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+
+    public function completeTahap3(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'complete_tahap3' => $request->complete_tahap3
+            ]);
+        }else{
+            Setting::create($data);
+        }
+        return back();
+    }
+
+    public function completeTahap4(Request $request){
+        $data = $request->all();
+        $setting = Setting::get()->first();
+        if (isset($setting)) {
+            $setting->update([
+                'complete_tahap4' => $request->complete_tahap4
             ]);
         }else{
             Setting::create($data);
