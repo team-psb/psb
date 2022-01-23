@@ -703,7 +703,6 @@
                           <option value="TIGA SAMPAI EMPAT JUTA" {{ old('parent_income') == 'TIGA SAMPAI EMPAT JUTA' ? 'selected' : '' }}>RP. 3.000.000.00  s/d  RP. 4.000.000.00</option>
                           <option value="EMPAT SAMPAI LIMA JUTA" {{ old('parent_income') == 'EMPAT SAMPAI LIMA JUTA' ? 'selected' : '' }}>RP. 4.000.000.00  s/d  RP. 5.000.000.00</option>
                           <option value="DI ATAS LIMA JUTA" {{ old('parent_income') == 'DI ATAS LIMA JUTA' ? 'selected' : '' }}>DI ATAS RP. 5.000.000.00</option>
-                          <option value="ayah" {{ old('parent') == 'ayah' ? 'selected' : '' }}>PIATU</option>
                         </select>
                         {{-- <input
                           type="number"
