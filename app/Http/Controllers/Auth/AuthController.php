@@ -150,8 +150,11 @@ Atau masuk dilink berikut '.$link
         $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => $wa,
-            'message' => 'Untuk mengkonfirmasi pendaftaran silahkan masukkan kode OTP : '.$token.' dilink berikut '.$link
-        ];
+            'message' => 'Untuk *mengkonfirmasi pendaftaran* silahkan masukkan kode OTP : 
+
+*'.$token.'* 
+
+Atau masuk dilink berikut '.$link];
         sendMessage($data);
 
         return back()->with('resend-msg', 'Token baru telah kami kirim ke no Whatsapp anda silahkan masukkan ulang Kode OTP');
@@ -190,12 +193,12 @@ Keluarga : *'.$user->BiodataOne->family.'*
 No Wa : *'.$user->phone.'*
 Tanggal Registrasi : '.$user->created_at->format('d-m-Y H:i').' WIB
 
-Silahkan *login*, 
-untuk melakukan proses seleksi selanjutnya !, 
-Di link berikut '.route('login')
+Silahkan *Lakukan Tes Selanjutnya*, 
+Atau di link : .'.route('user-dashboard') 
             ];
             sendMessage($data);
 
+            // auto login
             Auth::login($user);
             
             return redirect()->route('user-dashboard')->with('sukses-kirim', 'Selamat anda berhasil konfirmasi pendaftaran, silahkan lanjut tes selanjutnya !');
