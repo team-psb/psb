@@ -24,9 +24,10 @@ class CreateBiodataTwosTable extends Migration
             $table->text('address');
             $table->string('facebook');
             $table->string('instagram');
-            $table->string('last_education');
+            $table->string('tiktok');
+            $table->enum('last_education', ['tidak-ada', 'SD', 'SMP', 'SMA']);
             $table->string('name_school');
-            $table->string('major');
+            $table->string('major')->nullable();
             $table->string('organization');
             $table->string('achievment');
             $table->string('hobby');
@@ -50,18 +51,20 @@ class CreateBiodataTwosTable extends Migration
             $table->enum('parent', ['lengkap','bapak','ibu','yatim-piatu']);
             $table->string('father');
             $table->string('father_work');
+            $table->bigInteger('father_id')->nullable();
             $table->string('mother');
             $table->string('mother_work');
-            $table->integer('parent_income');
+            $table->bigInteger('mother_id')->nullable();
+            $table->string('parent_income');
             $table->string('child_to');
             $table->string('brother');
+            $table->string('guardian');
             $table->string('no_guardian');
             $table->string('description_guardian')->nullable();
             $table->enum('permission_parent', ['iya', 'tidak']);
             $table->enum('have_laptop', ['iya', 'tidak']);
             $table->boolean('agree');
             $table->enum('status',['sudah-dikerjakan','lolos','tidak'])->nullable();
-
             $table->softDeletes();
             $table->timestamps();
         });

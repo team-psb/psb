@@ -141,14 +141,7 @@
                                 <div>
                                     {{ $question_iq->links() }}
                                 </div>
-                                <div>
-                                    <button
-                                    type="submit"
-                                    class="btn btn-primary float-right px-3"
-                                    >
-                                    Selesai
-                                    </button>
-                                </div>
+                                <input type="button" id="btn-ok" value="Selesai" class="btn btn-primary float-right px-3 accept"/>
                             </div>
                     </form>
                 <div>
@@ -156,3 +149,48 @@
         </div>
     </div>
 @endsection
+
+@push('end-script')
+  <!-- Sweetalert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.6/dist/sweetalert2.all.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+    $('form #btn-ok').click(function(e) {
+        let $form = $(this).closest('form');
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false,
+        })
+
+        swalWithBootstrapButtons.fire({
+            title: 'Apakah sudah Yakin?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya',
+            cancelButtonText: 'Batal',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.value) {
+                swalWithBootstrapButtons.fire(
+                        'Selesai dikerjakan!',
+                        'Data berhasil disimpan',
+                    );                     
+                $form.submit();
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Dibatalkan !',
+                    'Silahkan dikerjakan kembali :)'
+                );
+            }
+        });
+      });
+    });
+  </script>
+@endpush

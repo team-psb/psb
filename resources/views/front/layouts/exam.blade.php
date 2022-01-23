@@ -58,9 +58,7 @@
 </head>
 
 <body>
-
-    @yield('content')
-
+  @yield('content')
   @stack('head-script')
   @include('front.includes.script')
   @stack('end-script')

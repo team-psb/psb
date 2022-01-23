@@ -16,6 +16,7 @@ use App\Models\Stage;
 use App\Models\VerifyUser;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Crypt;
 
 class AuthController extends Controller
 {
@@ -27,7 +28,7 @@ class AuthController extends Controller
 
     public function login()
     {
-        return redirect()->route('home');
+        return view('auth.login');
     }
 
     public function loginProses(Request $request)
@@ -39,7 +40,6 @@ class AuthController extends Controller
             $role = $role_user->pluck('role')->first();
 
             $user_id = $role_user->pluck('id')->first();
-            // $biodata_2 = BiodataTwo::where('id' ==)
 
             $user = User::findOrFail(Auth::user()->id);
             $user->update([
@@ -49,7 +49,7 @@ class AuthController extends Controller
             if ($role == 'admin') {
                 return redirect()->route('dashboard');
             }else{
-                if (Auth::user()->remember_token != Auth::user()->token) {
+                if (Auth::user()->confirm_token != Auth::user()->token) {
                     Auth::logout();
                     // return redirect()->route('login')->with('sukses-warning','Email anda belum terverifikasi, Silahkan Verifikasi email terlebih dahulu!');
                     return redirect()->route('get-token', $request->phone)->with('alert-login', 'Silahkan konfirmasi pendaftaran dengan memasukkan Kode OTP yang telah kami kirim di Whatsapp !');
@@ -76,11 +76,9 @@ class AuthController extends Controller
     
     public function registerProses(AuthRequest $request)
     {
-        // dd($request->all());
         $no_wa= $request->get('no_wa');
         $no = str_split($no_wa, 3);
 
-        // $date = $request->get('age');
         $birthday = $request->year."-".$request->month."-".$request->day;
 
         $date = date('Y-m-d H:i:s', strtotime($birthday));
@@ -96,10 +94,11 @@ class AuthController extends Controller
             $wa = $no_wa;
         }
 
-        // dd($request->all());
+        $name = explode(' ',trim($request->full_name));
         $token = mt_rand(1000,9999);
+        
         $user = User::create([
-            'name'=>$request->name,
+            'name'=> $name[0],
             'phone'=>$wa,
             'password'=>bcrypt($request->password),
             'role'=>'pendaftar',
@@ -123,26 +122,20 @@ class AuthController extends Controller
             'stage_id'=>$stage,
         ]);
 
-        // kirim wa verify
-        // VerifyUser::create([
-        //     'user_id' => $user->id,
-        //     'token' => bin2hex(random_bytes(8))
-        // ]);
-
+        //NOTIF KE WA
         $link =  route('get-token', $wa);
-
         $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => $wa,
-            'message' => 'Untuk mengkonfirmasi pendaftaran silahkan masukkan kode OTP : '.$token.' dilink berikut '.$link
+            'message' => 'Untuk *mengkonfirmasi pendaftaran* silahkan masukkan kode OTP : 
+
+*'.$token.'* 
+
+Atau masuk dilink berikut '.$link
         ];
         sendMessage($data);
 
-        // return redirect('/')->with('sukses-daftar','Selamat anda berhasil mendaftar, silahkan login untuk memulai pendaftaran !');
-        return back()->with('success-regis','Selamat anda berhasil mendaftar, silahkan lakukan konfirmasi pendaftaran yang telah kami kirim di Whatsapp !');
-
         return redirect()->route('get-token', $wa);
-        // return view('auth.inputToken', compact('wa'));
     }
 
     public function resendToken($wa)
@@ -157,8 +150,11 @@ class AuthController extends Controller
         $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => $wa,
-            'message' => 'Untuk mengkonfirmasi pendaftaran silahkan masukkan kode OTP : '.$token.' dilink berikut '.$link
-        ];
+            'message' => 'Untuk *mengkonfirmasi pendaftaran* silahkan masukkan kode OTP : 
+
+*'.$token.'* 
+
+Atau masuk dilink berikut '.$link];
         sendMessage($data);
 
         return back()->with('resend-msg', 'Token baru telah kami kirim ke no Whatsapp anda silahkan masukkan ulang Kode OTP');
@@ -181,35 +177,34 @@ class AuthController extends Controller
         $token = $request->t1.$request->t2.$request->t3.$request->t4;
         if ($token == $user->token) {
 
-            User::wherePhone($wa)->update([
-                'remember_token' => $token
+            User::where('phone', $wa)->update([
+                'confirm_token' => $token
             ]);
             
+            // NOTIF WA
             $data = [
                 'sender' => Setting::pluck('no_msg'),
                 'reciver' => $wa,
-                'message' => 'Selamat anda berhasil konfirmasi pendaftaran, silahkan login untuk melakukan proses seleksi selanjutnya ! Di link berikut '.route('home')
+                'message' => 'Selamat anda berhasil *konfirmasi pendaftaran*,
+
+Nama : *'.$user->BiodataOne->full_name.'*
+Tanggal Lahir : *'.date('d-m-Y', strtotime($user->BiodataOne->birth_date)).'*
+Keluarga : *'.$user->BiodataOne->family.'*
+No Wa : *'.$user->phone.'*
+Tanggal Registrasi : '.$user->created_at->format('d-m-Y H:i').' WIB
+
+Silahkan *Lakukan Tes Selanjutnya*, 
+Atau di link : .'.route('user-dashboard') 
             ];
             sendMessage($data);
+
+            // auto login
+            Auth::login($user);
             
-            return redirect()->route('home')->with('sukses-kirim', 'Selamat anda berhasil konfirmasi pendaftaran, silahkan login untuk melakukan proses seleksi selanjutnya !');
+            return redirect()->route('user-dashboard')->with('sukses-kirim', 'Selamat anda berhasil konfirmasi pendaftaran, silahkan lanjut tes selanjutnya !');
         }else{
             return back()->with('gagal-kirim','Token yang anda masukkan salah / tidak sesuai');
         }
-        
-        // $user->where('id', $user->id)->update([
-        //     'token' => $request->token
-        // ]);
-        // return redirect('login')->with('success-verify', 'Selamat anda berhasil konfirmasi pendaftaran, akun anda sekarang sudah bisa untuk proses seleksi selanjutnya !');
     }
 
-    // public function postToken(Request $request, $id)
-    // {
-    //     $user = User::find($id);
-
-    //     $user->where('id', $user->id)->update([
-    //         'token' => $request->token
-    //     ]);
-    //     return redirect('login')->with('success-verify', 'Selamat anda berhasil konfirmasi pendaftaran, akun anda sekarang sudah bisa untuk proses seleksi selanjutnya !');
-    // }
 }

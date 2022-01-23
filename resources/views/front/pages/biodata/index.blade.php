@@ -7,8 +7,20 @@
       b{
         color: red;
       }
+
+      #clockdiv > div > span {
+        font-size: 20px;
+      }
     </style>
     <div class="container py-5">
+    <div id="clockdiv" class="d-flex justify-content-end mb-5 sticky-top">
+        <!-- <div>
+            <p class="d-block mobile-text" id="countdown">Sisa Waktu :</p>
+            <div class="text-center">
+                <span class="d-block mobile-text" id="resend"></span>
+            </div>
+        </div> -->
+    </div>
       <div class="my-4">
         <div class="row justify-content-center px-4">
           <div class="col-md-10 col-sm-12 title">
@@ -131,9 +143,12 @@
                         id="exampleInputPassword1"
                         name="facebook"
                         value="{{ old('facebook') }}"
-                        placeholder="Masukkan link/alamat profile facebook"
+                        placeholder="https://www.facebook.com/PondokInformatikaAlmadinah"
                         required
                       />
+                      <small class="form-text text-muted">
+                        Isi 'Tidak Ada' Jika Tidak Punya
+                      </small>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword2">Instagram<b>*</b></label>
@@ -143,9 +158,27 @@
                           id="exampleInputPassword2"
                           name="instagram"
                           value="{{ old('instagram') }}"
-                          placeholder="Masukkan link/alamat profile instagram"
+                          placeholder="https://www.instagram.com/pondokinformatika/"
                           required
                         />
+                        <small class="form-text text-muted">
+                          Isi 'Tidak Ada' Jika Tidak Punya
+                        </small>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword3">Tiktok<b>*</b></label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="exampleInputPassword3"
+                          name="tiktok"
+                          value="{{ old('tiktok') }}"
+                          placeholder="https://www.tiktok.com/@pondokinformatika"
+                          required
+                        />
+                        <small class="form-text text-muted">
+                          Isi 'Tidak Ada' Jika Tidak Punya
+                        </small>
                       </div>
                       <div class="mt-4">
                         <button
@@ -167,13 +200,67 @@
                     {{-- step 3 --}}
                     <div x-show="form_3">
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Pendidikan Terakhir<b>*</b></label>
-                        <select name="last_education" class="custom-select">
-                            <option value="" disabled selected>-- Pilih --</option>
-                            <option value="SD" {{ old('last_education') == 'SD' ? 'selected' : '' }}>SD SEDERAJAT</option>
-                            <option value="SMP" {{ old('last_education') == 'SMP' ? 'selected' : '' }}>SMP SEDERAJAT</option>
-                            <option value="SMA" {{ old('last_education') == 'SMA' ? 'selected' : '' }}>SMA SEDERAJAT</option>
-                        </select>
+                        <label for="">Pendidikan Terakhir?<b>*</b></label>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="last_education"
+                            id="education1"
+                            value="tidak-ada"
+                            required
+                            {{ old('last_education') == 'tidak-ada' ? 'checked' : '' }}
+                            x-on:click="education(false)"
+                          />
+                          <label class="form-check-label" for="education1">
+                            Tidak ada
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="last_education"
+                            id="education2"
+                            value="SD"
+                            required
+                            {{ old('last_education') == 'SD' ? 'checked' : '' }}
+                            x-on:click="education(false)"
+                          />
+                          <label class="form-check-label" for="education2">
+                            SD
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="last_education"
+                            id="education3"
+                            value="SMP"
+                            required
+                            {{ old('last_education') == 'SMP' ? 'checked' : '' }}
+                            x-on:click="education(false)"
+                          />
+                          <label class="form-check-label" for="education3">
+                            SMP
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="last_education"
+                            id="education4"
+                            value="SMA"
+                            required
+                            {{ old('last_education') == 'SMA' ? 'checked' : '' }}
+                            x-on:click="education(true)"
+                          />
+                          <label class="form-check-label" for="education4">
+                            SMA/SMK
+                          </label>
+                        </div>
                       </div>
 
                       <div class="form-group">
@@ -187,20 +274,25 @@
                         required
                       />
                       </div>
-                      <div class="form-group">
-                      <label for="major">Jurusan<b>*</b></label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="major"
-                        name="major"
-                        value="{{ old('major') }}"
-                      />
+                      
+                      <div x-show="education_sma">
+                        <div class="form-group">
+                          <label for="major">Jurusan<b>*</b></label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="major"
+                            name="major"
+                            value="{{ old('major') }}"
+                            required
+                          />
+                        </div>
                       </div>
+
                       <div class="form-group">
                         <label for="organization">Pengalaman Organisasi<b>*</b></label>
                         <textarea name="organization" id="" class="form-control h-50"  required>{{ old('organization') }}</textarea>
-                        <small>di isi 'Tidak Ada' jika tidak ada. </small>
+                        <small>Isi 'Tidak Ada' Jika Tidak Ada. </small>
                       </div>
                       <div class="form-group">
                         <label for="achievment">Prestasi<b>*</b></label>
@@ -506,14 +598,14 @@
                     {{-- step 4 --}}
                     <div x-show="form_4">
                       <div class="form-group">
-                      <label for="">Orang Tua<b>*</b></label>
-                      <select name="parent" class="custom-select">
-                        <option value="" disabled selected>-- Pilih --</option>
-                        <option value="lengkap" {{ old('parent') == 'lengkap' ? 'selected' : '' }}>LENGKAP</option>
-                        <option value="ayah" {{ old('parent') == 'ayah' ? 'selected' : '' }}>PIATU</option>
-                        <option value="ibu" {{ old('parent') == 'ibu' ? 'selected' : '' }}>YATIM</option>
-                        <option value="yatim-piatu" {{ old('parent') == 'yatim-piatu' ? 'selected' : '' }}>YATIM-PIATU</option>
-                      </select>
+                        <label for="">Orang Tua<b>*</b></label>
+                        <select name="parent" class="custom-select">
+                          <option value="" disabled selected>-- Pilih --</option>
+                          <option value="lengkap" {{ old('parent') == 'lengkap' ? 'selected' : '' }}>LENGKAP</option>
+                          <option value="ayah" {{ old('parent') == 'ayah' ? 'selected' : '' }}>PIATU</option>
+                          <option value="ibu" {{ old('parent') == 'ibu' ? 'selected' : '' }}>YATIM</option>
+                          <option value="yatim-piatu" {{ old('parent') == 'yatim-piatu' ? 'selected' : '' }}>YATIM-PIATU</option>
+                        </select>
                       </div>
                       <div class="form-group">
                         <label for="father">Nama Ayah<b>*</b></label>
@@ -525,6 +617,7 @@
                           value="{{ old('father') }}"
                           required
                         />
+                        <small class="form-text text-muted">Isi 'Tidak ada' jika yatim</small>
                       </div>
                       <div class="form-group">
                         <label for="father_work"
@@ -538,6 +631,23 @@
                           value="{{ old('father_work') }}"
                           required
                         />
+                        <small class="form-text text-muted">Isi 'Tidak ada' jika yatim</small>
+                      </div>
+                      <div class="form-group">
+                        <label for="father_id"
+                          >NIK Ayah<b>*</b></label
+                        >
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="father_id"
+                          name="father_id"
+                          value="{{ old('father_id') }}"
+                          required
+                          placeholder="32010204040000000"
+                        />
+                        <small class="form-text text-muted">Wajib di isi minimal 16 karakter</small>
+                        <small class="form-text text-muted">Kosongkan jika yatim</small>
                       </div>
                       <div class="form-group">
                         <label for="mother">Nama Ibu<b>*</b></label>
@@ -549,6 +659,7 @@
                           value="{{ old('mother') }}"
                           required
                         />
+                        <small class="form-text text-muted">Isi 'Tidak ada' jika piatu</small>
                       </div>
                       <div class="form-group">
                         <label for="mother_work"
@@ -562,12 +673,38 @@
                           value="{{ old('mother_work') }}"
                           required
                         />
+                        <small class="form-text text-muted">Isi 'Tidak ada' jika piatu</small>
+                      </div>
+                      <div class="form-group">
+                          <label for="mother_id"
+                            >NIK Ibu<b>*</b></label
+                          >
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="mother_id"
+                            name="mother_id"
+                            value="{{ old('mother_id') }}"
+                            required
+                            placeholder="32010204040000000"
+                          />
+                        <small class="form-text text-muted">Wajib di isi minimal 16 karakter</small>
+                        <small class="form-text text-muted">Kosongkan jika piatu</small>
                       </div>
                       <div class="form-group">
                         <label for="parent_income"
                           >Total Penghasilan Orang Tua Perbulan<b>*</b></label
                         >
-                        <input
+                        <select name="parent_income" class="custom-select">
+                          <option value="" disabled selected>-- Pilih --</option>
+                          <option value="DI BAWAH SATU JUTA" {{ old('parent_income') == 'DI BAWAH SATU JUTA' ? 'selected' : '' }}>DI BAWAH RP. 1.000.000.00</option>
+                          <option value="SATU SAMPAI DUA JUTA" {{ old('parent_income') == 'SATU SAMPAI DUA JUTA' ? 'selected' : '' }}>RP. 1.000.000.00  s/d  RP. 2.000.000.00</option>
+                          <option value="DUA SAMPAI TIGA JUTA" {{ old('parent_income') == 'DUA SAMPAI TIGA JUTA' ? 'selected' : '' }}>RP. 2.000.000.00  s/d  RP. 3.000.000.00</option>
+                          <option value="TIGA SAMPAI EMPAT JUTA" {{ old('parent_income') == 'TIGA SAMPAI EMPAT JUTA' ? 'selected' : '' }}>RP. 3.000.000.00  s/d  RP. 4.000.000.00</option>
+                          <option value="EMPAT SAMPAI LIMA JUTA" {{ old('parent_income') == 'EMPAT SAMPAI LIMA JUTA' ? 'selected' : '' }}>RP. 4.000.000.00  s/d  RP. 5.000.000.00</option>
+                          <option value="DI ATAS LIMA JUTA" {{ old('parent_income') == 'DI ATAS LIMA JUTA' ? 'selected' : '' }}>DI ATAS RP. 5.000.000.00</option>
+                        </select>
+                        {{-- <input
                           type="number"
                           class="form-control"
                           id="parent_income"
@@ -576,8 +713,7 @@
                           value="{{ old('parent_income') }}"
                           required
                           onKeyDown="if(this.value.length==10 && event.keyCode>47 && event.keyCode < 58)return false;"
-                        />
-                        <p>di isi dengan bilangan bulat contoh 1000000.</p>
+                        /> --}}
                       </div>
                       <div class="form-group">
                         <label for="child_to">Anak Ke ?<b>*</b></label>
@@ -602,6 +738,22 @@
                           name="brother"
                           value="{{ old('brother') }}"
                           min="0"
+                          required
+                        />
+                        <small class="form-text text-muted">
+                          Isi '0' Jika Tidak Punya saudara
+                        </small>
+                      </div>
+                      <div class="form-group">
+                        <label for="guardian"
+                          >Nama Orang Tua/Wali ?<b>*</b></label
+                        >
+                        <input
+                          type="guardian"
+                          class="form-control"
+                          id="guardian"
+                          name="guardian"
+                          value="{{ old('guardian') }}"
                           required
                         />
                       </div>
@@ -726,15 +878,17 @@
                         >
                           Sebelumnya
                         </button>
-                        <button
+                        <!-- <button
                           type="submit"
+                          id="swal-biodata"
                           class="btn btn-primary float-right px-3"
                         >
                           Kirim Data
-                        </button>
+                        </button> -->
+                        <input type="button" id="btn-ok" value="Selesai" class="btn btn-primary float-right px-3 accept"/>
                       </div>
                     </div>
-                      {{-- end --}}
+                    {{-- end --}}
 
                   </form>
                 </div>
@@ -747,11 +901,89 @@
 @endsection
 
 @push('end-script')
+  <!-- Timer -->
+  {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script>
+      // Timer
+      let timerOn = true;
+      function timer(remaining){
+          var m = Math.floor(remaining / 60);
+          var s = remaining % 60;
+          m = m < 10 ? '0' + m : m;
+          s = s < 10 ? '0' + s : s;
+          document.getElementById('countdown').innerHTML =
+          'Sisa Waktu :' + ' ' + m + ':' + s;
+          remaining -=1;
+          if (remaining >= 0 && timerOn) {
+              setTimeout( function() {
+                  timer(remaining);
+              }, 1000);
+          document.getElementById('resend').innerHTML =
+          '';
+          return;
+          }else{
+          document.getElementById('countdown').innerHTML =
+          '';
+          }
+          if (!timerOn) {
+              return;
+          }
+      }
+      timer(3600000);
+  </script> --}}
+
+  
+  {{-- sweetalert2 --}}
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.6/dist/sweetalert2.all.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+    $('form #btn-ok').click(function(e) {
+        let $form = $(this).closest('form');
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false,
+        })
+
+        swalWithBootstrapButtons.fire({
+            title: 'Kamu Yakin?',
+            text: "Data tidak dapat diubah, pastikan semua sudah benar",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya',
+            cancelButtonText: 'Batal',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.value) {
+                swalWithBootstrapButtons.fire(
+                        'Finished',
+                        'Success',
+                        'success',
+                    );                     
+                $form.submit();
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Dibatalkan !',
+                    'Silahkan isi kembali dengan benar :')
+                ;
+            }
+        });
+      });
+    });
+  </script>
+
+  <!-- Modal -->
   <script src="{{ asset('stisla/node_modules/prismjs/prism.js') }}"></script>
   <script src="{{ asset('stisla/assets/js/page/bootstrap-modal.js') }}"></script>
 
+  <!-- Alpine -->
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
-
   <script>
     function formdata(){
 			const kabupatens=@json($kabupaten);
@@ -764,16 +996,24 @@
 					provin_id:null,
           kabupatenids:[],
           gamer_in:null,
+          education_sma:null,
+          parent_status:null,
 
         // method
         gamer(param){
           this.gamer_in=param;
         },
+        education(parameter){
+          this.education_sma=parameter;
+        },
+        parent(par){
+          this.parent_status=par;
+        },
 				form1Button(){
           this.form_1=null;
+          this.form_2=true;
           this.form_3=null;
           this.form_4=null;
-          this.form_2=true;
           window.scrollTo(0, 0);
         },
         form1ButtonBack(){
@@ -786,29 +1026,29 @@
         form2Button(){
           this.form_1= null;
           this.form_2= null;
+          this.form_3= true;
           this.form_4= null;
-          this.form_3=true;
           window.scrollTo(0, 0);
         },
         form2ButtonBack(){
           this.form_1= null;
-          this.form_4= null;
           this.form_2= true;
-          this.form_3=null;
+          this.form_3= null;
+          this.form_4= null;
           window.scrollTo(0, 0);
         },
         form3Button(){
           this.form_1= null;
           this.form_2= null;
-          this.form_3=null;
-          this.form_4=true;
+          this.form_3= null;
+          this.form_4= true;
           window.scrollTo(0, 0);
         },
         form3ButtonBack(){
-          this.form_1=null;
-          this.form_2=null;
-          this.form_3=true;
-          this.form_4=null;
+          this.form_1=  null;
+          this.form_2=  null;
+          this.form_3=  true;
+          this.form_4=  null;
           window.scrollTo(0, 0);
         },
 				getKabupaten(code){

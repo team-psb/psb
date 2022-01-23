@@ -1,6 +1,28 @@
 @extends('front.layouts.exam')
 
 @section('title','Tes Tahap Keempat')
+
+@push('end-style')
+  <style>
+    .responsive {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding-top: 62.5%;
+    }
+
+    .responsive-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+  </style>
+@endpush
     
 @section('content')
   <div class="container py-5">
@@ -40,12 +62,14 @@
                     class="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
+                    placeholder="https://www.youtube.com/watch?v=mbyC-4ufrG4"
                     name="url"
                   />
                 </div>
-                <button class="btn btn-primary mx-3 float-right mb-3" type="submit">
+                <!-- <button class="btn btn-primary mx-3 float-right mb-3" type="submit">
                   Kirim
-                </button>
+                </button> -->
+                <input type="button" id="btn-ok" value="Selesai" class="btn btn-primary float-right px-3 accept"/>
               </form>
             </div>              
           </div>
@@ -55,24 +79,47 @@
   </div>
 @endsection
 
-@push('end-style')
-  <style>
-    .responsive {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-        padding-top: 62.5%;
-    }
+@push('end-script')
+  <!-- Sweetalert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.6/dist/sweetalert2.all.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+    $('form #btn-ok').click(function(e) {
+        let $form = $(this).closest('form');
 
-    .responsive-iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-  </style>
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false,
+        })
+
+        swalWithBootstrapButtons.fire({
+            title: 'Apakah sudah Yakin?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya',
+            cancelButtonText: 'Batal',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.value) {
+                swalWithBootstrapButtons.fire(
+                        'Selesai dikerjakan!',
+                        'Data berhasil disimpan',
+                    );                     
+                $form.submit();
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Dibatalkan !',
+                    'Silahkan dikerjakan kembali :')
+                ;
+            }
+        });
+      });
+    });
+  </script>
 @endpush

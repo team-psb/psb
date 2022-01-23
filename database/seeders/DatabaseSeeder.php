@@ -33,17 +33,9 @@ class DatabaseSeeder extends Seeder
             QuestionPersonalSeeder::class,
             // ScoreSeeder::class,
             ProvincesSeeder::class,
-            CitiesSeeder::class
+            CitiesSeeder::class,
+            SettingSeeder::class
         ]);
 
-        Setting::create([
-            'academy_year_id' => null,
-            'stage_id' => null,
-            'question_iq_value' => 50,
-            'question_personal_value' => 50,
-            'notification' => null,
-            'announcement' => '2022/09/30', 
-            'no_msg' => null
-        ]);
     }
 }

@@ -30,6 +30,17 @@ class PassExport implements FromView,ShouldAutoSize,WithHeadings
             'Nama',
             'Kabupaten / Kota',
             'Provinsi',
+            'No Wa',
+            'Umur',
+            'Pendidikan',
+            'Cita-cita',
+            'Prestasi',
+            'Skill',
+            'Hafalan',
+            'Gamer',
+            'Keluarga',
+            'Orang Tua',
+            'Penghasilan Ortu',
         ];
     }
 }

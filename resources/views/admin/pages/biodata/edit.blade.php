@@ -208,13 +208,25 @@
                                     />
                                 </div>
                                 {{-- instagram --}}
-                                <div class="fomr-group mb-3">
+                                <div class="form-group mb-3">
                                     <label class="fw-bold" for="">Instagram</label>
                                     <input
                                         type="text"
                                         class="form-control"
                                         value="{{ $biodata->instagram }}"
                                         name="instagram"
+                                        aria-describedby="emailHelp"
+                                        required
+                                    />
+                                </div>
+                                {{-- tiktok --}}
+                                <div class="form-group mb-3">
+                                    <label class="fw-bold" for="">Tiktok</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        value="{{ $biodata->tiktok }}"
+                                        name="tiktok"
                                         aria-describedby="emailHelp"
                                         required
                                     />
@@ -241,6 +253,18 @@
                                         required
                                     />
                                 </div>
+                                {{-- nik ayah --}}
+                                <div class="form-group mb-3">
+                                    <label class="fw-bold" for="">NIK Ayah</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        value="{{ $biodata->father_id }}"
+                                        name="father_id"
+                                        aria-describedby="emailHelp"
+                                        required
+                                    />
+                                </div>
                                 {{-- nama ibu --}}
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="">Nama Ibu</label>
@@ -249,6 +273,18 @@
                                         class="form-control"
                                         value="{{ $biodata->mother }}"
                                         name="mother"
+                                        aria-describedby="emailHelp"
+                                        required
+                                    />
+                                </div>
+                                {{-- nik ibu --}}
+                                <div class="form-group mb-3">
+                                    <label class="fw-bold" for="">NIK Ibu</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        value="{{ $biodata->mother_id }}"
+                                        name="mother_id"
                                         aria-describedby="emailHelp"
                                         required
                                     />
@@ -365,6 +401,18 @@
                             
                             {{-- colom kedua --}}
                                 <div class="col-md-6">
+                                {{--  wali --}}
+                                <div class="form-group mb-3">
+                                    <label class="fw-bold" for="">Nama Wali</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        value="{{ $biodata->guardian }}"
+                                        name="guardian"
+                                        aria-describedby="emailHelp"
+                                        required
+                                    />
+                                </div>
                                 {{-- no hp wali --}}
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="">No Hp Wali</label>

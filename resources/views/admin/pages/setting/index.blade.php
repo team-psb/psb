@@ -18,7 +18,7 @@
                         <h4 class="card-title pb-4" style="border-bottom: 1px solid black;">Pengaturan Sistem</h4>
                         {{-- <div class="form-group">
                             <h5>Pesan Pemberitahuan Whatsapp</h5>
-                            <textarea name="notification" class="form-control" style="height: 200px"></textarea>
+                            <textarea name="" name="notification" class="form-control" style="height: 200px">{{ $settings->first()->no_msg }}</textarea>
                         </div> --}}
                         <div class="row">
                             <div class="col-3">
@@ -115,64 +115,303 @@
                                 </div>
                             </div>
                             <div class="col-3">
-                                <div class="form-group">
-                                    <h5>Soal Tes IQ Aktif <span class="badge badge-success">{{ $iq.'/'.$iqs->count() }}</span></h5>
-                                    <form action="{{ route('settings.iq-value') }}" method="POST">
-                                        @csrf
-                                        <label for="">Soal di tampilkan</label>
-                                        <div class="form-group">
-                                            <select 
-                                            class="form-select"
-                                            id="value"
-                                            name="question_iq_value"
-                                            >
-                                            <option value="{{ $iq }} ? 'selected : '' ">{{ $iq }} Soal</option>
-                                            @for ($i = 1; $i <= 10; $i++)
-                                                <option value="{{ $i.'0' }}" {{ $soaliq->count() < $i.'0' ? 'disabled' : '' }}>{{ $i }}0 Soal</option>
-                                            @endfor
-                                            </select>
-                                        </div>
-                                        <button class="btn btn-primary float-right">save</button>
-                                    </form>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <h5>Soal Tes IQ Aktif <span class="badge badge-success">{{ $iq.'/'.$iqs->count() }}</span></h5>
+                                        <form action="{{ route('settings.iq-value') }}" method="POST">
+                                            @csrf
+                                            <label for="">Soal di tampilkan</label>
+                                            <div class="form-group">
+                                                <select 
+                                                class="form-select"
+                                                id="value"
+                                                name="question_iq_value"
+                                                >
+                                                <option value="{{ $iq }} ? 'selected : '' ">{{ $iq }} Soal</option>
+                                                @for ($i = 1; $i <= 10; $i++)
+                                                    <option value="{{ $i.'0' }}" {{ $soaliq->count() < $i.'0' ? 'disabled' : '' }}>{{ $i }}0 Soal</option>
+                                                @endfor
+                                                </select>
+                                            </div>
+                                            <button class="btn btn-primary float-end">save</button>
+                                        </form>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <h5>Pengumuman Santri Baru</h5>
                                     <form action="{{ route('settings.announcement') }}" method="POST">
                                         @csrf
                                         <input type="date" name="announc" class="form-control" value="{{ $settings->first()->announcement }}">
-                                        <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        <button  class="btn btn-primary btn-md mt-2 float-end">Save</button>
                                     </form>
                                 </div>
                             </div>
                             <div class="col-3">
-                                <div class="form-group">
-                                    <h5>Soal Tes Kepribadian Aktif <span class="badge badge-success">{{ $personal.'/'.$personals->count() }}</span></h5>
-                                    <form action="{{ route('settings.personal-value') }}" method="POST">
-                                        @csrf
-                                        <label for="">Soal di tampilkan</label>
-                                        <div class="form-group">
-                                            <select 
-                                            class="form-select"
-                                            id="value"
-                                            name="question_personal_value"
-                                            >
-                                            <option value="{{ $personal }} ? 'selected : '' ">{{ $personal }} Soal</option>
-                                            @for ($i = 1; $i <= 10; $i++)
-                                                <option value="{{ $i.'0' }}" {{ $soalpersonal->count() < $i.'0' ? 'disabled' : '' }}>{{ $i }}0 Soal</option>
-                                            @endfor
-                                            </select>
-                                        </div>
-                                        <button class="btn btn-primary float-right">save</button>
-                                    </form>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <h5>Soal Tes Kepribadian Aktif <span class="badge badge-success">{{ $personal.'/'.$personals->count() }}</span></h5>
+                                        <form action="{{ route('settings.personal-value') }}" method="POST">
+                                            @csrf
+                                            <label for="">Soal di tampilkan</label>
+                                            <div class="form-group">
+                                                <select 
+                                                class="form-select"
+                                                id="value"
+                                                name="question_personal_value"
+                                                >
+                                                <option value="{{ $personal }} ? 'selected : '' ">{{ $personal }} Soal</option>
+                                                @for ($i = 1; $i <= 10; $i++)
+                                                    <option value="{{ $i.'0' }}" {{ $soalpersonal->count() < $i.'0' ? 'disabled' : '' }}>{{ $i }}0 Soal</option>
+                                                @endfor
+                                                </select>
+                                            </div>
+                                            <button class="btn btn-primary float-end">save</button>
+                                        </form>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <h5>No Pesan Whatsapp</h5>
                                     <form action="{{ route('settings.no-message') }}" method="POST">
                                         @csrf
                                         <input type="text" name="no_msg" class="form-control" value="{{ $settings->first()->no_msg }}">
-                                        <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        <button  class="btn btn-primary btn-md mt-2 float-end">Save</button>
                                     </form>
                                 </div>
+                            </div>
+                        </div>
+
+                        <h4 class="card-title">
+                            Pengaturan Notif Tes Ke Whatsapp
+                        </h4>
+                        <div class="row border border-2 py-2 mb-4 rounded">
+                            <div class="col-6 mb-4">
+                                <h5>Notif <span class="text-success">Selesai</span> Tes Biodata</h5>
+                                <form action="{{ route('settings.complete-tahap1') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="complete_tahap1" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->complete_tahap1 }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <h5>Notif <span class="text-success">Selesai</span> Tes Biodata (<span class="text-success">Sangat Mampu</span>)</h5>
+                                <form action="{{ route('settings.complete-tahap1-sm') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="complete_tahap1_sm" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->complete_tahap1_sm }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <h5>Notif <span class="text-success">Lolos</span> Tes Biodata</h5>
+                                <form action="{{ route('settings.biodata-pass') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="notif_tahap1" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap1 }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <h5>Notif <span class="text-success">Lolos</span> Tes Biodata (<span class="text-success">Sangat Mampu</span>)</h5>
+                                <form action="{{ route('settings.biodata-pass-sm') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="notif_tahap1_sm" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap1_sm }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <h5>Notif <span class="text-danger">Gagal</span> Tes Biodata</h5>
+                                <form action="{{ route('settings.biodata-failed') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="notif_tahap1_failed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap1_failed }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row border border-2 py-2 mb-4 rounded">
+                            <div class="col-12 mb-4">
+                                <h5>Notif <span class="text-success">Selesai</span> Tes IQ</h5>
+                                <form action="{{ route('settings.complete-tahap2') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="complete_tahap2" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->complete_tahap2 }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <h5>Notif <span class="text-success">Lolos</span> Tes IQ</h5>
+                                <form action="{{ route('settings.iq-pass') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="notif_tahap2" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap2 }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <h5>Notif <span class="text-danger">Gagal</span> Tes IQ</h5>
+                                <form action="{{ route('settings.iq-failed') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="notif_tahap2_failed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap2_failed }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row border border-2 py-2 mb-4 rounded">
+                            <div class="col-12 mb-4">
+                                <h5>Notif <span class="text-success">Selesai</span> Tes Kepribadian</h5>
+                                <form action="{{ route('settings.complete-tahap3') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="complete_tahap3" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->complete_tahap3 }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <h5>Notif <span class="text-success">Lolos</span> Tes Kepribadian</h5>
+                                <form action="{{ route('settings.personal-pass') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="notif_tahap3" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap3 }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <h5>Notif <span class="text-danger">Gagal</span> Tes Kepribadian</h5>
+                                <form action="{{ route('settings.personal-failed') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="notif_tahap3_failed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap3_failed }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row border border-2 py-2 mb-4 rounded">
+                            <div class="col-12 mb-4">
+                                <h5>Notif <span class="text-success">Selesai</span> Tes Video</h5>
+                                <form action="{{ route('settings.complete-tahap4') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="complete_tahap4" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->complete_tahap4 }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <h5>Notif <span class="text-success">Lolos</span> Tes Video</h5>
+                                <form action="{{ route('settings.video-pass') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="notif_tahap4" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap4 }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <h5>Notif <span class="text-danger">Gagal</span> Tes Video</h5>
+                                <form action="{{ route('settings.video-failed') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="notif_tahap4_failed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap4_failed }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row border border-2 py-2 mb-4 rounded">
+                            {{-- <div class="col-12 mb-4">
+                                <h5>Notif <span class="text-success">Lolos</span> Tes Wawancara</h5>
+                                <form action="{{ route('settings.interview-pass') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="notif_tahap5" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap5 }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div> --}}
+                            <div class="col-6 mb-4">
+                                <h5>Notif <span class="text-success">Lolos</span> Tes Wawancara</h5>
+                                <form action="{{ route('settings.student-pass') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="notif_tahap5_passed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap5_passed }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <h5>Notif <span class="text-danger">Gagal</span> Tes Wawancara</h5>
+                                <form action="{{ route('settings.student-failed') }}" method="POST">
+                                    @csrf
+                                    <div class="form-floating">
+                                        <textarea name="notif_tahap5_failed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap5_failed }}</textarea>
+                                        <label for="floatingTextarea2">Isi Pesan</label>
+                                        <div class="float-end">
+                                            <button  class="btn btn-primary btn-md mt-2">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
