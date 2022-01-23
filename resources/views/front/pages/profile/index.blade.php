@@ -108,8 +108,16 @@
                     <td>{{ $profile->user->biodataTwo->father }}</td>
                   </tr>
                   <tr>
+                    <th>NIK Ayah</th>
+                    <td>{{ $profile->user->biodataTwo->father_id }}</td>
+                  </tr>
+                  <tr>
                     <th>Nama Ibu</th>
                     <td>{{ $profile->user->biodataTwo->mother }}</td>
+                  </tr>
+                  <tr>
+                    <th>NIK Ibu</th>
+                    <td>{{ $profile->user->biodataTwo->mother_id }}</td>
                   </tr>
                   <tr>
                     <th>Kondisi Keluarga</th>
@@ -125,7 +133,15 @@
                   </tr>
                   <tr>
                     <th>Penghasilan Orang Tua</th>
-                    <td>Rp. {{ number_format($profile->user->biodataTwo->parent_income) }}</td>
+                    <td>{{ $profile->user->biodataTwo->parent_income }}</td>
+                  </tr>
+                  <tr>
+                    <th>Nama Wali</th>
+                    <td>{{ $profile->user->biodataTwo->guardian }}</td>
+                  </tr>
+                  <tr>
+                    <th>Kontak Wali</th>
+                    <td>{{ $profile->user->biodataTwo->no_guardian }}</td>
                   </tr>
                   <tr>
                     <th>Jumlah Saudara</th>
@@ -206,21 +222,27 @@
                 </thead>
                 <tbody>
                   <tr>
-                      <th>Whatsapp</th>
-                      <td>{{ $profile->user->phone }}</td>
+                    <th>Whatsapp</th>
+                    <td>{{ $profile->user->phone }}</td>
                   </tr>
                   <tr>
-                      <th>Link Facebook</th>
-                      <td>
-                        <a target="_blank" href="{{ $profile->user->biodataTwo->facebook }}">{{ $profile->user->biodataTwo->facebook }}</a>
-                      </td>
+                    <th>Link Facebook</th>
+                    <td>
+                      <a target="_blank" href="{{ $profile->user->biodataTwo->facebook }}">{{ $profile->user->biodataTwo->facebook }}</a>
+                    </td>
                   </tr>
                   <tr>
-                      <th>Instagram</th>
-                      <td>
-                        <a target="_blank" href="{{ $profile->user->biodataTwo->instagram }}">{{ $profile->user->biodataTwo->instagram }}</a>
-                      </td>
+                    <th>Instagram</th>
+                    <td>
+                      <a target="_blank" href="{{ $profile->user->biodataTwo->instagram }}">{{ $profile->user->biodataTwo->instagram }}</a>
+                    </td>
                   </tr>
+                  <tr>
+                    <th>Tiktok</th>
+                    <td>
+                      <a target="_blank" href="{{ $profile->user->biodataTwo->tiktok }}">{{ $profile->user->biodataTwo->tiktok }}</a>
+                    </td>
+                </tr>
                 </tbody>
               </table>
             </div>

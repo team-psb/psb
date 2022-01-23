@@ -601,10 +601,10 @@
                         <label for="">Orang Tua<b>*</b></label>
                         <select name="parent" class="custom-select">
                           <option value="" disabled selected>-- Pilih --</option>
-                          <option value="lengkap" {{ old('parent') == 'lengkap' ? 'selected' : '' }}>LENGKAP</option>
-                          <option value="ayah" {{ old('parent') == 'ayah' ? 'selected' : '' }}>PIATU</option>
-                          <option value="ibu" {{ old('parent') == 'ibu' ? 'selected' : '' }}>YATIM</option>
-                          <option value="yatim-piatu" {{ old('parent') == 'yatim-piatu' ? 'selected' : '' }}>YATIM-PIATU</option>
+                          <option value="lengkap" {{ old('parent') == 'lengkap' ? 'selected' : '' }}>Lengkap</option>
+                          <option value="ayah" {{ old('parent') == 'ayah' ? 'selected' : '' }}>Ayah</option>
+                          <option value="ibu" {{ old('parent') == 'ibu' ? 'selected' : '' }}>Ibu</option>
+                          <option value="yatim-piatu" {{ old('parent') == 'yatim-piatu' ? 'selected' : '' }}>Yatim-Piatu</option>
                         </select>
                       </div>
                       <div class="form-group">
