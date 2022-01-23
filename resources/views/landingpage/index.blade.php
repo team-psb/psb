@@ -262,7 +262,7 @@
                             <p class="sub-banner1">
                                 Web Penerimaan Peserta Didik Baru <br />
                                 Tahun Ajaran <b>{{ isset($tahun_ajaran->year) ? $tahun_ajaran->year.' / '. intval($tahun_ajaran->year +1) : '' }}</b><br />
-                                Pondok Informatika Al-Madinah
+                                Pondok Informatika Al-Madinah.
                             </p>
                             <p class="pt-2 sub-banner2">
                                 Pendaftaran Santri Baru telah dibuka. <br />

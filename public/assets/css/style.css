@@ -595,9 +595,19 @@ h6 {
     }
 }
 
-@media (max-width: 425px) {
+@media screen and (max-width: 500px) {
     #home h3 {
-        margin-top: 40vh;
+        margin-top: 15vh;
+    }
+}
+@media screen and (max-width: 375px) {
+    #home h3 {
+        margin-top: 28vh;
+    }
+}
+@media screen and (max-width: 320px) {
+    #home h3 {
+        margin-top: 60vh;
     }
 }
 /*--------------------------------------------------------------
@@ -935,12 +945,6 @@ section {
     .showpass {
         right: 20em;
         transform: translate(6%, 0);
-    }
-}
-
-@media (max-width: 425px) {
-    #regis {
-        padding-top: 40vh;
     }
 }
 
