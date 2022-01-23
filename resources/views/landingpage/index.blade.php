@@ -222,7 +222,7 @@
         <!-- ======= End Header ======= -->
 
         <!-- ======= Home Section ======= -->
-        <section id="home" class="d-flex align-items-center">
+        <section id="home" class="d-flex align-items-center pt-4 pt-lg-0 pt-xl-0">
             <div class="container" data-aos="zoom-out">
                 @if (session('success-regis'))
                         <div class="alert alert-success alert-dismissible show fade">
@@ -284,9 +284,7 @@
                                         rounded-pill
                                         px-3
                                         py-2
-                                        mb-md-0
-                                        mb-lg-0
-                                        mb-xl-0
+                                        mb-1
                                     "
                                 >
                                     Alur Pendaftaran
@@ -305,6 +303,7 @@
                                         rounded-pill
                                         px-3
                                         py-2
+                                        mb-1
                                     "
                                 >
                                     Lebih Lanjut
@@ -317,7 +316,7 @@
                             col-md-6 col-sm-12
                             position-relative
                             login-banner
-                            mb-5 mb-lg-0
+                            mb-lg-0 mb-sm-0 mb-md-5
                         "
                     >
                         <!-- Animate -->

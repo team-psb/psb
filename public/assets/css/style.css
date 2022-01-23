@@ -581,9 +581,9 @@ h6 {
         font-size: 13px;
     }
 }
-@media (max-height: 500px) {
+@media (max-width: 768px) {
     #home {
-        height: 120vh;
+        height: auto;
     }
 }
 
@@ -595,7 +595,7 @@ h6 {
     }
 }
 
-@media screen and (max-width: 500px) {
+/* @media screen and (max-width: 500px) {
     #home h3 {
         margin-top: 15vh;
     }
@@ -607,9 +607,9 @@ h6 {
 }
 @media screen and (max-width: 320px) {
     #home h3 {
-        margin-top: 60vh;
+        margin-top: 75vh;
     }
-}
+} */
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
