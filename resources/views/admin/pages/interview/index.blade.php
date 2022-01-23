@@ -131,8 +131,15 @@
                                                     </div> --}}
                                                     {{-- <span class="hp">{{ $interview->user->phone }}</span> --}}
                                                     <p>
+                                                        @php
+                                                            $no = str_split($interview->user->phone, 1);
+                                                            // dd($no);
+                                                            $no1= array(0 =>"62");
+                                                            $wa1= array_replace($no, $no1);
+                                                            $wa = implode("", $wa1);
+                                                        @endphp
                                                         {{ $interview->user->phone }}
-                                                        <a target="_black" href="https://api.whatsapp.com/send?phone={{ $interview->user->phone }}" class="btn btn-success px-1">Chat Wa</a>
+                                                        <a target="_black" href="https://api.whatsapp.com/send?phone={{ $wa }}" class="btn btn-success px-1">Chat Wa</a>
                                                     </p>
                                                 </div>
                                             </td>

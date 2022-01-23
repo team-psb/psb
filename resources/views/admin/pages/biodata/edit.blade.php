@@ -235,10 +235,10 @@
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="">Orang Tua</label>
                                     <select name="parent" class="form-select">
-                                        <option value="lengkap" {{ $biodata->parent == 'lengkap' ? 'selected' :'' }}>LENGKAP</option>
-                                        <option value="ayah" {{ $biodata->parent == 'ayah' ? 'selected' :'' }}>AYAH</option>
-                                        <option value="ibu" {{ $biodata->parent == 'ibu' ? 'selected' :'' }}>IBU</option>
-                                        <option value="yatim-piatu" {{ $biodata->parent == 'yatim-piatu' ? 'selected' :'' }}>YATIM-PIATU</option>
+                                        <option value="lengkap" {{ $biodata->parent == 'lengkap' ? 'selected' :'' }}>Lengkap</option>
+                                        <option value="ayah" {{ $biodata->parent == 'ayah' ? 'selected' :'' }}>Ayah</option>
+                                        <option value="ibu" {{ $biodata->parent == 'ibu' ? 'selected' :'' }}>Ibu</option>
+                                        <option value="yatim-piatu" {{ $biodata->parent == 'yatim-piatu' ? 'selected' :'' }}>Yatim-Piatu</option>
                                     </select>
                                 </div>
                                 {{-- nama ayah --}}

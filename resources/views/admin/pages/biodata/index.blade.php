@@ -147,7 +147,7 @@
                                             <td>{{ $biodata->gamer }}</td>
                                             <td>{{ $biodata->user->biodataOne->family }}</td>
                                             <td>{{ $biodata->parent }}</td>
-                                            <td class="fw-bold">Rp {{ $biodata->parent_income }}</td>
+                                            <td class="fw-bold">{{ $biodata->parent_income }}</td>
                                             <td>
                                                 <span class="fw-bold  badge badge-{{ $biodata->status == 'lolos' ? 'success':'' }}{{ $biodata->status == 'tidak' ? 'danger':'' }}">{{ $biodata->status }}</span>
                                             </td>
@@ -470,7 +470,7 @@
                                     <td>{{ $biodata->gamer }}</td>
                                     <td>{{ $biodata->user->biodataOne->family }}</td>
                                     <td>{{ $biodata->parent }}</td>
-                                    <td class="fw-bold" style="width: 150px">Rp {{ $biodata->parent_income }}</td>
+                                    <td class="fw-bold" style="width: 150px">{{ $biodata->parent_income }}</td>
                                     <td>
                                         <span class="fw-bold  badge badge-{{ $biodata->status == 'lolos' ? 'success':'' }}{{ $biodata->status == 'tidak' ? 'danger':'' }}">{{ $biodata->status }}</span>
                                     </td>

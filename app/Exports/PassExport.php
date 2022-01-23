@@ -41,6 +41,8 @@ class PassExport implements FromView,ShouldAutoSize,WithHeadings
             'Keluarga',
             'Orang Tua',
             'Penghasilan Ortu',
+            'Nama Wali',
+            'No Wali',
         ];
     }
 }

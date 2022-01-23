@@ -16,6 +16,8 @@
                 <td>Keluarga</td>
                 <td>Orang Tua</td>
                 <td>Penghasilan Ortu</td>
+                <td>Nama Wali</td>
+                <td>NO Wali</td>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +37,8 @@
                     <td>{{ $item->user->biodataOne->family }}</td>
                     <td>{{ $item->user->biodataTwo->parent }}</td>
                     <td>{{ $item->user->biodataTwo->parent_income }}</td>
+                    <td>{{ $item->user->biodataTwo->guardian }}</td>
+                    <td>{{ $item->user->biodataTwo->no_guardian }}</td>
                 </tr>
             @endforeach
         </tbody>
