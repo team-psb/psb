@@ -359,8 +359,8 @@
                     </div>
                 </div>  
                 <div class="d-flex justify-content-between">
+                    <button type="submit"  formaction="{{ route('biodatas.filter-reset') }}"  class="btn btn-danger float-right">Atur Ulang</button>    
                     <button type="submit" formaction="{{ route('biodatas.index') }}" class="btn btn-primary">Terapkan</button>
-                    <button type="submit"  formaction="{{ route('biodatas.filter-reset') }}"  class="btn btn-primary float-right">Atur Ulang</button>    
                 </div>    
             </form>
         </div>

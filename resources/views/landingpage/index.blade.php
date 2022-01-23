@@ -284,7 +284,6 @@
                                         rounded-pill
                                         px-3
                                         py-2
-                                        mb-3
                                         mb-md-0
                                         mb-lg-0
                                         mb-xl-0
@@ -428,13 +427,14 @@
                                                     px-4
                                                     py-2
                                                     mt-2
+                                                    float-end
                                                 "
                                             >
                                                 Sign In
                                             </button>
-                                        </div>
-                                        <div class="form-floating text-center">
-                                            <a href="{{ route('password-getwhatsapp') }}" class="text-light">Lupa password ?</a>
+                                            <span class="float-start mx-2 mt-3">
+                                                <a href="{{ route('password-getwhatsapp') }}" class="text-light">Lupa password ?</a>
+                                            </span>
                                         </div>
                                     </form>
                                 </div>
@@ -510,47 +510,7 @@
                                                     <div
                                                         class="
                                                             mb-4
-                                                            col-lg-6 col-sm-12
-                                                        "
-                                                    >
-                                                        <label
-                                                            for="name"
-                                                            class="
-                                                                form-label
-                                                                text-white
-                                                                px-3
-                                                            "
-                                                            >Nama
-                                                            Pengguna</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="
-                                                                form-control
-                                                                form-control-lg
-                                                                rounded-pill
-                                                                @error('name') is-invalid @enderror
-                                                            "
-                                                            style="
-                                                                font-size: 15px;
-                                                            "
-                                                            id="name"
-                                                            name="name"
-                                                            placeholder="Masukkan Nama Pengguna"
-                                                            required
-                                                            @error('name') is-invalid @enderror
-                                                            value="{{ old('name') }}"
-                                                        />
-                                                        @error('name')
-                                                            <div class="invalid-feedback">
-                                                                {{ $message }}
-                                                            </div>
-                                                        @enderror
-                                                    </div>
-                                                    <div
-                                                        class="
-                                                            mb-4
-                                                            col-lg-6 col-sm-12
+                                                            col-lg-12 col-sm-12
                                                         "
                                                     >
                                                         <label
@@ -565,6 +525,7 @@
                                                         <input
                                                             type="text"
                                                             class="
+                                                                text-capitalize
                                                                 form-control
                                                                 form-control-lg
                                                                 rounded-pill
@@ -654,7 +615,7 @@
                                                             required
                                                         >
                                                             <option selected disabled>
-                                                                -- Keluarga --
+                                                                -- Pilih --
                                                             </option>
                                                             <option
                                                                 value="sangat-mampu"
@@ -1064,7 +1025,7 @@
             </section>
             <!-- End Regis Section -->
 
-            <!-- ======= Statistic Section ======= -->
+            {{-- <!-- ======= Statistic Section ======= -->
             <section id="stat" class="stat">
                 <div
                     class="container"
@@ -1142,7 +1103,7 @@
                     </div>
                 </div>
             </section>
-            <!-- End Statistic Section -->
+            <!-- End Statistic Section --> --}}
 
             <!-- ======= Announce Section ======= -->
             <section id="announce" class="announce">
@@ -1206,7 +1167,7 @@
                                 <div class="description gsap-desc1 mb-4 mt-1">
                                     <span class="dots d-flex align-items-center justify-content-center">1.</span>
                                     <p class="desc2">
-                                        Calon santri mengisi formulir pendaftaran di website <a href="https://pondokinformatika.xyz/" class="text-white text-decoration-underline">pondokinformatika.xyz</a>.
+                                        Calon santri mengisi formulir pendaftaran di website <a href="https://pondokinformatika.xyz/" class="text-white text-decoration-underline">pondokinformatika.xyz</a>
                                     </p>
                                 </div>
                                 <div class="description gsap-desc2 mb-4">
@@ -1874,7 +1835,7 @@
 
                     <div class="row" data-aos="fade-up" data-aos-delay="100">
                         <div class="col-lg-6">
-                            <div class="info-box mb-4 sub-address">
+                            <div class="info-box pb-3 sub-address">
                                 <i class="bx bx-map"></i>
                                 <h3>Alamat</h3>
                                 <p>Jl. Raya Krapyak, RT.05, Karanganyar, Wedomartani, Ngemplak, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55584</p>
@@ -1882,7 +1843,7 @@
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <div class="info-box mb-4 sub-email">
+                            <div class="info-box pb-3 sub-email">
                                 <i class="bx bx-envelope"></i>
                                 <h3>Email</h3>
                                 <p>pondokitalmadinah@gmail.com</p>
@@ -1890,7 +1851,7 @@
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <div class="info-box mb-4 sub-contact">
+                            <div class="info-box pb-3 sub-contact">
                                 <i class="bx bx-phone-call"></i>
                                 <h3>Kontak</h3>
                                 <p>085 725 249 265</p>
@@ -2318,28 +2279,28 @@
             });
 
             //Section Stats
-            gsap.from(".title-stats", {
-                y: -50,
-                duration: 1.5,
-                opacity: 0,
-                delay: 2,
-                ease: "bounce",
-            });
-            gsap.from(".text-stats", {
-                opacity: 0,
-                duration: 2,
-                delay: 3,
-            });
-            gsap.from(".text-stats2", {
-                opacity: 0,
-                duration: 2,
-                delay: 4,
-            });
-            gsap.from(".text-stats3", {
-                opacity: 0,
-                duration: 2,
-                delay: 5,
-            });
+            // gsap.from(".title-stats", {
+            //     y: -50,
+            //     duration: 1.5,
+            //     opacity: 0,
+            //     delay: 2,
+            //     ease: "bounce",
+            // });
+            // gsap.from(".text-stats", {
+            //     opacity: 0,
+            //     duration: 2,
+            //     delay: 3,
+            // });
+            // gsap.from(".text-stats2", {
+            //     opacity: 0,
+            //     duration: 2,
+            //     delay: 4,
+            // });
+            // gsap.from(".text-stats3", {
+            //     opacity: 0,
+            //     duration: 2,
+            //     delay: 5,
+            // });
 
             // Section Announce
             gsap.from(".title-announce", {

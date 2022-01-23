@@ -53,17 +53,25 @@ class VideoController extends Controller
             'stage_id'=>$item->stage_id,
         ]);
 
-        $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => $item->user->phone,
-            'message' => 'Selamat, *' . $item->user->name . '!*
+        $notif = Setting::get()->first();
 
-Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kelima_
 
-Untuk tes _Tahap Kelima_ adalah *wawancara*, Kami akan segera memberitahu anda mengenai waktunya
+//         $data = [
+//             'sender' => Setting::pluck('no_msg'),
+//             'reciver' => $item->user->phone,
+//             'message' => 'Selamat, *' . $item->user->name . '!*
 
-*Pastikan selalu mengecek whatsapp agar tidak melewatkan jadwal yang kami berikan*' 
-        ];
+// Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kelima_
+
+// Untuk tes _Tahap Kelima_ adalah *wawancara*, Kami akan segera memberitahu anda mengenai waktunya
+
+// *Pastikan selalu mengecek whatsapp agar tidak melewatkan jadwal yang kami berikan*' 
+//         ];
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => $item->user->phone,
+                'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap4
+            ];
         sendMessage($data);
 
         return redirect()->route('videos.index')->with('success-edit','Berhasil Mengganti Status Data');
@@ -78,15 +86,22 @@ Untuk tes _Tahap Kelima_ adalah *wawancara*, Kami akan segera memberitahu anda m
         if (isset($cek)) {
             Interview::where('user_id','=',$item->user_id)->delete();
         }
-        $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => $item->user->phone,
-            'message' => 'Mohon maaf, *' . $item->user->name . '!*
+//         $data = [
+//             'sender' => Setting::pluck('no_msg'),
+//             'reciver' => $item->user->phone,
+//             'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
-Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kelima_
+// Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kelima_
 
-Tetap Semangka (Semangat Karena Allah !)' 
-        ];
+// Tetap Semangka (Semangat Karena Allah !)' 
+//         ];
+
+            $notif = Setting::get()->first();
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => $item->user->phone,
+                'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap4_failed
+            ];
         sendMessage($data);
 
         return redirect()->route('videos.index')->with('success-edit','Berhasil Mengganti Status Data');
@@ -104,16 +119,23 @@ Tetap Semangka (Semangat Karena Allah !)'
                     'academy_year_id'=>$item->academy_year_id,
                     'stage_id'=>$item->stage_id,
                 ]);
+//                 $data = [
+//                 'sender' => Setting::pluck('no_msg'),
+//                 'reciver' => $item->user->phone,
+//                 'message' => 'Selamat, *' . $item->user->name . '!*
+
+// Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kelima_
+
+// Untuk tes _Tahap Kelima_ adalah *wawancara*, Kami akan segera memberitahu anda mengenai waktunya
+
+// *Pastikan selalu mengecek whatsapp agar tidak melewatkan jadwal yang kami berikan*' 
+//                 ];
+                $notif = Setting::get()->first();
+
                 $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => $item->user->phone,
-                'message' => 'Selamat, *' . $item->user->name . '!*
-
-Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Kelima_
-
-Untuk tes _Tahap Kelima_ adalah *wawancara*, Kami akan segera memberitahu anda mengenai waktunya
-
-*Pastikan selalu mengecek whatsapp agar tidak melewatkan jadwal yang kami berikan*' 
+                    'sender' => Setting::pluck('no_msg'),
+                    'reciver' => $item->user->phone,
+                    'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap4
                 ];
                 sendMessage($data);
             }
@@ -135,15 +157,22 @@ Untuk tes _Tahap Kelima_ adalah *wawancara*, Kami akan segera memberitahu anda m
                 if (isset($cek)) {
                     Interview::where('user_id','=',$item->user_id)->delete();
                 }
+//                 $data = [
+//             'sender' => Setting::pluck('no_msg'),
+//             'reciver' => $item->user->phone,
+//             'message' => 'Mohon maaf, *' . $item->user->name . '!*
+
+// Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kelima_
+
+// Tetap Semangka (Semangat Karena Allah !)' 
+//         ];
+                $notif = Setting::get()->first();
+
                 $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => $item->user->phone,
-            'message' => 'Mohon maaf, *' . $item->user->name . '!*
-
-Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kelima_
-
-Tetap Semangka (Semangat Karena Allah !)' 
-        ];
+                    'sender' => Setting::pluck('no_msg'),
+                    'reciver' => $item->user->phone,
+                    'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap4_failed
+                ];
         sendMessage($data);
             }
 

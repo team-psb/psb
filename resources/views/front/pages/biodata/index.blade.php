@@ -1012,9 +1012,9 @@
         },
 				form1Button(){
           this.form_1=null;
+          this.form_2=true;
           this.form_3=null;
           this.form_4=null;
-          this.form_2=true;
           window.scrollTo(0, 0);
         },
         form1ButtonBack(){
@@ -1027,29 +1027,29 @@
         form2Button(){
           this.form_1= null;
           this.form_2= null;
+          this.form_3= true;
           this.form_4= null;
-          this.form_3=true;
           window.scrollTo(0, 0);
         },
         form2ButtonBack(){
           this.form_1= null;
-          this.form_4= null;
           this.form_2= true;
-          this.form_3=null;
+          this.form_3= null;
+          this.form_4= null;
           window.scrollTo(0, 0);
         },
         form3Button(){
           this.form_1= null;
           this.form_2= null;
-          this.form_3=null;
-          this.form_4=true;
+          this.form_3= null;
+          this.form_4= true;
           window.scrollTo(0, 0);
         },
         form3ButtonBack(){
-          this.form_1=null;
-          this.form_2=null;
-          this.form_3=true;
-          this.form_4=null;
+          this.form_1=  null;
+          this.form_2=  null;
+          this.form_3=  true;
+          this.form_4=  null;
           window.scrollTo(0, 0);
         },
 				getKabupaten(code){

@@ -24,6 +24,11 @@
                         </div>
                     </div>
                 @endif --}}
+                @if (session('sukses-kirim'))
+                    <div class="alert alert-success">
+                        <strong>{{ session('sukses-kirim') }}</strong>
+                    </div>
+                @endif
 
                 {{-- Hero --}}
                 <div class="section-body py-4">

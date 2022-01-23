@@ -51,28 +51,40 @@ class InterviewController extends Controller
         $item->status = $request->status;
         $item->save();
 
+        $notif = Setting::get()->first();
+
         // Whatsapp Gateway
         if ($item->status == 'lolos'){
-        $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => $item->user->phone,
-            'message' => 'Selamat, *' . $item->user->name . '!*
+//         $data = [
+//             'sender' => Setting::pluck('no_msg'),
+//             'reciver' => $item->user->phone,
+//             'message' => 'Selamat, *' . $item->user->name . '!*
 
-Anda dinyatakan *Lolos* Sebagai calon santri Pondok Informatika Al-Madinah
+// Anda dinyatakan *Lolos* Sebagai calon santri Pondok Informatika Al-Madinah
 
-Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp selalu aktif*.'
-        ];
+// Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp selalu aktif*.'
+//         ];
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => $item->user->phone,
+                'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap5_passed 
+            ];
         sendMessage($data);
         } else {
-        $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => $item->user->phone,
-            'message' => 'Mohon maaf,' . $item->user->name . '!
+//         $data = [
+//             'sender' => Setting::pluck('no_msg'),
+//             'reciver' => $item->user->phone,
+//             'message' => 'Mohon maaf,' . $item->user->name . '!
 
-Anda dinyatakan *Tidak Lolos* pada sesi wawancara
+// Anda dinyatakan *Tidak Lolos* pada sesi wawancara
 
-Tetap Semangka (Semangat Karena Allah !)' 
-        ];
+// Tetap Semangka (Semangat Karena Allah !)' 
+//         ];
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => $item->user->phone,
+                'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap5_failed
+            ];
         sendMessage($data);
         }
         return redirect()->route('interviews.index')->with('success-edit', 'Berhasil Mengganti Status Data');
@@ -85,14 +97,20 @@ Tetap Semangka (Semangat Karena Allah !)'
             foreach ($ids as $id) {
                 $item = Pass::find($id);
                 Pass::find($id)->update(['status'=>'lolos']);
+//                 $data = [
+//                     'sender' => Setting::pluck('no_msg'),
+//                     'reciver' => $item->user->phone,
+//                     'message' => 'Selamat, *' . $item->user->name . '!*
+        
+// Anda dinyatakan *Lolos* Sebagai calon santri Pondok Informatika Al-Madinah
+
+// Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp selalu aktif*.'
+//                 ];
+                $notif = Setting::get()->first();
                 $data = [
                     'sender' => Setting::pluck('no_msg'),
                     'reciver' => $item->user->phone,
-                    'message' => 'Selamat, *' . $item->user->name . '!*
-        
-Anda dinyatakan *Lolos* Sebagai calon santri Pondok Informatika Al-Madinah
-
-Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp selalu aktif*.'
+                    'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap5_passed
                 ];
                 sendMessage($data);
             }
@@ -110,14 +128,20 @@ Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp
             foreach ($ids as $id) {
                 $item = Pass::find($id);
                 Pass::find($id)->update(['status'=>'tidak']);
+//                 $data = [
+//                     'sender' => Setting::pluck('no_msg'),
+//                     'reciver' => $item->user->phone,
+//                     'message' => 'Mohon maaf,' . $item->user->name . '!
+        
+// Anda dinyatakan *Tidak Lolos* pada sesi *Wawancara*
+
+// Tetap Semangka (Semangat Karena Allah !)' 
+//                 ];
+                $notif = Setting::get()->first();
                 $data = [
                     'sender' => Setting::pluck('no_msg'),
                     'reciver' => $item->user->phone,
-                    'message' => 'Mohon maaf,' . $item->user->name . '!
-        
-Anda dinyatakan *Tidak Lolos* pada sesi *Wawancara*
-
-Tetap Semangka (Semangat Karena Allah !)' 
+                    'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap5_failed
                 ];
                 sendMessage($data);
             }
