@@ -44,7 +44,7 @@
         /> --}}
 
         <!-- Template Main CSS File -->
-        {{-- <link href="assets/css/style.css" rel="stylesheet" /> --}}
+        <link href="assets/css/style.css" rel="stylesheet" />
         <style >
             /* Chrome, Safari, Edge, Opera */
             input::-webkit-outer-spin-button,
@@ -111,8 +111,24 @@
     </head>
 
     <body>
+        <!-- ======= Background Image ======= -->
+        <div class="d-none d-lg-inline">
+            <img
+                src="{{ asset('./assets/img/logo-bg.png') }}"
+                class="position-absolute"
+                alt="logo"
+                width="1050"
+                style="
+                    z-index: -0;
+                    top: 50px;
+                    left: -450px;
+                "
+            />
+        </div>
+        <!-- ======= End Background Image ======= -->
+
         <div class="d-flex justify-content-center align-items-center container">
-            <div class="card py-5 px-4 text-center shadow position-relative overflow-hidden">
+            <div class="card pt-5 pb-4 px-4 text-center shadow position-relative overflow-hidden">
                 <img
                     src="{{ asset('./assets/img/logo-bg.png') }}"
                     class="position-absolute"
@@ -124,7 +140,7 @@
                         left: -140px;
                     "
                 />
-                <h3 class="m-0 text-white">OTP Verification</h3>
+                <h3 class="mb-3 text-white">OTP Verification</h3>
                 @if (session('sukses-kirim'))
                     <div class="alert alert-success">
                         {{ session('sukses-kirim') }} <br>
@@ -134,18 +150,18 @@
                     <div class="alert alert-danger">
                         {{ session('gagal-kirim') }} <br>
                     </div>
-                @endif  
+                @endif
                 @if (session('resend-msg'))
                     <div class="alert alert-danger">
                         {{ session('resend-msg') }} <br>
                     </div>
-                @endif  
+                @endif
                 @if (session('alert-login'))
                     <div class="alert alert-danger">
                         {{ session('alert-login') }} <br>
                     </div>
                 @endif
-                <span class="mobile-text mt-2">Masukkan kode yang baru saja kami kirim ke nomor Whatsapp Anda
+                <span class="mobile-text">Masukkan kode yang baru saja kami kirim ke nomor Whatsapp Anda
                     <b style="color:#FFAD60;">{{ $wa }}</b>
                 </span>
                 {{-- <p>waktu tersisa <span id='time-remaining'></span> detik.</p> --}}
@@ -188,18 +204,19 @@
                     <button class="d-none" id="post1"></button>
                 </form> --}}
 
-                <div>
+                <div class="my-3">
                     <p class="d-block mobile-text" id="countdown">Sisa Waktu :</p>
                     <div class="text-center">
                         <span class="d-block mobile-text" id="resend"></span>
                     </div>
                 </div>
-                <div class="mobile-text">
+                <div style="font-size: 12px; color: #fff;">
                     Copyright &copy; pondok Informatika {{ date('Y') }}
                 </div>
             </div>
         </div>
 
+        <div id="preloader"></div>
 
         {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script>
@@ -217,7 +234,7 @@
         <script type='text/javascript'>
             var secondsBeforeExpire = 300;
             $("#ExampleButton1").hide();
-            
+
             // This will trigger your timer to begin
             var timer = setInterval(function(){
                 // If the timer has expired, disable your button and stop the timer
@@ -232,11 +249,11 @@
                 else{
                     // Decrement your time remaining
                     secondsBeforeExpire--;
-                    $("#time-remaining").text(secondsBeforeExpire);      
+                    $("#time-remaining").text(secondsBeforeExpire);
                 }
             },1000);
         </script> --}}
-        
+
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
@@ -252,6 +269,7 @@
                     }
                 }
             });
+
             // Timer
             let timerOn = true;
             function timer(remaining){
