@@ -140,7 +140,7 @@
                         left: -140px;
                     "
                 />
-                <h3 class="m-0 text-white">OTP Verification</h3>
+                <h3 class="mb-3 text-white">OTP Verification</h3>
                 @if (session('sukses-kirim'))
                     <div class="alert alert-success">
                         {{ session('sukses-kirim') }} <br>
@@ -161,7 +161,7 @@
                         {{ session('alert-login') }} <br>
                     </div>
                 @endif
-                <span class="mobile-text mt-2">Masukkan kode yang baru saja kami kirim ke nomor Whatsapp Anda
+                <span class="mobile-text">Masukkan kode yang baru saja kami kirim ke nomor Whatsapp Anda
                     <b style="color:#FFAD60;">{{ $wa }}</b>
                 </span>
                 {{-- <p>waktu tersisa <span id='time-remaining'></span> detik.</p> --}}
@@ -268,6 +268,7 @@
                     }
                 }
             });
+
             // Timer
             let timerOn = true;
             function timer(remaining){
@@ -295,7 +296,7 @@
                 $("#ExampleButton").prop('disabled',true);
                 document.getElementById('resend').innerHTML = 'Belum menerima kode? <a href="{{ route('resend-token', $wa) }}" style="color: #FFAD60;font-weight: bold;" onclick="timer(180)">kirim ulang</a>'
             }
-            timer(10);
+            timer(180);
         </script>
 
         <script>
