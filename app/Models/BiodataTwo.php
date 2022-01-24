@@ -56,6 +56,7 @@ class BiodataTwo extends Model
         'child_to',
         'brother',
         'guardian',
+        'choose_guardian',
         'no_guardian',
         'description_guardian',
         'permission_parent',

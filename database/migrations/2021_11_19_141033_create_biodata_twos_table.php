@@ -59,6 +59,7 @@ class CreateBiodataTwosTable extends Migration
             $table->string('child_to');
             $table->string('brother');
             $table->string('guardian');
+            $table->enum('choose_guardian', ['ayah', 'ibu', 'selain-orang-tua', 'tidak-ada']);
             $table->string('no_guardian');
             $table->string('description_guardian')->nullable();
             $table->enum('permission_parent', ['iya', 'tidak']);

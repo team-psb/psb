@@ -645,6 +645,8 @@
                           value="{{ old('father_id') }}"
                           required
                           placeholder="32010204040000000"
+                          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                          maxlength="20"
                         />
                         <small class="form-text text-muted">Wajib di isi minimal 16 karakter</small>
                         <small class="form-text text-muted">Kosongkan jika yatim</small>
@@ -686,6 +688,7 @@
                             name="mother_id"
                             value="{{ old('mother_id') }}"
                             required
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                             placeholder="32010204040000000"
                           />
                         <small class="form-text text-muted">Wajib di isi minimal 16 karakter</small>
@@ -697,12 +700,13 @@
                         >
                         <select name="parent_income" class="custom-select">
                           <option value="" disabled selected>-- Pilih --</option>
-                          <option value="DI BAWAH SATU JUTA" {{ old('parent_income') == 'DI BAWAH SATU JUTA' ? 'selected' : '' }}>DI BAWAH RP. 1.000.000.00</option>
-                          <option value="SATU SAMPAI DUA JUTA" {{ old('parent_income') == 'SATU SAMPAI DUA JUTA' ? 'selected' : '' }}>RP. 1.000.000.00  s/d  RP. 2.000.000.00</option>
-                          <option value="DUA SAMPAI TIGA JUTA" {{ old('parent_income') == 'DUA SAMPAI TIGA JUTA' ? 'selected' : '' }}>RP. 2.000.000.00  s/d  RP. 3.000.000.00</option>
-                          <option value="TIGA SAMPAI EMPAT JUTA" {{ old('parent_income') == 'TIGA SAMPAI EMPAT JUTA' ? 'selected' : '' }}>RP. 3.000.000.00  s/d  RP. 4.000.000.00</option>
-                          <option value="EMPAT SAMPAI LIMA JUTA" {{ old('parent_income') == 'EMPAT SAMPAI LIMA JUTA' ? 'selected' : '' }}>RP. 4.000.000.00  s/d  RP. 5.000.000.00</option>
-                          <option value="DI ATAS LIMA JUTA" {{ old('parent_income') == 'DI ATAS LIMA JUTA' ? 'selected' : '' }}>DI ATAS RP. 5.000.000.00</option>
+                          <option value="Kurang dari Rp 500.000" {{ old('parent_income') == 'Kurang dari Rp 500.000' ? 'selected' : '' }}>Kurang dari Rp 500.000</option>
+                          <option value="Rp 500.000 - 1.000.0000.000" {{ old('parent_income') == 'Rp 500.000 - 1.000.0000.000' ? 'selected' : '' }}>Rp 500.000 - 1.000.0000.000</option>
+                          <option value="Rp 1.000.0000.000 - 2.000.0000.000" {{ old('parent_income') == 'Rp 1.000.0000.000 - 2.000.0000.000' ? 'selected' : '' }}>Rp 1.000.0000.000 - 2.000.0000.000</option>
+                          <option value="Rp 2.000.0000.000 - 3.000.0000.000" {{ old('parent_income') == 'Rp 2.000.0000.000 - 3.000.0000.000' ? 'selected' : '' }}>Rp 2.000.0000.000 - 3.000.0000.000</option>
+                          <option value="Rp 3.000.0000.000 - 5.000.0000.000" {{ old('parent_income') == 'Rp 3.000.0000.000 - 5.000.0000.000' ? 'selected' : '' }}>Rp 3.000.0000.000 - 5.000.0000.000</option>
+                          <option value="Rp 5.000.0000.000 - 10.000.0000.000" {{ old('parent_income') == 'Rp 5.000.0000.000 - 10.000.0000.000' ? 'selected' : '' }}>Rp 5.000.0000.000 - 10.000.0000.000</option>
+                          <option value="Lebih dari Rp 10.000.000" {{ old('parent_income') == 'Lebih dari Rp 10.000.000' ? 'selected' : '' }}>Lebih dari Rp 10.000.000</option>
                         </select>
                         {{-- <input
                           type="number"
@@ -745,30 +749,97 @@
                         </small>
                       </div>
                       <div class="form-group">
-                        <label for="guardian"
-                          >Nama Orang Tua/Wali ?<b>*</b></label
-                        >
-                        <input
-                          type="guardian"
-                          class="form-control"
-                          id="guardian"
-                          name="guardian"
-                          value="{{ old('guardian') }}"
-                          required
-                        />
+                        <label for="">Data Wali<b>*</b></label>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="choose_guardian"
+                            id="choose_guardian1"
+                            value="ayah"
+                            required
+                            {{ old('choose_guardian') == 'ayah' ? 'checked' : '' }}
+                            x-on:click="guardian(false)"
+                          />
+                          <label class="form-check-label" for="choose_guardian1">
+                            Ayah
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="choose_guardian"
+                            id="choose_guardian2"
+                            value="ibu"
+                            required
+                            {{ old('choose_guardian') == 'ibu' ? 'checked' : '' }}
+                            x-on:click="guardian(false)"
+                          />
+                          <label class="form-check-label" for="choose_guardian2">
+                            Ibu
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="choose_guardian"
+                            id="choose_guardian3"
+                            value="tidak-ada"
+                            required
+                            {{ old('choose_guardian') == 'tidak-ada' ? 'checked' : '' }}
+                            x-on:click="guardian(false)"
+                          />
+                          <label class="form-check-label" for="choose_guardian3">
+                            Tidak ada wali
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="choose_guardian"
+                            id="choose_guardian4"
+                            value="selain-orang-tua"
+                            required
+                            {{ old('choose_guardian') == 'selain-orang-tua' ? 'checked' : '' }}
+                            x-on:click="guardian(true)"
+                          />
+                          <label class="form-check-label" for="choose_guardian4">
+                            Selain Orang Tua (Isikan di bawah)
+                          </label>
+                        </div>
+                      </div>
+                      <div x-show="guardian_choose">
+                        <div class="form-group">
+                          <label for="guardian">Nama Wali (Hubungan)<b>*</b></label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="guardian"
+                            name="guardian"
+                            value="{{ old('guardian') }}"
+                            placeholder="Budi (Paman)"
+                            required
+                          />
+                        </div>
                       </div>
                       <div class="form-group">
                         <label for="no_guardian"
                           >Nomor Kontak Orang Tua/Wali ?<b>*</b></label
                         >
                         <input
-                          type="text"
+                          type="number"
                           class="form-control"
                           id="no_guardian"
                           name="no_guardian"
                           value="{{ old('no_guardian') }}"
                           required
                         />
+                        <small class="form-text text-muted">
+                          Isi '0' Jika Tidak ada wali
+                        </small>
                       </div>
                       <div class="form-group">
                         <label for="description_guardian"
@@ -997,7 +1068,7 @@
           kabupatenids:[],
           gamer_in:null,
           education_sma:null,
-          parent_status:null,
+          guardian_choose:null,
 
         // method
         gamer(param){
@@ -1006,8 +1077,8 @@
         education(parameter){
           this.education_sma=parameter;
         },
-        parent(par){
-          this.parent_status=par;
+        guardian(par){
+          this.guardian_choose=par;
         },
 				form1Button(){
           this.form_1=null;

@@ -701,7 +701,7 @@
 @endsection
 
 @push('start-script')
-//AOS
+{{-- AOS --}}
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
     AOS.init();
@@ -711,7 +711,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
     <script>
-        //GSAP
+        // GSAP
         gsap.from(".alur_image_1", {
             delay: 4,
             duration: 2,
@@ -781,7 +781,7 @@
 @endpush
 
 @push('end-script')
-    //sweetalert2
+    {{-- sweetalert2 --}}
     <script src="{{ asset('front/sweetalert2/sweetalert2.min.js') }}"></script>
     <script>
 
