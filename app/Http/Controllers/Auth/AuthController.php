@@ -73,7 +73,7 @@ class AuthController extends Controller
     {
         return view('auth.register');
     }
-    
+
     public function registerProses(AuthRequest $request)
     {
         $no_wa= $request->get('no_wa');
@@ -96,7 +96,7 @@ class AuthController extends Controller
 
         $name = explode(' ',trim($request->full_name));
         $token = mt_rand(1000,9999);
-        
+
         $user = User::create([
             'name'=> $name[0],
             'phone'=>$wa,
@@ -127,9 +127,9 @@ class AuthController extends Controller
         $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => $wa,
-            'message' => 'Untuk *mengkonfirmasi pendaftaran* silahkan masukkan kode OTP : 
+            'message' => 'Untuk *mengkonfirmasi pendaftaran* silahkan masukkan kode OTP :
 
-*'.$token.'* 
+*'.$token.'*
 
 Atau masuk dilink berikut '.$link
         ];
@@ -150,9 +150,9 @@ Atau masuk dilink berikut '.$link
         $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => $wa,
-            'message' => 'Untuk *mengkonfirmasi pendaftaran* silahkan masukkan kode OTP : 
+            'message' => 'Untuk *mengkonfirmasi pendaftaran* silahkan masukkan kode OTP :
 
-*'.$token.'* 
+*'.$token.'*
 
 Atau masuk dilink berikut '.$link];
         sendMessage($data);
@@ -180,7 +180,7 @@ Atau masuk dilink berikut '.$link];
             User::where('phone', $wa)->update([
                 'confirm_token' => $token
             ]);
-            
+
             // NOTIF WA
             $data = [
                 'sender' => Setting::pluck('no_msg'),
@@ -193,15 +193,15 @@ Keluarga : *'.$user->BiodataOne->family.'*
 No Wa : *'.$user->phone.'*
 Tanggal Registrasi : '.$user->created_at->format('d-m-Y H:i').' WIB
 
-Silahkan *Lakukan Tes Selanjutnya*, 
-Atau di link : .'.route('user-dashboard') 
+Silahkan *Lakukan Tes Selanjutnya*,
+Atau di link : .'.route('user-dashboard')
             ];
             sendMessage($data);
 
             // auto login
             Auth::login($user);
-            
-            return redirect()->route('user-dashboard')->with('sukses-kirim', 'Selamat anda berhasil konfirmasi pendaftaran, silahkan lanjut tes selanjutnya !');
+
+            return redirect()->route('user-dashboard')->with('sukses-kirim', 'Selamat Anda berhasil konfirmasi pendaftaran, silahkan ikuti tes selanjutnya !');
         }else{
             return back()->with('gagal-kirim','Token yang anda masukkan salah / tidak sesuai');
         }

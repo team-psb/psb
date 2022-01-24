@@ -191,26 +191,26 @@
                             >
                         </li>
                         <li>
-                            <a class="nav-link scrollto" href="#stat" id="link3"
-                                >Statistik</a
+                            <a class="nav-link scrollto" href="#announce" id="link3"
+                                >Pengumuman</a
                             >
                         </li>
                         <li>
                             <a
                                 class="nav-link scrollto"
-                                href="#announce"
+                                href="#info"
                                 id="link4"
-                                >Pengumuman</a
-                            >
-                        </li>
-                        <li>
-                            <a class="nav-link scrollto" href="#info" id="link6"
                                 >Informasi</a
                             >
                         </li>
                         <li>
-                            <a class="nav-link scrollto" href="#qna" id="link5"
+                            <a class="nav-link scrollto" href="#qna" id="link6"
                                 >Q&A</a
+                            >
+                        </li>
+                        <li>
+                            <a class="nav-link scrollto" href="#about" id="link5"
+                                >About Us</a
                             >
                         </li>
                     </ul>
