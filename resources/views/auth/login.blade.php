@@ -314,7 +314,7 @@
         </div>
         <!-- End Home -->
 
-
+        <div id="preloader"></div>
 
         <!-- Vendor JS Files -->
         <script src="assets/vendor/purecounter/purecounter.js"></script>

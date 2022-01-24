@@ -44,7 +44,7 @@
         /> --}}
 
         <!-- Template Main CSS File -->
-        {{-- <link href="assets/css/style.css" rel="stylesheet" /> --}}
+        <link href="assets/css/style.css" rel="stylesheet" />
         <style >
             /* Chrome, Safari, Edge, Opera */
             input::-webkit-outer-spin-button,
@@ -216,6 +216,7 @@
             </div>
         </div>
 
+        <div id="preloader"></div>
 
         {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script>

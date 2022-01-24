@@ -51,7 +51,6 @@ use App\Http\Controllers\LandingController;
 Route::group(['prefix' => '', 'middleware' => ['guest']], function () {
     Route::get('/', [LandingController::class, 'index'])->name('home');
     Route::get('/information/{id}', [LandingController::class, 'information'])->name('information');
-    Route::get('/otp', [LandingController::class, 'otp'])->name('otp-auth');
 });
 
 //user
@@ -231,7 +230,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/settings/complete-tahap2', [SettingController::class, 'completeTahap2'])->name('settings.complete-tahap2');
     Route::post('/settings/complete-tahap3', [SettingController::class, 'completeTahap3'])->name('settings.complete-tahap3');
     Route::post('/settings/complete-tahap4', [SettingController::class, 'completeTahap4'])->name('settings.complete-tahap4');
-    
+
     Route::get('/settings/stage/{id}', [SettingController::class, 'stageEdit'])->name('settings.stage-edit');
     Route::post('/settings/stage/{id}', [SettingController::class, 'stageUpdate'])->name('settings.stage-update');
     Route::delete('/settings/stage/{id}', [SettingController::class, 'stageDelete'])->name('settings.stage-delete');
