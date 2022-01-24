@@ -464,6 +464,38 @@
                       </div>
 
                       <div class="form-group">
+                        <label for="">Bangun Sholat Subuh ? <b>*</b></label>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="pray"
+                            id="pray1"
+                            value="bangun-sendiri"
+                            required
+                            {{ old('pray') == 'bangun-sendiri' ? 'checked' : '' }}
+                          />
+                          <label class="form-check-label" for="pray1">
+                            Bangun Sendiri
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="pray"
+                            id="pray2"
+                            value="dibangunkan"
+                            required
+                            {{ old('pray') == 'dibangunkan' ? 'checked' : '' }}
+                          />
+                          <label class="form-check-label" for="pray2">
+                            Dibangunkan
+                          </label>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
                         <label for="">Punya Pacar atau Tidak ?<b>*</b></label>
                         <div class="form-check">
                           <input
@@ -688,8 +720,9 @@
                             name="mother_id"
                             value="{{ old('mother_id') }}"
                             required
-                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                             placeholder="32010204040000000"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            maxlength="20"
                           />
                         <small class="form-text text-muted">Wajib di isi minimal 16 karakter</small>
                         <small class="form-text text-muted">Kosongkan jika piatu</small>

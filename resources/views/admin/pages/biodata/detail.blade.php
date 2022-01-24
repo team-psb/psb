@@ -160,6 +160,10 @@
                     <td>{{ $biodata->child_to }}</td>
                 </tr>
                 <tr>
+                    <td>Wali</td>
+                    <td>{{ $biodata->choose_guardian }}</td>
+                </tr>
+                <tr>
                     <td>Nama Wali</td>
                     <td>{{ $biodata->guardian }}</td>
                 </tr>
@@ -212,6 +216,10 @@
                 <tr>
                     <td style="width: 280px;">Perokok</td>
                     <td>{{ $biodata->smoker }}</td>
+                </tr>
+                <tr>
+                    <td style="width: 280px;">Bangun Sholat Subuh</td>
+                    <td>{{ $biodata->pray }}</td>
                 </tr>
                 <tr>
                     <td>Punya Pacar</td>

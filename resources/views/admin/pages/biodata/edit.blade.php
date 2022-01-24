@@ -47,7 +47,7 @@
                                     <label class="fw-bold" for="">Tanggal Lahir</label>
                                     <input
                                     type="date"
-                                    class="form-select"
+                                    class="form-control"
                                     value="{{ $biodata->user->biodataOne->birth_date }}"
                                     name="birth_date"
                                     aria-describedby="emailHelp"
@@ -403,6 +403,68 @@
                                 <div class="col-md-6">
                                 {{--  wali --}}
                                 <div class="form-group mb-3">
+                                    <label class="fw-bold">Data Wali</label>
+                                    <div class="d-flex">
+                                    <div class="form-check me-2">
+                                        <label class="form-check-label" for="ayah">
+                                        <input
+                                            class="form-check-input"
+                                            type="radio"
+                                            name="choose_guardian"
+                                            id="ayah"
+                                            value="ayah"
+                                            {{ $biodata->choose_guardian == 'ayah' ? 'checked' : '' }}
+                                            required
+                                        />
+                                        ayah
+                                        </label>
+                                    </div>
+                                    <div class="form-check me-2">
+                                        <label class="form-check-label" for="ibu">
+                                        <input
+                                            class="form-check-input"
+                                            type="radio"
+                                            name="choose_guardian"
+                                            id="ibu"
+                                            value="ibu"
+                                            {{ $biodata->choose_guardian == 'ibu' ? 'checked' : '' }}
+                                            required
+                                        />
+                                        ibu
+                                        </label>
+                                    </div>
+                                    <div class="form-check me-2">
+                                        <label class="form-check-label" for="tidak-ada">
+                                        <input
+                                            class="form-check-input"
+                                            type="radio"
+                                            name="choose_guardian"
+                                            id="tidak-ada"
+                                            value="tidak-ada"
+                                            required
+                                            {{ $biodata->choose_guardian == 'tidak-ada' ? 'checked' : '' }}
+                                        />
+                                        tidak-ada
+                                        </label>
+                                    </div>
+                                    <div class="form-check me-2">
+                                        <label class="form-check-label" for="selain-orang-tua">
+                                        <input
+                                            class="form-check-input"
+                                            type="radio"
+                                            name="choose_guardian"
+                                            id="selain-orang-tua"
+                                            value="selain-orang-tua"
+                                            required
+                                            {{ $biodata->choose_guardian == 'selain-orang-tua' ? 'checked' : '' }}
+                                        />
+                                        selain-orang-tua
+                                        </label>
+                                    </div>
+                                    </div>
+                                </div>
+                                {{-- nama wali --}}
+                                <div class="form-group mb-3">
                                     <label class="fw-bold" for="">Nama Wali</label>
                                     <input
                                         type="text"
@@ -563,6 +625,40 @@
                                     </label>
                                     </div>
                                 </div>
+
+                                {{-- bangun subuh --}}
+                                <div class="form-group mb-3">
+                                    <label class="fw-bold" for="" class="d-block">Bangun Sholat Subuh?</label>
+                                    <div class="form-check">
+                                    <label class="form-check-label" for="pray1">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="pray"
+                                        id="pray1"
+                                        value="bangun-sendiri"
+                                        {{ $biodata->pray == 'bangun-sendiri' ? 'checked' :'' }}
+                                        required
+                                    />
+                                    Bangun Sendiri
+                                    </label>
+                                    </div>
+                                    <div class="form-check" >
+                                    <label class="form-check-label" for="pray2">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="pray"
+                                        id="pray2"
+                                        value="dibangunkan"
+                                        {{ $biodata->pray != 'bangun-sendiri' ? 'checked' :'' }}
+                                        required
+                                    />
+                                    Dibangunkan
+                                    </label>
+                                    </div>
+                                </div>
+                                
                                 {{-- punya pacar --}}
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="" class="d-block">Punya Pacar?</label>
@@ -571,7 +667,7 @@
                                     <input
                                         class="form-check-input"
                                         type="radio"
-                                        name="punya_pacar"
+                                        name="girlfrind"
                                         id="girlfriend_yes"
                                         value="iya"
                                         {{ $biodata->girlfriend == 'iya' ? 'checked' :'' }}
@@ -585,7 +681,7 @@
                                     <input
                                         class="form-check-input"
                                         type="radio"
-                                        name="punya_pacar"
+                                        name="girlfrind"
                                         id="girlfriend_no"
                                         value="tidak"
                                         {{ $biodata->girlfriend != 'iya' ? 'checked' :'' }}
