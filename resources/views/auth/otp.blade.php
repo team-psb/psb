@@ -111,8 +111,24 @@
     </head>
 
     <body>
+        <!-- ======= Background Image ======= -->
+        <div class="d-none d-lg-inline">
+            <img
+                src="{{ asset('./assets/img/logo-bg.png') }}"
+                class="position-absolute"
+                alt="logo"
+                width="1050"
+                style="
+                    z-index: -0;
+                    top: 50px;
+                    left: -450px;
+                "
+            />
+        </div>
+        <!-- ======= End Background Image ======= -->
+
         <div class="d-flex justify-content-center align-items-center container">
-            <div class="card py-5 px-4 text-center shadow position-relative overflow-hidden">
+            <div class="card pt-5 pb-4 px-4 text-center shadow position-relative overflow-hidden">
                 <img
                     src="{{ asset('./assets/img/logo-bg.png') }}"
                     class="position-absolute"
@@ -134,12 +150,12 @@
                     <div class="alert alert-danger">
                         {{ session('gagal-kirim') }} <br>
                     </div>
-                @endif  
+                @endif
                 @if (session('resend-msg'))
                     <div class="alert alert-danger">
                         {{ session('resend-msg') }} <br>
                     </div>
-                @endif  
+                @endif
                 @if (session('alert-login'))
                     <div class="alert alert-danger">
                         {{ session('alert-login') }} <br>
@@ -188,13 +204,13 @@
                     <button class="d-none" id="post1"></button>
                 </form> --}}
 
-                <div>
+                <div class="my-3">
                     <p class="d-block mobile-text" id="countdown">Sisa Waktu :</p>
                     <div class="text-center">
                         <span class="d-block mobile-text" id="resend"></span>
                     </div>
                 </div>
-                <div class="mobile-text">
+                <div style="font-size: 12px; color: #fff;">
                     Copyright &copy; pondok Informatika {{ date('Y') }}
                 </div>
             </div>
@@ -217,7 +233,7 @@
         <script type='text/javascript'>
             var secondsBeforeExpire = 300;
             $("#ExampleButton1").hide();
-            
+
             // This will trigger your timer to begin
             var timer = setInterval(function(){
                 // If the timer has expired, disable your button and stop the timer
@@ -232,11 +248,11 @@
                 else{
                     // Decrement your time remaining
                     secondsBeforeExpire--;
-                    $("#time-remaining").text(secondsBeforeExpire);      
+                    $("#time-remaining").text(secondsBeforeExpire);
                 }
             },1000);
         </script> --}}
-        
+
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
@@ -279,7 +295,7 @@
                 $("#ExampleButton").prop('disabled',true);
                 document.getElementById('resend').innerHTML = 'Belum menerima kode? <a href="{{ route('resend-token', $wa) }}" style="color: #FFAD60;font-weight: bold;" onclick="timer(180)">kirim ulang</a>'
             }
-            timer(180);
+            timer(10);
         </script>
 
         <script>
