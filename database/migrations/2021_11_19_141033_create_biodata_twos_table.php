@@ -52,10 +52,10 @@ class CreateBiodataTwosTable extends Migration
             $table->enum('parent', ['lengkap','ayah','ibu','yatim-piatu']);
             $table->string('father');
             $table->string('father_work');
-            $table->bigInteger('father_id')->nullable();
+            $table->string('father_id')->nullable();
             $table->string('mother');
             $table->string('mother_work');
-            $table->bigInteger('mother_id')->nullable();
+            $table->string('mother_id')->nullable();
             $table->string('parent_income');
             $table->string('child_to');
             $table->string('brother');

@@ -734,11 +734,11 @@
                         <select name="parent_income" class="custom-select">
                           <option value="" disabled selected>-- Pilih --</option>
                           <option value="Kurang dari Rp 500.000" {{ old('parent_income') == 'Kurang dari Rp 500.000' ? 'selected' : '' }}>Kurang dari Rp 500.000</option>
-                          <option value="Rp 500.000 - 1.000.0000.000" {{ old('parent_income') == 'Rp 500.000 - 1.000.0000.000' ? 'selected' : '' }}>Rp 500.000 - 1.000.0000.000</option>
-                          <option value="Rp 1.000.0000.000 - 2.000.0000.000" {{ old('parent_income') == 'Rp 1.000.0000.000 - 2.000.0000.000' ? 'selected' : '' }}>Rp 1.000.0000.000 - 2.000.0000.000</option>
-                          <option value="Rp 2.000.0000.000 - 3.000.0000.000" {{ old('parent_income') == 'Rp 2.000.0000.000 - 3.000.0000.000' ? 'selected' : '' }}>Rp 2.000.0000.000 - 3.000.0000.000</option>
-                          <option value="Rp 3.000.0000.000 - 5.000.0000.000" {{ old('parent_income') == 'Rp 3.000.0000.000 - 5.000.0000.000' ? 'selected' : '' }}>Rp 3.000.0000.000 - 5.000.0000.000</option>
-                          <option value="Rp 5.000.0000.000 - 10.000.0000.000" {{ old('parent_income') == 'Rp 5.000.0000.000 - 10.000.0000.000' ? 'selected' : '' }}>Rp 5.000.0000.000 - 10.000.0000.000</option>
+                          <option value="Rp 500.000 - 1.000.000" {{ old('parent_income') == 'Rp 500.000 - 1.000.000' ? 'selected' : '' }}>Rp 500.000 - 1.000.000</option>
+                          <option value="Rp 1.000.000 - 2.000.000" {{ old('parent_income') == 'Rp 1.000.000 - 2.000.000' ? 'selected' : '' }}>Rp 1.000.000 - 2.000.000</option>
+                          <option value="Rp 2.000.000 - 3.000.000" {{ old('parent_income') == 'Rp 2.000.000 - 3.000.000' ? 'selected' : '' }}>Rp 2.000.000 - 3.000.000</option>
+                          <option value="Rp 3.000.000 - 5.000.000" {{ old('parent_income') == 'Rp 3.000.000 - 5.000.000' ? 'selected' : '' }}>Rp 3.000.000 - 5.000.000</option>
+                          <option value="Rp 5.000.000 - 10.000.000" {{ old('parent_income') == 'Rp 5.000.000 - 10.000.000' ? 'selected' : '' }}>Rp 5.000.000 - 10.000.000</option>
                           <option value="Lebih dari Rp 10.000.000" {{ old('parent_income') == 'Lebih dari Rp 10.000.000' ? 'selected' : '' }}>Lebih dari Rp 10.000.000</option>
                         </select>
                         {{-- <input
