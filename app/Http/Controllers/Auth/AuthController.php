@@ -187,14 +187,14 @@ Atau masuk dilink berikut '.$link];
                 'reciver' => $wa,
                 'message' => 'Selamat anda berhasil *konfirmasi pendaftaran*,
 
-Nama : *'.$user->BiodataOne->full_name.'*
-Tanggal Lahir : *'.date('d-m-Y', strtotime($user->BiodataOne->birth_date)).'*
-Keluarga : *'.$user->BiodataOne->family.'*
-No Wa : *'.$user->phone.'*
-Tanggal Registrasi : '.$user->created_at->format('d-m-Y H:i').' WIB
+                Nama : *'.$user->BiodataOne->full_name.'*
+                Tanggal Lahir : *'.date('d-m-Y', strtotime($user->BiodataOne->birth_date)).'*
+                Keluarga : *'.$user->BiodataOne->family.'*
+                No Wa : *'.$user->phone.'*
+                Tanggal Registrasi : '.$user->created_at->format('d-m-Y H:i').' WIB
 
-Silahkan *Lakukan Tes Selanjutnya*,
-Atau di link : .'.route('user-dashboard')
+                Silahkan *Lakukan Tes Selanjutnya*,
+                Atau di link : .'.route('user-dashboard')
             ];
             sendMessage($data);
 
