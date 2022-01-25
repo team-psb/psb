@@ -41,6 +41,7 @@ class CreateBiodataTwosTable extends Migration
             $table->string('read_book');
             $table->enum('smoker', ['iya', 'tidak']);
             $table->enum('tattoed', ['iya', 'tidak']);
+            $table->enum('pray', ['bangun-sendiri', 'dibangunkan']);
             $table->enum('girlfriend', ['iya', 'tidak']);
             $table->enum('gamer', ['iya', 'tidak']);
             $table->string('game_name')->nullable();

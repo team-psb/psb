@@ -48,7 +48,7 @@
                     <td>{{ $item->gamer }}</td>
                     <td>{{ $item->user->biodataOne->family }}</td>
                     <td>{{ $item->parent }}</td>
-                    <td class="fw-bold">Rp. {{ $item->parent_income }}</td>
+                    <td class="fw-bold">{{ $item->parent_income }}</td>
                     <td> {{ $item->status }}</td>
                 </tr>
             @endforeach

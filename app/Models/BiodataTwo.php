@@ -38,6 +38,7 @@ class BiodataTwo extends Model
         'read_book',
         'smoker',
         'tattoed',
+        'pray',
         'girlfriend',
         'gamer',
         'game_name',
