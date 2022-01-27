@@ -50,7 +50,7 @@
                                             data-remote="{{ route('personals.create') }}"
                                             data-toggle="modal"
                                             data-target="#mymodal"
-                                            data-title="Buat Soal IQ" 
+                                            data-title="Buat Soal Kepribadian"
                                             class="btn btn-primary btn-icon-text p-2"
                                             data-bs-toggle="tooltip" data-bs-placement="bottom" title="Buat Data">
                                             <i class="ti-plus btn-icon-prepend"></i> Buat Data
@@ -98,7 +98,7 @@
                                                             data-remote="{{ route('personals.show', $question->id) }}"
                                                             data-toggle="modal"
                                                             data-target="#mymodal"
-                                                            data-title="Detail Soal Kepribadian {{ $loop->iteration }}" 
+                                                            data-title="Detail Soal Kepribadian {{ $loop->iteration }}"
                                                             class="btn btn-success btn-icon-text p-2"
                                                             data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                             <i class="icon-eye btn-icon-prepend"></i> Detail
@@ -107,7 +107,7 @@
                                                             data-remote="{{ route('personals.edit', $question->id) }}"
                                                             data-toggle="modal"
                                                             data-target="#mymodal"
-                                                            data-title="Edit Soal Kepribadian {{ $loop->iteration }}" 
+                                                            data-title="Edit Soal Kepribadian {{ $loop->iteration }}"
                                                             class="btn ms-1 btn-primary btn-icon-text p-2"
                                                             data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
                                                             <i class="icon-pencil btn-icon-prepend"></i> Edit
@@ -147,7 +147,7 @@
                             </p>
                                 <div class="form-group">
                                     <label for="exampleTextarea1">Soal</label>
-                                    <textarea class="form-control" id="exampleTextarea1" rows="4" style="height: 150px;"></textarea>    
+                                    <textarea class="form-control" id="exampleTextarea1" rows="4" style="height: 150px;"></textarea>
                                 </div>
                                 <table class="w-100" cellpadding="10" cellspacing="10">
                                     <tr>
@@ -294,9 +294,9 @@
         </div>
         </div>
     </div>
-    
-    
-    
+
+
+
 @endsection
 
 @push('after-script')

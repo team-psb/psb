@@ -200,7 +200,7 @@
                     {{-- step 3 --}}
                     <div x-show="form_3">
                       <div class="form-group">
-                        <label for="">Pendidikan Terakhir?<b>*</b></label>
+                        <label for="">Pendidikan Terakhir ?<b>*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -292,7 +292,7 @@
                       <div class="form-group">
                         <label for="organization">Pengalaman Organisasi<b>*</b></label>
                         <textarea name="organization" id="" class="form-control h-50"  required>{{ old('organization') }}</textarea>
-                        <small>Isi 'Tidak Ada' Jika Tidak Ada. </small>
+                        <small>Isi 'tidak ada' jika tidak ada</small>
                       </div>
                       <div class="form-group">
                         <label for="achievment">Prestasi<b>*</b></label>
@@ -349,7 +349,7 @@
                       </div>
                       <div class="form-group">
                         <label for="chaplain_idol"
-                          >Ustadz/Ulama Yang Disukai ?<b>*</b></label
+                          >Ustadz/Ulama yang disukai ?<b>*</b></label
                         >
                         <input
                           type="text"
@@ -388,7 +388,7 @@
                       </div>
                       <div class="form-group">
                         <label for="read_book"
-                          >Buku Bacaan Yang Disukai?<b>*</b></label
+                          >Buku bacaan yang disukai?<b>*</b></label
                         >
                         <input
                           type="text"
@@ -649,7 +649,7 @@
                           value="{{ old('father') }}"
                           required
                         />
-                        <small class="form-text text-muted">Isi 'Tidak ada' jika yatim</small>
+                        <small class="form-text text-muted">Isi 'tidak ada' jika yatim</small>
                       </div>
                       <div class="form-group">
                         <label for="father_work"
@@ -663,7 +663,7 @@
                           value="{{ old('father_work') }}"
                           required
                         />
-                        <small class="form-text text-muted">Isi 'Tidak ada' jika yatim</small>
+                        <small class="form-text text-muted">Isi 'tidak ada' jika yatim</small>
                       </div>
                       <div class="form-group">
                         <label for="father_id"
@@ -680,8 +680,7 @@
                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                           maxlength="20"
                         />
-                        <small class="form-text text-muted">Wajib di isi minimal 16 karakter</small>
-                        <small class="form-text text-muted">Kosongkan jika yatim</small>
+                        <small class="form-text text-muted">Isi minimal 16 karakter dan kosongkan jika yatim</small>
                       </div>
                       <div class="form-group">
                         <label for="mother">Nama Ibu<b>*</b></label>
@@ -693,7 +692,7 @@
                           value="{{ old('mother') }}"
                           required
                         />
-                        <small class="form-text text-muted">Isi 'Tidak ada' jika piatu</small>
+                        <small class="form-text text-muted">Isi 'tidak ada' jika piatu</small>
                       </div>
                       <div class="form-group">
                         <label for="mother_work"
@@ -707,7 +706,7 @@
                           value="{{ old('mother_work') }}"
                           required
                         />
-                        <small class="form-text text-muted">Isi 'Tidak ada' jika piatu</small>
+                        <small class="form-text text-muted">Isi 'tidak ada' jika piatu</small>
                       </div>
                       <div class="form-group">
                           <label for="mother_id"
@@ -724,8 +723,7 @@
                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                             maxlength="20"
                           />
-                        <small class="form-text text-muted">Wajib di isi minimal 16 karakter</small>
-                        <small class="form-text text-muted">Kosongkan jika piatu</small>
+                        <small class="form-text text-muted">Isi minimal 16 karakter dan kosongkan jika piatu</small>
                       </div>
                       <div class="form-group">
                         <label for="parent_income"
@@ -734,11 +732,11 @@
                         <select name="parent_income" class="custom-select">
                           <option value="" disabled selected>-- Pilih --</option>
                           <option value="Kurang dari Rp 500.000" {{ old('parent_income') == 'Kurang dari Rp 500.000' ? 'selected' : '' }}>Kurang dari Rp 500.000</option>
-                          <option value="Rp 500.000 - 1.000.0000.000" {{ old('parent_income') == 'Rp 500.000 - 1.000.0000.000' ? 'selected' : '' }}>Rp 500.000 - 1.000.0000.000</option>
-                          <option value="Rp 1.000.0000.000 - 2.000.0000.000" {{ old('parent_income') == 'Rp 1.000.0000.000 - 2.000.0000.000' ? 'selected' : '' }}>Rp 1.000.0000.000 - 2.000.0000.000</option>
-                          <option value="Rp 2.000.0000.000 - 3.000.0000.000" {{ old('parent_income') == 'Rp 2.000.0000.000 - 3.000.0000.000' ? 'selected' : '' }}>Rp 2.000.0000.000 - 3.000.0000.000</option>
-                          <option value="Rp 3.000.0000.000 - 5.000.0000.000" {{ old('parent_income') == 'Rp 3.000.0000.000 - 5.000.0000.000' ? 'selected' : '' }}>Rp 3.000.0000.000 - 5.000.0000.000</option>
-                          <option value="Rp 5.000.0000.000 - 10.000.0000.000" {{ old('parent_income') == 'Rp 5.000.0000.000 - 10.000.0000.000' ? 'selected' : '' }}>Rp 5.000.0000.000 - 10.000.0000.000</option>
+                          <option value="Rp 500.000 - 1.000.000" {{ old('parent_income') == 'Rp 500.000 - 1.000.0000.000' ? 'selected' : '' }}>Rp 500.000 - 1.000.000</option>
+                          <option value="Rp 1.000.000 - 2.000.000" {{ old('parent_income') == 'Rp 1.000.000 - 2.000.000' ? 'selected' : '' }}>Rp 1.000.000 - 2.000.000</option>
+                          <option value="Rp 2.000.000 - 3.000.000" {{ old('parent_income') == 'Rp 2.000.000 - 3.000.000' ? 'selected' : '' }}>Rp 2.000.000 - 3.000.000</option>
+                          <option value="Rp 3.000.000 - 5.000.000" {{ old('parent_income') == 'Rp 3.000.000 - 5.000.000' ? 'selected' : '' }}>Rp 3.000.000 - 5.000.000</option>
+                          <option value="Rp 5.000.000 - 10.000.000" {{ old('parent_income') == 'Rp 5.000.000 - 10.000.000' ? 'selected' : '' }}>Rp 5.000.000 - 10.000.000</option>
                           <option value="Lebih dari Rp 10.000.000" {{ old('parent_income') == 'Lebih dari Rp 10.000.000' ? 'selected' : '' }}>Lebih dari Rp 10.000.000</option>
                         </select>
                         {{-- <input
@@ -753,7 +751,7 @@
                         /> --}}
                       </div>
                       <div class="form-group">
-                        <label for="child_to">Anak Ke ?<b>*</b></label>
+                        <label for="child_to">Anak ke ?<b>*</b></label>
                         <input
                           type="number"
                           class="form-control"
@@ -766,7 +764,7 @@
                       </div>
                       <div class="form-group">
                         <label for="brother"
-                          >Jumlah Saudara ?<b>*</b></label
+                          >Jumlah saudara ?<b>*</b></label
                         >
                         <input
                           type="number"
@@ -778,7 +776,7 @@
                           required
                         />
                         <small class="form-text text-muted">
-                          Isi '0' Jika Tidak Punya saudara
+                          Isi '0' jika tidak punya saudara
                         </small>
                       </div>
                       <div class="form-group">
@@ -871,7 +869,7 @@
                           required
                         />
                         <small class="form-text text-muted">
-                          Isi '0' Jika Tidak ada wali
+                          Isi '0' jika tidak ada wali
                         </small>
                       </div>
                       <div class="form-group">
@@ -970,7 +968,7 @@
                         <b>*</b>
                         <small
                           >Tolong periksa sekali lagi data yang Anda masukkan, Apakah sudah
-                          benar dan sesuai ? Karena setelah Anda mengirim data tersebut, Anda
+                          benar dan sesuai? Karena setelah Anda mengirim data tersebut, Anda
                           tidak bisa lagi melakukan perubahan terhadap data yang sudah Anda kirim.</small
                         >
                       </div>

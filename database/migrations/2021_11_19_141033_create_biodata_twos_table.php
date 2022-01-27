@@ -59,7 +59,7 @@ class CreateBiodataTwosTable extends Migration
             $table->string('parent_income');
             $table->string('child_to');
             $table->string('brother');
-            $table->string('guardian');
+            $table->string('guardian')->nullable();
             $table->enum('choose_guardian', ['ayah', 'ibu', 'selain-orang-tua', 'tidak-ada']);
             $table->string('no_guardian');
             $table->string('description_guardian')->nullable();
