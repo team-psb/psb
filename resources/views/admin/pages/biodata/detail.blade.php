@@ -171,6 +171,10 @@
                     <td>No Hp Wali</td>
                     <td>{{ $biodata->no_guardian }}</td>
                 </tr>
+                <tr>
+                    <td>Keterangan Wali</td>
+                    <td>{{ $biodata->description_guardian }}</td>
+                </tr>
             </table>
         </div>
     </div>
