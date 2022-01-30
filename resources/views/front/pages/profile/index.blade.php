@@ -136,8 +136,12 @@
                     <td>{{ $profile->user->biodataTwo->parent_income }}</td>
                   </tr>
                   <tr>
+                    <th>Wali</th>
+                    <td>{{ $profile->user->biodataTwo->choose_guardian }}</td>
+                  </tr>
+                  <tr>
                     <th>Nama Wali</th>
-                    <td>{{ $profile->user->biodataTwo->guardian }}</td>
+                    <td>{{ $profile->user->biodataTwo->guardian ? $profile->user->biodataTwo->guardian : '-'  }}</td>
                   </tr>
                   <tr>
                     <th>Kontak Wali</th>
@@ -226,7 +230,7 @@
                     <td>{{ $profile->user->phone }}</td>
                   </tr>
                   <tr>
-                    <th>Link Facebook</th>
+                    <th>Facebook</th>
                     <td>
                       <a target="_blank" href="{{ $profile->user->biodataTwo->facebook }}">{{ $profile->user->biodataTwo->facebook }}</a>
                     </td>
@@ -304,6 +308,10 @@
                   <tr>
                     <th>Merokok</th>
                     <td>{{ $profile->user->biodataTwo->smoker }}</td>
+                  </tr>
+                  <tr>
+                    <th>Bangun sholat subuh</th>
+                    <td>{{ $profile->user->biodataTwo->pray }}</td>
                   </tr>
                   <tr>
                     <th>Punya pacar?</th>
