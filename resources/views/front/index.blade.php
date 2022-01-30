@@ -623,7 +623,7 @@
                     </tr>
                     @endif
                   @endif
-                  
+
                 </tbody>
                 <thead>
                   {{-- selamat --}}
@@ -697,6 +697,11 @@
                 </div>
             </div>
         </section>
+        <!-- ======= Copyright ======= -->
+        <div class="copyright text-center" style="margin: 40px;">
+            &copy; {{ date('Y') }} Copyright <strong><span>Pondok Informatika Al-Madinah</span></strong
+            >.
+        </div>
     </div>
 @endsection
 
@@ -704,10 +709,8 @@
 {{-- AOS --}}
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-    AOS.init();
+        AOS.init();
     </script>
-
-    //Alur
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
     <script>
@@ -788,7 +791,7 @@
       $(document).on('click', '#swal-biodata', function(e){
         e.preventDefault();
         var link = $(this).attr('href');
- 
+
         Swal.fire({
           title: 'Apakah sudah siap?',
           // text: "",

@@ -122,7 +122,7 @@
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Kota<b>*</b></label>
+                        <label for="exampleInputPassword1">Kabupaten/Kota<b>*</b></label>
                         <select name="indonesia_cities_id" class="custom-select" >
                           <template x-for="an in kabupatenids">
                             <option :value="an.id"><span x-html="an.name"></span></option>
@@ -147,7 +147,7 @@
                         required
                       />
                       <small class="form-text text-muted">
-                        Isi 'Tidak Ada' Jika Tidak Punya
+                        Isi 'tidak ada' jika tidak punya
                       </small>
                       </div>
                       <div class="form-group">
@@ -162,7 +162,7 @@
                           required
                         />
                         <small class="form-text text-muted">
-                          Isi 'Tidak Ada' Jika Tidak Punya
+                          Isi 'tidak ada' jika tidak punya
                         </small>
                       </div>
                       <div class="form-group">
@@ -177,7 +177,7 @@
                           required
                         />
                         <small class="form-text text-muted">
-                          Isi 'Tidak Ada' Jika Tidak Punya
+                          Isi 'tidak ada' jika tidak punya
                         </small>
                       </div>
                       <div class="mt-4">
@@ -274,7 +274,7 @@
                         required
                       />
                       </div>
-                      
+
                       <div x-show="education_sma">
                         <div class="form-group">
                           <label for="major">Jurusan<b>*</b></label>
@@ -1036,10 +1036,10 @@
       timer(3600000);
   </script> --}}
 
-  
+
   {{-- sweetalert2 --}}
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.6/dist/sweetalert2.all.min.js"></script>
-  
+
   <script>
     $(document).ready(function() {
     $('form #btn-ok').click(function(e) {
@@ -1067,7 +1067,7 @@
                         'Finished',
                         'Success',
                         'success',
-                    );                     
+                    );
                 $form.submit();
             } else if (
                 result.dismiss === Swal.DismissReason.cancel
