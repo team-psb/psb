@@ -1923,6 +1923,13 @@
                             width="2300"
                             style="z-index: -1; top: 30%; left: 60%; transform: translate(-50%, -50%);"
                         />
+                        <img
+                            src="./assets/img/footer.png"
+                            alt="logo"
+                            class="position-absolute d-none d-xxl-block"
+                            width="2300"
+                            style="z-index: -2; top: 30%; left: 26.8%; transform: translate(-50%, -50%);"
+                        />
                         <div class="row align-items-center">
                             <div class="col-12 col-lg-5 footer-contact mx-auto text-center">
                                 <h4 class="text-uppercase mb-5 title-footer-left"></h4>
