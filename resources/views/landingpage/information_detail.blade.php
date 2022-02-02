@@ -172,7 +172,7 @@
             >
                 <div class="container mb-lg-5 mb-0">
                     <div class="row gy-4">
-                        <div class="col-lg-7">
+                        <div class="col-lg-6">
                             <div class="portfolio-details-sliders">
                                 <div class="align-items-center">
                                     @if ($infodetail->video == null)
@@ -192,7 +192,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-5">
+                        <div class="col-lg-6">
                             <div
                                 class="
                                     portfolio-description
