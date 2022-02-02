@@ -154,7 +154,7 @@
                 "
             >
                 <h1 class="logo">
-                    <a href="#">
+                    <a href="https://pondokinformatika.com/" target="blank">
                         <img
                             src="{{ asset('./assets/img/Logo-Pondok.png') }}"
                             alt="Logo-Pondok"
