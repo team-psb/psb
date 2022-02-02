@@ -487,6 +487,18 @@
                                         required
                                     />
                                 </div>
+                                {{-- keterangan wali --}}
+                                <div class="form-group mb-3">
+                                    <label class="fw-bold" for="">Keterangan Wali</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        value="{{ $biodata->description_guardian }}"
+                                        name="description_guardian"
+                                        aria-describedby="emailHelp"
+                                        required
+                                    />
+                                </div>
                                 {{-- jumlah hafalan --}}
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="">Jumlah Hafalan</label>
