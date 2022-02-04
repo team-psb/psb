@@ -793,7 +793,7 @@
         var link = $(this).attr('href');
 
         Swal.fire({
-          title: 'Apakah sudah siap?',
+          title: 'Sudah siap?',
           // text: "",
           icon: 'warning',
           showCancelButton: true,

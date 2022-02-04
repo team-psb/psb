@@ -78,12 +78,7 @@
                 "
             >
                 <div class="contact-info d-flex align-items-center">
-                    <i class="bi bi-envelope d-flex align-items-center"
-                        ><a
-                            href="pondokitalmadinah@gmail.com"
-                            class="email-address"
-                        ></a
-                    ></i>
+                    <i class="bi bi-envelope d-flex align-items-center"><span class="email-address"></span></i>
                     <i
                         class="
                             bi bi-phone
@@ -91,19 +86,20 @@
                             align-items-center
                             ms-4
                             d-none d-lg-inline
-                            no-hp
                         "
-                        ><span></span
-                    ></i>
+                        ><span class="no-hp"></span>
+                    </i>
                 </div>
                 <div class="social-links d-none d-md-flex align-items-center">
                     <a
                         href="https://www.facebook.com/PondokInformatikaAlmadinah/"
                         class="facebook"
+                        target="blank"
                         ><i class="bi bi-facebook"></i
                     ></a>
                     <a
                         href="https://www.instagram.com/pondokinformatika/?hl=id"
+                        target="blank"
                         class="instagram"
                         ><i class="bi bi-instagram"></i
                     ></a>
@@ -158,7 +154,7 @@
                 "
             >
                 <h1 class="logo">
-                    <a href="#">
+                    <a href="https://pondokinformatika.com/" target="blank">
                         <img
                             src="{{ asset('./assets/img/Logo-Pondok.png') }}"
                             alt="Logo-Pondok"
@@ -292,8 +288,9 @@
                             </a>
                             <span class="mx-2"></span>
                             <a
-                                href="#"
+                                href="https://pondokinformatika.com/psb/"
                                 class="text-decoration-none button-banner2"
+                                target="blank"
                             >
                                 <button
                                     class="
@@ -1214,7 +1211,7 @@
                                     </div>
                                     <h5>{{ $informasi->title }}</h5>
                                     <p>
-                                        {!! Str::limit($informasi->content, 200, '...') !!}
+                                        {!! Str::limit($informasi->content, 80, '...') !!}
                                     </p>
                                     <div class="text-muted mt-2">
                                         <p>{{ Carbon\Carbon::parse($informasi->created_at)->diffForHumans() }}</p>
@@ -1926,6 +1923,13 @@
                             width="2300"
                             style="z-index: -1; top: 30%; left: 60%; transform: translate(-50%, -50%);"
                         />
+                        <img
+                            src="./assets/img/footer.png"
+                            alt="logo"
+                            class="position-absolute d-none d-xxl-block"
+                            width="2300"
+                            style="z-index: -2; top: 30%; left: 26.8%; transform: translate(-50%, -50%);"
+                        />
                         <div class="row align-items-center">
                             <div class="col-12 col-lg-5 footer-contact mx-auto text-center">
                                 <h4 class="text-uppercase mb-5 title-footer-left"></h4>
@@ -2117,7 +2121,7 @@
 
             //Top-Navbar
             gsap.to(".email-address", {
-                text: "pondokitalmadinah@gmail.com",
+                text: " pondokitalmadinah@gmail.com",
                 duration: 2,
                 delay: 2,
             });
