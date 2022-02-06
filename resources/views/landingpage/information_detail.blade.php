@@ -58,12 +58,7 @@
                 "
             >
                 <div class="contact-info d-flex align-items-center">
-                    <i class="bi bi-envelope d-flex align-items-center"
-                        ><a
-                            href="pondokitalmadinah@gmail.com"
-                            class="email-address"
-                        ></a
-                    ></i>
+                    <i class="bi bi-envelope d-flex align-items-center"><span class="email-address"></span></i>
                     <i
                         class="
                             bi bi-phone
@@ -71,9 +66,8 @@
                             align-items-center
                             ms-4
                             d-none d-lg-inline
-                            no-hp
                         "
-                        ><span></span
+                        ><span class="no-hp"></span
                     ></i>
                 </div>
                 <div class="social-links d-none d-md-flex align-items-center">
@@ -107,7 +101,7 @@
                 "
             >
                 <h1 class="logo">
-                    <a href="#">
+                    <a href="https://pondokinformatika.com/" target="blank">
                         <img
                             src="/assets/img/Logo-Pondok.png"
                             alt="Logo-Pondok"
@@ -172,7 +166,7 @@
             >
                 <div class="container mb-lg-5 mb-0">
                     <div class="row gy-4">
-                        <div class="col-lg-7">
+                        <div class="col-lg-6">
                             <div class="portfolio-details-sliders">
                                 <div class="align-items-center">
                                     @if ($infodetail->video == null)
@@ -192,7 +186,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-5">
+                        <div class="col-lg-6">
                             <div
                                 class="
                                     portfolio-description
@@ -200,6 +194,7 @@
                                     px-4
                                     py-5
                                     rounded
+                                    overflow-hidden
                                 "
                             >
                                 <h2>{{ $infodetail->title }}</h2>
@@ -228,6 +223,19 @@
                             z-index: -1;
                             top: 30%;
                             left: 60%;
+                            transform: translate(-50%, -50%);
+                        "
+                    />
+                    <img
+                        src="/assets/img/footer.png"
+                        alt="logo"
+                        class="position-absolute d-none d-xxl-block"
+                        width="2300"
+                        style="
+                            z-index: -2;
+                            top: 30%;
+                            left: 26.8%;
+                            right: 0;
                             transform: translate(-50%, -50%);
                         "
                     />
