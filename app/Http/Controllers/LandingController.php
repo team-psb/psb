@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Schdule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class LandingController extends Controller
 {
@@ -12,10 +13,12 @@ class LandingController extends Controller
         return view('landingpage.index');
     }
 
-    public function information($id)
+    public function information($title)
     {
-        $infodetail =  Schdule::findOrFail($id);
-
+        $title_slug =  Str::slug($title, ' ');
+        $infodetail =  Schdule::where('title', $title_slug.'.')->get()->first();
+        // dd($infodetail);
+        
         return view('landingpage.information_detail', compact('infodetail'));
     }
 }

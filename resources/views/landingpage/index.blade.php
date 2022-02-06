@@ -1207,7 +1207,7 @@
                                 data-aos-delay="100"
                             >
                             <div class="icon-box">
-                                <a href="{{ route('information', $informasi->id) }}" class="text-dark">
+                                <a href="{{ route('information', Str::slug($informasi->title, '-')) }}" class="text-dark">
                                     <div class="icon">
                                         <img src="{{ asset('/storage/'.$informasi->image) }}" alt="thumbnail tutorial" class="img-fluid">
                                         {{-- <i class="bx bxl-dribbble"></i> --}}
