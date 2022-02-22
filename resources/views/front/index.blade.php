@@ -687,7 +687,7 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="text-dark poppins">{{ $schdule->title }}</h5>
-                                    <p>{!! Str::limit($schdule->content, 200, '....') !!}</p>
+                                    <p>{!! Str::limit($schdule->content, 80, '....') !!}</p>
                                 </div>
                             </div>
                         </div>

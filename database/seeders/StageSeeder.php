@@ -16,7 +16,7 @@ class StageSeeder extends Seeder
     {
         Stage::truncate();
 
-        for ($i=1; $i < 5; $i++) { 
+        for ($i=1; $i < 5; $i++) {
             Stage::create([
                 'name' => 'gel-'.$i
             ]);
