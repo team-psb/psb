@@ -1,7 +1,7 @@
 <?php
     function sendMessage($data)
     {
-        $appUrl = "https://wa.mahirtechno.my.id/api/v1/send-message";
+        $appUrl = "https://wa.pondokinformatika.xyz/api/v1/send-message";
         
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_POST, 1);
