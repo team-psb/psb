@@ -15,6 +15,8 @@ use App\Models\ScorePersonal;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+
 
 class UserDashboardController extends Controller
 {
@@ -58,9 +60,12 @@ class UserDashboardController extends Controller
         return view('front.pages.information.index', compact('informations'));
     }
 
-    public function information_detail($id)
+    public function information_detail($title, $id)
     {
-        $information = Schdule::findOrFail($id);
+        // $information = Schdule::findOrFail($id);
+
+        $title_slug =  Str::slug($title, ' ');
+        $information =  Schdule::where('title', $title_slug.'.')->where('id', $id)->get()->first();
 
         return view('front.pages.information.info_detail', compact('information'));
     }

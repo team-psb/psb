@@ -13,11 +13,10 @@ class LandingController extends Controller
         return view('landingpage.index');
     }
 
-    public function information($title)
+    public function information($title, $id)
     {
         $title_slug =  Str::slug($title, ' ');
-        $infodetail =  Schdule::where('title', $title_slug.'.')->get()->first();
-        // dd($infodetail);
+        $infodetail =  Schdule::where('title', $title_slug.'.')->where('id', $id)->get()->first();
         
         return view('landingpage.information_detail', compact('infodetail'));
     }
