@@ -169,19 +169,21 @@
                         <div class="col-lg-6">
                             <div class="portfolio-details-sliders">
                                 <div class="align-items-center">
-                                    @if ($infodetail->video == null)
-                                        <a href="{{ asset('/storage/'.$infodetail->image) }}" class="portfolio-lightbox">
-                                            <img
-                                            src="{{ asset('/storage/'.$infodetail->image) }}"
-                                            alt="image"
-                                            class="img-fluid"
-                                            />
-                                        </a>
-                                    @else
-                                        <div class="responsive">
-                                            <iframe class="responsive-iframe" src="{{ $infodetail->video ? $infodetail->video : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen allow='autoplay'></iframe>
-                                        </div>
-                                    @endif
+                                    @isset($infodetail->video)
+                                        @if ($infodetail->video == null)
+                                            <a href="{{ asset('/storage/'.$infodetail->image) }}" class="portfolio-lightbox">
+                                                <img
+                                                src="{{ asset('/storage/'.$infodetail->image) }}"
+                                                alt="image"
+                                                class="img-fluid"
+                                                />
+                                            </a>
+                                        @else
+                                            <div class="responsive">
+                                                <iframe class="responsive-iframe" src="{{ $infodetail->video ? $infodetail->video : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen allow='autoplay'></iframe>
+                                            </div>
+                                        @endif
+                                    @endisset
                                 </div>
                             </div>
                         </div>

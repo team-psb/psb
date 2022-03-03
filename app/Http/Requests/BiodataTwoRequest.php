@@ -61,10 +61,7 @@ class BiodataTwoRequest extends FormRequest
             'parent_income'=>'required',
             'child_to'=>'required|numeric|min:1|max:100',
             'brother'=>'required|numeric|min:0|max:100',
-<<<<<<< HEAD
-=======
             'guardian',
->>>>>>> db40887a56223478e31fbad4b0c39767a5ede856
             'no_guardian'=>'required',
             'permission_parent'=>'required',
             'have_laptop'=>'required',

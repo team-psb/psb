@@ -674,7 +674,7 @@
                                 <div class="d-flex justify-content-between mb-2">
                                     <p class="text-muted poppins font-italic">{{ $schdule->created_at->format('d-m-Y') }}</p>
                                     <div class="card-header-action">
-                                    <a href="{{ route('user-informasi-detail', $schdule->id) }}" class="btn btn-outline-success">View All</a>
+                                    <a href="{{ route('user-informasi-detail', [Str::slug($schdule->title, '-'), $schdule->id]) }}" class="btn btn-outline-success">View All</a>
                                     </div>
                                 </div>
                                 <div class="chocolat-parent" style="border: 0.1px solid #e0e2e5;">
@@ -687,7 +687,7 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="text-dark poppins">{{ $schdule->title }}</h5>
-                                    <p>{!! Str::limit($schdule->content, 200, '....') !!}</p>
+                                    <p>{!! Str::limit($schdule->content, 80, '....') !!}</p>
                                 </div>
                             </div>
                         </div>

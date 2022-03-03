@@ -760,11 +760,7 @@
                         <select name="parent_income" class="custom-select">
                           <option value="" disabled selected>-- Pilih --</option>
                           <option value="Kurang dari Rp 500.000" {{ old('parent_income') == 'Kurang dari Rp 500.000' ? 'selected' : '' }}>Kurang dari Rp 500.000</option>
-<<<<<<< HEAD
-                          <option value="Rp 500.000 - 1.000.000" {{ old('parent_income') == 'Rp 500.000 - 1.000.0000.000' ? 'selected' : '' }}>Rp 500.000 - 1.000.000</option>
-=======
                           <option value="Rp 500.000 - 1.000.000" {{ old('parent_income') == 'Rp 500.000 - 1.000.000' ? 'selected' : '' }}>Rp 500.000 - 1.000.000</option>
->>>>>>> db40887a56223478e31fbad4b0c39767a5ede856
                           <option value="Rp 1.000.000 - 2.000.000" {{ old('parent_income') == 'Rp 1.000.000 - 2.000.000' ? 'selected' : '' }}>Rp 1.000.000 - 2.000.000</option>
                           <option value="Rp 2.000.000 - 3.000.000" {{ old('parent_income') == 'Rp 2.000.000 - 3.000.000' ? 'selected' : '' }}>Rp 2.000.000 - 3.000.000</option>
                           <option value="Rp 3.000.000 - 5.000.000" {{ old('parent_income') == 'Rp 3.000.000 - 5.000.000' ? 'selected' : '' }}>Rp 3.000.000 - 5.000.000</option>
