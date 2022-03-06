@@ -122,7 +122,7 @@
                                             <td>
                                                 <a 
                                                     href="#mymodal"
-                                                    data-remote="{{ route('biodatas.show', $biodata->id) }}"
+                                                    data-remote="{{ route('biodatas.show', $biodata->user->biodataOne->id) }}"
                                                     data-toggle="modal"
                                                     data-target="#mymodal"
                                                     data-title="Detail Data" 
@@ -171,7 +171,7 @@
                                                         </a>
                                                     @endif
                                                     <a href="#mymodal"
-                                                        data-remote="{{ route('biodatas.show', $biodata->user->biodataTwo->id) }}"
+                                                        data-remote="{{ route('biodatas.show', $biodata->user->biodataOne->id) }}"
                                                         data-toggle="modal"
                                                         data-target="#mymodal"
                                                         data-title="Detail Biodata {{ $biodata->full_name }}" 
