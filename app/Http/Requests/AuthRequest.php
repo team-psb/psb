@@ -31,6 +31,7 @@ class AuthRequest extends FormRequest
             'no_wa'=>'required|unique:biodata_ones,no_wa|min:10|max:15',
             // 'phone'=>'required',
             'password'=>'required|string|min:6|max:20',
+            'password_confirmation'=>'same:password',
             'gender'=>'required',
         ];
     }
@@ -44,6 +45,7 @@ class AuthRequest extends FormRequest
             'no_wa.max' => 'Nomor maksimal 15 digit.',
             'password.min' => 'Minimal password 6 karakter',
             'password.max' => 'Maksimal password 20 karakter',
+            'password_confirmation.same'=>'Password yang anda masukan tidak sama',
         ];
     }
 }

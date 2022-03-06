@@ -33,7 +33,7 @@ class BiodataTwoRequest extends FormRequest
             'tiktok'=>'required',
             'last_education'=>'required',
             'name_school'=>'required',
-            'organization'=>'required|string|min:5|max:225',
+            'organization'=>'required|string|min:4|max:225',
             'achievment'=>'required|string|min:5|max:225',
             'hobby'=>'required|string|min:5|max:225',
             'goal'=>'required|string|min:5|max:225',
@@ -112,7 +112,7 @@ class BiodataTwoRequest extends FormRequest
             'have_laptop.required'=>'Pertanyaan punya laptop wajib di isi !!!',
             'agree.required'=>'required',
 
-            'organization.min'=>'Nama organisasi minimal 5 karakter',
+            'organization.min'=>'Nama organisasi minimal 4 karakter',
             'achievment.min'=>'Pencapaian minimal 5 karakter',
             'hobby.min'=>'Hobi minimal 5 karakter',
             'goal.min'=>'Cita-cita minimal 5 karakter',
