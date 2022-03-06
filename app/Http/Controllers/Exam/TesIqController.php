@@ -31,6 +31,8 @@ class TesIqController extends Controller
             $query->where('is_active', true);
         })->orderBy('id', 'desc')->pluck('id')->first();
         
+        $notif = Setting::get()->first();
+
         if($jawaban != null){
             $jawaban_benar=null;
             $jawaban_salah=null;
@@ -48,6 +50,7 @@ class TesIqController extends Controller
 
             $nilai=$jawaban_benar*2;
 
+
             ScoreIq::create([
                 'user_id' => Auth::user()->id,
                 'stage_id' => $stage_id,
@@ -57,15 +60,10 @@ class TesIqController extends Controller
             $data = [
                 'sender' => Setting::pluck('no_msg'),
                 'reciver' => Auth::user()->phone,
-                'message' => 'Anda telah selesai melaksanakan tes _Tahap Kedua_.
-    
-Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
-    
-Anda baru bisa lanjut mengikuti tes _Tahap Ketiga_ jika dinyatakan lolos di tes _Tahap Kedua_'
-    
-    
+                'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap2
             ];
             sendMessage($data);
+
             return redirect()->route('user-dashboard');
         }else{
             ScoreIq::create([
@@ -77,15 +75,10 @@ Anda baru bisa lanjut mengikuti tes _Tahap Ketiga_ jika dinyatakan lolos di tes 
             $data = [
                 'sender' => Setting::pluck('no_msg'),
                 'reciver' => Auth::user()->phone,
-                'message' => 'Anda telah selesai melaksanakan tes _Tahap Kedua_.
-    
-Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
-    
-Anda baru bisa lanjut mengikuti tes _Tahap Ketiga_ jika dinyatakan lolos di tes _Tahap Kedua_'
-    
-    
+                'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap2
             ];
             sendMessage($data);
+            
             return redirect()->route('user-dashboard');
         }
     }

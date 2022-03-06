@@ -29,18 +29,15 @@ class VideoController extends Controller
         $request->merge(['user_id'=>Auth::user()->id, 'stage_id' => $stage_id, 'academy_year_id'=>$tahun_ajaran]);
         Video::create($request->all());
 
+        $notif = Setting::get()->first();
+
         $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => Auth::user()->phone,
-            'message' => 'Anda telah selesai melaksanakan tes _Tahap Keempat_.
-
-Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
-
-Anda baru bisa lanjut mengikuti tes _Tahap Kelima_ jika dinyatakan lolos di tes _Tahap Keempat_'
-
-
+            'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap4
         ];
         sendMessage($data);
+
         return redirect()->route('user-dashboard');
     }
 }

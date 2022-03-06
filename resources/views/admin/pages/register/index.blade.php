@@ -51,32 +51,32 @@
                                         Aksi Masal
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
-                                        <a class="dropdown-item" href="#" id="lolos">Lolos</a>
-                                        <a class="dropdown-item" href="#" id="no-lolos">Tidak Lolos</a>
+                                        {{-- <a class="dropdown-item" href="#" id="lolos">Lolos</a>
+                                        <a class="dropdown-item" href="#" id="no-lolos">Tidak Lolos</a> --}}
                                         <a class="dropdown-item" href="#" id="del">Hapus</a>
                                     </div>
                                 </div>
                                 <div class="btn-group dropleft d-inline float-right">
-                                    <button type="button" class="btn btn-success btn-icon-text p-2" data-toggle="modal" data-target="#exampleModalIn">
+                                    {{-- <button type="button" class="btn btn-success btn-icon-text p-2" data-toggle="modal" data-target="#exampleModalIn">
                                         <i class="ti-eye btn-icon-prepend"></i> View wide
-                                    </button>
-                                    <a href="{{ route('biodatas.export') }}" class="btn btn-primary btn-icon-text p-2">
+                                    </button> --}}
+                                    {{-- <a href="{{ route('registers.export') }}" class="btn btn-primary btn-icon-text p-2">
                                         <i class="ti-export btn-icon-prepend"></i> Export Excel
-                                    </a>
-                                    <button type="button" class="btn btn-info btn-icon-text p-2" data-toggle="modal" data-target="#exampleModalOut"
+                                    </a> --}}
+                                    {{-- <button type="button" class="btn btn-info btn-icon-text p-2" data-toggle="modal" data-target="#exampleModalOut"
                                     data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filter Data">
                                         <i class="ti-filter  btn-icon-prepend"></i> Filter
-                                    </button>
+                                    </button> --}}
                                 </div>
                             </div>
                         </div>
                         <form method="POST">
                             @csrf
-                            <button class="d-none" formaction="{{ route('biodatas.passAll') }}" id="lolos2"></button>
-                            <button class="d-none" formaction="{{ route('biodatas.nonpassAll') }}" id="no-lolos2"></button>
-                            <button class="d-none" formaction="{{ route('biodatas.deleteAll') }}" id="del2"></button>
+                            {{-- <button class="d-none" formaction="{{ route('biodatas.passAll') }}" id="lolos2"></button>
+                            <button class="d-none" formaction="{{ route('biodatas.nonpassAll') }}" id="no-lolos2"></button> --}}
+                            <button class="d-none" formaction="{{ route('registers.deleteAll') }}" id="del2"></button>
                             <div class="table-responsive">
-                                <table id="myTable" class="table table-hover">
+                                {{-- <table id="myTable" class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>
@@ -122,7 +122,7 @@
                                             <td>
                                                 <a 
                                                     href="#mymodal"
-                                                    data-remote="{{ route('biodatas.show', $biodata->user->biodataOne->id) }}"
+                                                    data-remote="{{ route('biodatas.show', $biodata->id) }}"
                                                     data-toggle="modal"
                                                     data-target="#mymodal"
                                                     data-title="Detail Data" 
@@ -171,10 +171,10 @@
                                                         </a>
                                                     @endif
                                                     <a href="#mymodal"
-                                                        data-remote="{{ route('biodatas.show', $biodata->user->biodataOne->id) }}"
+                                                        data-remote="{{ route('biodatas.show', $biodata->id) }}"
                                                         data-toggle="modal"
                                                         data-target="#mymodal"
-                                                        data-title="Detail Biodata {{ $biodata->full_name }}" 
+                                                        data-title="Detail Biodata {{ $loop->iteration }}" 
                                                         class="btn btn-info btn-icon-text  p-2"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                         <i class="icon-eye btn-icon-prepend"></i> Detail
@@ -190,7 +190,118 @@
                                         </tr>
                                         @endforeach
                                     </tbody>
-                                </table>
+                                </table> --}}
+
+                                <div class="table-responsive  mt-1">
+                                    <table id="myTable" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <div class="form-check form-check-success">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input" id="checkall">
+                                                        </label>
+                                                    </div>
+                                                </th>
+                                                <th>Pendaftar</th>
+                                                <th>Keluarga</th>
+                                                <th>Terdaftar pada</th>
+                                                <th>Status</th>
+                                                <th width="10%">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($registers as $register)
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check form-check-success">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input checkbox" name="ids[{{ $register->id }}]" value="{{ $register->id }}">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex gap-2">
+                                                    <img src="{{ Avatar::create($register->no_wa)->toGravatar(['d' => 'wavatar', 'r' => 'pg', 's' => 100])}}" alt="">
+                                                    <div>
+                                                        <h6>{{ $register->full_name }}</h6>
+                                                        <p>{{ $register->age }} Tahun</p>
+                                                    </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <h6>{{ $register->family }}</h6>
+                                                    <p>{{ $register->no_wa }}</p>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        {{-- <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
+                                                            <p class="text-success">79%</p>
+                                                            <p>85/162</p>
+                                                        </div>
+                                                        <div class="progress progress-md">
+                                                            <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div> --}}
+                                                        {{ \Carbon\Carbon::parse($register->created_at)->diffForHumans() }}
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    @if (isset($register->user->biodataTwo))
+                                                        {{-- @if ($register->user->biodataTwo->status == 'lolos')
+                                                        <div class="badge badge-opacity-success">lolos biodata</div>
+                                                        @elseif ($register->user->biodataTwo->status == 'tidak')
+                                                            <div class="badge badge-opacity-danger">tidak lolos biodata</div>
+                                                        @else()
+                                                            <div class="badge badge-opacity-warning">
+                                                                belum di seleksi 
+                                                                <a href="{{ route('biodatas.index') }}" class="text-decoration-none"><i class="ti-eye"></i></a>
+                                                            </div>
+                                                        @endif --}}
+                                                        <div class="badge badge-opacity-success">Biodata lengkap</div>
+                                                    @else
+                                                        <div class="badge badge-opacity-danger">Biodata tidak lengkap</div>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-end">
+                                                        {{-- @if ($register->status == null)
+                                                            @if ($register->user->biodataOne->family == 'sangat-mampu')
+                                                                <a href="{{ route('biodatas.status', $register->id) }}?status=lolos"
+                                                                    class="btn btn-success btn-icon-text p-2">
+                                                                        <i class="icon-check btn-icon-prepend"></i> Lolos (Interview)
+                                                                </a>
+                                                            @else
+                                                                <a href="{{ route('biodatas.status', $register->id) }}?status=lolos"
+                                                                    class="btn btn-success btn-icon-text p-2">
+                                                                        <i class="icon-check btn-icon-prepend"></i> Lolos
+                                                                </a>
+                                                            @endif
+                                                            <a href="{{ route('biodatas.status', $register->id) }}?status=tidak"
+                                                                class="btn btn-warning mx-1 btn-icon-text p-2">
+                                                                    <i class="icon-close btn-icon-prepend"></i> Tidak Lolos
+                                                            </a>
+                                                        @endif --}}
+                                                        <a href="#mymodal"
+                                                            data-remote="{{ route('biodatas.show', $register->id) }}"
+                                                            data-toggle="modal"
+                                                            data-target="#mymodal"
+                                                            data-title="Detail Biodata {{ $register->full_name }}" 
+                                                            class="btn btn-info btn-icon-text  p-2"
+                                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
+                                                            <i class="icon-eye btn-icon-prepend"></i> Detail
+                                                        </a>
+                                                        <a href="{{ route('registers.edit', $register->id) }}"
+                                                            class="btn ms-1 btn-primary btn-icon-text  p-2"
+                                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                                            <i class="icon-pencil btn-icon-prepend"></i> Edit
+                                                        </a>
+                                                        <button formaction="{{ route('registers.delete', $register->id) }}" class="btn btn-danger btn-icon-text  p-2 ms-1"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                             </div>
                         </form>
                     </div>
@@ -348,12 +459,12 @@
                         <div class="col">
                             <div class="form-group">
                                 <label class="fs-6">Pilih Gelombang</label>
-                                <select name="stage_id" class="form-select">
+                                {{-- <select name="stage_id" class="form-select">
                                     <option value="" >-- pilih gelombang --</option>
                                     @foreach ($stages as $stage)
                                         <option value="{{ $stage->id }}">{{ $stage->name }}</option>
                                     @endforeach
-                                    </select>
+                                </select> --}}
                             </div>
                         </div> 
                     </div>
@@ -426,7 +537,7 @@
                                     {{-- <th width="10%">Action</th> --}}
                                 </tr>
                             </thead>
-                            <tbody>
+                            {{-- <tbody>
                                 @foreach ($biodataswide as $biodata)
                                 <tr class="
                                     {{ $biodata->status == null ? 'text-warning' : '' }}
@@ -474,38 +585,9 @@
                                     <td>
                                         <span class="fw-bold  badge badge-{{ $biodata->status == 'lolos' ? 'success':'' }}{{ $biodata->status == 'tidak' ? 'danger':'' }}">{{ $biodata->status }}</span>
                                     </td>
-                                    {{-- <td>
-                                        <div class="d-flex justify-content-end">
-                                            @if ($biodata->status == null)
-                                                <a href="{{ route('biodatas.status', $biodata->id) }}?status=lolos"
-                                                    class="btn btn-success btn-icon-text p-2">
-                                                        <i class="icon-check btn-icon-prepend"></i> Lolos
-                                                </a>
-                                                <a href="{{ route('biodatas.status', $biodata->id) }}?status=tidak"
-                                                    class="btn btn-warning mx-1 btn-icon-text p-2">
-                                                        <i class="icon-close btn-icon-prepend"></i> Tidak Lolos
-                                                </a>
-                                            @endif
-                                            <a href="#mymodal"
-                                                data-remote="{{ route('biodatas.show', $biodata->id) }}"
-                                                data-toggle="modal"
-                                                data-target="#mymodal"
-                                                data-title="Detail Biodata {{ $loop->iteration }}" 
-                                                class="btn btn-info btn-icon-text  p-2"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
-                                                <i class="icon-eye btn-icon-prepend"></i> Detail
-                                            </a>
-                                            <a href="{{ route('biodatas.edit', $biodata->id) }}"
-                                                class="btn ms-1 btn-primary btn-icon-text  p-2"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
-                                                <i class="icon-pencil btn-icon-prepend"></i> Edit
-                                            </a>
-                                            <button formaction="{{ route('biodatas.delete', $biodata->id) }}" class="btn btn-danger btn-icon-text  p-2 ms-1"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
-                                        </div>
-                                    </td> --}}
                                 </tr>
                                 @endforeach
-                            </tbody>
+                            </tbody> --}}
                         </table>
                     </div>
                 </form>

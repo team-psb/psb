@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Schdule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class SchduleController extends Controller
 {
@@ -53,7 +54,8 @@ class SchduleController extends Controller
             'image' => $image,
             'title' => $request->title,
             'video' => $request->video,
-            'content' => $request->content
+            'content' => $request->content,
+            'slug' =>Str::slug($request->title)
         ]);
         activity()->log('Membuat  data informasi');
 
@@ -117,7 +119,8 @@ class SchduleController extends Controller
             'image' => $image,
             'title' => $request->title,
             'video' => $request->video,
-            'content' => $request->content
+            'content' => $request->content,
+            'slug' => Str::slug($request->title)
         ]);
         activity()->log('Mengedit informasi id '.$id);
 

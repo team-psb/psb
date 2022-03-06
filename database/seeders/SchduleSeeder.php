@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Schdule;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
+use Illuminate\Support\Str;
 
 class SchduleSeeder extends Seeder
 {
@@ -21,9 +22,10 @@ class SchduleSeeder extends Seeder
 
         for ($i=1 ; $i <20 ; $i++) { 
             Schdule::create([
-                'image'=>$faker->randomElement(['img/banner-pondok.jpg','img/banner-pondok1.jpg','img/banner-pondok2.jpg']),
-                'title'=>$faker->sentence(4,true),
-                'video'=>$faker->url,
+                'image'=> $faker->randomElement(['img/banner-pondok.jpg','img/banner-pondok1.jpg','img/banner-pondok2.jpg']),
+                'title'=> $faker->sentence(4,true),
+                'video'=> $faker->url,
+                'slug' => Str::slug('title-information-'.$i),
                 'content'=>$faker->paragraphs(6,true)
             ]);
         }

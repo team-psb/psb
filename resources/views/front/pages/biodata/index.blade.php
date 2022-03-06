@@ -329,7 +329,35 @@
                             @endfor
                           </select>
                           <div class="input-group-append">
-                            <button class="btn btn-danger" id="modal-1"><i class="fas fa-exclamation-circle"></i></button>
+                            <button button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-exclamation-circle"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Modal -->
+                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title text-dark fw-bold" id="exampleModalLabel">Perhatian !</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <span style="font-size: 16px;"><b>Silahkan isi hafalan dengan pembulatan</b></span> <br>
+                              <span class="text-dark" style="font-size: 16px; font-weight: bold;">Contoh :</span> <br>
+                              Jika hafalan = 1 Juz 5 halaman <br>
+                              Maka = dibulatkan menjadi 1 juz 
+
+                              <br>
+                              <br>
+
+                              Jika hafalan = Dibawah 1 juz <br>
+                              Maka = dibulatkan menjadi 0 juz
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -865,6 +893,7 @@
                           class="form-control"
                           id="no_guardian"
                           name="no_guardian"
+                          min="0"
                           value="{{ old('no_guardian') }}"
                           required
                         />
@@ -1048,7 +1077,7 @@
                 confirmButton: 'btn btn-success',
                 cancelButton: 'btn btn-danger'
             },
-            buttonsStyling: false,
+            buttonsStyling: true,
         })
 
         swalWithBootstrapButtons.fire({

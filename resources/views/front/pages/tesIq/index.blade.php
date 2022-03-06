@@ -27,10 +27,17 @@
                                                         <b class="title text-dark">{{ $index+1 }}</b>. 
                                                         @if (isset($item->image))
                                                         <br>
-                                                        <a href="{{ Storage::url($item->image) }}" target="blank">
+                                                        {{-- <a href="{{ Storage::url($item->image) }}" target="blank">
                                                             <img id="myImg" src="{{ Storage::url($item->image) }}" alt="" class="w-50 d-none d-md-block"><br>
                                                             <img id="myImg" src="{{ Storage::url($item->image) }}" alt="" class="w-100 d-sm-block d-md-none"><br>
-                                                        </a>
+                                                        </a> --}}
+                                                        <div class="chocolat-parent">
+                                                            <a href="{{ asset('/storage/'.$item->image) }}" class="chocolat-image" title="Gambar Soal">
+                                                                <div class="">
+                                                                    <img alt="image" src="{{ asset('/storage/'.$item->image) }}" class="img-fluid">
+                                                                </div>
+                                                            </a>
+                                                        </div>
                                                         @endif
 
                                                         {{ $item->question }}
@@ -141,7 +148,9 @@
                                 <div>
                                     {{ $question_iq->links() }}
                                 </div>
-                                <input type="button" id="btn-ok" value="Selesai" class="btn btn-primary float-right px-3 accept"/>
+                                <div class="">
+                                    <input type="button" id="btn-ok" value="Selesai" class="btn btn-primary float-right px-3 accept"/>
+                                </div>
                             </div>
                     </form>
                 <div>
@@ -164,7 +173,7 @@
                 confirmButton: 'btn btn-success',
                 cancelButton: 'btn btn-danger'
             },
-            buttonsStyling: false,
+            buttonsStyling: true,
         })
 
         swalWithBootstrapButtons.fire({
@@ -186,7 +195,7 @@
             ) {
                 swalWithBootstrapButtons.fire(
                     'Dibatalkan !',
-                    'Silahkan dikerjakan kembali :)'
+                    'Silahkan dikerjakan kembali :'
                 );
             }
         });

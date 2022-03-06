@@ -65,6 +65,9 @@
                 $("#birth_date").picky();
             });
         </script>
+
+        <style>
+        </style>
     </head>
 
     <body>
@@ -1205,7 +1208,7 @@
                                 data-aos-delay="100"
                             >
                             <div class="icon-box">
-                                <a href="{{ route('information', Str::slug($informasi->title, '-')) }}" class="text-dark">
+                                <a href="{{ route('information', $informasi->slug) }}" class="text-dark">
                                     <div class="icon">
                                         <img src="{{ asset('/storage/'.$informasi->image) }}" alt="thumbnail tutorial" class="img-fluid">
                                         {{-- <i class="bx bxl-dribbble"></i> --}}
@@ -1961,7 +1964,7 @@
             </div>
         <!-- End Footer -->
 
-        <div id="preloader"></div>
+        <div id="preloader" class="mx-auto align-content-center"></div>
 
         <a
             href="#"
