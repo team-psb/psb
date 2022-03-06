@@ -537,6 +537,7 @@
                                                             @error('full_name') is-invalid @enderror
                                                             value="{{ old('full_name') }}"
                                                         />
+                                                        <p>*wajib diisi</p>
                                                         @error('full_name')
                                                             <div class="invalid-feedback">
                                                                 {{ $message }}
@@ -1936,6 +1937,7 @@
                                 <a
                                     href="https://pondokinformatika.com/"
                                     class="text-decoration-none btn-footer"
+                                    target="blank"
                                 >
                                     <button class="btn rounded-pill px-3 py-2 text-white text-uppercase button-footer-left" style="background: #3adb9f;">Info lebih lanjut</button>
                                 </a>
