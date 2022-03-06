@@ -893,7 +893,8 @@
                           class="form-control"
                           id="no_guardian"
                           name="no_guardian"
-                          value="{{ old('no_guardian') }}"
+                          min="0"
+                          value="{{ old('no_guardian') }} "
                           required
                         />
                         <small class="form-text text-muted">

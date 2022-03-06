@@ -194,7 +194,7 @@ No Wa : *'.$user->phone.'*
 Tanggal Registrasi : '.$user->created_at->format('d-m-Y H:i').' WIB
 
 Silahkan *Lakukan Tes Selanjutnya*,
-Atau di link : .'.route('user-dashboard')
+Atau di link : '.route('user-dashboard')
             ];
             sendMessage($data);
 
