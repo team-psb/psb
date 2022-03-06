@@ -100,7 +100,7 @@ class AuthController extends Controller
         $user = User::create([
             'name'=> $name[0],
             'phone'=>$wa,
-            'password'=>bcrypt($request->password),
+            'password'=>bcrypt($request->password('confirmed')),
             'role'=>'pendaftar',
             'token'=> $token,
         ]);

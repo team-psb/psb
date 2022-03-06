@@ -519,7 +519,7 @@
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >Nama Lengkap</label
+                                                            >Nama Lengkap*</label
                                                         >
                                                         <input
                                                             type="text"
@@ -540,7 +540,6 @@
                                                             @error('full_name') is-invalid @enderror
                                                             value="{{ old('full_name') }}"
                                                         />
-                                                        <p>*wajib diisi</p>
                                                         @error('full_name')
                                                             <div class="invalid-feedback">
                                                                 {{ $message }}
@@ -563,7 +562,7 @@
                                                                 px-3
                                                             "
                                                             >Tanggal
-                                                            Lahir
+                                                            Lahir*
                                                             </label
                                                         >
                                                         <div class="d-flex">
@@ -596,7 +595,7 @@
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >Keluarga</label
+                                                            >Keluarga*</label
                                                         >
                                                         <select
                                                             class="
@@ -654,7 +653,7 @@
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >No Whatsapp
+                                                            >No Whatsapp*
                                                             <br>
                                                             <small style="font-size: 12px;">* Mohon isi dengan nomor Whatsapp aktif yang dapat kami hubungi!.</small>
                                                             </label
@@ -700,7 +699,7 @@
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >Password
+                                                            >Password*
                                                             <br>
                                                             <small style="font-size: 12px;">min 6 karakter max 20 karakter.</small>
                                                             </label
@@ -741,7 +740,7 @@
                                                                 px-3
                                                             "
                                                             >Ulang
-                                                            Password
+                                                            Password*
                                                             <br>
                                                             <small style="font-size: 12px;">min 6 karakter max 20 karakter.</small>
                                                             </label
@@ -830,6 +829,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <label class="form-label text-white px-2 my-3">* wajib diisi</label>
 
                                                 <br />
                                                 @if (is_null($tahun_ajaran))
