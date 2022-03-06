@@ -87,7 +87,7 @@ class BiodataController extends Controller
 
     public function show($id)
     {
-        $biodata = BiodataTwo::findOrFail($id);
+        $biodata = BiodataOne::find($id);
 
         return view('admin.pages.biodata.detail', [
             'biodata' => $biodata
@@ -130,8 +130,8 @@ class BiodataController extends Controller
         ScorePersonal::where('user_id', $data->user_id)->delete();
         Video::where('user_id', $data->user_id)->delete();
         Interview::where('user_id', $data->user_id)->delete();
-        // BiodataOne::where('user_id', $data->user_id)->delete();
-        // User::where('id', $data->user_id)->delete();
+        BiodataOne::where('user_id', $data->user_id)->delete();
+        User::where('id', $data->user_id)->delete();
         
         activity()->log('Menghapus biodata id '.$data->name);
 

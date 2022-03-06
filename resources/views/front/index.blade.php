@@ -659,7 +659,7 @@
                     data-aos-duration="1000"
                     >
                     <i class="fas fa-newspaper" style="font-size: 40px;"></i>
-                    Informasi
+                    Info
                 </h1>
                 <div class="row">
                     @php $aos_delay = 0; @endphp

@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ScoreController;
 use App\Http\Controllers\Admin\PassController;
 use App\Http\Controllers\Admin\InterviewController;
+use App\Http\Controllers\Admin\RegisterController;
 use App\Http\Controllers\Admin\ScoreIqController;
 use App\Http\Controllers\Admin\ScorePersonalController;
 use App\Http\Controllers\Admin\VideoController as AdminVideoController;
@@ -50,7 +51,7 @@ use App\Http\Controllers\LandingController;
 //landingpage
 Route::group(['prefix' => '', 'middleware' => ['guest']], function () {
     Route::get('/', [LandingController::class, 'index'])->name('home');
-    Route::get('/information/{slug}/{id}', [LandingController::class, 'information'])->name('information');
+    Route::get('/information/{slug}', [LandingController::class, 'information'])->name('information');
 });
 
 //user
@@ -62,7 +63,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], functio
     Route::get('qna', [UserDashboardController::class, 'qna'])->name('user-qna');
 
     Route::get('informasi', [UserDashboardController::class, 'information'])->name('user-informasi');
-    Route::get('informasi/{slug}/{id}', [UserDashboardController::class, 'information_detail'])->name('user-informasi-detail');
+    Route::get('informasi/{slug}', [UserDashboardController::class, 'information_detail'])->name('user-informasi-detail');
 
     Route::get('success', function () {
         return view('screens.success');
@@ -117,6 +118,19 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/biodatas/nonpass/all', [BiodataController::class, 'nonpassAll'])->name('biodatas.nonpassAll');
     Route::get('/biodatas/filter/reset', [BiodataController::class, 'filterreset'])->name('biodatas.filter-reset');
     Route::get('/biodatas/export/data', [BiodataController::class, 'export'])->name('biodatas.export');
+
+    Route::get('/registers', [RegisterController::class, 'index'])->name('registers.index');
+    Route::get('/registers/{id}', [RegisterController::class, 'show'])->name('registers.show');
+    // Route::get('/registers/{id}/set-status', [RegisterController::class, 'setStatus'])->name('registers.status');
+    Route::get('/registers/{id}/edit', [RegisterController::class, 'edit'])->name('registers.edit');
+    Route::post('/registers/{id}/biodata-one', [RegisterController::class, 'update'])->name('registers.update');
+    Route::post('/registers/{id}/biodata-two', [RegisterController::class, 'updateTwo'])->name('registers.updateTwo');
+    Route::post('/registers/delete/{id}', [RegisterController::class, 'delete'])->name('registers.delete');
+    Route::post('/registers/delete', [RegisterController::class, 'deleteAll'])->name('registers.deleteAll');
+    // Route::post('/registers/pass/all', [RegisterController::class, 'passAll'])->name('registers.passAll');
+    // Route::post('/registers/nonpass/all', [RegisterController::class, 'nonpassAll'])->name('registers.nonpassAll');
+    // Route::get('/registers/filter/reset', [RegisterController::class, 'filterreset'])->name('registers.filter-reset');
+    Route::get('/registers/export/data', [RegisterController::class, 'export'])->name('registers.export');
 
     Route::get('/scores', [ScoreController::class, 'index'])->name('scores.index');
     Route::get('/scores/{id}/set-status', [ScoreController::class, 'setStatus'])->name('scores.status');

@@ -28,6 +28,9 @@ class TesPersonalController extends Controller
         $stage_id = Stage::whereHas('academy_year', function($query){
             $query->where('is_active', true);
         })->orderBy('id', 'desc')->pluck('id')->first();        
+
+        $notif = Setting::get()->first();
+        
         if($jawaban != null){
             $nilai = 0 ;
             foreach ($jawaban as $key => $value) {
@@ -59,14 +62,9 @@ class TesPersonalController extends Controller
             $data = [
                 'sender' => Setting::pluck('no_msg'),
                 'reciver' => Auth::user()->phone,
-                'message' => 'Anda telah selesai melaksanakan tes _Tahap Ketiga_.
-    
-Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
-    
-Anda baru bisa lanjut mengikuti tes _Tahap Keempat_ jika dinyatakan lolos di tes _Tahap Ketiga_'
-    
-    
+                'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap3
             ];
+
             sendMessage($data);
             return redirect()->route('success');
         }else{
@@ -79,15 +77,10 @@ Anda baru bisa lanjut mengikuti tes _Tahap Keempat_ jika dinyatakan lolos di tes
             $data = [
                 'sender' => Setting::pluck('no_msg'),
                 'reciver' => Auth::user()->phone,
-                'message' => 'Anda telah selesai melaksanakan tes _Tahap Ketiga_.
-    
-Informasi hasil tes akan kami umumkan melalui web dan nomor whatsapp ini, *Pastikan whatsapp selalu aktif*.
-
-Anda baru bisa lanjut mengikuti tes _Tahap Keempat_ jika dinyatakan lolos di tes _Tahap Ketiga_'
-    
-    
+                'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap3
             ];
             sendMessage($data);
+
             return redirect()->route('user-dashboard');
         }
     } 
