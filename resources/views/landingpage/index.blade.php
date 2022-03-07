@@ -836,6 +836,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <label class="form-label text-white px-2 my-3">* wajib diisi</label>
 
                                                 <br />
                                                 @if (is_null($tahun_ajaran))
@@ -1946,6 +1947,7 @@
                                 <a
                                     href="https://pondokinformatika.com/"
                                     class="text-decoration-none btn-footer"
+                                    target="blank"
                                 >
                                     <button class="btn rounded-pill px-3 py-2 text-white text-uppercase button-footer-left" style="background: #3adb9f;">Info lebih lanjut</button>
                                 </a>
