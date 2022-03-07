@@ -39,7 +39,7 @@ class AuthRequest extends FormRequest
     public function messages()
     {
         return [
-            'family.required' => 'Data tidak boleh kosong.',
+            'family.required' => 'Keluarga wajib diisi.',
             'no_wa.unique' => 'Nomor ini sudah terdaftar.',
             'no_wa.min' => 'Wajib diisi 12 digit atau lebih.',
             'no_wa.max' => 'Nomor maksimal 15 digit.',

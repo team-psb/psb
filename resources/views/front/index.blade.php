@@ -265,7 +265,7 @@
                             <div class="card-icon bg-warning">
                                 <i class="fas fa-leaf"></i>
                             </div>
-                            <p class="h1 text-warning font-weight-bold"><u>Informasi</u></p>
+                            <p class="h1 text-warning font-weight-bold"><u>Info</u></p>
                             </div>
                         </a>
                         </div>
@@ -659,7 +659,7 @@
                     data-aos-duration="1000"
                     >
                     <i class="fas fa-newspaper" style="font-size: 40px;"></i>
-                    Info
+                    Informasi
                 </h1>
                 <div class="row">
                     @php $aos_delay = 0; @endphp
@@ -674,7 +674,7 @@
                                 <div class="d-flex justify-content-between mb-2">
                                     <p class="text-muted poppins font-italic">{{ $schdule->created_at->format('d-m-Y') }}</p>
                                     <div class="card-header-action">
-                                    <a href="{{ route('user-informasi-detail', [Str::slug($schdule->title, '-'), $schdule->id]) }}" class="btn btn-outline-success">View All</a>
+                                    <a href="{{ route('user-informasi-detail', $schdule->slug) }}" class="btn btn-outline-success">View All</a>
                                     </div>
                                 </div>
                                 <div class="chocolat-parent" style="border: 0.1px solid #e0e2e5;">

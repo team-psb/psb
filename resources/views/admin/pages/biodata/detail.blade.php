@@ -10,7 +10,7 @@
                 </tr>
                 <tr>
                     <td>Umur</td>
-                    <td>{{ $biodata->age }}</td>
+                    <td>{{ $biodata->age }} Tahun</td>
                 </tr>
                 <tr>
                     <td>Tanggal Lahir</td>
@@ -281,7 +281,7 @@
                 </tr>
                 <tr>
                     <td>Umur</td>
-                    <td>{{ $biodata->age }}</td>
+                    <td>{{ $biodata->age }} Tahun</td>
                 </tr>
                 <tr>
                     <td>Tanggal Lahir</td>

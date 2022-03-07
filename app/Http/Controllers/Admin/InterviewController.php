@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Pass;
 use App\Models\Stage;
 use App\Models\Setting;
+use App\Models\Video;
 use Maatwebsite\Excel\Facades\Excel;
 
 class InterviewController extends Controller
@@ -35,6 +36,11 @@ class InterviewController extends Controller
     public function delete($id)
     {
         $data = Pass::findOrFail($id);
+        $video = Video::where('user_id', $data->user_id)->first();
+        $video->update([
+            'status' => null
+        ]);
+        
         $data->delete();
         activity()->log('Menghapus wawancara id '.$id);
 
@@ -158,7 +164,12 @@ class InterviewController extends Controller
         
         if ($ids != null) {
             foreach ($ids as $id) {
-                Pass::find($id)->delete();
+                $data = Pass::find($id);
+                $video = Video::where('user_id', $data->user_id)->first();
+                $video->update([
+                    'status' => null
+                ]);
+                $data->delete();
             }
             activity()->log('Menghapus semua wawancara');
 

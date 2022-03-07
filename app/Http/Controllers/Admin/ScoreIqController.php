@@ -9,6 +9,8 @@ use App\Models\ScoreIq;
 use App\Models\Setting;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ScoreIqExport;
+use App\Models\BiodataTwo;
+
 class ScoreIqController extends Controller
 {
     public function index()
@@ -38,10 +40,35 @@ class ScoreIqController extends Controller
     public function delete($id)
     {
         $data = ScoreIq::findOrFail($id);
+        $biodataTwo = BiodataTwo::where('user_id', $data->user_id)->first();
+        $biodataTwo->update([
+            'status' => null
+        ]);
         $data->delete();
         activity()->log('Menghapus tes nilai id '.$id);
 
         return back();
+    }
+
+    public function deleteAll(Request $request)
+    {
+        $ids=$request->get('ids');
+        
+        if ($ids != null) {
+            foreach ($ids as $id) {
+                $data = ScoreIq::find($id);
+                $biodataTwo = BiodataTwo::where('user_id', $data->user_id)->first();
+                $biodataTwo->update([
+                    'status' => null
+                ]);
+                $data->delete();
+            }
+        activity()->log('Menghapus semua data tes nilai');
+
+            return redirect()->route('scoreIq.index')->with('success-delete','Berhasil Menghapus Semua Status Data');
+        }else{
+            return redirect()->back();
+        }
     }
 
     public function setStatus(Request $request, $id)
@@ -153,22 +180,6 @@ class ScoreIqController extends Controller
         sendMessage($data);
             }
             return redirect()->route('scoreIq.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
-        }else{
-            return redirect()->back();
-        }
-    }
-
-    public function deleteAll(Request $request)
-    {
-        $ids=$request->get('ids');
-        
-        if ($ids != null) {
-            foreach ($ids as $id) {
-                ScoreIq::find($id)->delete();
-            }
-        activity()->log('Menghapus semua data tes nilai');
-
-            return redirect()->route('scoreIq.index')->with('success-delete','Berhasil Menghapus Semua Status Data');
         }else{
             return redirect()->back();
         }

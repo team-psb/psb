@@ -224,7 +224,7 @@
                                                     <div class="d-flex gap-2">
                                                     <img src="{{ Avatar::create($register->no_wa)->toGravatar(['d' => 'wavatar', 'r' => 'pg', 's' => 100])}}" alt="">
                                                     <div>
-                                                        <h6>{{ $register->full_name }}</h6>
+                                                        <h6 class="text-capitalize">{{ $register->full_name }}</h6>
                                                         <p>{{ $register->age }} Tahun</p>
                                                     </div>
                                                     </div>
@@ -234,16 +234,9 @@
                                                     <p>{{ $register->no_wa }}</p>
                                                 </td>
                                                 <td>
-                                                    <div>
-                                                        {{-- <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                                            <p class="text-success">79%</p>
-                                                            <p>85/162</p>
-                                                        </div>
-                                                        <div class="progress progress-md">
-                                                            <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div> --}}
-                                                        {{ \Carbon\Carbon::parse($register->created_at)->diffForHumans() }}
-                                                    </div>
+                                                    {{-- {{ \Carbon\Carbon::parse($register->created_at)->diffForHumans() }} --}}
+                                                    <h6>{{ $register->created_at->format('d M Y h:i') }}</h6>
+                                                    <p>{{ $register->stage->name }}</p>
                                                 </td>
                                                 <td>
                                                     @if (isset($register->user->biodataTwo))

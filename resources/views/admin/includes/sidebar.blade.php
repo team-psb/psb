@@ -112,6 +112,12 @@
             </li>
             <li class="nav-item nav-category">Pengaturan</li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('admins.index') }}">
+                    <i class="menu-icon mdi mdi-account-settings"></i>
+                    <span class="menu-title">Pengaturan Akun</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('settings.index') }}">
                     <i class="menu-icon mdi mdi-settings"></i>
                     <span class="menu-title">Pengaturan Sistem</span>

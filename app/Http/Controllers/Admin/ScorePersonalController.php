@@ -9,6 +9,7 @@ use App\Models\ScorePersonal;
 use App\Models\Setting;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ScorePersonalExport;
+use App\Models\ScoreIq;
 
 class ScorePersonalController extends Controller
 {
@@ -38,10 +39,35 @@ class ScorePersonalController extends Controller
     public function delete($id)
     {
         $data = ScorePersonal::findOrFail($id);
+        $scoreIq = ScoreIq::where('user_id', $data->user_id)->first();
+        $scoreIq->update([
+            'status' => null
+        ]);
         $data->delete();
         activity()->log('Menghapus tes nilai id '.$id);
 
         return back();
+    }
+
+    public function deleteAll(Request $request)
+    {
+        $ids=$request->get('ids');
+        
+        if ($ids != null) {
+            foreach ($ids as $id) {
+                $data = ScorePersonal::find($id);
+                $scoreIq = ScoreIq::where('user_id', $data->user_id)->first();
+                $scoreIq->update([
+                    'status' => null
+                ]);
+                $data->delete();
+            }
+        activity()->log('Menghapus semua data tes nilai');
+
+            return redirect()->route('scorePersonal.index')->with('success-delete','Berhasil Menghapus Semua Status Data');
+        }else{
+            return redirect()->back();
+        }
     }
 
     public function setStatus(Request $request, $id)
@@ -158,21 +184,6 @@ class ScorePersonalController extends Controller
         }
     }
 
-    public function deleteAll(Request $request)
-    {
-        $ids=$request->get('ids');
-        
-        if ($ids != null) {
-            foreach ($ids as $id) {
-                ScorePersonal::find($id)->delete();
-            }
-        activity()->log('Menghapus semua data tes nilai');
-
-            return redirect()->route('scorePersonal.index')->with('success-delete','Berhasil Menghapus Semua Status Data');
-        }else{
-            return redirect()->back();
-        }
-    }
 
     public function filter()
     {

@@ -427,7 +427,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($biodataswide as $biodata)
+                                @foreach ($biodatas as $biodata)
                                 <tr class="
                                     {{ $biodata->status == null ? 'text-warning' : '' }}
                                     {{ $biodata->status == 'lolos' ? 'text-success' : '' }}

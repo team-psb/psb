@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\VideoExport;
 use App\Http\Controllers\Controller;
 use App\Models\Interview;
+use App\Models\ScorePersonal;
 use App\Models\Stage;
 use App\Models\Video;
 use App\Models\Setting;
@@ -36,10 +37,35 @@ class VideoController extends Controller
     public function delete($id)
     {
         $data = Video::findOrFail($id);
+        $scorePersonal = ScorePersonal::where('user_id', $data->user_id)->first();
+        $scorePersonal->update([
+            'status' => null
+        ]);
         $data->delete();
         activity()->log('Menghapus video id '.$id);
 
         return back()->with('success-delete','Berhasil Menghapus Data');
+    }
+
+    public function deleteAll(Request $request)
+    {
+        $ids=$request->get('ids');
+        
+        if ($ids != null) {
+            foreach ($ids as $id) {
+                $data = Video::find($id);
+                $scorePersonal = ScorePersonal::where('user_id', $data->user_id)->first();
+                $scorePersonal->update([
+                    'status' => null
+                ]);
+                $data->delete();
+            }
+            activity()->log('Menghapus semua data video');
+
+            return redirect()->route('videos.index')->with('success-delete','Berhasil Menghapus Semua Data');
+        }else{
+            return redirect()->back();
+        }
     }
 
     public function lolos($id)
@@ -177,22 +203,6 @@ class VideoController extends Controller
             }
 
             return redirect()->route('videos.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
-        }else{
-            return redirect()->back();
-        }
-    }
-
-    public function deleteAll(Request $request)
-    {
-        $ids=$request->get('ids');
-        
-        if ($ids != null) {
-            foreach ($ids as $id) {
-                Video::find($id)->delete();
-            }
-            activity()->log('Menghapus semua data video');
-
-            return redirect()->route('videos.index')->with('success-delete','Berhasil Menghapus Semua Data');
         }else{
             return redirect()->back();
         }

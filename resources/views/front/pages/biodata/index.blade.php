@@ -143,7 +143,7 @@
                         id="exampleInputPassword1"
                         name="facebook"
                         value="{{ old('facebook') }}"
-                        placeholder="https://www.facebook.com/PondokInformatikaAlmadinah"
+                        placeholder="https://facebook.com/PondokInformatikaAlmadinah"
                         required
                       />
                       <small class="form-text text-muted">
@@ -158,7 +158,7 @@
                           id="exampleInputPassword2"
                           name="instagram"
                           value="{{ old('instagram') }}"
-                          placeholder="https://www.instagram.com/pondokinformatika/"
+                          placeholder="https://instagram.com/pondokinformatika/"
                           required
                         />
                         <small class="form-text text-muted">
@@ -173,7 +173,7 @@
                           id="exampleInputPassword3"
                           name="tiktok"
                           value="{{ old('tiktok') }}"
-                          placeholder="https://www.tiktok.com/@pondokinformatika"
+                          placeholder="https://tiktok.com/pondokinformatika"
                           required
                         />
                         <small class="form-text text-muted">
@@ -787,6 +787,7 @@
                           name="child_to"
                           value="{{ old('child_to') }}"
                           min="0"
+                          placeholder="1"
                           required
                         />
                       </div>
@@ -801,6 +802,7 @@
                           name="brother"
                           value="{{ old('brother') }}"
                           min="0"
+                          placeholder="1"
                           required
                         />
                         <small class="form-text text-muted">
@@ -895,6 +897,7 @@
                           name="no_guardian"
                           min="0"
                           value="{{ old('no_guardian') }}"
+                          placeholder="08582375XXXX"
                           required
                         />
                         <small class="form-text text-muted">

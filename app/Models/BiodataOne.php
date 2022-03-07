@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BiodataOne extends Model
 {
-    use HasFactory, SoftDeletes;
+    // use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $table = 'biodata_ones';
     protected $fillable = [

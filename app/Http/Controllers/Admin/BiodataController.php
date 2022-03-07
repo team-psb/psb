@@ -22,7 +22,6 @@ class BiodataController extends Controller
 {
     public function index()
     {
-        $stages = Stage::get();
         if (request()->get('stage_id') && request()->get('stage_id') != null){
             $data = BiodataTwo::with(['academy_year'=>function($query){
                 $query->where('stage_id','=', request()->get('stage_id'));
@@ -34,7 +33,7 @@ class BiodataController extends Controller
         }
         
         if(request()->get('age') && request()->get('age') != null){
-            $data=$data->whereHas('user',function($query){
+            $data = $data->whereHas('user',function($query){
                 $query->whereHas('biodataOne',function($query2){
                     $query2->where('age','=', request()->get('age'));
                 });
@@ -42,31 +41,31 @@ class BiodataController extends Controller
         }
 
         if(request()->get('parent') && request()->get('parent') != null){
-            $data=$data->where('parent','=',request()->get('parent'));
+            $data = $data->where('parent','=',request()->get('parent'));
         }
 
         if(request()->get('last_education') && request()->get('last_education') != null){
-            $data=$data->where('last_education','=',request()->get('last_education'));
+            $data = $data->where('last_education','=',request()->get('last_education'));
         }
 
         if(request()->get('smoker') && request()->get('smoker') != null){
-            $data=$data->where('smoker','=',request()->get('smoker'));
+            $data = $data->where('smoker','=',request()->get('smoker'));
         }
 
         if(request()->get('girlfriend') && request()->get('girlfriend') != null){
-            $data=$data->where('girlfriend','=',request()->get('girlfriend'));
+            $data = $data->where('girlfriend','=',request()->get('girlfriend'));
         }
 
         if(request()->get('gamer') && request()->get('gamer') != null){
-            $data=$data->where('gamer','=',request()->get('gamer'));
+            $data = $data->where('gamer','=',request()->get('gamer'));
         }
 
         if((request()->get('parent_income_min') && request()->get('parent_income_min') != null) && (request()->get('parent_income_max') && request()->get('parent_income_max') != null)){
-            $data=$data->whereBetween('parent_income',[request()->get('parent_income_min'),request()->get('parent_income_max')]);
+            $data = $data->whereBetween('parent_income',[request()->get('parent_income_min'),request()->get('parent_income_max')]);
         }
 
         if(request()->get('family') && request()->get('family') != null){
-            $data=$data->whereHas('user',function($query){
+            $data = $data->whereHas('user',function($query){
                 $query->whereHas('biodataOne',function($query2){
                     $query2->where('family','=', request()->get('family'));
                 });
@@ -74,15 +73,18 @@ class BiodataController extends Controller
         }
         $data = $data->get();
 
-        $data2 = Score::with(['academy_year'=>function($query){
-            $query->where('is_active','=', true);
-        },'user.biodataOne'])->get();
+        // $data2 = Score::with(['academy_year'=>function($query){
+        //     $query->where('is_active','=', true);
+        // },'user.biodataOne'])->get();
 
-        $biodataswide = BiodataTwo::with(['academy_year'=>function($query){
-            $query->where('is_active','=', true);
-        },'user.biodataOne'])->orderBy('created_at','desc')->get();
+        // $biodataswide = BiodataTwo::with(['academy_year'=>function($query){
+        //     $query->where('is_active','=', true);
+        // },'user.biodataOne'])->orderBy('created_at','desc')->get();
+        
+        $stages = Stage::get();
+        
         $biodatas = $data->where('academy_year','!=', null);
-        return view('admin.pages.biodata.index',compact('biodatas', 'stages', 'biodataswide'));
+        return view('admin.pages.biodata.index',compact('biodatas', 'stages'));
     }
 
     public function show($id)
@@ -133,9 +135,32 @@ class BiodataController extends Controller
         BiodataOne::where('user_id', $data->user_id)->delete();
         User::where('id', $data->user_id)->delete();
         
-        activity()->log('Menghapus biodata id '.$data->name);
+        activity()->log('Menghapus biodata id '.$data->user->name);
 
         return back()->with('success-delete','Berhasil Menghapus Data');
+    }
+
+    public function deleteAll(Request $request)
+    {
+        $ids=$request->get('ids');
+        
+        if ($ids != null) {
+            foreach ($ids as $id) {
+                $data = BiodataTwo::find($id);
+                $data->delete();
+                ScoreIq::where('user_id', $data->user_id)->delete();
+                ScorePersonal::where('user_id', $data->user_id)->delete();
+                Video::where('user_id', $data->user_id)->delete();
+                Interview::where('user_id', $data->user_id)->delete();
+                BiodataOne::where('user_id', $data->user_id)->delete();
+                User::where('id', $data->user_id)->delete();
+            }
+            activity()->log('Menghapus semua biodata');
+
+            return redirect()->route('biodatas.index')->with('success-delete','Berhasil Menghapus Semua Data');
+        }else{
+            return redirect()->back();
+        }
     }
 
     public function setStatus(Request $request, $id)
@@ -275,28 +300,6 @@ class BiodataController extends Controller
         }
     }
 
-    public function deleteAll(Request $request)
-    {
-        $ids=$request->get('ids');
-        
-        if ($ids != null) {
-            foreach ($ids as $id) {
-                $data = BiodataTwo::find($id);
-                $data->delete();
-                ScoreIq::where('user_id', $data->user_id)->delete();
-                ScorePersonal::where('user_id', $data->user_id)->delete();
-                Video::where('user_id', $data->user_id)->delete();
-                Interview::where('user_id', $data->user_id)->delete();
-                // BiodataOne::where('user_id', $data->user_id)->delete();
-                // User::where('id', $data->user_id)->delete();
-            }
-            activity()->log('Menghapus semua biodata');
-
-            return redirect()->route('biodatas.index')->with('success-delete','Berhasil Menghapus Semua Data');
-        }else{
-            return redirect()->back();
-        }
-    }
 
     public function filterreset()
     {

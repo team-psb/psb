@@ -34,19 +34,28 @@ class PassController extends Controller
     public function delete($id)
     {
         $data = Pass::findOrFail($id);
-        $data->delete();
-        activity()->log('Menghapus data calon santri id '.$id);
+        
+        $data->update([
+            'status' => null,
+        ]);
+        // $data->delete();
+        
+        activity()->log('Menghapus data calon santri id '.$data->user->biodataOne->full_name);
 
         return back()->with('success-delete','Berhasil Menghapus Data');
     }
 
     public function deleteAll(Request $request)
     {
-        $ids=$request->get('ids');
+        $ids = $request->get('ids');
         
         if ($ids != null) {
             foreach ($ids as $id) {
-                Pass::find($id)->delete();
+                // Pass::find($id)->delete();
+                $data = Pass::find($id);
+                $data->update([
+                    'status' => null,
+                ]);
             }
         activity()->log('Menghapus semua data calon santri');
 

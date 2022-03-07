@@ -23,7 +23,7 @@
                       $aos_delay = 0;
                     @endphp
                     @forelse ($informations as $information)
-                    <a  href="{{ route('user-informasi-detail', $information->id) }}"
+                    <a  href="{{ route('user-informasi-detail', $information->slug) }}"
                         class="text-decoration-none"
                     >
                       <div  class="card mb-3 shadow-sm"

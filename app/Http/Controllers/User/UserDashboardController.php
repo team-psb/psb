@@ -62,7 +62,7 @@ class UserDashboardController extends Controller
 
     public function information_detail($slug)
     {
-        $infodetail =  Schdule::where('slug', $slug)->first();
+        $information =  Schdule::where('slug', $slug)->first();
         
         return view('front.pages.information.info_detail', compact('information'));
     }

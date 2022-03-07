@@ -14,13 +14,13 @@
           <div class="col">
             <div class="row">
               <div class="card-body">
-                  <div class="responsive">
-                    @if ($information->video == null)
-                        <img src="{{ asset('/storage/'.$information->image) }}" class="card-img-top" alt="...">
-                    @else
-                        <iframe class="responsive-iframe" src="{{ $information->video ? $information->video : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    @endif
-                  </div>
+                  @if ($information->video == null)
+                    <img src="{{ asset('/storage/'.$information->image) }}" class="card-img-top" alt="...">
+                  @else
+                    <div class="responsive">
+                      <iframe class="responsive-iframe" src="{{ $information->video ? $information->video : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  @endif
                   <h5 class="card-title mt-4">{{ $information->title }}</h5>
                   {{-- <h5 class="card-title">{!! $information->video !!}</h5> --}}
                   <p class="card-text">{!! $information->content !!}</p>

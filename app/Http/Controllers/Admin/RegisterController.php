@@ -80,7 +80,7 @@ class RegisterController extends Controller
         BiodataTwo::where('user_id', $data->user_id)->delete();
         User::where('id', $data->user_id)->delete();
         
-        activity()->log('Menghapus biodata id '.$data->name);
+        activity()->log('Menghapus biodata id '.$data->full_name);
 
         return back()->with('success-delete','Berhasil Menghapus Data');
     }

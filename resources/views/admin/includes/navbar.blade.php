@@ -6,7 +6,7 @@
         </button>
       </div>
       <div>
-        <a class="navbar-brand brand-logo" href="index.html">
+        <a class="navbar-brand brand-logo" href="https://pondokinformatika.com/" target="_blank">
           <img src="{{ asset('template/images/Pita_web_logo-1.png') }}" alt="logo" />
         </a>
       </div>

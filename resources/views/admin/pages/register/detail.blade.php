@@ -9,7 +9,7 @@
                 </tr>
                 <tr>
                     <td>Umur</td>
-                    <td>{{ $biodata->user->biodataOne->age }}</td>
+                    <td>{{ $biodata->user->biodataOne->age }} Tahun</td>
                 </tr>
                 <tr>
                     <td>Tanggal Lahir</td>
