@@ -101,12 +101,11 @@
                 "
             >
                 <div class="contact-info d-flex align-items-center">
-                    <i class="bi bi-envelope d-flex align-items-center"
-                        ><a
-                            href="pondokitalmadinah@gmail.com"
+                    <i class="bi bi-envelope d-flex align-items-center">
+                        <span
                             class="email-address"
-                        ></a
-                    ></i>
+                        ></span>
+                    </i>
                     <i
                         class="
                             bi bi-phone
