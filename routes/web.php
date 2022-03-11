@@ -52,7 +52,7 @@ use App\Http\Controllers\LandingController;
 //landingpage
 Route::group(['prefix' => '', 'middleware' => ['guest']], function () {
     Route::get('/', [LandingController::class, 'index'])->name('home');
-    Route::get('/informasi/{slug}', [LandingController::class, 'information'])->name('information');
+    Route::get('/informasi-penerimaan-santri-baru/{id}', [LandingController::class, 'information'])->name('information');
 });
 
 //user
@@ -64,7 +64,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], functio
     Route::get('qna', [UserDashboardController::class, 'qna'])->name('user-qna');
 
     Route::get('informasi', [UserDashboardController::class, 'information'])->name('user-informasi');
-    Route::get('informasi/{slug}', [UserDashboardController::class, 'information_detail'])->name('user-informasi-detail');
+    Route::get('informasi-penerimaan-santri-baru/{id}', [UserDashboardController::class, 'information_detail'])->name('user-informasi-detail');
 
     Route::get('success', function () {
         return view('screens.success');

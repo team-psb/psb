@@ -1215,7 +1215,7 @@
                                 data-aos-delay="100"
                             >
                             <div class="icon-box">
-                                <a href="{{ route('information', $informasi->slug) }}" class="text-dark">
+                                <a href="{{ route('information', $informasi->id) }}" class="text-dark">
                                     <div class="icon">
                                         <img src="{{ asset('/storage/'.$informasi->image) }}" alt="thumbnail tutorial" class="img-fluid">
                                         {{-- <i class="bx bxl-dribbble"></i> --}}
@@ -2529,6 +2529,13 @@
                     y.type = "password";
                 }
             }
+
+            $("#full_name").on('keyup', function(e) {
+                var val = $(this).val();
+            if (val.match(/[^a-zA-Z]/g)) {
+                $(this).val(val.replace(/[^a-zA-Z]/g, ''));
+            }
+            });
         </script>
     </body>
 </html>
