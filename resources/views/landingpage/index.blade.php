@@ -380,7 +380,9 @@
                                             @endif
 
                                             <div class="form-floating">
-                                                <input type="number" name="phone" required class="form-control rounded-pill px-4" id="floatingInput" placeholder="Nomor Handphone" value="{{ old('phone') }}" required>
+                                                <input
+                                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                type="number" name="phone" required class="form-control rounded-pill px-4" id="floatingInput" placeholder="Nomor Handphone" value="{{ old('phone') }}" required>
                                                 <label for="floatingInput" class="px-4">Nomor Handphone</label>
                                             </div>
 
