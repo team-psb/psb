@@ -839,7 +839,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <label class="form-label text-white px-2 my-3">* wajib diisi</label>
 
                                                 <br />
                                                 @if (is_null($tahun_ajaran))
