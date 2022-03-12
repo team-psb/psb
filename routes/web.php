@@ -251,6 +251,6 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::delete('/settings/stage/{id}', [SettingController::class, 'stageDelete'])->name('settings.stage-delete');
 
     Route::get('account', [AdminController::class, 'index'])->name('admins.index');
-    Route::get('account/{id}', [AdminController::class, 'edit'])->name('admins.edit');
+    Route::get('account/{id}/edit', [AdminController::class, 'edit'])->name('admins.edit');
     Route::post('account/{id}', [AdminController::class, 'update'])->name('admins.update');
 });
