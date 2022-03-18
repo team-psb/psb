@@ -49,7 +49,7 @@
 
                             </div>
                             <div class="d-flex justify-content-between mt-3 mx-3">
-                                <a href="{{ {{ route('admins.index') }} }}" class="btn btn-md btn-danger">Back</a>
+                                <a href="{{ route('admins.index') }}" class="btn btn-md btn-danger">Back</a>
                                 <button class="btn btn-md btn-primary">Update</button>
                             </div>
                         </form>
