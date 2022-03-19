@@ -606,6 +606,50 @@
 @endpush
 
 @push('after-script')
+{{-- sweetalert2 --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.6/dist/sweetalert2.all.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+    $('form #btn-ok').click(function(e) {
+        let $form = $(this).closest('form');
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: true,
+        })
+
+        swalWithBootstrapButtons.fire({
+            title: 'Apakah Yakin?',
+            text: "Data akan di hapus permanen, Dan tidak dapat di kembalikan",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya',
+            cancelButtonText: 'Batal',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.value) {
+                swalWithBootstrapButtons.fire(
+                        'Finished',
+                        'Success',
+                        'success',
+                    );
+                $form.submit();
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Dibatalkan !',
+                    'Silahkan untuk mengecek kembali sebelum menghapusnya secara permanen')
+                ;
+            }
+        });
+        });
+    });
+</script>
     <script>
         $(document).ready( function () {
         $('#myTable1').DataTable({

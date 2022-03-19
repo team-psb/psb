@@ -118,7 +118,7 @@ class BiodataController extends Controller
         ]);
 
         $biodata2->update($request->except(['full_name','age','no_wa','family']));
-        activity()->log('Mengedit biodata '.$request->name);
+        activity()->log('Mengedit biodata '.$request->full_name);
 
         return redirect()->route('biodatas.index')->with('success-edit','Data Berhasil Diedit');
     }
@@ -135,7 +135,7 @@ class BiodataController extends Controller
         BiodataOne::where('user_id', $data->user_id)->delete();
         User::where('id', $data->user_id)->delete();
         
-        activity()->log('Menghapus biodata id '.$data->user->name);
+        activity()->log('Menghapus biodata id '.$id);
 
         return back()->with('success-delete','Berhasil Menghapus Data');
     }

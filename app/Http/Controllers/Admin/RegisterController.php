@@ -44,7 +44,7 @@ class RegisterController extends Controller
             'family'=>$request->family
         ]);
 
-        activity()->log('Mengedit biodata '.$request->name);
+        activity()->log('Mengedit biodata '.$request->full_name);
 
         return redirect()->route('registers.index')->with('success-edit','Data Berhasil Diedit');
     }
@@ -62,7 +62,7 @@ class RegisterController extends Controller
         ]);
 
         $biodata2->update($request->except(['full_name','age','no_wa','family']));
-        activity()->log('Mengedit biodata '.$request->name);
+        activity()->log('Mengedit biodata '.$request->full_name);
 
         return redirect()->route('registers.index')->with('success-edit','Data Berhasil Diedit');
     }
@@ -80,7 +80,7 @@ class RegisterController extends Controller
         BiodataTwo::where('user_id', $data->user_id)->delete();
         User::where('id', $data->user_id)->delete();
         
-        activity()->log('Menghapus biodata id '.$data->full_name);
+        activity()->log('Menghapus biodata id '.$id);
 
         return back()->with('success-delete','Berhasil Menghapus Data');
     }
@@ -102,7 +102,7 @@ class RegisterController extends Controller
             }
             activity()->log('Menghapus semua biodata');
 
-            return redirect()->route('biodatas.index')->with('success-delete','Berhasil Menghapus Semua Data');
+            return redirect()->back()->with('success-delete','Berhasil Menghapus Semua Data');
         }else{
             return redirect()->back();
         }

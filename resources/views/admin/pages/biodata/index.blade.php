@@ -185,6 +185,7 @@
                                                         <i class="icon-pencil btn-icon-prepend"></i> Edit
                                                     </a>
                                                     <button formaction="{{ route('biodatas.delete', $biodata->id) }}" class="btn btn-danger btn-icon-text  p-2 ms-1"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
+
                                                 </div>
                                             </td>
                                         </tr>
