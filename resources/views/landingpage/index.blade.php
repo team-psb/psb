@@ -656,7 +656,7 @@
                                                             </label
                                                         >
                                                         <input
-                                                            type="text"
+                                                            type="number"
                                                             class="
                                                                 form-control
                                                                 form-control-lg

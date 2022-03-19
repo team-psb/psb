@@ -4,7 +4,7 @@
 
 @section('content')
     <style>
-      b{
+      #required{
         color: red;
       }
 
@@ -90,7 +90,7 @@
 
                       <div class="form-group">
                         <label for="exampleInputPassword1"
-                          >Tempat Lahir<b>*</b></label
+                          >Tempat Lahir<b id="required">*</b></label
                         >
                         <input
                           type="text"
@@ -104,7 +104,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1"
-                          >Alamat Lengkap<b>*</b></label
+                          >Alamat Lengkap<b id="required">*</b></label
                         >
                         <textarea
                           name="address"
@@ -114,7 +114,7 @@
                         >{{ old('address') }}</textarea>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Provinsi<b>*</b></label>
+                        <label for="exampleInputPassword1">Provinsi<b id="required">*</b></label>
                         <select name="indonesia_provinces_id" class="custom-select" x-on:change="getKabupaten(provin_id)" x-model="provin_id">
                           @foreach ($provinsi as $provin)
                               <option value="{{ $provin->code }}">{{ $provin->name }}</option>
@@ -122,12 +122,17 @@
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Kabupaten/Kota<b>*</b></label>
+                        <label for="exampleInputPassword1">Kabupaten/Kota<b id="required">*</b></label>
                         <select name="indonesia_cities_id" class="custom-select" >
                           <template x-for="an in kabupatenids">
                             <option :value="an.id"><span x-html="an.name"></span></option>
                           </template>
                         </select>
+                      </div>
+                      <div class="my-3">
+                        <small>
+                          <b id="required">*</b>) Wajib diisi!
+                        </small>
                       </div>
                       <button type="button" x-on:click="form1Button()" class="btn btn-primary float-right px-3">
                         Selanjutnya
@@ -136,48 +141,44 @@
                     {{-- step 2 --}}
                     <div x-show="form_2">
                       <div class="form-group">
-                      <label for="exampleInputPassword1">Facebook<b>*</b></label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="exampleInputPassword1"
-                        name="facebook"
-                        value="{{ old('facebook') }}"
-                        placeholder="https://www.facebook.com/PondokInformatikaAlmadinah"
-                        required
-                      />
-                      <small class="form-text text-muted">
-                        Isi 'tidak ada' jika tidak punya
-                      </small>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword2">Instagram<b>*</b></label>
+                      <label for="exampleInputPassword1">Facebook<b id="required">*</b></label>
                         <input
                           type="text"
                           class="form-control"
-                          id="exampleInputPassword2"
-                          name="instagram"
-                          value="{{ old('instagram') }}"
-                          placeholder="https://www.instagram.com/pondokinformatika/"
+                          id="exampleInputPassword1"
+                          name="facebook"
+                          value="{{ old('facebook') }}"
                           required
                         />
-                        <small class="form-text text-muted">
-                          Isi 'tidak ada' jika tidak punya
-                        </small>
+                      <small>Isi "tidak ada" jika tidak punya</small>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword3">Tiktok<b>*</b></label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="exampleInputPassword3"
-                          name="tiktok"
-                          value="{{ old('tiktok') }}"
-                          placeholder="https://www.tiktok.com/@pondokinformatika"
-                          required
-                        />
-                        <small class="form-text text-muted">
-                          Isi 'tidak ada' jika tidak punya
+                        <label for="exampleInputPassword2">Instagram<b id="required">*</b></label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="exampleInputPassword2"
+                            name="instagram"
+                            value="{{ old('instagram') }}"
+                            required
+                          />
+                        <small>Isi "tidak ada" jika tidak punya</small>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword3">Tiktok<b id="required">*</b></label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="exampleInputPassword3"
+                            name="tiktok"
+                            value="{{ old('tiktok') }}"
+                            required
+                          />
+                        <small>Isi "tidak ada" jika tidak punya</small>
+                      </div>
+                      <div class="my-3">
+                        <small>
+                          <b id="required">*</b>) Wajib diisi!
                         </small>
                       </div>
                       <div class="mt-4">
@@ -200,7 +201,7 @@
                     {{-- step 3 --}}
                     <div x-show="form_3">
                       <div class="form-group">
-                        <label for="">Pendidikan Terakhir ?<b>*</b></label>
+                        <label for="">Pendidikan Terakhir ?<b id="required">*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -264,7 +265,7 @@
                       </div>
 
                       <div class="form-group">
-                      <label for="name_school">Asal Sekolah<b>*</b></label>
+                      <label for="name_school">Asal Sekolah<b id="required">*</b></label>
                       <input
                         type="text"
                         class="form-control"
@@ -273,11 +274,12 @@
                         value="{{ old('name_school') }}"
                         required
                       />
+                      <small>Isi "tidak ada" jika tidak sekolah</small>
                       </div>
 
                       <div x-show="education_sma">
                         <div class="form-group">
-                          <label for="major">Jurusan<b>*</b></label>
+                          <label for="major">Jurusan<b id="required">*</b></label>
                           <input
                             type="text"
                             class="form-control"
@@ -286,35 +288,37 @@
                             value="{{ old('major') }}"
                             required
                           />
-                        </div>
+                      </div>
                       </div>
 
                       <div class="form-group">
-                        <label for="organization">Pengalaman Organisasi<b>*</b></label>
+                        <label for="organization">Pengalaman Organisasi<b id="required">*</b></label>
                         <textarea name="organization" id="" class="form-control h-50"  required>{{ old('organization') }}</textarea>
-                        <small>Isi 'tidak ada' jika tidak ada</small>
+                        <small>Isi "tidak ada" jika tidak ada organisasi</small>
                       </div>
                       <div class="form-group">
-                        <label for="achievment">Prestasi<b>*</b></label>
+                        <label for="achievment">Prestasi<b id="required">*</b></label>
                         <textarea name="achievment" id="" class="form-control h-50"  required>{{ old('achievment') }}</textarea>
+                        <small>Isi "tidak ada" jika tidak ada prestasi</small>
                       </div>
                       <div class="form-group">
-                        <label for="hobby">Hobi<b>*</b></label>
+                        <label for="hobby">Hobi<b id="required">*</b></label>
                         <textarea name="hobby" id="" class="form-control h-50"  required>{{ old('hobby') }}</textarea>
                       </div>
                       <div class="form-group">
-                        <label for="goal">Cita-Cita<b>*</b></label>
+                        <label for="goal">Cita-Cita<b id="required">*</b></label>
                         <textarea name="goal" id="" class="form-control h-50"  required>{{ old('goal') }}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="skill"
-                          >Skill/Kelebihan<b>*</b></label
+                          >Skill/Kelebihan<b id="required">*</b></label
                         >
                         <textarea name="skill" id="" class="form-control h-50"  required>{{ old('skill') }}</textarea>
+                        <small>Isi "tidak ada" jika tidak ada skill</small>
                       </div>
                       <div class="form-group">
                         <label for="memorization"
-                          >Jumlah hafalan Al-Qur'an yang pernah disetorkan<b>*</b></label
+                          >Jumlah hafalan Al-Qur'an yang pernah disetorkan<b id="required">*</b></label
                         >
                         <div class="input-group mb-3">
                           <select
@@ -344,16 +348,16 @@
                               </button>
                             </div>
                             <div class="modal-body">
-                              <span style="font-size: 16px;"><b>Silahkan isi hafalan dengan pembulatan</b></span> <br>
+                              <span style="font-size: 16px;"><b id="required">Silahkan isi hafalan dengan pembulatan</b></span> <br>
                               <span class="text-dark" style="font-size: 16px; font-weight: bold;">Contoh :</span> <br>
-                              Jika hafalan = 1 Juz 5 halaman <br>
+                              Jika hafalanmu 1 Juz 9 lembar dan belum mencapai 2 juz<br>
                               Maka = dibulatkan menjadi 1 juz 
 
                               <br>
                               <br>
 
-                              Jika hafalan = Dibawah 1 juz <br>
-                              Maka = dibulatkan menjadi 0 juz
+                              Jika hafalan dibawah 1 juz <br>
+                              Isi 0 juz
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -364,7 +368,7 @@
 
                       <div class="form-group">
                         <label for="figure_idol"
-                          >Tokoh Idola<b>*</b></label
+                          >Tokoh Idola<b id="required">*</b></label
                         >
                         <input
                           type="text"
@@ -377,7 +381,7 @@
                       </div>
                       <div class="form-group">
                         <label for="chaplain_idol"
-                          >Ustadz/Ulama yang disukai ?<b>*</b></label
+                          >Ustadz/Ulama yang disukai ?<b id="required">*</b></label
                         >
                         <input
                           type="text"
@@ -390,7 +394,7 @@
                       </div>
                       <div class="form-group">
                         <label for="tauhid"
-                          >Dimana Allah ?<b>*</b></label
+                          >Dimana Allah ?<b id="required">*</b></label
                         >
                         <input
                           type="text"
@@ -403,7 +407,7 @@
                       </div>
                       <div class="form-group">
                         <label for="study_islamic"
-                          >Pengajian yang sering dihadiri ?<b>*</b></label
+                          >Pengajian yang sering dihadiri ?<b id="required">*</b></label
                         >
                         <input
                           type="text"
@@ -416,7 +420,7 @@
                       </div>
                       <div class="form-group">
                         <label for="read_book"
-                          >Buku bacaan yang disukai?<b>*</b></label
+                          >Buku bacaan yang disukai?<b id="required">*</b></label
                         >
                         <input
                           type="text"
@@ -428,7 +432,7 @@
                         />
                       </div>
                       <div class="form-group">
-                        <label for="">Merokok atau Tidak ? <b>*</b></label>
+                        <label for="">Merokok atau Tidak ? <b id="required">*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -460,7 +464,7 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="">Punya Tato atau Tidak ? <b>*</b></label>
+                        <label for="">Punya Tato atau Tidak ? <b id="required">*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -492,7 +496,7 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="">Bangun Sholat Subuh ? <b>*</b></label>
+                        <label for="">Bangun Sholat Subuh ? <b id="required">*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -524,7 +528,7 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="">Punya Pacar atau Tidak ?<b>*</b></label>
+                        <label for="">Punya Pacar atau Tidak ?<b id="required">*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -555,7 +559,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="">Suka Game atau Tidak? <b>*</b></label>
+                        <label for="">Suka Game atau Tidak? <b id="required">*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -621,22 +625,27 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1"
-                          >Alasan Mendaftar <b>*</b></label
+                          >Alasan Mendaftar <b id="required">*</b></label
                         >
                         <textarea name="reason_registration" id="" class="form-control h-50" required>{{ old('reason_registration') }}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1"
                           >Ceritakan kegiatan Anda dari Pagi sampai Malam
-                          <b>*</b></label
+                          <b id="required">*</b></label
                         >
                         <textarea name="activity" id="" class="form-control h-50" required>{{ old('activity') }}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1"
-                          >Ceritakan dengan singkat kepribadian Anda <b>*</b></label
+                          >Ceritakan dengan singkat kepribadian Anda <b id="required">*</b></label
                         >
                         <textarea name="personal" id="" class="form-control h-50"  required>{{ old('personal') }}</textarea>
+                      </div>
+                      <div class="my-3">
+                        <small>
+                          <b id="required">*</b>) Wajib diisi!
+                        </small>
                       </div>
                       <div class="mt-4">
                         <button
@@ -658,7 +667,7 @@
                     {{-- step 4 --}}
                     <div x-show="form_4">
                       <div class="form-group">
-                        <label for="">Orang Tua<b>*</b></label>
+                        <label for="">Orang Tua<b id="required">*</b></label>
                         <select name="parent" class="custom-select">
                           <option value="" disabled selected>-- Pilih --</option>
                           <option value="lengkap" {{ old('parent') == 'lengkap' ? 'selected' : '' }}>Lengkap</option>
@@ -668,7 +677,7 @@
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for="father">Nama Ayah<b>*</b></label>
+                        <label for="father">Nama Ayah<b id="required">*</b></label>
                         <input
                           type="text"
                           class="form-control"
@@ -677,11 +686,11 @@
                           value="{{ old('father') }}"
                           required
                         />
-                        <small class="form-text text-muted">Isi 'tidak ada' jika yatim</small>
+                        <small class="form-text text-muted">Isi "tidak ada"</b> jika yatim</small>
                       </div>
                       <div class="form-group">
                         <label for="father_work"
-                          >Pekerjaan Ayah<b>*</b></label
+                          >Pekerjaan Ayah<b id="required">*</b></label
                         >
                         <input
                           type="text"
@@ -691,11 +700,11 @@
                           value="{{ old('father_work') }}"
                           required
                         />
-                        <small class="form-text text-muted">Isi 'tidak ada' jika yatim</small>
+                        <small class="form-text text-muted">Isi "tidak ada"</b> jika yatim</small>
                       </div>
                       <div class="form-group">
                         <label for="father_id"
-                          >NIK Ayah<b>*</b></label
+                          >NIK Ayah<b id="required">*</b></label
                         >
                         <input
                           type="number"
@@ -708,10 +717,11 @@
                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                           maxlength="20"
                         />
-                        <small class="form-text text-muted">Isi minimal 16 karakter dan kosongkan jika yatim</small>
+                        <small class="form-text text-muted">Isi minimal 16 karakter</small>
+                        <small class="form-text text-muted">Isi "0"</b> jika yatim</small>
                       </div>
                       <div class="form-group">
-                        <label for="mother">Nama Ibu<b>*</b></label>
+                        <label for="mother">Nama Ibu<b id="required">*</b></label>
                         <input
                           type="text"
                           class="form-control"
@@ -720,11 +730,11 @@
                           value="{{ old('mother') }}"
                           required
                         />
-                        <small class="form-text text-muted">Isi 'tidak ada' jika piatu</small>
+                        <small class="form-text text-muted">Isi "tidak ada"</b> jika piatu</small>
                       </div>
                       <div class="form-group">
                         <label for="mother_work"
-                          >Pekerjaan Ibu<b>*</b></label
+                          >Pekerjaan Ibu<b id="required">*</b></label
                         >
                         <input
                           type="text"
@@ -734,11 +744,11 @@
                           value="{{ old('mother_work') }}"
                           required
                         />
-                        <small class="form-text text-muted">Isi 'tidak ada' jika piatu</small>
+                        <small class="form-text text-muted">Isi "tidak ada"</b> jika piatu</small>
                       </div>
                       <div class="form-group">
                           <label for="mother_id"
-                            >NIK Ibu<b>*</b></label
+                            >NIK Ibu<b id="required">*</b></label
                           >
                           <input
                             type="number"
@@ -751,11 +761,12 @@
                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                             maxlength="20"
                           />
-                        <small class="form-text text-muted">Isi minimal 16 karakter dan kosongkan jika piatu</small>
+                        <small class="form-text text-muted">Isi minimal 16 karakter</small>
+                        <small class="form-text text-muted">Isi "0"</b> jika piatu</small>
                       </div>
                       <div class="form-group">
                         <label for="parent_income"
-                          >Total Penghasilan Orang Tua Perbulan<b>*</b></label
+                          >Total Penghasilan Orang Tua Perbulan<b id="required">*</b></label
                         >
                         <select name="parent_income" class="custom-select">
                           <option value="" disabled selected>-- Pilih --</option>
@@ -779,7 +790,7 @@
                         /> --}}
                       </div>
                       <div class="form-group">
-                        <label for="child_to">Anak ke ?<b>*</b></label>
+                        <label for="child_to">Anak ke ?<b id="required">*</b></label>
                         <input
                           type="number"
                           class="form-control"
@@ -792,7 +803,7 @@
                       </div>
                       <div class="form-group">
                         <label for="brother"
-                          >Jumlah saudara ?<b>*</b></label
+                          >Jumlah saudara ?<b id="required">*</b></label
                         >
                         <input
                           type="number"
@@ -803,12 +814,10 @@
                           min="0"
                           required
                         />
-                        <small class="form-text text-muted">
-                          Isi '0' jika tidak punya saudara
-                        </small>
+                        <small class="form-text text-muted">Isi "0"</b> jika tidak punya saudara</small>
                       </div>
                       <div class="form-group">
-                        <label for="">Data Wali<b>*</b></label>
+                        <label for="">Data Wali<b id="required">*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -872,7 +881,7 @@
                       </div>
                       <div x-show="guardian_choose">
                         <div class="form-group">
-                          <label for="guardian">Nama Wali (Hubungan)<b>*</b></label>
+                          <label for="guardian">Nama Wali (Hubungan)<b id="required">*</b></label>
                           <input
                             type="text"
                             class="form-control"
@@ -886,7 +895,7 @@
                       </div>
                       <div class="form-group">
                         <label for="no_guardian"
-                          >Nomor Kontak Orang Tua/Wali ?<b>*</b></label
+                          >Nomor Kontak Orang Tua/Wali ?<b id="required">*</b></label
                         >
                         <input
                           type="number"
@@ -896,9 +905,8 @@
                           value="{{ old('no_guardian') }}"
                           required
                         />
-                        <small class="form-text text-muted">
-                          Isi '0' jika tidak ada wali
-                        </small>
+                        <small class="form-text text-muted">Isi "0"</b> jika tidak ada wali</small>
+
                       </div>
                       <div class="form-group">
                         <label for="description_guardian"
@@ -912,7 +920,7 @@
                         >{{ old('description_guardian') }}</textarea>
                       </div>
                       <div class="form-group">
-                        <label for="">Izin Orang Tua atau Tidak ?<b>*</b></label>
+                        <label for="">Izin Orang Tua atau Tidak ?<b id="required">*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -943,7 +951,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="">Punya Laptop atau Tidak ?<b>*</b></label>
+                        <label for="">Punya Laptop atau Tidak ?<b id="required">*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -976,7 +984,7 @@
                       <div class="form-group mt-4">
                         <label for=""
                           >Demi Allah, Saya bersumpah semua informasi ini benar.
-                          <b>*</b></label
+                          <b id="required">*</b></label
                         >
                         <div class="form-check">
                           <input
@@ -993,12 +1001,14 @@
                         </div>
                       </div>
                       <div class="my-5">
-                        <b>*</b>
-                        <small
-                          >Tolong periksa sekali lagi data yang Anda masukkan, Apakah sudah
+                        <small><b id="required">*</b>) Wajib diisi!</small>
+                        <br>
+                        <b id="required">*</b>
+                        <small>
+                          Silahkan periksa sekali lagi data yang Anda masukkan, Apakah sudah
                           benar dan sesuai? Karena setelah Anda mengirim data tersebut, Anda
-                          tidak bisa lagi melakukan perubahan terhadap data yang sudah Anda kirim.</small
-                        >
+                          tidak bisa lagi melakukan perubahan terhadap data yang sudah Anda kirim.
+                        </small>
                       </div>
                       <div class="mt-4">
                         <button
