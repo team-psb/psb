@@ -42,7 +42,7 @@
                         <div class="col-sm-12">
                             <div class="statistics-details d-flex align-items-center justify-content-between">
                                 <div>
-                                    <p class="statistics-title">Jumlah Pendaftar Hari Ini</p>
+                                    <p class="statistics-title">Jumlah Semua Pendaftar</p>
                                     <h3 class="rate-percentage">{{ $pendaftar }}</h3>
                                     {{-- <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p> --}}
                                 </div>
@@ -103,7 +103,7 @@
                                             <h4 class="card-title card-title-dash text-white mb-4">Total Pendaftar Aktif</h4>
                                             <div class="row">
                                                 <div class="col-sm-4">
-                                                    <p class="status-summary-ight-white mb-1">Closed Value</p>
+                                                    <p class="status-summary-ight-white mb-1">Biodata Lengkap</p>
                                                     <h2 class="text-info">{{ $totalpendaftar }}</h2>
                                                 </div>
                                                 <div class="col-sm-8">
