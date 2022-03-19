@@ -120,7 +120,7 @@
                                         value="{{ $biodata->major }}"
                                         name="major"
                                         aria-describedby="emailHelp"
-                                        required
+                                        {{-- required --}}
                                     />
                                 </div>
                                 {{-- prestasi --}}
@@ -364,14 +364,24 @@
                                 {{-- penghasilan orangtua --}}
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="">Penghasilan orang Tua</label>
-                                    <input
+                                    {{-- <input
                                         type="text"
                                         class="form-control"
                                         value="{{ $biodata->parent_income }}"
                                         name="parent_income"
                                         aria-describedby="emailHelp"
                                         required
-                                    />
+                                    /> --}}
+                                    <select name="parent_income" class="form-select">
+                                        <option value="" disabled selected>-- Pilih --</option>
+                                        <option value="Kurang dari Rp 500.000" {{ $biodata->parent_income == 'Kurang dari Rp 500.000' ? 'selected' : '' }}>Kurang dari Rp 500.000</option>
+                                        <option value="Rp 500.000 - 1.000.000" {{ $biodata->parent_income == 'Rp 500.000 - 1.000.000' ? 'selected' : '' }}>Rp 500.000 - 1.000.000</option>
+                                        <option value="Rp 1.000.000 - 2.000.000" {{ $biodata->parent_income == 'Rp 1.000.000 - 2.000.000' ? 'selected' : '' }}>Rp 1.000.000 - 2.000.000</option>
+                                        <option value="Rp 2.000.000 - 3.000.000" {{ $biodata->parent_income == 'Rp 2.000.000 - 3.000.000' ? 'selected' : '' }}>Rp 2.000.000 - 3.000.000</option>
+                                        <option value="Rp 3.000.000 - 5.000.000" {{ $biodata->parent_income == 'Rp 3.000.000 - 5.000.000' ? 'selected' : '' }}>Rp 3.000.000 - 5.000.000</option>
+                                        <option value="Rp 5.000.000 - 10.000.000" {{ $biodata->parent_income == 'Rp 5.000.000 - 10.000.000' ? 'selected' : '' }}>Rp 5.000.000 - 10.000.000</option>
+                                        <option value="Lebih dari Rp 10.000.000" {{ $biodata->parent_income == 'Lebih dari Rp 10.000.000' ? 'selected' : '' }}>Lebih dari Rp 10.000.000</option>
+                                    </select>
                                 </div>
                                 {{-- jumlah saudara --}}
                                 <div class="form-group mb-3">
@@ -472,7 +482,7 @@
                                         value="{{ $biodata->guardian }}"
                                         name="guardian"
                                         aria-describedby="emailHelp"
-                                        required
+                                        {{-- required --}}
                                     />
                                 </div>
                                 {{-- no hp wali --}}

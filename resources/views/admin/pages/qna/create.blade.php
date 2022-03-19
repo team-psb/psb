@@ -16,6 +16,8 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-icon icon-left"> <i class="ti-save"></i> Kirimkan</button>
+        <div class="float-end">
+            <button type="submit" class="btn btn-primary"> <i class="ti-save"></i> &nbsp;Simpan</button>
+        </div>
     </div>
 </form>

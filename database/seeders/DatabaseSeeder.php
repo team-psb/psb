@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         $this->call([
+            ProvincesSeeder::class,
+            CitiesSeeder::class,
             AcademyYearSeeder::class,
             UserSeeder::class,
             // VideoSeeder::class,
@@ -32,8 +34,6 @@ class DatabaseSeeder extends Seeder
             QuestionIqSeeder::class,
             QuestionPersonalSeeder::class,
             // ScoreSeeder::class,
-            ProvincesSeeder::class,
-            CitiesSeeder::class,
             SettingSeeder::class
         ]);
 

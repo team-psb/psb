@@ -17,6 +17,7 @@ class CreateSchdulesTable extends Migration
             $table->id();
             $table->string('image')->nullable();
             $table->text('title');
+            $table->text('slug');
             $table->string('video')->nullable();
             $table->text('content');
             $table->timestamps();

@@ -26,8 +26,9 @@ class DashboardController extends Controller
         // $totalpendaftar = BiodataTwo::whereHas('academy_year', function($q) {
         //     $q->where('is_active', true);
         // })->count();
-        $pendaftar = BiodataTwo::whereRelation('academy_year', 'is_active', true)->whereDate('created_at', Carbon::today())->count();
-        $totalpendaftar = BiodataTwo::whereRelation('academy_year', 'is_active', true)->count();
+        // $pendaftar = BiodataTwo::whereRelation('academy_year', 'is_active', true)->whereDate('created_at', Carbon::today())->count();
+        $pendaftar = BiodataOne::whereRelation('academy_year', 'is_active', true)->count();
+        $totalpendaftar = BiodataOne::whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
         $sangatmampu = BiodataOne::where('family', 'sangat-mampu')->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
         $mampu = BiodataOne::where('family', 'mampu')->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
         $tidakmampu = BiodataOne::where('family', 'tidak-mampu')->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();

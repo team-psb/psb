@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\AcademyYearController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\QnaController;
 use App\Http\Controllers\Admin\SchduleController;
 use App\Http\Controllers\Admin\SettingController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ScoreController;
 use App\Http\Controllers\Admin\PassController;
 use App\Http\Controllers\Admin\InterviewController;
+use App\Http\Controllers\Admin\RegisterController;
 use App\Http\Controllers\Admin\ScoreIqController;
 use App\Http\Controllers\Admin\ScorePersonalController;
 use App\Http\Controllers\Admin\VideoController as AdminVideoController;
@@ -50,7 +52,7 @@ use App\Http\Controllers\LandingController;
 //landingpage
 Route::group(['prefix' => '', 'middleware' => ['guest']], function () {
     Route::get('/', [LandingController::class, 'index'])->name('home');
-    Route::get('/information/{slug}/{id}', [LandingController::class, 'information'])->name('information');
+    Route::get('/informasi-penerimaan-santri-baru/{id}', [LandingController::class, 'information'])->name('information');
 });
 
 //user
@@ -62,7 +64,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], functio
     Route::get('qna', [UserDashboardController::class, 'qna'])->name('user-qna');
 
     Route::get('informasi', [UserDashboardController::class, 'information'])->name('user-informasi');
-    Route::get('informasi/{slug}/{id}', [UserDashboardController::class, 'information_detail'])->name('user-informasi-detail');
+    Route::get('informasi-penerimaan-santri-baru/{id}', [UserDashboardController::class, 'information_detail'])->name('user-informasi-detail');
 
     Route::get('success', function () {
         return view('screens.success');
@@ -118,10 +120,23 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/biodatas/filter/reset', [BiodataController::class, 'filterreset'])->name('biodatas.filter-reset');
     Route::get('/biodatas/export/data', [BiodataController::class, 'export'])->name('biodatas.export');
 
+    Route::get('/registers', [RegisterController::class, 'index'])->name('registers.index');
+    Route::get('/registers/{id}', [RegisterController::class, 'show'])->name('registers.show');
+    // Route::get('/registers/{id}/set-status', [RegisterController::class, 'setStatus'])->name('registers.status');
+    Route::get('/registers/{id}/edit', [RegisterController::class, 'edit'])->name('registers.edit');
+    Route::post('/registers/{id}/biodata-one', [RegisterController::class, 'update'])->name('registers.update');
+    Route::post('/registers/{id}/biodata-two', [RegisterController::class, 'updateTwo'])->name('registers.updateTwo');
+    Route::post('/registers/delete/{id}', [RegisterController::class, 'delete'])->name('registers.delete');
+    Route::post('/registers/delete', [RegisterController::class, 'deleteAll'])->name('registers.deleteAll');
+    // Route::post('/registers/pass/all', [RegisterController::class, 'passAll'])->name('registers.passAll');
+    // Route::post('/registers/nonpass/all', [RegisterController::class, 'nonpassAll'])->name('registers.nonpassAll');
+    // Route::get('/registers/filter/reset', [RegisterController::class, 'filterreset'])->name('registers.filter-reset');
+    Route::get('/registers/export/data', [RegisterController::class, 'export'])->name('registers.export');
+
     Route::get('/scores', [ScoreController::class, 'index'])->name('scores.index');
     Route::get('/scores/{id}/set-status', [ScoreController::class, 'setStatus'])->name('scores.status');
-    Route::post('/scores/delete/{id}', [ScoreController::class, 'delete'])->name('scores.delete');
     Route::post('/scores/delete', [ScoreController::class, 'deleteAll'])->name('scores.deleteAll');
+    Route::post('/scores/delete/{id}', [ScoreController::class, 'delete'])->name('scores.delete');
     Route::post('/scores/pass/all', [ScoreController::class, 'passAll'])->name('scores.passAll');
     Route::post('/scores/nonpass/all', [ScoreController::class, 'nonpassAll'])->name('scores.nonpassAll');
     Route::get('/scores/filter/reset', [ScoreController::class, 'filterreset'])->name('scores.filter-reset');
@@ -129,8 +144,8 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
     Route::get('/scoreIq', [ScoreIqController::class, 'index'])->name('scoreIq.index');
     Route::get('/scoreIq/{id}/set-status', [ScoreIqController::class, 'setStatus'])->name('scoreIq.status');
-    Route::post('/scoreIq/delete/{id}', [ScoreIqController::class, 'delete'])->name('scoreIq.delete');
     Route::post('/scoreIq/delete', [ScoreIqController::class, 'deleteAll'])->name('scoreIq.deleteAll');
+    Route::post('/scoreIq/delete/{id}', [ScoreIqController::class, 'delete'])->name('scoreIq.delete');
     Route::post('/scoreIq/pass/all', [ScoreIqController::class, 'passAll'])->name('scoreIq.passAll');
     Route::post('/scoreIq/nonpass/all', [ScoreIqController::class, 'nonpassAll'])->name('scoreIq.nonpassAll');
     Route::get('/scoreIq/filter/reset', [ScoreIqController::class, 'filterreset'])->name('scoreIq.filter-reset');
@@ -138,8 +153,8 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
     Route::get('/scorePersonal', [ScorePersonalController::class, 'index'])->name('scorePersonal.index');
     Route::get('/scorePersonal/{id}/set-status', [ScorePersonalController::class, 'setStatus'])->name('scorePersonal.status');
-    Route::post('/scorePersonal/delete/{id}', [ScorePersonalController::class, 'delete'])->name('scorePersonal.delete');
     Route::post('/scorePersonal/delete', [ScorePersonalController::class, 'deleteAll'])->name('scorePersonal.deleteAll');
+    Route::post('/scorePersonal/delete/{id}', [ScorePersonalController::class, 'delete'])->name('scorePersonal.delete');
     Route::post('/scorePersonal/pass/all', [ScorePersonalController::class, 'passAll'])->name('scorePersonal.passAll');
     Route::post('/scorePersonal/nonpass/all', [ScorePersonalController::class, 'nonpassAll'])->name('scorePersonal.nonpassAll');
     Route::get('/scorePersonal/filter/reset', [ScorePersonalController::class, 'filterreset'])->name('scorePersonal.filter-reset');
@@ -149,8 +164,8 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     // Route::get('videos/{id}/set-status', [AdminVideoController::class, 'setStatus'])->name('videos.status');
     Route::post('/videos/lolos/{id}',[AdminVideoController::class,'lolos'])->name('videos.lolos');
     Route::post('/videos/tidak-lolos/{id}',[AdminVideoController::class,'tidaklolos'])->name('videos.tidak-lolos');
-    Route::post('/videos/delete/{id}', [AdminVideoController::class, 'delete'])->name('videos.delete');
     Route::post('/videos/delete', [AdminVideoController::class, 'deleteAll'])->name('videos.deleteAll');
+    Route::post('/videos/delete/{id}', [AdminVideoController::class, 'delete'])->name('videos.delete');
     Route::post('/videos/pass/all', [AdminVideoController::class, 'passAll'])->name('videos.passAll');
     Route::post('/videos/nonpass/all', [AdminVideoController::class, 'nonpassAll'])->name('videos.nonpassAll');
     Route::get('/videos/filter/reset', [AdminVideoController::class, 'filterreset'])->name('videos.filter-reset');
@@ -169,8 +184,8 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
     Route::get('/passes', [PassController::class, 'index'])->name('passes.index');
     Route::get('/passes/{id}', [PassController::class, 'show'])->name('passes.show');
-    Route::post('/passes/delete/{id}', [PassController::class, 'delete'])->name('passes.delete');
     Route::post('/passes/delete', [PassController::class, 'deleteAll'])->name('passes.deleteAll');
+    Route::post('/passes/delete/{id}', [PassController::class, 'delete'])->name('passes.delete');
     Route::get('/passes/filter/reset', [PassController::class, 'filterreset'])->name('passes.filter-reset');
     Route::get('/passes/export/data', [PassController::class, 'export'])->name('passes.export');
 
@@ -234,4 +249,8 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/settings/stage/{id}', [SettingController::class, 'stageEdit'])->name('settings.stage-edit');
     Route::post('/settings/stage/{id}', [SettingController::class, 'stageUpdate'])->name('settings.stage-update');
     Route::delete('/settings/stage/{id}', [SettingController::class, 'stageDelete'])->name('settings.stage-delete');
+
+    Route::get('account', [AdminController::class, 'index'])->name('admins.index');
+    Route::get('account/{id}/edit', [AdminController::class, 'edit'])->name('admins.edit');
+    Route::post('account/{id}', [AdminController::class, 'update'])->name('admins.update');
 });

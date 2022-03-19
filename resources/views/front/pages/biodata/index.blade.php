@@ -141,6 +141,7 @@
                     {{-- step 2 --}}
                     <div x-show="form_2">
                       <div class="form-group">
+<<<<<<< HEAD
                       <label for="exampleInputPassword1">Facebook<b id="required">*</b></label>
                         <input
                           type="text"
@@ -148,11 +149,37 @@
                           id="exampleInputPassword1"
                           name="facebook"
                           value="{{ old('facebook') }}"
+=======
+                      <label for="exampleInputPassword1">Facebook<b>*</b></label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="exampleInputPassword1"
+                        name="facebook"
+                        value="{{ old('facebook') }}"
+                        placeholder="https://facebook.com/PondokInformatikaAlmadinah"
+                        required
+                      />
+                      <small class="form-text text-muted">
+                        Isi 'tidak ada' jika tidak punya
+                      </small>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword2">Instagram<b>*</b></label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="exampleInputPassword2"
+                          name="instagram"
+                          value="{{ old('instagram') }}"
+                          placeholder="https://instagram.com/pondokinformatika/"
+>>>>>>> 356689227968576499915b80927a190a6e5380c9
                           required
                         />
                       <small>Isi "tidak ada" jika tidak punya</small>
                       </div>
                       <div class="form-group">
+<<<<<<< HEAD
                         <label for="exampleInputPassword2">Instagram<b id="required">*</b></label>
                           <input
                             type="text"
@@ -179,6 +206,20 @@
                       <div class="my-3">
                         <small>
                           <b id="required">*</b>) Wajib diisi!
+=======
+                        <label for="exampleInputPassword3">Tiktok<b>*</b></label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="exampleInputPassword3"
+                          name="tiktok"
+                          value="{{ old('tiktok') }}"
+                          placeholder="https://tiktok.com/pondokinformatika"
+                          required
+                        />
+                        <small class="form-text text-muted">
+                          Isi 'tidak ada' jika tidak punya
+>>>>>>> 356689227968576499915b80927a190a6e5380c9
                         </small>
                       </div>
                       <div class="mt-4">
@@ -798,6 +839,7 @@
                           name="child_to"
                           value="{{ old('child_to') }}"
                           min="0"
+                          placeholder="1"
                           required
                         />
                       </div>
@@ -812,6 +854,7 @@
                           name="brother"
                           value="{{ old('brother') }}"
                           min="0"
+                          placeholder="1"
                           required
                         />
                         <small class="form-text text-muted">Isi "0"</b> jika tidak punya saudara</small>
@@ -902,7 +945,9 @@
                           class="form-control"
                           id="no_guardian"
                           name="no_guardian"
+                          min="0"
                           value="{{ old('no_guardian') }}"
+                          placeholder="08582375XXXX"
                           required
                         />
                         <small class="form-text text-muted">Isi "0"</b> jika tidak ada wali</small>
@@ -1086,7 +1131,7 @@
                 confirmButton: 'btn btn-success',
                 cancelButton: 'btn btn-danger'
             },
-            buttonsStyling: false,
+            buttonsStyling: true,
         })
 
         swalWithBootstrapButtons.fire({

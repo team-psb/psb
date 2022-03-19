@@ -65,6 +65,9 @@
                 $("#birth_date").picky();
             });
         </script>
+
+        <style>
+        </style>
     </head>
 
     <body>
@@ -377,7 +380,9 @@
                                             @endif
 
                                             <div class="form-floating">
-                                                <input type="number" name="phone" required class="form-control rounded-pill px-4" id="floatingInput" placeholder="Nomor Handphone" value="{{ old('phone') }}" required>
+                                                <input
+                                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                type="number" name="phone" required class="form-control rounded-pill px-4" id="floatingInput" placeholder="Nomor Handphone" value="{{ old('phone') }}" required>
                                                 <label for="floatingInput" class="px-4">Nomor Handphone</label>
                                             </div>
 
@@ -516,7 +521,7 @@
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >Nama Lengkap</label
+                                                            >Nama Lengkap <span style="font-size: 12px">*wajib diisi</span></label
                                                         >
                                                         <input
                                                             type="text"
@@ -548,7 +553,7 @@
                                                     <div
                                                         class="
                                                             mb-4
-                                                            col-lg-6 col-sm-12
+                                                            col-lg-7 col-sm-12
                                                         "
                                                     >
                                                         <label
@@ -560,9 +565,10 @@
                                                             "
                                                             >Tanggal
                                                             Lahir
+                                                            <span style="font-size: 12px">*wajib diisi</span>
                                                             </label
                                                         >
-                                                        <div class="d-flex">
+                                                        <div class="d-flex gap-3">
                                                             <select class="form-select rounded-pill"
                                                             name="day" id="dobday"required
                                                             style="
@@ -582,7 +588,7 @@
                                                     <div
                                                         class="
                                                             mb-4
-                                                            col-lg-6 col-sm-12
+                                                            col-lg-5 col-sm-12
                                                         "
                                                     >
                                                         <label
@@ -592,7 +598,7 @@
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >Keluarga</label
+                                                            >Keluarga <span style="font-size: 12px">*wajib diisi</span></label
                                                         >
                                                         <select
                                                             class="
@@ -615,16 +621,19 @@
                                                             </option>
                                                             <option
                                                                 value="sangat-mampu"
+                                                                {{ old('family') == 'sangat-mampu' ? 'selected' : '' }}
                                                             >
                                                                 Sangat Mampu
                                                             </option>
                                                             <option
                                                                 value="mampu"
+                                                                {{ old('family') == 'mampu' ? 'selected' : '' }}
                                                             >
                                                                 Mampu
                                                             </option>
                                                             <option
                                                                 value="tidak-mampu"
+                                                                {{ old('family') == 'tidak-mampu' ? 'selected' : '' }}
                                                             >
                                                                 Tidak Mampu
                                                             </option>
@@ -650,12 +659,13 @@
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >No Whatsapp
+                                                            >No Whatsapp <span style="font-size: 12px">*wajib diisi</span>
                                                             <br>
-                                                            <small style="font-size: 12px;">* Mohon isi dengan nomor Whatsapp aktif yang dapat kami hubungi!.</small>
+                                                            <small style="font-size: 12px;">* Mohon isi dengan nomor Whatsapp aktif yang dapat kami hubungi !.</small>
                                                             </label
                                                         >
                                                         <input
+                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                             type="number"
                                                             class="
                                                                 form-control
@@ -664,12 +674,13 @@
                                                                 @error('no_wa') is-invalid @enderror
                                                             "
                                                             maxlength="15"
+                                                            min="0"
                                                             style="
                                                                 font-size: 15px;
                                                             "
                                                             id="no_wa"
                                                             name="no_wa"
-                                                            placeholder="Masukkan No Whatsapp"
+                                                            placeholder="0852529XXXX"
                                                             required
                                                             @error('no_wa') is-invalid @enderror
                                                             value="{{ old('no_wa') }}"
@@ -696,7 +707,7 @@
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >Password
+                                                            >Password <span style="font-size: 12px">*wajib diisi</span>
                                                             <br>
                                                             <small style="font-size: 12px;">min 6 karakter max 20 karakter.</small>
                                                             </label
@@ -715,6 +726,7 @@
                                                             id="password"
                                                             name="password"
                                                             placeholder="Masukkan Password"
+                                                            value="{{ old('password') }}"
                                                             required
                                                             @error('password') is-invalid @enderror
                                                         />
@@ -736,8 +748,8 @@
                                                                 text-white
                                                                 px-3
                                                             "
-                                                            >Ulang
-                                                            Password
+                                                            >Ulangi
+                                                            Password <span style="font-size: 12px">*wajib diisi</span>
                                                             <br>
                                                             <small style="font-size: 12px;">min 6 karakter max 20 karakter.</small>
                                                             </label
@@ -752,16 +764,16 @@
                                                             "
                                                             style="
                                                                 font-size: 15px;
-                                                                color: #145560;
                                                             "
                                                             id="confirm_password"
                                                             name="password_confirmation"
+                                                            value="{{ old('password_confirmation') }}"
                                                             placeholder="Masukkan Ulang Password"
                                                             required
                                                             @error('password_confirmation') is-invalid @enderror
                                                         />
                                                         @error('password_confirmation')
-                                                            <div class="invalid-feedback">
+                                                            <div class="invalid-feedback" style="font-size: 12px">
                                                                 {{ $message }}
                                                             </div>
                                                         @enderror
@@ -775,6 +787,7 @@
                                                         >
                                                             <div
                                                                 class="
+                                                                    my-2
                                                                     d-flex
                                                                     px-2
                                                                     pt-1
@@ -803,7 +816,7 @@
                                                     form-label
                                                     text-white
                                                     "
-                                                    >Jenis Kelamin, Wanita Belum Diterima <b>*</b></label
+                                                    ><b>*</b>Jenis Kelamin, Wanita Belum Diterima</label
                                                     >
                                                     <div class="form-check" style="
                                                                 font-size: 15px;
@@ -1204,7 +1217,7 @@
                                 data-aos-delay="100"
                             >
                             <div class="icon-box">
-                                <a href="{{ route('information', [Str::slug($informasi->title, '-'), $informasi->id]) }}" class="text-dark">
+                                <a href="{{ route('information', $informasi->id) }}" class="text-dark">
                                     <div class="icon">
                                         <img src="{{ asset('/storage/'.$informasi->image) }}" alt="thumbnail tutorial" class="img-fluid">
                                         {{-- <i class="bx bxl-dribbble"></i> --}}
@@ -1936,6 +1949,7 @@
                                 <a
                                     href="https://pondokinformatika.com/"
                                     class="text-decoration-none btn-footer"
+                                    target="blank"
                                 >
                                     <button class="btn rounded-pill px-3 py-2 text-white text-uppercase button-footer-left" style="background: #3adb9f;">Info lebih lanjut</button>
                                 </a>
@@ -2517,6 +2531,13 @@
                     y.type = "password";
                 }
             }
+
+            $("#full_name").on('keyup', function(e) {
+                var val = $(this).val();
+            if (val.match(/[^a-zA-Z\s]/g)) {
+                $(this).val(val.replace(/[^a-zA-Z\s]/g, ''));
+            }
+            });
         </script>
     </body>
 </html>

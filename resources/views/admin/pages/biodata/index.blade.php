@@ -122,7 +122,7 @@
                                             <td>
                                                 <a 
                                                     href="#mymodal"
-                                                    data-remote="{{ route('biodatas.show', $biodata->id) }}"
+                                                    data-remote="{{ route('biodatas.show', $biodata->user->biodataOne->id) }}"
                                                     data-toggle="modal"
                                                     data-target="#mymodal"
                                                     data-title="Detail Data" 
@@ -171,10 +171,10 @@
                                                         </a>
                                                     @endif
                                                     <a href="#mymodal"
-                                                        data-remote="{{ route('biodatas.show', $biodata->id) }}"
+                                                        data-remote="{{ route('biodatas.show', $biodata->user->biodataOne->id) }}"
                                                         data-toggle="modal"
                                                         data-target="#mymodal"
-                                                        data-title="Detail Biodata {{ $loop->iteration }}" 
+                                                        data-title="Detail Biodata {{ $biodata->full_name }}" 
                                                         class="btn btn-info btn-icon-text  p-2"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                         <i class="icon-eye btn-icon-prepend"></i> Detail
@@ -185,6 +185,7 @@
                                                         <i class="icon-pencil btn-icon-prepend"></i> Edit
                                                     </a>
                                                     <button formaction="{{ route('biodatas.delete', $biodata->id) }}" class="btn btn-danger btn-icon-text  p-2 ms-1"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
+
                                                 </div>
                                             </td>
                                         </tr>
@@ -427,7 +428,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($biodataswide as $biodata)
+                                @foreach ($biodatas as $biodata)
                                 <tr class="
                                     {{ $biodata->status == null ? 'text-warning' : '' }}
                                     {{ $biodata->status == 'lolos' ? 'text-success' : '' }}

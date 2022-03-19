@@ -60,13 +60,11 @@ class UserDashboardController extends Controller
         return view('front.pages.information.index', compact('informations'));
     }
 
-    public function information_detail($title, $id)
+    public function information_detail($id)
     {
-        // $information = Schdule::findOrFail($id);
-
-        $title_slug =  Str::slug($title, ' ');
-        $information =  Schdule::where('title', $title_slug.'.')->where('id', $id)->get()->first();
-
+        // $information =  Schdule::where('slug', $slug)->first();
+        $information =  Schdule::find($id);
+        
         return view('front.pages.information.info_detail', compact('information'));
     }
 }
