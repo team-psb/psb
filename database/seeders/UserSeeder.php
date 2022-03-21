@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
 
         for ($i=0; $i < 10; $i++) { 
             User::create([
-                'name'=>'pendaftar',
+                'name'=>'pendaftar'.$i,
                 'phone'=>'9876543210'.$i,
                 'password'=>bcrypt('123456'),
                 'role'=>'pendaftar',
