@@ -173,13 +173,11 @@
                           name="instagram"
                           value="{{ old('instagram') }}"
                           placeholder="https://instagram.com/pondokinformatika/"
->>>>>>> 356689227968576499915b80927a190a6e5380c9
                           required
                         />
                       <small>Isi "tidak ada" jika tidak punya</small>
                       </div>
                       <div class="form-group">
-<<<<<<< HEAD
                         <label for="exampleInputPassword2">Instagram<b id="required">*</b></label>
                           <input
                             type="text"
@@ -219,7 +217,6 @@
                         />
                         <small class="form-text text-muted">
                           Isi 'tidak ada' jika tidak punya
->>>>>>> 356689227968576499915b80927a190a6e5380c9
                         </small>
                       </div>
                       <div class="mt-4">
