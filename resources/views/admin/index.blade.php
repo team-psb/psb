@@ -485,9 +485,9 @@
                                             @foreach ($lolos->take(5) as $calon)
                                             <div class="wrapper d-flex  justify-content-between py-2 border-bottom">
                                                 <div class="d-flex  align-items-center">
-                                                    <img class="img-sm rounded-10" src="{{ Avatar::create($calon->user->biodataOne->name)->toGravatar(['d' => 'wavatar', 'r' => 'pg', 's' => 100])}}" alt="profile">
-                                                    <div class="wrapper ms-3">
-                                                        <p class="mb-1 fw-bold">{{ $calon->user->biodataOne->full_name }}</p>
+                                                    <img class="img-sm rounded-10" src="{{ Avatar::create($calon->user->name)->toGravatar(['d' => 'wavatar', 'r' => 'pg', 's' => 100])}}" alt="profile">
+                                                    <div class="ms-3">
+                                                        <h6 class="fw-bold" style="text-align: left; font-size: 14px">{{ $calon->user->biodataOne->full_name }}</h6>
                                                         <small class="text-muted mb-0">{{ $calon->user->biodataOne->age }} Tahun</small>
                                                     </div>
                                                 </div>

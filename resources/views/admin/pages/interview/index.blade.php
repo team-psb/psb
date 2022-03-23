@@ -9,7 +9,15 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card card-rounded">
                     <div class="card-body">
-                        <h4 class="card-title pb-4" style="border-bottom: 1px solid black;">Tes Wawancara Pendaftar</h4>
+                        <div class="d-flex justify-content-between" style="border-bottom: 1px solid #c4c4c4;">
+                            <h4 class="card-title pb-4">Tes Wawancara Pendaftar</h4>
+                            <div class="">
+                                <span class="text-decoration-none fw-bold text-warning badge badge-warning"><i class="ti-star text-warning"></i>Sangat mampu</span>
+                                <span class="text-decoration-none fw-bold text-warning badge badge-opacity-warning">Belum diseleksi</span>
+                                <span class="text-decoration-none fw-bold text-success badge badge-opacity-success">Lolos</span>
+                                <span class="text-decoration-none fw-bold text-danger badge badge-opacity-danger">Gagal</span>
+                            </div>
+                        </div>
                         <p class="card-description">
                             Daftar Tes Wawancara Pendaftar
                         </p>

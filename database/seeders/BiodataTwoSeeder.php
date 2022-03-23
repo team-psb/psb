@@ -137,7 +137,7 @@ class BiodataTwoSeeder extends Seeder
                 'permission_parent'=> $faker->randomElement(['iya','tidak']),
                 'have_laptop'=> $faker->randomElement(['iya','tidak']),
                 'agree'=>1,
-                'status'=>null,
+                'status'=>$faker->randomElement([null,'lolos','tidak']),
             ]);
         }
     }
