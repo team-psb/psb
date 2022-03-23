@@ -59,12 +59,15 @@
                   <input
                     type="text"
                     required
-                    class="form-control"
+                    class="form-control @error('url') is-invalid @enderror"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="https://www.youtube.com/watch?v=mbyC-4ufrG4"
                     name="url"
                   />
+                  @error('url')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
                 </div>
                 <!-- <button class="btn btn-primary mx-3 float-right mb-3" type="submit">
                   Kirim

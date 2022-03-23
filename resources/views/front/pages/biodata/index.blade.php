@@ -141,16 +141,7 @@
                     {{-- step 2 --}}
                     <div x-show="form_2">
                       <div class="form-group">
-<<<<<<< HEAD
                       <label for="exampleInputPassword1">Facebook<b id="required">*</b></label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="exampleInputPassword1"
-                          name="facebook"
-                          value="{{ old('facebook') }}"
-=======
-                      <label for="exampleInputPassword1">Facebook<b>*</b></label>
                       <input
                         type="text"
                         class="form-control"
@@ -165,7 +156,7 @@
                       </small>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword2">Instagram<b>*</b></label>
+                        <label for="exampleInputPassword2">Instagram<b id="required">*</b></label>
                         <input
                           type="text"
                           class="form-control"
@@ -178,6 +169,7 @@
                       <small>Isi "tidak ada" jika tidak punya</small>
                       </div>
                       <div class="form-group">
+<<<<<<< HEAD
                         <label for="exampleInputPassword2">Instagram<b id="required">*</b></label>
                           <input
                             type="text"
@@ -190,22 +182,9 @@
                         <small>Isi "tidak ada" jika tidak punya</small>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword3">Tiktok<b id="required">*</b></label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="exampleInputPassword3"
-                            name="tiktok"
-                            value="{{ old('tiktok') }}"
-                            required
-                          />
-                        <small>Isi "tidak ada" jika tidak punya</small>
-                      </div>
-                      <div class="my-3">
-                        <small>
-                          <b id="required">*</b>) Wajib diisi!
 =======
-                        <label for="exampleInputPassword3">Tiktok<b>*</b></label>
+>>>>>>> a5676256bdcf8d246ae76c6d87b5d811c3350268
+                        <label for="exampleInputPassword3">Tiktok<b id="required">*</b></label>
                         <input
                           type="text"
                           class="form-control"
@@ -217,6 +196,11 @@
                         />
                         <small class="form-text text-muted">
                           Isi 'tidak ada' jika tidak punya
+                        </small>
+                      </div>
+                      <div class="my-3">
+                        <small>
+                          <b id="required">*</b>) Wajib diisi!
                         </small>
                       </div>
                       <div class="mt-4">

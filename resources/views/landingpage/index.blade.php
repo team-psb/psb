@@ -1266,11 +1266,147 @@
                         data-aos="fade-up"
                         data-aos-delay="200"
                     >
+
                         <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-app"
+                            class="col-lg-4 col-md-6 portfolio-item filter"
                         >
                             <img
-                                src="https://pondokinformatika.com/wp-content/uploads/2019/03/volly.jpg"
+                                src="{{ asset('assets/image_psb/sahur.jpg') }}"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Sahur</h4>
+                                <p>Walau hanya nasi dan ayam goreng sebaik lauknya namun tidak mengurangi semangat mereka dalam berpuasa Sunnah.</p>
+                                <a
+                                    href="{{ asset('assets/image_psb/sahur.jpg') }}"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Walau hanya nasi dan ayam goreng sebaik lauknya namun tidak mengurangi semangat mereka dalam berpuasa Sunnah."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter"
+                        >
+                            <img
+                                src="{{ asset('assets/image_psb/menghafal.jpg') }}"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Menghafal Alquran</h4>
+                                <p>Jumlah hafalan yang disetorkan berbeda-beda untuk setiap santri namun mereka ditargetkan untuk menyetorkan hafalan mereka sebanyak 1 muka halaman.</p>
+                                <a
+                                    href="{{ asset('assets/image_psb/menghafal.jpg') }}"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Jumlah hafalan yang disetorkan berbeda-beda untuk setiap santri namun mereka ditargetkan untuk menyetorkan hafalan mereka sebanyak 1 muka halaman."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter"
+                        >
+                            <img
+                                src="{{ asset('assets/image_psb/rihlah.jpg') }}"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Kegiatan Rihlah</h4>
+                                <p>Acara ini berlangsung selama satu hari satu malam dengan kegiatan permainan untuk memperkuat kebersamaan dan saling mengenal satu sama lain antara santri baru dgn santri lama.</p>
+                                <a
+                                    href="{{ asset('assets/image_psb/rihlah.jpg') }}"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Acara ini berlangsung selama satu hari satu malam dengan kegiatan permainan untuk memperkuat kebersamaan dan saling mengenal satu sama lain antara santri baru dgn santri lama."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter"
+                        >
+                            <img
+                                src="{{ asset('assets/image_psb/rihlah2.jpg') }}"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Kegiatan Rihlah di Jogja Bay</h4>
+                                <p>Alhamdulillah atas izin Allah santri Pondok Informatika Almadinah melaksanakan rihlah bersama di Jogja Bay.</p>
+                                <a
+                                    href="{{ asset('assets/image_psb/rihlah2.jpg') }}"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Alhamdulillah atas izin Allah santri Pondok Informatika Almadinah melaksanakan rihlah bersama di Jogja Bay."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter"
+                        >
+                            <img
+                                src="{{ asset('assets/image_psb/mobil.jpg') }}"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Tidak hanya belajar IT dan Agama.. Tapi belajar mengendarai mobil</h4>
+                                <p>Santri Pondok Informatika Al-madinah memiliki program pembelajaran lain atau biasa disebut ekstrakurikuler salah satunya mengendarai mobil.</p>
+                                <a
+                                    href="{{ asset('assets/image_psb/mobil.jpg') }}"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Santri Pondok Informatika Al-madinah memiliki program pembelajaran lain atau biasa disebut ekstrakurikuler salah satunya mengendarai mobil."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter-web"
+                        >
+                            <img
+                                src="{{ asset('assets/image_psb/volly.jpg') }}"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -1278,7 +1414,7 @@
                                 <h4>Volly</h4>
                                 <p>Bermain volly bersama <br>dilapangan, setelah pemanasan.</p>
                                 <a
-                                    href="https://pondokinformatika.com/wp-content/uploads/2019/03/volly.jpg"
+                                    href="{{ asset('assets/image_psb/volly.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
                                     title="Bermain volly bersama dilapangan, setelah pemanasan."
@@ -1297,18 +1433,18 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-web"
                         >
                             <img
-                                src="https://pondokinformatika.com/wp-content/uploads/2019/03/panahan.jpg"
+                                src="{{ asset('assets/image_psb/panahan.jpg') }}"
                                 class="img-fluid"
                                 alt=""
                             />
                             <div class="portfolio-info">
-                                <h4>Web 3</h4>
-                                <p>Web</p>
+                                <h4>Panahan</h4>
+                                <p>Bermain panahan bersama dilapangan, setelah pemanasan.</p>
                                 <a
-                                    href="{{ asset('./assets/img/portfolio/portfolio-2.jpg') }}"
+                                    href="{{ asset('assets/image_psb/panahan.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
-                                    title="Web 3"
+                                    title="Bermain panahan bersama dilapangan, setelah pemanasan."
                                     ><i class="bx bx-plus"></i
                                 ></a>
                                 <!-- <a
@@ -1321,7 +1457,7 @@
                         </div>
 
                         <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-app"
+                            class="col-lg-4 col-md-6 portfolio-item filter-web"
                         >
                             <img
                                 src="https://pondokinformatika.com/wp-content/uploads/2019/03/futsal.jpg"
@@ -1329,40 +1465,13 @@
                                 alt=""
                             />
                             <div class="portfolio-info">
-                                <h4>App 2</h4>
-                                <p>App</p>
+                                <h4>Futsal</h4>
+                                <p>Santri setiap pekan bisa bermain fulsal di GOR terdekat.</p>
                                 <a
-                                    href="{{ asset('./assets/img/portfolio/portfolio-3.jpg') }}"
+                                    href="https://pondokinformatika.com/wp-content/uploads/2019/03/futsal.jpg"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
-                                    title="App 2"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <!-- <a
-                                    href="portfolio-details.html"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a> -->
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-card"
-                            >
-                            <img
-                                src="https://pondokinformatika.com/wp-content/uploads/2018/01/Renang.jpg"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>Card 2</h4>
-                                <p>Card</p>
-                                <a
-                                    href="{{ asset('./assets/img/portfolio/portfolio-4.jpg') }}"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link"
-                                    title="Card 2"
+                                    title="Santri setiap pekan bisa bermain fulsal di GOR terdekat."
                                     ><i class="bx bx-plus"></i
                                 ></a>
                                 <!-- <a
@@ -1378,18 +1487,72 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-web"
                         >
                             <img
-                                src="https://pondokinformatika.com/wp-content/uploads/2019/03/ceramah.jpg"
+                                src="{{ asset('assets/image_psb/bola.jpg') }}"
                                 class="img-fluid"
                                 alt=""
                             />
                             <div class="portfolio-info">
-                                <h4>Web 2</h4>
-                                <p>Web</p>
+                                <h4>Bola</h4>
+                                <p>Santri setiap pekan bisa bermain bola di lapangan terdekat.</p>
                                 <a
-                                    href="{{ asset('./assets/img/portfolio/portfolio-5.jpg') }}"
+                                    href="{{ asset('assets/image_psb/bola.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
-                                    title="Web 2"
+                                    title="Santri setiap pekan bisa bermain bola di lapangan terdekat."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter-web"
+                            >
+                            <img
+                                src="https://pondokinformatika.com/wp-content/uploads/2018/01/Renang.jpg"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Renang</h4>
+                                <p>Pada pagi hari, setelah santri selesai menyetorkan hafalan Quran, mereka bersiap siap untuk berangkat ke kolam Renang.</p>
+                                <a
+                                    href="https://pondokinformatika.com/wp-content/uploads/2018/01/Renang.jpg"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Pada pagi hari, setelah santri selesai menyetorkan hafalan Quran, mereka bersiap siap untuk berangkat ke kolam Renang."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <!-- <a
+                                    href="portfolio-details.html"
+                                    class="details-link"
+                                    title="More Details"
+                                    ><i class="bx bx-link"></i
+                                ></a> -->
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter-web"
+                            >
+                            <img
+                                src="{{ asset('assets/image_psb/bulutangkis.jpg') }}"
+                                class="img-fluid"
+                                alt=""
+                            />
+                            <div class="portfolio-info">
+                                <h4>Bulu Tangkis</h4>
+                                <p>Di masa pandemi, menjaga kesehatan dan kebugaran tubuh sangatlah penting. Salah satu caranya dengan rutin berolahraga.</p>
+                                <a
+                                    href="{{ asset('assets/image_psb/bulutangkis.jpg') }}"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Di masa pandemi, menjaga kesehatan dan kebugaran tubuh sangatlah penting. Salah satu caranya dengan rutin berolahraga."
                                     ><i class="bx bx-plus"></i
                                 ></a>
                                 <!-- <a
@@ -1405,18 +1568,74 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-app"
                         >
                             <img
-                                src="https://pondokinformatika.com/wp-content/uploads/2017/11/WhatsApp-Image-2017-11-29-at-07.55.01-1.jpeg"
+                                src="{{ asset('assets/image_psb/prog3.jpg') }}"
+                                class="img-fluid"
+                                alt="image"
+                            />
+                            <div class="portfolio-info">
+                                <h4>Aplikasi Android</h4>
+                                <p>Salah satu kegiatan santri yaitu mengerjakan projek real pembuat aplikasi android.</p>
+                                <a
+                                    href="{{ asset('assets/image_psb/prog3.jpg') }}"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Salah satu kegiatan santri yaitu mengerjakan projek real pembuat aplikasi android."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    target="_blank"
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="Karya Lain"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter-app"
+                        >
+                            <img
+                                src="{{ asset('assets/image_psb/iot.jpg') }}"
+                                class="img-fluid"
+                                alt="image"
+                            />
+                            <div class="portfolio-info">
+                                <h4>Belajar IoT dengan Dosen Univ AMIKOM</h4>
+                                <p>Pada kegiatan ini, santri belajar bagaimana merangkat sebuah alat agar dapat dikendalikan dari jarak jauh dengan menggunakan internet. Alat yang digunakan adalah Arduino berupa microcontoller dirancang untuk memudahkan penggunaan elektronik dalam berbagai bidang.</p>
+                                <a
+                                    href="{{ asset('assets/image_psb/iot.jpg') }}"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Pada kegiatan ini, santri belajar bagaimana merangkat sebuah alat agar dapat dikendalikan dari jarak jauh dengan menggunakan internet. Alat yang digunakan adalah Arduino berupa microcontoller dirancang untuk memudahkan penggunaan elektronik dalam berbagai bidang."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    target="_blank"
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="Karya Lain"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item filter-app"
+                        >
+                            <img
+                                src="{{ asset('assets/image_psb/prog1.jpg') }}"
                                 class="img-fluid"
                                 alt=""
                             />
                             <div class="portfolio-info">
-                                <h4>App 3</h4>
-                                <p>App</p>
+                                <h4>Programming</h4>
+                                <p>Santri belajar coding bersama di kelas bersama pengajar dari seniornya.</p>
                                 <a
-                                    href="{{ asset('./assets/img/portfolio/portfolio-6.jpg') }}"
+                                    href="{{ asset('assets/image_psb/prog1.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
-                                    title="App 3"
+                                    title="Santri belajar coding bersama di kelas bersama pengajar dari seniornya."
                                     ><i class="bx bx-plus"></i
                                 ></a>
                                 <!-- <a
@@ -1432,18 +1651,18 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-card"
                         >
                             <img
-                                src="https://pondokinformatika.com/wp-content/uploads/2018/02/santri-ammar.jpg"
+                                src="{{ asset('assets/image_psb/design1.jpg') }}"
                                 class="img-fluid"
                                 alt=""
                             />
                             <div class="portfolio-info">
-                                <h4>Card 1</h4>
-                                <p>Card</p>
+                                <h4>Belajar Design</h4>
+                                <p>Santri sedang belajar design ilustrator bersama.</p>
                                 <a
-                                    href="{{ asset('./assets/img/portfolio/portfolio-7.jpg') }}"
+                                    href="{{ asset('assets/image_psb/design1.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
-                                    title="Card 1"
+                                    title="Santri sedang belajar design ilustrator bersama."
                                     ><i class="bx bx-plus"></i
                                 ></a>
                                 <!-- <a
@@ -1459,18 +1678,18 @@
                             class="col-lg-4 col-md-6 portfolio-item filter-card"
                         >
                             <img
-                                src="{{ asset('./assets/img/portfolio/portfolio-8.jpg') }}"
+                                src="{{ asset('assets/image_psb/fotografi.jpeg') }}"
                                 class="img-fluid"
                                 alt=""
                             />
                             <div class="portfolio-info">
-                                <h4>Card 3</h4>
-                                <p>Card</p>
+                                <h4>Fotografi</h4>
+                                <p>Salah satu adalah kelas photography, dimana santri belajar mengambil gambar secara profesional.</p>
                                 <a
-                                    href="{{ asset('./assets/img/portfolio/portfolio-8.jpg') }}"
+                                    href="{{ asset('assets/image_psb/fotografi.jpeg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
-                                    title="Card 3"
+                                    title="Salah satu adalah kelas photography, dimana santri belajar mengambil gambar secara profesional."
                                     ><i class="bx bx-plus"></i
                                 ></a>
                                 <!-- <a
@@ -1483,21 +1702,21 @@
                         </div>
 
                         <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-web"
+                            class="col-lg-4 col-md-6 portfolio-item filter-card"
                         >
                             <img
-                                src="{{ asset('./assets/img/portfolio/portfolio-9.jpg') }}"
+                                src="{{ asset('assets/image_psb/live.jpg') }}"
                                 class="img-fluid"
                                 alt=""
                             />
                             <div class="portfolio-info">
-                                <h4>Web 3</h4>
-                                <p>Web</p>
+                                <h4>Santri Menjadi Tim Media Live Streaming</h4>
+                                <p>Alhamdulillah, santri Pondok Informatika Almadinah kelas Desain Multimedia mendapat amanah menjadi tim media Live Streaming Tabligh Akbar bersama Ahmad dan Kamil. Acara ini berlangsung pada hari ahad 10 oktober 2021.</p>
                                 <a
-                                    href="{{ asset('./assets/img/portfolio/portfolio-9.jpg') }}"
+                                    href="{{ asset('assets/image_psb/live.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
-                                    title="Web 3"
+                                    title="Alhamdulillah, santri Pondok Informatika Almadinah kelas Desain Multimedia mendapat amanah menjadi tim media Live Streaming Tabligh Akbar bersama Ahmad dan Kamil. Acara ini berlangsung pada hari ahad 10 oktober 2021."
                                     ><i class="bx bx-plus"></i
                                 ></a>
                                 <!-- <a
@@ -1508,6 +1727,8 @@
                                 ></a> -->
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </section>
@@ -1543,51 +1764,25 @@
                             class="col-lg-4 col-md-6 portfolio-item-work filter-programming"
                         >
                             <img
-                                src="https://media.istockphoto.com/photos/team-of-young-computer-programmers-cooperating-in-the-office-picture-id1157345255?b=1&k=20&m=1157345255&s=170667a&w=0&h=prDhzMeI5tUoecj4kQwxOnRSI6X2vyVMkHbYOGU1Stw="
+                                src="{{ asset('assets/image_psb/prog-karya.png') }}"
                                 class="img-fluid"
                                 alt="image"
                             />
                             <div class="portfolio-info">
-                                <h4>Volly</h4>
-                                <p>Bermain volly bersama <br>dilapangan, setelah pemanasan.</p>
+                                <h4>Sistem PSB</h4>
+                                <p>Salah satu karya santri programming yaitu sistem penerimaan santri baru.</p>
                                 <a
-                                    href="https://media.istockphoto.com/photos/team-of-young-computer-programmers-cooperating-in-the-office-picture-id1157345255?b=1&k=20&m=1157345255&s=170667a&w=0&h=prDhzMeI5tUoecj4kQwxOnRSI6X2vyVMkHbYOGU1Stw="
+                                    href="{{ asset('assets/image_psb/prog-karya.png') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox-work preview-link"
-                                    title="Bermain volly bersama dilapangan, setelah pemanasan."
+                                    title="Salah satu karya santri programming yaitu sistem penerimaan santri baru."
                                     ><i class="bx bx-plus"></i
                                 ></a>
                                 <a
+                                    target="_blank"
                                     href="https://pondokinformatika.com/karya-santri/"
                                     class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item-work filter-design"
-                        >
-                            <img
-                                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGRlc2lnbiUyMHdvcmt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>Web 3</h4>
-                                <p>Web</p>
-                                <a
-                                    href="{{ asset('./assets/img/portfolio/portfolio-2.jpg') }}"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox-work preview-link"
-                                    title="Web 3"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <a
-                                    href="https://pondokinformatika.com/karya-santri/"
-                                    class="details-link"
-                                    title="More Details"
+                                    title="Karya Lain"
                                     ><i class="bx bx-link"></i
                                 ></a>
                             </div>
@@ -1597,24 +1792,168 @@
                             class="col-lg-4 col-md-6 portfolio-item-work filter-programming"
                         >
                             <img
-                                src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHByb2dyYW1taW5nJTIwd29ya3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                                src="{{ asset('assets/image_psb/prog2.jpg') }}"
+                                class="img-fluid"
+                                alt="image"
+                            />
+                            <div class="portfolio-info">
+                                <h4>Aplikasi Android</h4>
+                                <p>Salah satu karya santri programming yaitu Aplikasi Android.</p>
+                                <a
+                                    href="{{ asset('assets/image_psb/prog2.jpg') }}"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox-work preview-link"
+                                    title="Salah satu karya santri programming yaitu Aplikasi Android."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    target="_blank"
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="Karya Lain"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item-work filter-programming"
+                        >
+                            <img
+                                src="{{ asset('assets/image_psb/prog3.png') }}"
+                                class="img-fluid"
+                                alt="image"
+                            />
+                            <div class="portfolio-info">
+                                <h4>Sistem Sekolah</h4>
+                                <p>Salah satu karya santri programming yaitu sistem sekolah dan sistem ini merupakan hasil kerjasama dengan sekolah wahdah islamiyah.</p>
+                                <a
+                                    href="{{ asset('assets/image_psb/prog3.png') }}"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox-work preview-link"
+                                    title="Salah satu karya santri programming yaitu sistem sekolah dan sistem ini merupakan hasil kerjasama dengan sekolah wahdah islamiyah."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    target="_blank"
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="Karya Lain"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+                        
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item-work filter-design"
+                        >
+                            <img
+                                src="{{ asset('assets/image_psb/design-karya.png') }}"
+                                class="img-fluid"
+                                alt="image"
+                            />
+                            <div class="portfolio-info">
+                                <h4>Design</h4>
+                                <p>Salah satu karya santri yaitu pembuatan logo branding dan layak untuk di implementasikan.</p>
+                                <a
+                                    href="{{ asset('assets/image_psb/design-karya.png') }}"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox-work preview-link"
+                                    title="Salah satu karya santri yaitu pembuatan logo branding dan layak untuk di implementasikan."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    target="_blank"
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="Karya Lain"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item-work filter-design"
+                        >
+                            <img
+                                src="{{ asset('assets/image_psb/poster.jpeg') }}"
+                                class="img-fluid"
+                                alt="image"
+                            />
+                            <div class="portfolio-info">
+                                <h4>Design</h4>
+                                <p>Salah satu karya santri yaitu pembuatan quotes islami sehingga dapat memotivasi seluruh umat.</p>
+                                <a
+                                    href="{{ asset('assets/image_psb/poster.jpeg') }}"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox-work preview-link"
+                                    title="Salah satu karya santri yaitu pembuatan quotes islami sehingga dapat memotivasi seluruh umat."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    target="_blank"
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="Karya Lain"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item-work filter-design"
+                        >
+                            <img
+                                src="{{ asset('assets/image_psb/design2.jpg') }}"
+                                class="img-fluid"
+                                alt="image"
+                            />
+                            <div class="portfolio-info">
+                                <h4>Design Website</h4>
+                                <p>Salah satu karya santri yaitu design website yang menarik.</p>
+                                <a
+                                    href="{{ asset('assets/image_psb/design2.jpg') }}"
+                                    data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox-work preview-link"
+                                    title="Salah satu karya santri yaitu design website yang menarik."
+                                    ><i class="bx bx-plus"></i
+                                ></a>
+                                <a
+                                    target="_blank"
+                                    href="https://pondokinformatika.com/karya-santri/"
+                                    class="details-link"
+                                    title="Karya Lain"
+                                    ><i class="bx bx-link"></i
+                                ></a>
+                            </div>
+                        </div>
+
+
+                        <div
+                            class="col-lg-4 col-md-6 portfolio-item-work filter-video"
+                            >
+                            <img
+                                src="{{ asset('assets/image_psb/video.png') }}"
                                 class="img-fluid"
                                 alt=""
                             />
                             <div class="portfolio-info">
-                                <h4>App 2</h4>
-                                <p>App</p>
+                                <h4>Video Ceramah</h4>
+                                <p>Setiap santri akan mendapatkan tugas untuk membuat video ceramah singkat mulai dari mengambil video hingga mengedit di lakukan secara mandiri.</p>
                                 <a
-                                    href="{{ asset('./assets/img/portfolio/portfolio-3.jpg') }}"
+                                    href="{{ asset('assets/image_psb/video.png') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox-work preview-link"
-                                    title="App 2"
+                                    title="Setiap santri akan mendapatkan tugas untuk membuat video ceramah singkat mulai dari mengambil video hingga mengedit di lakukan secara mandiri."
                                     ><i class="bx bx-plus"></i
                                 ></a>
                                 <a
-                                    href="https://pondokinformatika.com/karya-santri/"
+                                    target="_blank"
+                                    href="https://www.youtube.com/c/PondokInformatikaAlmadinah/videos"
                                     class="details-link"
-                                    title="More Details"
+                                    title="Video Lain"
                                     ><i class="bx bx-link"></i
                                 ></a>
                             </div>
@@ -1624,163 +1963,30 @@
                             class="col-lg-4 col-md-6 portfolio-item-work filter-video"
                             >
                             <img
-                                src="https://media.istockphoto.com/photos/laptop-pc-with-many-people-having-a-meeting-at-distance-picture-id1226068276?b=1&k=20&m=1226068276&s=170667a&w=0&h=4CEo3YjPzJpyAVMMopkhRICuf5Z8zWWcQ11XuUF-B74="
+                                src="{{ asset('assets/image_psb/video-promosi.jpg') }}"
                                 class="img-fluid"
                                 alt=""
                             />
                             <div class="portfolio-info">
-                                <h4>Card 2</h4>
-                                <p>Card</p>
+                                <h4>Video Promosi Produk UMKM</h4>
+                                <p>Salah salah satu karya santri design yaitu pembuatan video promosi/iklan layaknya iklan di tv.</p>
                                 <a
-                                    href="{{ asset('./assets/img/portfolio/portfolio-4.jpg') }}"
+                                    href="{{ asset('assets/image_psb/video-promosi.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox-work preview-link"
-                                    title="Card 2"
+                                    title="Salah salah satu karya santri design yaitu pembuatan video promosi/iklan layaknya iklan di tv."
                                     ><i class="bx bx-plus"></i
                                 ></a>
                                 <a
-                                    href="https://pondokinformatika.com/karya-santri/"
+                                    target="_blank"
+                                    href="https://www.youtube.com/c/PondokInformatikaAlmadinah/videos"
                                     class="details-link"
-                                    title="More Details"
+                                    title="Video Lain"
                                     ><i class="bx bx-link"></i
                                 ></a>
                             </div>
                         </div>
 
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item-work filter-design"
-                        >
-                            <img
-                                src="https://images.unsplash.com/photo-1493932484895-752d1471eab5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGRlc2lnbiUyMHdvcmt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>Web 2</h4>
-                                <p>Web</p>
-                                <a
-                                    href="{{ asset('./assets/img/portfolio/portfolio-5.jpg') }}"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox-work preview-link"
-                                    title="Web 2"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <a
-                                    href="https://pondokinformatika.com/karya-santri/"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item-work filter-programming"
-                        >
-                            <img
-                                src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHByb2dyYW1taW5nJTIwd29ya3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>App 3</h4>
-                                <p>App</p>
-                                <a
-                                    href="{{ asset('./assets/img/portfolio/portfolio-6.jpg') }}"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox-work preview-link"
-                                    title="App 3"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <a
-                                    href="https://pondokinformatika.com/karya-santri/"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item-work filter-video"
-                        >
-                            <img
-                                src="https://images.unsplash.com/photo-1629956874549-a21316bfe0a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmlkZW8lMjBpc2xhbXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>Card 1</h4>
-                                <p>Card</p>
-                                <a
-                                    href="{{ asset('./assets/img/portfolio/portfolio-7.jpg') }}"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox-work preview-link"
-                                    title="Card 1"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <a
-                                    href="https://pondokinformatika.com/karya-santri/"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item-work filter-video"
-                        >
-                            <img
-                                src="https://images.unsplash.com/photo-1620802232352-8ad6533690ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlkZW8lMjBpc2xhbXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>Card 3</h4>
-                                <p>Card</p>
-                                <a
-                                    href="./assets/img/portfolio/portfolio-8.jpg"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox-work preview-link"
-                                    title="Card 3"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <a
-                                    href="https://pondokinformatika.com/karya-santri/"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item-work filter-design"
-                        >
-                            <img
-                                src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGRlc2lnbiUyMHdvcmt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-                                class="img-fluid"
-                                alt=""
-                            />
-                            <div class="portfolio-info">
-                                <h4>Web 3</h4>
-                                <p>Web</p>
-                                <a
-                                    href="./assets/img/portfolio/portfolio-9.jpg"
-                                    data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox-work preview-link"
-                                    title="Web 3"
-                                    ><i class="bx bx-plus"></i
-                                ></a>
-                                <a
-                                    href="https://pondokinformatika.com/karya-santri/"
-                                    class="details-link"
-                                    title="More Details"
-                                    ><i class="bx bx-link"></i
-                                ></a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
