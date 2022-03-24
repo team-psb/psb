@@ -37,7 +37,7 @@ class BiodataOneSeeder extends Seeder
         // }
         // $this->command->getOutput()->progressFinish();
 
-        $users = User::get();
+        $users = User::where('role', '!=', 'admin')->get();
         $academy = AcademyYear::find(1);
         
         foreach ($users as $user) {
@@ -50,7 +50,9 @@ class BiodataOneSeeder extends Seeder
                 'age'=> rand(16,21),
                 'birth_date'=> $faker->date('Y-m-d','2005-12-01'),
                 'no_wa'=> $user->phone,
-                'gender'=> 'l'
+                'gender'=> 'l',
+                'created_at' => $faker->dateTime('now', null)
+
             ]);
         }
     }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\AcademyYear;
+use App\Models\BiodataOne;
 use App\Models\BiodataTwo;
 use App\Models\IndonesiaCity;
 use App\Models\IndonesiaProvince;
@@ -82,12 +83,12 @@ class BiodataTwoSeeder extends Seeder
         // }
         // $this->command->getOutput()->progressFinish();
 
-        $users = User::get();
+        $users = BiodataOne::get();
         $academy = AcademyYear::find(1);
 
         foreach ($users as $user) {
             BiodataTwo::create([
-                'user_id'=> $user->id,
+                'user_id'=> $user->user_id,
                 'stage_id'=> $academy->stage_id,
                 'academy_year_id'=> $academy->id,
                 'indonesia_provinces_id'=> $province->code,
