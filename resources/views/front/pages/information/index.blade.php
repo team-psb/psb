@@ -34,7 +34,7 @@
                       >
                         <div class="row no-gutters">
                           <div class="col-md-4">
-                            <img src="{{ asset('/storage/'.$information->image) }}" class="card-img" alt="...">
+                            <img src="{{ asset('/storage/'.$information->image) }}" class="card-img" alt="Tidak ada gambar">
                           </div>
                           <div class="col-md-8 col-12">
                             <div class="card-body">

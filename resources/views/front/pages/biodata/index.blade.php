@@ -157,20 +157,6 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword2">Instagram<b id="required">*</b></label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="exampleInputPassword2"
-                          name="instagram"
-                          value="{{ old('instagram') }}"
-                          placeholder="https://instagram.com/pondokinformatika/"
-                          required
-                        />
-                      <small>Isi "tidak ada" jika tidak punya</small>
-                      </div>
-                      <div class="form-group">
-<<<<<<< HEAD
-                        <label for="exampleInputPassword2">Instagram<b id="required">*</b></label>
                           <input
                             type="text"
                             class="form-control"
@@ -182,8 +168,6 @@
                         <small>Isi "tidak ada" jika tidak punya</small>
                       </div>
                       <div class="form-group">
-=======
->>>>>>> a5676256bdcf8d246ae76c6d87b5d811c3350268
                         <label for="exampleInputPassword3">Tiktok<b id="required">*</b></label>
                         <input
                           type="text"
