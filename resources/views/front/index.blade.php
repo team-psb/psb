@@ -573,15 +573,15 @@
                         @isset($tahap5)
                           @if ($tahap5->status == null)
                             <div class="badge badge-warning">
-                            Menunggu dihubungi
+                              Menunggu dihubungi
                             </div>
                           @elseif($tahap5->status == 'lolos')
                             <div class="badge badge-success">
-                            Lolos
+                              Lolos
                             </div>
                           @elseif($tahap5->status == 'tidak')
                             <div class="badge badge-danger">
-                            Tidak Lolos
+                              Tidak Lolos
                             </div>
                           @else
                         @endif
