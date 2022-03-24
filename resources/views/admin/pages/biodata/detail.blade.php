@@ -251,23 +251,21 @@
             </table>
         </div>
     </div>
-    <div class="row mt-4">
-        <div class="col">
+    <div class="mt-4">
         <h6 class="fw-bold">Pertanyaan 3</h6>
-            <table cellpadding="5">
-                <tr>
-                    <td style="width: 280px;">Alasan Mendaftar</td>
-                    <td>{{ $biodata->user->biodataTwo->reason_registration }}</td>
-                </tr>
-                <tr>
-                    <td>Kegiatan Dari Bangun Sampai Tidur</td>
-                    <td>{{ $biodata->user->biodataTwo->activity }}</td>
-                </tr>
-                <tr>
-                    <td>Kepribadian</td>
-                    <td>{{ $biodata->user->biodataTwo->personal }}</td>
-                </tr>
-            </table>
+        <div class="px-1">
+            <div class="">
+                <h6>Alasan Mendaftar :</h6>
+                <p style="font-size: 14px;">{{ $biodata->user->biodataTwo->reason_registration }}</p>
+            </div>
+            <div class="">
+                <h6>Kegiatan Dari Bangun Sampai Tidur :</h6>
+                <p style="font-size: 14px;">{{ $biodata->user->biodataTwo->activity }}</p>
+            </div>
+            <div class="">
+                <h6>Kepribadian :</h6>
+                <p style="font-size: 14px;">{{ $biodata->user->biodataTwo->personal }}</p>
+            </div>
         </div>
     </div>
     @else

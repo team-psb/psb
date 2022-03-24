@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\AcademyYear;
+use App\Models\Stage;
 use Illuminate\Database\Seeder;
 
 class AcademyYearSeeder extends Seeder
@@ -16,10 +17,14 @@ class AcademyYearSeeder extends Seeder
     {
         AcademyYear::truncate();
 
-        AcademyYear::create([
-            'year'=>'2022',
-            'stage_id'=>'1',
-            'is_active'=>'1',
-        ]);
+        $stages = Stage::pluck('id');
+
+        foreach ($stages as $stage) {
+            AcademyYear::create([
+                'year'=>'2022',
+                'stage_id'=> $stage,
+                'is_active'=> true,
+            ]);
+        }
     }
 }

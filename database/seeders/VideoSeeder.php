@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\BiodataTwo;
+use App\Models\ScorePersonal;
 use Illuminate\Database\Seeder;
 use App\Models\Video;
 use Faker\Factory;
@@ -17,16 +19,17 @@ class VideoSeeder extends Seeder
     public function run()
     {
         Video::truncate();
-
         $faker=Factory::create();
-        $user=User::all()->pluck('id');
-        $user_id = $user->toArray();
 
-        for ( $i = 1; $i < 11; $i++) { 
+        $users = ScorePersonal::where('status', 'lolos')->get();
+
+        foreach ($users as $user) {
             Video::create([
-                'user_id'=>$i,
+                'user_id'=> $user->user_id,
+                'stage_id' => $user->stage_id,
                 'academy_year_id'=>$faker->randomElement([1,2,3,4]),
-                'url'=>$faker->url
+                'url' => $faker->url,
+                'status'=>$faker->randomElement([null,'lolos','tidak']),
             ]);
         }
     }

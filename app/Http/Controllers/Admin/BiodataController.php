@@ -84,6 +84,7 @@ class BiodataController extends Controller
         $stages = Stage::get();
         
         $biodatas = $data->where('academy_year','!=', null);
+        // dd($biodatas);
         return view('admin.pages.biodata.index',compact('biodatas', 'stages'));
     }
 

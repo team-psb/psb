@@ -10,7 +10,15 @@
                 <div class="card card-rounded">
                     <div class="card-body">
 
-                        <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Biodata Pendaftar</h4>
+                        <div class="d-flex justify-content-between" style="border-bottom: 1px solid #c4c4c4;">
+                            <h4 class="card-title pb-4">Biodata Pendaftar</h4>
+                            <div class="">
+                                <span class="text-decoration-none fw-bold text-warning badge badge-warning"><i class="ti-star text-warning"></i>Sangat mampu</span>
+                                <span class="text-decoration-none fw-bold text-warning badge badge-opacity-warning">Belum diseleksi</span>
+                                <span class="text-decoration-none fw-bold text-success badge badge-opacity-success">Lolos</span>
+                                <span class="text-decoration-none fw-bold text-danger badge badge-opacity-danger">Gagal</span>
+                            </div>
+                        </div>
                         <p class="card-description">
                         Daftar Biodata Pendaftar
                         </p>
@@ -125,7 +133,7 @@
                                                     data-remote="{{ route('biodatas.show', $biodata->user->biodataOne->id) }}"
                                                     data-toggle="modal"
                                                     data-target="#mymodal"
-                                                    data-title="Detail Data" 
+                                                    data-title="Detail Data {{ $biodata->user->biodataOne->full_name }}" 
                                                     class="badge text-decoration-none fw-bold
                                                         {{ $biodata->status == null ? 'text-warning badge-opacity-warning' : '' }}
                                                         {{ $biodata->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
@@ -174,7 +182,7 @@
                                                         data-remote="{{ route('biodatas.show', $biodata->user->biodataOne->id) }}"
                                                         data-toggle="modal"
                                                         data-target="#mymodal"
-                                                        data-title="Detail Biodata {{ $biodata->full_name }}" 
+                                                        data-title="Detail Biodata {{ $biodata->user->biodataOne->full_name }}" 
                                                         class="btn btn-info btn-icon-text  p-2"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                         <i class="icon-eye btn-icon-prepend"></i> Detail
@@ -449,7 +457,8 @@
                                             data-remote="{{ route('biodatas.show', $biodata->id) }}"
                                             data-toggle="modal"
                                             data-target="#mymodal"
-                                            data-title="Detail Data" 
+                                            data-title="Detail Data {{ $biodata->user->biodataOne->full_name }}" 
+                                            style="font-size: 10px"
                                             class="badge text-decoration-none fw-bold
                                                 {{ $biodata->status == null ? 'text-warning badge-opacity-warning' : '' }}
                                                 {{ $biodata->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -17,7 +18,7 @@ class UserSeeder extends Seeder
         User::truncate();
         // $this->command->getOutput()->progressStart(8);
 
-        // $faker=Factory::create('id_ID');
+        $faker = Factory::create('id_ID');
 
         // for($i=1; $i <10; $i++){
         //     User::create([
@@ -37,13 +38,14 @@ class UserSeeder extends Seeder
             'role'=>'admin'
         ]);
 
-        for ($i=0; $i < 10; $i++) { 
-            User::create([
-                'name'=>'pendaftar'.$i,
-                'phone'=>'9876543210'.$i,
-                'password'=>bcrypt('123456'),
-                'role'=>'pendaftar',
-            ]);
-        }
+        // for ($i=0; $i < 500; $i++) { 
+        //     User::create([
+        //         'name'=>'pendaftar'.$i,
+        //         'phone'=>'9876543210'.$i,
+        //         'password'=>bcrypt('123456'),
+        //         'role'=>'pendaftar',
+        //         'created_at' => $faker->dateTime('now', null)
+        //     ]);
+        // }
     }
 }
