@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
             'role'=>'admin'
         ]);
 
-        // for ($i=0; $i < 500; $i++) { 
+        // for ($i=0; $i < 10; $i++) { 
         //     User::create([
         //         'name'=>'pendaftar'.$i,
         //         'phone'=>'9876543210'.$i,

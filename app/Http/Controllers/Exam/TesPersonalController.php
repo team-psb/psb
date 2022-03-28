@@ -15,10 +15,14 @@ class TesPersonalController extends Controller
 {
     public function personal()
     {
-        $limit = Setting::pluck('question_personal_value')->first();
-        $soal = QuestionPersonal::inRandomOrder()->limit($limit)->get();
-        $kepribadian = $soal->paginate(10);
-        return view('front.pages.tesPersonality.index',compact('kepribadian'));
+        // $limit = Setting::pluck('question_personal_value')->first();
+        // $soal = QuestionPersonal::inRandomOrder()->limit($limit)->get();
+        // $kepribadian = $soal->paginate(10);
+        
+        $soal = QuestionPersonal::inRandomOrder()->limit(50)->get();
+        $kepribadian = $soal->chunk(10);
+
+        return view('front.pages.tesPersonality.index1',compact('kepribadian'));
     }
 
     public function personalStore(Request $request)

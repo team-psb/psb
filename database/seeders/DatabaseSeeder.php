@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\QuestionIqAnswer;
+use App\Models\QuestionPersonalAnswer;
 use App\Models\Setting;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Database\Seeder;
@@ -35,7 +37,7 @@ class DatabaseSeeder extends Seeder
             QnaSeeder::class,
             QuestionIqSeeder::class,
             QuestionPersonalSeeder::class,
-            SettingSeeder::class
+            SettingSeeder::class,
         ]);
 
     }

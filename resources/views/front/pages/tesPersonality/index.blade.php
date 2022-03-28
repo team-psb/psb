@@ -122,7 +122,7 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
+                    </div>
                     @endforeach
                         <div class="text-center">
                             <p class="text-success"><i class="fas fa-info"></i> Jika sudah selesai mengerjakan silahkan tekan tombol selesai</p>
@@ -185,7 +185,7 @@
                 swalWithBootstrapButtons.fire(
                     'Dibatalkan !',
                     'Silahkan dikerjakan kembali :)'
-                );
+                ;
             }
         });
       });

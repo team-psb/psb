@@ -115,7 +115,7 @@
                                 </div>
                             </div>
                             <div class="col-3">
-                                <div class="row">
+                                {{-- <div class="row">
                                     <div class="form-group">
                                         <h5>Soal Tes IQ Aktif <span class="badge badge-success">{{ $iq.'/'.$iqs->count() }}</span></h5>
                                         <form action="{{ route('settings.iq-value') }}" method="POST">
@@ -136,7 +136,7 @@
                                             <button class="btn btn-primary float-end">save</button>
                                         </form>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <h5>Pengumuman Santri Baru</h5>
                                     <form action="{{ route('settings.announcement') }}" method="POST">
@@ -147,7 +147,7 @@
                                 </div>
                             </div>
                             <div class="col-3">
-                                <div class="row">
+                                {{-- <div class="row">
                                     <div class="form-group">
                                         <h5>Soal Tes Kepribadian Aktif <span class="badge badge-success">{{ $personal.'/'.$personals->count() }}</span></h5>
                                         <form action="{{ route('settings.personal-value') }}" method="POST">
@@ -168,7 +168,7 @@
                                             <button class="btn btn-primary float-end">save</button>
                                         </form>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <h5>No Pesan Whatsapp</h5>
                                     <form action="{{ route('settings.no-message') }}" method="POST">

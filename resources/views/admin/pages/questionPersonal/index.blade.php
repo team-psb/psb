@@ -10,6 +10,9 @@
                     <div class="card card-rounded">
                         <div class="card-body">
                             <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Soal Tes Kepribadian</h4>
+                            <p class="card-description">
+                                Jumlah soal tidak boleh kurang dari 50 soal
+                            </p>
                             <div class="row mb-4 ">
                                 {{-- message --}}
                                 @if (session('success-create'))

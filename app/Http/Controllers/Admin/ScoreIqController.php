@@ -10,6 +10,7 @@ use App\Models\Setting;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ScoreIqExport;
 use App\Models\BiodataTwo;
+use App\Models\QuestionIqAnswer;
 
 class ScoreIqController extends Controller
 {

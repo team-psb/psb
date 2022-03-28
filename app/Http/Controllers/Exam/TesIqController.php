@@ -17,11 +17,14 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class TesIqController extends Controller
 {
     public function iq(Request $request){
-        $limit = Setting::pluck('question_iq_value')->first();
-        $question   = QuestionIq::inRandomOrder()->limit($limit)->get();
-        $question_iq = $question->paginate(10);
+        // $limit = Setting::pluck('question_iq_value')->first();
+        // $question   = QuestionIq::inRandomOrder()->limit($limit)->get();
+        // $question_iq = $question->paginate(10);
 
-        return view('front.pages.tesIq.index', compact('question_iq'));
+        $soal = QuestionIq::inRandomOrder()->limit(50)->get();
+        $question_iq = $soal->chunk(10);
+
+        return view('front.pages.tesIq.index1', compact('question_iq'));
     }
 
     public function iqStore(Request $request){
@@ -34,12 +37,12 @@ class TesIqController extends Controller
         $notif = Setting::get()->first();
 
         if($jawaban != null){
-            $jawaban_benar=null;
-            $jawaban_salah=null;
+            $jawaban_benar = null;
+            $jawaban_salah = null;
 
             foreach ($jawaban as $key => $value) {
-                $cek=QuestionIq::where('id','=',$key)->where('answer_key','=',$value)->get();
-                $benar=count($cek);
+                $cek = QuestionIq::where('id','=',$key)->where('answer_key','=',$value)->get();
+                $benar = count($cek);
                 
                 if($benar){
                     $jawaban_benar++;
@@ -48,7 +51,7 @@ class TesIqController extends Controller
                 }
             }
 
-            $nilai=$jawaban_benar*2;
+            $nilai = $jawaban_benar*2;
 
 
             ScoreIq::create([
@@ -64,7 +67,7 @@ class TesIqController extends Controller
             ];
             sendMessage($data);
 
-            return redirect()->route('user-dashboard');
+            return redirect()->route('success');
         }else{
             ScoreIq::create([
                 'user_id'=>Auth::user()->id,

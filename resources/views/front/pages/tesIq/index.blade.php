@@ -3,7 +3,7 @@
 @section('title', 'Tes IQ')
 
 @section('content')
-    <div class="container py-5">
+    <div id="initiated" class="container py-5">
         <div class="my-4">
             <div class="row justify-content-center px-4">
                 <div class="col-md-10 col-sm-12 title">
@@ -58,6 +58,7 @@
                                                         name="pilihan[{{ $item->id }}]"
                                                         class="custom-control-input"
                                                         value="a"
+                                                        {{ old('pilihan[$item->id]') ? 'checked' : '' }}
                                                         />
                                                         <label
                                                         class="custom-control-label"
@@ -75,6 +76,7 @@
                                                         name="pilihan[{{ $item->id }}]"
                                                         class="custom-control-input"
                                                         value="b"
+                                                        {{ old('pilihan[$item->id]') ? 'checked' : '' }}
                                                         />
                                                         <label
                                                         class="custom-control-label"
@@ -92,6 +94,7 @@
                                                         name="pilihan[{{ $item->id }}]"
                                                         class="custom-control-input"
                                                         value="c"
+                                                        {{ old('pilihan[$item->id]') ? 'checked' : '' }}
                                                         />
                                                         <label
                                                         class="custom-control-label"
@@ -109,6 +112,7 @@
                                                         name="pilihan[{{ $item->id }}]"
                                                         class="custom-control-input"
                                                         value="d"
+                                                        {{ old('pilihan[$item->id]') ? 'checked' : '' }}
                                                         />
                                                         <label
                                                         class="custom-control-label"
@@ -126,6 +130,7 @@
                                                         name="pilihan[{{ $item->id }}]"
                                                         class="custom-control-input"
                                                         value="e"
+                                                        {{ old('pilihan[$item->id]') ? 'checked' : '' }}
                                                         />
                                                         <label
                                                         class="custom-control-label"
@@ -147,6 +152,7 @@
                             <div class="d-flex flex-wrap justify-content-between m-3">
                                 <div>
                                     {{ $question_iq->links() }}
+                                    {{-- {{ $question_iq->appends(array_merge(request()->all()))->links() }}  --}}
                                 </div>
                                 <div class="">
                                     <input type="button" id="btn-ok" value="Selesai" class="btn btn-primary float-right px-3 accept"/>
@@ -202,4 +208,21 @@
       });
     });
   </script>
+
+    <script>
+        $('.pagination a').on('click', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            $('#initiated').load(url + ' div#initiated');
+        });
+
+        function ajaxPaging() {
+            $('.pagination a').on('click', function (e) {
+                e.preventDefault();
+                var url = $(this).attr('href');
+                $('#initiated').load(url + ' div#initiated', null, ajaxPaging); // re-run on complete
+            });
+        }
+        ajaxPaging();
+    </script>
 @endpush
