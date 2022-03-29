@@ -286,7 +286,7 @@
                     <td>{{ $biodata->birth_date }}</td>
                 </tr>
                 <tr>
-                    <td>Kondidi Keluarga</td>
+                    <td>Kondisi Keluarga</td>
                     <td>{{ $biodata->family }}</td>
                 </tr>
                 <tr>
