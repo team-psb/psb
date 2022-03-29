@@ -141,9 +141,9 @@
         <!-- ======= End Background Image ======= -->
 
         <!-- WA Live -->
-        <a id="Wa" class="wa" title="Chat Live Wa" target="_blank" href="https://api.whatsapp.com/send?phone=6285725249265&text=Assalamu'alaikum%20Pondok%20Informatika,%20Saya%20pendaftar%20santri%20baru%20butuh%20bantuan !">
-            <img src="{{ asset('./assets/img/wa.png') }}" alt="logo-wa" width="80" />
-        </a>
+            <!-- <a id="Wa" class="wa" title="Chat Live Wa" target="_blank" href="https://api.whatsapp.com/send?phone=6285725249265&text=Assalamu'alaikum%20Pondok%20Informatika,%20Saya%20pendaftar%20santri%20baru%20butuh%20bantuan !">
+                <img src="{{ asset('./assets/img/wa.png') }}" alt="logo-wa" width="80" />
+            </a> -->
         <!-- End WA Live -->
 
         <!-- ======= Header ======= -->
@@ -291,9 +291,8 @@
                             </a>
                             <span class="mx-2"></span>
                             <a
-                                href="https://pondokinformatika.com/psb/"
+                                href="#regis"
                                 class="text-decoration-none button-banner2"
-                                target="blank"
                             >
                                 <button
                                     class="
@@ -306,7 +305,7 @@
                                         mb-1
                                     "
                                 >
-                                    Lebih Lanjut
+                                    Daftar
                                 </button>
                             </a>
                         </div>
@@ -1034,7 +1033,7 @@
             </section>
             <!-- End Regis Section -->
 
-            {{-- <!-- ======= Statistic Section ======= -->
+            <!-- ======= Statistic Section ======= -->
             <section id="stat" class="stat">
                 <div
                     class="container"
@@ -1062,11 +1061,9 @@
                                     data-aos="zoom-in"
                                     data-aos-duration="1000"
                                 >
-                                    <p class="text-stats">Total Pendaftar</p>
-                                    <p class="text-stats2">Quota Penerimaan</p>
-                                    <p class="text-stats3">
-                                        Total Pengisi Formulir
-                                    </p>
+                                    <!-- <p class="text-stats">Total Pendaftar</p> -->
+                                    <p class="text-stats2">Total Pendaftar</p>
+                                    <!-- <p class="text-stats3">Total Pengisi Formulir</p> -->
                                     <img
                                         src="{{ asset('./assets/img/users_stats.png') }}"
                                         alt="stat_image"
@@ -1074,6 +1071,17 @@
                                         class="img-fluid pt-5"
                                     />
                                     <span
+                                    data-purecounter-start="0"
+                                    data-purecounter-end="{{ $userregister->count() }}"
+                                    data-purecounter-duration="1"
+                                    class="
+                                        purecounter
+                                        text-white
+                                        fs-1
+                                        img-stats2
+                                        "
+                                    ></span>
+                                    <!-- <span
                                         data-purecounter-start="0"
                                         data-purecounter-end="{{ $users }}"
                                         data-purecounter-duration="1"
@@ -1083,19 +1091,8 @@
                                             fs-1
                                             img-stats
                                         "
-                                    ></span>
-                                    <span
-                                        data-purecounter-start="0"
-                                        data-purecounter-end="11"
-                                        data-purecounter-duration="1"
-                                        class="
-                                            purecounter
-                                            text-white
-                                            fs-1
-                                            img-stats2
-                                        "
-                                    ></span>
-                                    <span
+                                    ></span> -->
+                                    <!-- <span
                                         data-purecounter-start="0"
                                         data-purecounter-end="{{ $userregister->count() }}"
                                         data-purecounter-duration="1"
@@ -1105,14 +1102,14 @@
                                             fs-1
                                             img-stats3
                                         "
-                                    ></span>
+                                    ></span> -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- End Statistic Section --> --}}
+            <!-- End Statistic Section -->
 
             <!-- ======= Announce Section ======= -->
             <section id="announce" class="announce">
@@ -1844,7 +1841,7 @@
                                 ></a>
                             </div>
                         </div>
-                        
+
 
                         <div
                             class="col-lg-4 col-md-6 portfolio-item-work filter-design"
