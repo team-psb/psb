@@ -52,7 +52,7 @@
                                         <input type="hidden" value="{{ $token }}" name="token">
                                         <div class="form-group">
                                             <label for="phone">No Whatsapp</label>
-                                            <input id="phone" value="{{ old('phone') }}" placeholder="contoh : 08574442XXXX" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" tabindex="1" required autofocus>
+                                            <input id="phone" value="{{ old('phone') }}" placeholder="contoh : 08574442XXXX" type="number" class="form-control @error('phone') is-invalid @enderror" name="phone" tabindex="1" required autofocus>
                                             <small> silahkan diisi dengan no whatsapp yang anda gunakan untuk login!</small>
                                             @error('phone')
                                                 <div class="invalid-feedback">
