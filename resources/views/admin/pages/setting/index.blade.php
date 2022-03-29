@@ -141,7 +141,7 @@
                                     <h5>Pengumuman Santri Baru</h5>
                                     <form action="{{ route('settings.announcement') }}" method="POST">
                                         @csrf
-                                        <input type="date" name="announc" class="form-control" value="{{ $settings->first()->announcement }}">
+                                        <input type="date" name="announc" class="form-control p-2" value="{{ $settings->first()->announcement }}">
                                         <button  class="btn btn-primary btn-md mt-2 float-end">Save</button>
                                     </form>
                                 </div>
@@ -189,7 +189,7 @@
                                 <form action="{{ route('settings.complete-tahap1') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="complete_tahap1" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->complete_tahap1 }}</textarea>
+                                        <textarea name="complete_tahap1" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->complete_tahap1 }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -202,7 +202,7 @@
                                 <form action="{{ route('settings.complete-tahap1-sm') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="complete_tahap1_sm" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->complete_tahap1_sm }}</textarea>
+                                        <textarea name="complete_tahap1_sm" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->complete_tahap1_sm }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -215,7 +215,7 @@
                                 <form action="{{ route('settings.biodata-pass') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="notif_tahap1" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap1 }}</textarea>
+                                        <textarea name="notif_tahap1" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->notif_tahap1 }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -228,7 +228,7 @@
                                 <form action="{{ route('settings.biodata-pass-sm') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="notif_tahap1_sm" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap1_sm }}</textarea>
+                                        <textarea name="notif_tahap1_sm" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->notif_tahap1_sm }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -241,7 +241,7 @@
                                 <form action="{{ route('settings.biodata-failed') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="notif_tahap1_failed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap1_failed }}</textarea>
+                                        <textarea name="notif_tahap1_failed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->notif_tahap1_failed }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -256,7 +256,7 @@
                                 <form action="{{ route('settings.complete-tahap2') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="complete_tahap2" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->complete_tahap2 }}</textarea>
+                                        <textarea name="complete_tahap2" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->complete_tahap2 }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -269,7 +269,7 @@
                                 <form action="{{ route('settings.iq-pass') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="notif_tahap2" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap2 }}</textarea>
+                                        <textarea name="notif_tahap2" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->notif_tahap2 }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -282,7 +282,7 @@
                                 <form action="{{ route('settings.iq-failed') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="notif_tahap2_failed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap2_failed }}</textarea>
+                                        <textarea name="notif_tahap2_failed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->notif_tahap2_failed }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -297,7 +297,7 @@
                                 <form action="{{ route('settings.complete-tahap3') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="complete_tahap3" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->complete_tahap3 }}</textarea>
+                                        <textarea name="complete_tahap3" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->complete_tahap3 }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -310,7 +310,7 @@
                                 <form action="{{ route('settings.personal-pass') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="notif_tahap3" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap3 }}</textarea>
+                                        <textarea name="notif_tahap3" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->notif_tahap3 }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -323,7 +323,7 @@
                                 <form action="{{ route('settings.personal-failed') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="notif_tahap3_failed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap3_failed }}</textarea>
+                                        <textarea name="notif_tahap3_failed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->notif_tahap3_failed }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -338,7 +338,7 @@
                                 <form action="{{ route('settings.complete-tahap4') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="complete_tahap4" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->complete_tahap4 }}</textarea>
+                                        <textarea name="complete_tahap4" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->complete_tahap4 }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -351,7 +351,7 @@
                                 <form action="{{ route('settings.video-pass') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="notif_tahap4" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap4 }}</textarea>
+                                        <textarea name="notif_tahap4" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->notif_tahap4 }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -364,7 +364,7 @@
                                 <form action="{{ route('settings.video-failed') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="notif_tahap4_failed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap4_failed }}</textarea>
+                                        <textarea name="notif_tahap4_failed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->notif_tahap4_failed }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -379,7 +379,7 @@
                                 <form action="{{ route('settings.interview-pass') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="notif_tahap5" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap5 }}</textarea>
+                                        <textarea name="notif_tahap5" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->notif_tahap5 }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -392,7 +392,7 @@
                                 <form action="{{ route('settings.student-pass') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="notif_tahap5_passed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap5_passed }}</textarea>
+                                        <textarea name="notif_tahap5_passed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->notif_tahap5_passed }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
@@ -405,7 +405,7 @@
                                 <form action="{{ route('settings.student-failed') }}" method="POST">
                                     @csrf
                                     <div class="form-floating">
-                                        <textarea name="notif_tahap5_failed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{ $settings->first()->notif_tahap5_failed }}</textarea>
+                                        <textarea name="notif_tahap5_failed" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">{{ $settings->first()->notif_tahap5_failed }}</textarea>
                                         <label for="floatingTextarea2">Isi Pesan</label>
                                         <div class="float-end">
                                             <button  class="btn btn-primary btn-md mt-2">Save</button>
