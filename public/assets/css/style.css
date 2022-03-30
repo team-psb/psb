@@ -108,8 +108,8 @@ h6 {
     transition: all 0.4s;
 }
 
-#Wa {
-    /* display: none; */
+/* #Wa {
+    display: none;
     position: fixed;
     bottom: 2px;
     left: 15px;
@@ -118,6 +118,49 @@ h6 {
     cursor: pointer;
     border-radius: 100px;
     transition: all 0.4s;
+} */
+
+/* Whatsapp */
+.btn_floating {
+    position: fixed;
+    left: 15px;
+    bottom: 15px;
+    z-index: 9999;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    color: #fff;
+    transition: .2s;
+    background: #23b180;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn_floating:hover {
+    width: auto;
+    padding: 0 10px ;
+    cursor: pointer;
+}
+.btn_floating #text_wa {
+    font-size: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: .2s;
+    line-height: 0px;
+    display: none;
+    font-weight: 500;
+}
+.btn_floating i {
+    font-size: 25px;
+}
+.btn_floating:hover #text_wa {
+    display: inline-block;
+}
+.btn_floating:hover i {
+    margin-right: 10px;
 }
 
 .back-to-top i {
