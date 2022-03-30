@@ -63,4 +63,13 @@
         background-color: #188038;
         transition: all 0.5s;
     }
+
+    @media (min-width: 1200px) {
+    .hero-pt {
+      padding-top: 40px;
+    }
+    .except-xl{
+        display: none;
+    }
+}
 </style>

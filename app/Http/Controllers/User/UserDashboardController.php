@@ -41,9 +41,23 @@ class UserDashboardController extends Controller
 
     public function profile()
     {
+        $data = BiodataOne::with(['academy_year' => function($query){
+            $query->where('is_active', true);
+        }]);
+
+        $gelombang = AcademyYear::where('is_active', 1)->pluck('stage_id');
+
+        $biodata1 = BiodataOne::where('user_id', '=', Auth::user()->id)->first(); 
+        $tahap1 = BiodataTwo::where('user_id', '=', Auth::user()->id)->first();
+        $tahap2 = ScoreIq::where('user_id', '=', Auth::user()->id)->first();
+        $tahap3 = ScorePersonal::where('user_id', '=', Auth::user()->id)->first();
+        $tahap4 = Video::where('user_id', '=', Auth::user()->id)->first();
+        $tahap5 = Pass::where('user_id', '=', Auth::user()->id)->first();
+        $schdules = Schdule::orderBy('created_at', 'desc')->get();
+        $qna    = Qna::first();
         $profile = BiodataOne::firstWhere('user_id', Auth::user()->id);
 
-        return view('front.pages.profile.index', compact('profile'));
+        return view('front.pages.profile.index', compact('profile', 'biodata1', 'tahap1', 'tahap2', 'tahap3', 'tahap4', 'tahap5', 'schdules', 'qna', 'data',));
     }
 
     public function qna()

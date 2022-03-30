@@ -5,11 +5,31 @@
 @push('end-style')
   <link rel="stylesheet" href="{{ asset('front/sweetalert2/sweetalert2.min.css') }}" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    .background-animation{
+        background: linear-gradient(-45deg, lightseagreen, #23d5ab, #23a6d5, steelblue);
+        background-size: 500%, 500%;
+        position: relative;
+        animation: change 10s ease-in-out infinite;
+    }
+    @keyframes change {
+        0% {
+            background-position: 0 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0 50%;
+        }
+    }
+  </style>
 @endpush
 
 @section('hero')
+<div class="main-wrapper background-animation">
     <div class="main-content">
-        <div class="py-5">
+        <div>
             <section class="section container">
                 {{-- @if (session('gagal_tes'))
                     <div class="row">
@@ -31,8 +51,8 @@
                 @endif
 
                 {{-- Hero --}}
-                <div class="section-body py-4">
-                    <div class="row py-1">
+                <div class="section-body hero-pt">
+                    <div class="row">
                       <div class="col-12 mb-4">
                         @if (Auth::user()->biodataOne->family != 'sangat-mampu')
                             <div  data-aos="fade-up"
@@ -198,7 +218,7 @@
                         @endif
                       </div>
                         {{-- Dekstop --}}
-                        <div  class="col-lg-6 col-md-6 col-12 d-none d-md-none d-lg-block"
+                        <div class="col-lg-4 col-md-6 col-12 d-none d-md-none d-lg-block"
                             data-aos="fade-up"
                             data-aos-offset="100"
                             data-aos-delay="400"
@@ -206,17 +226,43 @@
                         >
                           <a href="{{ route('user-informasi') }}">
                             <div class="card card-statistic-1">
-                              <div class="card-icon bg-info">
-                                <i class="far fa-newspaper"></i>
+                              <div class="card-icon bg-danger">
+                              <i class="far fa-newspaper"></i>
                               </div>
-                                <div class="card-body d-flex justify-content-between mt-4">
-                                  <h1>Informasi</h1>
-                                  <span class="h1 font-weight-bold text-danger">({{ $schdules ? $schdules->count() : '0' }})</span>
+                              <div class="card-wrap">
+                                <div class="card-header">
+                                  <h4>Informasi</h4>
                                 </div>
+                                <div class="card-body">
+                                  {{ $schdules ? $schdules->count() : '0' }}
+                                </div>
+                              </div>
                             </div>
                           </a>
                         </div>
-                        <div  class="col-lg-6 col-md-6 col-sm-6 col-12 d-none d-md-none d-lg-block"
+                        <div  class="col-lg-4 col-md-6 col-12 d-none d-md-none d-lg-block"
+                            data-aos="fade-up"
+                            data-aos-offset="100"
+                            data-aos-delay="400"
+                            data-aos-duration="1000"
+                        >
+                          <a href="#">
+                            <div class="card card-statistic-1">
+                              <div class="card-icon bg-primary">
+                                <i class="far fa-user"></i>
+                              </div>
+                              <div class="card-wrap">
+                                <div class="card-header">
+                                  <h4>Jumlah Pendaftar</h4>
+                                </div>
+                                <div class="card-body">
+                                  {{ $data ? $data->count() : '0' }}
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                        <div  class="col-lg-4 col-md-6 col-sm-6 col-12 d-none d-md-none d-lg-block"
                             data-aos="fade-up"
                             data-aos-offset="100"
                             data-aos-delay="600"
@@ -224,56 +270,97 @@
                         >
                           <a href="{{ route('user-qna') }}">
                             <div class="card card-statistic-1">
-                              <div class="card-icon bg-primary">
-                              <i class="fas fa-question-circle"></i>
+                              <div class="card-icon bg-warning">
+                                <i class="far fa-question-circle"></i>
                               </div>
-                                <div class="card-body d-flex justify-content-between mt-4">
-                                  <h1>Q & A</h1>
-                                  <span class="h1 font-weight-bold text-danger">({{ $qna ? $qna->count() : '0' }})</span>
+                              <div class="card-wrap">
+                                <div class="card-header">
+                                  <h4>Question & Answer</h4>
+                                </div>
+                                <div class="card-body">
+                                  {{ $qna ? $qna->count() : '0' }}
                                 </div>
                               </div>
                             </div>
                           </a>
                         </div>
                         {{-- Mobile --}}
-                        <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none">
-                        <a href="{{ route('user-profile') }}">
-                            <div class="card card-statistic-1 d-flex flex-row align-items-center">
-                            <div class="card-icon bg-primary">
-                                <i class="fas fa-user"></i>
+                        <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none"
+                             data-aos="fade-up"
+                             data-aos-offset="100"
+                             data-aos-delay="600"
+                             data-aos-duration="1000"
+                        >
+                          <a href="#">
+                            <div class="card card-statistic-1">
+                              <div class="card-icon bg-secondary">
+                                <i class="far fa-user"></i>
+                              </div>
+                              <div class="card-wrap">
+                                <div class="card-header">
+                                  <h4>Jumlah pendaftar</h4>
+                                </div>
+                                <div class="card-body">
+                                  {{ $data ? $data->count() : '0' }}
+                                </div>
+                              </div>
                             </div>
-                              {{-- <p class="h1"><u>Profile</u></p> --}}
-                              <a class="h1 text-info font-weight-bold" href="{{ route('user-profile') }}"><u>Profile</u></a>
-                            </div>
-                        </a>
+                          </a>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none">
-                        <a href="{{ route('user-qna') }}">
-                            <div class="card card-statistic-1 d-flex flex-row align-items-center">
-                            <div class="card-icon bg-success">
-                                <i class="fas fa-question-circle"></i>
-                            </div>
-                              <a class="h1 text-info font-weight-bold" href="{{ route('user-qna') }}"><u>Q & A</u></a>
-                              {{-- <p class="h1 text-success font-weight-bold"><u>Q & A</u></p> --}}
-                            </div>
-                        </a>
+                        <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none"
+                             data-aos="fade-up"
+                             data-aos-offset="100"
+                             data-aos-delay="600"
+                             data-aos-duration="1000"
+                        >
+                          <a href="{{ route('user-profile') }}">
+                              <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                              <div class="card-icon bg-primary">
+                                  <i class="fas fa-user"></i>
+                              </div>
+                                {{-- <p class="h1"><u>Profile</u></p> --}}
+                                <a class="h1 text-info font-weight-bold" href="{{ route('user-profile') }}"><u>Profile</u></a>
+                              </div>
+                          </a>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none">
-                        <a href="{{ route('user-informasi') }}">
-                            <div class="card card-statistic-1 d-flex flex-row align-items-center">
-                            <div class="card-icon bg-warning">
-                                <i class="fas fa-leaf"></i>
-                            </div>
-                              <a class="h1 text-info font-weight-bold" href="{{ route('user-informasi') }}"><u>Info</u></a>
-                              {{-- <p class="h1 text-warning font-weight-bold"><u>Info</u></p> --}}
-                            </div>
-                        </a>
+                        <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none"
+                             data-aos="fade-up"
+                             data-aos-offset="100"
+                             data-aos-delay="600"
+                             data-aos-duration="1000"
+                        >
+                          <a href="{{ route('user-qna') }}">
+                              <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                              <div class="card-icon bg-success">
+                                  <i class="fas fa-question-circle"></i>
+                              </div>
+                                <a class="h1 text-info font-weight-bold" href="{{ route('user-qna') }}"><u>Q & A</u></a>
+                                {{-- <p class="h1 text-success font-weight-bold"><u>Q & A</u></p> --}}
+                              </div>
+                          </a>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none"
+                             data-aos="fade-up"
+                             data-aos-offset="100"
+                             data-aos-delay="600"
+                             data-aos-duration="1000"
+                        >
+                          <a href="{{ route('user-informasi') }}">
+                              <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                              <div class="card-icon bg-warning">
+                                  <i class="fas fa-leaf"></i>
+                              </div>
+                                <a class="h1 text-info font-weight-bold" href="{{ route('user-informasi') }}"><u>Info</u></a>
+                                {{-- <p class="h1 text-warning font-weight-bold"><u>Info</u></p> --}}
+                              </div>
+                          </a>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
     </div>
+</div>
 @endsection
 
 @section('content')
@@ -357,7 +444,65 @@
                         class="img-fluid alur_image_3"
                     />
                 </div>
-                <div class="position-relative">
+                <div class="position-relative d-none d-md-none d-lg-block">
+                    <p
+                        class="
+                            position-absolute
+                            text-center
+                            alur-text4
+                        "
+                    >
+                        4. Melakukan Tes Wawancara
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/wawancara.png') }}"
+                        alt="tes"
+                        width="90px"
+                        class="img-fluid alur_image_4"
+                    />
+                </div>
+                <div class="position-relative d-none d-md-none d-lg-block">
+                    <p
+                        class="
+                            position-absolute
+                            text-center
+                            alur-text5
+                        "
+                    >
+                        5. Tunggu konfirmasi dari
+                        panitia dan Pengumuman
+                    </p>
+                    <img
+                        src="{{ asset('assets/img/lolos.png') }}"
+                        alt="daftar"
+                        width="90px"
+                        class="img-fluid alur_image_5"
+                    />
+                </div>
+            </div>
+
+            {{-- Mobile --}}
+            <div
+                class="
+                    col-md-12 col-sm-12
+                    d-lg-none d-xl-none
+                    d-flex
+                    align-items-center
+                    justify-content-around
+                    position-relative
+                    "
+                id="alur"
+            >
+                <div
+                    class="
+                        col-md-12 col-sm-12
+                        d-flex
+                        align-items-center
+                        justify-content-around
+                        position-relative
+                        "
+                >
+                  <div class="position-relative">
                     <p
                         class="
                             position-absolute
@@ -391,14 +536,15 @@
                         width="90px"
                         class="img-fluid alur_image_5"
                     />
+                  </div>
                 </div>
             </div>
           </div>
-            <div  class="row"
-                  data-aos="fade-up"
-                  data-aos-offset="200"
-                  data-aos-delay="100"
-                  data-aos-duration="1000"
+          <div  class="row"
+                data-aos="fade-up"
+                data-aos-offset="200"
+                data-aos-delay="100"
+                data-aos-duration="1000"
           >
             <div class="col-12">
               @if ($biodata1->count() > 0 )
