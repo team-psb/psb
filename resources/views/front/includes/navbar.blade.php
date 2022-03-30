@@ -2,8 +2,8 @@
       <nav class="navbar navbar-expand-lg main-navbar">
         <div class="container">
           <a href="{{ route('user-dashboard') }}" class="navbar-brand sidebar-gone-hide"><img width="80px" src="{{ asset('front/assets/img/logo-putih.png') }}" alt=""></a>
-          <div class="navbar-nav">
-            <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
+          <div class="navbar-nav d-flex align-items-center">
+            <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars" style="font-size: 24px;"></i></a>
           </div>
           {{-- <div class="nav-collapse">
             <a class="sidebar-gone-show nav-collapse-toggle nav-link" href="#">

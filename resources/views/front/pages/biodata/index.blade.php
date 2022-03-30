@@ -163,6 +163,7 @@
                             id="exampleInputPassword2"
                             name="instagram"
                             value="{{ old('instagram') }}"
+                            placeholder="https://instagram.com/pondokinformatika"
                             required
                           />
                         <small>Isi "tidak ada" jika tidak punya</small>

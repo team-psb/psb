@@ -13,8 +13,7 @@
 </head>
 <body class="layout-3"> 
     <div id="app"> 
-        @include('front.includes.navbar')
-        @yield('hero')
+        @include('front.includes.navbar-back-button')
         <div class="main-wrapper container">
             @include('front.includes.second-nav')
             @yield('content')
