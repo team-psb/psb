@@ -386,10 +386,16 @@
     <div class="modal-dialog modal-fullscreen m-0" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Biodata</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title" id="exampleModalLabel">Biodata Pendaftar</h5>
+                <div class="">
+                    <span class="text-decoration-none fw-bold text-warning badge badge-warning"><i class="ti-star text-warning"></i>Sangat mampu</span>
+                    <span class="text-decoration-none fw-bold text-warning badge badge-opacity-warning">Belum diseleksi</span>
+                    <span class="text-decoration-none fw-bold text-success badge badge-opacity-success">Lolos</span>
+                    <span class="text-decoration-none fw-bold text-danger badge badge-opacity-danger">Gagal</span>
+                    <button type="button" class="close ms-5" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
             </div>
             <div class="modal-body">
                 <form method="POST">

@@ -117,7 +117,9 @@
 			</td>
 		</tr>
 	</table>
-	<button type="submit" class="btn btn-primary me-2 mt-4">Kirimkan</button>
+	<button type="submit" class="btn btn-primary float-end me-2 mt-4">
+		Simpan
+	</button>
 </form>
 
 <script>

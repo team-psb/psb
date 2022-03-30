@@ -703,7 +703,7 @@
           ) {
               swalWithBootstrapButtons.fire(
                   'Dibatalkan !',
-                  'Silahkan dikerjakan kembali :'
+                  'Silahkan dikerjakan kembali.'
               );
           }
       });

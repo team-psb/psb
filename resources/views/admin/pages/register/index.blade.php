@@ -243,7 +243,7 @@
                                                 </td>
                                                 <td>
                                                     {{-- {{ \Carbon\Carbon::parse($register->created_at)->diffForHumans() }} --}}
-                                                    <h6>{{ $register->created_at->format('d M Y h:i') }}</h6>
+                                                    <h6>{{ $register->created_at->format('d M Y h:i A') }}</h6>
                                                     <p>{{ $register->stage->name }}</p>
                                                 </td>
                                                 <td>

@@ -48,14 +48,23 @@ class DashboardController extends Controller
         $label  = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
 
         for($bulan=1;$bulan < 13;$bulan++){
-            $chartThisYear     = collect(DB::SELECT("SELECT count(id) AS jumlah from biodata_ones where month(created_at)='$bulan'"))->first();
-            $lastYear     = collect(DB::SELECT("SELECT count(id) AS jumlah from biodata_ones where month(created_at)='$bulan'"))->first();
-            // $chartCome     = collect(DB::SELECT("SELECT count(id) AS jumlah from comes where month(created_at)='$bulan'"))->first();
-            // $chartMove    = collect(DB::SELECT("SELECT count(id) AS jumlah from moves where month(created_at)='$bulan'"))->first();
-            $tahunIni[] = $chartThisYear->jumlah;
-            $tahunLalu[] = $lastYear->jumlah;
-            // $jumlah_come[] = $chartCome->jumlah;
-            // $jumlah_move[] = $chartMove->jumlah;
+            $inYear = BiodataOne::whereHas('biodataTwo')
+            ->whereMonth('created_at', $bulan)
+            ->whereYear('created_at', Carbon::now())
+            ->count();
+            $tahunIni[] = $inYear;
+
+            $lastYear = BiodataOne::whereHas('biodataTwo')
+            ->whereMonth('created_at', $bulan)
+            ->whereYear('created_at', (Carbon::now()->year)-1)
+            ->count();
+            $tahunLalu[] = $lastYear;
+            // $chartThisYear     = collect(DB::SELECT("SELECT count(id) AS jumlah from biodata_ones where month(created_at)='$bulan'"))->first();
+            // $lastYear     = collect(DB::SELECT("SELECT count(id) AS jumlah from biodata_ones where month(created_at)='$bulan'"))->first();
+            
+            // $tahunIni[] = $chartThisYear->jumlah;
+            // $tahunLalu[] = $lastYear->jumlah;
+
         }
 
         $age = [

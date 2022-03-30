@@ -44,32 +44,26 @@
                                 <div>
                                     <p class="statistics-title">Jumlah Semua Pendaftar</p>
                                     <h3 class="rate-percentage">{{ $pendaftar }}</h3>
-                                    {{-- <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p> --}}
                                 </div>
                                 <div>
                                     <p class="statistics-title">Jumlah Santri Baru</p>
                                     <h3 class="rate-percentage">{{ $lolos->count() }}</h3>
-                                    {{-- <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p> --}}
                                 </div>
                                 <div>
                                     <p class="statistics-title">Soal Tes IQ</p>
                                     <h3 class="rate-percentage">{{ $iqshow.'/'.$iq }}</h3>
-                                    {{-- <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>+0.1%</span></p> --}}
                                 </div>
                                 <div>
                                     <p class="statistics-title">Soal Tes Kepribadian</p>
                                     <h3 class="rate-percentage">{{ $personalshow.'/'.$kepribadian }}</h3>
-                                    {{-- <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p> --}}
                                 </div>
-                                <div class="d-none d-md-block">
+                                <div>
                                     <p class="statistics-title">Informasi</p>
                                     <h3 class="rate-percentage">{{ $informasitotal }}</h3>
-                                    {{-- <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+0.8%</span></p> --}}
                                 </div>
-                                <div class="d-none d-md-block">
+                                <div>
                                     <p class="statistics-title">Q n A</p>
                                     <h3 class="rate-percentage">{{ $qna }}</h3>
-                                    {{-- <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p> --}}
                                 </div>
                             </div>
                         </div>
@@ -548,7 +542,7 @@
             var salesTopData = {
                 labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
                 datasets: [{
-                    label: 'Tahun ini',
+                    label: 'Pendaftar tahun ini',
                     data: <?php echo json_encode($tahunIni); ?>,
                     backgroundColor: saleGradientBg,
                     borderColor: [
@@ -562,21 +556,21 @@
                     pointBackgroundColor: ['#1F3BB3', '#1F3BB3', '#1F3BB3', '#1F3BB3','#1F3BB3', '#1F3BB3', '#1F3BB3', '#1F3BB3','#1F3BB3', '#1F3BB3', '#1F3BB3', '#1F3BB3','#1F3BB3'],
                     pointBorderColor: ['#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff',],
                 },
-                // {
-                //     label: 'Tahun lalu',
-                //     data: <?php echo json_encode($tahunIni); ?>,
-                //     backgroundColor: saleGradientBg2,
-                //     borderColor: [
-                //         '#52CDFF',
-                //     ],
-                //     borderWidth: 1.5,
-                //     fill: true, // 3: no fill
-                //     pointBorderWidth: 1,
-                //     pointRadius: [0, 0, 0, 4, 0],
-                //     pointHoverRadius: [0, 0, 0, 2, 0],
-                //     pointBackgroundColor: ['#52CDFF', '#52CDFF', '#52CDFF', '#52CDFF','#52CDFF', '#52CDFF', '#52CDFF', '#52CDFF','#52CDFF)', '#52CDFF', '#52CDFF', '#52CDFF','#52CDFF)'],
-                //     pointBorderColor: ['#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff',],
-                // }
+                {
+                    label: 'Pendaftar tahun lalu',
+                    data: <?php echo json_encode($tahunLalu); ?>,
+                    backgroundColor: saleGradientBg2,
+                    borderColor: [
+                        '#52CDFF',
+                    ],
+                    borderWidth: 1.5,
+                    fill: true, // 3: no fill
+                    pointBorderWidth: 1,
+                    pointRadius: [4, 4, 4, 4, 4,4, 4, 4, 4, 4,4, 4, 4],
+                    pointHoverRadius: [2, 2, 2, 2, 2,2, 2, 2, 2, 2,2, 2, 2],
+                    pointBackgroundColor: ['#52CDFF', '#52CDFF', '#52CDFF', '#52CDFF','#52CDFF', '#52CDFF', '#52CDFF', '#52CDFF','#52CDFF', '#52CDFF', '#52CDFF', '#52CDFF','#52CDFF'],
+                    pointBorderColor: ['#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff',],
+                }
                 ]
             };
         

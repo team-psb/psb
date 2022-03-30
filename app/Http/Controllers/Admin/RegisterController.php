@@ -44,6 +44,11 @@ class RegisterController extends Controller
             'family'=>$request->family
         ]);
 
+        $user = User::where('id', $biodata1->user_id);
+        $user->update([
+            'phone' => $request->no_wa,
+        ]);
+
         activity()->log('Mengedit biodata '.$request->full_name);
 
         return redirect()->route('registers.index')->with('success-edit','Data Berhasil Diedit');
@@ -59,6 +64,11 @@ class RegisterController extends Controller
             'age'=>$request->age,
             'no_wa'=>$request->no_wa,
             'family'=>$request->family
+        ]);
+
+        $user = User::where('id', $biodata1->user_id);
+        $user->update([
+            'phone' => $request->no_wa,
         ]);
 
         $biodata2->update($request->except(['full_name','age','no_wa','family']));
