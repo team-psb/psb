@@ -10,7 +10,7 @@
                 <div class="card   card-rounded">
                     <div class="card-body">
                         <div class="d-flex justify-content-between" style="border-bottom: 1px solid #c4c4c4;">
-                            <h4 class="card-title pb-4">Nilai Iq Pendaftar</h4>
+                            <h4 class="card-title pb-4">Nilai Iq Pendaftar (Nilai Sempurna <span style="color:rgb(85, 218, 162)">100</span>)</h4>
                             <div class="">
                                 <span class="text-decoration-none fw-bold text-warning badge badge-warning"><i class="ti-star text-warning"></i>Sangat mampu</span>
                                 <span class="text-decoration-none fw-bold text-warning badge badge-opacity-warning">Belum diseleksi</span>
@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <p class="card-description">
-                        Daftar Nilai Iq Pendaftar
+                            Daftar Nilai Iq Pendaftar
                         </p>
                         <div class="row mb-4 ">
                             {{-- message --}}
