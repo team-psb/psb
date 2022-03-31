@@ -29,10 +29,10 @@ class QuestionPersonalImport implements ToModel,WIthStartRow
             'd' => $row[5],
             'e' => $row[6],
             'poin_a' => $row[7],
-            'poin_b' => $row[7],
-            'poin_c' => $row[7],
-            'poin_d' => $row[7],
-            'poin_e' => $row[7]
+            'poin_b' => $row[8],
+            'poin_c' => $row[9],
+            'poin_d' => $row[10],
+            'poin_e' => $row[11]
         ]);
     }
 }
