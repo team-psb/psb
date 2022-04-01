@@ -141,13 +141,12 @@
         <!-- ======= End Background Image ======= -->
 
         <!-- WA Live -->
-        <a id="Wa" class="wa" title="Chat Live Wa" target="_blank" href="https://api.whatsapp.com/send?phone=62895380013428&text=Assalamu'alaikum%20Pondok%20Informatika,%20Saya%20pendaftar%20santri%20baru%20butuh%20bantuan !">
+        <!-- <a id="Wa" class="wa" title="Chat Live Wa" target="_blank" href="https://api.whatsapp.com/send?phone=62895380013428&text=Assalamu'alaikum%20Pondok%20Informatika,%20Saya%20pendaftar%20santri%20baru%20butuh%20bantuan !">
             <div class="btn_floating whatsapp">
                 <span id="text_wa">Help Center</span>
-                <!-- <img src="{{ asset('./assets/img/wa.png') }}" alt="logo-wa" width="50" /> -->
                 <i class="bi bi-whatsapp"></i>
             </div>
-        </a>
+        </a> -->
         <!-- End WA Live -->
 
 
