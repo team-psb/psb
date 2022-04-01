@@ -144,13 +144,13 @@
         <!-- <a id="Wa" class="wa" title="Chat Live Wa" target="_blank" href="https://api.whatsapp.com/send?phone=6285725249265&text=Assalamu'alaikum%20Pondok%20Informatika,%20Saya%20pendaftar%20santri%20baru%20butuh%20bantuan !">
             <img src="{{ asset('./assets/img/wa.png') }}" alt="logo-wa" width="80" />
         </a> -->
-        <a id="Wa" class="wa" title="Chat Live Wa" target="_blank" href="https://api.whatsapp.com/send?phone=6285725249265&text=Assalamu'alaikum%20Pondok%20Informatika,%20Saya%20pendaftar%20santri%20baru%20butuh%20bantuan !">
+        <!-- <a id="Wa" class="wa" title="Chat Live Wa" target="_blank" href="https://api.whatsapp.com/send?phone=6285725249265&text=Assalamu'alaikum%20Pondok%20Informatika,%20Saya%20pendaftar%20santri%20baru%20butuh%20bantuan !">
             <div class="btn_floating whatsapp">
                 <span id="text_wa">Help Center</span>
-                <!-- <img src="{{ asset('./assets/img/wa.png') }}" alt="logo-wa" width="50" /> -->
+                <img src="{{ asset('./assets/img/wa.png') }}" alt="logo-wa" width="50" />
                 <i class="bi bi-whatsapp"></i>
             </div>
-        </a>
+        </a> -->
         <!-- End WA Live -->
 
 
