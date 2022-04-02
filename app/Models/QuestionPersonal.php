@@ -14,4 +14,9 @@ class QuestionPersonal extends Model
     protected   $fillable = [
         'question', 'a', 'b', 'c', 'd', 'e', 'poin_a', 'poin_b', 'poin_c', 'poin_d', 'poin_e'
     ];
+
+    public function questionPersonalAnswers()
+    {
+        return $this->hasMany(QuestionPersonalAnswer::class, 'question_personal_id');
+    }
 }

@@ -27,6 +27,8 @@ class ScoreIqSeeder extends Seeder
                 'stage_id'=>$user->stage_id,
                 'academy_year_id'=>$faker->randomElement([1,2,3,4]),
                 'score_question_iq'=>rand(30,95),
+                'correct'=>rand(1,50),
+                'wrong'=>rand(1,50),
                 'status'=>$faker->randomElement([null,'lolos','tidak']),
             ]);
         }

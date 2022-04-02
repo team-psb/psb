@@ -143,6 +143,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/scores/export', [ScoreController::class, 'export'])->name('scores.export');
 
     Route::get('/scoreIq', [ScoreIqController::class, 'index'])->name('scoreIq.index');
+    Route::get('/scoreIq/{id}/question-answers', [ScoreIqController::class, 'answer'])->name('scoreIq.answer');
     Route::get('/scoreIq/{id}/set-status', [ScoreIqController::class, 'setStatus'])->name('scoreIq.status');
     Route::post('/scoreIq/delete', [ScoreIqController::class, 'deleteAll'])->name('scoreIq.deleteAll');
     Route::post('/scoreIq/delete/{id}', [ScoreIqController::class, 'delete'])->name('scoreIq.delete');
@@ -152,6 +153,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/scoreIq/export', [ScoreIqController::class, 'export'])->name('scoreIq.export');
 
     Route::get('/scorePersonal', [ScorePersonalController::class, 'index'])->name('scorePersonal.index');
+    Route::get('/scorePersonal/{id}/question-answers', [ScorePersonalController::class, 'answer'])->name('scorePersonal.answer');
     Route::get('/scorePersonal/{id}/set-status', [ScorePersonalController::class, 'setStatus'])->name('scorePersonal.status');
     Route::post('/scorePersonal/delete', [ScorePersonalController::class, 'deleteAll'])->name('scorePersonal.deleteAll');
     Route::post('/scorePersonal/delete/{id}', [ScorePersonalController::class, 'delete'])->name('scorePersonal.delete');

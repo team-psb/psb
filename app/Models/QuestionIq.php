@@ -21,4 +21,9 @@ class QuestionIq extends Model
         'e',
         'answer_key'
     ];
+
+    public function questionIqAnswers()
+    {
+        return $this->hasMany(QuestionIqAnswer::class, 'question_iq_id');
+    }
 }

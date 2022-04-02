@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Exam;
 use App\Http\Controllers\Controller;
 use App\Models\AcademyYear;
 use App\Models\QuestionIq;
+use App\Models\QuestionIqAnswer;
 use App\Models\QuestionPersonal;
 use App\Models\Score;
 use App\Models\ScoreIq;
@@ -49,6 +50,43 @@ class TesIqController extends Controller
                 }else{
                     $jawaban_salah++;
                 }
+
+                $cekId = QuestionIq::where('id','=',$key)->first();
+                if ($value == 'a') {
+                    QuestionIqAnswer::create([
+                        'user_id' => Auth::user()->id,
+                        'question_iq_id' => $cekId->id,
+                        'answer' => 'a'
+                    ]);
+                }
+                elseif ($value == 'b') {
+                    QuestionIqAnswer::create([
+                        'user_id' => Auth::user()->id,
+                        'question_iq_id' => $cekId->id,
+                        'answer' => 'b'
+                    ]);
+                }
+                elseif ($value == 'c') {
+                    QuestionIqAnswer::create([
+                        'user_id' => Auth::user()->id,
+                        'question_iq_id' => $cekId->id,
+                        'answer' => 'c'
+                    ]);
+                }
+                elseif ($value == 'd') {
+                    QuestionIqAnswer::create([
+                        'user_id' => Auth::user()->id,
+                        'question_iq_id' => $cekId->id,
+                        'answer' => 'd'
+                    ]);
+                }
+                elseif ($value == 'e') {
+                    QuestionIqAnswer::create([
+                        'user_id' => Auth::user()->id,
+                        'question_iq_id' => $cekId->id,
+                        'answer' => 'e'
+                    ]);
+                }
             }
 
             $nilai = $jawaban_benar*2;
@@ -59,6 +97,8 @@ class TesIqController extends Controller
                 'stage_id' => $stage_id,
                 'academy_year_id'=>$tahun_ajaran,
                 'score_question_iq'=>$nilai,
+                'correct' => $jawaban_benar,
+                'wrong' => $jawaban_salah,
             ]);
             $data = [
                 'sender' => Setting::pluck('no_msg'),
@@ -74,6 +114,8 @@ class TesIqController extends Controller
                 'stage_id' => $stage_id,
                 'academy_year_id'=>$tahun_ajaran,
                 'score_question_iq'=>0,
+                'correct' => 0,
+                'wrong' => 0,
             ]);
             $data = [
                 'sender' => Setting::pluck('no_msg'),
