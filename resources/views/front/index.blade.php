@@ -293,7 +293,7 @@
                              data-aos-delay="600"
                              data-aos-duration="1000"
                         >
-                          <div class="card gradient-bottom pb-2 ">
+                          <div class="card gradient-bottom pb-2">
                             <div class="card-header">
                               <h4 class="text-dark">Statistik</h4>
                             </div>
