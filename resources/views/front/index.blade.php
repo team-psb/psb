@@ -286,14 +286,14 @@
                           </a>
                         </div>
 
-                        {{-- Mobile --}}
+                        {{-- Mobile & Tablet --}}
                         <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none"
                              data-aos="fade-up"
                              data-aos-offset="100"
                              data-aos-delay="600"
                              data-aos-duration="1000"
                         >
-                          <div class="card gradient-bottom">
+                          <div class="card gradient-bottom pb-2">
                             <div class="card-header">
                               <h4 class="text-dark">Statistik</h4>
                             </div>
@@ -370,7 +370,7 @@
                               <div class="card-icon bg-primary">
                                   <i class="fas fa-user"></i>
                               </div>
-                                <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-profile') }}">Profile</a>s
+                                <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-profile') }}">Profile</a>
                               </div>
                           </a>
                         </div>
