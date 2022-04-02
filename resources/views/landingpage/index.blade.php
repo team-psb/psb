@@ -1055,7 +1055,7 @@
                         >
                             <div
                                 class="
-                                    col-md-12 col-sm-12
+                                    col-12 col-md-6 col-sm-12
                                     d-flex
                                     align-items-center
                                     justify-content-around
