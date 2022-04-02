@@ -891,7 +891,7 @@
             </div>
         </section>
         <!-- ======= Copyright ======= -->
-        <div class="copyright text-center" style="margin: 40px;">
+        <div class="copyright text-center" style="margin: 20px 40px 80px 40px">
             &copy; {{ date('Y') }} Copyright <strong><span>Pondok Informatika Al-Madinah</span></strong
             >.
         </div>
