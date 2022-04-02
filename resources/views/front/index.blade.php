@@ -45,7 +45,7 @@
                     </div>
                 @endif --}}
                 @if (session('sukses-kirim'))
-                    <div class="alert alert-success mt-4 ">
+                    <div class="alert alert-success mt-4">
                         <strong>{{ session('sukses-kirim') }}</strong>
                     </div>
                 @endif
