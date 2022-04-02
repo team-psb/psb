@@ -370,7 +370,7 @@
                               <div class="card-icon bg-primary">
                                   <i class="fas fa-user"></i>
                               </div>
-                                <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-profile') }}">Profile</a>s
+                                <a class="h4 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-profile') }}">Profile</a>
                               </div>
                           </a>
                         </div>
@@ -385,7 +385,7 @@
                             <div class="card-icon bg-success">
                                 <i class="fas fa-question-circle"></i>
                             </div>
-                              <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-qna') }}">Q&A</a>
+                              <a class="h4 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-qna') }}">Q&A</a>
                             </div>
                           </a>
                         </div>
@@ -400,7 +400,7 @@
                             <div class="card-icon bg-warning">
                                 <i class="fas fa-leaf"></i>
                             </div>
-                              <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-informasi') }}">Info</a>
+                              <a class="h4 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-informasi') }}">Info</a>
                             </div>
                           </a>
                         </div>

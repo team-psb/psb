@@ -876,6 +876,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        {{-- Alur --}}
                         <div
                             class="
                                 col-md-6 col-sm-12
@@ -888,7 +890,8 @@
                         >
                             <div class="position-relative">
                                 <p
-                                    class="
+                                    class=" 
+                                        mt-3
                                         position-absolute
                                         text-center
                                         alur-text
@@ -934,7 +937,8 @@
                                     style="left: -13px; top: -15px"
                                 />
                                 <p
-                                    class="
+                                    class=" 
+                                        mt-3
                                         position-absolute
                                         text-center
                                         alur-text2
@@ -946,7 +950,8 @@
                             </div>
                             <div class="position-relative">
                                 <p
-                                    class="
+                                    class=" 
+                                        mt-3
                                         position-absolute
                                         text-center
                                         alur-text3
@@ -973,7 +978,7 @@
                                     style="left: -13px; bottom: -15px"
                                 />
                             </div>
-                            <div class="position-relative">
+                            <div class="position-relative d-none d-md-none d-lg-block">
                                 <img
                                     src="{{ asset('./assets/img/line_2.png') }}"
                                     alt="daftar"
@@ -992,7 +997,8 @@
                                     class="img-fluid alur_image_4"
                                 />
                                 <p
-                                    class="
+                                    class=" 
+                                        mt-3
                                         position-absolute
                                         text-center
                                         alur-text4
@@ -1002,9 +1008,10 @@
                                     Tes Wawancara
                                 </p>
                             </div>
-                            <div class="position-relative">
+                            <div class="position-relative d-none d-md-none d-lg-block">
                                 <p
-                                    class="
+                                    class=" 
+                                        mt-3
                                         position-absolute
                                         text-center
                                         alur-text5
@@ -1031,6 +1038,67 @@
                                     "
                                     style="left: -13px; bottom: -15px"
                                 />
+                            </div>
+                        </div>
+
+                        {{-- Mobile --}}
+                            <div
+                            class="
+                                col-md-12 col-sm-12
+                                d-lg-none d-xl-none
+                                d-flex
+                                align-items-center
+                                justify-content-around
+                                position-relative
+                                "
+                            id="alur"
+                        >
+                            <div
+                                class="
+                                    col-md-12 col-sm-12
+                                    d-flex
+                                    align-items-center
+                                    justify-content-around
+                                    position-relative
+                                    "
+                            >
+                            <div class="position-relative">
+                                <p
+                                    class=" 
+                                        mt-3
+                                        position-absolute
+                                        text-center
+                                        alur-text4
+                                    "
+                                >
+                                    4. Melakukan Tes Wawancara
+                                </p>
+                                <img
+                                    src="{{ asset('assets/img/wawancara.png') }}"
+                                    alt="tes"
+                                    width="90px"
+                                    class="img-fluid alur_image_4"
+                                />
+                            </div>
+                            <div class="position-relative">
+                                <p
+                                    class=" 
+                                        mt-3
+                                        position-absolute
+                                        text-center
+                                        alur-text5
+                                    "
+                                >
+                                    5. Tunggu konfirmasi dari
+                                    panitia dan Pengumuman
+                                </p>
+                                <img
+                                    src="{{ asset('assets/img/lolos.png') }}"
+                                    alt="daftar"
+                                    width="90px"
+                                    class="img-fluid alur_image_5"
+                                />
+                            </div>
                             </div>
                         </div>
                     </div>
