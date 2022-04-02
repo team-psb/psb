@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Exam;
 use App\Http\Controllers\Controller;
 use App\Models\AcademyYear;
 use App\Models\QuestionPersonal;
+use App\Models\QuestionPersonalAnswer;
 use App\Models\ScorePersonal;
 use App\Models\Setting;
 use App\Models\Stage;
@@ -42,19 +43,44 @@ class TesPersonalController extends Controller
                 
                 if ($value == 'a') {
                     $nilai= $nilai + $cek->poin_a;
+                    QuestionPersonalAnswer::create([
+                        'user_id' => Auth::user()->id,
+                        'question_personal_id' => $cek->id,
+                        'answer' => 'a'
+                    ]);
                 }
                 elseif ($value == 'b') {
                     $nilai= $nilai + $cek->poin_b;
+                    QuestionPersonalAnswer::create([
+                        'user_id' => Auth::user()->id,
+                        'question_personal_id' => $cek->id,
+                        'answer' => 'b'
+                    ]);
                 }
                 elseif ($value == 'c') {
                     $nilai= $nilai + $cek->poin_c;
+                    QuestionPersonalAnswer::create([
+                        'user_id' => Auth::user()->id,
+                        'question_personal_id' => $cek->id,
+                        'answer' => 'c'
+                    ]);
                 }
                 elseif ($value == 'd') {
                     $nilai= $nilai + $cek->poin_d;
+                    QuestionPersonalAnswer::create([
+                        'user_id' => Auth::user()->id,
+                        'question_personal_id' => $cek->id,
+                        'answer' => 'd'
+                    ]);
                 }
                 elseif ($value == 'e') {
                     $nilai= $nilai + $cek->poin_e;
-                }  
+                    QuestionPersonalAnswer::create([
+                        'user_id' => Auth::user()->id,
+                        'question_personal_id' => $cek->id,
+                        'answer' => 'e'
+                    ]);
+                }
             }
         
             ScorePersonal::create([
