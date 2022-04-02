@@ -417,7 +417,7 @@
     <div class="container">
       <section class="section mt-5 pt-5" >
         <div class="section-body">
-          <h1 class="px-0 mb-3 poppins pb-2 col-10 col-sm-6 col-md-5 col-lg-4 col-xl-3 rounded informasi"
+          <h1 class="px-0 mb-3 poppins pb-2 rounded informasi"
               data-aos="fade-right"
               data-aos-offset="200"
               data-aos-delay="100"
