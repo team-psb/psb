@@ -1,8 +1,11 @@
     /* Border-bottom Title Page */
-    .informasi{
+    
+      .informasi{
+        width: 250px;
         border-bottom: solid 6px#3bda9f;
         color: #456e8c;
-    }
+      }
+    
     
     /* step wizard */
     .stepwizard-step p {
