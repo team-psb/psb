@@ -108,17 +108,60 @@ h6 {
     transition: all 0.4s;
 }
 
-#Wa {
-    /* display: none; */
+/* Whatsapp */
+.btn_floating {
     position: fixed;
-    bottom: 2px;
     left: 15px;
-    z-index: 99;
+    bottom: 15px;
+    z-index: 9999;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
     border: none;
-    cursor: pointer;
     border-radius: 100px;
-    transition: all 0.4s;
+    cursor: pointer;
+    color: #fff;
+    transition: .2s;
+    background: #23b180;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+.btn_floating:hover {
+    width: auto;
+    padding: 0 10px ;
+    cursor: pointer;
+}
+.btn_floating #text_wa {
+    font-size: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: .2s;
+    line-height: 0px;
+    display: none;
+    font-weight: 600;
+}
+.btn_floating i {
+    font-size: 25px;
+}
+.btn_floating:hover #text_wa {
+    display: inline-block;
+}
+.btn_floating:hover i {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .btn_floating {
+        width: 180px;
+        padding: 0 10px ;
+        cursor: pointer;
+    }
+    .btn_floating #text_wa {
+        display: inline;
+    }
+}
+/* End WA Live */
 
 .back-to-top i {
     font-size: 35px;
@@ -1040,7 +1083,6 @@ section {
 /*--------------------------------------------------------------
 # Statistic
 --------------------------------------------------------------*/
-/*
     .stat {
         padding: 100px 0 60px 0px;
     }
@@ -1076,7 +1118,7 @@ section {
             padding: 0;
             margin: 0;
             font-family: "Poppins", sans-serif;
-            font-size: 15px;
+            font-size: 20px;
             font-weight: 550;
             position: absolute;
             top: 7%;
@@ -1125,7 +1167,7 @@ section {
             transform: translate(-50%, -50%);
         }
         .stat .count-box p.text-stats2 {
-            font-size: 10px;
+            font-size: 15px;
             top: 13%;
             left: 40%;
             transform: translate(-50%, -50%);
@@ -1160,7 +1202,7 @@ section {
             transform: translate(-50%, -50%);
         }
         .stat .count-box p.text-stats2 {
-            font-size: 12px;
+            font-size: 15px;
             top: 8%;
             left: 39%;
             transform: translate(-50%, -50%);
@@ -1192,7 +1234,7 @@ section {
             transform: translate(-50%, -50%);
         }
         .stat .count-box p.text-stats2 {
-            font-size: 14px;
+            font-size: 15px;
             top: 8%;
             left: 42%;
             transform: translate(-50%, -50%);
@@ -1280,7 +1322,6 @@ section {
             left: 54.5%;
         }
     }
-*/
 
 /*--------------------------------------------------------------
 # Sponsor
