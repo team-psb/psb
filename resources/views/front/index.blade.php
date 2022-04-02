@@ -179,7 +179,7 @@
                                     <h2 class="poppins">Halo Selamat Datang {{ Auth::user()->name }}!</h2>
                                     <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Biodata</strong> silahkan Anda klik tombol di bawah ini.</p>
                                     <div class="mt-4">
-                                        <a href="{{ route('user-first-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                                        <a href="{{ route('user-first-tes') }}" id="swal-biodata" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                                     </div>
                                 </div>
                               @elseif(!empty($tahap1) && isset($biodata1) && $tahap1->status == null)
