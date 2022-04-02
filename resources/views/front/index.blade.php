@@ -70,7 +70,6 @@
                                 bg-danger
                                 @endif"
                             >
-
                                 @if(empty($tahap1) && isset($biodata1))
                                 <div class="hero-inner">
                                     <i class="fas fa-laugh pb-3" style="font-size: 72px;"></i>
