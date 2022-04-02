@@ -11,8 +11,8 @@
         }
     </style>
 </head>
-<body class="layout-3"> 
-    <div id="app"> 
+<body class="layout-3">
+    <div id="app">
         @include('front.includes.navbar')
         @yield('hero')
         <div class="main-wrapper container">

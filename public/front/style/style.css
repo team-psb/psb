@@ -140,3 +140,9 @@
       order: 2;
   }
 }
+
+@media (max-width: 992px) and (min-width: 400px) {
+  .letter-spacing{
+    letter-spacing: 7px;
+  }
+}

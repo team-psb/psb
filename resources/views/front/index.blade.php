@@ -45,7 +45,7 @@
                     </div>
                 @endif --}}
                 @if (session('sukses-kirim'))
-                    <div class="alert alert-success">
+                    <div class="alert alert-success mt-4">
                         <strong>{{ session('sukses-kirim') }}</strong>
                     </div>
                 @endif
@@ -217,6 +217,7 @@
                             </div>
                         @endif
                       </div>
+
                         {{-- Dekstop --}}
                         <div class="col-lg-4 col-md-6 col-12 d-none d-md-none d-lg-block"
                             data-aos="fade-up"
@@ -284,6 +285,7 @@
                             </div>
                           </a>
                         </div>
+
                         {{-- Mobile --}}
                         <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none"
                              data-aos="fade-up"
@@ -291,23 +293,73 @@
                              data-aos-delay="600"
                              data-aos-duration="1000"
                         >
-                          <a href="#">
-                            <div class="card card-statistic-1">
-                              <div class="card-icon bg-secondary">
-                                <i class="far fa-user"></i>
+                          <div class="card gradient-bottom">
+                            <div class="card-header">
+                              <h4 class="text-dark">Statistik</h4>
+                            </div>
+                            <div class="card-body">
+                              <ul class="list-unstyled list-unstyled-border">
+                                <li class="media">
+                                  <img class="mr-3 rounded" width="55" src="{{ asset('stisla/assets/img/avatar/avatar-2.png') }}" alt="product">
+                                  <div class="media-body">
+                                    <div class="media-title text-muted">Jumlah Pendaftar</div>
+                                    <div class="media-title">{{ $data ? $data->count() : '0' }} Orang</div>
+                                  </div>
+                                </li>
+                                <li class="media">
+                                  <img class="mr-3 rounded" width="55" src="{{ asset('stisla/assets/img/products/product-1-50.png') }}" alt="product">
+                                  <div class="media-body">
+                                    <div class="media-title text-muted">Question And Answer</div>
+                                    <div class="media-title">{{ $qna ? $qna->count() : '0' }} Q&A</div>
+                                  </div>
+                                </li>
+                                <li class="media">
+                                  <img class="mr-3 rounded" width="55" src="{{ asset('stisla/assets/img/products/product-4-50.png') }}" alt="product">
+                                  <div class="media-body">
+                                    <div class="media-title text-muted">Informasi</div>
+                                    <div class="media-title">{{ $schdules ? $schdules->count() : '0' }} Informasi</div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        {{-- Tablet --}}
+                        <div class="col-md-6 d-none d-md-block d-lg-none"
+                              data-aos="fade-up"
+                              data-aos-offset="100"
+                              data-aos-delay="600"
+                              data-aos-duration="1000"
+                        >
+                          <a href="{{ route('user-profile') }}">
+                              <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                              <div class="card-icon bg-primary">
+                                  <i class="fas fa-user"></i>
                               </div>
-                              <div class="card-wrap">
-                                <div class="card-header">
-                                  <h4>Jumlah pendaftar</h4>
-                                </div>
-                                <div class="card-body">
-                                  {{ $data ? $data->count() : '0' }}
-                                </div>
+                                <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-profile') }}">PROFILE</a>
                               </div>
+                          </a>
+                          <a href="{{ route('user-qna') }}">
+                            <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                            <div class="card-icon bg-success">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                              <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-qna') }}">Q&A</a>
+                            </div>
+                          </a>
+                          <a href="{{ route('user-informasi') }}">
+                            <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                            <div class="card-icon bg-warning">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                              <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-informasi') }}">Info</a>
                             </div>
                           </a>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none"
+
+                        {{-- Mobile & Dekstop --}}
+                        <div class="col-lg-4 col-md-6 col-sm-6 d-md-none"
                              data-aos="fade-up"
                              data-aos-offset="100"
                              data-aos-delay="600"
@@ -318,41 +370,38 @@
                               <div class="card-icon bg-primary">
                                   <i class="fas fa-user"></i>
                               </div>
-                                {{-- <p class="h1"><u>Profile</u></p> --}}
-                                <a class="h1 text-info font-weight-bold" href="{{ route('user-profile') }}"><u>Profile</u></a>
+                                <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-profile') }}">Profile</a>s
                               </div>
                           </a>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none"
+                        <div class="col-lg-4 col-md-6 col-sm-6 d-md-none"
                              data-aos="fade-up"
                              data-aos-offset="100"
                              data-aos-delay="600"
                              data-aos-duration="1000"
                         >
                           <a href="{{ route('user-qna') }}">
-                              <div class="card card-statistic-1 d-flex flex-row align-items-center">
-                              <div class="card-icon bg-success">
-                                  <i class="fas fa-question-circle"></i>
-                              </div>
-                                <a class="h1 text-info font-weight-bold" href="{{ route('user-qna') }}"><u>Q & A</u></a>
-                                {{-- <p class="h1 text-success font-weight-bold"><u>Q & A</u></p> --}}
-                              </div>
+                            <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                            <div class="card-icon bg-success">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                              <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-qna') }}">Q&A</a>
+                            </div>
                           </a>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none"
+                        <div class="col-lg-4 col-md-6 col-sm-6 d-md-none"
                              data-aos="fade-up"
                              data-aos-offset="100"
                              data-aos-delay="600"
                              data-aos-duration="1000"
                         >
                           <a href="{{ route('user-informasi') }}">
-                              <div class="card card-statistic-1 d-flex flex-row align-items-center">
-                              <div class="card-icon bg-warning">
-                                  <i class="fas fa-leaf"></i>
-                              </div>
-                                <a class="h1 text-info font-weight-bold" href="{{ route('user-informasi') }}"><u>Info</u></a>
-                                {{-- <p class="h1 text-warning font-weight-bold"><u>Info</u></p> --}}
-                              </div>
+                            <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                            <div class="card-icon bg-warning">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                              <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-informasi') }}">Info</a>
+                            </div>
                           </a>
                         </div>
                     </div>
