@@ -189,7 +189,7 @@
                         <li>
                             <a
                                 class="nav-link scrollto"
-                                href="#regis"
+                                href="#regis-form"
                                 id="link2"
                                 >Daftar</a
                             >
@@ -296,7 +296,7 @@
                             </a>
                             <span class="mx-2"></span>
                             <a
-                                href="#regis"
+                                href="#regis-form"
                                 class="text-decoration-none button-banner2"
                             >
                                 <button

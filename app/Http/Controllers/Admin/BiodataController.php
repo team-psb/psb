@@ -137,8 +137,6 @@ class BiodataController extends Controller
         QuestionPersonalAnswer::where('user_id', $data->user_id)->delete();
         Video::where('user_id', $data->user_id)->delete();
         Interview::where('user_id', $data->user_id)->delete();
-        BiodataOne::where('user_id', $data->user_id)->delete();
-        User::where('id', $data->user_id)->delete();
         
         activity()->log('Menghapus biodata id '.$id);
 
@@ -159,8 +157,6 @@ class BiodataController extends Controller
                 QuestionPersonalAnswer::where('user_id', $data->user_id)->delete();
                 Video::where('user_id', $data->user_id)->delete();
                 Interview::where('user_id', $data->user_id)->delete();
-                BiodataOne::where('user_id', $data->user_id)->delete();
-                User::where('id', $data->user_id)->delete();
             }
             activity()->log('Menghapus semua biodata');
 
