@@ -116,6 +116,7 @@
                       <div class="form-group">
                         <label for="exampleInputPassword1">Provinsi<b id="required">*</b></label>
                         <select name="indonesia_provinces_id" class="custom-select" x-on:change="getKabupaten(provin_id)" x-model="provin_id">
+                            <option value="" hidden>Pilih Provinsi</option>
                           @foreach ($provinsi as $provin)
                               <option value="{{ $provin->code }}">{{ $provin->name }}</option>
                           @endforeach
@@ -621,7 +622,7 @@
                             name="game_duration"
                             value="{{ old('game_duration') }}"
                           >
-                            <option value="" disabled selected>-- Pilih --</option>
+                            <option value="" hidden>-- Pilih --</option>
                             <option value="kurang dari 1">kurang dari 1 jam</option>
                                 @for ($i = 1; $i <= 10; $i++)
                                     <option value="{{ $i }}">{{ $i }} jam</option>
@@ -674,9 +675,9 @@
                     {{-- step 4 --}}
                     <div x-show="form_4">
                       <div class="form-group">
-                        <label for="">Orang Tua<b id="required">*</b></label>
+                        <label for="">Status Kelengkapan Orang Tua<b id="required">*</b></label>
                         <select name="parent" class="custom-select">
-                          <option value="" disabled selected>-- Pilih --</option>
+                          <option value="" hidden>-- Pilih --</option>
                           <option value="lengkap" {{ old('parent') == 'lengkap' ? 'selected' : '' }}>Lengkap</option>
                           <option value="ayah" {{ old('parent') == 'ayah' ? 'selected' : '' }}>Ayah</option>
                           <option value="ibu" {{ old('parent') == 'ibu' ? 'selected' : '' }}>Ibu</option>
@@ -776,7 +777,7 @@
                           >Total Penghasilan Orang Tua Perbulan<b id="required">*</b></label
                         >
                         <select name="parent_income" class="custom-select">
-                          <option value="" disabled selected>-- Pilih --</option>
+                          <option value="" hidden>-- Pilih --</option>
                           <option value="Kurang dari Rp 500.000" {{ old('parent_income') == 'Kurang dari Rp 500.000' ? 'selected' : '' }}>Kurang dari Rp 500.000</option>
                           <option value="Rp 500.000 - 1.000.000" {{ old('parent_income') == 'Rp 500.000 - 1.000.000' ? 'selected' : '' }}>Rp 500.000 - 1.000.000</option>
                           <option value="Rp 1.000.000 - 2.000.000" {{ old('parent_income') == 'Rp 1.000.000 - 2.000.000' ? 'selected' : '' }}>Rp 1.000.000 - 2.000.000</option>
