@@ -74,7 +74,7 @@
                                 <div class="hero-inner">
                                     <i class="fas fa-laugh pb-3" style="font-size: 72px;"></i>
                                     <h2 class="poppins">Halo Selamat Datang {{ Auth::user()->name }}!</h2>
-                                    <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Pertama</strong> silahkan Anda klik tombol di bawah ini.</p>
+                                    <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Pertama</strong> Silahkan Anda klik tombol di bawah ini.</p>
                                     <div class="mt-4">
                                         <a href="{{ route('user-first-tes') }}" id="swal-biodata" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                                     </div>
@@ -176,7 +176,7 @@
                                 <div class="hero-inner">
                                     <i class="fas fa-laugh pb-3" style="font-size: 72px;"></i>
                                     <h2 class="poppins">Halo Selamat Datang {{ Auth::user()->name }}!</h2>
-                                    <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Biodata</strong> silahkan Anda klik tombol di bawah ini.</p>
+                                    <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Biodata</strong> Silahkan Anda klik tombol di bawah ini.</p>
                                     <div class="mt-4">
                                         <a href="{{ route('user-first-tes') }}" id="swal-biodata" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                                     </div>
@@ -886,6 +886,15 @@
                             </div>
                         </div>
                     @empty
+                    <div class="col-12 my-3">
+                        <div class="alert alert-has-icon text-muted">
+                            <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                            <div class="alert-body">
+                              <div class="alert-title">Oops!</div>
+                                Belum ada informasi
+                            </div>
+                        </div>
+                    </div>
                     @endforelse
                 </div>
             </div>

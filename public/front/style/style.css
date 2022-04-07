@@ -142,10 +142,20 @@
   #regis-form {
       order: 2;
   }
-}
 
-@media (max-width: 992px) and (min-width: 400px) {
   .letter-spacing{
     letter-spacing: 7px;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 320px) {
+  .hero{
+    padding: 24px;
+  }
+}
+
+@media (min-width: 993px) {
+  .hero{
+    padding: 55px;
   }
 }
