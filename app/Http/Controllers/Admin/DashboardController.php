@@ -32,6 +32,7 @@ class DashboardController extends Controller
         $sangatmampu = BiodataOne::where('family', 'sangat-mampu')->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
         $mampu = BiodataOne::where('family', 'mampu')->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
         $tidakmampu = BiodataOne::where('family', 'tidak-mampu')->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
+        $biodataPending = BiodataTwo::where('status', null)->count();
 
         $lolos = Interview::with(['academy_year'=>function($query){
             $query->where('is_active','=', true);
@@ -96,6 +97,7 @@ class DashboardController extends Controller
             'sangatmampu' => $sangatmampu,
             'mampu' => $mampu,
             'tidakmampu' => $tidakmampu,
+            'biodataPending' => $biodataPending,
         ]);
     }
 }

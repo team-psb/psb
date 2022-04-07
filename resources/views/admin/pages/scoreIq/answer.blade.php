@@ -10,13 +10,13 @@
                 <div class="card   card-rounded">
                     <div class="card-body">
                         <div class="d-flex justify-content-between" style="border-bottom: 1px solid #c4c4c4;">
-                            <h4 class="card-title pb-4">Nilai Iq Pendaftar</h4>
+                            <h4 class="card-title pb-4">Nilai Iq Pendaftar | {{ $user->biodataOne->full_name }}</h4>
                             <div>
                                 <a href="{{ route('scoreIq.index') }}" class="btn btn-success">Back</a>
                             </div>
                         </div>
                         <p class="card-description">
-                            Detail Jawaban Soal Iq Pendaftar
+                            Detail Jawaban Soal Iq Pendaftar | {{ $user->biodataOne->full_name }}
                         </p>
                         <div class="row">
                             <div class="col">
@@ -53,24 +53,30 @@
 
                                         @endforeach
                                     </tbody>
-                                    <tfoot style="background-color: #d6dbd8;">
+                                    <tfoot style="background-color: #67f09b">
                                         <tr>
                                             @php
-                                                $data = App\Models\ScoreIq::where('user_id', $answers->first()->user_id)->first();
+                                                $data = App\Models\ScoreIq::where('user_id', $user->id)->first();
                                             @endphp
                                             <td colspan="5" class="text-center fw-bold">
-                                                <p style="font-size: 20px">
-                                                    Total Poin :
-                                                    {{ $data->score_question_iq }}
-                                                </p>
-                                                <p class="text-success" style="font-size: 16px">
-                                                    Benar :
-                                                    {{ $data->correct }}
-                                                </p>
-                                                <p class="text-danger" style="font-size: 16px">
-                                                    Salah :
-                                                    {{ $data->wrong }}
-                                                </p>
+                                                <div class="d-flex justify-content-around">
+                                                    <p style="font-size: 20px">
+                                                        Total Poin :
+                                                        {{ $data->score_question_iq }}
+                                                    </p>
+                                                    <p style="font-size: 16px">
+                                                        Soal dijawab :
+                                                        {{ $answers->count() }}
+                                                    </p>
+                                                    <p style="font-size: 16px">
+                                                        Benar :
+                                                        {{ $data->correct }}
+                                                    </p>
+                                                    <p style="font-size: 16px">
+                                                        Salah :
+                                                        {{ $data->wrong }}
+                                                    </p>
+                                                </div>
                                             </td>
                                         </tr>
                                     </tfoot>

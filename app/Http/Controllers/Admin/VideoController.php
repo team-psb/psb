@@ -105,7 +105,7 @@ class VideoController extends Controller
 
     public function tidaklolos($id)
     {
-        $item=Video::findOrFail($id);
+        $item = Video::findOrFail($id);
         $item->update(['status' => 'tidak']);
 
         $cek = Interview::where('user_id','=',$item->user_id)->get();

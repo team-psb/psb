@@ -189,7 +189,7 @@
                         <li>
                             <a
                                 class="nav-link scrollto"
-                                href="#regis-form"
+                                href="#regis"
                                 id="link2"
                                 >Daftar</a
                             >
@@ -296,7 +296,7 @@
                             </a>
                             <span class="mx-2"></span>
                             <a
-                                href="#regis-form"
+                                href="#regis"
                                 class="text-decoration-none button-banner2"
                             >
                                 <button
@@ -876,8 +876,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        {{-- Alur --}}
                         <div
                             class="
                                 col-md-6 col-sm-12
@@ -890,11 +888,11 @@
                         >
                             <div class="position-relative">
                                 <p
-                                    class=" 
-                                        mt-3
+                                    class="
                                         position-absolute
                                         text-center
                                         alur-text
+                                        mt-3
                                     "
                                 >
                                     1 <br />
@@ -937,11 +935,11 @@
                                     style="left: -13px; top: -15px"
                                 />
                                 <p
-                                    class=" 
-                                        mt-3
+                                    class="
                                         position-absolute
                                         text-center
                                         alur-text2
+                                        mt-3
                                     "
                                 >
                                     2 <br />
@@ -950,11 +948,11 @@
                             </div>
                             <div class="position-relative">
                                 <p
-                                    class=" 
-                                        mt-3
+                                    class="
                                         position-absolute
                                         text-center
                                         alur-text3
+                                        mt-3
                                     "
                                 >
                                     3 <br />
@@ -997,8 +995,7 @@
                                     class="img-fluid alur_image_4"
                                 />
                                 <p
-                                    class=" 
-                                        mt-3
+                                    class="
                                         position-absolute
                                         text-center
                                         alur-text4
@@ -1010,8 +1007,7 @@
                             </div>
                             <div class="position-relative d-none d-md-none d-lg-block">
                                 <p
-                                    class=" 
-                                        mt-3
+                                    class="
                                         position-absolute
                                         text-center
                                         alur-text5
@@ -1042,65 +1038,65 @@
                         </div>
 
                         {{-- Mobile --}}
-                            <div
+                        <div
+                        class="
+                            col-md-12 col-sm-12
+                            d-lg-none d-xl-none
+                            d-flex
+                            align-items-center
+                            justify-content-around
+                            position-relative
+                            "
+                        id="alur"
+                    >
+                        <div
                             class="
-                                col-md-12 col-sm-12
-                                d-lg-none d-xl-none
+                                col-12 col-md-6 col-sm-12
                                 d-flex
                                 align-items-center
                                 justify-content-around
                                 position-relative
                                 "
-                            id="alur"
                         >
-                            <div
-                                class="
-                                    col-12 col-md-6 col-sm-12
-                                    d-flex
-                                    align-items-center
-                                    justify-content-around
-                                    position-relative
-                                    "
+                        <div class="position-relative">
+                            <p
+                                class=" 
+                                    mt-3
+                                    position-absolute
+                                    text-center
+                                    alur-text4
+                                "
                             >
-                            <div class="position-relative">
-                                <p
-                                    class=" 
-                                        mt-3
-                                        position-absolute
-                                        text-center
-                                        alur-text4
-                                    "
-                                >
-                                    4. Melakukan Tes Wawancara
-                                </p>
-                                <img
-                                    src="{{ asset('assets/img/wawancara.png') }}"
-                                    alt="tes"
-                                    width="90px"
-                                    class="img-fluid alur_image_4"
-                                />
-                            </div>
-                            <div class="position-relative">
-                                <p
-                                    class=" 
-                                        mt-3
-                                        position-absolute
-                                        text-center
-                                        alur-text5
-                                    "
-                                >
-                                    5. Tunggu konfirmasi dari
-                                    panitia dan Pengumuman
-                                </p>
-                                <img
-                                    src="{{ asset('assets/img/lolos.png') }}"
-                                    alt="daftar"
-                                    width="90px"
-                                    class="img-fluid alur_image_5"
-                                />
-                            </div>
-                            </div>
+                                4. Melakukan Tes Wawancara
+                            </p>
+                            <img
+                                src="{{ asset('assets/img/wawancara.png') }}"
+                                alt="tes"
+                                width="90px"
+                                class="img-fluid alur_image_4"
+                            />
                         </div>
+                        <div class="position-relative">
+                            <p
+                                class=" 
+                                    mt-3
+                                    position-absolute
+                                    text-center
+                                    alur-text5
+                                "
+                            >
+                                5. Tunggu konfirmasi dari
+                                panitia dan Pengumuman
+                            </p>
+                            <img
+                                src="{{ asset('assets/img/lolos.png') }}"
+                                alt="daftar"
+                                width="90px"
+                                class="img-fluid alur_image_5"
+                            />
+                        </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </section>
