@@ -146,7 +146,6 @@ class BiodataController extends Controller
     public function deleteAll(Request $request)
     {
         $ids=$request->get('ids');
-        dd($ids);
         
         if ($ids != null) {
             foreach ($ids as $id) {
