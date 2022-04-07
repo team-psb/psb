@@ -3,7 +3,7 @@
     $users = App\Models\BiodataOne::whereHas('academy_year', function($query){
         $query->where('is_active', true);
     })->count();
-    $userregister = App\Models\BiodataTwo::whereHas('user')->whereHas('academy_year', function($query){
+    $userregister = App\Models\BiodataOne::whereHas('user')->whereHas('academy_year', function($query){
         $query->where('is_active', true);
     })->get();
     $gelombang = App\Models\Stage::whereHas('academy_year', function($query){
