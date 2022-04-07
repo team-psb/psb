@@ -133,7 +133,7 @@ class BiodataTwoRequest extends FormRequest
             'child_to.min'=>'Pertanyaan Anak ke-? di isi minimal 1',
             'child_to.max'=>'Pertanyaan Anak ke-? Tidak bisa diisi lebih dari 100',
             'broher.min'=>'Berapa bersaudara di isi minimal 0 !!!',
-            'brother.max'=>'Berapa bersaudara? Tidak bisa diisi lebih dari 100',
+            'brother.max'=>'Berapa bersaudara? Tidak bisa diisi lebih dari 100', 
         ];
     }
 }
