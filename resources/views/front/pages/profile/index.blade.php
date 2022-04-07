@@ -28,7 +28,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th>Name</th>
+                    <th>Nama</th>
                     <td class="text-break">{{ $profile->full_name }}</td>
                   </tr>
                   <tr>

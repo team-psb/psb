@@ -892,6 +892,7 @@
                                         position-absolute
                                         text-center
                                         alur-text
+                                        mt-3
                                     "
                                 >
                                     1 <br />
@@ -938,6 +939,7 @@
                                         position-absolute
                                         text-center
                                         alur-text2
+                                        mt-3
                                     "
                                 >
                                     2 <br />
@@ -950,6 +952,7 @@
                                         position-absolute
                                         text-center
                                         alur-text3
+                                        mt-3
                                     "
                                 >
                                     3 <br />
@@ -973,7 +976,7 @@
                                     style="left: -13px; bottom: -15px"
                                 />
                             </div>
-                            <div class="position-relative">
+                            <div class="position-relative d-none d-md-none d-lg-block">
                                 <img
                                     src="{{ asset('./assets/img/line_2.png') }}"
                                     alt="daftar"
@@ -1002,7 +1005,7 @@
                                     Tes Wawancara
                                 </p>
                             </div>
-                            <div class="position-relative">
+                            <div class="position-relative d-none d-md-none d-lg-block">
                                 <p
                                     class="
                                         position-absolute
@@ -1033,6 +1036,67 @@
                                 />
                             </div>
                         </div>
+
+                        {{-- Mobile --}}
+                        <div
+                        class="
+                            col-md-12 col-sm-12
+                            d-lg-none d-xl-none
+                            d-flex
+                            align-items-center
+                            justify-content-around
+                            position-relative
+                            "
+                        id="alur"
+                    >
+                        <div
+                            class="
+                                col-12 col-md-6 col-sm-12
+                                d-flex
+                                align-items-center
+                                justify-content-around
+                                position-relative
+                                "
+                        >
+                        <div class="position-relative">
+                            <p
+                                class=" 
+                                    mt-3
+                                    position-absolute
+                                    text-center
+                                    alur-text4
+                                "
+                            >
+                                4. Melakukan Tes Wawancara
+                            </p>
+                            <img
+                                src="{{ asset('assets/img/wawancara.png') }}"
+                                alt="tes"
+                                width="90px"
+                                class="img-fluid alur_image_4"
+                            />
+                        </div>
+                        <div class="position-relative">
+                            <p
+                                class=" 
+                                    mt-3
+                                    position-absolute
+                                    text-center
+                                    alur-text5
+                                "
+                            >
+                                5. Tunggu konfirmasi dari
+                                panitia dan Pengumuman
+                            </p>
+                            <img
+                                src="{{ asset('assets/img/lolos.png') }}"
+                                alt="daftar"
+                                width="90px"
+                                class="img-fluid alur_image_5"
+                            />
+                        </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </section>

@@ -369,7 +369,7 @@
                               <div class="card-icon bg-primary">
                                   <i class="fas fa-user"></i>
                               </div>
-                                <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-profile') }}">Profile</a>
+                                <a class="h4 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-profile') }}">Profile</a>
                               </div>
                           </a>
                         </div>
@@ -384,7 +384,7 @@
                             <div class="card-icon bg-success">
                                 <i class="fas fa-question-circle"></i>
                             </div>
-                              <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-qna') }}">Q&A</a>
+                              <a class="h4 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-qna') }}">Q&A</a>
                             </div>
                           </a>
                         </div>
@@ -399,7 +399,7 @@
                             <div class="card-icon bg-warning">
                                 <i class="fas fa-leaf"></i>
                             </div>
-                              <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-informasi') }}">Info</a>
+                              <a class="h4 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-informasi') }}">Info</a>
                             </div>
                           </a>
                         </div>
@@ -900,7 +900,7 @@
             </div>
         </section>
         <!-- ======= Copyright ======= -->
-        <div class="copyright text-center" style="margin: 40px;">
+        <div class="copyright text-center" style="margin: 20px 40px 80px 40px">
             &copy; {{ date('Y') }} Copyright <strong><span>Pondok Informatika Al-Madinah</span></strong
             >.
         </div>

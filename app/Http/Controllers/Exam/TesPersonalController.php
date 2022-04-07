@@ -39,7 +39,7 @@ class TesPersonalController extends Controller
         if($jawaban != null){
             $nilai = 0 ;
             foreach ($jawaban as $key => $value) {
-                $cek=QuestionPersonal::where('id','=',$key)->first();
+                $cek = QuestionPersonal::where('id','=',$key)->first();
                 
                 if ($value == 'a') {
                     $nilai= $nilai + $cek->poin_a;

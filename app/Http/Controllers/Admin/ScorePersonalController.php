@@ -9,8 +9,10 @@ use App\Models\ScorePersonal;
 use App\Models\Setting;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ScorePersonalExport;
+use App\Models\BiodataOne;
 use App\Models\QuestionPersonalAnswer;
 use App\Models\ScoreIq;
+use App\Models\User;
 
 class ScorePersonalController extends Controller
 {
@@ -39,8 +41,9 @@ class ScorePersonalController extends Controller
 
     public function answer($id)
     {
-        $answers = QuestionPersonalAnswer::where('user_id', 2)->get();
-        return view('admin.pages.scorePersonal.answer', compact('answers'));
+        $answers = QuestionPersonalAnswer::where('user_id', $id)->get();
+        $user = User::find($id);
+        return view('admin.pages.scorePersonal.answer', compact('answers', 'user'));
     }
 
     public function delete($id)

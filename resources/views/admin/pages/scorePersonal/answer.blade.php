@@ -10,13 +10,13 @@
                 <div class="card   card-rounded">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-content-center pb-2" style="border-bottom: 1px solid #c4c4c4;">
-                            <h4 class="card-title">Detail Nilai Kepribadian {{ $answers->first()->user->biodataOne->full_name }}</h4>
+                            <h4 class="card-title">Detail Nilai Kepribadian | {{ $user->biodataOne->full_name }}</h4>
                             <div>
                                 <a href="{{ route('scorePersonal.index') }}" class="btn btn-success">Back</a>
                             </div>
                         </div>
                         <p class="card-description">
-                            Detail Jawaban Soal Personal {{ $answers->first()->user->biodataOne->full_name }}
+                            Detail Jawaban Soal Personal | {{ $user->biodataOne->full_name }}
                         </p>
                         <div class="table-responsive">
                             <table cellpadding="10" class="table-2  table-hover" style="font-size: 14px;">
@@ -68,12 +68,20 @@
                                 </tbody>
                                 <tfoot style="background-color: #67f09b">
                                     <tr>
-                                        <td colspan="3" class="text-center fw-bold">Total Poin</td>
-                                        <td class="fw-bold">
-                                            @php
-                                                $data = App\Models\ScorePersonal::where('user_id', $answers->first()->user_id)->first();
-                                            @endphp
-                                            {{ $data->score_question_personal }}
+                                        @php
+                                            $data = App\Models\ScorePersonal::where('user_id', $user->id)->first();
+                                        @endphp
+                                        <td colspan="5" class="text-center fw-bold">
+                                            <div class="d-flex justify-content-around">
+                                                <p style="font-size: 20px">
+                                                    Total Poin :
+                                                    {{ $data->score_question_personal }}
+                                                </p>
+                                                <p style="font-size: 16px">
+                                                    Soal dijawab :
+                                                    {{ $answers->count() }}
+                                                </p>
+                                            </div>
                                         </td>
                                     </tr>
                                 </tfoot>
