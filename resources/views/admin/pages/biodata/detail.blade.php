@@ -166,7 +166,17 @@
                 </tr>
                 <tr>
                     <td>Nama Wali</td>
-                    <td>{{ $biodata->user->biodataTwo->guardian }}</td>
+                    <td>
+                        @if ($profile->user->biodataTwo->choose_guardian == 'ayah')
+                            {{ $profile->user->biodataTwo->father }}
+                        @elseif ($profile->user->biodataTwo->choose_guardian == 'ibu')
+                            {{ $profile->user->biodataTwo->mother }}
+                        @elseif ($profile->user->biodataTwo->choose_guardian == 'selain-orang-tua')
+                            {{ $profile->user->biodataTwo->guardian }}
+                        @else
+                            -
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <td>No Hp Wali</td>
@@ -241,7 +251,7 @@
                     </tr>
                     <tr>
                         <td>Durasi Main Game</td>
-                        <td>{{ $biodata->user->biodataTwo->game_duration }} &nbsp; Jam</td>
+                        <td>{{ $biodata->user->biodataTwo->game_duration }} &nbsp;Jam</td>
                     </tr>
                 @endif
                 <tr>
@@ -255,15 +265,15 @@
         <h6 class="fw-bold">Pertanyaan 3</h6>
         <div class="px-1">
             <div class="">
-                <h6>Alasan Mendaftar :</h6>
+                <h6 class="text-bold">Alasan Mendaftar :</h6>
                 <p style="font-size: 14px;">{{ $biodata->user->biodataTwo->reason_registration }}</p>
             </div>
             <div class="">
-                <h6>Kegiatan Dari Bangun Sampai Tidur :</h6>
+                <h6 class="text-bold">Kegiatan Dari Bangun Sampai Tidur :</h6>
                 <p style="font-size: 14px;">{{ $biodata->user->biodataTwo->activity }}</p>
             </div>
             <div class="">
-                <h6>Kepribadian :</h6>
+                <h6 class="text-bold">Kepribadian :</h6>
                 <p style="font-size: 14px;">{{ $biodata->user->biodataTwo->personal }}</p>
             </div>
         </div>

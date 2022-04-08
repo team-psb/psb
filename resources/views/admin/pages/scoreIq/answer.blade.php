@@ -32,7 +32,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($answers as $answer)
-                                        <tr>
+                                        <tr class="align-top">
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
                                                 <img src="{{ Storage::url($answer->questionIq->image) }}" alt="" style="width: 100px;">    
@@ -64,15 +64,15 @@
                                                         Total Poin :
                                                         {{ $data->score_question_iq }}
                                                     </p>
-                                                    <p style="font-size: 16px">
+                                                    <p style="font-size: 20px">
                                                         Soal dijawab :
                                                         {{ $answers->count() }}
                                                     </p>
-                                                    <p style="font-size: 16px">
+                                                    <p style="font-size: 20px">
                                                         Benar :
                                                         {{ $data->correct }}
                                                     </p>
-                                                    <p style="font-size: 16px">
+                                                    <p style="font-size: 20px">
                                                         Salah :
                                                         {{ $data->wrong }}
                                                     </p>

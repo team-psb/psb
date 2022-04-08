@@ -65,6 +65,9 @@
                     placeholder="https://www.youtube.com/watch?v=mbyC-4ufrG4"
                     name="url"
                   />
+                  <small class="form-text text-muted">
+                    contoh: https://www.youtube.com/watch?v=mbyC-4ufrG4 <br>
+                  </small>
                   @error('url')
                     <div class="text-danger">{{ $message }}</div>
                   @enderror

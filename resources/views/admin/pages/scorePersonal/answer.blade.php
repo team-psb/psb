@@ -30,7 +30,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($answers as $answer)
-                                    <tr class="align-content-start">
+                                    <tr class="align-top">
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $answer->questionPersonal->question }}</td>
                                         <td>
@@ -74,12 +74,12 @@
                                         <td colspan="5" class="text-center fw-bold">
                                             <div class="d-flex justify-content-around">
                                                 <p style="font-size: 20px">
-                                                    Total Poin :
-                                                    {{ $data->score_question_personal }}
-                                                </p>
-                                                <p style="font-size: 16px">
                                                     Soal dijawab :
                                                     {{ $answers->count() }}
+                                                </p>
+                                                <p style="font-size: 20px">
+                                                    Total poin :
+                                                    {{ $data->score_question_personal }}
                                                 </p>
                                             </div>
                                         </td>

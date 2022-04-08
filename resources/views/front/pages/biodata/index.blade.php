@@ -153,6 +153,7 @@
                         required
                       />
                       <small class="form-text text-muted">
+                        contoh : https://facebook.com/PondokInformatikaAlmadinah <br>
                         Isi 'tidak ada' jika tidak punya
                       </small>
                       </div>
@@ -167,7 +168,10 @@
                             placeholder="https://instagram.com/pondokinformatika"
                             required
                           />
-                        <small>Isi "tidak ada" jika tidak punya</small>
+                        <small>
+                          contoh : https://instagram.com/pondokinformatika <br>
+                          Isi "tidak ada" jika tidak punya
+                        </small>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword3">Tiktok<b id="required">*</b></label>
@@ -181,6 +185,7 @@
                           required
                         />
                         <small class="form-text text-muted">
+                          contoh: https://tiktok.com/pondokinformatika <br>
                           Isi 'tidak ada' jika tidak punya
                         </small>
                       </div>
