@@ -364,19 +364,19 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td class="text-break">
+                    <td class="text-break py-3">
                       <h6 style="font-size: 14px">Alasan Mendaftar?</h6>
                       <p class="mb-0">{{ $profile->user->biodataTwo->reason_registration }}</p>
                     </td>
                   </tr>
                   <tr>
-                    <td class="text-break">
+                    <td class="text-break py-3">
                       <h6 style="font-size: 14px">Kegiatan Dari Bangun Sampai Tidur?</h6>
                       <p class="mb-0">{{ $profile->user->biodataTwo->activity }}</p>
                     </td>
                   </tr>
                   <tr>
-                    <td class="text-break">
+                    <td class="text-break py-3">
                       <h6 style="font-size: 14px">Kepribadian?</h6>
                       <p class="mb-0">{{ $profile->user->biodataTwo->personal }}</p>
                     </td>

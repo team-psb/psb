@@ -27,7 +27,7 @@
 @section('content')
   <div class="container py-5">
     <div class="my-4">
-      <div class="row justify-content-center px-4">
+      <div class="row justify-content-center">
         <div class="col-md-10 col-sm-12 title">
           <h5>
             <strong> <i class="fa fa-link ico"></i> Link Video</strong>
