@@ -2135,7 +2135,7 @@
                             <div class="info-box pb-3 sub-contact">
                                 <i class="bx bx-phone-call"></i>
                                 <h3>Kontak</h3>
-                                <p>085 725 249 265</p>
+                                <p>088 892 398 44</p>
                             </div>
                         </div>
                     </div>
@@ -2412,7 +2412,7 @@
                 delay: 2,
             });
             gsap.to(".no-hp", {
-                text: " 085 725 249 265",
+                text: " 088 892 398 44",
                 duration: 2,
                 delay: 4,
             });

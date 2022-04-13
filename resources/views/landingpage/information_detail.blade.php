@@ -333,7 +333,7 @@
                 delay: 2,
             });
             gsap.to(".no-hp", {
-                text: " 085 725 249 265",
+                text: " 088 892 398 44",
                 duration: 2,
                 delay: 4,
             });
