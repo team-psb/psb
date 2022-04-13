@@ -167,12 +167,12 @@
                 <tr>
                     <td>Nama Wali</td>
                     <td>
-                        @if ($profile->user->biodataTwo->choose_guardian == 'ayah')
-                            {{ $profile->user->biodataTwo->father }}
-                        @elseif ($profile->user->biodataTwo->choose_guardian == 'ibu')
-                            {{ $profile->user->biodataTwo->mother }}
-                        @elseif ($profile->user->biodataTwo->choose_guardian == 'selain-orang-tua')
-                            {{ $profile->user->biodataTwo->guardian }}
+                        @if ($biodata->user->biodataTwo->choose_guardian == 'ayah')
+                            {{ $biodata->user->biodataTwo->father }}
+                        @elseif ($biodata->user->biodataTwo->choose_guardian == 'ibu')
+                            {{ $biodata->user->biodataTwo->mother }}
+                        @elseif ($biodata->user->biodataTwo->choose_guardian == 'selain-orang-tua')
+                            {{ $biodata->user->biodataTwo->guardian }}
                         @else
                             -
                         @endif
