@@ -30,7 +30,7 @@ class ForgotPasswordController extends Controller
         $validatephone = User::where('phone', $request->phone)->first();
 
         if (!$validatephone){
-            return back()->with('gagal-kirim', 'nomor whatsapp anda belum terdaftar');
+            return back()->with('gagal-kirim', 'Nomor whatsapp anda belum terdaftar');
         }
         
         $token = bin2hex(random_bytes(6));
@@ -48,7 +48,7 @@ class ForgotPasswordController extends Controller
         $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => $request->phone,
-            'message' => 'Untuk mereset *Password Baru* akun anda silahkan masuk ke link berikut : '.$link
+            'message' => 'Assalamualaikum, Untuk mereset *Password Baru* akun anda silahkan masuk ke link berikut : '.$link
         ];
         sendMessage($data);
 
@@ -87,11 +87,11 @@ class ForgotPasswordController extends Controller
             $data = [
                 'sender' => Setting::pluck('no_msg'),
                 'reciver' => $request->phone,
-                'message' => 'Selamat anda berhasil mereset *Password*.
+                'message' => 'Assalamualaikum, Selamat anda berhasil mereset *Password*.
 *Gunakan Nomor dan Password Untuk Login*
 
 Nomor Hp: *'.$request->phone.'* 
-Password Baru *'. $request->password.'*
+Password Baru: *'. $request->password.'*
 
 Silahkan untuk login di : '.route('login')
             ];
