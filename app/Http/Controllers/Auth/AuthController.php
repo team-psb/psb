@@ -127,7 +127,7 @@ class AuthController extends Controller
         $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => $wa,
-            'message' => 'Untuk *mengkonfirmasi pendaftaran* silahkan masukkan kode OTP :
+            'message' => 'Assalamualaikum, Untuk *mengkonfirmasi pendaftaran* silahkan masukkan kode OTP :
 
 *'.$token.'*
 
