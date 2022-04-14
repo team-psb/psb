@@ -150,7 +150,7 @@ Atau masuk dilink berikut '.$link
         $data = [
             'sender' => Setting::pluck('no_msg'),
             'reciver' => $wa,
-            'message' => 'Untuk *mengkonfirmasi pendaftaran* silahkan masukkan kode OTP :
+            'message' => 'Assalamualaikum, Untuk *mengkonfirmasi pendaftaran* silahkan masukkan kode OTP :
 
 *'.$token.'*
 
@@ -185,7 +185,7 @@ Atau masuk dilink berikut '.$link];
             $data = [
                 'sender' => Setting::pluck('no_msg'),
                 'reciver' => $wa,
-                'message' => 'Selamat anda berhasil *konfirmasi pendaftaran*,
+                'message' => 'Assalamualaikum, Selamat anda berhasil *konfirmasi pendaftaran*,
 
 Nama : *'.$user->BiodataOne->full_name.'*
 Tanggal Lahir : *'.date('d-m-Y', strtotime($user->BiodataOne->birth_date)).'*
