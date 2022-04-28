@@ -931,7 +931,7 @@
                       </div>
                       <div class="form-group">
                         <label for="description_guardian"
-                          >Tambah keterangan jika ada</label
+                          >Tambah keterangan Orang Tua / Wali jika ada</label
                         >
                         <textarea
                           type="text"
