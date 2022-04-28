@@ -720,14 +720,14 @@
                           >No Whatsapp Ayah<b id="required">*</b></label
                         >
                         <input
-                          type="number"
+                          type="text"
                           class="form-control"
                           id="father_id"
                           name="father_id"
                           value="{{ old('father_id') }}"
                           required
                           placeholder="085XXXXXXX"
-                          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                          {{-- oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" --}}
                           maxlength="20"
                         />
                         {{-- <small class="form-text text-muted">Isi minimal 16 karakter</small> --}}
@@ -765,14 +765,14 @@
                             >No Whatsapp Ibu<b id="required">*</b></label
                           >
                           <input
-                            type="number"
+                            type="text"
                             class="form-control"
                             id="mother_id"
                             name="mother_id"
                             value="{{ old('mother_id') }}"
                             required
                             placeholder="085XXXXXXX"
-                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            {{-- oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" --}}
                             maxlength="20"
                           />
                         {{-- <small class="form-text text-muted">Isi minimal 16 karakter</small> --}}
@@ -916,7 +916,7 @@
                           >Nomor Kontak Orang Tua/Wali ?<b id="required">*</b></label
                         >
                         <input
-                          type="number"
+                          type="text"
                           class="form-control"
                           id="no_guardian"
                           name="no_guardian"
