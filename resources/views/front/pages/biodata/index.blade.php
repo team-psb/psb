@@ -717,7 +717,7 @@
                       </div>
                       <div class="form-group">
                         <label for="father_id"
-                          >NIK Ayah<b id="required">*</b></label
+                          >No Whatsapp Ayah<b id="required">*</b></label
                         >
                         <input
                           type="number"
@@ -726,12 +726,13 @@
                           name="father_id"
                           value="{{ old('father_id') }}"
                           required
-                          placeholder="32010204040000000"
+                          placeholder="085XXXXXXX"
                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                           maxlength="20"
                         />
-                        <small class="form-text text-muted">Isi minimal 16 karakter</small>
-                        <small class="form-text text-muted">Isi "0"</b> jika yatim</small>
+                        {{-- <small class="form-text text-muted">Isi minimal 16 karakter</small> --}}
+                        <small class="form-text text-muted">Contoh : 08582375XXXX</small>
+                        <small class="form-text text-muted">Isi "0"</b> jika tidak ada</small>
                       </div>
                       <div class="form-group">
                         <label for="mother">Nama Ibu<b id="required">*</b></label>
@@ -761,7 +762,7 @@
                       </div>
                       <div class="form-group">
                           <label for="mother_id"
-                            >NIK Ibu<b id="required">*</b></label
+                            >No Whatsapp Ibu<b id="required">*</b></label
                           >
                           <input
                             type="number"
@@ -770,16 +771,17 @@
                             name="mother_id"
                             value="{{ old('mother_id') }}"
                             required
-                            placeholder="32010204040000000"
+                            placeholder="085XXXXXXX"
                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                             maxlength="20"
                           />
-                        <small class="form-text text-muted">Isi minimal 16 karakter</small>
-                        <small class="form-text text-muted">Isi "0"</b> jika piatu</small>
+                        {{-- <small class="form-text text-muted">Isi minimal 16 karakter</small> --}}
+                        <small class="form-text text-muted">Contoh : 08582375XXXX</small>
+                        <small class="form-text text-muted">Isi "0"</b> jika tidak ada</small>
                       </div>
                       <div class="form-group">
                         <label for="parent_income"
-                          >Total Penghasilan Orang Tua Perbulan<b id="required">*</b></label
+                          >Total Penghasilan Orang Tua Perbulan (Penghasilan Ayah + Ibu)<b id="required">*</b></label
                         >
                         <select name="parent_income" class="custom-select">
                           <option value="" hidden>-- Pilih --</option>
@@ -803,7 +805,7 @@
                         /> --}}
                       </div>
                       <div class="form-group">
-                        <label for="child_to">Anak ke ?<b id="required">*</b></label>
+                        <label for="child_to">Anak ke berapa?<b id="required">*</b></label>
                         <input
                           type="number"
                           class="form-control"
@@ -814,6 +816,7 @@
                           placeholder="1"
                           required
                         />
+                        <small class="form-text text-muted">Contoh : 1</small>
                       </div>
                       <div class="form-group">
                         <label for="brother"
@@ -829,10 +832,10 @@
                           placeholder="1"
                           required
                         />
-                        <small class="form-text text-muted">Isi "0"</b> jika tidak punya saudara</small>
+                        <small class="form-text text-muted">Isi "0" jika tidak punya saudara</small>
                       </div>
                       <div class="form-group">
-                        <label for="">Data Wali<b id="required">*</b></label>
+                        <label for="">Wali / Orang Tua<b id="required">*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -922,7 +925,8 @@
                           placeholder="08582375XXXX"
                           required
                         />
-                        <small class="form-text text-muted">Isi "0"</b> jika tidak ada wali</small>
+                        <small class="form-text text-muted">Contoh : 08582375XXXX</small>
+                        <small class="form-text text-muted">Isi "0" jika tidak ada wali</small>
 
                       </div>
                       <div class="form-group">

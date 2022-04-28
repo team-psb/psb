@@ -125,7 +125,7 @@
                     <td>{{ $biodata->user->biodataTwo->father }}</td>
                 </tr>
                 <tr>
-                    <td >NIK Ayah</td>
+                    <td >No Whatsapp Ayah</td>
                     <td>{{ $biodata->user->biodataTwo->father_id }}</td>
                 </tr>
                 <tr>
@@ -133,7 +133,7 @@
                     <td>{{ $biodata->user->biodataTwo->mother }}</td>
                 </tr>
                 <tr>
-                    <td>NIK Ibu</td>
+                    <td>No Whatsapp Ibu</td>
                     <td>{{ $biodata->user->biodataTwo->mother_id }}</td>
                 </tr>
                 <tr>
@@ -161,7 +161,7 @@
                     <td>{{ $biodata->user->biodataTwo->child_to }}</td>
                 </tr>
                 <tr>
-                    <td>Wali</td>
+                    <td>Wali/Orang tua</td>
                     <td>{{ $biodata->user->biodataTwo->choose_guardian }}</td>
                 </tr>
                 <tr>

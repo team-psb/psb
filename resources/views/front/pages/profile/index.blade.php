@@ -105,7 +105,7 @@
                     <td class="text-break">{{ $profile->user->biodataTwo->father }}</td>
                   </tr>
                   <tr>
-                    <th>NIK Ayah</th>
+                    <th>No Whatsapp Ayah</th>
                     <td class="text-break">{{ $profile->user->biodataTwo->father_id }}</td>
                   </tr>
                   <tr>
@@ -113,7 +113,7 @@
                     <td class="text-break">{{ $profile->user->biodataTwo->mother }}</td>
                   </tr>
                   <tr>
-                    <th>NIK Ibu</th>
+                    <th>No Whatsapp Ibu</th>
                     <td class="text-break">{{ $profile->user->biodataTwo->mother_id }}</td>
                   </tr>
                   <tr>
@@ -133,11 +133,11 @@
                     <td class="text-break">{{ $profile->user->biodataTwo->parent_income }}</td>
                   </tr>
                   <tr>
-                    <th>Wali</th>
+                    <th>Wali / Orang Tua</th>
                     <td class="text-break">{{ $profile->user->biodataTwo->choose_guardian }}</td>
                   </tr>
                   <tr>
-                    <th>Nama Wali</th>
+                    <th>Nama Wali / Orang Tua</th>
                     <td class="text-break">
                       @if ($profile->user->biodataTwo->choose_guardian == 'ayah')
                         {{ $profile->user->biodataTwo->father }}
@@ -151,7 +151,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <th>Kontak Wali</th>
+                    <th>Kontak Wali / Orang Tua</th>
                     <td class="text-break">{{ $profile->user->biodataTwo->no_guardian }}</td>
                   </tr>
                   <tr>
