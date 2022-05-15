@@ -41,71 +41,76 @@ class TesIqController extends Controller
             $jawaban_benar = null;
             $jawaban_salah = null;
 
-            foreach ($jawaban as $key => $value) {
-                $cek = QuestionIq::where('id','=',$key)->where('answer_key','=',$value)->get();
-                $benar = count($cek);
-                
-                if($benar){
-                    $jawaban_benar++;
-                }else{
-                    $jawaban_salah++;
-                }
 
-                $cekId = QuestionIq::where('id','=',$key)->first();
-                if ($value == 'a') {
-                    QuestionIqAnswer::create([
-                        'user_id' => Auth::user()->id,
-                        'question_iq_id' => $cekId->id,
-                        'answer' => 'a'
-                    ]);
+            $ScoreIq = ScoreIq::where('user_id', auth()->user()->id)->first();
+            
+            if (!$ScoreIq) {
+                foreach ($jawaban as $key => $value) {
+                    $cek = QuestionIq::where('id','=',$key)->where('answer_key','=',$value)->get();
+                    $benar = count($cek);
+                    
+                    if($benar){
+                        $jawaban_benar++;
+                    }else{
+                        $jawaban_salah++;
+                    }
+    
+                    $cekId = QuestionIq::where('id','=',$key)->first();
+                    if ($value == 'a') {
+                        QuestionIqAnswer::create([
+                            'user_id' => Auth::user()->id,
+                            'question_iq_id' => $cekId->id,
+                            'answer' => 'a'
+                        ]);
+                    }
+                    elseif ($value == 'b') {
+                        QuestionIqAnswer::create([
+                            'user_id' => Auth::user()->id,
+                            'question_iq_id' => $cekId->id,
+                            'answer' => 'b'
+                        ]);
+                    }
+                    elseif ($value == 'c') {
+                        QuestionIqAnswer::create([
+                            'user_id' => Auth::user()->id,
+                            'question_iq_id' => $cekId->id,
+                            'answer' => 'c'
+                        ]);
+                    }
+                    elseif ($value == 'd') {
+                        QuestionIqAnswer::create([
+                            'user_id' => Auth::user()->id,
+                            'question_iq_id' => $cekId->id,
+                            'answer' => 'd'
+                        ]);
+                    }
+                    elseif ($value == 'e') {
+                        QuestionIqAnswer::create([
+                            'user_id' => Auth::user()->id,
+                            'question_iq_id' => $cekId->id,
+                            'answer' => 'e'
+                        ]);
+                    }
                 }
-                elseif ($value == 'b') {
-                    QuestionIqAnswer::create([
-                        'user_id' => Auth::user()->id,
-                        'question_iq_id' => $cekId->id,
-                        'answer' => 'b'
-                    ]);
-                }
-                elseif ($value == 'c') {
-                    QuestionIqAnswer::create([
-                        'user_id' => Auth::user()->id,
-                        'question_iq_id' => $cekId->id,
-                        'answer' => 'c'
-                    ]);
-                }
-                elseif ($value == 'd') {
-                    QuestionIqAnswer::create([
-                        'user_id' => Auth::user()->id,
-                        'question_iq_id' => $cekId->id,
-                        'answer' => 'd'
-                    ]);
-                }
-                elseif ($value == 'e') {
-                    QuestionIqAnswer::create([
-                        'user_id' => Auth::user()->id,
-                        'question_iq_id' => $cekId->id,
-                        'answer' => 'e'
-                    ]);
-                }
+    
+                $nilai = $jawaban_benar*2;
+    
+    
+                ScoreIq::create([
+                    'user_id' => Auth::user()->id,
+                    'stage_id' => $stage_id,
+                    'academy_year_id'=>$tahun_ajaran,
+                    'score_question_iq'=>$nilai,
+                    'correct' => $jawaban_benar,
+                    'wrong' => $jawaban_salah,
+                ]);
+                $data = [
+                    'sender' => Setting::pluck('no_msg'),
+                    'reciver' => Auth::user()->phone,
+                    'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap2
+                ];
+                sendMessage($data);
             }
-
-            $nilai = $jawaban_benar*2;
-
-
-            ScoreIq::create([
-                'user_id' => Auth::user()->id,
-                'stage_id' => $stage_id,
-                'academy_year_id'=>$tahun_ajaran,
-                'score_question_iq'=>$nilai,
-                'correct' => $jawaban_benar,
-                'wrong' => $jawaban_salah,
-            ]);
-            $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => Auth::user()->phone,
-                'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap2
-            ];
-            sendMessage($data);
 
             return redirect()->route('success');
         }else{
