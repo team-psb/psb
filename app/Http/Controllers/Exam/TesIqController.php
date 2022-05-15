@@ -94,7 +94,12 @@ class TesIqController extends Controller
                 }
     
                 $nilai = $jawaban_benar*2;
-    
+                
+                if ($jawaban_benar != null) {
+                    $jawaban_benar = $jawaban_benar;
+                }else{
+                    $jawaban_benar = 0;
+                }
     
                 ScoreIq::create([
                     'user_id' => Auth::user()->id,
