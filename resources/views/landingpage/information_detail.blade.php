@@ -86,9 +86,9 @@
         </section>
 
         <!-- WA Live -->
-        <a id="Wa" class="wa" title="Chat Live Wa" href="#">
+        {{-- <a id="Wa" class="wa" title="Chat Live Wa" href="#">
             <img src="/assets/img/wa.png" alt="logo-wa" width="80" />
-        </a>
+        </a> --}}
 
         <!-- ======= Header ======= -->
         <header id="header" class="d-flex align-items-center user-select-none">
@@ -169,7 +169,7 @@
                         <div class="col-lg-6">
                             <div class="portfolio-details-sliders">
                                 <div class="align-items-center">
-                                    @isset($infodetail->video)
+                                    {{-- @isset($infodetail->video) --}}
                                         @if ($infodetail->video == null)
                                             <a href="{{ asset('/storage/'.$infodetail->image) }}" class="portfolio-lightbox">
                                                 <img
@@ -183,7 +183,7 @@
                                                 <iframe class="responsive-iframe" src="{{ $infodetail->video ? $infodetail->video : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen allow='autoplay'></iframe>
                                             </div>
                                         @endif
-                                    @endisset
+                                    {{-- @endisset --}}
                                 </div>
                             </div>
                         </div>
@@ -333,7 +333,7 @@
                 delay: 2,
             });
             gsap.to(".no-hp", {
-                text: " 085 725 249 265",
+                text: " 088 892 398 44",
                 duration: 2,
                 delay: 4,
             });

@@ -9,7 +9,10 @@ use App\Models\ScorePersonal;
 use App\Models\Setting;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ScorePersonalExport;
+use App\Models\BiodataOne;
+use App\Models\QuestionPersonalAnswer;
 use App\Models\ScoreIq;
+use App\Models\User;
 
 class ScorePersonalController extends Controller
 {
@@ -36,6 +39,13 @@ class ScorePersonalController extends Controller
         return view('admin.pages.scorePersonal.index',compact('scores', 'stages'));
     }
 
+    public function answer($id)
+    {
+        $answers = QuestionPersonalAnswer::where('user_id', $id)->get();
+        $user = User::find($id);
+        return view('admin.pages.scorePersonal.answer', compact('answers', 'user'));
+    }
+
     public function delete($id)
     {
         $data = ScorePersonal::findOrFail($id);
@@ -43,6 +53,7 @@ class ScorePersonalController extends Controller
         $scoreIq->update([
             'status' => null
         ]);
+        QuestionPersonalAnswer::where('user_id', $data->user_id)->delete();
         $data->delete();
         activity()->log('Menghapus tes nilai id '.$id);
 
@@ -60,6 +71,7 @@ class ScorePersonalController extends Controller
                 $scoreIq->update([
                     'status' => null
                 ]);
+                QuestionPersonalAnswer::where('user_id', $data->user_id)->delete();
                 $data->delete();
             }
         activity()->log('Menghapus semua data tes nilai');

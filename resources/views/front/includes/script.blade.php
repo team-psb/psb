@@ -9,6 +9,10 @@
   <!-- JS Libraies -->
   <script src="{{ asset('stisla/node_modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
   <script src="{{ asset('stisla/node_modules/jquery-ui-dist/jquery-ui.min.js') }}"></script>
+  <script src="../node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+  <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
+  <script src="{{ asset('stisla/node_modules/owl.carousel/dist/owl.carousel.min.js') }}"></script>
+  <script src="../node_modules/summernote/dist/summernote-bs4.js"></script>
   <!-- Page Specific JS File -->
 
   <!-- Template JS File -->
@@ -18,15 +22,18 @@
   <script>
     //Get the button
     var mybutton = document.getElementById("myBtn");
+    var mybuttonwa = document.getElementById("myBtnWa");
     
     // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function() {scrollFunction()};
     
     function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
         mybutton.style.display = "block";
+        mybuttonwa.style.display = "block";
       } else {
         mybutton.style.display = "none";
+        mybuttonwa.style.display = "none";
       }
     }
     

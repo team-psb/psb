@@ -5,7 +5,7 @@
 @section('content')
 <div class="container py-5">
   <div class="my-4">
-    <div class="row justify-content-center px-4">
+    <div class="row justify-content-center px-0">
       <div class="col-md-10 col-sm-12 title">
         <h5>
           <strong> <i class="fa fa-book ico"></i>Tes Kepribadian</strong>
@@ -19,7 +19,7 @@
                   {{-- page 1--}}
                   <div x-show="soal_1">                                
                     @foreach ($kepribadian[0] as $index=>$item)
-                      <div class="card-body mb-1">
+                      <div class="">
                         <div class="card text-left">
                             <div class="card-body">
                                 <div class="soal">
@@ -140,7 +140,7 @@
                   {{-- page 2 --}}
                   <div x-show="soal_2">
                     @foreach ($kepribadian[1] as $index=>$item)
-                      <div class="card-body mb-1">
+                      <div class="mb-1">
                         <div class="card text-left">
                             <div class="card-body">
                                 <div class="soal">
@@ -269,7 +269,7 @@
                   {{-- page 3 --}}
                   <div x-show="soal_3">
                     @foreach ($kepribadian[2] as $index=>$item)
-                      <div class="card-body mb-1">
+                      <div class="mb-1">
                         <div class="card text-left">
                             <div class="card-body">
                                 <div class="soal">
@@ -398,7 +398,7 @@
                   {{-- page 4 --}}
                   <div x-show="soal_4">
                     @foreach ($kepribadian[3] as $index=>$item)
-                      <div class="card-body mb-1">
+                      <div class="mb-1">
                         <div class="card text-left">
                             <div class="card-body">
                                 <div class="soal">
@@ -527,7 +527,7 @@
                   {{-- page 4 --}}
                   <div x-show="soal_5">
                     @foreach ($kepribadian[4] as $index=>$item)
-                      <div class="card-body mb-1">
+                      <div class="mb-1">
                         <div class="card text-left">
                             <div class="card-body">
                                 <div class="soal">

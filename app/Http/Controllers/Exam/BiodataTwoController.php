@@ -36,29 +36,35 @@ class BiodataTwoController extends Controller
         
         $notif = Setting::get()->first();
 
-        if (Auth::user()->BiodataOne->family == 'sangat-mampu') {
-            $request->merge(['user_id' => $users_id, 'academy_year_id' => $tahun_ajaran_id, 'stage_id' => $stage_id, 'status' => null]);
-            BiodataTwo::create($request->all());
+        $biodata = BiodataTwo::where('user_id', $users_id)->first();
 
-            $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => Auth::user()->phone,
-                'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap1_sm
+        if (!$biodata) {
+            if (Auth::user()->BiodataOne->family == 'sangat-mampu') {
+                $request->merge(['user_id' => $users_id, 'academy_year_id' => $tahun_ajaran_id, 'stage_id' => $stage_id, 'status' => null]);
+                BiodataTwo::create($request->all());
     
-            ];
-            sendMessage($data);
-
+                $data = [
+                    'sender' => Setting::pluck('no_msg'),
+                    'reciver' => Auth::user()->phone,
+                    'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap1_sm
+        
+                ];
+                sendMessage($data);
+    
+            }else{
+                $request->merge(['user_id' => $users_id, 'academy_year_id' => $tahun_ajaran_id, 'stage_id' => $stage_id]);
+                // dd($request->all());
+                BiodataTwo::create($request->all());
+    
+                $data = [
+                    'sender' => Setting::pluck('no_msg'),
+                    'reciver' => Auth::user()->phone,
+                    'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap1
+                ];
+                sendMessage($data);
+            }
         }else{
-            $request->merge(['user_id' => $users_id, 'academy_year_id' => $tahun_ajaran_id, 'stage_id' => $stage_id]);
-            // dd($request->all());
-            BiodataTwo::create($request->all());
-
-            $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => Auth::user()->phone,
-                'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap1
-            ];
-            sendMessage($data);
+            return redirect()->route('success');
         }
 
         return redirect()->route('success');

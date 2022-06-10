@@ -146,9 +146,9 @@
         <!-- ======= End Background Image ======= -->
 
         <!-- WA Live -->
-        <a id="Wa" class="wa" title="Chat Live Wa" target="_blank" href="https://api.whatsapp.com/send?phone=6285725249265&text=Assalamu'alaikum%20Pondok%20Informatika,%20Saya%20pendaftar%20santri%20baru%20butuh%20bantuan !">
+        {{-- <a id="Wa" class="wa" title="Chat Live Wa" target="_blank" href="https://api.whatsapp.com/send?phone=6285725249265&text=Assalamu'alaikum%20Pondok%20Informatika,%20Saya%20pendaftar%20santri%20baru%20butuh%20bantuan !">
             <img src="{{ asset('./assets/img/wa.png') }}" alt="logo-wa" width="80" />
-        </a>
+        </a> --}}
         <!-- End WA Live -->
 
         <!-- ======= Header ======= -->

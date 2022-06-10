@@ -19,6 +19,8 @@ class CreateScoreIqsTable extends Migration
             $table->foreignId('stage_id');
             $table->foreignId('academy_year_id');
             $table->integer('score_question_iq');
+            $table->integer('correct');
+            $table->integer('wrong');
             $table->enum('status',['sudah-dikerjakan','lolos','tidak'])->nullable();
 
             $table->softDeletes();

@@ -38,6 +38,8 @@ class DatabaseSeeder extends Seeder
             QuestionIqSeeder::class,
             QuestionPersonalSeeder::class,
             SettingSeeder::class,
+            // QuestionIqAnswerSeeder::class,
+            // QuestionPersonalAnswerSeeder::class
         ]);
 
     }

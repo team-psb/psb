@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\BiodataOne;
 use App\Models\BiodataTwo;
 use App\Models\Interview;
+use App\Models\QuestionIqAnswer;
+use App\Models\QuestionPersonalAnswer;
 use App\Models\ScoreIq;
 use App\Models\ScorePersonal;
 use App\Models\User;
@@ -85,6 +87,8 @@ class RegisterController extends Controller
 
         ScoreIq::where('user_id', $data->user_id)->delete();
         ScorePersonal::where('user_id', $data->user_id)->delete();
+        QuestionIqAnswer::where('user_id', $data->user_id)->delete();
+        QuestionPersonalAnswer::where('user_id', $data->user_id)->delete();
         Video::where('user_id', $data->user_id)->delete();
         Interview::where('user_id', $data->user_id)->delete();
         BiodataTwo::where('user_id', $data->user_id)->delete();
@@ -105,6 +109,8 @@ class RegisterController extends Controller
                 $data->delete();
                 ScoreIq::where('user_id', $data->user_id)->delete();
                 ScorePersonal::where('user_id', $data->user_id)->delete();
+                QuestionIqAnswer::where('user_id', $data->user_id)->delete();
+                QuestionPersonalAnswer::where('user_id', $data->user_id)->delete();
                 Video::where('user_id', $data->user_id)->delete();
                 Interview::where('user_id', $data->user_id)->delete();
                 BiodataTwo::where('user_id', $data->user_id)->delete();

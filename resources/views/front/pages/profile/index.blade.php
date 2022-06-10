@@ -28,7 +28,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th>Name</th>
+                    <th>Nama</th>
                     <td class="text-break">{{ $profile->full_name }}</td>
                   </tr>
                   <tr>
@@ -105,7 +105,7 @@
                     <td class="text-break">{{ $profile->user->biodataTwo->father }}</td>
                   </tr>
                   <tr>
-                    <th>NIK Ayah</th>
+                    <th>No Whatsapp Ayah</th>
                     <td class="text-break">{{ $profile->user->biodataTwo->father_id }}</td>
                   </tr>
                   <tr>
@@ -113,7 +113,7 @@
                     <td class="text-break">{{ $profile->user->biodataTwo->mother }}</td>
                   </tr>
                   <tr>
-                    <th>NIK Ibu</th>
+                    <th>No Whatsapp Ibu</th>
                     <td class="text-break">{{ $profile->user->biodataTwo->mother_id }}</td>
                   </tr>
                   <tr>
@@ -133,15 +133,25 @@
                     <td class="text-break">{{ $profile->user->biodataTwo->parent_income }}</td>
                   </tr>
                   <tr>
-                    <th>Wali</th>
+                    <th>Wali / Orang Tua</th>
                     <td class="text-break">{{ $profile->user->biodataTwo->choose_guardian }}</td>
                   </tr>
                   <tr>
-                    <th>Nama Wali</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->guardian ? $profile->user->biodataTwo->guardian : '-'  }}</td>
+                    <th>Nama Wali / Orang Tua</th>
+                    <td class="text-break">
+                      @if ($profile->user->biodataTwo->choose_guardian == 'ayah')
+                        {{ $profile->user->biodataTwo->father }}
+                      @elseif ($profile->user->biodataTwo->choose_guardian == 'ibu')
+                        {{ $profile->user->biodataTwo->mother }}
+                      @elseif ($profile->user->biodataTwo->choose_guardian == 'selain-orang-tua')
+                        {{ $profile->user->biodataTwo->guardian }}
+                      @else
+                        -
+                      @endif
+                    </td>
                   </tr>
                   <tr>
-                    <th>Kontak Wali</th>
+                    <th>Kontak Wali / Orang Tua</th>
                     <td class="text-break">{{ $profile->user->biodataTwo->no_guardian }}</td>
                   </tr>
                   <tr>
@@ -303,11 +313,11 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th>Merokok</th>
+                    <th>Merokok?</th>
                     <td class="text-break">{{ $profile->user->biodataTwo->smoker }}</td>
                   </tr>
                   <tr>
-                    <th>Bangun sholat subuh</th>
+                    <th>Bangun sholat subuh?</th>
                     <td class="text-break">{{ $profile->user->biodataTwo->pray }}</td>
                   </tr>
                   <tr>
@@ -329,7 +339,7 @@
                   </tr>
                   <tr>
                     <th>Durasi main game</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->game_duration }}</td>
+                    <td class="text-break">{{ $profile->user->biodataTwo->game_duration }} &nbsp;Jam</td>
                   </tr>
                   @endif
                   <tr>
@@ -354,16 +364,22 @@
                 </thead>
                 <tbody>
                   <tr>
-                      <th>Alasan Mendaftar</th>
-                      <td class="text-break">{{ $profile->user->biodataTwo->reason_registration }}</td>
+                    <td class="text-break py-3">
+                      <h6 style="font-size: 14px">Alasan Mendaftar?</h6>
+                      <p class="mb-0">{{ $profile->user->biodataTwo->reason_registration }}</p>
+                    </td>
                   </tr>
                   <tr>
-                      <th>Kegiatan Dari Bangun Sampai Tidur</th>
-                      <td class="text-break">{{ $profile->user->biodataTwo->activity }}</td>
+                    <td class="text-break py-3">
+                      <h6 style="font-size: 14px">Kegiatan Dari Bangun Sampai Tidur?</h6>
+                      <p class="mb-0">{{ $profile->user->biodataTwo->activity }}</p>
+                    </td>
                   </tr>
                   <tr>
-                      <th>Kepribadian</th>
-                      <td class="text-break">{{ $profile->user->biodataTwo->personal }}</td>
+                    <td class="text-break py-3">
+                      <h6 style="font-size: 14px">Kepribadian?</h6>
+                      <p class="mb-0">{{ $profile->user->biodataTwo->personal }}</p>
+                    </td>
                   </tr>
                 </tbody>
               </table>

@@ -5,10 +5,10 @@
 @section('content')
             <div class="container py-5">
                 <div class="my-4">
-                  <div class="row justify-content-center px-4">
+                  <div class="row justify-content-center px-0">
                     <div class="col-md-10 col-sm-12 title">
                       <h5>
-                        <strong> <i class="fa fa-book ico"></i> Tes IQ</strong>
+                        <strong> <i class="fa fa-book ico"></i>Tes IQ</strong>
                       </h5>
                       
                       <p class="card-text">Silahkan Jawab Soal-Soal Dibawah Ini !</p>
@@ -20,7 +20,7 @@
                             <div class="row" x-show="soal_1">
                               @foreach ($question_iq[0] as $index=>$item)
                                 <div class="col-md-12 col-sm-12">
-                                  <div class="card-body mb-1">
+                                  <div class="">
                                       <div class="card text-left">
                                           <div class="card-body">
                                               <div class="soal">

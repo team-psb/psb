@@ -149,6 +149,10 @@
                                                                 <i class="icon-close btn-icon-prepend"></i> Tidak Lolos
                                                         </a>
                                                     @endif
+                                                    <a href="{{ route('scorePersonal.answer', $score->user_id) }}"
+                                                        class="btn btn-info mx-1 btn-icon-text p-2">
+                                                            <i class="icon-paper btn-icon-prepend"></i> Jawaban
+                                                    </a>
                                                     <button formaction="{{ route('scorePersonal.delete', $score->id) }}" class="btn ms-1 btn-danger btn-icon-text text-white p-2"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
                                                 </div>
                                             </td>

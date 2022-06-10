@@ -1,8 +1,11 @@
     /* Border-bottom Title Page */
-    .informasi{
+
+      .informasi{
+        width: 250px;
         border-bottom: solid 6px#3bda9f;
-        color: #114551;
-    }
+        color: #456e8c;
+      }
+
 
     /* step wizard */
     .stepwizard-step p {
@@ -139,6 +142,7 @@
   #regis-form {
       order: 2;
   }
+<<<<<<< HEAD
 }
 
 /* Whatsapp */
@@ -195,3 +199,22 @@
   }
 }
 /* End WA Live */
+=======
+
+  .letter-spacing{
+    letter-spacing: 7px;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 320px) {
+  .hero{
+    padding: 24px;
+  }
+}
+
+@media (min-width: 993px) {
+  .hero{
+    padding: 55px;
+  }
+}
+>>>>>>> 0b9c2e38ab856af21974984c47df064d0ee513c2

@@ -27,17 +27,22 @@ class VideoController extends Controller
         })->orderBy('id', 'desc')->pluck('id')->first();
 
         $request->merge(['user_id'=>Auth::user()->id, 'stage_id' => $stage_id, 'academy_year_id'=>$tahun_ajaran]);
-        Video::create($request->all());
+        $videoOnlyOne = Video::where('user_id', auth()->user()->id)->first();
 
-        $notif = Setting::get()->first();
+        if (!$videoOnlyOne) {
+            Video::create($request->all());
 
-        $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => Auth::user()->phone,
-            'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap4
-        ];
-        sendMessage($data);
+            $notif = Setting::get()->first();
 
-        return redirect()->route('user-dashboard');
+            $data = [
+                'sender' => Setting::pluck('no_msg'),
+                'reciver' => Auth::user()->phone,
+                'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap4
+            ];
+            sendMessage($data);
+        }
+        
+        return redirect()->route('success');
+
     }
 }

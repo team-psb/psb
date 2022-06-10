@@ -9,8 +9,11 @@ use App\Models\ScoreIq;
 use App\Models\Setting;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ScoreIqExport;
+use App\Models\BiodataOne;
 use App\Models\BiodataTwo;
 use App\Models\QuestionIqAnswer;
+use App\Models\QuestionPersonalAnswer;
+use App\Models\User;
 
 class ScoreIqController extends Controller
 {
@@ -38,6 +41,13 @@ class ScoreIqController extends Controller
         return view('admin.pages.scoreIq.index',compact('scores', 'stages'));
     }
 
+    public function answer($id)
+    {
+        $answers = QuestionIqAnswer::where('user_id', $id)->get();
+        $user = User::find($id);
+        return view('admin.pages.scoreIq.answer', compact('answers', 'user'));
+    }
+
     public function delete($id)
     {
         $data = ScoreIq::findOrFail($id);
@@ -45,6 +55,7 @@ class ScoreIqController extends Controller
         $biodataTwo->update([
             'status' => null
         ]);
+        QuestionIqAnswer::where('user_id', $data->user_id)->delete();
         $data->delete();
         activity()->log('Menghapus tes nilai id '.$id);
 
@@ -62,6 +73,7 @@ class ScoreIqController extends Controller
                 $biodataTwo->update([
                     'status' => null
                 ]);
+                QuestionIqAnswer::where('user_id', $data->user_id)->delete();
                 $data->delete();
             }
         activity()->log('Menghapus semua data tes nilai');

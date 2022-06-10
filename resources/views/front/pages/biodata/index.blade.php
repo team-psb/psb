@@ -116,6 +116,7 @@
                       <div class="form-group">
                         <label for="exampleInputPassword1">Provinsi<b id="required">*</b></label>
                         <select name="indonesia_provinces_id" class="custom-select" x-on:change="getKabupaten(provin_id)" x-model="provin_id">
+                            <option value="" hidden>Pilih Provinsi</option>
                           @foreach ($provinsi as $provin)
                               <option value="{{ $provin->code }}">{{ $provin->name }}</option>
                           @endforeach
@@ -152,6 +153,7 @@
                         required
                       />
                       <small class="form-text text-muted">
+                        contoh : https://facebook.com/PondokInformatikaAlmadinah <br>
                         Isi 'tidak ada' jika tidak punya
                       </small>
                       </div>
@@ -166,7 +168,10 @@
                             placeholder="https://instagram.com/pondokinformatika"
                             required
                           />
-                        <small>Isi "tidak ada" jika tidak punya</small>
+                        <small>
+                          contoh : https://instagram.com/pondokinformatika <br>
+                          Isi "tidak ada" jika tidak punya
+                        </small>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword3">Tiktok<b id="required">*</b></label>
@@ -180,6 +185,7 @@
                           required
                         />
                         <small class="form-text text-muted">
+                          contoh: https://tiktok.com/pondokinformatika <br>
                           Isi 'tidak ada' jika tidak punya
                         </small>
                       </div>
@@ -621,7 +627,7 @@
                             name="game_duration"
                             value="{{ old('game_duration') }}"
                           >
-                            <option value="" disabled selected>-- Pilih --</option>
+                            <option value="" hidden>-- Pilih --</option>
                             <option value="kurang dari 1">kurang dari 1 jam</option>
                                 @for ($i = 1; $i <= 10; $i++)
                                     <option value="{{ $i }}">{{ $i }} jam</option>
@@ -674,9 +680,9 @@
                     {{-- step 4 --}}
                     <div x-show="form_4">
                       <div class="form-group">
-                        <label for="">Orang Tua<b id="required">*</b></label>
+                        <label for="">Status Kelengkapan Orang Tua<b id="required">*</b></label>
                         <select name="parent" class="custom-select">
-                          <option value="" disabled selected>-- Pilih --</option>
+                          <option value="" hidden>-- Pilih --</option>
                           <option value="lengkap" {{ old('parent') == 'lengkap' ? 'selected' : '' }}>Lengkap</option>
                           <option value="ayah" {{ old('parent') == 'ayah' ? 'selected' : '' }}>Ayah</option>
                           <option value="ibu" {{ old('parent') == 'ibu' ? 'selected' : '' }}>Ibu</option>
@@ -711,21 +717,22 @@
                       </div>
                       <div class="form-group">
                         <label for="father_id"
-                          >NIK Ayah<b id="required">*</b></label
+                          >No Whatsapp Ayah<b id="required">*</b></label
                         >
                         <input
-                          type="number"
+                          type="text"
                           class="form-control"
                           id="father_id"
                           name="father_id"
                           value="{{ old('father_id') }}"
                           required
-                          placeholder="32010204040000000"
-                          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                          placeholder="085XXXXXXX"
+                          {{-- oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" --}}
                           maxlength="20"
                         />
-                        <small class="form-text text-muted">Isi minimal 16 karakter</small>
-                        <small class="form-text text-muted">Isi "0"</b> jika yatim</small>
+                        {{-- <small class="form-text text-muted">Isi minimal 16 karakter</small> --}}
+                        <small class="form-text text-muted">Contoh : 08582375XXXX</small>
+                        <small class="form-text text-muted">Isi "0"</b> jika tidak ada</small>
                       </div>
                       <div class="form-group">
                         <label for="mother">Nama Ibu<b id="required">*</b></label>
@@ -755,28 +762,29 @@
                       </div>
                       <div class="form-group">
                           <label for="mother_id"
-                            >NIK Ibu<b id="required">*</b></label
+                            >No Whatsapp Ibu<b id="required">*</b></label
                           >
                           <input
-                            type="number"
+                            type="text"
                             class="form-control"
                             id="mother_id"
                             name="mother_id"
                             value="{{ old('mother_id') }}"
                             required
-                            placeholder="32010204040000000"
-                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            placeholder="085XXXXXXX"
+                            {{-- oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" --}}
                             maxlength="20"
                           />
-                        <small class="form-text text-muted">Isi minimal 16 karakter</small>
-                        <small class="form-text text-muted">Isi "0"</b> jika piatu</small>
+                        {{-- <small class="form-text text-muted">Isi minimal 16 karakter</small> --}}
+                        <small class="form-text text-muted">Contoh : 08582375XXXX</small>
+                        <small class="form-text text-muted">Isi "0"</b> jika tidak ada</small>
                       </div>
                       <div class="form-group">
                         <label for="parent_income"
-                          >Total Penghasilan Orang Tua Perbulan<b id="required">*</b></label
+                          >Total Penghasilan Orang Tua Perbulan (Penghasilan Ayah + Ibu)<b id="required">*</b></label
                         >
                         <select name="parent_income" class="custom-select">
-                          <option value="" disabled selected>-- Pilih --</option>
+                          <option value="" hidden>-- Pilih --</option>
                           <option value="Kurang dari Rp 500.000" {{ old('parent_income') == 'Kurang dari Rp 500.000' ? 'selected' : '' }}>Kurang dari Rp 500.000</option>
                           <option value="Rp 500.000 - 1.000.000" {{ old('parent_income') == 'Rp 500.000 - 1.000.000' ? 'selected' : '' }}>Rp 500.000 - 1.000.000</option>
                           <option value="Rp 1.000.000 - 2.000.000" {{ old('parent_income') == 'Rp 1.000.000 - 2.000.000' ? 'selected' : '' }}>Rp 1.000.000 - 2.000.000</option>
@@ -797,7 +805,7 @@
                         /> --}}
                       </div>
                       <div class="form-group">
-                        <label for="child_to">Anak ke ?<b id="required">*</b></label>
+                        <label for="child_to">Anak ke berapa?<b id="required">*</b></label>
                         <input
                           type="number"
                           class="form-control"
@@ -808,6 +816,7 @@
                           placeholder="1"
                           required
                         />
+                        <small class="form-text text-muted">Contoh : 1</small>
                       </div>
                       <div class="form-group">
                         <label for="brother"
@@ -823,10 +832,10 @@
                           placeholder="1"
                           required
                         />
-                        <small class="form-text text-muted">Isi "0"</b> jika tidak punya saudara</small>
+                        <small class="form-text text-muted">Isi "0" jika tidak punya saudara</small>
                       </div>
                       <div class="form-group">
-                        <label for="">Data Wali<b id="required">*</b></label>
+                        <label for="">Wali / Orang Tua<b id="required">*</b></label>
                         <div class="form-check">
                           <input
                             class="form-check-input"
@@ -907,7 +916,7 @@
                           >Nomor Kontak Orang Tua/Wali ?<b id="required">*</b></label
                         >
                         <input
-                          type="number"
+                          type="text"
                           class="form-control"
                           id="no_guardian"
                           name="no_guardian"
@@ -916,12 +925,13 @@
                           placeholder="08582375XXXX"
                           required
                         />
-                        <small class="form-text text-muted">Isi "0"</b> jika tidak ada wali</small>
+                        <small class="form-text text-muted">Contoh : 08582375XXXX</small>
+                        <small class="form-text text-muted">Isi "0" jika tidak ada wali</small>
 
                       </div>
                       <div class="form-group">
                         <label for="description_guardian"
-                          >Tambah keterangan jika ada</label
+                          >Tambah keterangan Orang Tua / Wali jika ada</label
                         >
                         <textarea
                           type="text"

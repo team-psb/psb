@@ -45,7 +45,7 @@
                     </div>
                 @endif --}}
                 @if (session('sukses-kirim'))
-                    <div class="alert alert-success">
+                    <div class="alert alert-success mt-4">
                         <strong>{{ session('sukses-kirim') }}</strong>
                     </div>
                 @endif
@@ -70,12 +70,11 @@
                                 bg-danger
                                 @endif"
                             >
-
                                 @if(empty($tahap1) && isset($biodata1))
                                 <div class="hero-inner">
                                     <i class="fas fa-laugh pb-3" style="font-size: 72px;"></i>
                                     <h2 class="poppins">Halo Selamat Datang {{ Auth::user()->name }}!</h2>
-                                    <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Pertama</strong> silahkan Anda klik tombol di bawah ini.</p>
+                                    <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Tahap Pertama</strong> Silahkan Anda klik tombol di bawah ini.</p>
                                     <div class="mt-4">
                                         <a href="{{ route('user-first-tes') }}" id="swal-biodata" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                                     </div>
@@ -177,9 +176,9 @@
                                 <div class="hero-inner">
                                     <i class="fas fa-laugh pb-3" style="font-size: 72px;"></i>
                                     <h2 class="poppins">Halo Selamat Datang {{ Auth::user()->name }}!</h2>
-                                    <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Biodata</strong> silahkan Anda klik tombol di bawah ini.</p>
+                                    <p class="lead">Untuk melakukan tes <strong class="font-weight-bold">Biodata</strong> Silahkan Anda klik tombol di bawah ini.</p>
                                     <div class="mt-4">
-                                        <a href="{{ route('user-first-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
+                                        <a href="{{ route('user-first-tes') }}" id="swal-biodata" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-book"></i> Ikuti Tes</a>
                                     </div>
                                 </div>
                               @elseif(!empty($tahap1) && isset($biodata1) && $tahap1->status == null)
@@ -217,6 +216,7 @@
                             </div>
                         @endif
                       </div>
+
                         {{-- Dekstop --}}
                         <div class="col-lg-4 col-md-6 col-12 d-none d-md-none d-lg-block"
                             data-aos="fade-up"
@@ -284,30 +284,81 @@
                             </div>
                           </a>
                         </div>
-                        {{-- Mobile --}}
+
+                        {{-- Mobile & Tablet --}}
                         <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none"
                              data-aos="fade-up"
                              data-aos-offset="100"
                              data-aos-delay="600"
                              data-aos-duration="1000"
                         >
-                          <a href="#">
-                            <div class="card card-statistic-1">
-                              <div class="card-icon bg-secondary">
-                                <i class="far fa-user"></i>
+                          <div class="card gradient-bottom pb-2">
+                            <div class="card-header">
+                              <h4 class="text-dark">Statistik</h4>
+                            </div>
+                            <div class="card-body">
+                              <ul class="list-unstyled list-unstyled-border">
+                                <li class="media">
+                                  <img class="mr-3 rounded" width="55" src="{{ asset('stisla/assets/img/avatar/avatar-2.png') }}" alt="product">
+                                  <div class="media-body">
+                                    <div class="media-title text-muted">Jumlah Pendaftar</div>
+                                    <div class="media-title">{{ $data ? $data->count() : '0' }} Orang</div>
+                                  </div>
+                                </li>
+                                <li class="media">
+                                  <img class="mr-3 rounded" width="55" src="{{ asset('stisla/assets/img/products/product-1-50.png') }}" alt="product">
+                                  <div class="media-body">
+                                    <div class="media-title text-muted">Question And Answer</div>
+                                    <div class="media-title">{{ $qna ? $qna->count() : '0' }} Q&A</div>
+                                  </div>
+                                </li>
+                                <li class="media">
+                                  <img class="mr-3 rounded" width="55" src="{{ asset('stisla/assets/img/products/product-4-50.png') }}" alt="product">
+                                  <div class="media-body">
+                                    <div class="media-title text-muted">Informasi</div>
+                                    <div class="media-title">{{ $schdules ? $schdules->count() : '0' }} Informasi</div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        {{-- Tablet --}}
+                        <div class="col-md-6 d-none d-md-block d-lg-none"
+                              data-aos="fade-up"
+                              data-aos-offset="100"
+                              data-aos-delay="600"
+                              data-aos-duration="1000"
+                        >
+                          <a href="{{ route('user-profile') }}">
+                              <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                              <div class="card-icon bg-primary">
+                                  <i class="fas fa-user"></i>
                               </div>
-                              <div class="card-wrap">
-                                <div class="card-header">
-                                  <h4>Jumlah pendaftar</h4>
-                                </div>
-                                <div class="card-body">
-                                  {{ $data ? $data->count() : '0' }}
-                                </div>
+                                <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-profile') }}">PROFILE</a>
                               </div>
+                          </a>
+                          <a href="{{ route('user-qna') }}">
+                            <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                            <div class="card-icon bg-success">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                              <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-qna') }}">Q&A</a>
+                            </div>
+                          </a>
+                          <a href="{{ route('user-informasi') }}">
+                            <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                            <div class="card-icon bg-warning">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                              <a class="h1 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-informasi') }}">Info</a>
                             </div>
                           </a>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none"
+
+                        {{-- Mobile & Dekstop --}}
+                        <div class="col-lg-4 col-md-6 col-sm-6 d-md-none"
                              data-aos="fade-up"
                              data-aos-offset="100"
                              data-aos-delay="600"
@@ -318,41 +369,38 @@
                               <div class="card-icon bg-primary">
                                   <i class="fas fa-user"></i>
                               </div>
-                                {{-- <p class="h1"><u>Profile</u></p> --}}
-                                <a class="h1 text-info font-weight-bold" href="{{ route('user-profile') }}"><u>Profile</u></a>
+                                <a class="h4 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-profile') }}">Profile</a>
                               </div>
                           </a>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none"
+                        <div class="col-lg-4 col-md-6 col-sm-6 d-md-none"
                              data-aos="fade-up"
                              data-aos-offset="100"
                              data-aos-delay="600"
                              data-aos-duration="1000"
                         >
                           <a href="{{ route('user-qna') }}">
-                              <div class="card card-statistic-1 d-flex flex-row align-items-center">
-                              <div class="card-icon bg-success">
-                                  <i class="fas fa-question-circle"></i>
-                              </div>
-                                <a class="h1 text-info font-weight-bold" href="{{ route('user-qna') }}"><u>Q & A</u></a>
-                                {{-- <p class="h1 text-success font-weight-bold"><u>Q & A</u></p> --}}
-                              </div>
+                            <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                            <div class="card-icon bg-success">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                              <a class="h4 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-qna') }}">Q&A</a>
+                            </div>
                           </a>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 d-lg-none d-xl-none"
+                        <div class="col-lg-4 col-md-6 col-sm-6 d-md-none"
                              data-aos="fade-up"
                              data-aos-offset="100"
                              data-aos-delay="600"
                              data-aos-duration="1000"
                         >
                           <a href="{{ route('user-informasi') }}">
-                              <div class="card card-statistic-1 d-flex flex-row align-items-center">
-                              <div class="card-icon bg-warning">
-                                  <i class="fas fa-leaf"></i>
-                              </div>
-                                <a class="h1 text-info font-weight-bold" href="{{ route('user-informasi') }}"><u>Info</u></a>
-                                {{-- <p class="h1 text-warning font-weight-bold"><u>Info</u></p> --}}
-                              </div>
+                            <div class="card card-statistic-1 d-flex flex-row align-items-center">
+                            <div class="card-icon bg-warning">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                              <a class="h4 text-info font-weight-bold text-uppercase letter-spacing" href="{{ route('user-informasi') }}">Info</a>
+                            </div>
                           </a>
                         </div>
                     </div>
@@ -368,7 +416,7 @@
     <div class="container">
       <section class="section mt-5 pt-5" >
         <div class="section-body">
-          <h1 class="px-0 mb-3 poppins pb-2 col-10 col-sm-6 col-md-5 col-lg-4 col-xl-3 rounded informasi"
+          <h1 class="px-0 mb-3 poppins pb-2 rounded informasi"
               data-aos="fade-right"
               data-aos-offset="200"
               data-aos-delay="100"
@@ -838,12 +886,21 @@
                             </div>
                         </div>
                     @empty
+                    <div class="col-12 my-3">
+                        <div class="alert alert-has-icon text-muted">
+                            <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                            <div class="alert-body">
+                              <div class="alert-title">Oops!</div>
+                                Belum ada informasi
+                            </div>
+                        </div>
+                    </div>
                     @endforelse
                 </div>
             </div>
         </section>
         <!-- ======= Copyright ======= -->
-        <div class="copyright text-center" style="margin: 40px;">
+        <div class="copyright text-center" style="margin: 20px 40px 80px 40px">
             &copy; {{ date('Y') }} Copyright <strong><span>Pondok Informatika Al-Madinah</span></strong
             >.
         </div>

@@ -11,7 +11,7 @@ class ScoreIq extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'user_id', 'stage_id', 'academy_year_id', 'score_question_iq', 'status'
+        'user_id', 'stage_id', 'academy_year_id', 'score_question_iq', 'correct', 'wrong', 'status'
     ];
 
     public function user()

@@ -125,7 +125,7 @@
                     <td>{{ $biodata->user->biodataTwo->father }}</td>
                 </tr>
                 <tr>
-                    <td >NIK Ayah</td>
+                    <td >No Whatsapp Ayah</td>
                     <td>{{ $biodata->user->biodataTwo->father_id }}</td>
                 </tr>
                 <tr>
@@ -133,7 +133,7 @@
                     <td>{{ $biodata->user->biodataTwo->mother }}</td>
                 </tr>
                 <tr>
-                    <td>NIK Ibu</td>
+                    <td>No Whatsapp Ibu</td>
                     <td>{{ $biodata->user->biodataTwo->mother_id }}</td>
                 </tr>
                 <tr>
@@ -161,12 +161,22 @@
                     <td>{{ $biodata->user->biodataTwo->child_to }}</td>
                 </tr>
                 <tr>
-                    <td>Wali</td>
+                    <td>Wali/Orang tua</td>
                     <td>{{ $biodata->user->biodataTwo->choose_guardian }}</td>
                 </tr>
                 <tr>
                     <td>Nama Wali</td>
-                    <td>{{ $biodata->user->biodataTwo->guardian }}</td>
+                    <td>
+                        @if ($biodata->user->biodataTwo->choose_guardian == 'ayah')
+                            {{ $biodata->user->biodataTwo->father }}
+                        @elseif ($biodata->user->biodataTwo->choose_guardian == 'ibu')
+                            {{ $biodata->user->biodataTwo->mother }}
+                        @elseif ($biodata->user->biodataTwo->choose_guardian == 'selain-orang-tua')
+                            {{ $biodata->user->biodataTwo->guardian }}
+                        @else
+                            -
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <td>No Hp Wali</td>
@@ -241,7 +251,7 @@
                     </tr>
                     <tr>
                         <td>Durasi Main Game</td>
-                        <td>{{ $biodata->user->biodataTwo->game_duration }} &nbsp; Jam</td>
+                        <td>{{ $biodata->user->biodataTwo->game_duration }} &nbsp;Jam</td>
                     </tr>
                 @endif
                 <tr>
@@ -255,15 +265,15 @@
         <h6 class="fw-bold">Pertanyaan 3</h6>
         <div class="px-1">
             <div class="">
-                <h6>Alasan Mendaftar :</h6>
+                <h6 class="text-bold">Alasan Mendaftar :</h6>
                 <p style="font-size: 14px;">{{ $biodata->user->biodataTwo->reason_registration }}</p>
             </div>
             <div class="">
-                <h6>Kegiatan Dari Bangun Sampai Tidur :</h6>
+                <h6 class="text-bold">Kegiatan Dari Bangun Sampai Tidur :</h6>
                 <p style="font-size: 14px;">{{ $biodata->user->biodataTwo->activity }}</p>
             </div>
             <div class="">
-                <h6>Kepribadian :</h6>
+                <h6 class="text-bold">Kepribadian :</h6>
                 <p style="font-size: 14px;">{{ $biodata->user->biodataTwo->personal }}</p>
             </div>
         </div>

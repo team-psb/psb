@@ -255,7 +255,7 @@
                                 </div>
                                 {{-- nik ayah --}}
                                 <div class="form-group mb-3">
-                                    <label class="fw-bold" for="">NIK Ayah</label>
+                                    <label class="fw-bold" for="">No Whatsapp Ayah</label>
                                     <input
                                         type="text"
                                         class="form-control"
@@ -279,7 +279,7 @@
                                 </div>
                                 {{-- nik ibu --}}
                                 <div class="form-group mb-3">
-                                    <label class="fw-bold" for="">NIK Ibu</label>
+                                    <label class="fw-bold" for="">No Whatsapp Ibu</label>
                                     <input
                                         type="text"
                                         class="form-control"
@@ -385,7 +385,7 @@
                                 </div>
                                 {{-- jumlah saudara --}}
                                 <div class="form-group mb-3">
-                                    <label class="fw-bold" for="">jumlah Saudara</label>
+                                    <label class="fw-bold" for="">Jumlah Saudara</label>
                                     <input
                                         type="number"
                                         class="form-control"
@@ -413,7 +413,7 @@
                                 <div class="col-md-6">
                                 {{--  wali --}}
                                 <div class="form-group mb-3">
-                                    <label class="fw-bold">Data Wali</label>
+                                    <label class="fw-bold">Wali / Orang Tua</label>
                                     <div class="d-flex">
                                     <div class="form-check me-2">
                                         <label class="form-check-label" for="ayah">
@@ -475,7 +475,7 @@
                                 </div>
                                 {{-- nama wali --}}
                                 <div class="form-group mb-3">
-                                    <label class="fw-bold" for="">Nama Wali</label>
+                                    <label class="fw-bold" for="">Nama Wali / Orang Tua</label>
                                     <input
                                         type="text"
                                         class="form-control"

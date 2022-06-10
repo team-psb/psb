@@ -27,7 +27,7 @@
 @section('content')
   <div class="container py-5">
     <div class="my-4">
-      <div class="row justify-content-center px-4">
+      <div class="row justify-content-center">
         <div class="col-md-10 col-sm-12 title">
           <h5>
             <strong> <i class="fa fa-link ico"></i> Link Video</strong>
@@ -65,6 +65,9 @@
                     placeholder="https://www.youtube.com/watch?v=mbyC-4ufrG4"
                     name="url"
                   />
+                  <small class="form-text text-muted">
+                    contoh: https://www.youtube.com/watch?v=mbyC-4ufrG4 <br>
+                  </small>
                   @error('url')
                     <div class="text-danger">{{ $message }}</div>
                   @enderror

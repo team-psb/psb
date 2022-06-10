@@ -10,10 +10,6 @@
 <div class="main-content">
   <section class="section">
       <div class="section-body">
-        <div class="col-12 d-xl-none">
-          {{-- <div class="btn text-white" onclick="history.back()"><i class="fas fa-chevron-left"></i> Back</div>
-          <a href="{{ route('user-dashboard') }}" class="btn text-white"><i class="fas fa-home"></i> Home</a> --}}
-        </div>
         <div class="row">
           <div class="col">
             <div class="row">
@@ -47,7 +43,15 @@
                       </div>
                     </a>
                     @empty
-                      <p>Belum ada informasi tersedia!</p>
+                    <div class="d-flex justify-content-center align-items-center" style="height: 400px">
+                      <div class="alert alert-has-icon text-muted">
+                          <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                          <div class="alert-body">
+                            <div class="alert-title">Oops!</div>
+                              Belum ada informasi
+                          </div>
+                      </div>
+                    </div>
                     @endforelse
                   </div>
               </div>

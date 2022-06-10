@@ -8,6 +8,8 @@ use App\Models\BiodataOne;
 use Illuminate\Http\Request;
 use App\Models\BiodataTwo;
 use App\Models\Interview;
+use App\Models\QuestionIqAnswer;
+use App\Models\QuestionPersonalAnswer;
 use App\Models\Score;
 use App\Models\ScoreIq;
 use App\Models\ScorePersonal;
@@ -131,10 +133,10 @@ class BiodataController extends Controller
 
         ScoreIq::where('user_id', $data->user_id)->delete();
         ScorePersonal::where('user_id', $data->user_id)->delete();
+        QuestionIqAnswer::where('user_id', $data->user_id)->delete();
+        QuestionPersonalAnswer::where('user_id', $data->user_id)->delete();
         Video::where('user_id', $data->user_id)->delete();
         Interview::where('user_id', $data->user_id)->delete();
-        BiodataOne::where('user_id', $data->user_id)->delete();
-        User::where('id', $data->user_id)->delete();
         
         activity()->log('Menghapus biodata id '.$id);
 
@@ -151,10 +153,10 @@ class BiodataController extends Controller
                 $data->delete();
                 ScoreIq::where('user_id', $data->user_id)->delete();
                 ScorePersonal::where('user_id', $data->user_id)->delete();
+                QuestionIqAnswer::where('user_id', $data->user_id)->delete();
+                QuestionPersonalAnswer::where('user_id', $data->user_id)->delete();
                 Video::where('user_id', $data->user_id)->delete();
                 Interview::where('user_id', $data->user_id)->delete();
-                BiodataOne::where('user_id', $data->user_id)->delete();
-                User::where('id', $data->user_id)->delete();
             }
             activity()->log('Menghapus semua biodata');
 

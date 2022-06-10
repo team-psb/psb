@@ -68,6 +68,18 @@
                             </div>
                         </div>
                     </div>
+
+                    @if ($biodataPending > 0)
+                        <div class="px-3 alert alert-danger alert-dismissible fade show mt-3 d-flex justify-content-between text-dark" role="alert">
+                            <p class="m-0">
+                                <strong>{{$biodataPending}} Biodata</strong> belum di seleksi. <a class="fw-bold text-dark text-decoration-underline" href="{{ route('biodatas.index') }}" class="alert-link">Cek biodata</a>
+                            </p>
+                            <button type="button" class="btn close m-0 fs-6 text-dark" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true"><i class="menu-icon  mdi mdi-close m-0"></i></span>
+                            </button>
+                        </div>
+                    @endif
+                    
                     <div class="row">
                         <div class="col-lg-7 d-flex flex-column">
                             <div class="row flex-grow">
