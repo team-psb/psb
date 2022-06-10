@@ -36,7 +36,7 @@
         width: 100%;
         height: 1px;
         background-color: #ccc;
-        z-order: 0;
+        /* z-order: 0; */
     }
 
     .stepwizard-step {

@@ -392,7 +392,7 @@
                     position-relative
                     "
                 id="alur"
-            >
+              >
                 <div class="position-relative">
                     <p
                         class="
@@ -492,7 +492,7 @@
                     position-relative
                     "
                 id="alur"
-            >
+              >
                 <div
                     class="
                         col-md-12 col-sm-12

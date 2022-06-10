@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="{{ asset('stisla/assets/css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('front/style/style.css') }}">
 <link rel="stylesheet" href="{{ asset('stisla/assets/css/components.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 {{-- Front --}}
 <style>
