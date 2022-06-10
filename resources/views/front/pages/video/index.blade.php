@@ -23,7 +23,7 @@
     }
   </style>
 @endpush
-    
+
 @section('content')
   <div class="container py-5">
     <div class="my-4">
@@ -45,7 +45,7 @@
                 <div class="col m-auto ">
                   {{-- responsive iframa --}}
                   <div class="responsive">
-                    <iframe class="responsive-iframe" src="https://www.youtube.com/embed/_ZJLc9FgvSM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="responsive-iframe" src="https://www.youtube.com/embed/XdSUdkPpVKM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                   </div>
                 </div>
               </div>
@@ -77,7 +77,7 @@
                 </button> -->
                 <input type="button" id="btn-ok" value="Selesai" class="btn btn-primary float-right px-3 accept"/>
               </form>
-            </div>              
+            </div>
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@
 @push('end-script')
   <!-- Sweetalert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.6/dist/sweetalert2.all.min.js"></script>
-  
+
   <script>
     $(document).ready(function() {
     $('form #btn-ok').click(function(e) {
@@ -114,7 +114,7 @@
                 swalWithBootstrapButtons.fire(
                         'Selesai dikerjakan!',
                         'Data berhasil disimpan',
-                    );                     
+                    );
                 $form.submit();
             } else if (
                 result.dismiss === Swal.DismissReason.cancel
