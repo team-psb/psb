@@ -305,7 +305,7 @@
         </div>
         <!-- End Footer -->
 
-        <div id="preloader"></div>
+        {{-- <div id="preloader"></div> --}}
         <a
             href="#"
             class="back-to-top d-flex align-items-center justify-content-center"

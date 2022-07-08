@@ -2245,7 +2245,7 @@
             </div>
         <!-- End Footer -->
 
-        <div id="preloader"></div>
+        {{-- <div id="preloader"></div> --}}
 
         <a
             href="#"
