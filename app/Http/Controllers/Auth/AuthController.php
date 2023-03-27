@@ -33,10 +33,10 @@ class AuthController extends Controller
 
     public function loginProses(Request $request)
     {
-        $data = $request->only('phone','password');
+        $data = $request->only('phone', 'password');
 
         if (Auth::attempt($data)) {
-            $role_user=User::where('phone','=',$request->phone)->get();
+            $role_user = User::where('phone', '=', $request->phone)->get();
             $role = $role_user->pluck('role')->first();
 
             $user_id = $role_user->pluck('id')->first();
@@ -48,24 +48,23 @@ class AuthController extends Controller
 
             if ($role == 'admin') {
                 return redirect()->route('dashboard');
-            }else{
+            } else {
                 if (Auth::user()->confirm_token != Auth::user()->token) {
                     Auth::logout();
                     // return redirect()->route('login')->with('sukses-warning','Email anda belum terverifikasi, Silahkan Verifikasi email terlebih dahulu!');
                     return redirect()->route('get-token', $request->phone)->with('alert-login', 'Silahkan konfirmasi pendaftaran dengan memasukkan Kode OTP yang telah kami kirim di Whatsapp !');
-
                 }
-                $bio = BiodataTwo::where('user_id','=',$user_id)->get();
+                $bio = BiodataTwo::where('user_id', '=', $user_id)->get();
                 $user_bio = $bio->toArray();
                 // dd($user_bio);
-                if ( count($user_bio) > 0) {
+                if (count($user_bio) > 0) {
                     return redirect()->route('user-dashboard');
-                }else{
-                    return redirect()->route('user-dashboard')->with('gagal_tes','hello');
+                } else {
+                    return redirect()->route('user-dashboard')->with('gagal_tes', 'hello');
                 }
             }
-        }else{
-            return redirect()->back()->with('failed-danger','Nomor Handphone atau Password salah.');
+        } else {
+            return redirect()->back()->with('failed-danger', 'Nomor Handphone atau Password salah.');
         }
     }
 
@@ -76,62 +75,61 @@ class AuthController extends Controller
 
     public function registerProses(AuthRequest $request)
     {
-        $no_wa= $request->get('no_wa');
+        $no_wa = $request->get('no_wa');
         $no = str_split($no_wa, 3);
 
-        $birthday = $request->year."-".$request->month."-".$request->day;
+        $birthday = $request->year . "-" . $request->month . "-" . $request->day;
 
         $date = date('Y-m-d H:i:s', strtotime($birthday));
 
         $age = Carbon::parse($date)->age;
 
         if ($no[0] == "+62") {
-            $no1= array(0 =>"0");
-            $wa1= array_replace($no, $no1);
+            $no1 = array(0 => "0");
+            $wa1 = array_replace($no, $no1);
             $wa = implode("", $wa1);
-
-        }else{
+        } else {
             $wa = $no_wa;
         }
 
-        $name = explode(' ',trim($request->full_name));
-        $token = mt_rand(1000,9999);
+        $name = explode(' ', trim($request->full_name));
+        $token = mt_rand(1000, 9999);
 
         $user = User::create([
-            'name'=> $name[0],
-            'phone'=>$wa,
-            'password'=>bcrypt($request->password),
-            'role'=>'pendaftar',
-            'token'=> $token,
+            'name' => $name[0],
+            'phone' => $wa,
+            'password' => bcrypt($request->password),
+            'role' => 'pendaftar',
+            'token' => $token,
         ]);
 
         $academy_year = AcademyYear::where('is_active', true)->orderBy('id', 'desc')->pluck('id')->first();
-        $stage = Stage::whereHas('academy_year', function($query){
+        $stage = Stage::whereHas('academy_year', function ($query) {
             $query->where('is_active', true);
         })->orderBy('id', 'desc')->pluck('id')->first();
 
         BiodataOne::create([
-            'user_id'=>$user->id,
-            'academy_year_id'=>$academy_year,
-            'full_name'=>$request->full_name,
-            'family'=>$request->family,
-            'age'=>$age,
-            'birth_date'=>$date,
-            'no_wa'=> $wa,
-            'gender'=>$request->gender,
-            'stage_id'=>$stage,
+            'user_id' => $user->id,
+            'academy_year_id' => $academy_year,
+            'full_name' => $request->full_name,
+            'family' => $request->family,
+            'age' => $age,
+            'birth_date' => $date,
+            'no_wa' => $wa,
+            'gender' => $request->gender,
+            'stage_id' => $stage,
         ]);
 
         //NOTIF KE WA
         $link =  route('get-token', $wa);
         $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => $wa,
+
+            'target' => $wa,
             'message' => 'Assalamualaikum, Untuk *mengkonfirmasi pendaftaran* silahkan masukkan kode OTP :
 
-*'.$token.'*
+*' . $token . '*
 
-Atau masuk dilink berikut '.$link
+Atau masuk dilink berikut ' . $link
         ];
         sendMessage($data);
 
@@ -141,20 +139,21 @@ Atau masuk dilink berikut '.$link
     public function resendToken($wa)
     {
         $link =  route('get-token', $wa);
-        $token = mt_rand(1000,9999);
+        $token = mt_rand(1000, 9999);
 
         User::wherePhone($wa)->update([
             'token' => $token
         ]);
 
         $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => $wa,
+
+            'target' => $wa,
             'message' => 'Assalamualaikum, Untuk *mengkonfirmasi pendaftaran* silahkan masukkan kode OTP :
 
-*'.$token.'*
+*' . $token . '*
 
-Atau masuk dilink berikut '.$link];
+Atau masuk dilink berikut ' . $link
+        ];
         sendMessage($data);
 
         return back()->with('resend-msg', 'Token baru telah kami kirim ke no Whatsapp anda silahkan masukkan ulang Kode OTP');
@@ -174,7 +173,7 @@ Atau masuk dilink berikut '.$link];
     public function postToken(Request $request, $wa)
     {
         $user = User::where('phone', $wa)->get()->first();
-        $token = $request->t1.$request->t2.$request->t3.$request->t4;
+        $token = $request->t1 . $request->t2 . $request->t3 . $request->t4;
         if ($token == $user->token) {
 
             User::where('phone', $wa)->update([
@@ -183,18 +182,18 @@ Atau masuk dilink berikut '.$link];
 
             // NOTIF WA
             $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => $wa,
+
+                'target' => $wa,
                 'message' => 'Assalamualaikum, Selamat anda berhasil *konfirmasi pendaftaran*,
 
-Nama : *'.$user->BiodataOne->full_name.'*
-Tanggal Lahir : *'.date('d-m-Y', strtotime($user->BiodataOne->birth_date)).'*
-Keluarga : *'.$user->BiodataOne->family.'*
-No Wa : *'.$user->phone.'*
-Tanggal Registrasi : '.$user->created_at->format('d-m-Y H:i').' WIB
+Nama : *' . $user->BiodataOne->full_name . '*
+Tanggal Lahir : *' . date('d-m-Y', strtotime($user->BiodataOne->birth_date)) . '*
+Keluarga : *' . $user->BiodataOne->family . '*
+No Wa : *' . $user->phone . '*
+Tanggal Registrasi : ' . $user->created_at->format('d-m-Y H:i') . ' WIB
 
 Silahkan *Lakukan Tes Selanjutnya*,
-Atau di link : '.route('user-dashboard')
+Atau di link : ' . route('user-dashboard')
             ];
             sendMessage($data);
 
@@ -202,9 +201,8 @@ Atau di link : '.route('user-dashboard')
             Auth::login($user);
 
             return redirect()->route('user-dashboard')->with('sukses-kirim', 'Selamat Anda berhasil konfirmasi pendaftaran, silahkan ikuti tes selanjutnya !');
-        }else{
-            return back()->with('gagal-kirim','Token yang anda masukkan salah / tidak sesuai');
+        } else {
+            return back()->with('gagal-kirim', 'Token yang anda masukkan salah / tidak sesuai');
         }
     }
-
 }

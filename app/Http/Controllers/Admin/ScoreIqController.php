@@ -20,25 +20,25 @@ class ScoreIqController extends Controller
     public function index()
     {
         $stages = Stage::get();
-        
-        if (request()->get('stage_id') && request()->get('stage_id') != null){
-            $data = ScoreIq::with(['academy_year'=>function($query){
-                $query->where('stage_id','=', request()->get('stage_id'));
-            },'user.biodataOne'])->orderBy('id','desc');
-        }else {
-            $data = ScoreIq::with(['academy_year'=>function($query){
-                $query->where('is_active','=', true);
-            },'user.biodataOne'])->orderBy('id','desc');
-        }
-        
 
-        if((request()->get('score_test_iq_min') && request()->get('score_test_iq_min') != null) && (request()->get('score_test_iq_max') && request()->get('score_test_iq_max') != null)){
-            $data = $data->whereBetween('score_question_iq',[request()->get('score_test_iq_min'),request()->get('score_test_iq_max')]);
+        if (request()->get('stage_id') && request()->get('stage_id') != null) {
+            $data = ScoreIq::with(['academy_year' => function ($query) {
+                $query->where('stage_id', '=', request()->get('stage_id'));
+            }, 'user.biodataOne'])->orderBy('id', 'desc');
+        } else {
+            $data = ScoreIq::with(['academy_year' => function ($query) {
+                $query->where('is_active', '=', true);
+            }, 'user.biodataOne'])->orderBy('id', 'desc');
+        }
+
+
+        if ((request()->get('score_test_iq_min') && request()->get('score_test_iq_min') != null) && (request()->get('score_test_iq_max') && request()->get('score_test_iq_max') != null)) {
+            $data = $data->whereBetween('score_question_iq', [request()->get('score_test_iq_min'), request()->get('score_test_iq_max')]);
         }
 
         $data = $data->get();
         $scores = $data->where('academy_year', '!=', null);
-        return view('admin.pages.scoreIq.index',compact('scores', 'stages'));
+        return view('admin.pages.scoreIq.index', compact('scores', 'stages'));
     }
 
     public function answer($id)
@@ -57,15 +57,15 @@ class ScoreIqController extends Controller
         ]);
         QuestionIqAnswer::where('user_id', $data->user_id)->delete();
         $data->delete();
-        activity()->log('Menghapus tes nilai id '.$id);
+        activity()->log('Menghapus tes nilai id ' . $id);
 
         return back();
     }
 
     public function deleteAll(Request $request)
     {
-        $ids=$request->get('ids');
-        
+        $ids = $request->get('ids');
+
         if ($ids != null) {
             foreach ($ids as $id) {
                 $data = ScoreIq::find($id);
@@ -76,10 +76,10 @@ class ScoreIqController extends Controller
                 QuestionIqAnswer::where('user_id', $data->user_id)->delete();
                 $data->delete();
             }
-        activity()->log('Menghapus semua data tes nilai');
+            activity()->log('Menghapus semua data tes nilai');
 
-            return redirect()->route('scoreIq.index')->with('success-delete','Berhasil Menghapus Semua Status Data');
-        }else{
+            return redirect()->route('scoreIq.index')->with('success-delete', 'Berhasil Menghapus Semua Status Data');
+        } else {
             return redirect()->back();
         }
     }
@@ -97,40 +97,40 @@ class ScoreIqController extends Controller
         $notif = Setting::get()->first();
 
         // Whatsapp Gateway
-        if ($item->status == 'lolos'){
+        if ($item->status == 'lolos') {
             $link =  route('user-third-tes');
 
-//         $data = [
-//             'sender' => Setting::pluck('no_msg'),
-//             'reciver' => $item->user->phone,
-//             'message' => 'Selamat, *' . $item->user->name . '!*
+            //         $data = [
+            //             
+            //             'target' => $item->user->phone,
+            //             'message' => 'Selamat, *' . $item->user->name . '!*
 
-// Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Ketiga_
+            // Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Ketiga_
 
-// Untuk melakukan tes _Tahap Ketiga_, Silahkan anda klik link berikut: ' .$link 
-//         ];
+            // Untuk melakukan tes _Tahap Ketiga_, Silahkan anda klik link berikut: ' .$link 
+            //         ];
             $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => $item->user->phone,
-                'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap2.' '.$link 
+
+                'target' => $item->user->phone,
+                'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap2 . ' ' . $link
             ];
-        sendMessage($data);
+            sendMessage($data);
         } else {
-//         $data = [
-//             'sender' => Setting::pluck('no_msg'),
-//             'reciver' => $item->user->phone,
-//             'message' => 'Mohon maaf, *' . $item->user->name . '!*
+            //         $data = [
+            //             
+            //             'target' => $item->user->phone,
+            //             'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
-// Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Ketiga_
+            // Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Ketiga_
 
-// Tetap Semangka (Semangat Karena Allah !)' 
-//         ];
+            // Tetap Semangka (Semangat Karena Allah !)' 
+            //         ];
             $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => $item->user->phone,
-                'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap2_failed
+
+                'target' => $item->user->phone,
+                'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap2_failed
             ];
-        sendMessage($data);
+            sendMessage($data);
         }
         return redirect()->route('scoreIq.index')->with('success-edit', 'Berhasil Mengganti Status Data');
     }
@@ -138,62 +138,62 @@ class ScoreIqController extends Controller
     public function passAll(Request $request)
     {
         $link = route('user-third-tes');
-        $ids=$request->get('ids');
+        $ids = $request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
                 $item = ScoreIq::find($id);
-                ScoreIq::find($id)->update(['status'=>'lolos']);
-//                 $data = [
-//                 'sender' => Setting::pluck('no_msg'),
-//                 'reciver' => $item->user->phone,
-//                 'message' => 'Selamat, *' . $item->user->name . '!*
+                ScoreIq::find($id)->update(['status' => 'lolos']);
+                //                 $data = [
+                //                 
+                //                 'target' => $item->user->phone,
+                //                 'message' => 'Selamat, *' . $item->user->name . '!*
 
-// Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Ketiga_
+                // Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Ketiga_
 
-// Untuk melakukan tes _Tahap Ketiga_, Silahkan anda klik link berikut: ' .$link
-//         ];
-                    $notif = Setting::get()->first();
+                // Untuk melakukan tes _Tahap Ketiga_, Silahkan anda klik link berikut: ' .$link
+                //         ];
+                $notif = Setting::get()->first();
 
-                    $data = [
-                        'sender' => Setting::pluck('no_msg'),
-                        'reciver' => $item->user->phone,
-                        'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap2.' '.$link 
-                    ];
-        sendMessage($data);
+                $data = [
+
+                    'target' => $item->user->phone,
+                    'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap2 . ' ' . $link
+                ];
+                sendMessage($data);
             }
-            return redirect()->route('scoreIq.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
-        }else{
+            return redirect()->route('scoreIq.index')->with('success-edit', 'Berhasil Mengganti Semua Status Data');
+        } else {
             return redirect()->back();
         }
     }
 
     public function nonpassAll(Request $request)
     {
-        $ids=$request->get('ids');
+        $ids = $request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
                 $item = ScoreIq::find($id);
-                ScoreIq::find($id)->update(['status'=>'tidak']);
-//                 $data = [
-//                 'sender' => Setting::pluck('no_msg'),
-//                 'reciver' => $item->user->phone,
-//                 'message' => 'Mohon maaf, *' . $item->user->name . '!*
+                ScoreIq::find($id)->update(['status' => 'tidak']);
+                //                 $data = [
+                //                 
+                //                 'target' => $item->user->phone,
+                //                 'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
-// Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Ketiga_
+                // Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Ketiga_
 
-// Tetap Semangka (Semangat Karena Allah !)'
-//         ];
-                    $notif = Setting::get()->first();
+                // Tetap Semangka (Semangat Karena Allah !)'
+                //         ];
+                $notif = Setting::get()->first();
 
-                    $data = [
-                        'sender' => Setting::pluck('no_msg'),
-                        'reciver' => $item->user->phone,
-                        'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap2_failed
-                    ];
-        sendMessage($data);
+                $data = [
+
+                    'target' => $item->user->phone,
+                    'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap2_failed
+                ];
+                sendMessage($data);
             }
-            return redirect()->route('scoreIq.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
-        }else{
+            return redirect()->route('scoreIq.index')->with('success-edit', 'Berhasil Mengganti Semua Status Data');
+        } else {
             return redirect()->back();
         }
     }
@@ -208,7 +208,7 @@ class ScoreIqController extends Controller
         return redirect()->route('scoreIq.index');
     }
 
-    public function export() 
+    public function export()
     {
         return Excel::download(new ScoreIqExport, 'data nilai iq.xlsx');
     }

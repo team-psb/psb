@@ -21,7 +21,7 @@ class ForgotPasswordController extends Controller
     }
 
     public function postWhatsapp(Request $request)
-    {   
+    {
         // dd($request);
         $request->validate([
             'phone' => 'required|string',
@@ -29,10 +29,10 @@ class ForgotPasswordController extends Controller
 
         $validatephone = User::where('phone', $request->phone)->first();
 
-        if (!$validatephone){
+        if (!$validatephone) {
             return back()->with('gagal-kirim', 'Nomor whatsapp anda belum terdaftar');
         }
-        
+
         $token = bin2hex(random_bytes(6));
         $user = [
             'phone' => $request->phone,
@@ -46,15 +46,15 @@ class ForgotPasswordController extends Controller
         // dd($link);
 
         $data = [
-            'sender' => Setting::pluck('no_msg'),
-            'reciver' => $request->phone,
-            'message' => 'Assalamualaikum, Untuk mereset *Password Baru* akun anda silahkan masuk ke link berikut : '.$link
+
+            'target' => $request->phone,
+            'message' => 'Assalamualaikum, Untuk mereset *Password Baru* akun anda silahkan masuk ke link berikut : ' . $link
         ];
         sendMessage($data);
 
         // Mail::to($user['email'])->send(new VerifikasiEmail($user));
 
-        return back()->with('sukses-buat', 'Link reset Password sudah kami kirim ke nomer Whatsapp anda! Dengan Nomor : '. $request->phone);
+        return back()->with('sukses-buat', 'Link reset Password sudah kami kirim ke nomer Whatsapp anda! Dengan Nomor : ' . $request->phone);
     }
 
     public function getPassword($token)
@@ -77,27 +77,27 @@ class ForgotPasswordController extends Controller
         //dd($validateToken);
         if (!$validateToken) {
             return back()->withInput()->with('error', 'Invalid token!');
-        }else {
+        } else {
             User::where('phone', $request->phone)->update([
                 'password' => bcrypt($request->password)
             ]);
 
-            DB::table('password_resets')->where(['phone'=> $request->phone])->delete();
+            DB::table('password_resets')->where(['phone' => $request->phone])->delete();
 
             $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => $request->phone,
+
+                'target' => $request->phone,
                 'message' => 'Assalamualaikum, Selamat anda berhasil mereset *Password*.
 *Gunakan Nomor dan Password Untuk Login*
 
-Nomor Hp: *'.$request->phone.'* 
-Password Baru: *'. $request->password.'*
+Nomor Hp: *' . $request->phone . '* 
+Password Baru: *' . $request->password . '*
 
-Silahkan untuk login di : '.route('login')
+Silahkan untuk login di : ' . route('login')
             ];
             sendMessage($data);
 
-            return redirect()->route('login')->with('sukses-daftar', 'Password anda sudah berhasil di Update! Silahkan Untuk Login.'); 
+            return redirect()->route('login')->with('sukses-daftar', 'Password anda sudah berhasil di Update! Silahkan Untuk Login.');
         }
     }
 }

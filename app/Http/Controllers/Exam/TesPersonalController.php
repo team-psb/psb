@@ -19,66 +19,62 @@ class TesPersonalController extends Controller
         // $limit = Setting::pluck('question_personal_value')->first();
         // $soal = QuestionPersonal::inRandomOrder()->limit($limit)->get();
         // $kepribadian = $soal->paginate(10);
-        
+
         $soal = QuestionPersonal::inRandomOrder()->limit(50)->get();
         $kepribadian = $soal->chunk(10);
 
-        return view('front.pages.tesPersonality.index1',compact('kepribadian'));
+        return view('front.pages.tesPersonality.index1', compact('kepribadian'));
     }
 
     public function personalStore(Request $request)
     {
-        $jawaban=$request->input('pilihan');
-        $tahun_ajaran=AcademyYear::where('is_active','=', 1)->orderBy('id', 'desc')->pluck('id')->first();
-        $stage_id = Stage::whereHas('academy_year', function($query){
+        $jawaban = $request->input('pilihan');
+        $tahun_ajaran = AcademyYear::where('is_active', '=', 1)->orderBy('id', 'desc')->pluck('id')->first();
+        $stage_id = Stage::whereHas('academy_year', function ($query) {
             $query->where('is_active', true);
-        })->orderBy('id', 'desc')->pluck('id')->first();        
+        })->orderBy('id', 'desc')->pluck('id')->first();
 
         $notif = Setting::get()->first();
-        
-        if($jawaban != null){
-            $nilai = 0 ;
+
+        if ($jawaban != null) {
+            $nilai = 0;
 
             $ScorePersonal = ScorePersonal::where('user_id', auth()->user()->id)->first();
-            
+
             if (!$ScorePersonal) {
                 foreach ($jawaban as $key => $value) {
-                    $cek = QuestionPersonal::where('id','=',$key)->first();
-                    
+                    $cek = QuestionPersonal::where('id', '=', $key)->first();
+
                     if ($value == 'a') {
-                        $nilai= $nilai + $cek->poin_a;
+                        $nilai = $nilai + $cek->poin_a;
                         QuestionPersonalAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_personal_id' => $cek->id,
                             'answer' => 'a'
                         ]);
-                    }
-                    elseif ($value == 'b') {
-                        $nilai= $nilai + $cek->poin_b;
+                    } elseif ($value == 'b') {
+                        $nilai = $nilai + $cek->poin_b;
                         QuestionPersonalAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_personal_id' => $cek->id,
                             'answer' => 'b'
                         ]);
-                    }
-                    elseif ($value == 'c') {
-                        $nilai= $nilai + $cek->poin_c;
+                    } elseif ($value == 'c') {
+                        $nilai = $nilai + $cek->poin_c;
                         QuestionPersonalAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_personal_id' => $cek->id,
                             'answer' => 'c'
                         ]);
-                    }
-                    elseif ($value == 'd') {
-                        $nilai= $nilai + $cek->poin_d;
+                    } elseif ($value == 'd') {
+                        $nilai = $nilai + $cek->poin_d;
                         QuestionPersonalAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_personal_id' => $cek->id,
                             'answer' => 'd'
                         ]);
-                    }
-                    elseif ($value == 'e') {
-                        $nilai= $nilai + $cek->poin_e;
+                    } elseif ($value == 'e') {
+                        $nilai = $nilai + $cek->poin_e;
                         QuestionPersonalAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_personal_id' => $cek->id,
@@ -86,38 +82,38 @@ class TesPersonalController extends Controller
                         ]);
                     }
                 }
-            
+
                 ScorePersonal::create([
                     'user_id' => Auth::user()->id,
                     'stage_id' => $stage_id,
-                    'academy_year_id'=>$tahun_ajaran,
-                    'score_question_personal'=>$nilai,
+                    'academy_year_id' => $tahun_ajaran,
+                    'score_question_personal' => $nilai,
                 ]);
                 $data = [
-                    'sender' => Setting::pluck('no_msg'),
-                    'reciver' => Auth::user()->phone,
-                    'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap3
+
+                    'target' => Auth::user()->phone,
+                    'message' => '*' . Auth::user()->name . '*, ' . $notif->complete_tahap3
                 ];
-    
+
                 sendMessage($data);
             }
-            
+
             return redirect()->route('success');
-        }else{
+        } else {
             ScorePersonal::create([
-                'user_id'=>Auth::user()->id,
+                'user_id' => Auth::user()->id,
                 'stage_id' => $stage_id,
-                'academy_year_id'=>$tahun_ajaran,
-                'score_question_personal'=>0,
+                'academy_year_id' => $tahun_ajaran,
+                'score_question_personal' => 0,
             ]);
             $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => Auth::user()->phone,
-                'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap3
+
+                'target' => Auth::user()->phone,
+                'message' => '*' . Auth::user()->name . '*, ' . $notif->complete_tahap3
             ];
             sendMessage($data);
 
             return redirect()->route('user-dashboard');
         }
-    } 
+    }
 }

@@ -17,7 +17,8 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class TesIqController extends Controller
 {
-    public function iq(Request $request){
+    public function iq(Request $request)
+    {
         // $limit = Setting::pluck('question_iq_value')->first();
         // $question   = QuestionIq::inRandomOrder()->limit($limit)->get();
         // $question_iq = $question->paginate(10);
@@ -28,63 +29,60 @@ class TesIqController extends Controller
         return view('front.pages.tesIq.index1', compact('question_iq'));
     }
 
-    public function iqStore(Request $request){
-        $jawaban=$request->input('pilihan');
-        $tahun_ajaran=AcademyYear::where('is_active','=', 1)->orderBy('id', 'desc')->pluck('id')->first();
-        $stage_id = Stage::whereHas('academy_year', function($query){
+    public function iqStore(Request $request)
+    {
+        $jawaban = $request->input('pilihan');
+        $tahun_ajaran = AcademyYear::where('is_active', '=', 1)->orderBy('id', 'desc')->pluck('id')->first();
+        $stage_id = Stage::whereHas('academy_year', function ($query) {
             $query->where('is_active', true);
         })->orderBy('id', 'desc')->pluck('id')->first();
-        
+
         $notif = Setting::get()->first();
 
-        if($jawaban != null){
+        if ($jawaban != null) {
             $jawaban_benar = null;
             $jawaban_salah = null;
 
 
             $ScoreIq = ScoreIq::where('user_id', auth()->user()->id)->first();
-            
+
             if (!$ScoreIq) {
                 foreach ($jawaban as $key => $value) {
-                    $cek = QuestionIq::where('id','=',$key)->where('answer_key','=',$value)->get();
+                    $cek = QuestionIq::where('id', '=', $key)->where('answer_key', '=', $value)->get();
                     $benar = count($cek);
-                    
-                    if($benar){
+
+                    if ($benar) {
                         $jawaban_benar++;
-                    }else{
+                    } else {
                         $jawaban_salah++;
                     }
-    
-                    $cekId = QuestionIq::where('id','=',$key)->first();
+
+                    $cekId = QuestionIq::where('id', '=', $key)->first();
                     if ($value == 'a') {
                         QuestionIqAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_iq_id' => $cekId->id,
                             'answer' => 'a'
                         ]);
-                    }
-                    elseif ($value == 'b') {
+                    } elseif ($value == 'b') {
                         QuestionIqAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_iq_id' => $cekId->id,
                             'answer' => 'b'
                         ]);
-                    }
-                    elseif ($value == 'c') {
+                    } elseif ($value == 'c') {
                         QuestionIqAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_iq_id' => $cekId->id,
                             'answer' => 'c'
                         ]);
-                    }
-                    elseif ($value == 'd') {
+                    } elseif ($value == 'd') {
                         QuestionIqAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_iq_id' => $cekId->id,
                             'answer' => 'd'
                         ]);
-                    }
-                    elseif ($value == 'e') {
+                    } elseif ($value == 'e') {
                         QuestionIqAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_iq_id' => $cekId->id,
@@ -92,48 +90,48 @@ class TesIqController extends Controller
                         ]);
                     }
                 }
-    
-                $nilai = $jawaban_benar*2;
-                
+
+                $nilai = $jawaban_benar * 2;
+
                 if ($jawaban_benar != null) {
                     $jawaban_benar = $jawaban_benar;
-                }else{
+                } else {
                     $jawaban_benar = 0;
                 }
-    
+
                 ScoreIq::create([
                     'user_id' => Auth::user()->id,
                     'stage_id' => $stage_id,
-                    'academy_year_id'=>$tahun_ajaran,
-                    'score_question_iq'=>$nilai,
+                    'academy_year_id' => $tahun_ajaran,
+                    'score_question_iq' => $nilai,
                     'correct' => $jawaban_benar,
                     'wrong' => $jawaban_salah,
                 ]);
                 $data = [
-                    'sender' => Setting::pluck('no_msg'),
-                    'reciver' => Auth::user()->phone,
-                    'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap2
+
+                    'target' => Auth::user()->phone,
+                    'message' => '*' . Auth::user()->name . '*, ' . $notif->complete_tahap2
                 ];
                 sendMessage($data);
             }
 
             return redirect()->route('success');
-        }else{
+        } else {
             ScoreIq::create([
-                'user_id'=>Auth::user()->id,
+                'user_id' => Auth::user()->id,
                 'stage_id' => $stage_id,
-                'academy_year_id'=>$tahun_ajaran,
-                'score_question_iq'=>0,
+                'academy_year_id' => $tahun_ajaran,
+                'score_question_iq' => 0,
                 'correct' => 0,
                 'wrong' => 0,
             ]);
             $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => Auth::user()->phone,
-                'message' => '*'.Auth::user()->name.'*, '. $notif->complete_tahap2
+
+                'target' => Auth::user()->phone,
+                'message' => '*' . Auth::user()->name . '*, ' . $notif->complete_tahap2
             ];
             sendMessage($data);
-            
+
             return redirect()->route('user-dashboard');
         }
     }

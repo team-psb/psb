@@ -17,20 +17,20 @@ class InterviewController extends Controller
     public function index()
     {
         $stages = Stage::get();
-        
-        if (request()->get('stage_id') && request()->get('stage_id') != null){
-            $data = Interview::with(['academy_year'=>function($query){
-                $query->where('stage_id','=', request()->get('stage_id'));
-            },'user.biodataOne'])->orderBy('id','desc');
-        }else {
-            $data = Interview::with(['academy_year'=>function($query){
-                $query->where('is_active','=', true);
-            },'user.biodataOne'])->orderBy('id','desc');
+
+        if (request()->get('stage_id') && request()->get('stage_id') != null) {
+            $data = Interview::with(['academy_year' => function ($query) {
+                $query->where('stage_id', '=', request()->get('stage_id'));
+            }, 'user.biodataOne'])->orderBy('id', 'desc');
+        } else {
+            $data = Interview::with(['academy_year' => function ($query) {
+                $query->where('is_active', '=', true);
+            }, 'user.biodataOne'])->orderBy('id', 'desc');
         }
 
         $data = $data->get();
         $interviews = $data->where('academy_year', '!=', null);
-        return view('admin.pages.interview.index',compact('interviews', 'stages'));
+        return view('admin.pages.interview.index', compact('interviews', 'stages'));
     }
 
     public function delete($id)
@@ -40,11 +40,11 @@ class InterviewController extends Controller
         $video->update([
             'status' => null
         ]);
-        
-        $data->delete();
-        activity()->log('Menghapus wawancara id '.$id);
 
-        return back()->with('success-delete','Berhasil Menghapus Data');
+        $data->delete();
+        activity()->log('Menghapus wawancara id ' . $id);
+
+        return back()->with('success-delete', 'Berhasil Menghapus Data');
     }
 
     public function setStatus(Request $request, $id)
@@ -60,108 +60,108 @@ class InterviewController extends Controller
         $notif = Setting::get()->first();
 
         // Whatsapp Gateway
-        if ($item->status == 'lolos'){
-//         $data = [
-//             'sender' => Setting::pluck('no_msg'),
-//             'reciver' => $item->user->phone,
-//             'message' => 'Selamat, *' . $item->user->name . '!*
+        if ($item->status == 'lolos') {
+            //         $data = [
+            //             
+            //             'target' => $item->user->phone,
+            //             'message' => 'Selamat, *' . $item->user->name . '!*
 
-// Anda dinyatakan *Lolos* Sebagai calon santri Pondok Informatika Al-Madinah
+            // Anda dinyatakan *Lolos* Sebagai calon santri Pondok Informatika Al-Madinah
 
-// Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp selalu aktif*.'
-//         ];
+            // Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp selalu aktif*.'
+            //         ];
             $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => $item->user->phone,
-                'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap5_passed 
+
+                'target' => $item->user->phone,
+                'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap5_passed
             ];
-        sendMessage($data);
+            sendMessage($data);
         } else {
-//         $data = [
-//             'sender' => Setting::pluck('no_msg'),
-//             'reciver' => $item->user->phone,
-//             'message' => 'Mohon maaf,' . $item->user->name . '!
+            //         $data = [
+            //             
+            //             'target' => $item->user->phone,
+            //             'message' => 'Mohon maaf,' . $item->user->name . '!
 
-// Anda dinyatakan *Tidak Lolos* pada sesi wawancara
+            // Anda dinyatakan *Tidak Lolos* pada sesi wawancara
 
-// Tetap Semangka (Semangat Karena Allah !)' 
-//         ];
+            // Tetap Semangka (Semangat Karena Allah !)' 
+            //         ];
             $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => $item->user->phone,
-                'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap5_failed
+
+                'target' => $item->user->phone,
+                'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap5_failed
             ];
-        sendMessage($data);
+            sendMessage($data);
         }
         return redirect()->route('interviews.index')->with('success-edit', 'Berhasil Mengganti Status Data');
     }
 
     public function passAll(Request $request)
     {
-        $ids=$request->get('ids'); 
+        $ids = $request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
                 $item = Pass::find($id);
-                Pass::find($id)->update(['status'=>'lolos']);
-//                 $data = [
-//                     'sender' => Setting::pluck('no_msg'),
-//                     'reciver' => $item->user->phone,
-//                     'message' => 'Selamat, *' . $item->user->name . '!*
-        
-// Anda dinyatakan *Lolos* Sebagai calon santri Pondok Informatika Al-Madinah
+                Pass::find($id)->update(['status' => 'lolos']);
+                //                 $data = [
+                //                     
+                //                     'target' => $item->user->phone,
+                //                     'message' => 'Selamat, *' . $item->user->name . '!*
 
-// Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp selalu aktif*.'
-//                 ];
+                // Anda dinyatakan *Lolos* Sebagai calon santri Pondok Informatika Al-Madinah
+
+                // Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp selalu aktif*.'
+                //                 ];
                 $notif = Setting::get()->first();
                 $data = [
-                    'sender' => Setting::pluck('no_msg'),
-                    'reciver' => $item->user->phone,
-                    'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap5_passed
+
+                    'target' => $item->user->phone,
+                    'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap5_passed
                 ];
                 sendMessage($data);
             }
 
-            return redirect()->route('interviews.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
-        }else{
+            return redirect()->route('interviews.index')->with('success-edit', 'Berhasil Mengganti Semua Status Data');
+        } else {
             return redirect()->back();
         }
     }
 
     public function nonpassAll(Request $request)
     {
-        $ids=$request->get('ids');
+        $ids = $request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
                 $item = Pass::find($id);
-                Pass::find($id)->update(['status'=>'tidak']);
-//                 $data = [
-//                     'sender' => Setting::pluck('no_msg'),
-//                     'reciver' => $item->user->phone,
-//                     'message' => 'Mohon maaf,' . $item->user->name . '!
-        
-// Anda dinyatakan *Tidak Lolos* pada sesi *Wawancara*
+                Pass::find($id)->update(['status' => 'tidak']);
+                //                 $data = [
+                //                     
+                //                     'target' => $item->user->phone,
+                //                     'message' => 'Mohon maaf,' . $item->user->name . '!
 
-// Tetap Semangka (Semangat Karena Allah !)' 
-//                 ];
+                // Anda dinyatakan *Tidak Lolos* pada sesi *Wawancara*
+
+                // Tetap Semangka (Semangat Karena Allah !)' 
+                //                 ];
                 $notif = Setting::get()->first();
                 $data = [
-                    'sender' => Setting::pluck('no_msg'),
-                    'reciver' => $item->user->phone,
-                    'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap5_failed
+
+                    'target' => $item->user->phone,
+                    'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap5_failed
                 ];
                 sendMessage($data);
             }
 
-            return redirect()->route('interviews.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
-        }else{
+            return redirect()->route('interviews.index')->with('success-edit', 'Berhasil Mengganti Semua Status Data');
+        } else {
             return redirect()->back();
         }
     }
 
     public function deleteAll(Request $request)
     {
-        $ids=$request->get('ids');
-        
+        $ids = $request->get('ids');
+
         if ($ids != null) {
             foreach ($ids as $id) {
                 $data = Pass::find($id);
@@ -173,8 +173,8 @@ class InterviewController extends Controller
             }
             activity()->log('Menghapus semua wawancara');
 
-            return redirect()->route('interviews.index')->with('success-delete','Berhasil Mengganti Semua Status Data');
-        }else{
+            return redirect()->route('interviews.index')->with('success-delete', 'Berhasil Mengganti Semua Status Data');
+        } else {
             return redirect()->back();
         }
     }
@@ -184,7 +184,7 @@ class InterviewController extends Controller
         return redirect()->route('interviews.index');
     }
 
-    public function export() 
+    public function export()
     {
         return Excel::download(new InterviewExport, 'data wawancara.xlsx');
     }

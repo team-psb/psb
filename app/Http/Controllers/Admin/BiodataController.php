@@ -24,52 +24,52 @@ class BiodataController extends Controller
 {
     public function index()
     {
-        if (request()->get('stage_id') && request()->get('stage_id') != null){
-            $data = BiodataTwo::with(['academy_year'=>function($query){
-                $query->where('stage_id','=', request()->get('stage_id'));
-            },'user.biodataOne'])->orderBy('created_at','desc');
-        }else {
-            $data = BiodataTwo::with(['academy_year'=>function($query){
-                $query->where('is_active','=', true);
-            },'user.biodataOne'])->orderBy('created_at','desc');
+        if (request()->get('stage_id') && request()->get('stage_id') != null) {
+            $data = BiodataTwo::with(['academy_year' => function ($query) {
+                $query->where('stage_id', '=', request()->get('stage_id'));
+            }, 'user.biodataOne'])->orderBy('created_at', 'desc');
+        } else {
+            $data = BiodataTwo::with(['academy_year' => function ($query) {
+                $query->where('is_active', '=', true);
+            }, 'user.biodataOne'])->orderBy('created_at', 'desc');
         }
-        
-        if(request()->get('age') && request()->get('age') != null){
-            $data = $data->whereHas('user',function($query){
-                $query->whereHas('biodataOne',function($query2){
-                    $query2->where('age','=', request()->get('age'));
+
+        if (request()->get('age') && request()->get('age') != null) {
+            $data = $data->whereHas('user', function ($query) {
+                $query->whereHas('biodataOne', function ($query2) {
+                    $query2->where('age', '=', request()->get('age'));
                 });
             });
         }
 
-        if(request()->get('parent') && request()->get('parent') != null){
-            $data = $data->where('parent','=',request()->get('parent'));
+        if (request()->get('parent') && request()->get('parent') != null) {
+            $data = $data->where('parent', '=', request()->get('parent'));
         }
 
-        if(request()->get('last_education') && request()->get('last_education') != null){
-            $data = $data->where('last_education','=',request()->get('last_education'));
+        if (request()->get('last_education') && request()->get('last_education') != null) {
+            $data = $data->where('last_education', '=', request()->get('last_education'));
         }
 
-        if(request()->get('smoker') && request()->get('smoker') != null){
-            $data = $data->where('smoker','=',request()->get('smoker'));
+        if (request()->get('smoker') && request()->get('smoker') != null) {
+            $data = $data->where('smoker', '=', request()->get('smoker'));
         }
 
-        if(request()->get('girlfriend') && request()->get('girlfriend') != null){
-            $data = $data->where('girlfriend','=',request()->get('girlfriend'));
+        if (request()->get('girlfriend') && request()->get('girlfriend') != null) {
+            $data = $data->where('girlfriend', '=', request()->get('girlfriend'));
         }
 
-        if(request()->get('gamer') && request()->get('gamer') != null){
-            $data = $data->where('gamer','=',request()->get('gamer'));
+        if (request()->get('gamer') && request()->get('gamer') != null) {
+            $data = $data->where('gamer', '=', request()->get('gamer'));
         }
 
-        if((request()->get('parent_income_min') && request()->get('parent_income_min') != null) && (request()->get('parent_income_max') && request()->get('parent_income_max') != null)){
-            $data = $data->whereBetween('parent_income',[request()->get('parent_income_min'),request()->get('parent_income_max')]);
+        if ((request()->get('parent_income_min') && request()->get('parent_income_min') != null) && (request()->get('parent_income_max') && request()->get('parent_income_max') != null)) {
+            $data = $data->whereBetween('parent_income', [request()->get('parent_income_min'), request()->get('parent_income_max')]);
         }
 
-        if(request()->get('family') && request()->get('family') != null){
-            $data = $data->whereHas('user',function($query){
-                $query->whereHas('biodataOne',function($query2){
-                    $query2->where('family','=', request()->get('family'));
+        if (request()->get('family') && request()->get('family') != null) {
+            $data = $data->whereHas('user', function ($query) {
+                $query->whereHas('biodataOne', function ($query2) {
+                    $query2->where('family', '=', request()->get('family'));
                 });
             });
         }
@@ -82,12 +82,12 @@ class BiodataController extends Controller
         // $biodataswide = BiodataTwo::with(['academy_year'=>function($query){
         //     $query->where('is_active','=', true);
         // },'user.biodataOne'])->orderBy('created_at','desc')->get();
-        
+
         $stages = Stage::get();
-        
-        $biodatas = $data->where('academy_year','!=', null);
+
+        $biodatas = $data->where('academy_year', '!=', null);
         // dd($biodatas);
-        return view('admin.pages.biodata.index',compact('biodatas', 'stages'));
+        return view('admin.pages.biodata.index', compact('biodatas', 'stages'));
     }
 
     public function show($id)
@@ -108,22 +108,22 @@ class BiodataController extends Controller
         ]);
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $biodata1 = BiodataOne::find($request->biodataOne_id);
         $biodata2 = BiodataTwo::find($id);
 
         $biodata1->update([
-            'full_name'=>$request->full_name,
-            'age'=>$request->age,
-            'no_wa'=>$request->no_wa,
-            'family'=>$request->family
+            'full_name' => $request->full_name,
+            'age' => $request->age,
+            'no_wa' => $request->no_wa,
+            'family' => $request->family
         ]);
 
-        $biodata2->update($request->except(['full_name','age','no_wa','family']));
-        activity()->log('Mengedit biodata '.$request->full_name);
+        $biodata2->update($request->except(['full_name', 'age', 'no_wa', 'family']));
+        activity()->log('Mengedit biodata ' . $request->full_name);
 
-        return redirect()->route('biodatas.index')->with('success-edit','Data Berhasil Diedit');
+        return redirect()->route('biodatas.index')->with('success-edit', 'Data Berhasil Diedit');
     }
 
     public function delete($id)
@@ -137,16 +137,16 @@ class BiodataController extends Controller
         QuestionPersonalAnswer::where('user_id', $data->user_id)->delete();
         Video::where('user_id', $data->user_id)->delete();
         Interview::where('user_id', $data->user_id)->delete();
-        
-        activity()->log('Menghapus biodata id '.$id);
 
-        return back()->with('success-delete','Berhasil Menghapus Data');
+        activity()->log('Menghapus biodata id ' . $id);
+
+        return back()->with('success-delete', 'Berhasil Menghapus Data');
     }
 
     public function deleteAll(Request $request)
     {
-        $ids=$request->get('ids');
-        
+        $ids = $request->get('ids');
+
         if ($ids != null) {
             foreach ($ids as $id) {
                 $data = BiodataTwo::find($id);
@@ -160,8 +160,8 @@ class BiodataController extends Controller
             }
             activity()->log('Menghapus semua biodata');
 
-            return redirect()->route('biodatas.index')->with('success-delete','Berhasil Menghapus Semua Data');
-        }else{
+            return redirect()->route('biodatas.index')->with('success-delete', 'Berhasil Menghapus Semua Data');
+        } else {
             return redirect()->back();
         }
     }
@@ -171,10 +171,10 @@ class BiodataController extends Controller
         $request->validate([
             'status' => 'required|in:lolos,tidak'
         ]);
-        
+
         $item = BiodataTwo::findOrFail($id);
         $notif = Setting::get()->first();
-        
+
         if ($item->user->biodataOne->family == 'sangat-mampu') {
             $item->status = $request->status;
             $item->save();
@@ -187,44 +187,44 @@ class BiodataController extends Controller
             ]);
 
             // Whatsapp Gateway
-            if ($item->status == 'lolos'){
-            
-            $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => $item->user->phone,
-                'message' => '*'.$item->user->name.'*, '. $notif->notif_tahap1_sm
-            ];
-            sendMessage($data);
+            if ($item->status == 'lolos') {
+
+                $data = [
+
+                    'target' => $item->user->phone,
+                    'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap1_sm
+                ];
+                sendMessage($data);
             } else {
-            $data = [
-                'sender' => Setting::pluck('no_msg'),
-                'reciver' => $item->user->phone,
-                'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap1_failed
-            ];
-            sendMessage($data);
+                $data = [
+
+                    'target' => $item->user->phone,
+                    'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap1_failed
+                ];
+                sendMessage($data);
             }
-        }else{
+        } else {
             $item->status = $request->status;
             $item->save();
 
             // Whatsapp Gateway
-            if ($item->status == 'lolos'){
+            if ($item->status == 'lolos') {
                 $link =  route('user-second-tes');
-                
+
                 $data = [
-                    'sender' => Setting::pluck('no_msg'),
-                    'reciver' => $item->user->phone,
-                    'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap1.' '.$link 
+
+                    'target' => $item->user->phone,
+                    'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap1 . ' ' . $link
                 ];
-            sendMessage($data);
+                sendMessage($data);
             } else {
-                
+
                 $data = [
-                    'sender' => Setting::pluck('no_msg'),
-                    'reciver' => $item->user->phone,
-                    'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap1_failed
+
+                    'target' => $item->user->phone,
+                    'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap1_failed
                 ];
-            sendMessage($data);
+                sendMessage($data);
             }
         }
 
@@ -234,7 +234,7 @@ class BiodataController extends Controller
 
     public function passAll(Request $request)
     {
-        $ids=$request->get('ids');
+        $ids = $request->get('ids');
         $notif = Setting::get()->first();
 
         if ($ids != null) {
@@ -248,57 +248,57 @@ class BiodataController extends Controller
                         'status' => null
                     ]);
                     $data = [
-                    'sender' => Setting::pluck('no_msg'),
-                    'reciver' => $item->user->phone,
-                    'message' => '*'.$item->user->name.'*, '. $notif->notif_tahap1_sm
-                ];
-                sendMessage($data);
-                }else{
-                    $link =  route('user-second-tes');
-                    
-                    $data = [
-                        'sender' => Setting::pluck('no_msg'),
-                        'reciver' => $item->user->phone,
-                        'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap1.' '.$link 
+
+                        'target' => $item->user->phone,
+                        'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap1_sm
                     ];
-                sendMessage($data);
+                    sendMessage($data);
+                } else {
+                    $link =  route('user-second-tes');
+
+                    $data = [
+
+                        'target' => $item->user->phone,
+                        'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap1 . ' ' . $link
+                    ];
+                    sendMessage($data);
                 }
-                BiodataTwo::find($id)->update(['status'=>'lolos']);
+                BiodataTwo::find($id)->update(['status' => 'lolos']);
             }
-            return redirect()->route('biodatas.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
-        }else{
+            return redirect()->route('biodatas.index')->with('success-edit', 'Berhasil Mengganti Semua Status Data');
+        } else {
             return redirect()->back();
         }
     }
 
     public function nonpassAll(Request $request)
     {
-        $ids=$request->get('ids');
+        $ids = $request->get('ids');
         $notif = Setting::get()->first();
 
         if ($ids != null) {
             foreach ($ids as $id) {
                 $item = BiodataTwo::find($id);
-                BiodataTwo::find($id)->update(['status'=>'tidak']);
+                BiodataTwo::find($id)->update(['status' => 'tidak']);
                 if ($item->user->biodataOne->family == 'sangat-mampu') {
                     $data = [
-                        'sender' => Setting::pluck('no_msg'),
-                        'reciver' => $item->user->phone,
-                        'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap1_failed
+
+                        'target' => $item->user->phone,
+                        'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap1_failed
                     ];
                     sendMessage($data);
-                }else{
+                } else {
                     $data = [
-                        'sender' => Setting::pluck('no_msg'),
-                        'reciver' => $item->user->phone,
-                        'message' => '*'.$item->user->name.'*, '.$notif->notif_tahap1_failed
+
+                        'target' => $item->user->phone,
+                        'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap1_failed
                     ];
                     sendMessage($data);
                 }
             }
 
-            return redirect()->route('biodatas.index')->with('success-edit','Berhasil Mengganti Semua Status Data');
-        }else{
+            return redirect()->route('biodatas.index')->with('success-edit', 'Berhasil Mengganti Semua Status Data');
+        } else {
             return redirect()->back();
         }
     }
@@ -309,7 +309,7 @@ class BiodataController extends Controller
         return redirect()->route('biodatas.index');
     }
 
-    public function export() 
+    public function export()
     {
         return Excel::download(new BiodataExport, 'data biodata.xlsx');
     }
