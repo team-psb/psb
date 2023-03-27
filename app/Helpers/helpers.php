@@ -3,31 +3,35 @@
 function sendMessage($data)
 {
 
-    $appUrlFontee = "https://api.fonnte.com/send";
-    $tokenFontee = 'azirSQttjrWI7QuIZA73';
-    // $tokenFontee = '!eciHq9Szhs3863ra63z';
+    try {
+        $appUrlFontee = "https://api.fonnte.com/send";
+        $tokenFontee = 'azirSQttjrWI7QuIZA73';
+        // $tokenFontee = '!eciHq9Szhs3863ra63z';
 
-    $curl = curl_init();
+        $curl = curl_init();
 
-    curl_setopt_array($curl, array(
-        CURLOPT_URL => $appUrlFontee,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS => $data,
-        CURLOPT_HTTPHEADER => array(
-            'Authorization: ' . $tokenFontee
-        ),
-    ));
-    $resultData = curl_exec($curl);
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $appUrlFontee,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => $data,
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: ' . $tokenFontee
+            ),
+        ));
+        $resultData = curl_exec($curl);
 
-    curl_close($curl);
+        curl_close($curl);
 
-    return $resultData;
+        return $resultData;
+    } catch (\Throwable $th) {
+        return $th;
+    }
 
     // $appUrl = "https://wa.pondokinformatika.xyz/api/v1/send-message";
 
