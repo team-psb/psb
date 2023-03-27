@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
+
 function sendMessage($data)
 {
 
@@ -8,28 +11,35 @@ function sendMessage($data)
         $tokenFontee = 'azirSQttjrWI7QuIZA73';
         // $tokenFontee = '!eciHq9Szhs3863ra63z';
 
-        $curl = curl_init();
+        $response = Http::withHeaders([
+            'Authorization' => $tokenFontee,
+        ])->post($appUrlFontee, $data);
 
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => $appUrlFontee,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => $data,
-            CURLOPT_HTTPHEADER => array(
-                'Authorization: ' . $tokenFontee
-            ),
-        ));
-        $resultData = curl_exec($curl);
+        // $curl = curl_init();
 
-        curl_close($curl);
+        // curl_setopt_array($curl, array(
+        //     CURLOPT_URL => $appUrlFontee,
+        //     CURLOPT_RETURNTRANSFER => true,
+        //     CURLOPT_ENCODING => '',
+        //     CURLOPT_MAXREDIRS => 10,
+        //     CURLOPT_TIMEOUT => 0,
+        //     CURLOPT_FOLLOWLOCATION => true,
+        //     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        //     CURLOPT_CUSTOMREQUEST => 'POST',
+        //     CURLOPT_POSTFIELDS => $data,
+        //     CURLOPT_HTTPHEADER => array(
+        //         'Authorization: ' . $tokenFontee
+        //     ),
+        // ));
+        // $resultData = curl_exec($curl);
 
-        return $resultData;
+        // curl_close($curl);
+
+        dd($response->body());
+
+        // return $resultData;
     } catch (\Throwable $th) {
+        Log::error($th->getMessage());
         return $th;
     }
 
