@@ -35,7 +35,7 @@ function sendMessage($data)
 
         // curl_close($curl);
 
-        dd($response->body());
+        // dd($response->body());
 
         // return $resultData;
     } catch (\Throwable $th) {
