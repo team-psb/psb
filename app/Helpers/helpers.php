@@ -8,8 +8,8 @@ function sendMessage($data)
 
     try {
         $appUrlFontee = "https://api.fonnte.com/send";
-        // $tokenFontee = 'azirSQttjrWI7QuIZA73';
-        $tokenFontee = '!eciHq9Szhs3863ra63z';
+        $tokenFontee = 'azirSQttjrWI7QuIZA73';
+        // $tokenFontee = '!eciHq9Szhs3863ra63z';
 
         $response = Http::withHeaders([
             'Authorization' => $tokenFontee,
