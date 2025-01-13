@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\BiodataExport;
 use App\Http\Controllers\Controller;
+use App\Models\AcademyYear;
 use App\Models\BiodataOne;
 use Illuminate\Http\Request;
 use App\Models\BiodataTwo;
@@ -24,12 +25,14 @@ class BiodataController extends Controller
 {
     public function index()
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
+
         if (request()->get('stage_id') && request()->get('stage_id') != null) {
-            $data = BiodataTwo::with(['academy_year' => function ($query) {
+            $data = BiodataTwo::where('academy_year_id', $tahun_ajaran)->with(['academy_year' => function ($query) {
                 $query->where('stage_id', '=', request()->get('stage_id'));
             }, 'user.biodataOne'])->orderBy('created_at', 'desc');
         } else {
-            $data = BiodataTwo::with(['academy_year' => function ($query) {
+            $data = BiodataTwo::where('academy_year_id', $tahun_ajaran)->with(['academy_year' => function ($query) {
                 $query->where('is_active', '=', true);
             }, 'user.biodataOne'])->orderBy('created_at', 'desc');
         }
@@ -87,7 +90,7 @@ class BiodataController extends Controller
 
         $biodatas = $data->where('academy_year', '!=', null);
         // dd($biodatas);
-        return view('admin.pages.biodata.index', compact('biodatas', 'stages'));
+        return view('admin.pages.biodata.index', compact('biodatas', 'stages', 'tahun_ajaran'));
     }
 
     public function show($id)

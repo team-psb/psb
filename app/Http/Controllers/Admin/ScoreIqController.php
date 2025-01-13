@@ -9,6 +9,7 @@ use App\Models\ScoreIq;
 use App\Models\Setting;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ScoreIqExport;
+use App\Models\AcademyYear;
 use App\Models\BiodataOne;
 use App\Models\BiodataTwo;
 use App\Models\QuestionIqAnswer;
@@ -19,14 +20,15 @@ class ScoreIqController extends Controller
 {
     public function index()
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $stages = Stage::get();
 
         if (request()->get('stage_id') && request()->get('stage_id') != null) {
-            $data = ScoreIq::with(['academy_year' => function ($query) {
+            $data = ScoreIq::where('academy_year_id', $tahun_ajaran)->with(['academy_year' => function ($query) {
                 $query->where('stage_id', '=', request()->get('stage_id'));
             }, 'user.biodataOne'])->orderBy('id', 'desc');
         } else {
-            $data = ScoreIq::with(['academy_year' => function ($query) {
+            $data = ScoreIq::where('academy_year_id', $tahun_ajaran)->with(['academy_year' => function ($query) {
                 $query->where('is_active', '=', true);
             }, 'user.biodataOne'])->orderBy('id', 'desc');
         }
@@ -38,14 +40,15 @@ class ScoreIqController extends Controller
 
         $data = $data->get();
         $scores = $data->where('academy_year', '!=', null);
-        return view('admin.pages.scoreIq.index', compact('scores', 'stages'));
+        return view('admin.pages.scoreIq.index', compact('scores', 'stages', 'tahun_ajaran'));
     }
 
     public function answer($id)
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $answers = QuestionIqAnswer::where('user_id', $id)->get();
         $user = User::find($id);
-        return view('admin.pages.scoreIq.answer', compact('answers', 'user'));
+        return view('admin.pages.scoreIq.answer', compact('answers', 'user', 'tahun_ajaran'));
     }
 
     public function delete($id)
@@ -101,13 +104,13 @@ class ScoreIqController extends Controller
             $link =  route('user-third-tes');
 
             //         $data = [
-            //             
+            //
             //             'target' => $item->user->phone,
             //             'message' => 'Selamat, *' . $item->user->name . '!*
 
             // Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Ketiga_
 
-            // Untuk melakukan tes _Tahap Ketiga_, Silahkan anda klik link berikut: ' .$link 
+            // Untuk melakukan tes _Tahap Ketiga_, Silahkan anda klik link berikut: ' .$link
             //         ];
             $data = [
 
@@ -117,13 +120,13 @@ class ScoreIqController extends Controller
             sendMessage($data);
         } else {
             //         $data = [
-            //             
+            //
             //             'target' => $item->user->phone,
             //             'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
             // Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Ketiga_
 
-            // Tetap Semangka (Semangat Karena Allah !)' 
+            // Tetap Semangka (Semangat Karena Allah !)'
             //         ];
             $data = [
 
@@ -144,7 +147,7 @@ class ScoreIqController extends Controller
                 $item = ScoreIq::find($id);
                 ScoreIq::find($id)->update(['status' => 'lolos']);
                 //                 $data = [
-                //                 
+                //
                 //                 'target' => $item->user->phone,
                 //                 'message' => 'Selamat, *' . $item->user->name . '!*
 
@@ -175,7 +178,7 @@ class ScoreIqController extends Controller
                 $item = ScoreIq::find($id);
                 ScoreIq::find($id)->update(['status' => 'tidak']);
                 //                 $data = [
-                //                 
+                //
                 //                 'target' => $item->user->phone,
                 //                 'message' => 'Mohon maaf, *' . $item->user->name . '!*
 

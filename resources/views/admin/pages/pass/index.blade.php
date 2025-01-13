@@ -106,26 +106,26 @@
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
-                                                <a 
+                                                <a
                                                     href="#mymodal"
-                                                    data-remote="{{ route('biodatas.show', $pass->user->biodataOne->id) }}"
+                                                    data-remote="{{ route('biodatas.show', $pass->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->id) }}"
                                                     data-toggle="modal"
                                                     data-target="#mymodal"
-                                                    data-title="Detail Data" 
+                                                    data-title="Detail Data"
                                                     class="badge text-decoration-none fw-bold
                                                         {{ $pass->status == null ? 'text-warning badge-opacity-warning' : '' }}
                                                         {{ $pass->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
                                                         {{ $pass->status == 'tidak' ? 'text-danger badge-opacity-danger' : '' }}"
                                                 >
-                                                    @if ($pass->user->biodataOne->family == 'sangat-mampu')
+                                                    @if ($pass->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family == 'sangat-mampu')
                                                         <i class="ti-star text-warning"></i>
                                                     @endif
-                                                    {{ $pass->user->biodataOne->full_name }}
+                                                    {{ $pass->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}
                                                 </a>
                                             </td>
-                                            <td>{{ $pass->user->biodataOne->age }}</td>
-                                            <td>{{ $pass->user->biodataTwo->city->name }}</td>
-                                            <td>{{ $pass->user->biodataTwo->provincy->name }}</td>
+                                            <td>{{ $pass->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->age }}</td>
+                                            <td>{{ $pass->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->city->name }}</td>
+                                            <td>{{ $pass->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->provincy->name }}</td>
                                             <td>
                                                 <div class="btn-wrapper">
                                                     <button formaction="{{ route('passes.delete', $pass->id) }}" class="btn ms-1 btn-danger btn-icon-text text-white p-2"><i class="icon-trash btn-icon-prepend"></i> Hapus</button>
@@ -166,14 +166,14 @@
                                         @endforeach
                                         </select>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                            
+
                         <div class="d-flex justify-content-between">
                             <button type="submit" formaction="{{ route('passes.filter-reset') }}" class="btn btn-danger">Atur Ulang</button>
                             <button type="submit" formaction="{{ route('passes.index') }}" class="btn btn-primary">Terapkan</button>
                         </div>
-                        
+
                 </form>
         </div>
     </div>
@@ -187,3 +187,4 @@
     });
 </script>
 @endpush
+

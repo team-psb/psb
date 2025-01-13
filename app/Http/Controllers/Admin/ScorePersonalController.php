@@ -9,6 +9,7 @@ use App\Models\ScorePersonal;
 use App\Models\Setting;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ScorePersonalExport;
+use App\Models\AcademyYear;
 use App\Models\BiodataOne;
 use App\Models\QuestionPersonalAnswer;
 use App\Models\ScoreIq;
@@ -18,14 +19,15 @@ class ScorePersonalController extends Controller
 {
     public function index()
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $stages = Stage::get();
 
         if (request()->get('stage_id') && request()->get('stage_id') != null) {
-            $data = ScorePersonal::with(['academy_year' => function ($query) {
+            $data = ScorePersonal::where('academy_year_id', $tahun_ajaran)->with(['academy_year' => function ($query) {
                 $query->where('stage_id', '=', request()->get('stage_id'));
             }, 'user.biodataOne'])->orderBy('id', 'desc');
         } else {
-            $data = ScorePersonal::with(['academy_year' => function ($query) {
+            $data = ScorePersonal::where('academy_year_id', $tahun_ajaran)->with(['academy_year' => function ($query) {
                 $query->where('is_active', '=', true);
             }, 'user.biodataOne'])->orderBy('id', 'desc');
         }
@@ -36,14 +38,15 @@ class ScorePersonalController extends Controller
 
         $data = $data->get();
         $scores = $data->where('academy_year', '!=', null);
-        return view('admin.pages.scorePersonal.index', compact('scores', 'stages'));
+        return view('admin.pages.scorePersonal.index', compact('scores', 'stages', 'tahun_ajaran'));
     }
 
     public function answer($id)
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $answers = QuestionPersonalAnswer::where('user_id', $id)->get();
         $user = User::find($id);
-        return view('admin.pages.scorePersonal.answer', compact('answers', 'user'));
+        return view('admin.pages.scorePersonal.answer', compact('answers', 'user', 'tahun_ajaran'));
     }
 
     public function delete($id)
@@ -99,13 +102,13 @@ class ScorePersonalController extends Controller
             $link =  route('user-fourth-tes');
 
             //         $data = [
-            //             
+            //
             //             'target' => $item->user->phone,
             //             'message' => 'Selamat, *' . $item->user->name . '!*
 
             // Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Keempat_
 
-            // Untuk melakukan tes _Tahap Keempat_, Silahkan anda klik link berikut: ' .$link 
+            // Untuk melakukan tes _Tahap Keempat_, Silahkan anda klik link berikut: ' .$link
             //         ];
             $data = [
 
@@ -115,13 +118,13 @@ class ScorePersonalController extends Controller
             sendMessage($data);
         } else {
             //         $data = [
-            //             
+            //
             //             'target' => $item->user->phone,
             //             'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
             // Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Keempat_
 
-            // Tetap Semangka (Semangat Karena Allah !)' 
+            // Tetap Semangka (Semangat Karena Allah !)'
             //         ];
             $data = [
 
@@ -142,13 +145,13 @@ class ScorePersonalController extends Controller
                 $item = ScorePersonal::find($id);
                 ScorePersonal::find($id)->update(['status' => 'lolos']);
                 //                 $data = [
-                //                     
+                //
                 //                     'target' => $item->user->phone,
                 //                     'message' => 'Selamat, *' . $item->user->name . '!*
 
                 // Anda dinyatakan *Lolos* dan bisa lanjut ke _Tahap Keempat_
 
-                // Untuk melakukan tes _Tahap Keempat_, Silahkan anda klik link berikut: ' .$link 
+                // Untuk melakukan tes _Tahap Keempat_, Silahkan anda klik link berikut: ' .$link
                 //                 ];
                 $notif = Setting::get()->first();
                 $data = [
@@ -173,13 +176,13 @@ class ScorePersonalController extends Controller
                 $item = ScorePersonal::find($id);
                 ScorePersonal::find($id)->update(['status' => 'tidak']);
                 //                 $data = [
-                //                     
+                //
                 //                     'target' => $item->user->phone,
                 //                     'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
                 // Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Keempat_
 
-                // Tetap Semangka (Semangat Karena Allah !)' 
+                // Tetap Semangka (Semangat Karena Allah !)'
                 //                 ];
                 $notif = Setting::get()->first();
                 $data = [

@@ -3,16 +3,16 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="PSB Pondok Informatika Al-Madinah" />
+        <meta name="description" content="PSB Pondok Mahir Teknologi" />
         <meta
             name="keywords"
             content="HTML, CSS, JavaScript, PHP, Pendaftaran"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Pondok Informatika Al Madinah</title>
+        <title>Pondok Mahir Teknologi</title>
 
         <!-- Favicons -->
-        <link href="assets/img/Logo-Pondok.png" rel="icon" />
+        <link href="assets_new/logo/logo-s-rgb.png" rel="icon" />
 
         <!-- Google Fonts -->
         <link
@@ -104,8 +104,8 @@
     <body>
         <div class="d-flex justify-content-center align-items-center container">
             <div class="card py-5 px-4 text-center shadow position-relative overflow-hidden">
-                <img
-                    src="{{ asset('./assets/img/logo-bg.png') }}"
+                {{-- <img
+                    src="{{ asset('./assets_new/logo/logo-bg.png') }}"
                     class="position-absolute"
                     alt="logo"
                     width="400"
@@ -114,7 +114,7 @@
                         top: 100px;
                         left: -140px;
                     "
-                />
+                /> --}}
                 <h3 class="m-0 text-white">OTP Verification</h3>
                 <span class="mobile-text mt-2">Masukkan kode yang baru saja kami <br> kirim ke apk WA Anda
                     <b style="color:#FFAD60;">089538001****</b>

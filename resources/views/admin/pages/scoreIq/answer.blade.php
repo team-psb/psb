@@ -10,13 +10,13 @@
                 <div class="card   card-rounded">
                     <div class="card-body">
                         <div class="d-flex justify-content-between" style="border-bottom: 1px solid #c4c4c4;">
-                            <h4 class="card-title pb-4">Nilai Iq Pendaftar | {{ $user->biodataOne->full_name }}</h4>
+                            <h4 class="card-title pb-4">Nilai Iq Pendaftar | {{ $user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}</h4>
                             <div>
                                 <a href="{{ route('scoreIq.index') }}" class="btn btn-success">Back</a>
                             </div>
                         </div>
                         <p class="card-description">
-                            Detail Jawaban Soal Iq Pendaftar | {{ $user->biodataOne->full_name }}
+                            Detail Jawaban Soal Iq Pendaftar | {{ $user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}
                         </p>
                         <div class="row">
                             <div class="col">
@@ -35,7 +35,7 @@
                                         <tr class="align-top">
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
-                                                <img src="{{ Storage::url($answer->questionIq->image) }}" alt="" style="width: 100px;">    
+                                                <img src="{{ Storage::url($answer->questionIq->image) }}" alt="" style="width: 100px;">
                                             </td>
                                             <td class="w-75">{{ $answer->questionIq->question }}</td>
                                             <td class="text-center">{{ $answer->answer }}</td>

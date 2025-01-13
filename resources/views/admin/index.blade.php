@@ -79,7 +79,7 @@
                             </button>
                         </div>
                     @endif
-                    
+
                     <div class="row">
                         <div class="col-lg-7 d-flex flex-column">
                             <div class="row flex-grow">
@@ -280,7 +280,7 @@
                                                                 <div class="badge badge-opacity-danger">tidak lolos biodata</div>
                                                             @else()
                                                                 <div class="badge badge-opacity-warning">
-                                                                    belum di seleksi 
+                                                                    belum di seleksi
                                                                     <a href="{{ route('biodatas.index') }}" class="text-decoration-none"><i class="ti-eye"></i></a>
                                                                 </div>
                                                             @endif
@@ -529,7 +529,7 @@
     <!-- partial:partials/_footer.html -->
     <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
-        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Owner <a href="https://pondokinformatika.com/" target="_blank">Pondok Informatika Al Madinah</a> from psb team.</span>
+        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Owner <a href="https://pondokinformatika.com/" target="_blank">Pondok Mahir Teknologi</a> from psb team.</span>
         <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © {{ date('Y') }}. All rights reserved.</span>
         </div>
     </footer>
@@ -585,7 +585,7 @@
                 }
                 ]
             };
-        
+
             var salesTopOptions = {
                 responsive: true,
                 maintainAspectRatio: false,
@@ -633,7 +633,7 @@
                     text.push('</ul></div>');
                     return text.join("");
                 },
-                
+
                 elements: {
                     line: {
                         tension: 0.4,
@@ -650,7 +650,7 @@
             });
             document.getElementById('performance-line-legend').innerHTML = salesTop.generateLegend();
             }
-            
+
             if ($("#status-summary").length) {
             var statusSummaryChartCanvas = document.getElementById("status-summary").getContext('2d');;
             var statusData = {
@@ -669,7 +669,7 @@
                     pointHoverRadius: [0, 0, 0, 0, 0, 0],
                 }]
             };
-        
+
             var statusOptions = {
                 responsive: true,
                 maintainAspectRatio: false,
@@ -705,7 +705,7 @@
                     }],
                 },
                 legend:false,
-                
+
                 elements: {
                     line: {
                         tension: 0.4,
@@ -727,7 +727,7 @@
                 // This has to be the same size as the maximum width to
                 // prevent clipping
                 strokeWidth: 15,
-                trailWidth: 15, 
+                trailWidth: 15,
                 easing: 'easeInOut',
                 duration: 1400,
                 text: {
@@ -745,17 +745,17 @@
                 step: function(state, circle) {
                 circle.path.setAttribute('stroke', state.color);
                 circle.path.setAttribute('stroke-width', state.width);
-        
+
                 var value = Math.round(circle.value() * 100);
                 if (value === 0) {
                     circle.setText('');
                 } else {
                     circle.setText(value);
                 }
-        
+
                 }
             });
-        
+
             bar.text.style.fontSize = '0rem';
             bar.animate(.64); // Number from 0.0 to 1.0
             }
@@ -783,17 +783,17 @@
                 step: function(state, circle) {
                 circle.path.setAttribute('stroke', state.color);
                 circle.path.setAttribute('stroke-width', state.width);
-        
+
                 var value = Math.round(circle.value() * 100);
                 if (value === 0) {
                     circle.setText('');
                 } else {
                     circle.setText(value);
                 }
-        
+
                 }
             });
-        
+
             bar.text.style.fontSize = '0rem';
             bar.animate(.34); // Number from 0.0 to 1.0
             }
@@ -821,17 +821,17 @@
                 step: function(state, circle) {
                 circle.path.setAttribute('stroke', state.color);
                 circle.path.setAttribute('stroke-width', state.width);
-        
+
                 var value = Math.round(circle.value() * 100);
                 if (value === 0) {
                     circle.setText('');
                 } else {
                     circle.setText(value);
                 }
-        
+
                 }
             });
-        
+
             bar.text.style.fontSize = '0rem';
             bar.animate(.79); // Number from 0.0 to 1.0
             }
@@ -848,7 +848,7 @@
                     ],
                     borderWidth: 0,
                     fill: true, // 3: no fill
-                    
+
                 },{
                     label: 'This week',
                     data: [215, 290, 210, 250, 290, 230, 290, 210, 280, 220, 190, 300],
@@ -860,7 +860,7 @@
                     fill: true, // 3: no fill
                 }]
             };
-        
+
             var marketingOverviewOptions = {
                 responsive: true,
                 maintainAspectRatio: false,
@@ -910,7 +910,7 @@
                     text.push('</ul></div>');
                     return text.join("");
                 },
-                
+
                 elements: {
                     line: {
                         tension: 0.4,
@@ -949,7 +949,7 @@
                     "#c442eb"
                 ],
                 }],
-        
+
                 // These labels appear in the legend and in the tooltips when hovering different arcs
                 labels: [
                 '16',
@@ -983,7 +983,7 @@
                 text.push('</div></ul>');
                 return text.join("");
                 },
-                
+
                 layout: {
                 padding: {
                     left: 0,
@@ -1001,7 +1001,7 @@
                     return data['datasets'][0]['data'][tooltipItem['index']];
                     }
                 },
-                    
+
                 backgroundColor: '#fff',
                 titleFontSize: 14,
                 titleFontColor: '#0B0F32',

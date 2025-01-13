@@ -92,21 +92,43 @@ class AuthController extends Controller
             $wa = $no_wa;
         }
 
-        $name = explode(' ', trim($request->full_name));
-        $token = mt_rand(1000, 9999);
-
-        $user = User::create([
-            'name' => $name[0],
-            'phone' => $wa,
-            'password' => bcrypt($request->password),
-            'role' => 'pendaftar',
-            'token' => $token,
-        ]);
-
         $academy_year = AcademyYear::where('is_active', true)->orderBy('id', 'desc')->pluck('id')->first();
         $stage = Stage::whereHas('academy_year', function ($query) {
             $query->where('is_active', true);
         })->orderBy('id', 'desc')->pluck('id')->first();
+
+
+
+        $user = User::where('phone', $wa)->first();
+        $name = explode(' ', trim($request->full_name));
+        $token = mt_rand(1000, 9999);
+
+        if (!$user) {
+            $user = User::create([
+                'name' => $name[0],
+                'phone' => $wa,
+                'password' => bcrypt($request->password),
+                'role' => 'pendaftar',
+                'token' => $token,
+            ]);
+        } else {
+            $data = BiodataOne::where('user_id', $user->id)->where('academy_year_id', $academy_year)->first();
+            if ($data) {
+                $request->validate([
+                    'no_wa' => 'unique:users,phone'
+                ], [
+                    'no_wa.unique' => 'Anda sudah teregistrasi, silahkan login.',
+                ]);
+
+                return redirect()->back()->with('no_wa', 'akun ini sudah terdaftar, silahkan login kembali');
+            } else {
+                $user->update([
+                    'name' => $name[0],
+                    'password' => bcrypt($request->password),
+                    'token' => $token,
+                ]);
+            }
+        }
 
         BiodataOne::create([
             'user_id' => $user->id,

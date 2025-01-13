@@ -28,7 +28,7 @@ class AuthRequest extends FormRequest
             'full_name'=>'required',
             // 'age'=>'required',
             'family'=>'required',
-            'no_wa'=>'required|unique:biodata_ones,no_wa|min:10|max:15',
+            'no_wa'=>'required|min:10|max:15',
             // 'phone'=>'required',
             'password'=>'required|string|min:6|max:20',
             'password_confirmation'=>'same:password',

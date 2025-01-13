@@ -72,6 +72,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'register']], functio
 
     Route::get('tes/tahap-pertama', [BiodataTwoController::class, 'index'])->name('user-first-tes');
     Route::post('tes/tahap-pertama/store', [BiodataTwoController::class, 'store'])->name('first-tes.store');
+    Route::post('tes/tahap-pertama/clone', [BiodataTwoController::class, 'clone'])->name('first-tes.clone');
 
     Route::get('tes/tahap-kedua', [TesIqController::class, 'iq'])->name('user-second-tes');
     Route::post('tes/tahap-kedua-store', [TesIqController::class, 'iqStore'])->name('second-tes.store');

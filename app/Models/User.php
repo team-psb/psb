@@ -51,12 +51,12 @@ class User extends Authenticatable
 
     public function biodataOne()
     {
-        return $this->hasOne(BiodataOne::class, 'user_id');
+        return $this->hasMany(BiodataOne::class, 'user_id');
     }
 
     public function biodataTwo()
     {
-        return $this->hasOne(BiodataTwo::class, 'user_id');
+        return $this->hasMany(BiodataTwo::class, 'user_id');
     }
 
     public function score()

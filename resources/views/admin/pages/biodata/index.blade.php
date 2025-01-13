@@ -128,32 +128,32 @@
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
-                                                <a 
+                                                <a
                                                     href="#mymodal"
-                                                    data-remote="{{ route('biodatas.show', $biodata->user->biodataOne->id) }}"
+                                                    data-remote="{{ route('biodatas.show', $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->id) }}"
                                                     data-toggle="modal"
                                                     data-target="#mymodal"
-                                                    data-title="Detail Data {{ $biodata->user->biodataOne->full_name }}" 
+                                                    data-title="Detail Data {{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}"
                                                     class="badge text-decoration-none fw-bold
                                                         {{ $biodata->status == null ? 'text-warning badge-opacity-warning' : '' }}
                                                         {{ $biodata->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
                                                         {{ $biodata->status == 'tidak' ? 'text-danger badge-opacity-danger' : '' }}"
                                                 >
-                                                    @if ($biodata->user->biodataOne->family == 'sangat-mampu')
+                                                    @if ($biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family == 'sangat-mampu')
                                                         <i class="ti-star text-warning"></i>
                                                     @endif
-                                                    {{ $biodata->user->biodataOne->full_name }}
+                                                    {{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}
                                                 </a>
                                             </td>
-                                            <td>{{ $biodata->user->biodataOne->no_wa }}</td>
-                                            <td>{{ $biodata->user->biodataOne->age }}</td>
+                                            <td>{{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->no_wa }}</td>
+                                            <td>{{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->age }}</td>
                                             <td>{{ $biodata->last_education }}</td>
                                             <td>{{ $biodata->goal }}</td>
                                             <td>{{ $biodata->achievment }}</td>
                                             <td>{{ $biodata->skill }}</td>
                                             <td>{{ $biodata->memorization }}</td>
                                             <td>{{ $biodata->gamer }}</td>
-                                            <td>{{ $biodata->user->biodataOne->family }}</td>
+                                            <td>{{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family }}</td>
                                             <td>{{ $biodata->parent }}</td>
                                             <td class="fw-bold">{{ $biodata->parent_income }}</td>
                                             <td>
@@ -162,7 +162,7 @@
                                             <td>
                                                 <div class="d-flex justify-content-end">
                                                     @if ($biodata->status == null)
-                                                        @if ($biodata->user->biodataOne->family == 'sangat-mampu')
+                                                        @if ($biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family == 'sangat-mampu')
                                                             <a href="{{ route('biodatas.status', $biodata->id) }}?status=lolos"
                                                                 class="btn btn-success btn-icon-text p-2">
                                                                     <i class="icon-check btn-icon-prepend"></i> Lolos (Interview)
@@ -179,10 +179,10 @@
                                                         </a>
                                                     @endif
                                                     <a href="#mymodal"
-                                                        data-remote="{{ route('biodatas.show', $biodata->user->biodataOne->id) }}"
+                                                        data-remote="{{ route('biodatas.show', $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->id) }}"
                                                         data-toggle="modal"
                                                         data-target="#mymodal"
-                                                        data-title="Detail Biodata {{ $biodata->user->biodataOne->full_name }}" 
+                                                        data-title="Detail Biodata {{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}"
                                                         class="btn btn-info btn-icon-text  p-2"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                         <i class="icon-eye btn-icon-prepend"></i> Detail
@@ -248,7 +248,7 @@
                             <option value="tidak-mampu" {{ request()->get('family') == 'tidak-mampu' ? 'selected' :''  }}>Keluarga Tidak Mampu</option>
                         </select>
                         </div>
-                    </div>  
+                    </div>
                     </div>
 
                     <div class="row">
@@ -342,7 +342,7 @@
                             <label class="fs-6">Minimal</label>
                             <input type="number" class="form-control" name="parent_income_min" placeholder="Rp." value="{{ request()->get('parent_income_min') }}">
                             </div>
-                        </div> 
+                        </div>
                         <div class="col">
                             <div class="form-group">
                             <label class="fs-6">Maksimal</label>
@@ -364,13 +364,13 @@
                                     @endforeach
                                     </select>
                             </div>
-                        </div> 
+                        </div>
                     </div>
-                </div>  
+                </div>
                 <div class="d-flex justify-content-between">
-                    <button type="submit"  formaction="{{ route('biodatas.filter-reset') }}"  class="btn btn-danger float-right">Atur Ulang</button>    
+                    <button type="submit"  formaction="{{ route('biodatas.filter-reset') }}"  class="btn btn-danger float-right">Atur Ulang</button>
                     <button type="submit" formaction="{{ route('biodatas.index') }}" class="btn btn-primary">Terapkan</button>
-                </div>    
+                </div>
             </form>
         </div>
         {{-- <div class="modal-footer">
@@ -458,33 +458,33 @@
                                     </td>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>
-                                        <a 
+                                        <a
                                             href="#mymodal"
                                             data-remote="{{ route('biodatas.show', $biodata->id) }}"
                                             data-toggle="modal"
                                             data-target="#mymodal"
-                                            data-title="Detail Data {{ $biodata->user->biodataOne->full_name }}" 
+                                            data-title="Detail Data {{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}"
                                             style="font-size: 10px"
                                             class="badge text-decoration-none fw-bold
                                                 {{ $biodata->status == null ? 'text-warning badge-opacity-warning' : '' }}
                                                 {{ $biodata->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
                                                 {{ $biodata->status == 'tidak' ? 'text-danger badge-opacity-danger' : '' }}"
                                         >
-                                            @if ($biodata->user->biodataOne->family == 'sangat-mampu')
+                                            @if ($biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family == 'sangat-mampu')
                                                 <i class="ti-star text-warning"></i>
                                             @endif
-                                            {{ $biodata->user->biodataOne->full_name }}
+                                            {{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}
                                         </a>
                                     </td>
-                                    <td>{{ $biodata->user->biodataOne->no_wa }}</td>
-                                    <td>{{ $biodata->user->biodataOne->age }}</td>
+                                    <td>{{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->no_wa }}</td>
+                                    <td>{{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->age }}</td>
                                     <td>{{ $biodata->last_education }}</td>
                                     <td>{{ $biodata->goal }}</td>
                                     <td style="width: 200px">{{ $biodata->achievment }}</td>
                                     <td style="width: 200px">{{ $biodata->skill }}</td>
                                     <td>{{ $biodata->memorization }}</td>
                                     <td>{{ $biodata->gamer }}</td>
-                                    <td>{{ $biodata->user->biodataOne->family }}</td>
+                                    <td>{{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family }}</td>
                                     <td>{{ $biodata->parent }}</td>
                                     <td class="fw-bold" style="width: 150px">{{ $biodata->parent_income }}</td>
                                     <td>
@@ -506,7 +506,7 @@
                                                 data-remote="{{ route('biodatas.show', $biodata->id) }}"
                                                 data-toggle="modal"
                                                 data-target="#mymodal"
-                                                data-title="Detail Biodata {{ $loop->iteration }}" 
+                                                data-title="Detail Biodata {{ $loop->iteration }}"
                                                 class="btn btn-info btn-icon-text  p-2"
                                                 data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                 <i class="icon-eye btn-icon-prepend"></i> Detail
@@ -593,16 +593,16 @@
                 });
             }
             });
-    
-            // Changing state of CheckAll1 checkbox 
+
+            // Changing state of CheckAll1 checkbox
             $(".checkbox").click(function(){
-    
+
             if($(".checkbox").length == $(".checkbox:checked").length) {
                 $("#checkall1").prop("checked", true);
             } else {
                 $("#checkall1").prop("checked", false);
             }
-    
+
             });
         });
     </script>

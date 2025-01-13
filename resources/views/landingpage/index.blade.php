@@ -1,14 +1,15 @@
 @php
     $tahun_ajaran = App\Models\AcademyYear::where('is_active', true)->orderBy('id','desc')->first();
-    $users = App\Models\BiodataOne::whereHas('academy_year', function($query){
-        $query->where('is_active', true);
-    })->count();
+
     $userregister = App\Models\BiodataOne::whereHas('user')->whereHas('academy_year', function($query){
         $query->where('is_active', true);
-    })->get();
+    })->where('academy_year_id', $tahun_ajaran->id)->get();
     $gelombang = App\Models\Stage::whereHas('academy_year', function($query){
         $query->where('is_active', true);
     })->orderBy('id', 'desc')->pluck('name')->first();
+    $users = App\Models\BiodataOne::whereHas('academy_year', function($query){
+        $query->where('is_active', true);
+    })->where('academy_year_id', $tahun_ajaran->id)->count();
     $informations = App\Models\Schdule::orderBy('id', 'desc')->limit(6)->get();
     $qnas = App\Models\Qna::get();
     $settings = App\Models\Setting::get();
@@ -18,16 +19,16 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="PSB Pondok Informatika Al-Madinah" />
+        <meta name="description" content="PSB Pondok Mahir Teknologi" />
         <meta
             name="keywords"
             content="HTML, CSS, JavaScript, PHP, Pendaftaran"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Pondok Informatika Al Madinah</title>
+        <title>Pondok Mahir Teknologi</title>
 
         <!-- Favicons -->
-        <link rel="shortcut icon" href="{{ asset('assets/img/Logo-Pondok.png') }}" rel="icon" />
+        <link rel="shortcut icon" href="{{ asset('assets_new/logo/logo-s-rgb.png') }}" rel="icon" />
 
         <!-- Google Fonts -->
         <link
@@ -36,7 +37,7 @@
         />
 
         <!-- Vendor CSS Files -->
-        <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet" />
+        {{-- <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet" /> --}}
         <link
             href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}"
             rel="stylesheet"
@@ -112,17 +113,17 @@
 
         <!-- ======= Background Image ======= -->
         <div class="d-none d-lg-inline">
-            <img
-                src="{{ asset('./assets/img/logo-bg.png') }}"
+            {{-- <img
+                src="{{ asset('./assets_new/logo/logo-bg.png') }}"
                 alt="logo"
                 class="position-absolute img-fluid"
                 width="1100"
                 style="z-index: -1; top: 120px; left: -67vh"
-            />
+            /> --}}
         </div>
         <div class="d-none d-lg-inline">
             <img
-                src="{{ asset('./assets/img/bawah.png') }}"
+                src="{{ asset('./assets_new/logo/bawah.png') }}"
                 alt="bg-bawah"
                 class="position-absolute img-fluid"
                 width="400"
@@ -131,7 +132,7 @@
         </div>
         <div class="d-none d-lg-inline">
             <img
-                src="{{ asset('./assets/img/Atas.png') }}"
+                src="{{ asset('./assets_new/logo/Atas.png') }}"
                 class="position-absolute"
                 alt="bg-atas"
                 width="700"
@@ -162,16 +163,16 @@
                 "
             >
                 <h1 class="logo">
-                    <a href="https://pondokinformatika.com/" target="blank">
+                    <a href="https://mahirteknologi.com/" target="blank">
                         <img
-                            src="{{ asset('./assets/img/Logo-Pondok.png') }}"
+                            src="{{ asset('./assets_new/logo/logo-s-rgb.png') }}"
                             alt="Logo-Pondok"
                             width="60"
                             class="img-fluid"
                             id="logo-image"
                         />
                         <span class="text-logo d-none d-sm-inline" id="text-lg">
-                            Pondok Informatika Al Madinah
+                            Pondok Mahir Teknologi
                         </span>
                     </a>
                 </h1>
@@ -227,7 +228,7 @@
 
         <!-- ======= Home Section ======= -->
         <section id="home" class="d-flex align-items-center pt-4 pt-lg-0 pt-xl-0">
-            <div class="container" data-aos="zoom-out">
+            <div class="container">
                 @if (session('success-regis'))
                         <div class="alert alert-success alert-dismissible show fade">
                             <div class="alert-body fw-bold">
@@ -260,13 +261,13 @@
                 @endif
                 <div class="row">
                     <div class="col-md-6 col-sm-12 mb-5 mb-lg-0 mb-md-0">
-                        <h3 class="fw-bold mb-4 banner-title">Selamat Datang Di Web PSB Online Pondok Informatika Al-Madinah</h3>
+                        <h3 class="fw-bold mb-4 banner-title">Selamat Datang Di Web PSB Online Pondok Mahir Teknologi</h3>
 
                         <div class="paragraf-text mb-5">
                             <p class="sub-banner1">
                                 Web Penerimaan Peserta Didik Baru <br />
                                 Tahun Ajaran <b>{{ isset($tahun_ajaran->year) ? $tahun_ajaran->year.' / '. intval($tahun_ajaran->year +1) : '' }}</b><br />
-                                Pondok Informatika Al-Madinah.
+                                Pondok Mahir Teknologi.
                             </p>
                             <p class="pt-2 sub-banner2">
                                 Pendaftaran Santri Baru telah dibuka. <br />
@@ -345,11 +346,10 @@
                                 float-md-end
                                 overflow-hidden
                             "
-                            data-aos="zoom-in"
                         >
                             <div>
-                                <img
-                                    src="{{ asset('./assets/img/logo-bg.png') }}"
+                                {{-- <img
+                                    src="{{ asset('./assets_new/logo/logo-bg.png') }}"
                                     class="position-absolute"
                                     alt="logo"
                                     width="400"
@@ -358,7 +358,7 @@
                                         top: 157px;
                                         left: -150px;
                                     "
-                                />
+                                /> --}}
                             </div>
 
                             <div class="card-body position-relative">
@@ -454,16 +454,16 @@
         <main id="main">
             <!-- Section Regis -->
             <section id="regis" class="d-flex align-items-center">
-                <div class="container" data-aos="fade-up">
+                <div class="container" >
                     <!-- Background Image -->
                     <div class="d-none d-lg-inline">
-                        <img
-                            src="{{ asset('./assets/img/logo-bg.png') }}"
+                        {{-- <img
+                            src="{{ asset('./assets_new/logo/logo-bg.png') }}"
                             alt="logo"
                             class="position-absolute img-fluid"
                             width="1100"
                             style="z-index: -1; top: 0px; left: 600px"
-                        />
+                        /> --}}
                     </div>
                     <!-- End Background Image -->
                     <div class="row">
@@ -484,7 +484,6 @@
                                     shadow-lg
                                     bg-body
                                 "
-                                data-aos="fade-right"
                             >
                                 <div class="card-body">
                                     <h1
@@ -905,7 +904,7 @@
                                     class="img-fluid alur_image_1"
                                 />
                                 <img
-                                    src="{{ asset('./assets/img/line_1.png') }}"
+                                    src="{{ asset('./assets_new/logo/line.png') }}"
                                     alt="daftar"
                                     width="115px"
                                     class="
@@ -965,7 +964,7 @@
                                     class="img-fluid alur_image_3"
                                 />
                                 <img
-                                    src="{{ asset('./assets/img/line_1.png') }}"
+                                    src="{{ asset('./assets_new/logo/line.png') }}"
                                     alt="daftar"
                                     width="115px"
                                     class="
@@ -1024,7 +1023,7 @@
                                     class="img-fluid alur_image_5"
                                 />
                                 <img
-                                    src="{{ asset('./assets/img/line_1.png') }}"
+                                    src="{{ asset('./assets_new/logo/line.png') }}"
                                     alt="daftar"
                                     width="115px"
                                     class="
@@ -1060,7 +1059,7 @@
                         >
                         <div class="position-relative">
                             <p
-                                class=" 
+                                class="
                                     mt-3
                                     position-absolute
                                     text-center
@@ -1078,7 +1077,7 @@
                         </div>
                         <div class="position-relative">
                             <p
-                                class=" 
+                                class="
                                     mt-3
                                     position-absolute
                                     text-center
@@ -1106,17 +1105,16 @@
             <section id="stat" class="stat">
                 <div
                     class="container"
-                    data-aos="fade-up"
                 >
                     <!-- Background Image -->
                     <div class="d-none d-lg-inline">
-                        <img
-                            src="{{ asset('./assets/img/logo-bg.png') }}"
+                        {{-- <img
+                            src="{{ asset('./assets_new/logo/logo-bg.png') }}"
                             alt="logo"
                             class="position-absolute img-fluid"
                             width="1100"
                             style="z-index: -1; top: 0px; right: 600px"
-                        />
+                        /> --}}
                     </div>
                     <!-- End Background Image -->
                     <div class="row align-items-center">
@@ -1127,8 +1125,6 @@
                                 </h1>
                                 <div
                                     class="position-relative text-center"
-                                    data-aos="zoom-in"
-                                    data-aos-duration="1000"
                                 >
                                     <!-- <p class="text-stats">Total Pendaftar</p> -->
                                     <p class="text-stats2">Total Pendaftar</p>
@@ -1182,16 +1178,16 @@
 
             <!-- ======= Announce Section ======= -->
             <section id="announce" class="announce">
-                <div class="container"  data-aos="fade-up">
+                <div class="container"  >
                     <!-- Background Image -->
                     <div class="d-none d-lg-inline">
-                        <img
-                            src="{{ asset('./assets/img/logo-bg.png') }}"
+                        {{-- <img
+                            src="{{ asset('./assets_new/logo/logo-bg.png') }}"
                             alt="logo"
                             class="position-absolute img-fluid"
                             width="1100"
                             style="z-index: -1; top: 0px; left: 600px"
-                        />
+                        /> --}}
                     </div>
                     <h1 class="fw-bold text-center title-announce">Pengumuman</h1>
                     <!-- End Background Image -->
@@ -1199,8 +1195,8 @@
                         <div class="col-sm-12 col-lg-5 mb-5 mb-lg-0">
                             <div
                             class="icon-box"
-                            data-aos="fade-up"
-                            data-aos-delay="100"
+
+
                             >
                                 <h3 class="title mb-5">
                                     Pengumuman
@@ -1232,8 +1228,8 @@
                         <div class="col-sm-12 col-lg-6 mb-5 mb-lg-0">
                             <div
                             class="icon-box2"
-                            data-aos="fade-up"
-                            data-aos-delay="100"
+
+
                             >
                                 <h3 class="title2 text-nowrap mb-5">
                                     Cara Daftar
@@ -1270,7 +1266,7 @@
 
             <!-- ======= Information Section ======= -->
             <section id="info" class="information">
-                <div class="container" data-aos="fade-up">
+                <div class="container" >
                     <div class="section-title mb-4 title-info">
                         <h1>Informasi</h1>
                     </div>
@@ -1279,8 +1275,8 @@
                         @forelse ($informations as $informasi)
                         <div
                                 class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4"
-                                data-aos="zoom-in"
-                                data-aos-delay="100"
+
+
                             >
                             <div class="icon-box">
                                 <a href="{{ route('information', $informasi->id) }}" class="text-dark">
@@ -1308,13 +1304,13 @@
 
             <!-- ======= Activity Section ======= -->
             <section id="portfolio" class="portfolio">
-                <div class="container" data-aos="fade-up">
+                <div class="container" >
                     <div class="section-title">
                         <h1 class="title-activity">Kegiatan</h1>
-                        <p class="subtitle-activity">Terdapat banyak kegiatan seru dan bermanfaat untuk semua santri Pondok Informatika Al-Madinah.</p>
+                        <p class="subtitle-activity">Terdapat banyak kegiatan seru dan bermanfaat untuk semua santri Pondok Mahir Teknologi.</p>
                     </div>
 
-                    <div class="row" data-aos="fade-up" data-aos-delay="100">
+                    <div class="row"  >
                         <div class="col-lg-12 d-flex justify-content-center">
                             <ul id="portfolio-flters">
                                 <li data-filter="*" class="filter-active">
@@ -1329,8 +1325,8 @@
 
                     <div
                         class="row portfolio-container"
-                        data-aos="fade-up"
-                        data-aos-delay="200"
+
+
                     >
 
                         <div
@@ -1424,12 +1420,12 @@
                             />
                             <div class="portfolio-info">
                                 <h4>Kegiatan Rihlah di Jogja Bay</h4>
-                                <p>Alhamdulillah atas izin Allah santri Pondok Informatika Almadinah melaksanakan rihlah bersama di Jogja Bay.</p>
+                                <p>Alhamdulillah atas izin Allah santri Pondok Mahir Teknologi melaksanakan rihlah bersama di Jogja Bay.</p>
                                 <a
                                     href="{{ asset('assets/image_psb/rihlah2.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
-                                    title="Alhamdulillah atas izin Allah santri Pondok Informatika Almadinah melaksanakan rihlah bersama di Jogja Bay."
+                                    title="Alhamdulillah atas izin Allah santri Pondok Mahir Teknologi melaksanakan rihlah bersama di Jogja Bay."
                                     ><i class="bx bx-plus"></i
                                 ></a>
                                 <!-- <a
@@ -1451,12 +1447,12 @@
                             />
                             <div class="portfolio-info">
                                 <h4>Tidak hanya belajar IT dan Agama.. Tapi belajar mengendarai mobil</h4>
-                                <p>Santri Pondok Informatika Al-madinah memiliki program pembelajaran lain atau biasa disebut ekstrakurikuler salah satunya mengendarai mobil.</p>
+                                <p>Santri Pondok Mahir Teknologi memiliki program pembelajaran lain atau biasa disebut ekstrakurikuler salah satunya mengendarai mobil.</p>
                                 <a
                                     href="{{ asset('assets/image_psb/mobil.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
-                                    title="Santri Pondok Informatika Al-madinah memiliki program pembelajaran lain atau biasa disebut ekstrakurikuler salah satunya mengendarai mobil."
+                                    title="Santri Pondok Mahir Teknologi memiliki program pembelajaran lain atau biasa disebut ekstrakurikuler salah satunya mengendarai mobil."
                                     ><i class="bx bx-plus"></i
                                 ></a>
                                 <!-- <a
@@ -1777,12 +1773,12 @@
                             />
                             <div class="portfolio-info">
                                 <h4>Santri Menjadi Tim Media Live Streaming</h4>
-                                <p>Alhamdulillah, santri Pondok Informatika Almadinah kelas Desain Multimedia mendapat amanah menjadi tim media Live Streaming Tabligh Akbar bersama Ahmad dan Kamil. Acara ini berlangsung pada hari ahad 10 oktober 2021.</p>
+                                <p>Alhamdulillah, santri Pondok Mahir Teknologi kelas Desain Multimedia mendapat amanah menjadi tim media Live Streaming Tabligh Akbar bersama Ahmad dan Kamil. Acara ini berlangsung pada hari ahad 10 oktober 2021.</p>
                                 <a
                                     href="{{ asset('assets/image_psb/live.jpg') }}"
                                     data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link"
-                                    title="Alhamdulillah, santri Pondok Informatika Almadinah kelas Desain Multimedia mendapat amanah menjadi tim media Live Streaming Tabligh Akbar bersama Ahmad dan Kamil. Acara ini berlangsung pada hari ahad 10 oktober 2021."
+                                    title="Alhamdulillah, santri Pondok Mahir Teknologi kelas Desain Multimedia mendapat amanah menjadi tim media Live Streaming Tabligh Akbar bersama Ahmad dan Kamil. Acara ini berlangsung pada hari ahad 10 oktober 2021."
                                     ><i class="bx bx-plus"></i
                                 ></a>
                                 <!-- <a
@@ -1802,13 +1798,13 @@
 
             <!-- ======= Work Section ======= -->
             <section id="portfolio" class="portfolio">
-                <div class="container" data-aos="fade-up">
+                <div class="container" >
                     <div class="section-title">
                         <h1 class="title-activity">Karya Santri</h1>
-                        <p class="subtitle-activity">Banyak karya yang sudah di buat oleh santri Pondok Informatika Al-Madinah dan berikut ini adalah beberapa contohnya.</p>
+                        <p class="subtitle-activity">Banyak karya yang sudah di buat oleh santri Pondok Mahir Teknologi dan berikut ini adalah beberapa contohnya.</p>
                     </div>
 
-                    <div class="row" data-aos="fade-up" data-aos-delay="100">
+                    <div class="row"  >
                         <div class="col-lg-12 d-flex justify-content-center">
                             <ul id="portfolio-flters-work">
                                 <li data-filter="*" class="filter-active">
@@ -1823,8 +1819,8 @@
 
                     <div
                         class="row portfolio-container-work"
-                        data-aos="fade-up"
-                        data-aos-delay="200"
+
+
                         >
                         <div
                             class="col-lg-4 col-md-6 portfolio-item-work filter-programming"
@@ -2060,12 +2056,12 @@
 
             <!-- ======= Questions and Answers Section ======= -->
             <section id="qna" class="qna section-bg">
-                <div class="container" data-aos="fade-up">
+                <div class="container" >
                     <div class="section-title">
                         <h2 class="mb-3 subtitle-activity">Q.&.A</h2>
                         <h1 class="fw-bold mb-3 title-activity">Questions and Answers</h1>
                         <p class="subtitle-activity">
-                            Temukan berbagai pertanyaan seputar pendaftaran Pondok Informatika Al-Madinah dibawah ini.
+                            Temukan berbagai pertanyaan seputar pendaftaran Pondok Mahir Teknologi dibawah ini.
                         </p>
                     </div>
 
@@ -2109,12 +2105,12 @@
 
             <!-- ======= About Section ======= -->
             <section id="about" class="about">
-                <div class="container" data-aos="fade-up">
+                <div class="container" >
                     <div class="section-title">
                         <h1 class="fw-bold about-title title-activity"><span>About Us</span></h1>
                     </div>
 
-                    <div class="row" data-aos="fade-up" data-aos-delay="100">
+                    <div class="row"  >
                         <div class="col-lg-6">
                             <div class="info-box pb-3 sub-address">
                                 <i class="bx bx-map"></i>
@@ -2140,7 +2136,7 @@
                         </div>
                     </div>
 
-                    <div data-aos="fade-up" data-aos-delay="100">
+                    <div  >
                         <div class="col-lg-12">
                             <iframe
                                 class="mb-4 mb-lg-0 sub-map"
@@ -2159,8 +2155,8 @@
 
         <!-- ====== Sponsor Section ======= -->
             <section class="sponsor section-bg">
-                <div class="container" data-aos="zoom-in">
-                    <div class="row">
+                <div class="container" >
+                    {{-- <div class="row">
                         <div
                             class="
                                 col-lg-6 col-md-6 col-6
@@ -2192,16 +2188,16 @@
                                 alt="logo-ywj"
                             />
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </section>
-            <!-- End Sponsor Section -->
+        <!-- End Sponsor Section -->
 
         <!-- ======= Footer ======= -->
             <footer id="footer">
                 <div class="footer-top">
                     <div class="content-footer">
-                        <img
+                        {{-- <img
                             src="./assets/img/footer.png"
                             alt="logo"
                             class="position-absolute d-none d-lg-block"
@@ -2214,7 +2210,7 @@
                             class="position-absolute d-none d-xxl-block"
                             width="2300"
                             style="z-index: -2; top: 30%; left: 26.8%; transform: translate(-50%, -50%);"
-                        />
+                        /> --}}
                         <div class="row align-items-center">
                             <div class="col-12 col-lg-5 footer-contact mx-auto text-center">
                                 <h4 class="text-uppercase mb-5 title-footer-left"></h4>
@@ -2227,11 +2223,11 @@
                                 </a>
                             </div>
                             <div class="col-12 col-lg-2 footer-contact text-center my-5 my-lg-0 logo-sponsor">
-                                <img src="./assets/img/logo-putih.png" alt="Logo Pondok" width="150">
+                                <img src="./assets_new/logo/logo-bw-s.png" alt="Logo Pondok" width="150">
                             </div>
                             <div class="col-12 col-lg-5 footer-contact">
                                 <p class="fs-6 px-0 px-lg-5 footer-right">
-                                    Pondok Informatika Al-Madinah membuka penerimaan santri baru yang siap menjadi ahli IT yang bertauhid lurus, mencintai sunnah, berakhlak mulia serta profesional dan siap membela islam dengan keahlian dan mau mendedikasikan waktu dan tenaganya untuk dakwah islam.
+                                    Pondok Mahir Teknologi membuka penerimaan santri baru yang siap menjadi ahli IT yang bertauhid lurus, mencintai sunnah, berakhlak mulia serta profesional dan siap membela islam dengan keahlian dan mau mendedikasikan waktu dan tenaganya untuk dakwah islam.
                                 </p>
                             </div>
                         </div>
@@ -2240,7 +2236,7 @@
             </footer>
             <!-- ======= Copyright ======= -->
             <div class="copyright text-center">
-                &copy; {{ date('Y') }} Copyright <strong><span>Pondok Informatika Al-Madinah</span></strong
+                &copy; {{ date('Y') }} Copyright <strong><span>Pondok Mahir Teknologi</span></strong
                 >.
             </div>
         <!-- End Footer -->
@@ -2255,7 +2251,7 @@
 
         <!-- Vendor JS Files -->
         <script src="{{ asset('./assets/vendor/purecounter/purecounter.js') }}"></script>
-        <script src="{{ asset('./assets/vendor/aos/aos.js') }}"></script>
+        {{-- <script src="{{ asset('./assets/vendor/aos/aos.js') }}"></script> --}}
         <script src="{{ asset('./assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('./assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
         <script src="{{ asset('./assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
@@ -2403,7 +2399,26 @@
 			});
 		</script>
 
-        <script>
+		<script>
+            gsap.to(".email-address", {
+                text: " pondokitalmadinah@gmail.com",
+                duration: 2,
+                delay: 2,
+            });
+            gsap.to(".no-hp", {
+                text: " 088 892 398 44",
+                duration: 2,
+                delay: 4,
+            });
+            gsap.from(".social-links", {
+                x: 50,
+                opacity: 0,
+                duration: 1,
+                delay: 6,
+            });
+        </script>
+
+        {{-- <script>
             /* GSAP */
 
             //Top-Navbar
@@ -2744,7 +2759,7 @@
 
             //Section Footer
             gsap.to(".title-footer-left", {
-                text: "Pondok Informatika Al-Madinah",
+                text: "Pondok Mahir Teknologi",
                 duration: 2,
                 delay: 2
             });
@@ -2771,7 +2786,7 @@
                 ease: "elastic",
                 opacity: 0,
             });
-        </script>
+        </script> --}}
 
         <!-- Template Main JS File -->
         <script src="./assets/js/main.js"></script>

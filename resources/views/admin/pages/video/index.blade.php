@@ -113,21 +113,21 @@
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
-                                                <a 
+                                                <a
                                                     href="#mymodal"
-                                                    data-remote="{{ route('biodatas.show', $video->user->biodataOne->id) }}"
+                                                    data-remote="{{ route('biodatas.show', $video->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->id) }}"
                                                     data-toggle="modal"
                                                     data-target="#mymodal"
-                                                    data-title="Detail Data" 
+                                                    data-title="Detail Data"
                                                     class="badge text-decoration-none fw-bold
                                                         {{ $video->status == null ? 'text-warning badge-opacity-warning' : '' }}
                                                         {{ $video->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
                                                         {{ $video->status == 'tidak' ? 'text-danger badge-opacity-danger' : '' }}"
                                                 >
-                                                    @if ($video->user->biodataOne->family == 'sangat-mampu')
+                                                    @if ($video->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family == 'sangat-mampu')
                                                         <i class="ti-star text-warning"></i>
                                                     @endif
-                                                    {{ $video->user->biodataOne->full_name }}
+                                                    {{ $video->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}
                                                 </a>
                                             </td>
                                             <td class="text-success"> <a href="{{ $video->url }}" target="_blank">{{ $video->url }}</a></td>
@@ -176,7 +176,7 @@
             </div>
             <div class="modal-body">
                 <form method="GET">
-            
+
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
@@ -188,14 +188,14 @@
                                         @endforeach
                                         </select>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                            
+
                         <div class="d-flex justify-content-between">
                             <button type="submit" formaction="{{ route('videos.filter-reset') }}" class="btn btn-danger">Atur Ulang</button>
                             <button type="submit" formaction="{{ route('videos.index') }}" class="btn btn-primary">Terapkan</button>
                         </div>
-                        
+
                 </form>
         </div>
     </div>

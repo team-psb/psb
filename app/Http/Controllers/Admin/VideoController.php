@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\VideoExport;
 use App\Http\Controllers\Controller;
+use App\Models\AcademyYear;
 use App\Models\Interview;
 use App\Models\ScorePersonal;
 use App\Models\Stage;
@@ -17,21 +18,22 @@ class VideoController extends Controller
 
     public function index()
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $stages = Stage::get();
 
         if (request()->get('stage_id') && request()->get('stage_id') != null) {
-            $data = Video::with(['academy_year' => function ($query) {
+            $data = Video::where('academy_year_id', $tahun_ajaran)->with(['academy_year' => function ($query) {
                 $query->where('stage_id', '=', request()->get('stage_id'));
             }, 'user.biodataOne'])->orderBy('id', 'desc');
         } else {
-            $data = Video::with(['academy_year' => function ($query) {
+            $data = Video::where('academy_year_id', $tahun_ajaran)->with(['academy_year' => function ($query) {
                 $query->where('is_active', '=', true);
             }, 'user.biodataOne'])->orderBy('id', 'desc');
         }
 
         $data = $data->get();
         $videos = $data->where('academy_year', '!=', null);
-        return view('admin.pages.video.index', compact('videos', 'stages'));
+        return view('admin.pages.video.index', compact('videos', 'stages', 'tahun_ajaran'));
     }
 
     public function delete($id)
@@ -83,7 +85,7 @@ class VideoController extends Controller
 
 
         //         $data = [
-        //             
+        //
         //             'target' => $item->user->phone,
         //             'message' => 'Selamat, *' . $item->user->name . '!*
 
@@ -91,7 +93,7 @@ class VideoController extends Controller
 
         // Untuk tes _Tahap Kelima_ adalah *wawancara*, Kami akan segera memberitahu anda mengenai waktunya
 
-        // *Pastikan selalu mengecek whatsapp agar tidak melewatkan jadwal yang kami berikan*' 
+        // *Pastikan selalu mengecek whatsapp agar tidak melewatkan jadwal yang kami berikan*'
         //         ];
         $data = [
 
@@ -113,13 +115,13 @@ class VideoController extends Controller
             Interview::where('user_id', '=', $item->user_id)->delete();
         }
         //         $data = [
-        //             
+        //
         //             'target' => $item->user->phone,
         //             'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
         // Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kelima_
 
-        // Tetap Semangka (Semangat Karena Allah !)' 
+        // Tetap Semangka (Semangat Karena Allah !)'
         //         ];
 
         $notif = Setting::get()->first();
@@ -146,7 +148,7 @@ class VideoController extends Controller
                     'stage_id' => $item->stage_id,
                 ]);
                 //                 $data = [
-                //                 
+                //
                 //                 'target' => $item->user->phone,
                 //                 'message' => 'Selamat, *' . $item->user->name . '!*
 
@@ -154,7 +156,7 @@ class VideoController extends Controller
 
                 // Untuk tes _Tahap Kelima_ adalah *wawancara*, Kami akan segera memberitahu anda mengenai waktunya
 
-                // *Pastikan selalu mengecek whatsapp agar tidak melewatkan jadwal yang kami berikan*' 
+                // *Pastikan selalu mengecek whatsapp agar tidak melewatkan jadwal yang kami berikan*'
                 //                 ];
                 $notif = Setting::get()->first();
 
@@ -184,13 +186,13 @@ class VideoController extends Controller
                     Interview::where('user_id', '=', $item->user_id)->delete();
                 }
                 //                 $data = [
-                //             
+                //
                 //             'target' => $item->user->phone,
                 //             'message' => 'Mohon maaf, *' . $item->user->name . '!*
 
                 // Anda dinyatakan *Tidak Lolos* dan tidak bisa lanjut ke _Tahap Kelima_
 
-                // Tetap Semangka (Semangat Karena Allah !)' 
+                // Tetap Semangka (Semangat Karena Allah !)'
                 //         ];
                 $notif = Setting::get()->first();
 

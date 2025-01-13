@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\InterviewExport;
 use App\Http\Controllers\Controller;
+use App\Models\AcademyYear;
 use App\Models\Interview;
 use Illuminate\Http\Request;
 use App\Models\Pass;
@@ -16,21 +17,22 @@ class InterviewController extends Controller
 {
     public function index()
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $stages = Stage::get();
 
         if (request()->get('stage_id') && request()->get('stage_id') != null) {
-            $data = Interview::with(['academy_year' => function ($query) {
+            $data = Interview::where('academy_year_id', $tahun_ajaran)->with(['academy_year' => function ($query) {
                 $query->where('stage_id', '=', request()->get('stage_id'));
             }, 'user.biodataOne'])->orderBy('id', 'desc');
         } else {
-            $data = Interview::with(['academy_year' => function ($query) {
+            $data = Interview::where('academy_year_id', $tahun_ajaran)->with(['academy_year' => function ($query) {
                 $query->where('is_active', '=', true);
             }, 'user.biodataOne'])->orderBy('id', 'desc');
         }
 
         $data = $data->get();
         $interviews = $data->where('academy_year', '!=', null);
-        return view('admin.pages.interview.index', compact('interviews', 'stages'));
+        return view('admin.pages.interview.index', compact('interviews', 'stages', 'tahun_ajaran'));
     }
 
     public function delete($id)
@@ -62,11 +64,11 @@ class InterviewController extends Controller
         // Whatsapp Gateway
         if ($item->status == 'lolos') {
             //         $data = [
-            //             
+            //
             //             'target' => $item->user->phone,
             //             'message' => 'Selamat, *' . $item->user->name . '!*
 
-            // Anda dinyatakan *Lolos* Sebagai calon santri Pondok Informatika Al-Madinah
+            // Anda dinyatakan *Lolos* Sebagai calon santri Pondok Mahir Teknologi
 
             // Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp selalu aktif*.'
             //         ];
@@ -78,13 +80,13 @@ class InterviewController extends Controller
             sendMessage($data);
         } else {
             //         $data = [
-            //             
+            //
             //             'target' => $item->user->phone,
             //             'message' => 'Mohon maaf,' . $item->user->name . '!
 
             // Anda dinyatakan *Tidak Lolos* pada sesi wawancara
 
-            // Tetap Semangka (Semangat Karena Allah !)' 
+            // Tetap Semangka (Semangat Karena Allah !)'
             //         ];
             $data = [
 
@@ -104,11 +106,11 @@ class InterviewController extends Controller
                 $item = Pass::find($id);
                 Pass::find($id)->update(['status' => 'lolos']);
                 //                 $data = [
-                //                     
+                //
                 //                     'target' => $item->user->phone,
                 //                     'message' => 'Selamat, *' . $item->user->name . '!*
 
-                // Anda dinyatakan *Lolos* Sebagai calon santri Pondok Informatika Al-Madinah
+                // Anda dinyatakan *Lolos* Sebagai calon santri Pondok Mahir Teknologi
 
                 // Untuk informasi selanjutnya akan kami kirim melalui WhatsApp, *Pastikan whatsapp selalu aktif*.'
                 //                 ];
@@ -135,13 +137,13 @@ class InterviewController extends Controller
                 $item = Pass::find($id);
                 Pass::find($id)->update(['status' => 'tidak']);
                 //                 $data = [
-                //                     
+                //
                 //                     'target' => $item->user->phone,
                 //                     'message' => 'Mohon maaf,' . $item->user->name . '!
 
                 // Anda dinyatakan *Tidak Lolos* pada sesi *Wawancara*
 
-                // Tetap Semangka (Semangat Karena Allah !)' 
+                // Tetap Semangka (Semangat Karena Allah !)'
                 //                 ];
                 $notif = Setting::get()->first();
                 $data = [

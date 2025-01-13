@@ -22,7 +22,7 @@ class CreateBiodataOnesTable extends Migration
             $table->enum('family', ['sangat-mampu', 'mampu', 'tidak-mampu']);
             $table->integer('age');
             $table->date('birth_date');
-            $table->string('no_wa')->unique();
+            $table->string('no_wa');
             $table->enum('gender', ['l', 'p']);
 
             $table->softDeletes();

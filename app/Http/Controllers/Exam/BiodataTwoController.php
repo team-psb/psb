@@ -16,6 +16,7 @@ use App\Models\ScorePersonal;
 use App\Models\Stage;
 use App\Models\Video;
 use App\Models\Setting;
+use Illuminate\Http\Request;
 
 class BiodataTwoController extends Controller
 {
@@ -23,8 +24,9 @@ class BiodataTwoController extends Controller
     {
         $provinsi = DB::table('indonesia_provinces')->get();
         $kabupaten = DB::table('indonesia_cities')->get();
+        $back = BiodataTwo::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->first();
 
-        return view('front.pages.biodata.index', compact('provinsi', 'kabupaten'));
+        return view('front.pages.biodata.index', compact('provinsi', 'kabupaten', 'back'));
     }
 
     public function store(BiodataTwoRequest $request)
@@ -37,7 +39,7 @@ class BiodataTwoController extends Controller
 
         $notif = Setting::get()->first();
 
-        $biodata = BiodataTwo::where('user_id', $users_id)->first();
+        $biodata = BiodataTwo::where('academy_year_id', $tahun_ajaran_id)->where('user_id', $users_id)->first();
 
         if (!$biodata) {
             if (Auth::user()->BiodataOne->family == 'sangat-mampu') {
@@ -45,7 +47,6 @@ class BiodataTwoController extends Controller
                 BiodataTwo::create($request->all());
 
                 $data = [
-
                     'target' => Auth::user()->phone,
                     'message' => '*' . Auth::user()->name . '*, ' . $notif->complete_tahap1_sm
 
@@ -57,7 +58,6 @@ class BiodataTwoController extends Controller
                 BiodataTwo::create($request->all());
 
                 $data = [
-
                     'target' => Auth::user()->phone,
                     'message' => '*' . Auth::user()->name . '*, ' . $notif->complete_tahap1
                 ];
@@ -65,6 +65,50 @@ class BiodataTwoController extends Controller
             }
         } else {
             return redirect()->route('success');
+        }
+
+        return redirect()->route('success');
+    }
+
+    public function clone()
+    {
+        $back = BiodataTwo::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->first();
+
+        $tahun_ajaran_id = AcademyYear::where('is_active', true)->orderBy('id', 'desc')->pluck('id')->first();
+        $stage_id = Stage::whereHas('academy_year', function ($query) {
+            $query->where('is_active', true);
+        })->orderBy('id', 'desc')->pluck('id')->first();
+
+        $notif = Setting::get()->first();
+
+        if (Auth::user()->BiodataOne->family == 'sangat-mampu') {
+
+            unset($back['id']);
+            $back['academy_year_id'] = $tahun_ajaran_id;
+            $back['stage_id'] = $stage_id;
+            $back['status'] = null;
+
+            BiodataTwo::create($back->toArray());
+
+            $data = [
+                'target' => Auth::user()->phone,
+                'message' => '*' . Auth::user()->name . '*, ' . $notif->complete_tahap1_sm
+
+            ];
+            sendMessage($data);
+        } else {
+            unset($back['id']);
+            $back['academy_year_id'] = $tahun_ajaran_id;
+            $back['stage_id'] = $stage_id;
+            $back['status'] = null;
+
+            BiodataTwo::create($back->toArray());
+
+            $data = [
+                'target' => Auth::user()->phone,
+                'message' => '*' . Auth::user()->name . '*, ' . $notif->complete_tahap1
+            ];
+            sendMessage($data);
         }
 
         return redirect()->route('success');

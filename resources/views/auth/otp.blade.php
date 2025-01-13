@@ -3,16 +3,16 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="PSB Pondok Informatika Al-Madinah" />
+        <meta name="description" content="PSB Pondok Mahir Teknologi" />
         <meta
             name="keywords"
             content="HTML, CSS, JavaScript, PHP, Pendaftaran"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Pondok Informatika Al Madinah</title>
+        <title>Pondok Mahir Teknologi</title>
 
         <!-- Favicons -->
-        <link href="{{ asset('assets/img/Logo-Pondok.png') }}" rel="icon" />
+        <link href="{{ asset('assets_new/logo/logo-s-rgb.png') }}" rel="icon" />
 
         <!-- Google Fonts -->
         <link
@@ -61,7 +61,8 @@
             /* -------- Line -------- */
 
             body{
-                background: linear-gradient(-45deg, lightseagreen, #23d5ab, #23a6d5, steelblue);
+                background: linear-gradient(-45deg, #288df8, #235ecc, #0f51cc, #0241b6);
+                /* background: linear-gradient(-45deg, lightseagreen, #23d5ab, #23a6d5, steelblue); */
                 background-size: 500%, 500%;
                 position: relative;
                 animation: change 10s ease-in-out infinite;
@@ -113,31 +114,33 @@
     <body>
         <!-- ======= Background Image ======= -->
         <div class="d-none d-lg-inline">
-            <img
-                src="{{ asset('./assets/img/logo-bg.png') }}"
+            {{-- <img
+                src="{{ asset('./assets_new/logo/logo-bg.png') }}"
                 class="position-absolute"
                 alt="logo"
-                width="1050"
+                width="600"
                 style="
                     z-index: -0;
                     top: 50px;
-                    left: -450px;
+                    left: -250px;
+                    opacity: 0.3;
                 "
-            />
+            /> --}}
         </div>
         <!-- ======= End Background Image ======= -->
 
         <div class="d-flex justify-content-center align-items-center container">
             <div class="card pt-5 pb-4 px-4 text-center shadow position-relative overflow-hidden">
                 <img
-                    src="{{ asset('./assets/img/logo-bg.png') }}"
+                    src="{{ asset('./assets_new/logo/logo-bg.png') }}"
                     class="position-absolute"
                     alt="logo"
-                    width="400"
+                    width="200"
                     style="
                         z-index: -0;
                         top: 100px;
-                        left: -140px;
+                        left: -80px;
+                        opacity: 0.3;
                     "
                 />
                 <h3 class="mb-3 text-white">OTP Verification</h3>

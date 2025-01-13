@@ -3,13 +3,13 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="PSB Pondok Informatika Al-Madinah" />
+        <meta name="description" content="PSB Pondok Mahir Teknologi" />
         <meta
             name="keywords"
             content="HTML, CSS, JavaScript, PHP, Pendaftaran"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Pondok Informatika Al Madinah</title>
+        <title>Pondok Mahir Teknologi</title>
 
         <!-- Favicons -->
         <link href="assets/Logo-Pondok.png" rel="icon" />
@@ -94,13 +94,13 @@
 
         <!-- ======= Background Image ======= -->
         <div class="d-none d-lg-inline">
-            <img
+            {{-- <img
                 src="./assets/logo-bg.png"
                 alt="logo"
                 class="position-absolute img-fluid"
                 width="1100"
                 style="z-index: -1; top: 120px; left: -67vh"
-            />
+            /> --}}
         </div>
         <div class="d-none d-lg-inline">
             <img
@@ -147,7 +147,7 @@
                             id="logo-image"
                         />
                         <span class="text-logo d-none d-sm-inline" id="text-lg">
-                            Pondok Informatika Al-Madinah
+                            Pondok Mahir Teknologi
                         </span>
                     </a>
                 </h1>
@@ -214,7 +214,7 @@
                             <p class="sub-banner1">
                                 Web Penerimaan Peserta Didik Baru <br />
                                 Tahun Pelajaran 2021/2022 <br />
-                                Pondok Informatika Al-Madinah
+                                Pondok Mahir Teknologi
                             </p>
                             <p class="pt-2 sub-banner2">
                                 Pendaftaran Santri Baru telah dibuka. <br />
@@ -297,7 +297,7 @@
                             data-aos="zoom-in"
                         >
                             <div>
-                                <img
+                                {{-- <img
                                     src="./assets/logo-bg.png"
                                     class="position-absolute"
                                     alt="logo"
@@ -307,7 +307,7 @@
                                         top: 157px;
                                         left: -150px;
                                     "
-                                />
+                                /> --}}
                             </div>
 
                             <div class="card-body">
@@ -553,7 +553,7 @@
                 delay: 6,
             });
             gsap.to(".banner-title", {
-                text: "Selamat Datang Di Web PSB Online Pondok Informatika Al-Madinah",
+                text: "Selamat Datang Di Web PSB Online Pondok Mahir Teknologi",
                 duration: 5,
                 delay: 2,
             });

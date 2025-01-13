@@ -2,13 +2,13 @@
 
 @section('title', 'Profile')
 
-@push('end-style')
+{{-- @push('end-style')
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-@endpush
+@endpush --}}
 
 @section('content')
 <div class="main-content">
-    @isset($profile->user->biodataTwo)
+    @isset($tahap1)
     <section class="section">
       <div class="section-body mb-5">
           <div class="col-12 d-xl-none"></div>
@@ -41,43 +41,43 @@
                   </tr>
                   <tr>
                     <th>Hobi</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->hobby }}</td>
+                    <td class="text-break">{{ $tahap1->hobby }}</td>
                   </tr>
                   <tr>
                     <th>Cita-cita</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->goal }}</td>
+                    <td class="text-break">{{ $tahap1->goal }}</td>
                   </tr>
                   <tr>
                     <th>Pendidikan Terakhir</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->last_education }}</td>
+                    <td class="text-break">{{ $tahap1->last_education }}</td>
                   </tr>
                   <tr>
                     <th>Asal Sekolah</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->name_school }}</td>
+                    <td class="text-break">{{ $tahap1->name_school }}</td>
                   </tr>
                   <tr>
                     <th>Jurusan</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->major }}</td>
+                    <td class="text-break">{{ $tahap1->major }}</td>
                   </tr>
                   <tr>
                     <th>Prestasi</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->achievment }}</td>
+                    <td class="text-break">{{ $tahap1->achievment }}</td>
                   </tr>
                   <tr>
                     <th>Pengalaman Organisasi</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->organization }}</td>
+                    <td class="text-break">{{ $tahap1->organization }}</td>
                   </tr>
                   <tr>
                     <th>Alamat Lengkap</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->address }}</td>
+                    <td class="text-break">{{ $tahap1->address }}</td>
                   </tr>
                   <tr>
                     <th>Kabupaten</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->city->name }}</td>
+                    <td class="text-break">{{ $tahap1->city->name }}</td>
                   </tr>
                   <tr>
                     <th>Provinsi</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->provincy->name }}</td>
+                    <td class="text-break">{{ $tahap1->provincy->name }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -98,53 +98,53 @@
                 <tbody>
                   <tr>
                     <th>Orang Tua</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->parent }}</td>
+                    <td class="text-break">{{ $tahap1->parent }}</td>
                   </tr>
                   <tr>
                     <th>Nama Ayah</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->father }}</td>
+                    <td class="text-break">{{ $tahap1->father }}</td>
                   </tr>
                   <tr>
                     <th>No Whatsapp Ayah</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->father_id }}</td>
+                    <td class="text-break">{{ $tahap1->father_id }}</td>
                   </tr>
                   <tr>
                     <th>Nama Ibu</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->mother }}</td>
+                    <td class="text-break">{{ $tahap1->mother }}</td>
                   </tr>
                   <tr>
                     <th>No Whatsapp Ibu</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->mother_id }}</td>
+                    <td class="text-break">{{ $tahap1->mother_id }}</td>
                   </tr>
                   <tr>
                     <th>Kondisi Keluarga</th>
-                    <td class="text-break">{{ $profile->user->biodataOne->family }}</td>
+                    <td class="text-break">{{ $tahap1->family }}</td>
                   </tr>
                   <tr>
                     <th>Pekerjaan Ayah</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->father_work }}</td>
+                    <td class="text-break">{{ $tahap1->father_work }}</td>
                   </tr>
                   <tr>
                     <th>Pekerjaan Ibu</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->mother_work }}</td>
+                    <td class="text-break">{{ $tahap1->mother_work }}</td>
                   </tr>
                   <tr>
                     <th>Penghasilan Orang Tua</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->parent_income }}</td>
+                    <td class="text-break">{{ $tahap1->parent_income }}</td>
                   </tr>
                   <tr>
                     <th>Wali / Orang Tua</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->choose_guardian }}</td>
+                    <td class="text-break">{{ $tahap1->choose_guardian }}</td>
                   </tr>
                   <tr>
                     <th>Nama Wali / Orang Tua</th>
                     <td class="text-break">
-                      @if ($profile->user->biodataTwo->choose_guardian == 'ayah')
-                        {{ $profile->user->biodataTwo->father }}
-                      @elseif ($profile->user->biodataTwo->choose_guardian == 'ibu')
-                        {{ $profile->user->biodataTwo->mother }}
-                      @elseif ($profile->user->biodataTwo->choose_guardian == 'selain-orang-tua')
-                        {{ $profile->user->biodataTwo->guardian }}
+                      @if ($tahap1->choose_guardian == 'ayah')
+                        {{ $tahap1->father }}
+                      @elseif ($tahap1->choose_guardian == 'ibu')
+                        {{ $tahap1->mother }}
+                      @elseif ($tahap1->choose_guardian == 'selain-orang-tua')
+                        {{ $tahap1->guardian }}
                       @else
                         -
                       @endif
@@ -152,15 +152,15 @@
                   </tr>
                   <tr>
                     <th>Kontak Wali / Orang Tua</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->no_guardian }}</td>
+                    <td class="text-break">{{ $tahap1->no_guardian }}</td>
                   </tr>
                   <tr>
                     <th>Jumlah Saudara</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->brother }}</td>
+                    <td class="text-break">{{ $tahap1->brother }}</td>
                   </tr>
                   <tr>
                     <th>Anak Ke-</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->child_to }}</td>
+                    <td class="text-break">{{ $tahap1->child_to }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -201,7 +201,7 @@
                       <td class="text-break">-</td>
                     </tr>
                   @endif
-                    
+
                   @if (isset($profile->user->video))
                     <tr>
                       <th>Url Video Youtube</th>
@@ -239,19 +239,19 @@
                   <tr>
                     <th>Facebook</th>
                     <td class="text-break">
-                      <a target="_blank" href="{{ $profile->user->biodataTwo->facebook }}">{{ $profile->user->biodataTwo->facebook }}</a>
+                      <a target="_blank" href="{{ $tahap1->facebook }}">{{ $tahap1->facebook }}</a>
                     </td>
                   </tr>
                   <tr>
                     <th>Instagram</th>
                     <td class="text-break">
-                      <a target="_blank" href="{{ $profile->user->biodataTwo->instagram }}">{{ $profile->user->biodataTwo->instagram }}</a>
+                      <a target="_blank" href="{{ $tahap1->instagram }}">{{ $tahap1->instagram }}</a>
                     </td>
                   </tr>
                   <tr>
                     <th>Tiktok</th>
                     <td class="text-break">
-                      <a target="_blank" href="{{ $profile->user->biodataTwo->tiktok }}">{{ $profile->user->biodataTwo->tiktok }}</a>
+                      <a target="_blank" href="{{ $tahap1->tiktok }}">{{ $tahap1->tiktok }}</a>
                     </td>
                 </tr>
                 </tbody>
@@ -273,27 +273,27 @@
                 <tbody>
                   <tr>
                     <th>Jumlah Hafalan</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->memorization }}</td>
+                    <td class="text-break">{{ $tahap1->memorization }}</td>
                   </tr>
                   <tr>
                     <th>Ustadz Idola</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->chaplain_idol }}</td>
+                    <td class="text-break">{{ $tahap1->chaplain_idol }}</td>
                   </tr>
                   <tr>
                     <th>Tokoh Idola</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->figure_idol }}</td>
+                    <td class="text-break">{{ $tahap1->figure_idol }}</td>
                   </tr>
                   <tr>
                     <th>Dimana Allah?</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->tauhid }}</td>
+                    <td class="text-break">{{ $tahap1->tauhid }}</td>
                   </tr>
                   <tr>
                     <th>Kajian yang sering dihadiri</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->study_islamic }}</td>
+                    <td class="text-break">{{ $tahap1->study_islamic }}</td>
                   </tr>
                   <tr>
                     <th>Buku bacaan favorit</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->read_book }}</td>
+                    <td class="text-break">{{ $tahap1->read_book }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -314,37 +314,37 @@
                 <tbody>
                   <tr>
                     <th>Merokok?</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->smoker }}</td>
+                    <td class="text-break">{{ $tahap1->smoker }}</td>
                   </tr>
                   <tr>
                     <th>Bangun sholat subuh?</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->pray }}</td>
+                    <td class="text-break">{{ $tahap1->pray }}</td>
                   </tr>
                   <tr>
                     <th>Punya pacar?</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->girlfriend }}</td>
+                    <td class="text-break">{{ $tahap1->girlfriend }}</td>
                   </tr>
                   <tr>
                     <th>Punya tato?</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->tattoed }}</td>
+                    <td class="text-break">{{ $tahap1->tattoed }}</td>
                   </tr>
                   <tr>
                     <th>Suka game?</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->gamer }}</td>
+                    <td class="text-break">{{ $tahap1->gamer }}</td>
                   </tr>
-                  @if ($profile->user->biodataTwo->gamer == 'iya')
+                  @if ($tahap1->gamer == 'iya')
                   <tr>
                     <th>Nama game</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->game_name }}</td>
+                    <td class="text-break">{{ $tahap1->game_name }}</td>
                   </tr>
                   <tr>
                     <th>Durasi main game</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->game_duration }} &nbsp;Jam</td>
+                    <td class="text-break">{{ $tahap1->game_duration }} &nbsp;Jam</td>
                   </tr>
                   @endif
                   <tr>
                     <th>Punya laptop?</th>
-                    <td class="text-break">{{ $profile->user->biodataTwo->have_laptop }}</td>
+                    <td class="text-break">{{ $tahap1->have_laptop }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -366,19 +366,19 @@
                   <tr>
                     <td class="text-break py-3">
                       <h6 style="font-size: 14px">Alasan Mendaftar?</h6>
-                      <p class="mb-0">{{ $profile->user->biodataTwo->reason_registration }}</p>
+                      <p class="mb-0">{{ $tahap1->reason_registration }}</p>
                     </td>
                   </tr>
                   <tr>
                     <td class="text-break py-3">
                       <h6 style="font-size: 14px">Kegiatan Dari Bangun Sampai Tidur?</h6>
-                      <p class="mb-0">{{ $profile->user->biodataTwo->activity }}</p>
+                      <p class="mb-0">{{ $tahap1->activity }}</p>
                     </td>
                   </tr>
                   <tr>
                     <td class="text-break py-3">
                       <h6 style="font-size: 14px">Kepribadian?</h6>
-                      <p class="mb-0">{{ $profile->user->biodataTwo->personal }}</p>
+                      <p class="mb-0">{{ $tahap1->personal }}</p>
                     </td>
                   </tr>
                 </tbody>
@@ -402,9 +402,9 @@
 </div>
 @endsection
 
-@push('end-script')
+{{-- @push('end-script')
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
     </script>
-@endpush
+@endpush --}}

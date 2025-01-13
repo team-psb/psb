@@ -10,13 +10,13 @@
                 <div class="card   card-rounded">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-content-center pb-2" style="border-bottom: 1px solid #c4c4c4;">
-                            <h4 class="card-title">Detail Nilai Kepribadian | {{ $user->biodataOne->full_name }}</h4>
+                            <h4 class="card-title">Detail Nilai Kepribadian | {{ $user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}</h4>
                             <div>
                                 <a href="{{ route('scorePersonal.index') }}" class="btn btn-success">Back</a>
                             </div>
                         </div>
                         <p class="card-description">
-                            Detail Jawaban Soal Personal | {{ $user->biodataOne->full_name }}
+                            Detail Jawaban Soal Personal | {{ $user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}
                         </p>
                         <div class="table-responsive">
                             <table cellpadding="10" class="table-2  table-hover" style="font-size: 14px;">

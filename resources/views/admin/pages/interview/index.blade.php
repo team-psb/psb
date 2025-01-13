@@ -114,21 +114,21 @@
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
-                                                <a 
+                                                <a
                                                     href="#mymodal"
-                                                    data-remote="{{ route('biodatas.show', $interview->user->biodataOne->id) }}"
+                                                    data-remote="{{ route('biodatas.show', $interview->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->id) }}"
                                                     data-toggle="modal"
                                                     data-target="#mymodal"
-                                                    data-title="Detail Data" 
+                                                    data-title="Detail Data"
                                                     class="badge text-decoration-none fw-bold
                                                         {{ $interview->status == null ? 'text-warning badge-opacity-warning' : '' }}
                                                         {{ $interview->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
                                                         {{ $interview->status == 'tidak' ? 'text-danger badge-opacity-danger' : '' }}"
                                                 >
-                                                    @if ($interview->user->biodataOne->family == 'sangat-mampu')
+                                                    @if ($interview->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family == 'sangat-mampu')
                                                         <i class="ti-star text-warning"></i>
                                                     @endif
-                                                    {{ $interview->user->biodataOne->full_name }}
+                                                    {{ $interview->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}
                                                 </a>
                                             </td>
                                             <td>
@@ -192,7 +192,7 @@
             </div>
             <div class="modal-body">
                 <form method="GET">
-            
+
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
@@ -204,14 +204,14 @@
                                         @endforeach
                                         </select>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                            
+
                         <div class="d-flex justify-content-between">
                             <button type="submit" formaction="{{ route('interviews.filter-reset') }}" class="btn btn-danger">Atur Ulang</button>
                             <button type="submit" formaction="{{ route('interviews.index') }}" class="btn btn-primary">Terapkan</button>
                         </div>
-                        
+
                 </form>
         </div>
     </div>
@@ -269,14 +269,14 @@ function copyText() {
     function myFunction() {
     /* Get the text field */
     var copyText = document.getElementById("copy");
-    
+
     /* Select the text field */
     copyText.select();
     copyText.setSelectionRange(0, 99999); /* For mobile devices */
-    
+
     /* Copy the text inside the text field */
     navigator.clipboard.writeText(copyText.value);
-    
+
     /* Alert the copied text */
     // alert("Berhasil di salin : " + copyText.value);
     }

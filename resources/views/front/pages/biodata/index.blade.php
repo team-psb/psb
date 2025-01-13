@@ -70,6 +70,21 @@
                 </div>
               </div>
               <!-- end step wizard -->
+
+              <div class="card-body bg-primary text-white card">
+                <p>
+                    Kamu sudah pernah mendaftar disini sebelumnya, apakah kamu ingin mengisi data yang sama dengan yang sebelumnya?
+                </p>
+                <div class="d-flex justify-content-end">
+                    <button form="clone" class="btn btn-white bg-white text-dark px-5" href="{{ route('first-tes.clone') }}">
+                        iya
+                    </button>
+                </div>
+              </div>
+              <form method="post" action="{{ route('first-tes.clone') }}" id="clone">
+                @csrf
+              </form>
+
               <p class="card-text">Silahkan isi form dibawah ini!</p>
               <div class="card text-left">
                 @if ($errors->any())
@@ -364,7 +379,7 @@
                               <span style="font-size: 16px;"><b id="required">Silahkan isi hafalan dengan pembulatan</b></span> <br>
                               <span class="text-dark" style="font-size: 16px; font-weight: bold;">Contoh :</span> <br>
                               Jika hafalanmu 1 Juz 9 lembar dan belum mencapai 2 juz<br>
-                              Maka = dibulatkan menjadi 1 juz 
+                              Maka = dibulatkan menjadi 1 juz
 
                               <br>
                               <br>

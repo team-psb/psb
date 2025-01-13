@@ -6,12 +6,13 @@
         </button>
       </div>
       <div>
-        <a class="navbar-brand brand-logo" href="https://pondokinformatika.com/" target="_blank">
-          <img src="{{ asset('template/images/Pita_web_logo-1.png') }}" alt="logo" />
+        <a class="navbar-brand brand-logo" href="https://mahirteknologi.com/" target="_blank">
+          <img src="{{ asset('assets_new/logo/logo-l-rgb.png') }}" height="100%" alt="logo" />
+          {{-- <img src="{{ asset('template/images/Pita_web_logo-1.png') }}" alt="logo" /> --}}
         </a>
       </div>
     </div>
-    <div class="navbar-menu-wrapper d-flex align-items-top"> 
+    <div class="navbar-menu-wrapper d-flex align-items-top">
       <ul class="navbar-nav">
         <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
           <h1 class="welcome-text">
@@ -41,7 +42,7 @@
               echo "Selamat Malam,";
               }
             @endphp
-            
+
 
             <span class="text-black fw-bold">{{ Auth::user()->name }}</span></h1>
           <h3 class="welcome-sub-text">This system performance summary</h3>
@@ -67,8 +68,8 @@
             </div>
             <form method="POST" action="{{ url('/logout') }}">
               @csrf
-                  <a 
-                  class="dropdown-item" 
+                  <a
+                  class="dropdown-item"
                   href="{{ url('/logout') }}"
                   onclick="event.preventDefault();
                   this.closest('form').submit();">

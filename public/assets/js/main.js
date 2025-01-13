@@ -92,9 +92,9 @@
             document.body.scrollTop > 100 ||
             document.documentElement.scrollTop > 100
         ) {
-            document.getElementById("header").style.background = "#23c193";
+            document.getElementById("header").style.background = "#2059C5";
             document.getElementById("logo-image").src =
-                "/assets/img/logo-putih.png";
+                "/assets_new/logo/logo-bw-s.png";   
             document.getElementById("header").style.boxShadow =
                 "0px 2px 15px rgba(0, 0, 0, 0.1)";
             document.getElementById("text-lg").style.color = "#fff";
@@ -107,7 +107,7 @@
         } else {
             document.getElementById("header").style.background = "transparent";
             document.getElementById("logo-image").src =
-                "/assets/img/Logo-Pondok.png";
+                "/assets_new/logo/logo-s-rgb.png";
             document.getElementById("header").style.boxShadow = "";
             document.getElementById("text-lg").style.color = "";
             document.getElementById("link1").style.color = "";

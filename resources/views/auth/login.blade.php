@@ -3,16 +3,16 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="PSB Pondok Informatika Al-Madinah" />
+        <meta name="description" content="PSB Pondok Mahir Teknologi" />
         <meta
             name="keywords"
             content="HTML, CSS, JavaScript, PHP, Pendaftaran"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Pondok Informatika Al Madinah</title>
+        <title>Pondok Mahir Teknologi</title>
 
         <!-- Favicons -->
-        <link href="assets/img/Logo-Pondok.png" rel="icon" />
+        <link href="assets_new/logo/logo-s-rgb.png" rel="icon" />
         <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
         <!-- Google Fonts -->
@@ -136,11 +136,11 @@
         <!-- ======= Background Image ======= -->
         <div class="d-none d-lg-inline">
             <img
-                src="./assets/img/logo-bg.png"
+                src="./assets_new/logo/logo-bg.png"
                 alt="logo"
                 class="position-absolute img-fluid"
-                width="1100"
-                style="z-index: -1; top: 120px; left: -67vh"
+                width="600"
+                style="z-index: -1; top: 120px; left: -30vh;opacity: 0.25;"
             />
         </div>
         <!-- ======= End Background Image ======= -->
@@ -164,14 +164,14 @@
                 <h1 class="logo">
                     <a href="#">
                         <img
-                            src="./assets/img/Logo-Pondok.png"
+                            src="./assets_new/logo/logo-s-rgb.png"
                             alt="Logo-Pondok"
                             width="60"
                             class="img-fluid"
                             id="logo-image"
                         />
                         <span class="text-logo d-none d-sm-inline" id="text-lg">
-                            Pondok Informatika Al-Madinah
+                            Pondok Mahir Teknologi
                         </span>
                     </a>
                 </h1>
@@ -221,14 +221,15 @@
                         >
                             <div>
                                 <img
-                                    src="{{ asset('./assets/img/logo-bg.png') }}"
+                                    src="{{ asset('./assets_new/logo/logo-bg.png') }}"
                                     class="position-absolute"
                                     alt="logo"
-                                    width="400"
+                                    width="200"
                                     style="
+                                        opacity: 0.3;
                                         z-index: -0;
                                         top: 157px;
-                                        left: -150px;
+                                        left: -50px;
                                     "
                                 />
                             </div>
@@ -308,7 +309,7 @@
         </section>
         <!-- ======= Copyright ======= -->
         <div class="copyright text-center" style="margin: 40px;">
-            &copy; {{ date('Y') }} Copyright <strong><span>Pondok Informatika Al-Madinah</span></strong
+            &copy; {{ date('Y') }} Copyright <strong><span>Pondok Mahir Teknologi</span></strong
             >.
         </div>
         <!-- End Home -->

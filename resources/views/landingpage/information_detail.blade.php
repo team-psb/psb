@@ -3,16 +3,16 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="PSB Pondok Informatika Al-Madinah" />
+        <meta name="description" content="PSB Pondok Mahir Teknologi" />
         <meta
             name="keywords"
             content="HTML, CSS, JavaScript, PHP, Pendaftaran"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Pondok Informatika Almadinah</title>
+        <title>Pondok Mahir Teknologi</title>
 
         <!-- Favicons -->
-        <link rel="shortcut icon" href="/assets/img/Logo-Pondok.png" rel="icon" />
+        <link rel="shortcut icon" href="/assets_new/logo/logo-s-rgb.png" rel="icon" />
 
         <!-- Google Fonts -->
         <link
@@ -103,14 +103,14 @@
                 <h1 class="logo">
                     <a href="https://pondokinformatika.com/" target="blank">
                         <img
-                            src="/assets/img/Logo-Pondok.png"
+                            src="/assets_new/logo/logo-s-rgb.png"
                             alt="Logo-Pondok"
                             width="60"
                             class="img-fluid"
                             id="logo-image"
                         />
                         <span class="text-logo d-none d-sm-inline" id="text-lg">
-                            Pondok Informatika Al-Madinah
+                            Pondok Mahir Teknologi
                         </span>
                     </a>
                 </h1>
@@ -286,7 +286,7 @@
                         </div>
                         <div class="col-12 col-lg-5 footer-contact">
                             <p class="fs-6 px-0 px-lg-5 footer-right">
-                                Pondok Informatika Al-Madinah membuka penerimaan
+                                Pondok Mahir Teknologi membuka penerimaan
                                 santri baru yang siap menjadi ahli IT yang
                                 bertauhid lurus, mencintai sunnah, berakhlak
                                 mulia serta profesional dan siap membela islam
@@ -300,7 +300,7 @@
         </footer>
         <div class="copyright text-center">
             &copy; 2021 Copyright
-            <strong><span>Pondok Informatika Al-Madinah</span></strong
+            <strong><span>Pondok Mahir Teknologi</span></strong
             >.
         </div>
         <!-- End Footer -->
@@ -370,7 +370,7 @@
 
             //Section Footer
             gsap.to(".title-footer-left", {
-                text: "Pondok Informatika Al-Madinah",
+                text: "Pondok Mahir Teknologi",
                 duration: 2,
                 delay: 2,
             });

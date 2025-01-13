@@ -21,43 +21,34 @@ use Illuminate\Support\Str;
 class UserDashboardController extends Controller
 {
     public function index(){
-        $data = BiodataOne::with(['academy_year' => function($query){
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
+
+        $data = BiodataOne::where('academy_year_id', $tahun_ajaran)->with(['academy_year' => function($query){
             $query->where('is_active', true);
         }]);
 
         $gelombang = AcademyYear::where('is_active', 1)->pluck('stage_id');
 
-        $biodata1 = BiodataOne::where('user_id', '=', Auth::user()->id)->first(); 
-        $tahap1 = BiodataTwo::where('user_id', '=', Auth::user()->id)->first();
-        $tahap2 = ScoreIq::where('user_id', '=', Auth::user()->id)->first();
-        $tahap3 = ScorePersonal::where('user_id', '=', Auth::user()->id)->first();
-        $tahap4 = Video::where('user_id', '=', Auth::user()->id)->first();
-        $tahap5 = Pass::where('user_id', '=', Auth::user()->id)->first();
+        $biodata1 = BiodataOne::where('academy_year_id', $tahun_ajaran)->where('user_id', '=', Auth::user()->id)->first();
+        $tahap1 = BiodataTwo::where('academy_year_id', $tahun_ajaran)->where('user_id', '=', Auth::user()->id)->first();
+        $tahap2 = ScoreIq::where('academy_year_id', $tahun_ajaran)->where('user_id', '=', Auth::user()->id)->first();
+        $tahap3 = ScorePersonal::where('academy_year_id', $tahun_ajaran)->where('user_id', '=', Auth::user()->id)->first();
+        $tahap4 = Video::where('academy_year_id', $tahun_ajaran)->where('user_id', '=', Auth::user()->id)->first();
+        $tahap5 = Pass::where('academy_year_id', $tahun_ajaran)->where('user_id', '=', Auth::user()->id)->first();
         $schdules = Schdule::orderBy('created_at', 'desc')->get();
         $qna    = Qna::first();
-        
-        return view('front.index', compact('biodata1', 'tahap1', 'tahap2', 'tahap3', 'tahap4', 'tahap5', 'schdules', 'qna', 'data'));
+
+        return view('front.index', compact('biodata1', 'tahap1', 'tahap2', 'tahap3', 'tahap4', 'tahap5', 'schdules', 'qna', 'data', 'tahun_ajaran'));
     }
 
     public function profile()
     {
-        $data = BiodataOne::with(['academy_year' => function($query){
-            $query->where('is_active', true);
-        }]);
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
 
-        $gelombang = AcademyYear::where('is_active', 1)->pluck('stage_id');
+        $tahap1 = BiodataTwo::where('academy_year_id', $tahun_ajaran)->where('user_id', '=', Auth::user()->id)->first();
+        $profile = BiodataOne::where('academy_year_id', $tahun_ajaran)->firstWhere('user_id', Auth::user()->id);
 
-        $biodata1 = BiodataOne::where('user_id', '=', Auth::user()->id)->first(); 
-        $tahap1 = BiodataTwo::where('user_id', '=', Auth::user()->id)->first();
-        $tahap2 = ScoreIq::where('user_id', '=', Auth::user()->id)->first();
-        $tahap3 = ScorePersonal::where('user_id', '=', Auth::user()->id)->first();
-        $tahap4 = Video::where('user_id', '=', Auth::user()->id)->first();
-        $tahap5 = Pass::where('user_id', '=', Auth::user()->id)->first();
-        $schdules = Schdule::orderBy('created_at', 'desc')->get();
-        $qna    = Qna::first();
-        $profile = BiodataOne::firstWhere('user_id', Auth::user()->id);
-
-        return view('front.pages.profile.index', compact('profile', 'biodata1', 'tahap1', 'tahap2', 'tahap3', 'tahap4', 'tahap5', 'schdules', 'qna', 'data',));
+        return view('front.pages.profile.index', compact('profile', 'tahap1'));
     }
 
     public function qna()
@@ -78,7 +69,7 @@ class UserDashboardController extends Controller
     {
         // $information =  Schdule::where('slug', $slug)->first();
         $information =  Schdule::find($id);
-        
+
         return view('front.pages.information.info_detail', compact('information'));
     }
 }
