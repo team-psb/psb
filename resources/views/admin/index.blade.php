@@ -274,9 +274,9 @@
                                                     </td>
                                                     <td>
                                                         @if (isset($item->user->biodataTwo))
-                                                            @if ($item->user->biodataTwo->status == 'lolos')
+                                                            @if ($item->user->biodataTwo->where('academy_year_id', $tahuna_ajaran)->first()->status == 'lolos')
                                                             <div class="badge badge-opacity-success">lolos biodata</div>
-                                                            @elseif ($item->user->biodataTwo->status == 'tidak')
+                                                            @elseif ($item->user->biodataTwo->where('academy_year_id', $tahuna_ajaran)->first()->status == 'tidak')
                                                                 <div class="badge badge-opacity-danger">tidak lolos biodata</div>
                                                             @else()
                                                                 <div class="badge badge-opacity-warning">
@@ -493,13 +493,13 @@
                                                 <div class="d-flex  align-items-center">
                                                     <img class="img-sm rounded-10" src="{{ Avatar::create($calon->user->name)->toGravatar(['d' => 'wavatar', 'r' => 'pg', 's' => 100])}}" alt="profile">
                                                     <div class="ms-3">
-                                                        <h6 class="fw-bold" style="text-align: left; font-size: 14px">{{ $calon->user->biodataOne->full_name }}</h6>
-                                                        <small class="text-muted mb-0">{{ $calon->user->biodataOne->age }} Tahun</small>
+                                                        <h6 class="fw-bold" style="text-align: left; font-size: 14px">{{ $calon->user->biodataOne->where('academy_year_id', $tahuna_ajaran)->first()->full_name }}</h6>
+                                                        <small class="text-muted mb-0">{{ $calon->user->biodataOne->where('academy_year_id', $tahuna_ajaran)->first()->age }} Tahun</small>
                                                     </div>
                                                 </div>
                                                 <div class="text-muted" style="text-align: right">
-                                                    <p class="fw-bold">{{ $calon->user->biodataTwo->provincy->name }}</p>
-                                                    <p>{{ $calon->user->biodataTwo->city->name }}</p>
+                                                    <p class="fw-bold">{{ $calon->user->biodataTwo->where('academy_year_id', $tahuna_ajaran)->first()->provincy->name }}</p>
+                                                    <p>{{ $calon->user->biodataTwo->where('academy_year_id', $tahuna_ajaran)->first()->city->name }}</p>
                                                 </div>
                                             </div>
                                             @endforeach

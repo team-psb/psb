@@ -27,6 +27,8 @@ class DashboardController extends Controller
         //     $q->where('is_active', true);
         // })->count();
         // $pendaftar = BiodataTwo::whereRelation('academy_year', 'is_active', true)->whereDate('created_at', Carbon::today())->count();
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
+
         $pendaftar = BiodataOne::whereRelation('academy_year', 'is_active', true)->count();
         $totalpendaftar = BiodataOne::whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
         $sangatmampu = BiodataOne::where('family', 'sangat-mampu')->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
@@ -43,7 +45,7 @@ class DashboardController extends Controller
         $informasitotal = Schdule::get()->count();
         $informasi = Schdule::orderBy('id', 'desc')->limit(5)->get();
         $qna = Qna::get()->count();
-        $newusers = BiodataOne::orderBy('id', 'desc')->take(5)->get();  
+        $newusers = BiodataOne::orderBy('id', 'desc')->take(5)->get();
         $activities = ActivityLog::with('user')->orderBy('id', 'desc')->limit(10)->get();
         $activitiescount = ActivityLog::with('user')->whereDate('created_at', Carbon::today())->count();
         $label  = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
@@ -62,7 +64,7 @@ class DashboardController extends Controller
             $tahunLalu[] = $lastYear;
             // $chartThisYear     = collect(DB::SELECT("SELECT count(id) AS jumlah from biodata_ones where month(created_at)='$bulan'"))->first();
             // $lastYear     = collect(DB::SELECT("SELECT count(id) AS jumlah from biodata_ones where month(created_at)='$bulan'"))->first();
-            
+
             // $tahunIni[] = $chartThisYear->jumlah;
             // $tahunLalu[] = $lastYear->jumlah;
 
@@ -77,8 +79,9 @@ class DashboardController extends Controller
             '21' => BiodataOne::where('age', '21')->count(),
         ];
 
-        
+
         return view('admin.index', [
+            'tahuna_ajaran' => $tahun_ajaran,
             'pendaftar' => $pendaftar,
             'totalpendaftar' => $totalpendaftar,
             'lolos' => $lolos,
