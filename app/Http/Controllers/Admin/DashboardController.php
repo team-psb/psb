@@ -46,8 +46,8 @@ class DashboardController extends Controller
         $informasi = Schdule::orderBy('id', 'desc')->limit(5)->get();
         $qna = Qna::get()->count();
         $newusers = BiodataOne::orderBy('id', 'desc')->where('academy_year_id', $tahun_ajaran)->take(5)->get();
-        $activities = ActivityLog::with('user')->where('academy_year_id', $tahun_ajaran)->orderBy('id', 'desc')->limit(10)->get();
-        $activitiescount = ActivityLog::with('user')->where('academy_year_id', $tahun_ajaran)->whereDate('created_at', Carbon::today())->count();
+        $activities = ActivityLog::with('user')->orderBy('id', 'desc')->limit(10)->get();
+        $activitiescount = ActivityLog::with('user')->whereDate('created_at', Carbon::today())->count();
         $label  = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
 
         for($bulan=1;$bulan < 13;$bulan++){
