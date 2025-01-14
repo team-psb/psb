@@ -29,37 +29,39 @@ class DashboardController extends Controller
         // $pendaftar = BiodataTwo::whereRelation('academy_year', 'is_active', true)->whereDate('created_at', Carbon::today())->count();
         $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
 
-        $pendaftar = BiodataOne::whereRelation('academy_year', 'is_active', true)->count();
-        $totalpendaftar = BiodataOne::whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
-        $sangatmampu = BiodataOne::where('family', 'sangat-mampu')->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
-        $mampu = BiodataOne::where('family', 'mampu')->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
-        $tidakmampu = BiodataOne::where('family', 'tidak-mampu')->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
-        $biodataPending = BiodataTwo::where('status', null)->count();
+        $pendaftar = BiodataOne::whereRelation('academy_year', 'is_active', true)->where('academy_year_id', $tahun_ajaran)->count();
+        $totalpendaftar = BiodataOne::whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->where('academy_year_id', $tahun_ajaran)->count();
+        $sangatmampu = BiodataOne::where('family', 'sangat-mampu')->where('academy_year_id', $tahun_ajaran)->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
+        $mampu = BiodataOne::where('family', 'mampu')->where('academy_year_id', $tahun_ajaran)->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
+        $tidakmampu = BiodataOne::where('family', 'tidak-mampu')->where('academy_year_id', $tahun_ajaran)->whereHas('biodataTwo')->whereRelation('academy_year', 'is_active', true)->count();
+        $biodataPending = BiodataTwo::where('status', null)->where('academy_year_id', $tahun_ajaran)->count();
 
         $lolos = Interview::with(['academy_year'=>function($query){
             $query->where('is_active','=', true);
-        },'user.biodataOne'])->where('status', 'lolos')->get();
+        },'user.biodataOne'])->where('academy_year_id', $tahun_ajaran)->where('status', 'lolos')->get();
 
         $iq = QuestionIq::get()->count();
         $kepribadian = QuestionPersonal::get()->count();
         $informasitotal = Schdule::get()->count();
         $informasi = Schdule::orderBy('id', 'desc')->limit(5)->get();
         $qna = Qna::get()->count();
-        $newusers = BiodataOne::orderBy('id', 'desc')->take(5)->get();
-        $activities = ActivityLog::with('user')->orderBy('id', 'desc')->limit(10)->get();
-        $activitiescount = ActivityLog::with('user')->whereDate('created_at', Carbon::today())->count();
+        $newusers = BiodataOne::orderBy('id', 'desc')->where('academy_year_id', $tahun_ajaran)->take(5)->get();
+        $activities = ActivityLog::with('user')->where('academy_year_id', $tahun_ajaran)->orderBy('id', 'desc')->limit(10)->get();
+        $activitiescount = ActivityLog::with('user')->where('academy_year_id', $tahun_ajaran)->whereDate('created_at', Carbon::today())->count();
         $label  = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
 
         for($bulan=1;$bulan < 13;$bulan++){
             $inYear = BiodataOne::whereHas('biodataTwo')
             ->whereMonth('created_at', $bulan)
             ->whereYear('created_at', Carbon::now())
+            ->where('academy_year_id', $tahun_ajaran)
             ->count();
             $tahunIni[] = $inYear;
 
             $lastYear = BiodataOne::whereHas('biodataTwo')
             ->whereMonth('created_at', $bulan)
             ->whereYear('created_at', (Carbon::now()->year)-1)
+            ->where('academy_year_id', $tahun_ajaran)
             ->count();
             $tahunLalu[] = $lastYear;
             // $chartThisYear     = collect(DB::SELECT("SELECT count(id) AS jumlah from biodata_ones where month(created_at)='$bulan'"))->first();
@@ -71,12 +73,12 @@ class DashboardController extends Controller
         }
 
         $age = [
-            '16' => BiodataOne::where('age', '16')->count(),
-            '17' => BiodataOne::where('age', '17')->count(),
-            '18' => BiodataOne::where('age', '18')->count(),
-            '19' => BiodataOne::where('age', '19')->count(),
-            '20' => BiodataOne::where('age', '20')->count(),
-            '21' => BiodataOne::where('age', '21')->count(),
+            '16' => BiodataOne::where('academy_year_id', $tahun_ajaran)->where('age', '16')->count(),
+            '17' => BiodataOne::where('academy_year_id', $tahun_ajaran)->where('age', '17')->count(),
+            '18' => BiodataOne::where('academy_year_id', $tahun_ajaran)->where('age', '18')->count(),
+            '19' => BiodataOne::where('academy_year_id', $tahun_ajaran)->where('age', '19')->count(),
+            '20' => BiodataOne::where('academy_year_id', $tahun_ajaran)->where('age', '20')->count(),
+            '21' => BiodataOne::where('academy_year_id', $tahun_ajaran)->where('age', '21')->count(),
         ];
 
 
