@@ -274,9 +274,9 @@
                                                     </td>
                                                     <td>
                                                         @if (isset($item->user->biodataTwo))
-                                                            @if ($item->user->biodataTwo->where('academy_year_id', $tahuna_ajaran)->first()->status == 'lolos')
+                                                            @if ($item->user->biodataTwo->where('academy_year_id', $tahuna_ajaran)->first()?->status == 'lolos')
                                                             <div class="badge badge-opacity-success">lolos biodata</div>
-                                                            @elseif ($item->user->biodataTwo->where('academy_year_id', $tahuna_ajaran)->first()->status == 'tidak')
+                                                            @elseif ($item->user->biodataTwo->where('academy_year_id', $tahuna_ajaran)->first()?->status == 'tidak')
                                                                 <div class="badge badge-opacity-danger">tidak lolos biodata</div>
                                                             @else()
                                                                 <div class="badge badge-opacity-warning">
