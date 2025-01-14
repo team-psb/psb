@@ -54,14 +54,12 @@ class DashboardController extends Controller
             $inYear = BiodataOne::whereHas('biodataTwo')
             ->whereMonth('created_at', $bulan)
             ->whereYear('created_at', Carbon::now())
-            ->where('academy_year_id', $tahun_ajaran)
             ->count();
             $tahunIni[] = $inYear;
 
             $lastYear = BiodataOne::whereHas('biodataTwo')
             ->whereMonth('created_at', $bulan)
             ->whereYear('created_at', (Carbon::now()->year)-1)
-            ->where('academy_year_id', $tahun_ajaran)
             ->count();
             $tahunLalu[] = $lastYear;
             // $chartThisYear     = collect(DB::SELECT("SELECT count(id) AS jumlah from biodata_ones where month(created_at)='$bulan'"))->first();
