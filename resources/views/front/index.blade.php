@@ -54,7 +54,7 @@
                 <div class="section-body hero-pt">
                     <div class="row">
                       <div class="col-12 mb-4">
-                        @if (Auth::user()->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family != 'sangat-mampu')
+                        @if (Auth::user()->biodataOne->where('academy_year_id', $tahun_ajaran)->first()?->family != 'sangat-mampu')
                             <div  data-aos="fade-up"
                                 data-aos-duration="1000"
                                 class="hero text-white text-center
