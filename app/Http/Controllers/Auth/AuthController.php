@@ -54,8 +54,19 @@ class AuthController extends Controller
                     // return redirect()->route('login')->with('sukses-warning','Email anda belum terverifikasi, Silahkan Verifikasi email terlebih dahulu!');
                     return redirect()->route('get-token', $request->phone)->with('alert-login', 'Silahkan konfirmasi pendaftaran dengan memasukkan Kode OTP yang telah kami kirim di Whatsapp !');
                 }
-                $bio = BiodataTwo::where('user_id', '=', $user_id)->get();
+
+                $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
+                $bio1 = BiodataOne::where('academy_year_id', $tahun_ajaran)->where('user_id', '=', $user_id)->get();
+
+                if (count($bio1) === 0) {
+                    Auth::logout();
+                    return redirect()->back()->with('failed-danger', 'Anda belum mendaftar, silahkan mendaftar dahulu.');
+                }
+
+                $bio = BiodataTwo::where('academy_year_id', $tahun_ajaran)->where('user_id', '=', $user_id)->get();
                 $user_bio = $bio->toArray();
+
+                // dd($bio, $role_user);
                 // dd($user_bio);
                 if (count($user_bio) > 0) {
                     return redirect()->route('user-dashboard');

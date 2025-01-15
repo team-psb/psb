@@ -184,7 +184,7 @@
                               @elseif(!empty($tahap1) && isset($biodata1) && $tahap1->status == null)
                                   <i class="fas fa-hourglass-half pb-3" style="font-size: 72px;"></i>
                                   <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
-                                  <p class="lead">Anda telah selesai melaksanakan tes <strong class="font-weight-bold">Biodata</strong>,<br>Anda bisa lanjut mengikuti tes Wawancara jika dinyatakan lolos di tes Biodata.</p>
+                                  <p class="lead">Anda telah selesai melaksanakan tes <strong class="font-weight-bold">Biodata</strong>,<br>Anda bisa lanjut mengikuti tes Tahap Kedua jika dinyatakan lolos di tes Tahap Pertama. Untuk info selanjutnya kami akan hubungi melalui whatsapp, pastikan nomor whatsapp aktif dan periksa pesan whatsapp setiap hari agar tidak melewatkan informasi selanjutnya dari kami!</p>
                               @elseif(!empty($tahap1) && $tahap1->status == 'lolos')
                                   @if ($tahap1->status == 'lolos' && !isset($tahap2->status))
                                       <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
@@ -690,7 +690,7 @@
                     </td>
                   </tr>
 
-                  @if (Auth::user()->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family != 'sangat-mampu')
+                  @if (Auth::user()->biodataOne->where('academy_year_id', $tahun_ajaran)->first()?->family != 'sangat-mampu')
                     {{-- 2 --}}
                     @if (!empty($tahap1) && $tahap1->status == "lolos")
                     <tr>
