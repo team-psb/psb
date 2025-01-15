@@ -198,6 +198,7 @@ Atau masuk dilink berikut ' . $link
         $token = $request->t1 . $request->t2 . $request->t3 . $request->t4;
         if ($token == $user->token) {
 
+            $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
             User::where('phone', $wa)->update([
                 'confirm_token' => $token
             ]);
@@ -208,9 +209,9 @@ Atau masuk dilink berikut ' . $link
                 'target' => $wa,
                 'message' => 'Assalamualaikum, Selamat anda berhasil *konfirmasi pendaftaran*,
 
-Nama : *' . $user->BiodataOne->full_name . '*
-Tanggal Lahir : *' . date('d-m-Y', strtotime($user->BiodataOne->birth_date)) . '*
-Keluarga : *' . $user->BiodataOne->family . '*
+Nama : *' . $user->BiodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name . '*
+Tanggal Lahir : *' . date('d-m-Y', strtotime($user->BiodataOne->where('academy_year_id', $tahun_ajaran)->first()->birth_date)) . '*
+Keluarga : *' . $user->BiodataOne->where('academy_year_id', $tahun_ajaran)->first()->family . '*
 No Wa : *' . $user->phone . '*
 Tanggal Registrasi : ' . $user->created_at->format('d-m-Y H:i') . ' WIB
 

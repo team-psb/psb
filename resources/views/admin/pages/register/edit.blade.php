@@ -10,15 +10,15 @@
                 <div class="card card-rounded">
                     <div class="card-body">
                         {{-- <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Biodata {{ $biodata->user->biodataOne->full_name }}</h4> --}}
-                        @if ($biodata->user->biodataTwo != null)
-                        <form x-data="formdata()" method="POST" action="{{ route('registers.updateTwo', $biodata->user->biodataTwo->id) }}">
+                        @if ($biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first() != null)
+                        <form x-data="formdata()" method="POST" action="{{ route('registers.updateTwo', $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->id) }}">
                             @csrf
                             @method('POST')
                             {{-- colom pertama --}}
                             <input type="hidden" name="biodataOne_id" value="{{ $biodata->id }}">
                             <div class="row">
                                 <div class="col-md-6">
-                                
+
                                 {{-- nama --}}
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="name">Nama</label>
@@ -61,7 +61,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->hobby }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->hobby }}"
                                         name="hobby"
                                         aria-describedby="emailHelp"
                                         required
@@ -73,7 +73,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->skill }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->skill }}"
                                         name="skill"
                                         aria-describedby="emailHelp"
                                         required
@@ -85,7 +85,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->goal }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->goal }}"
                                         name="goal"
                                         aria-describedby="emailHelp"
                                         required
@@ -95,9 +95,9 @@
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="">Pendidikan Terakhir</label>
                                     <select name="last_education" class="form-select">
-                                    <option value="SD" {{ $biodata->user->biodataTwo->last_education == 'SD' ? 'selected' :'' }}>SD SEDERAJAT</option>
-                                    <option value="SMP" {{ $biodata->user->biodataTwo->last_education == 'SMP' ? 'selected' :'' }}>SMP SEDERAJAT</option>
-                                    <option value="SMA" {{ $biodata->user->biodataTwo->last_education == 'SMA' ? 'selected' :'' }}>SMA SEDERAJAT</option>
+                                    <option value="SD" {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->last_education == 'SD' ? 'selected' :'' }}>SD SEDERAJAT</option>
+                                    <option value="SMP" {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->last_education == 'SMP' ? 'selected' :'' }}>SMP SEDERAJAT</option>
+                                    <option value="SMA" {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->last_education == 'SMA' ? 'selected' :'' }}>SMA SEDERAJAT</option>
                                     </select>
                                 </div>
                                 {{-- asal sekolah --}}
@@ -106,7 +106,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->name_school }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->name_school }}"
                                         name="name_school"
                                         aria-describedby="emailHelp"
                                         required
@@ -118,7 +118,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->major }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->major }}"
                                         name="major"
                                         aria-describedby="emailHelp"
                                         {{-- required --}}
@@ -130,7 +130,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->achievment }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->achievment }}"
                                         name="achivement"
                                         aria-describedby="emailHelp"
                                         required
@@ -142,7 +142,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->organization }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->organization }}"
                                         name="organization"
                                         aria-describedby="emailHelp"
                                         required
@@ -156,7 +156,7 @@
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="">Provinsi</label>
                                     <select name="indonesia_provinces_id" class="form-select" x-on:change="getKabupaten(provin_id)" x-model="provin_id">
-                                        <option value="{{ $biodata->user->biodataTwo->indonesia_provinces_id }}">{{ $biodata->user->biodataTwo->provincy->name }}</option>
+                                        <option value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->indonesia_provinces_id }}">{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->provincy->name }}</option>
                                         @foreach ($provinsi as $item)
                                             <option value="{{ $item->code }}">{{ $item->name }}</option>
                                         @endforeach
@@ -166,10 +166,10 @@
                                 <div class="form-group mb-3">
                                     <label class="fw-bold"  for="">Kabupaten</label>
                                     <select name="indonesia_cities_id" class="form-select" >
-                                        <option value="{{ $biodata->user->biodataTwo->indonesia_cities_id }}">{{ $biodata->user->biodataTwo->city->name }}</option>
+                                        <option value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->indonesia_cities_id }}">{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->city->name }}</option>
                                         <template x-for="an in kabupatenids">
                                             <option :value="an.id"><span x-html="an.name"></span></option>
-                                        </template>											
+                                        </template>
                                     </select>
                                 </div>
                                 {{-- alamat lengkap --}}
@@ -178,7 +178,7 @@
                                     <input
                                     type="text"
                                     class="form-control"
-                                    value="{{ $biodata->user->biodataTwo->address }}"
+                                    value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->address }}"
                                     name="address"
                                     aria-describedby="emailHelp"
                                     required
@@ -190,7 +190,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->user->biodataOne->no_wa }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->user->biodataOne->no_wa }}"
                                         name="no_wa"
                                         aria-describedby="emailHelp"
                                         required
@@ -202,7 +202,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->facebook }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->facebook }}"
                                         name="facebook"
                                         aria-describedby="emailHelp"
                                         required
@@ -214,7 +214,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->instagram }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->instagram }}"
                                         name="instagram"
                                         aria-describedby="emailHelp"
                                         required
@@ -226,7 +226,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->tiktok }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->tiktok }}"
                                         name="tiktok"
                                         aria-describedby="emailHelp"
                                         required
@@ -236,10 +236,10 @@
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="">Orang Tua</label>
                                     <select name="parent" class="form-select">
-                                        <option value="lengkap" {{ $biodata->user->biodataTwo->parent == 'lengkap' ? 'selected' :'' }}>Lengkap</option>
-                                        <option value="ayah" {{ $biodata->user->biodataTwo->parent == 'ayah' ? 'selected' :'' }}>Ayah</option>
-                                        <option value="ibu" {{ $biodata->user->biodataTwo->parent == 'ibu' ? 'selected' :'' }}>Ibu</option>
-                                        <option value="yatim-piatu" {{ $biodata->user->biodataTwo->parent == 'yatim-piatu' ? 'selected' :'' }}>Yatim-Piatu</option>
+                                        <option value="lengkap" {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->parent == 'lengkap' ? 'selected' :'' }}>Lengkap</option>
+                                        <option value="ayah" {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->parent == 'ayah' ? 'selected' :'' }}>Ayah</option>
+                                        <option value="ibu" {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->parent == 'ibu' ? 'selected' :'' }}>Ibu</option>
+                                        <option value="yatim-piatu" {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->parent == 'yatim-piatu' ? 'selected' :'' }}>Yatim-Piatu</option>
                                     </select>
                                 </div>
                                 {{-- nama ayah --}}
@@ -248,7 +248,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->father }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->father }}"
                                         name="father"
                                         aria-describedby="emailHelp"
                                         required
@@ -260,7 +260,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->father_id }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->father_id }}"
                                         name="father_id"
                                         aria-describedby="emailHelp"
                                         required
@@ -272,7 +272,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->mother }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->mother }}"
                                         name="mother"
                                         aria-describedby="emailHelp"
                                         required
@@ -284,7 +284,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->mother_id }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->mother_id }}"
                                         name="mother_id"
                                         aria-describedby="emailHelp"
                                         required
@@ -296,7 +296,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->father_work }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->father_work }}"
                                         name="father_work"
                                         aria-describedby="emailHelp"
                                         required
@@ -308,7 +308,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->mother_work }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->mother_work }}"
                                         name="mother_work"
                                         aria-describedby="emailHelp"
                                         required
@@ -326,7 +326,7 @@
                                             name="family"
                                             id="sangat-mampu"
                                             value="sangat-mampu"
-                                            {{ $biodata->user->biodataTwo->user->biodataOne->family == 'sangat-mampu' ? 'checked' : '' }}
+                                            {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->user->biodataOne->family == 'sangat-mampu' ? 'checked' : '' }}
                                             required
                                         />
                                         sangat-mampu
@@ -340,7 +340,7 @@
                                             name="family"
                                             id="mampu"
                                             value="mampu"
-                                            {{ $biodata->user->biodataTwo->user->biodataOne->family == 'mampu' ? 'checked' : '' }}
+                                            {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->user->biodataOne->family == 'mampu' ? 'checked' : '' }}
                                             required
                                         />
                                         mampu
@@ -355,7 +355,7 @@
                                             id="tidak-mampu"
                                             value="tidak-mampu"
                                             required
-                                            {{ $biodata->user->biodataTwo->user->biodataOne->family == 'tidak-mampu' ? 'checked' : '' }}
+                                            {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->user->biodataOne->family == 'tidak-mampu' ? 'checked' : '' }}
                                         />
                                         tidak-mampu
                                         </label>
@@ -368,20 +368,20 @@
                                     {{-- <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->parent_income }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->parent_income }}"
                                         name="parent_income"
                                         aria-describedby="emailHelp"
                                         required
                                     /> --}}
                                     <select name="parent_income" class="form-select">
                                         <option value="" disabled selected>-- Pilih --</option>
-                                        <option value="Kurang dari Rp 500.000" {{ $biodata->user->biodataTwo->parent_income == 'Kurang dari Rp 500.000' ? 'selected' : '' }}>Kurang dari Rp 500.000</option>
-                                        <option value="Rp 500.000 - 1.000.000" {{ $biodata->user->biodataTwo->parent_income == 'Rp 500.000 - 1.000.000' ? 'selected' : '' }}>Rp 500.000 - 1.000.000</option>
-                                        <option value="Rp 1.000.000 - 2.000.000" {{ $biodata->user->biodataTwo->parent_income == 'Rp 1.000.000 - 2.000.000' ? 'selected' : '' }}>Rp 1.000.000 - 2.000.000</option>
-                                        <option value="Rp 2.000.000 - 3.000.000" {{ $biodata->user->biodataTwo->parent_income == 'Rp 2.000.000 - 3.000.000' ? 'selected' : '' }}>Rp 2.000.000 - 3.000.000</option>
-                                        <option value="Rp 3.000.000 - 5.000.000" {{ $biodata->user->biodataTwo->parent_income == 'Rp 3.000.000 - 5.000.000' ? 'selected' : '' }}>Rp 3.000.000 - 5.000.000</option>
-                                        <option value="Rp 5.000.000 - 10.000.000" {{ $biodata->user->biodataTwo->parent_income == 'Rp 5.000.000 - 10.000.000' ? 'selected' : '' }}>Rp 5.000.000 - 10.000.000</option>
-                                        <option value="Lebih dari Rp 10.000.000" {{ $biodata->user->biodataTwo->parent_income == 'Lebih dari Rp 10.000.000' ? 'selected' : '' }}>Lebih dari Rp 10.000.000</option>
+                                        <option value="Kurang dari Rp 500.000" {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->parent_income == 'Kurang dari Rp 500.000' ? 'selected' : '' }}>Kurang dari Rp 500.000</option>
+                                        <option value="Rp 500.000 - 1.000.000" {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->parent_income == 'Rp 500.000 - 1.000.000' ? 'selected' : '' }}>Rp 500.000 - 1.000.000</option>
+                                        <option value="Rp 1.000.000 - 2.000.000" {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->parent_income == 'Rp 1.000.000 - 2.000.000' ? 'selected' : '' }}>Rp 1.000.000 - 2.000.000</option>
+                                        <option value="Rp 2.000.000 - 3.000.000" {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->parent_income == 'Rp 2.000.000 - 3.000.000' ? 'selected' : '' }}>Rp 2.000.000 - 3.000.000</option>
+                                        <option value="Rp 3.000.000 - 5.000.000" {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->parent_income == 'Rp 3.000.000 - 5.000.000' ? 'selected' : '' }}>Rp 3.000.000 - 5.000.000</option>
+                                        <option value="Rp 5.000.000 - 10.000.000" {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->parent_income == 'Rp 5.000.000 - 10.000.000' ? 'selected' : '' }}>Rp 5.000.000 - 10.000.000</option>
+                                        <option value="Lebih dari Rp 10.000.000" {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->parent_income == 'Lebih dari Rp 10.000.000' ? 'selected' : '' }}>Lebih dari Rp 10.000.000</option>
                                     </select>
                                 </div>
                                 {{-- jumlah saudara --}}
@@ -390,7 +390,7 @@
                                     <input
                                         type="number"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->brother }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->brother }}"
                                         name="brother"
                                         aria-describedby="emailHelp"
                                         required
@@ -402,14 +402,14 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->child_to }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->child_to }}"
                                         name="child_to"
                                         aria-describedby="emailHelp"
                                         required
                                     />
                                 </div>
                                 </div>
-                            
+
                             {{-- colom kedua --}}
                                 <div class="col-md-6">
                                 {{--  wali --}}
@@ -424,7 +424,7 @@
                                             name="choose_guardian"
                                             id="ayah"
                                             value="ayah"
-                                            {{ $biodata->user->biodataTwo->choose_guardian == 'ayah' ? 'checked' : '' }}
+                                            {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->choose_guardian == 'ayah' ? 'checked' : '' }}
                                             required
                                         />
                                         ayah
@@ -438,7 +438,7 @@
                                             name="choose_guardian"
                                             id="ibu"
                                             value="ibu"
-                                            {{ $biodata->user->biodataTwo->choose_guardian == 'ibu' ? 'checked' : '' }}
+                                            {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->choose_guardian == 'ibu' ? 'checked' : '' }}
                                             required
                                         />
                                         ibu
@@ -453,7 +453,7 @@
                                             id="tidak-ada"
                                             value="tidak-ada"
                                             required
-                                            {{ $biodata->user->biodataTwo->choose_guardian == 'tidak-ada' ? 'checked' : '' }}
+                                            {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->choose_guardian == 'tidak-ada' ? 'checked' : '' }}
                                         />
                                         tidak-ada
                                         </label>
@@ -467,7 +467,7 @@
                                             id="selain-orang-tua"
                                             value="selain-orang-tua"
                                             required
-                                            {{ $biodata->user->biodataTwo->choose_guardian == 'selain-orang-tua' ? 'checked' : '' }}
+                                            {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->choose_guardian == 'selain-orang-tua' ? 'checked' : '' }}
                                         />
                                         selain-orang-tua
                                         </label>
@@ -480,7 +480,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->guardian }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->guardian }}"
                                         name="guardian"
                                         aria-describedby="emailHelp"
                                         {{-- required --}}
@@ -492,7 +492,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->no_guardian }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->no_guardian }}"
                                         name="no_guardian"
                                         aria-describedby="emailHelp"
                                         required
@@ -504,7 +504,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->description_guardian }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->description_guardian }}"
                                         name="description_guardian"
                                         aria-describedby="emailHelp"
                                         required
@@ -513,14 +513,14 @@
                                 {{-- jumlah hafalan --}}
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="">Jumlah Hafalan</label>
-                                    <select 
+                                    <select
                                     class="form-select"
                                     id="memorization"
                                     name="memorization"
                                     value="{{ old('memorization') }}"
                                     required
                                     >
-                                    <option value="{{ $biodata->user->biodataTwo->memorization }}"  {{ $biodata->user->biodataTwo->memorization ==  $biodata->user->biodataTwo->memorization ?  'selected' : ' ' }} >{{ $biodata->user->biodataTwo->memorization }}</option>
+                                    <option value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->memorization }}"  {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->memorization ==  $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->memorization ?  'selected' : ' ' }} >{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->memorization }}</option>
                                     @for ($i = 0; $i <= 30; $i++)
                                         <option value="{{ $i }} JUZ">{{ $i }} JUZ</option>
                                     @endfor
@@ -532,7 +532,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->figure_idol }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->figure_idol }}"
                                         name="figure_idol"
                                         aria-describedby="emailHelp"
                                         required
@@ -544,7 +544,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->chaplain_idol }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->chaplain_idol }}"
                                         name="chaplain_idol"
                                         aria-describedby="emailHelp"
                                         required
@@ -558,7 +558,7 @@
                                         name="tauhid"
                                         aria-describedby="emailHelp"
                                         required
-                                    >{{ $biodata->user->biodataTwo->tauhid }}</textarea>
+                                    >{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->tauhid }}</textarea>
                                 </div>
                                 {{-- Kajian Yang Sering Di Hadiri --}}
                                 <div class="form-group mb-3">
@@ -566,7 +566,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->study_islamic }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->study_islamic }}"
                                         name="study_islamic"
                                         aria-describedby="emailHelp"
                                         required
@@ -578,7 +578,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->read_book }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->read_book }}"
                                         name="read_book"
                                         aria-describedby="emailHelp"
                                         required
@@ -595,7 +595,7 @@
                                         name="tattoed"
                                         id="tattoed_yes"
                                         value="iya"
-                                        {{ $biodata->user->biodataTwo->tattoed == 'iya' ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->tattoed == 'iya' ? 'checked' :'' }}
                                         required
                                     />
                                     Iya
@@ -609,7 +609,7 @@
                                         name="tattoed"
                                         id="tattoed_no"
                                         value="tidak"
-                                        {{ $biodata->user->biodataTwo->tattoed != 'iya' ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->tattoed != 'iya' ? 'checked' :'' }}
                                         required
                                     />
                                     Tidak
@@ -627,7 +627,7 @@
                                         name="perokok"
                                         id="smoker_yes"
                                         value="iya"
-                                        {{ $biodata->user->biodataTwo->smoker == 'iya' ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->smoker == 'iya' ? 'checked' :'' }}
                                         required
                                     />
                                     Iya
@@ -641,7 +641,7 @@
                                         name="perokok"
                                         id="smoker_no"
                                         value="tidak"
-                                        {{ $biodata->user->biodataTwo->smoker != 'iya' ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->smoker != 'iya' ? 'checked' :'' }}
                                         required
                                     />
                                     Tidak
@@ -660,7 +660,7 @@
                                         name="pray"
                                         id="pray1"
                                         value="bangun-sendiri"
-                                        {{ $biodata->user->biodataTwo->pray == 'bangun-sendiri' ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->pray == 'bangun-sendiri' ? 'checked' :'' }}
                                         required
                                     />
                                     Bangun Sendiri
@@ -674,14 +674,14 @@
                                         name="pray"
                                         id="pray2"
                                         value="dibangunkan"
-                                        {{ $biodata->user->biodataTwo->pray != 'bangun-sendiri' ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->pray != 'bangun-sendiri' ? 'checked' :'' }}
                                         required
                                     />
                                     Dibangunkan
                                     </label>
                                     </div>
                                 </div>
-                                
+
                                 {{-- punya pacar --}}
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="" class="d-block">Punya Pacar?</label>
@@ -693,7 +693,7 @@
                                         name="girlfrind"
                                         id="girlfriend_yes"
                                         value="iya"
-                                        {{ $biodata->user->biodataTwo->girlfriend == 'iya' ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->girlfriend == 'iya' ? 'checked' :'' }}
                                         required
                                     />
                                     Iya
@@ -707,7 +707,7 @@
                                         name="girlfrind"
                                         id="girlfriend_no"
                                         value="tidak"
-                                        {{ $biodata->user->biodataTwo->girlfriend != 'iya' ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->girlfriend != 'iya' ? 'checked' :'' }}
                                         required
                                     />
                                     Tidak
@@ -725,7 +725,7 @@
                                         name="gamer"
                                         id="gamer_yes"
                                         value="iya"
-                                        {{ $biodata->user->biodataTwo->gamer == 'iya' ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->gamer == 'iya' ? 'checked' :'' }}
                                         required
                                     />
                                     Iya
@@ -739,7 +739,7 @@
                                         name="gamer"
                                         id="gamer_no"
                                         value="tidak"
-                                        {{ $biodata->user->biodataTwo->gamer != 'iya' ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->gamer != 'iya' ? 'checked' :'' }}
                                         required
                                     />
                                     Tidak
@@ -747,13 +747,13 @@
                                     </div>
                                 </div>
                                 {{-- jika suka --}}
-                                @if ($biodata->user->biodataTwo->gamer == 'iya')
+                                @if ($biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->gamer == 'iya')
                                     <div class="form-group mb-3">
                                     <label class="fw-bold" for="">Nama Game</label>
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->game_name }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->game_name }}"
                                         name="game_name"
                                         aria-describedby="emailHelp"
                                     />
@@ -763,7 +763,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataTwo->game_duration }}"
+                                        value="{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->game_duration }}"
                                         name="game_duration"
                                         aria-describedby="emailHelp"
                                     />
@@ -780,7 +780,7 @@
                                         name="have_laptop"
                                         id="have_laptop_yes"
                                         value="iya"
-                                        {{ $biodata->user->biodataTwo->have_laptop == 'iya' ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->have_laptop == 'iya' ? 'checked' :'' }}
                                         required
                                     />
                                     Iya
@@ -794,7 +794,7 @@
                                         name="have_laptop"
                                         id="have_laptop_no"
                                         value="tidak"
-                                        {{ $biodata->user->biodataTwo->have_laptop != 'iya' ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->have_laptop != 'iya' ? 'checked' :'' }}
                                         required
                                     />
                                     Tidak
@@ -812,7 +812,7 @@
                                         name="permission_parent"
                                         id="permission_parent_yes"
                                         value="iya"
-                                        {{ $biodata->user->biodataTwo->permission_parent == 'iya' ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->permission_parent == 'iya' ? 'checked' :'' }}
                                         required
                                     />
                                     Iya
@@ -826,7 +826,7 @@
                                         name="permission_parent"
                                         id="permission_parent_no"
                                         value="tidak"
-                                        {{ $biodata->user->biodataTwo->permission_parent != 'iya' ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->permission_parent != 'iya' ? 'checked' :'' }}
                                         required
                                     />
                                     Tidak
@@ -844,7 +844,7 @@
                                         name="agree"
                                         id="agree_yes"
                                         value="1"
-                                        {{ $biodata->user->biodataTwo->agree == 1 ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->agree == 1 ? 'checked' :'' }}
                                         required
                                     />
                                     Iya
@@ -858,7 +858,7 @@
                                         name="agree"
                                         id="agree_no"
                                         value="tidak"
-                                        {{ $biodata->user->biodataTwo->agree != 1 ? 'checked' :'' }}
+                                        {{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->agree != 1 ? 'checked' :'' }}
                                         required
                                     />
                                         Tidak
@@ -868,11 +868,11 @@
                                 {{-- alasan mendaftar --}}
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="">Alasan Mendaftar</label>
-                                    <Textarea 
+                                    <Textarea
                                     style="height: 150px;"
                                     type="text"
                                     class="form-control"
-                                    name="reason_registration" >{{ $biodata->user->biodataTwo->reason_registration }}</Textarea>
+                                    name="reason_registration" >{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->reason_registration }}</Textarea>
                                 </div>
                                 {{-- kegiatan dari bangun sampai tidur --}}
                                 <div class="form-group mb-3">
@@ -882,7 +882,7 @@
                                     type="text"
                                     class="form-control"
                                     name="activity"
-                                    >{{ $biodata->user->biodataTwo->activity }}</textarea>
+                                    >{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->activity }}</textarea>
                                 </div>
                                 {{-- kepribadian --}}
                                 <div class="form-group mb-3">
@@ -891,8 +891,8 @@
                                         style="height: 150px;"
                                         type="text"
                                         class="form-control"
-                                        name="personal"  
-                                    >{{ $biodata->user->biodataTwo->personal }}</textarea>
+                                        name="personal"
+                                    >{{ $biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->personal }}</textarea>
                                 </div>
                                 </div>
                             </div>
@@ -908,7 +908,7 @@
                             {{-- colom pertama --}}
                             <div class="row">
                                 <div class="col-md-6">
-                                
+
                                 {{-- nama --}}
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="name">Nama</label>
@@ -1020,7 +1020,7 @@
     @endsection
 
 
-@if ($biodata->user->biodataTwo != null)
+@if ($biodata->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first() != null)
 @push('after-script')
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
 <script>
@@ -1029,7 +1029,7 @@
     return{
         // data
             provin_id:null,
-            kabupatenids:[],                            
+            kabupatenids:[],
         // method
         getKabupaten(code){
             const dataKabupaten = kabupatens.filter((kabupaten) => kabupaten.province_code == code);
@@ -1037,6 +1037,6 @@
             }
         }
     }
-</script>  
+</script>
 @endpush
 @endif

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\BiodataExport;
 use App\Http\Controllers\Controller;
+use App\Models\AcademyYear;
 use App\Models\BiodataOne;
 use App\Models\BiodataTwo;
 use App\Models\Interview;
@@ -21,17 +22,20 @@ class RegisterController extends Controller
 {
     public function index()
     {
-        $registers = BiodataOne::orderBy('id', 'desc')->get();  
-        
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
+        $registers = BiodataOne::where('academy_year_id', $tahun_ajaran)->orderBy('id', 'desc')->get();
+
         return view('admin.pages.register.index', compact('registers'));
     }
 
     public function edit($id)
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $biodata = BiodataOne::findOrFail($id);
 
         return view('admin.pages.register.edit', [
-            'biodata' => $biodata
+            'biodata' => $biodata,
+            'tahun_ajaran' => $tahun_ajaran,
         ]);
     }
 
@@ -78,8 +82,8 @@ class RegisterController extends Controller
 
         return redirect()->route('registers.index')->with('success-edit','Data Berhasil Diedit');
     }
-    
-    
+
+
     public function delete($id)
     {
         $data = BiodataOne::findOrFail($id);
@@ -93,7 +97,7 @@ class RegisterController extends Controller
         Interview::where('user_id', $data->user_id)->delete();
         BiodataTwo::where('user_id', $data->user_id)->delete();
         User::where('id', $data->user_id)->delete();
-        
+
         activity()->log('Menghapus biodata id '.$id);
 
         return back()->with('success-delete','Berhasil Menghapus Data');
@@ -102,7 +106,7 @@ class RegisterController extends Controller
     public function deleteAll(Request $request)
     {
         $ids=$request->get('ids');
-        
+
         if ($ids != null) {
             foreach ($ids as $id) {
                 $data = BiodataOne::find($id);
@@ -124,7 +128,7 @@ class RegisterController extends Controller
         }
     }
 
-    // public function export() 
+    // public function export()
     // {
     //     return Excel::download(new BiodataExport, 'data biodata.xlsx');
     // }
