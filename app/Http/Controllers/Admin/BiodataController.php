@@ -96,18 +96,22 @@ class BiodataController extends Controller
     public function show($id)
     {
         $biodata = BiodataOne::find($id);
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
 
         return view('admin.pages.biodata.detail', [
-            'biodata' => $biodata
+            'biodata' => $biodata,
+            'tahun_ajaran' => $tahun_ajaran,
         ]);
     }
 
     public function edit($id)
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $biodata = BiodataTwo::findOrFail($id);
 
         return view('admin.pages.biodata.edit', [
-            'biodata' => $biodata
+            'biodata' => $biodata,
+            'tahun_ajaran' => $tahun_ajaran,
         ]);
     }
 

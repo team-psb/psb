@@ -9,15 +9,15 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card card-rounded">
                     <div class="card-body">
-                        <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Biodata {{ $biodata->user->biodataOne->full_name }}</h4>
+                        <h4 class="card-title pb-4" style="border-bottom: 1px solid #c4c4c4;">Biodata {{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}</h4>
                         <form x-data="formdata()" method="POST" action="{{ route('biodatas.update', $biodata->id) }}">
                             @csrf
                             @method('POST')
                             {{-- colom pertama --}}
-                            <input type="hidden" name="biodataOne_id" value="{{ $biodata->user->biodataOne->id }}">
+                            <input type="hidden" name="biodataOne_id" value="{{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->id }}">
                             <div class="row">
                                 <div class="col-md-6">
-                                
+
                                 {{-- nama --}}
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="name">Nama</label>
@@ -26,7 +26,7 @@
                                         class="form-control"
                                         id="name"
                                         name="full_name"
-                                        value="{{ $biodata->user->biodataOne->full_name }}"
+                                        value="{{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}"
                                         required
                                     />
                                 </div>
@@ -36,7 +36,7 @@
                                     <input
                                     type="number"
                                     class="form-control"
-                                    value="{{ $biodata->user->biodataOne->age }}"
+                                    value="{{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->age }}"
                                     name="age"
                                     aria-describedby="emailHelp"
                                     required
@@ -48,7 +48,7 @@
                                     <input
                                     type="date"
                                     class="form-control"
-                                    value="{{ $biodata->user->biodataOne->birth_date }}"
+                                    value="{{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->birth_date }}"
                                     name="birth_date"
                                     aria-describedby="emailHelp"
                                     required
@@ -168,7 +168,7 @@
                                         <option value="{{ $biodata->indonesia_cities_id }}">{{ $biodata->city->name }}</option>
                                         <template x-for="an in kabupatenids">
                                             <option :value="an.id"><span x-html="an.name"></span></option>
-                                        </template>											
+                                        </template>
                                     </select>
                                 </div>
                                 {{-- alamat lengkap --}}
@@ -189,7 +189,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $biodata->user->biodataOne->no_wa }}"
+                                        value="{{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->no_wa }}"
                                         name="no_wa"
                                         aria-describedby="emailHelp"
                                         required
@@ -325,7 +325,7 @@
                                             name="family"
                                             id="sangat-mampu"
                                             value="sangat-mampu"
-                                            {{ $biodata->user->biodataOne->family == 'sangat-mampu' ? 'checked' : '' }}
+                                            {{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family == 'sangat-mampu' ? 'checked' : '' }}
                                             required
                                         />
                                         sangat-mampu
@@ -339,7 +339,7 @@
                                             name="family"
                                             id="mampu"
                                             value="mampu"
-                                            {{ $biodata->user->biodataOne->family == 'mampu' ? 'checked' : '' }}
+                                            {{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family == 'mampu' ? 'checked' : '' }}
                                             required
                                         />
                                         mampu
@@ -354,7 +354,7 @@
                                             id="tidak-mampu"
                                             value="tidak-mampu"
                                             required
-                                            {{ $biodata->user->biodataOne->family == 'tidak-mampu' ? 'checked' : '' }}
+                                            {{ $biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family == 'tidak-mampu' ? 'checked' : '' }}
                                         />
                                         tidak-mampu
                                         </label>
@@ -408,7 +408,7 @@
                                     />
                                 </div>
                                 </div>
-                            
+
                             {{-- colom kedua --}}
                                 <div class="col-md-6">
                                 {{--  wali --}}
@@ -512,7 +512,7 @@
                                 {{-- jumlah hafalan --}}
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="">Jumlah Hafalan</label>
-                                    <select 
+                                    <select
                                     class="form-select"
                                     id="memorization"
                                     name="memorization"
@@ -680,7 +680,7 @@
                                     </label>
                                     </div>
                                 </div>
-                                
+
                                 {{-- punya pacar --}}
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="" class="d-block">Punya Pacar?</label>
@@ -867,7 +867,7 @@
                                 {{-- alasan mendaftar --}}
                                 <div class="form-group mb-3">
                                     <label class="fw-bold" for="">Alasan Mendaftar</label>
-                                    <Textarea 
+                                    <Textarea
                                     style="height: 150px;"
                                     type="text"
                                     class="form-control"
@@ -890,7 +890,7 @@
                                         style="height: 150px;"
                                         type="text"
                                         class="form-control"
-                                        name="personal"  
+                                        name="personal"
                                     >{{ $biodata->personal }}</textarea>
                                 </div>
                                 </div>
@@ -917,7 +917,7 @@
     return{
         // data
             provin_id:null,
-            kabupatenids:[],                            
+            kabupatenids:[],
         // method
         getKabupaten(code){
             const dataKabupaten = kabupatens.filter((kabupaten) => kabupaten.province_code == code);
@@ -925,5 +925,5 @@
             }
         }
     }
-</script>  
+</script>
 @endpush

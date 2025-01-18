@@ -18,27 +18,27 @@
                 <th>Status</th>
             </tr>
         </thead>
-        
+
         <tbody>
             @foreach ($biodatas as $item)
                 <tr class="
                     {{ $item->status == 'lolos' ? 'text-success' : '' }}
                     {{ $item->status == 'tidak' ? 'text-danger' : '' }}
-                    " 
-                    
+                    "
+
                     style="{{ $item->status == 'tidak' || $item->status == 'lolos' ? 'font-weight:bold;' : '' }}">
                     <td width="10">{{ $loop->iteration }}</td>
                     <td>
-                        {{ $item->user->biodataOne->full_name }}
+                        {{ $item->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}
                     </td>
                     <td>
                         @php
-                            $no = str_split( $item->user->biodataOne->no_wa);
+                            $no = str_split( $item->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->no_wa);
                         @endphp
-                        {{ $item->user->biodataOne->no_wa }}
+                        {{ $item->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->no_wa }}
                     </td>
                     <td>
-                    {{ $item->user->biodataOne->age }} &nbsp; Tahun
+                    {{ $item->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->age }} &nbsp; Tahun
                     </td>
                     <td>{{ $item->last_education }}</td>
                     <td>{{ $item->goal }}</td>
@@ -46,7 +46,7 @@
                     <td>{{ $item->skill }}</td>
                     <td>{{ $item->memorization }}</td>
                     <td>{{ $item->gamer }}</td>
-                    <td>{{ $item->user->biodataOne->family }}</td>
+                    <td>{{ $item->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family }}</td>
                     <td>{{ $item->parent }}</td>
                     <td class="fw-bold">{{ $item->parent_income }}</td>
                     <td> {{ $item->status }}</td>

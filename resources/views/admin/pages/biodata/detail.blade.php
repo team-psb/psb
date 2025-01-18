@@ -1,5 +1,5 @@
 <div class="container">
-    @if ($biodata->user->biodataTwo != null)
+    @if ($biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first() != null)
     <div class="row">
         <div class="col">
         <h6 class="fw-bold">Biodata</h6>
@@ -18,71 +18,71 @@
                 </tr>
                 <tr>
                     <td>Hobi</td>
-                    <td>{{ $biodata->user->biodataTwo->hobby }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->hobby }}</td>
                 </tr>
                 <tr>
                     <td>cita-cita</td>
-                    <td>{{ $biodata->user->biodataTwo->goal }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->goal }}</td>
                 </tr>
                 <tr>
                     <td>Pendidikan Terakhir</td>
-                    <td>{{ $biodata->user->biodataTwo->last_education }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->last_education }}</td>
                 </tr>
                 <tr>
                     <td>Asal Sekolah</td>
-                    <td>{{ $biodata->user->biodataTwo->name_school }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->name_school }}</td>
                 </tr>
                 <tr>
                     <td>Jurusan</td>
-                    <td>{{ $biodata->user->biodataTwo->major }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->major }}</td>
                 </tr>
                 <tr>
                     <td>Prestasi</td>
-                    <td>{{ $biodata->user->biodataTwo->achievment }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->achievment }}</td>
                 </tr>
                 <tr>
                     <td>Pengalaman Organisai</td>
-                    <td>{{ $biodata->user->biodataTwo->organization }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->organization }}</td>
                 </tr>
                 <tr>
                     <td>Kabupaten</td>
-                    <td>{{ $biodata->user->biodataTwo->city->name }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->city->name }}</td>
                 </tr>
                 <tr>
                     <td>Provinsi</td>
-                    <td>{{ $biodata->user->biodataTwo->provincy->name }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->provincy->name }}</td>
                 </tr>
                 <tr>
                     <td>Alamat Lengkap</td>
-                    <td>{{ $biodata->user->biodataTwo->address }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->address }}</td>
                 </tr>
             </table>
         </div>
     </div>
-    @if (isset($biodata->user->biodataTwo->user->score) || isset($biodata->user->biodataTwo->user->video))
+    @if (isset($biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->user->score) || isset($biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->user->video))
         <div class="row mt-4">
             <div class="col">
             <h6 class="fw-bold">Nilai</h6>
                 <table cellpadding="5">
                     <tr>
                         <td style="width: 280px;">Nilai Tes Iq</td>
-                        <td>{{ $biodata->user->biodataTwo->user->scoreIq->score_question_iq }}</td>
+                        <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->user->scoreIq->score_question_iq }}</td>
                     </tr>
                     <tr>
                         <td style="width: 280px;">Nilai Tes Kepribadian</td>
-                        <td>{{ $biodata->user->biodataTwo->user->scorePersonal->score_question_personal }}</td>
+                        <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->user->scorePersonal->score_question_personal }}</td>
                     </tr>
                 </table>
             </div>
         </div>
-        @if (isset($biodata->user->biodataTwo->user->video))
+        @if (isset($biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->user->video))
             <div class="row mt-4">
                 <div class="col">
                 <h6 class="fw-bold">Video</h6>
                     <table cellpadding="5">
                         <tr>
                             <td style="width: 280px;">Link Viedo</td>
-                            <td><a target="blank" href="{{ $biodata->user->biodataTwo->user->video->url }}">{{ $biodata->user->biodataTwo->user->video->url }}</a></td>
+                            <td><a target="blank" href="{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->user->video->url }}">{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->user->video->url }}</a></td>
                         </tr>
                     </table>
                 </div>
@@ -95,19 +95,19 @@
             <table cellpadding="5">
                 <tr>
                     <td style="width: 280px;">No WhatsApp</td>
-                    <td>{{ $biodata->user->biodataTwo->user->biodataOne->no_wa }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->user->biodataOne->no_wa }}</td>
                 </tr>
                 <tr>
                     <td>Facebook</td>
-                    <td><a href="{{ $biodata->user->biodataTwo->facebook }}" target="_blank">{{ $biodata->user->biodataTwo->facebook }}</a></td>
+                    <td><a href="{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->facebook }}" target="_blank">{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->facebook }}</a></td>
                 </tr>
                 <tr>
                     <td>Instagram</td>
-                    <td><a href="{{ $biodata->user->biodataTwo->instagram }}" target="_blank">{{ $biodata->user->biodataTwo->instagram }}</a></td>
+                    <td><a href="{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->instagram }}" target="_blank">{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->instagram }}</a></td>
                 </tr>
                 <tr>
                     <td>Tiktok</td>
-                    <td><a href="{{ $biodata->user->biodataTwo->tiktok }}" target="_blank">{{ $biodata->user->biodataTwo->tiktok }}</a></td>
+                    <td><a href="{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->tiktok }}" target="_blank">{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->tiktok }}</a></td>
                 </tr>
             </table>
         </div>
@@ -118,61 +118,61 @@
             <table cellpadding="5">
                 <tr>
                     <td style="width: 280px;">Orang Tua</td>
-                    <td>{{ $biodata->user->biodataTwo->parent}}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->parent}}</td>
                 </tr>
                 <tr>
                     <td >Nama Ayah</td>
-                    <td>{{ $biodata->user->biodataTwo->father }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->father }}</td>
                 </tr>
                 <tr>
                     <td >No Whatsapp Ayah</td>
-                    <td>{{ $biodata->user->biodataTwo->father_id }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->father_id }}</td>
                 </tr>
                 <tr>
                     <td>Nama Ibu</td>
-                    <td>{{ $biodata->user->biodataTwo->mother }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->mother }}</td>
                 </tr>
                 <tr>
                     <td>No Whatsapp Ibu</td>
-                    <td>{{ $biodata->user->biodataTwo->mother_id }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->mother_id }}</td>
                 </tr>
                 <tr>
                     <td>Kondidi Keluarga</td>
-                    <td>{{ $biodata->user->biodataTwo->user->biodataOne->family }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->user->biodataOne->family }}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan Ayah</td>
-                    <td>{{ $biodata->user->biodataTwo->father_work }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->father_work }}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan Ibu</td>
-                    <td>{{ $biodata->user->biodataTwo->mother_work }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->mother_work }}</td>
                 </tr>
                 <tr>
                     <td>Penghasilan Ortu</td>
-                    <td>{{ $biodata->user->biodataTwo->parent_income }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->parent_income }}</td>
                 </tr>
                 <tr>
                     <td>Jumlah Saudara</td>
-                    <td>{{ $biodata->user->biodataTwo->brother }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->brother }}</td>
                 </tr>
                 <tr>
                     <td>Anak Ke</td>
-                    <td>{{ $biodata->user->biodataTwo->child_to }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->child_to }}</td>
                 </tr>
                 <tr>
                     <td>Wali/Orang tua</td>
-                    <td>{{ $biodata->user->biodataTwo->choose_guardian }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->choose_guardian }}</td>
                 </tr>
                 <tr>
                     <td>Nama Wali</td>
                     <td>
-                        @if ($biodata->user->biodataTwo->choose_guardian == 'ayah')
-                            {{ $biodata->user->biodataTwo->father }}
-                        @elseif ($biodata->user->biodataTwo->choose_guardian == 'ibu')
-                            {{ $biodata->user->biodataTwo->mother }}
-                        @elseif ($biodata->user->biodataTwo->choose_guardian == 'selain-orang-tua')
-                            {{ $biodata->user->biodataTwo->guardian }}
+                        @if ($biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->choose_guardian == 'ayah')
+                            {{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->father }}
+                        @elseif ($biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->choose_guardian == 'ibu')
+                            {{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->mother }}
+                        @elseif ($biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->choose_guardian == 'selain-orang-tua')
+                            {{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->guardian }}
                         @else
                             -
                         @endif
@@ -180,11 +180,11 @@
                 </tr>
                 <tr>
                     <td>No Hp Wali</td>
-                    <td>{{ $biodata->user->biodataTwo->no_guardian }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->no_guardian }}</td>
                 </tr>
                 <tr>
                     <td>Keterangan Wali</td>
-                    <td>{{ $biodata->user->biodataTwo->description_guardian }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->description_guardian }}</td>
                 </tr>
             </table>
         </div>
@@ -195,27 +195,27 @@
             <table cellpadding="5">
                 <tr>
                     <td style="width: 280px;">Jumlah Hafalan</td>
-                    <td>{{ $biodata->user->biodataTwo->memorization }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->memorization }}</td>
                 </tr>
                 <tr>
                     <td>Tokoh Idola</td>
-                    <td>{{ $biodata->user->biodataTwo->figure_idol }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->figure_idol }}</td>
                 </tr>
                 <tr>
                     <td>Ustadz Idola</td>
-                    <td>{{ $biodata->user->biodataTwo->chaplain_idol }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->chaplain_idol }}</td>
                 </tr>
                 <tr>
                     <td>Dimana Allah ?</td>
-                    <td>{{ $biodata->user->biodataTwo->tauhid }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->tauhid }}</td>
                 </tr>
                 <tr>
                     <td>Kajian Yang Sering Di Hadiri</td>
-                    <td>{{ $biodata->user->biodataTwo->study_islamic }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->study_islamic }}</td>
                 </tr>
                 <tr>
                     <td>Buku Bacaan Favorit</td>
-                    <td>{{ $biodata->user->biodataTwo->read_book }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->read_book }}</td>
                 </tr>
             </table>
         </div>
@@ -226,37 +226,37 @@
             <table cellpadding="5">
                 <tr>
                     <td style="width: 280px;">Bertato</td>
-                    <td>{{ $biodata->user->biodataTwo->tattoed }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->tattoed }}</td>
                 </tr>
                 <tr>
                     <td style="width: 280px;">Perokok</td>
-                    <td>{{ $biodata->user->biodataTwo->smoker }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->smoker }}</td>
                 </tr>
                 <tr>
                     <td style="width: 280px;">Bangun Sholat Subuh</td>
-                    <td>{{ $biodata->user->biodataTwo->pray }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->pray }}</td>
                 </tr>
                 <tr>
                     <td>Punya Pacar</td>
-                    <td>{{ $biodata->user->biodataTwo->girlfriend }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->girlfriend }}</td>
                 </tr>
                 <tr>
                     <td>Suka Game ?</td>
-                    <td>{{ $biodata->user->biodataTwo->gamer }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->gamer }}</td>
                 </tr>
-                @if ($biodata->user->biodataTwo->gamer == 'iya')
+                @if ($biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->gamer == 'iya')
                     <tr>
                         <td>Nama Game</td>
-                        <td>{{ $biodata->user->biodataTwo->game_name }}</td>
+                        <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->game_name }}</td>
                     </tr>
                     <tr>
                         <td>Durasi Main Game</td>
-                        <td>{{ $biodata->user->biodataTwo->game_duration }} &nbsp;Jam</td>
+                        <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->game_duration }} &nbsp;Jam</td>
                     </tr>
                 @endif
                 <tr>
                     <td>Punya Laptop</td>
-                    <td>{{ $biodata->user->biodataTwo->have_laptop }}</td>
+                    <td>{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->have_laptop }}</td>
                 </tr>
             </table>
         </div>
@@ -266,15 +266,15 @@
         <div class="px-1">
             <div class="">
                 <h6 class="text-bold">Alasan Mendaftar :</h6>
-                <p style="font-size: 14px;">{{ $biodata->user->biodataTwo->reason_registration }}</p>
+                <p style="font-size: 14px;">{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->reason_registration }}</p>
             </div>
             <div class="">
                 <h6 class="text-bold">Kegiatan Dari Bangun Sampai Tidur :</h6>
-                <p style="font-size: 14px;">{{ $biodata->user->biodataTwo->activity }}</p>
+                <p style="font-size: 14px;">{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->activity }}</p>
             </div>
             <div class="">
                 <h6 class="text-bold">Kepribadian :</h6>
-                <p style="font-size: 14px;">{{ $biodata->user->biodataTwo->personal }}</p>
+                <p style="font-size: 14px;">{{ $biodata->user->biodataTwo->where('academy_year', $tahun_ajaran)->first()->personal }}</p>
             </div>
         </div>
     </div>
