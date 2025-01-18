@@ -71,19 +71,21 @@
               </div>
               <!-- end step wizard -->
 
-              <div class="card-body bg-primary text-white card">
-                <p>
-                    Kamu sudah pernah mendaftar disini sebelumnya, apakah kamu ingin mengisi data yang sama dengan yang sebelumnya?
-                </p>
-                <div class="d-flex justify-content-end">
-                    <button form="clone" class="btn btn-white bg-white text-dark px-5" href="{{ route('first-tes.clone') }}">
-                        iya
-                    </button>
+            @if ($back)
+                <div class="card-body bg-primary text-white card">
+                  <p>
+                      Kamu sudah pernah mendaftar disini sebelumnya, apakah kamu ingin mengisi data yang sama dengan yang sebelumnya?
+                  </p>
+                  <div class="d-flex justify-content-end">
+                      <button form="clone" class="btn btn-white bg-white text-dark px-5" href="{{ route('first-tes.clone') }}">
+                          iya
+                      </button>
+                  </div>
                 </div>
-              </div>
-              <form method="post" action="{{ route('first-tes.clone') }}" id="clone">
-                @csrf
-              </form>
+                <form method="post" action="{{ route('first-tes.clone') }}" id="clone">
+                  @csrf
+                </form>
+            @endif
 
               <p class="card-text">Silahkan isi form dibawah ini!</p>
               <div class="card text-left">
