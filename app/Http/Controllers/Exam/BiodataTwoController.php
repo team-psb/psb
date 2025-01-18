@@ -42,7 +42,7 @@ class BiodataTwoController extends Controller
         $biodata = BiodataTwo::where('academy_year_id', $tahun_ajaran_id)->where('user_id', $users_id)->first();
 
         if (!$biodata) {
-            if (Auth::user()->BiodataOne->family == 'sangat-mampu') {
+            if (Auth::user()->BiodataOne->where('academy_year_id', $tahun_ajaran_id)->first()->family == 'sangat-mampu') {
                 $request->merge(['user_id' => $users_id, 'academy_year_id' => $tahun_ajaran_id, 'stage_id' => $stage_id, 'status' => null]);
                 BiodataTwo::create($request->all());
 
@@ -81,7 +81,7 @@ class BiodataTwoController extends Controller
 
         $notif = Setting::get()->first();
 
-        if (Auth::user()->BiodataOne->family == 'sangat-mampu') {
+        if (Auth::user()->BiodataOne->where('academy_year_id', $tahun_ajaran_id)->first()->family == 'sangat-mampu') {
 
             unset($back['id']);
             $back['academy_year_id'] = $tahun_ajaran_id;

@@ -21,7 +21,7 @@ class AcademyYearSeeder extends Seeder
 
         foreach ($stages as $stage) {
             AcademyYear::create([
-                'year'=>'2022',
+                'year'=>date('Y'),
                 'stage_id'=> $stage,
                 'is_active'=> true,
             ]);
