@@ -326,7 +326,7 @@
                     >
                         <!-- Animate -->
                         <img
-                            src="{{ asset('./assets/img/people.png') }}"
+                            src="{{ asset('./assets_new/img/people.png') }}"
                             alt="people"
                             class="
                                 position-absolute
@@ -1130,7 +1130,7 @@
                                     <p class="text-stats2">Total Pendaftar</p>
                                     <!-- <p class="text-stats3">Total Pengisi Formulir</p> -->
                                     <img
-                                        src="{{ asset('./assets/img/users_stats.png') }}"
+                                        src="{{ asset('./assets_new/img/users_stats.png') }}"
                                         alt="stat_image"
                                         width="500"
                                         class="img-fluid pt-5"
@@ -2219,7 +2219,7 @@
                                     class="text-decoration-none btn-footer"
                                     target="blank"
                                 >
-                                    <button class="btn rounded-pill px-3 py-2 text-white text-uppercase button-footer-left" style="background: #3adb9f;">Info lebih lanjut</button>
+                                    <button class="btn rounded-pill px-3 py-2 text-white text-uppercase button-footer-left" style="background: #0076F6;">Info lebih lanjut</button>
                                 </a>
                             </div>
                             <div class="col-12 col-lg-2 footer-contact text-center my-5 my-lg-0 logo-sponsor">
