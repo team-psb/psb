@@ -1,7 +1,7 @@
 <div class="navbar-bg"></div>
 <nav class="navbar navbar-expand-lg main-navbar">
   <div class="container d-flex justify-content-between">
-    <a href="{{ route('user-dashboard') }}" class="navbar-brand sidebar-gone-hide"><img width="80px" src="{{ asset('assets_new/logo/logo-bw-l.png') }}" alt=""></a>
+    <a href="{{ route('user-dashboard') }}" class="navbar-brand sidebar-gone-hide"><img height="40px" src="{{ asset('assets_new/logo/logo-bw-l.png') }}" alt=""></a>
     <div class="navbar-nav d-flex align-items-center">
         <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars" style="font-size: 24px;"></i></a>
     </div>
