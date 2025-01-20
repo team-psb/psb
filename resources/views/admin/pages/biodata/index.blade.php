@@ -165,7 +165,7 @@
                                                         @if ($biodata->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family == 'sangat-mampu')
                                                             <a href="{{ route('biodatas.status', $biodata->id) }}?status=lolos"
                                                                 class="btn btn-success btn-icon-text p-2">
-                                                                    <i class="icon-check btn-icon-prepend"></i> Lolos (Interview)
+                                                                    <i class="icon-check btn-icon-prepend"></i> Lolos
                                                             </a>
                                                         @else
                                                             <a href="{{ route('biodatas.status', $biodata->id) }}?status=lolos"

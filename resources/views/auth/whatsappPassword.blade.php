@@ -29,10 +29,10 @@
                     <div class="row">
                         <div class="col-md-6 col-12 m-auto">
                             <div class="login-brand"></div>
-                            <div class="card card-success">
+                            <div class="card card-primary">
                                 <div class="card-header d-flex justify-content-between">
-                                    <h4>Lupa Password</h4>
-                                    <a class="btn btn-success rounded btn-lg" href="{{ route('home') }}">
+                                    <h4 style="color: #0076F6">Lupa Password</h4>
+                                    <a class="btn btn-primary rounded btn-lg" href="{{ route('home') }}">
                                         Home
                                     </a>
                                 </div>
@@ -62,7 +62,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-success btn-lg btn-block" tabindex="4">
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                                             Kirim link reset Password
                                             </button>
                                         </div>

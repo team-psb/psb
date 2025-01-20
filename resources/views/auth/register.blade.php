@@ -147,7 +147,7 @@
                 <h1 class="logo">
                     <a href="#">
                         <img
-                            src="./assets/Logo-Pondok.png"
+                            src="{{ asset('assets_new/logo/logo-s-rgb.png') }}"
                             alt="Logo-Pondok"
                             width="60"
                             class="img-fluid"

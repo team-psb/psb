@@ -12,7 +12,7 @@
         <title>Pondok Mahir Teknologi</title>
 
         <!-- Favicons -->
-        <link href="assets/Logo-Pondok.png" rel="icon" />
+        <link href="{{ asset('assets_new/logo/logo-s-rgb.png') }}" rel="icon" />
         <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
         <!-- Google Fonts -->
