@@ -59,7 +59,7 @@
             </table>
         </div>
     </div>
-    @if ($data->user->score->where('academy_year_id', $tahun_ajaran)->first() != null || $data->user->video != null)
+    @if ($data->user->score->where('academy_year_id', $tahun_ajaran)->first() != null || $data->user->video->where('academy_year_id', $tahun_ajaran)->first() != null)
         <div class="row mt-4">
             <div class="col">
             <h6 class="fw-bold">Nilai</h6>
