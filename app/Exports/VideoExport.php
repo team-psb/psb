@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use App\Models\AcademyYear;
 use App\Models\Video;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\FromView;
@@ -18,15 +19,17 @@ class VideoExport implements FromView,ShouldAutoSize,WithHeadings,WithColumnForm
     */
     public function view() :View
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
+
         $video = Video::with(['academy_year'=>function($query){
             $query->where('is_active','=', true);
-        },'user.biodataOne','user.video'])->get();
+        },'user.biodataOne','user.video'])->where('academy_year_id', $tahun_ajaran)->get();
 
-        return view('admin.pages.video.excel',compact('video'));
+        return view('admin.pages.video.excel',compact('video', 'tahun_ajaran'));
     }
 
     public function headings():array
-    {   
+    {
         return[
             'Nama',
             'Link',
@@ -40,5 +43,5 @@ class VideoExport implements FromView,ShouldAutoSize,WithHeadings,WithColumnForm
             'D' => '@',
         ];
     }
-       
+
 }

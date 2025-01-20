@@ -23,22 +23,22 @@
         <tbody>
             @foreach ($lolos as $item)
                 <tr>
-                    <td class="text-uppercase">{{ $item->user->biodataOne->full_name }}</td>
-                    <td>{{ $item->user->biodataTwo->city->name }}</td>
-                    <td>{{ $item->user->biodataTwo->provincy->name }}</td>
-                    <td>{{ $item->user->biodataOne->no_wa }}</td>
-                    <td>{{ $item->user->biodataOne->age }}</td>
-                    <td>{{ $item->user->biodataTwo->last_education }}</td>
-                    <td>{{ $item->user->biodataTwo->goal }}</td>
-                    <td>{{ $item->user->biodataTwo->achievment }}</td>
-                    <td>{{ $item->user->biodataTwo->skill }}</td>
-                    <td>{{ $item->user->biodataTwo->memorization }}</td>
-                    <td>{{ $item->user->biodataTwo->gamer }}</td>
-                    <td>{{ $item->user->biodataOne->family }}</td>
-                    <td>{{ $item->user->biodataTwo->parent }}</td>
-                    <td>{{ $item->user->biodataTwo->parent_income }}</td>
-                    <td>{{ $item->user->biodataTwo->guardian }}</td>
-                    <td>{{ $item->user->biodataTwo->no_guardian }}</td>
+                    <td class="text-uppercase">{{ $item->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->full_name }}</td>
+                    <td>{{ $item->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->city->name }}</td>
+                    <td>{{ $item->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->provincy->name }}</td>
+                    <td>{{ $item->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->no_wa }}</td>
+                    <td>{{ $item->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->age }}</td>
+                    <td>{{ $item->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->last_education }}</td>
+                    <td>{{ $item->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->goal }}</td>
+                    <td>{{ $item->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->achievment }}</td>
+                    <td>{{ $item->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->skill }}</td>
+                    <td>{{ $item->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->memorization }}</td>
+                    <td>{{ $item->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->gamer }}</td>
+                    <td>{{ $item->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family }}</td>
+                    <td>{{ $item->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->parent }}</td>
+                    <td>{{ $item->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->parent_income }}</td>
+                    <td>{{ $item->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->guardian }}</td>
+                    <td>{{ $item->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first()->no_guardian }}</td>
                 </tr>
             @endforeach
         </tbody>

@@ -179,10 +179,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @if (isset($profile->user->scoreIq))
+                  @if ($profile->user->scoreIq->where('academy_year_id', $tahun_ajaran)->first() != null)
                     <tr>
                       <th>Tes IQ</th>
-                      <td class="text-break">{{ $profile->user->scoreIq->score_question_iq }}</td>
+                      <td class="text-break">{{ $profile->user->scoreIq->where('academy_year_id', $tahun_ajaran)->first()->score_question_iq }}</td>
                     </tr>
                   @else
                     <tr>
@@ -190,10 +190,10 @@
                       <td class="text-break">-</td>
                     </tr>
                   @endif
-                  @if (isset($profile->user->scorePersonal))
+                  @if ($profile->user->scorePersonal->where('academy_year_id', $tahun_ajaran)->first() != null)
                     <tr>
                       <th>Tes Kepribadian</th>
-                      <td class="text-break">{{ $profile->user->scorePersonal->score_question_personal }}</td>
+                      <td class="text-break">{{ $profile->user->scorePersonal->where('academy_year_id', $tahun_ajaran)->first()->score_question_personal }}</td>
                     </tr>
                   @else
                     <tr>
@@ -202,11 +202,11 @@
                     </tr>
                   @endif
 
-                  @if (isset($profile->user->video))
+                  @if ($profile->user->video->where('academy_year_id', $tahun_ajaran)->first() != null)
                     <tr>
                       <th>Url Video Youtube</th>
                       <td class="text-break">
-                          <a target="_blank" href="{{ $profile->user->video->url }}">{{ $profile->user->video->url }}</a>
+                          <a target="_blank" href="{{ $profile->user->video->where('academy_year_id', $tahun_ajaran)->first()->url }}">{{ $profile->user->video->where('academy_year_id', $tahun_ajaran)->first()->url }}</a>
                       </td>
                     </tr>
                   @else

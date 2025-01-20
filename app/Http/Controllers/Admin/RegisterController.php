@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Exports\BiodataExport;
+use App\Exports\BiodataOneExport;
 use App\Http\Controllers\Controller;
 use App\Models\AcademyYear;
 use App\Models\BiodataOne;
@@ -25,7 +25,7 @@ class RegisterController extends Controller
         $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $registers = BiodataOne::where('academy_year_id', $tahun_ajaran)->orderBy('id', 'desc')->get();
 
-        return view('admin.pages.register.index', compact('registers'));
+        return view('admin.pages.register.index', compact('registers', 'tahun_ajaran'));
     }
 
     public function edit($id)
@@ -128,8 +128,8 @@ class RegisterController extends Controller
         }
     }
 
-    // public function export()
-    // {
-    //     return Excel::download(new BiodataExport, 'data biodata.xlsx');
-    // }
+    public function export()
+    {
+        return Excel::download(new BiodataOneExport, 'data-user.xlsx');
+    }
 }

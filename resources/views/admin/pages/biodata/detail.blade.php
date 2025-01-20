@@ -59,30 +59,30 @@
             </table>
         </div>
     </div>
-    @if (isset($data->user->score) || isset($data->user->video))
+    @if ($data->user->score->where('academy_year_id', $tahun_ajaran)->first() != null || $data->user->video != null)
         <div class="row mt-4">
             <div class="col">
             <h6 class="fw-bold">Nilai</h6>
                 <table cellpadding="5">
                     <tr>
                         <td style="width: 280px;">Nilai Tes Iq</td>
-                        <td>{{ $data->user->scoreIq->score_question_iq }}</td>
+                        <td>{{ $data->user->scoreIq->where('academy_year_id', $tahun_ajaran)->first()->score_question_iq }}</td>
                     </tr>
                     <tr>
                         <td style="width: 280px;">Nilai Tes Kepribadian</td>
-                        <td>{{ $data->user->scorePersonal->score_question_personal }}</td>
+                        <td>{{ $data->user->scorePersonal->where('academy_year_id', $tahun_ajaran)->first()->score_question_personal }}</td>
                     </tr>
                 </table>
             </div>
         </div>
-        @if (isset($data->user->video))
+        @if ($data->user->video->where('academy_year_id', $tahun_ajaran)->first() != null)
             <div class="row mt-4">
                 <div class="col">
                 <h6 class="fw-bold">Video</h6>
                     <table cellpadding="5">
                         <tr>
                             <td style="width: 280px;">Link Viedo</td>
-                            <td><a target="blank" href="{{ $data->user->video->url }}">{{ $data->user->video->url }}</a></td>
+                            <td><a target="blank" href="{{ $data->user->video->where('academy_year_id', $tahun_ajaran)->first()->url }}">{{ $data->user->video->where('academy_year_id', $tahun_ajaran)->first()->url }}</a></td>
                         </tr>
                     </table>
                 </div>

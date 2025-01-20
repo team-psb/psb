@@ -50,35 +50,40 @@ class TesPersonalController extends Controller
                         QuestionPersonalAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_personal_id' => $cek->id,
-                            'answer' => 'a'
+                            'answer' => 'a',
+                            'academy_year_id' => $tahun_ajaran,
                         ]);
                     } elseif ($value == 'b') {
                         $nilai = $nilai + $cek->poin_b;
                         QuestionPersonalAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_personal_id' => $cek->id,
-                            'answer' => 'b'
+                            'answer' => 'b',
+                            'academy_year_id' => $tahun_ajaran,
                         ]);
                     } elseif ($value == 'c') {
                         $nilai = $nilai + $cek->poin_c;
                         QuestionPersonalAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_personal_id' => $cek->id,
-                            'answer' => 'c'
+                            'answer' => 'c',
+                            'academy_year_id' => $tahun_ajaran,
                         ]);
                     } elseif ($value == 'd') {
                         $nilai = $nilai + $cek->poin_d;
                         QuestionPersonalAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_personal_id' => $cek->id,
-                            'answer' => 'd'
+                            'answer' => 'd',
+                            'academy_year_id' => $tahun_ajaran,
                         ]);
                     } elseif ($value == 'e') {
                         $nilai = $nilai + $cek->poin_e;
                         QuestionPersonalAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_personal_id' => $cek->id,
-                            'answer' => 'e'
+                            'answer' => 'e',
+                            'academy_year_id' => $tahun_ajaran,
                         ]);
                     }
                 }

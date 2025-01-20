@@ -2,9 +2,9 @@
 
 @section('title', 'Informasi')
 
-@push('end-style')
+{{-- @push('end-style')
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-@endpush
+@endpush --}}
 
 @section('content')
 <div class="main-content">
@@ -63,9 +63,9 @@
 </div>
 @endsection
 
-@push('end-script')
+{{-- @push('end-script')
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
     </script>
-@endpush
+@endpush --}}

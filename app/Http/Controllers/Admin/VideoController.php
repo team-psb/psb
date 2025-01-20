@@ -38,8 +38,9 @@ class VideoController extends Controller
 
     public function delete($id)
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $data = Video::findOrFail($id);
-        $scorePersonal = ScorePersonal::where('user_id', $data->user_id)->first();
+        $scorePersonal = ScorePersonal::where('user_id', $data->user_id)->where('academy_year_id', $tahun_ajaran)->first();
         $scorePersonal->update([
             'status' => null
         ]);
@@ -51,12 +52,13 @@ class VideoController extends Controller
 
     public function deleteAll(Request $request)
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $ids = $request->get('ids');
 
         if ($ids != null) {
             foreach ($ids as $id) {
                 $data = Video::find($id);
-                $scorePersonal = ScorePersonal::where('user_id', $data->user_id)->first();
+                $scorePersonal = ScorePersonal::where('user_id', $data->user_id)->where('academy_year_id', $tahun_ajaran)->first();
                 $scorePersonal->update([
                     'status' => null
                 ]);
@@ -107,12 +109,13 @@ class VideoController extends Controller
 
     public function tidaklolos($id)
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $item = Video::findOrFail($id);
         $item->update(['status' => 'tidak']);
 
-        $cek = Interview::where('user_id', '=', $item->user_id)->get();
+        $cek = Interview::where('user_id', '=', $item->user_id)->where('academy_year_id', $tahun_ajaran)->get();
         if (isset($cek)) {
-            Interview::where('user_id', '=', $item->user_id)->delete();
+            Interview::where('user_id', '=', $item->user_id)->where('academy_year_id', $tahun_ajaran)->delete();
         }
         //         $data = [
         //
@@ -175,15 +178,16 @@ class VideoController extends Controller
 
     public function nonpassAll(Request $request)
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $ids = $request->get('ids');
         if ($ids != null) {
             foreach ($ids as $id) {
                 $item = Video::findOrFail($id);
                 $item->update(['status' => 'tidak']);
 
-                $cek = Interview::where('user_id', '=', $item->user_id)->get();
+                $cek = Interview::where('user_id', '=', $item->user_id)->where('academy_year_id', $tahun_ajaran)->get();
                 if (isset($cek)) {
-                    Interview::where('user_id', '=', $item->user_id)->delete();
+                    Interview::where('user_id', '=', $item->user_id)->where('academy_year_id', $tahun_ajaran)->delete();
                 }
                 //                 $data = [
                 //

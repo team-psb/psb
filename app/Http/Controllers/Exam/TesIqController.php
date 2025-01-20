@@ -62,31 +62,36 @@ class TesIqController extends Controller
                         QuestionIqAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_iq_id' => $cekId->id,
-                            'answer' => 'a'
+                            'answer' => 'a',
+                            'academy_year_id' => $tahun_ajaran,
                         ]);
                     } elseif ($value == 'b') {
                         QuestionIqAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_iq_id' => $cekId->id,
-                            'answer' => 'b'
+                            'answer' => 'b',
+                            'academy_year_id' => $tahun_ajaran,
                         ]);
                     } elseif ($value == 'c') {
                         QuestionIqAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_iq_id' => $cekId->id,
-                            'answer' => 'c'
+                            'answer' => 'c',
+                            'academy_year_id' => $tahun_ajaran,
                         ]);
                     } elseif ($value == 'd') {
                         QuestionIqAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_iq_id' => $cekId->id,
-                            'answer' => 'd'
+                            'answer' => 'd',
+                            'academy_year_id' => $tahun_ajaran,
                         ]);
                     } elseif ($value == 'e') {
                         QuestionIqAnswer::create([
                             'user_id' => Auth::user()->id,
                             'question_iq_id' => $cekId->id,
-                            'answer' => 'e'
+                            'answer' => 'e',
+                            'academy_year_id' => $tahun_ajaran,
                         ]);
                     }
                 }

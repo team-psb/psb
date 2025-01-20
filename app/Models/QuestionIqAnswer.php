@@ -12,7 +12,8 @@ class QuestionIqAnswer extends Model
     protected $fillable = [
         'user_id',
         'question_iq_id',
-        'answer'
+        'answer',
+        'academy_year_id',
     ];
 
     public function questionIq()

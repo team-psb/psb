@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\ScoreExport;
 use App\Http\Controllers\Controller;
+use App\Models\AcademyYear;
 use App\Models\Score;
 use App\Models\Stage;
 use Illuminate\Http\Request;
@@ -13,18 +14,19 @@ class ScoreController extends Controller
 {
     public function index()
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $stages = Stage::get();
-        
+
         if (request()->get('stage_id') && request()->get('stage_id') != null){
             $data = Score::with(['academy_year'=>function($query){
                 $query->where('stage_id','=', request()->get('stage_id'));
-            },'user.biodataOne'])->orderBy('id','desc');
+            },'user.biodataOne'])->where('academy_year_id', $tahun_ajaran)->orderBy('id','desc');
         }else {
             $data = Score::with(['academy_year'=>function($query){
                 $query->where('is_active','=', true);
-            },'user.biodataOne'])->orderBy('id','desc');
+            },'user.biodataOne'])->where('academy_year_id', $tahun_ajaran)->orderBy('id','desc');
         }
-        
+
 
         if((request()->get('score_test_iq_min') && request()->get('score_test_iq_min') != null) && (request()->get('score_test_iq_max') && request()->get('score_test_iq_max') != null)){
             $data = $data->whereBetween('score_question_iq',[request()->get('score_test_iq_min'),request()->get('score_test_iq_max')]);
@@ -92,7 +94,7 @@ class ScoreController extends Controller
     public function deleteAll(Request $request)
     {
         $ids=$request->get('ids');
-        
+
         if ($ids != null) {
             foreach ($ids as $id) {
                 Score::find($id)->delete();
@@ -115,7 +117,7 @@ class ScoreController extends Controller
         return redirect()->route('scores.index');
     }
 
-    public function export() 
+    public function export()
     {
         return Excel::download(new ScoreExport, 'data nilai.xlsx');
     }

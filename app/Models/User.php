@@ -61,27 +61,27 @@ class User extends Authenticatable
 
     public function score()
     {
-        return $this->hasOne(Score::class, 'user_id');
+        return $this->hasMany(Score::class, 'user_id');
     }
 
     public function scoreIq()
     {
-        return $this->hasOne(ScoreIq::class, 'user_id');
+        return $this->hasMany(ScoreIq::class, 'user_id');
     }
 
     public function scorePersonal()
     {
-        return $this->hasOne(ScorePersonal::class, 'user_id');
+        return $this->hasMany(ScorePersonal::class, 'user_id');
     }
 
     public function video()
     {
-        return $this->hasOne(Video::class, 'user_id');
+        return $this->hasMany(Video::class, 'user_id');
     }
 
     public function pass()
     {
-        return $this->hasOne(Pass::class, 'user_id');
+        return $this->hasMany(Pass::class, 'user_id');
     }
 
 }

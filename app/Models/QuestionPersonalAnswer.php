@@ -12,7 +12,8 @@ class QuestionPersonalAnswer extends Model
     protected $fillable = [
         'user_id',
         'question_personal_id',
-        'answer'
+        'answer',
+        'academy_year_id',
     ];
 
     public function questionPersonal()

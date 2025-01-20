@@ -44,19 +44,20 @@ class ScorePersonalController extends Controller
     public function answer($id)
     {
         $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
-        $answers = QuestionPersonalAnswer::where('user_id', $id)->get();
+        $answers = QuestionPersonalAnswer::where('user_id', $id)->where('academy_year_id', $tahun_ajaran)->get();
         $user = User::find($id);
         return view('admin.pages.scorePersonal.answer', compact('answers', 'user', 'tahun_ajaran'));
     }
 
     public function delete($id)
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $data = ScorePersonal::findOrFail($id);
-        $scoreIq = ScoreIq::where('user_id', $data->user_id)->first();
+        $scoreIq = ScoreIq::where('user_id', $data->user_id)->where('academy_year_id', $tahun_ajaran)->first();
         $scoreIq->update([
             'status' => null
         ]);
-        QuestionPersonalAnswer::where('user_id', $data->user_id)->delete();
+        QuestionPersonalAnswer::where('user_id', $data->user_id)->where('academy_year_id', $tahun_ajaran)->delete();
         $data->delete();
         activity()->log('Menghapus tes nilai id ' . $id);
 
@@ -66,15 +67,16 @@ class ScorePersonalController extends Controller
     public function deleteAll(Request $request)
     {
         $ids = $request->get('ids');
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
 
         if ($ids != null) {
             foreach ($ids as $id) {
                 $data = ScorePersonal::find($id);
-                $scoreIq = ScoreIq::where('user_id', $data->user_id)->first();
+                $scoreIq = ScoreIq::where('user_id', $data->user_id)->where('academy_year_id', $tahun_ajaran)->first();
                 $scoreIq->update([
                     'status' => null
                 ]);
-                QuestionPersonalAnswer::where('user_id', $data->user_id)->delete();
+                QuestionPersonalAnswer::where('user_id', $data->user_id)->where('academy_year_id', $tahun_ajaran)->delete();
                 $data->delete();
             }
             activity()->log('Menghapus semua data tes nilai');

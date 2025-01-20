@@ -68,9 +68,9 @@
                                     {{-- <button type="button" class="btn btn-success btn-icon-text p-2" data-toggle="modal" data-target="#exampleModalIn">
                                         <i class="ti-eye btn-icon-prepend"></i> View wide
                                     </button> --}}
-                                    {{-- <a href="{{ route('registers.export') }}" class="btn btn-primary btn-icon-text p-2">
+                                    <a href="{{ route('registers.export') }}" class="btn btn-primary btn-icon-text p-2">
                                         <i class="ti-export btn-icon-prepend"></i> Export Excel
-                                    </a> --}}
+                                    </a>
                                     {{-- <button type="button" class="btn btn-info btn-icon-text p-2" data-toggle="modal" data-target="#exampleModalOut"
                                     data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filter Data">
                                         <i class="ti-filter  btn-icon-prepend"></i> Filter
@@ -128,12 +128,12 @@
                                             </td>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
-                                                <a 
+                                                <a
                                                     href="#mymodal"
                                                     data-remote="{{ route('biodatas.show', $biodata->id) }}"
                                                     data-toggle="modal"
                                                     data-target="#mymodal"
-                                                    data-title="Detail Data" 
+                                                    data-title="Detail Data"
                                                     class="badge text-decoration-none fw-bold
                                                         {{ $biodata->status == null ? 'text-warning badge-opacity-warning' : '' }}
                                                         {{ $biodata->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
@@ -182,7 +182,7 @@
                                                         data-remote="{{ route('biodatas.show', $biodata->id) }}"
                                                         data-toggle="modal"
                                                         data-target="#mymodal"
-                                                        data-title="Detail Biodata {{ $loop->iteration }}" 
+                                                        data-title="Detail Biodata {{ $loop->iteration }}"
                                                         class="btn btn-info btn-icon-text  p-2"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                         <i class="icon-eye btn-icon-prepend"></i> Detail
@@ -247,14 +247,14 @@
                                                     <p>{{ $register->stage->name }}</p>
                                                 </td>
                                                 <td>
-                                                    @if (isset($register->user->biodataTwo))
+                                                    @if ($register->user->biodataTwo->where('academy_year_id', $tahun_ajaran)->first() != null)
                                                         {{-- @if ($register->user->biodataTwo->status == 'lolos')
                                                         <div class="badge badge-opacity-success">lolos biodata</div>
                                                         @elseif ($register->user->biodataTwo->status == 'tidak')
                                                             <div class="badge badge-opacity-danger">tidak lolos biodata</div>
                                                         @else()
                                                             <div class="badge badge-opacity-warning">
-                                                                belum di seleksi 
+                                                                belum di seleksi
                                                                 <a href="{{ route('biodatas.index') }}" class="text-decoration-none"><i class="ti-eye"></i></a>
                                                             </div>
                                                         @endif --}}
@@ -286,7 +286,7 @@
                                                             data-remote="{{ route('biodatas.show', $register->id) }}"
                                                             data-toggle="modal"
                                                             data-target="#mymodal"
-                                                            data-title="Detail Biodata {{ $register->full_name }}" 
+                                                            data-title="Detail Biodata {{ $register->full_name }}"
                                                             class="btn btn-info btn-icon-text  p-2"
                                                             data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show Detail">
                                                             <i class="icon-eye btn-icon-prepend"></i> Detail
@@ -351,7 +351,7 @@
                             <option value="tidak-mampu" {{ request()->get('family') == 'tidak-mampu' ? 'selected' :''  }}>Keluarga Tidak Mampu</option>
                         </select>
                         </div>
-                    </div>  
+                    </div>
                     </div>
 
                     <div class="row">
@@ -445,7 +445,7 @@
                             <label class="fs-6">Minimal</label>
                             <input type="number" class="form-control" name="parent_income_min" placeholder="Rp." value="{{ request()->get('parent_income_min') }}">
                             </div>
-                        </div> 
+                        </div>
                         <div class="col">
                             <div class="form-group">
                             <label class="fs-6">Maksimal</label>
@@ -467,13 +467,13 @@
                                     @endforeach
                                 </select> --}}
                             </div>
-                        </div> 
+                        </div>
                     </div>
-                </div>  
+                </div>
                 <div class="d-flex justify-content-between">
-                    <button type="submit"  formaction="{{ route('biodatas.filter-reset') }}"  class="btn btn-danger float-right">Atur Ulang</button>    
+                    <button type="submit"  formaction="{{ route('biodatas.filter-reset') }}"  class="btn btn-danger float-right">Atur Ulang</button>
                     <button type="submit" formaction="{{ route('biodatas.index') }}" class="btn btn-primary">Terapkan</button>
-                </div>    
+                </div>
             </form>
         </div>
         {{-- <div class="modal-footer">
@@ -555,12 +555,12 @@
                                     </td>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>
-                                        <a 
+                                        <a
                                             href="#mymodal"
                                             data-remote="{{ route('biodatas.show', $biodata->id) }}"
                                             data-toggle="modal"
                                             data-target="#mymodal"
-                                            data-title="Detail Data" 
+                                            data-title="Detail Data"
                                             class="badge text-decoration-none fw-bold
                                                 {{ $biodata->status == null ? 'text-warning badge-opacity-warning' : '' }}
                                                 {{ $biodata->status == 'lolos' ? 'text-success badge-opacity-success' : '' }}
@@ -704,16 +704,16 @@
                 });
             }
             });
-    
-            // Changing state of CheckAll1 checkbox 
+
+            // Changing state of CheckAll1 checkbox
             $(".checkbox").click(function(){
-    
+
             if($(".checkbox").length == $(".checkbox:checked").length) {
                 $("#checkall1").prop("checked", true);
             } else {
                 $("#checkall1").prop("checked", false);
             }
-    
+
             });
         });
     </script>
