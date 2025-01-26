@@ -332,7 +332,7 @@
 
             //Top-Navbar
             gsap.to(".email-address", {
-                text: "pondokitalmadinah@gmail.com",
+                text: "pondokmahirteknologi@gmail.com",
                 duration: 2,
                 delay: 2,
             });

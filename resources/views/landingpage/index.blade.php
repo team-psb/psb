@@ -2123,7 +2123,7 @@
                             <div class="info-box pb-3 sub-email">
                                 <i class="bx bx-envelope"></i>
                                 <h3>Email</h3>
-                                <p>pondokitalmadinah@gmail.com</p>
+                                <p>pondokmahirteknologi@gmail.com</p>
                             </div>
                         </div>
 
@@ -2401,7 +2401,7 @@
 
 		<script>
             gsap.to(".email-address", {
-                text: " pondokitalmadinah@gmail.com",
+                text: " pondokmahirteknologi@gmail.com",
                 duration: 2,
                 delay: 2,
             });
@@ -2423,7 +2423,7 @@
 
             //Top-Navbar
             gsap.to(".email-address", {
-                text: " pondokitalmadinah@gmail.com",
+                text: " pondokmahirteknologi@gmail.com",
                 duration: 2,
                 delay: 2,
             });

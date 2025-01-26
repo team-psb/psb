@@ -61,7 +61,7 @@
                 <div class="contact-info d-flex align-items-center">
                     <i class="bi bi-envelope d-flex align-items-center"
                         ><a
-                            href="pondokitalmadinah@gmail.com"
+                            href="pondokmahirteknologi@gmail.com"
                             class="email-address"
                         ></a
                     ></i>
@@ -537,7 +537,7 @@
             });
 
             gsap.to(".email-address", {
-                text: "pondokitalmadinah@gmail.com",
+                text: "pondokmahirteknologi@gmail.com",
                 duration: 2,
                 delay: 2,
             });
