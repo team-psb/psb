@@ -101,7 +101,7 @@
                 "
             >
                 <h1 class="logo">
-                    <a href="https://pondokinformatika.com/" target="blank">
+                    <a href="https://mahirteknologi.com/" target="blank">
                         <img
                             src="/assets_new/logo/logo-s-rgb.png"
                             alt="Logo-Pondok"
@@ -252,7 +252,7 @@
                         >
                             <h4 class="text-uppercase mb-5 title-footer-left"></h4>
                             <a
-                                href="https://pondokinformatika.com/"
+                                href="https://mahirteknologi.com/"
                                 class="text-decoration-none btn-footer"
                             >
                                 <button

@@ -1646,7 +1646,7 @@
                                 ></a>
                                 <a
                                     target="_blank"
-                                    href="https://pondokinformatika.com/karya-santri/"
+                                    href="https://mahirteknologi.com/karya-santri/"
                                     class="details-link"
                                     title="Karya Lain"
                                     ><i class="bx bx-link"></i
@@ -1674,7 +1674,7 @@
                                 ></a>
                                 <a
                                     target="_blank"
-                                    href="https://pondokinformatika.com/karya-santri/"
+                                    href="https://mahirteknologi.com/karya-santri/"
                                     class="details-link"
                                     title="Karya Lain"
                                     ><i class="bx bx-link"></i
@@ -1842,7 +1842,7 @@
                                 ></a>
                                 <a
                                     target="_blank"
-                                    href="https://pondokinformatika.com/karya-santri/"
+                                    href="https://mahirteknologi.com/karya-santri/"
                                     class="details-link"
                                     title="Karya Lain"
                                     ><i class="bx bx-link"></i
@@ -1870,7 +1870,7 @@
                                 ></a>
                                 <a
                                     target="_blank"
-                                    href="https://pondokinformatika.com/karya-santri/"
+                                    href="https://mahirteknologi.com/karya-santri/"
                                     class="details-link"
                                     title="Karya Lain"
                                     ><i class="bx bx-link"></i
@@ -1899,7 +1899,7 @@
                                 ></a>
                                 <a
                                     target="_blank"
-                                    href="https://pondokinformatika.com/karya-santri/"
+                                    href="https://mahirteknologi.com/karya-santri/"
                                     class="details-link"
                                     title="Karya Lain"
                                     ><i class="bx bx-link"></i
@@ -1928,7 +1928,7 @@
                                 ></a>
                                 <a
                                     target="_blank"
-                                    href="https://pondokinformatika.com/karya-santri/"
+                                    href="https://mahirteknologi.com/karya-santri/"
                                     class="details-link"
                                     title="Karya Lain"
                                     ><i class="bx bx-link"></i
@@ -1956,7 +1956,7 @@
                                 ></a>
                                 <a
                                     target="_blank"
-                                    href="https://pondokinformatika.com/karya-santri/"
+                                    href="https://mahirteknologi.com/karya-santri/"
                                     class="details-link"
                                     title="Karya Lain"
                                     ><i class="bx bx-link"></i
@@ -1984,7 +1984,7 @@
                                 ></a>
                                 <a
                                     target="_blank"
-                                    href="https://pondokinformatika.com/karya-santri/"
+                                    href="https://mahirteknologi.com/karya-santri/"
                                     class="details-link"
                                     title="Karya Lain"
                                     ><i class="bx bx-link"></i
@@ -2215,7 +2215,7 @@
                             <div class="col-12 col-lg-5 footer-contact mx-auto text-center">
                                 <h4 class="text-uppercase mb-5 title-footer-left"></h4>
                                 <a
-                                    href="https://pondokinformatika.com/"
+                                    href="https://mahirteknologi.com/"
                                     class="text-decoration-none btn-footer"
                                     target="blank"
                                 >

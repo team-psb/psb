@@ -2,6 +2,14 @@
 
 @section('title', 'Buat Informasi')
 
+@push('after-style')
+    <style>
+    .ck-editor__editable_inline {
+        min-height: 200px;
+    }
+    </style>
+@endpush
+
 @section('content')
     <div class="main-panel">
         <div class="content-wrapper">
@@ -37,7 +45,7 @@
                                         </span>
                                     </div> --}}
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="fw-bold fs-6" for="exampleTextarea1">Code Video Youtube <span class="text-danger" style="font-size: 12px;">*Optional, Input URL video example : https://www.youtube.com/embed/<span class="text-success">RkRdR-LYC_E</span></span></label>
                                     {{-- <textarea name="video" class="form-control" style="height: 150px;"></textarea> --}}
@@ -65,7 +73,7 @@
     <script src="{{ asset('template/js/file-upload.js') }}"></script>
     {{-- <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
     <script>
-        var editors = [];   
+        var editors = [];
         function createEditor( elementId, data ) {
             return ClassicEditor
                 .create( document.querySelector( '#' + elementId ) )
@@ -81,9 +89,19 @@
             createEditor( 'director1', 'test' );
         });
     </script> --}}
-    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script> --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.25.0/ckeditor.js" integrity="sha512-BmPSKm+8FYKMlrIpuWJqTRPMPDI+2Ea55rS3g4EVP+Grh2GaP1e9MFjUNOLPasnOfq6puWIlqmAFllMxuE52Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
     <script>
-        CKEDITOR.replace( 'content' );
+        // CKEDITOR.replace( 'content' );
+        ClassicEditor
+          .create( document.querySelector( '#editor' ))
+          .then( editor => {
+                console.log( editor );
+          } )
+          .catch( error => {
+                console.error( error );
+          } );
     </script>
     {{-- <script>
         ClassicEditor
@@ -104,7 +122,7 @@
         $('input[type="file"]').change(function(e) {
         var fileName = e.target.files[0].name;
         $("#file").val(fileName);
-    
+
         var reader = new FileReader();
         reader.onload = function(e) {
             // get loaded data and render thumbnail.
