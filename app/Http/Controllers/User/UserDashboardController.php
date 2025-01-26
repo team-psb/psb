@@ -48,7 +48,7 @@ class UserDashboardController extends Controller
         $tahap1 = BiodataTwo::where('academy_year_id', $tahun_ajaran)->where('user_id', '=', Auth::user()->id)->first();
         $profile = BiodataOne::where('academy_year_id', $tahun_ajaran)->firstWhere('user_id', Auth::user()->id);
 
-        return view('front.pages.profile.index', compact('profile', 'tahap1'));
+        return view('front.pages.profile.index', compact('profile', 'tahap1', 'tahun_ajaran'));
     }
 
     public function qna()

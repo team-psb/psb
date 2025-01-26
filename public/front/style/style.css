@@ -142,64 +142,6 @@
   #regis-form {
       order: 2;
   }
-<<<<<<< HEAD
-}
-
-/* Whatsapp */
-.btn_floating {
-  position: fixed;
-  left: 15px;
-  bottom: 15px;
-  z-index: 9999;
-  height: 50px;
-  width: 50px;
-  overflow: hidden;
-  border: none;
-  border-radius: 100px;
-  cursor: pointer;
-  color: #fff;
-  transition: .2s;
-  background: #23b180;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.btn_floating:hover {
-  width: auto;
-  padding: 0 10px ;
-  cursor: pointer;
-}
-.btn_floating #text_wa {
-  font-size: 18px;
-  margin-left: 10px;
-  margin-right: 10px;
-  transition: .2s;
-  line-height: 0px;
-  display: none;
-  font-weight: 700;
-}
-.btn_floating i {
-  font-size: 25px;
-}
-.btn_floating:hover #text_wa {
-  display: inline-block;
-}
-.btn_floating:hover i {
-  margin-right: 10px;
-}
-
-@media screen and (max-width: 768px) {
-  .btn_floating {
-      width: 180px;
-      padding: 0 10px ;
-      cursor: pointer;
-  }
-  .btn_floating #text_wa {
-      display: inline;
-  }
-}
-/* End WA Live */
-=======
 
   .letter-spacing{
     letter-spacing: 7px;
@@ -217,4 +159,3 @@
     padding: 55px;
   }
 }
->>>>>>> 0b9c2e38ab856af21974984c47df064d0ee513c2

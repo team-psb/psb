@@ -18,7 +18,7 @@
             @include('front.includes.second-nav')
             @yield('content')
             <div class="fixed-bottom">
-                <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+                <button onclick="topFunction()" id="myBtn" title="Go to top" style="background: #0076F6 !important"><i class="fas fa-arrow-up"></i></button>
                 <!-- WA Live -->
                 <div class="m-3">
                     <a id="myBtnWa" title="Chat Live Wa" target="_blank" href="https://api.whatsapp.com/send?phone=628889239844&text=Assalamu'alaikum%20Pondok%20Informatika,%20Saya%20pendaftar%20santri%20baru%20butuh%20bantuan !">

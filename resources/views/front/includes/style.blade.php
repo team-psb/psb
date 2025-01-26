@@ -37,7 +37,7 @@
         z-index: 99;
         border: none;
         outline: none;
-        background-color: #114551;
+        background-color: #0076F6;
         color: white;
         cursor: pointer;
         border-radius: 25px;
