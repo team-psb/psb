@@ -28,9 +28,9 @@
                     <div class="row">
                         <div class="col-md-6 col-12 m-auto">
                             <div class="login-brand"></div>
-                            <div class="card card-success">
+                            <div class="card card-primary">
                                 <div class="card-header d-flex justify-content-between">
-                                    <h4>Lupa Password</h4>
+                                    <h4 style="color: #0076F6">Lupa Password</h4>
                                     <a class="btn btn-success rounded btn-lg" href="{{ route('password-getwhatsapp') }}">
                                         Back
                                     </a>
@@ -77,7 +77,6 @@
                                                     <label for="showpass" class="ml-4">show password</label>
                                                 </div>
                                             </div>
-                                            <br>
 
                                             <small>silahkan isi dengan password baru anda, min 6 karakter max 20 karakter.</small>
                                             @error('password')
@@ -88,7 +87,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-success btn-lg btn-block" tabindex="4">
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                                             Reset password
                                             </button>
                                         </div>
@@ -97,7 +96,7 @@
                             </div>
 
                             <div class="simple-footer">
-                            Copyright &copy; pondok Informatika {{ date('Y') }}
+                            Copyright &copy; Pondok Mahir Teknologi {{ date('Y') }}
                             </div>
                         </div>
                     </div>
