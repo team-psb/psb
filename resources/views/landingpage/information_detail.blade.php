@@ -216,7 +216,7 @@
         <footer id="footer">
             <div class="footer-top">
                 <div class="content-footer overflow-hidden">
-                    <img
+                    {{-- <img
                         src="/assets/img/footer.png"
                         alt="logo"
                         class="position-absolute d-none d-md-block"
@@ -227,8 +227,8 @@
                             left: 60%;
                             transform: translate(-50%, -50%);
                         "
-                    />
-                    <img
+                    /> --}}
+                    {{-- <img
                         src="/assets/img/footer.png"
                         alt="logo"
                         class="position-absolute d-none d-xxl-block"
@@ -240,7 +240,7 @@
                             right: 0;
                             transform: translate(-50%, -50%);
                         "
-                    />
+                    /> --}}
                     <div class="row align-items-center">
                         <div
                             class="
