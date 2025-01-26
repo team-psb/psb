@@ -96,7 +96,7 @@
                             </div>
 
                             <div class="simple-footer">
-                            Copyright &copy; Pondok Mahir Teknologi {{ date('Y') }}
+                            &copy; {{ date('Y') }} Copyright <strong><span>Pondok Mahir Teknologi</span></strong>.
                             </div>
                         </div>
                     </div>

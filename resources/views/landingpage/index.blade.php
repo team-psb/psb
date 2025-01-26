@@ -2236,8 +2236,7 @@
             </footer>
             <!-- ======= Copyright ======= -->
             <div class="copyright text-center">
-                &copy; {{ date('Y') }} Copyright <strong><span>Pondok Mahir Teknologi</span></strong
-                >.
+                &copy; {{ date('Y') }} Copyright <strong><span>Pondok Mahir Teknologi</span></strong>.
             </div>
         <!-- End Footer -->
 
