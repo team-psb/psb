@@ -31,7 +31,7 @@
                             <div class="card card-primary">
                                 <div class="card-header d-flex justify-content-between">
                                     <h4 style="color: #0076F6">Lupa Password</h4>
-                                    <a class="btn btn-success rounded btn-lg" href="{{ route('password-getwhatsapp') }}">
+                                    <a class="btn btn-primary rounded btn-lg" href="{{ route('password-getwhatsapp') }}">
                                         Back
                                     </a>
                                 </div>
