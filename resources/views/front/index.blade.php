@@ -186,7 +186,7 @@
                                   <h2 class="poppins">Hallo, {{ Auth::user()->name }}!</h2>
                                   <p class="lead">Anda telah selesai melaksanakan tes <strong class="font-weight-bold">Biodata</strong>,<br>Anda bisa lanjut mengikuti tes Tahap Kedua jika dinyatakan lolos di tes Tahap Pertama. Untuk info selanjutnya kami akan hubungi melalui whatsapp, pastikan nomor whatsapp aktif dan periksa pesan whatsapp setiap hari agar tidak melewatkan informasi selanjutnya dari kami!</p>
                               @elseif(!empty($tahap1) && $tahap1->status == 'lolos')
-                                  @if ($tahap1->status == 'lolos' && !isset($tahap2->status))
+                                  {{-- @if ($tahap1->status == 'lolos' && !isset($tahap2->status))
                                       <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
                                       <h2 class="poppins">Selamat, {{ Auth::user()->name }}!</h2>
                                       <p class="poppins"><strong>Anda dinyatakan Lolos dan bisa lanjut ke Tahap berikutnya. </strong></p>
@@ -239,8 +239,9 @@
                                       <div class="mt-4">
                                           <a href="{{ route('user-fifth-tes') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-microphone"></i> Info mengenai tes wawancara</a>
                                       </div>
-                                  @endif
-                                  {{-- @if($tahap1->status == 'lolos' && !isset($tahap5->status))
+                                  @endif --}}
+
+                                  @if($tahap1->status == 'lolos' && !isset($tahap5->status))
                                     <i class="fas fa-check-circle	 pb-3" style="font-size: 72px;"></i>
                                     <h2 class="poppins">Selamat, {{ Auth::user()->name }}! .</h2>
                                     <p><strong>Anda dinyatakan Lolos Ketahap berikutnya.</strong></p>
@@ -261,7 +262,7 @@
                                       <i class="fas fa-exclamation-triangle pb-3" style="font-size: 72px;"></i>
                                       <h2>Mohon Maaf, {{ Auth::user()->name }}!</h2>
                                       <p><strong>Anda dinyatakan Tidak Lolos ke Tahap selanjutnya.</strong></p>
-                                  @endif --}}
+                                  @endif
                               @else
                                   <i class="fas fa-exclamation-triangle pb-3" style="font-size: 72px;"></i>
                                   <h2 class="poppins">Mohon Maaf, {{ Auth::user()->name }}!</h2>
@@ -803,7 +804,7 @@
                     @endif
 
                     {{-- 5 --}}
-                    @if (!empty($tahap4) && $tahap4->status == "lolos")
+                    {{-- @if (!empty($tahap4) && $tahap4->status == "lolos")
                     <tr>
                       <th>5</th>
                       <td>
@@ -834,10 +835,10 @@
                         @endisset
                       </td>
                     </tr>
-                    @endif
+                    @endif --}}
                   @else
                     {{-- 2 --}}
-                    @if (!empty($tahap1) && $tahap1->status == "lolos")
+                    {{-- @if (!empty($tahap1) && $tahap1->status == "lolos")
                     <tr>
                       <th>2</th>
                       <td>
@@ -871,10 +872,10 @@
                         @endif
                       </td>
                     </tr>
-                    @endif
+                    @endif --}}
 
                     {{-- 3 --}}
-                    @if (!empty($tahap2) && $tahap2->status == "lolos")
+                    {{-- @if (!empty($tahap2) && $tahap2->status == "lolos")
                     <tr>
                       <th>3</th>
                       <td>
@@ -908,10 +909,10 @@
                         @endif
                       </td>
                     </tr>
-                    @endif
+                    @endif --}}
 
                     {{-- 4 --}}
-                    @if (!empty($tahap3) && $tahap3->status == "lolos")
+                    {{-- @if (!empty($tahap3) && $tahap3->status == "lolos")
                     <tr>
                       <th>4</th>
                       <td>
@@ -945,10 +946,10 @@
                         @endif
                       </td>
                     </tr>
-                    @endif
+                    @endif --}}
 
                     {{-- 5 --}}
-                    @if (!empty($tahap4) && $tahap4->status == "lolos")
+                    {{-- @if (!empty($tahap4) && $tahap4->status == "lolos")
                     <tr>
                       <th>5</th>
                       <td>
@@ -979,11 +980,11 @@
                         @endisset
                       </td>
                     </tr>
-                    @endif
+                    @endif --}}
                   @endif
 
                   {{-- 5 --}}
-                  {{-- @if (Auth::user()->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family != 'sangat-mampu')
+                  @if (Auth::user()->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family != 'sangat-mampu')
                     @if (!empty($tahap4) && $tahap4->status == "lolos")
                     <tr>
                       <th>5</th>
@@ -1021,17 +1022,20 @@
                     <tr>
                       <th>5</th>
                       <td>
-                        @isset($tahap5)
-                          @if ($tahap5->status == null)
+                        {{-- @isset($tahap5) --}}
+                          @if ($tahap5 == null)
                             <a href="{{ route('user-fifth-tes') }}" class="btn btn-secondary">Info</a>
                           @else
-                            <span class="badge badge-primary">Selesai Tes</span>
+                            @if ($tahap5->status)
+                              <span class="badge badge-primary">Selesai Tes</span>
+                            @else
+                              <a href="{{ route('user-fifth-tes') }}" class="btn btn-secondary">Info</a>
+                            @endif
                           @endif
-                        @endisset
+                        {{-- @endisset --}}
                       </td>
                       <td>
-                        @isset($tahap5)
-                          @if ($tahap5->status == null)
+                          @if ($tahap5 == null)
                             <div class="badge badge-warning">
                               Menunggu dihubungi
                             </div>
@@ -1044,12 +1048,14 @@
                               Tidak Lolos
                             </div>
                           @else
-                        @endif
-                        @endisset
+                            <div class="badge badge-warning">
+                              Menunggu dihubungi
+                            </div>
+                          @endif
                       </td>
                     </tr>
                     @endif
-                  @endif --}}
+                  @endif
 
                 </tbody>
                 <thead>

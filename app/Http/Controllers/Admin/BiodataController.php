@@ -185,35 +185,35 @@ class BiodataController extends Controller
         $item = BiodataTwo::findOrFail($id);
         $notif = Setting::get()->first();
 
-        // if ($item->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family == 'sangat-mampu') {
-        //     $item->status = $request->status;
-        //     $item->save();
+        if ($item->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family == 'sangat-mampu') {
+            $item->status = $request->status;
+            $item->save();
 
-        //     Interview::create([
-        //         'user_id' => $item->user_id,
-        //         'stage_id' => $item->stage_id,
-        //         'academy_year_id' => $item->academy_year_id,
-        //         'status' => null
-        //     ]);
+            Interview::create([
+                'user_id' => $item->user_id,
+                'stage_id' => $item->stage_id,
+                'academy_year_id' => $item->academy_year_id,
+                'status' => null
+            ]);
 
-        //     // Whatsapp Gateway
-        //     if ($item->status == 'lolos') {
+            // Whatsapp Gateway
+            if ($item->status == 'lolos') {
 
-        //         $data = [
+                $data = [
 
-        //             'target' => $item->user->phone,
-        //             'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap1_sm
-        //         ];
-        //         sendMessage($data);
-        //     } else {
-        //         $data = [
+                    'target' => $item->user->phone,
+                    'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap1_sm
+                ];
+                sendMessage($data);
+            } else {
+                $data = [
 
-        //             'target' => $item->user->phone,
-        //             'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap1_failed
-        //         ];
-        //         sendMessage($data);
-        //     }
-        // } else {
+                    'target' => $item->user->phone,
+                    'message' => '*' . $item->user->name . '*, ' . $notif->notif_tahap1_failed
+                ];
+                sendMessage($data);
+            }
+        } else {
             $item->status = $request->status;
             $item->save();
 
@@ -236,7 +236,7 @@ class BiodataController extends Controller
                 ];
                 sendMessage($data);
             }
-        // }
+        }
 
 
         return redirect()->route('biodatas.index')->with('success-edit', 'Berhasil Mengganti Status Data');
