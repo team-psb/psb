@@ -39,9 +39,11 @@ class InterviewController extends Controller
     {
         $data = Pass::findOrFail($id);
         $video = Video::where('user_id', $data->user_id)->first();
-        $video->update([
-            'status' => null
-        ]);
+        if ($video) {
+            $video->update([
+                'status' => null
+            ]);
+        }
 
         $data->delete();
         activity()->log('Menghapus wawancara id ' . $id);
