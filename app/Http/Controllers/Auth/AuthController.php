@@ -237,8 +237,7 @@ Atau di link : ' . route('user-dashboard') . '
 
 Berikut video Pengenalan dan Tes Tahap Pertama :
 *Pengenalan Member Area Calon Santri Baru*
-https://www.youtube.com/watch?v=N286_Z1gWRY (youtube)
-https://daftar.mahirteknologi.com/informasi-penerimaan-santri-baru/24 (blog)
+https://www.youtube.com/watch?v=N286_Z1gWRY
 
 *Cara Mengikuti Tes Tahap Pertama*
 https://www.youtube.com/watch?v=egq1vcAbwdo
