@@ -25,7 +25,13 @@ class SettingSeeder extends Seeder
             'no_msg' => null,
             'notification' => null,
             'notif_tahap1' => '
-Anda di nyatakan *Lolos* _Tes Tahap Pertama_ dan bisa lanjut Ke _Tes Tahap Kedua_',
+Anda di nyatakan *Lolos* _Tes Tahap Pertama_ dan bisa lanjut Ke _Tes Tahap Kedua_
+Ketika mengerjakan tes tahap kedua, mohon perhatikan koneksi internet, tidak membuka web lain seperti chatgpt atau AI sejenisnya dan di kerjakan pada waktu yang benar-benar bisa mengerjakan dengan baik agar tidak terjadi error.
+
+Berikut tutorialnya : https://www.youtube.com/watch?v=a3qLWpZZ73o
+
+Tes Tahap 2 :
+',
 
             'notif_tahap1_sm' => '
 Anda dinyatakan *Lolos* Ketahap berikutnya.

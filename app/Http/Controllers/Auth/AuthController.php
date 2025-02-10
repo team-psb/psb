@@ -231,10 +231,10 @@ Atau di link : ' . route('user-dashboard') . '
 
 Berikut video Pengenalan dan Tes Tahap Pertama :
 *Pengenalan Member Area Calon Santri Baru*
-https://www.youtube.com/watch?v=cKeNSXSUggY
+https://www.youtube.com/watch?v=N286_Z1gWRY
 
 *Cara Mengikuti Tes Tahap Pertama*
-https://www.youtube.com/watch?v=_yL-DkkFNpg
+https://www.youtube.com/watch?v=egq1vcAbwdo
 '
             ];
             sendMessage($data);
