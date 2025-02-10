@@ -229,12 +229,21 @@ Tanggal Registrasi : ' . $user->created_at->format('d-m-Y H:i') . ' WIB
 Silahkan *Lakukan Tes Selanjutnya*,
 Atau di link : ' . route('user-dashboard') . '
 
+🚀 *Cara Akses Dashboard User* :
+- Buka Website PSB: https://daftar.mahirteknologi.com/
+- Klik menu "Home", lalu login menggunakan No HP dan Password Anda.
+- Setelah berhasil login, Anda akan diarahkan ke Dashboard User.
+
+
 Berikut video Pengenalan dan Tes Tahap Pertama :
 *Pengenalan Member Area Calon Santri Baru*
-https://www.youtube.com/watch?v=N286_Z1gWRY
+https://www.youtube.com/watch?v=N286_Z1gWRY (youtube)
+https://daftar.mahirteknologi.com/informasi-penerimaan-santri-baru/24 (blog)
 
 *Cara Mengikuti Tes Tahap Pertama*
 https://www.youtube.com/watch?v=egq1vcAbwdo
+
+untuk informasi lebih lanjut bisa diliat di kolom informasi PSB kami.
 '
             ];
             sendMessage($data);
