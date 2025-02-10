@@ -242,7 +242,8 @@ https://www.youtube.com/watch?v=N286_Z1gWRY
 *Cara Mengikuti Tes Tahap Pertama*
 https://www.youtube.com/watch?v=egq1vcAbwdo
 
-untuk informasi lebih lanjut bisa diliat di kolom informasi PSB kami.
+informasi lebih lanjut PSB Pondok Mahir Teknologi :
+https://daftar.mahirteknologi.com/user/informasi
 '
             ];
             sendMessage($data);
