@@ -244,13 +244,14 @@ class BiodataController extends Controller
 
     public function passAll(Request $request)
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $ids = $request->get('ids');
         $notif = Setting::get()->first();
 
         if ($ids != null) {
             foreach ($ids as $id) {
                 $item = BiodataTwo::find($id);
-                if ($item->user->biodataOne->family == 'sangat-mampu') {
+                if ($item->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family == 'sangat-mampu') {
                     Interview::create([
                         'user_id' => $item->user_id,
                         'stage_id' => $item->stage_id,
@@ -283,6 +284,7 @@ class BiodataController extends Controller
 
     public function nonpassAll(Request $request)
     {
+        $tahun_ajaran = AcademyYear::where('is_active', true)->orderBy('id','desc')->first()->id;
         $ids = $request->get('ids');
         $notif = Setting::get()->first();
 
@@ -290,7 +292,7 @@ class BiodataController extends Controller
             foreach ($ids as $id) {
                 $item = BiodataTwo::find($id);
                 BiodataTwo::find($id)->update(['status' => 'tidak']);
-                if ($item->user->biodataOne->family == 'sangat-mampu') {
+                if ($item->user->biodataOne->where('academy_year_id', $tahun_ajaran)->first()->family == 'sangat-mampu') {
                     $data = [
 
                         'target' => $item->user->phone,
